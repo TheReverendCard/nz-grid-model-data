@@ -36,11 +36,11 @@ jobs:
       - name: Normalize Wholesale Baseline Data
         run: python normalize_wholesale.py
 
-      - name: Validate Wholesale Baseline
-        run: python validate_baseline.py
-
       - name: Aggregate Reconciled Demand and Injection
         run: python update_reconciliation.py
+
+      - name: Validate Wholesale Baseline
+        run: python validate_baseline.py
 
       - name: Commit and Push Changes
         run: |
