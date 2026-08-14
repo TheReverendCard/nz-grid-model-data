@@ -1,0 +1,42 @@
+{
+  "case_id": "northland_residential_pv_battery_case_2025",
+  "region": "Northland",
+  "system": {
+    "pv_capacity_kwp": 13.5,
+    "inverter": "Sungrow SH10RT",
+    "inverter_ac_kw": 10.0,
+    "battery_capacity_kwh": 16.0,
+    "site_characteristics": [
+      "non-ideal north orientation",
+      "shading present",
+      "residential rooftop installation"
+    ],
+    "battery_export_to_grid": false,
+    "grid_charging": {
+      "enabled": true,
+      "tariff_window": "21:00-00:00",
+      "seasonality": "limited in summer; can fully charge battery on some winter days"
+    }
+  },
+  "calendar_year_2025_mwh": {
+    "pv_generation": 13.5,
+    "home_consumption": 15.1,
+    "pv_direct_to_load": 4.7,
+    "pv_to_battery": 2.2,
+    "battery_to_load": 4.1,
+    "grid_export": 6.7,
+    "grid_import": 6.2
+  },
+  "derived": {
+    "pv_specific_yield_kwh_per_kwp": 1000.0,
+    "pv_direct_self_consumption_fraction": 0.3481,
+    "pv_to_battery_fraction": 0.1630,
+    "pv_export_fraction": 0.4963,
+    "pv_retained_before_storage_losses_fraction": 0.5111
+  },
+  "interpretation": {
+    "grid_export": "Because battery-to-grid export is disabled, grid export is treated as surplus PV not absorbed by household load or battery charging.",
+    "battery_discharge": "Battery discharge includes both solar-charged and grid-charged energy and must not be treated as solar output without source attribution.",
+    "model_role": "Empirical Northland residential calibration case, not a representative national average. Useful as a lower-yield, imperfect-siting case and as a check on PV+battery self-consumption assumptions."
+  }
+}
