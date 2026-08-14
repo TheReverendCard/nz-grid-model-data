@@ -1,36 +1,123 @@
 {
-  "status": "scaffold_under_validation",
+  "status": "first_order_validated_topology",
   "notes": [
     "Topology is separated from asset capacity and hydrological constraints so each can be audited independently.",
-    "Waikato routing below represents the main sequential river cascade from Lake Taupo to Karapiro.",
-    "Other major schemes are placeholders until their diversion/canal routing is encoded from HMD/source documentation."
+    "Routes describe the main energy-producing water paths. Spill/bypass arcs are represented separately where they bypass generation.",
+    "Daily dispatch will still use HMD tributary inflows, storage, spill and consent constraints; this file defines connectivity, not operating policy."
   ],
   "schemes": {
     "Waikato river": {
       "type": "serial_cascade",
-      "upstream_storage": "TPO",
-      "stations_in_flow_order": ["ARA", "OHK", "ATI", "WKM", "MTI", "WPA", "ARI", "KPO"],
-      "terminal_station": "KPO",
-      "dispatch_note": "Water released from Taupo and tributary inflows propagate downstream through the serial station chain, subject to local storage, tributary additions, spill and constraints."
+      "storage_nodes": ["TPO", "ARA", "OHK", "ATI", "WKM", "MTI", "WPA", "ARI", "KPO"],
+      "generation_paths": [
+        {
+          "name": "Taupo_to_Karapiro",
+          "source": "TPO",
+          "stations": ["ARA", "OHK", "ATI", "WKM", "MTI", "WPA", "ARI", "KPO"]
+        }
+      ],
+      "dispatch_note": "Lake Taupo releases and tributary additions propagate through the Waikato cascade, subject to small intermediate storages, local inflows, spill and consent constraints."
     },
     "Waikaremoana": {
-      "type": "cascade_pending_explicit_routing",
-      "stations": ["KTW", "TUI", "PRI"],
-      "storage_nodes": ["WKA", "KTW", "WNO"]
+      "type": "serial_cascade",
+      "storage_nodes": ["WKA", "KTW", "WNO"],
+      "generation_paths": [
+        {
+          "name": "Waikaremoana_main",
+          "source": "WKA",
+          "stations": ["KTW", "TUI", "PRI"]
+        }
+      ],
+      "dispatch_note": "First-order energy path follows Lake Waikaremoana through Kaitawa, Tuai and Piripaua; detailed siphon/spill and stage-dependent rules remain in HMD constraints."
     },
     "Waitaki river": {
-      "type": "branched_cascade_pending_explicit_routing",
-      "stations": ["TKA", "TKB", "OHA", "OHB", "OHC", "BEN", "AVI", "WTK"]
+      "type": "branched_cascade",
+      "storage_nodes": ["TKA", "PKI", "OHA", "BEN", "AVI"],
+      "generation_paths": [
+        {
+          "name": "Tekapo_full_generation_route",
+          "source": "TKA",
+          "stations": ["TKA", "TKB", "OHA", "OHB", "OHC", "BEN", "AVI", "WTK"],
+          "note": "Tekapo A discharge enters the Tekapo canal, passes Tekapo B into Lake Pukaki, then can join the Pukaki/Ohau canal route."
+        },
+        {
+          "name": "Pukaki_Ohau_generation_route",
+          "source": "PKI",
+          "stations": ["OHA", "OHB", "OHC", "BEN", "AVI", "WTK"],
+          "note": "Pukaki canal joins Ohau canal upstream of Ohau A; water then passes through Ohau B and C to Lake Benmore."
+        },
+        {
+          "name": "Ohau_generation_route",
+          "source": "OHA",
+          "stations": ["OHA", "OHB", "OHC", "BEN", "AVI", "WTK"]
+        },
+        {
+          "name": "Benmore_downstream_route",
+          "source": "BEN",
+          "stations": ["BEN", "AVI", "WTK"]
+        }
+      ],
+      "bypass_paths": [
+        {
+          "name": "Tekapo_river_bypass",
+          "source": "TKA",
+          "destination": "BEN",
+          "bypasses_stations": ["TKA", "TKB", "OHA", "OHB", "OHC"]
+        },
+        {
+          "name": "Pukaki_river_bypass",
+          "source": "PKI",
+          "destination": "BEN",
+          "bypasses_stations": ["OHA", "OHB", "OHC"]
+        },
+        {
+          "name": "Ruataniwha_spill_bypass",
+          "source": "Ruataniwha",
+          "destination": "BEN",
+          "bypasses_stations": ["OHB", "OHC"]
+        }
+      ],
+      "dispatch_note": "Upper Waitaki is branched. Direct river/spill releases can sacrifice upstream generation and therefore must not be assigned the same water-energy value as canal releases."
     },
     "Clutha": {
-      "type": "multi_headwater_cascade_pending_explicit_routing",
-      "stations": ["CYD", "ROX"],
-      "storage_nodes": ["HWE", "WAN", "WPU"]
+      "type": "multi_headwater_merge_cascade",
+      "storage_nodes": ["HWE", "WAN", "WPU", "Lake_Dunstan"],
+      "generation_paths": [
+        {
+          "name": "Hawea_to_lower_Clutha",
+          "source": "HWE",
+          "stations": ["CYD", "ROX"]
+        },
+        {
+          "name": "Wanaka_to_lower_Clutha",
+          "source": "WAN",
+          "stations": ["CYD", "ROX"]
+        },
+        {
+          "name": "Wakatipu_to_lower_Clutha",
+          "source": "WPU",
+          "stations": ["CYD", "ROX"]
+        }
+      ],
+      "dispatch_note": "Hāwea regulation, Lake Wānaka outflow and Lake Wakatipu/Kawarau flows merge upstream of Lake Dunstan/Clyde; Clyde discharge continues to Roxburgh."
     },
     "Manapouri": {
-      "type": "linked_lake_system_pending_explicit_routing",
-      "stations": ["MAN"],
-      "storage_nodes": ["TAU", "MAN"]
+      "type": "linked_lake_single_station",
+      "storage_nodes": ["TAU", "MAN"],
+      "generation_paths": [
+        {
+          "name": "Te_Anau_to_Manapouri_generation",
+          "source": "TAU",
+          "stations": ["MAN"],
+          "note": "Te Anau releases flow down the Upper Waiau into Lake Manapouri; Manapouri generation discharges through the tailrace to Deep Cove rather than continuing down a hydro cascade."
+        },
+        {
+          "name": "Manapouri_storage_generation",
+          "source": "MAN",
+          "stations": ["MAN"]
+        }
+      ],
+      "dispatch_note": "Lower Waiau releases from Manapouri are non-generating bypass outflows for this energy topology and remain governed by operating guidelines/constraints."
     }
   }
 }
