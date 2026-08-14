@@ -1,6 +1,9 @@
 name: Daily EA Data Fetch
 
 on:
+  push:
+    branches:
+      - agent/test-ea-azure-updater
   schedule:
     - cron: '0 14 * * *'
   workflow_dispatch:
