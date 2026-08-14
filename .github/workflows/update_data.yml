@@ -54,6 +54,9 @@ jobs:
       - name: Diagnose Solar Generation Yield Candidates
         run: python diagnose_solar_yield.py
 
+      - name: Estimate 2024 Behind-Meter Solar
+        run: python estimate_btm_solar_2024.py
+
       - name: Build Calibrated 2024 Baseline
         run: python build_baseline_2024.py
 
