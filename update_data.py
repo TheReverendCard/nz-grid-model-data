@@ -3,7 +3,6 @@ import os
 import pandas as pd
 import cloudscraper
 
-# Create scraper instance to bypass Cloudflare bot checks
 scraper = cloudscraper.create_scraper()
 
 def fetch_and_clean(url, filename, skip_comments=False):
@@ -14,7 +13,6 @@ def fetch_and_clean(url, filename, skip_comments=False):
         if response.status_code == 200:
             text = response.text.strip()
             
-            # Check if response returned HTML or empty content
             if not text:
                 print(f"Warning: Empty response received for {filename}")
                 return
