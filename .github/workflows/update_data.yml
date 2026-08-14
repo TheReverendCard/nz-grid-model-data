@@ -39,8 +39,8 @@ jobs:
       - name: Validate Wholesale Baseline
         run: python validate_baseline.py
 
-      - name: Inspect Reconciliation Data Schema
-        run: python inspect_reconciliation.py
+      - name: Aggregate Reconciled Demand and Injection
+        run: python update_reconciliation.py
 
       - name: Commit and Push Changes
         run: |
