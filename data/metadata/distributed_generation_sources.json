@@ -1,28 +1,28 @@
 {
   "datasets": {
     "installed_distributed_generation_trends_solar_all": {
-      "content_length": "5281",
+      "content_length": "5275",
       "description": "Installed distributed generation trends (GUEHMT), national Solar (All), all ICPs",
       "etag": "",
       "last_modified": "",
       "local_file": "data/distributed_generation/installed_dg_trends_solar_all.csv",
       "request_url": "https://www.emi.ea.govt.nz/Retail/Download/DataReport/CSV/GUEHMT?DateFrom=20130901&FuelType=solar_all&Show=CapacityAvg&_rsdr=ALL&_si=v%7C4",
-      "sha256": "1cdc6fd2c35c28407ff8a2e0134302cd1b240eac679214fc60aed1289bdb6b85"
+      "sha256": "e3ffb82d6ce6f1d802f840088e172f9ce0f087f54708a4c8e938dfe2d3c77bad"
     },
     "installed_distributed_generation_trends_solar_residential": {
-      "content_length": "5168",
+      "content_length": "5165",
       "description": "Installed distributed generation trends (GUEHMT), national Solar (All), residential ICPs",
       "etag": "",
       "last_modified": "",
       "local_file": "data/distributed_generation/installed_dg_trends_solar_residential.csv",
       "request_url": "https://www.emi.ea.govt.nz/Retail/Download/DataReport/CSV/GUEHMT?DateFrom=20130901&FuelType=solar_all&Show=CapacityAvg&_rsdr=ALL&_si=v%7C4&MarketSegment=Res",
-      "sha256": "cb2c71d3e8163d0e6c43d9c0aed56c47630773b117c31fa228b30a0bade68400"
+      "sha256": "e84b40478c2f28a67d949a773ccfab580fc402a5a5201a31a0651c61a9733473"
     },
     "solar_installations_by_region": {
       "content_length": "11121",
       "description": "Current solar installation counts/capacity by region and market segment from the Electricity Registry",
-      "etag": "0x8DEF9766EE12B11",
-      "last_modified": "Thu, 13 Aug 2026 20:06:59 GMT",
+      "etag": "0x8DEFA3F9C7CB5DA",
+      "last_modified": "Fri, 14 Aug 2026 20:07:04 GMT",
       "local_file": "data/distributed_generation/solar_installations_by_region.csv",
       "request_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Retail/SolarInstallations/SolarInstallationsByRegion.csv",
       "sha256": "8533a1a9bc99e25eae336f0a0d5ac4be70b4e9b6a9ecc2ee93a16d7ee829da38"
