@@ -1,14 +1,14 @@
 {
   "years": {
     "2024": {
-      "generation_mwh": 41238265.065,
+      "generation_md_mwh": 41238265.065,
       "grid_export_mwh": 37852741.154,
-      "generation_minus_grid_export_mwh": 3385523.911,
-      "generation_to_grid_export_ratio": 1.089439,
-      "overlap_days": 366,
-      "mean_daily_gap_mwh": 9250.065,
-      "min_daily_gap_mwh": 5052.724,
-      "max_daily_gap_mwh": 13669.105,
+      "generation_md_minus_grid_export_mwh": 3385523.911,
+      "generation_md_to_grid_export_ratio": 1.089439,
+      "generation_grid_export_overlap_days": 366,
+      "mean_daily_generation_minus_grid_export_mwh": 9250.065,
+      "min_daily_generation_minus_grid_export_mwh": 5052.724,
+      "max_daily_generation_minus_grid_export_mwh": 13669.105,
       "generation_by_fuel_mwh": {
         "Coal": 1876147.224,
         "Diesel": 19053.075,
@@ -22,17 +22,26 @@
         "Solar": 88802.593,
         "Wind": 3768737.075,
         "Wood": 242715.734
-      }
+      },
+      "reconciled_days": 366,
+      "reconciled_injection_mwh": 43024905.285,
+      "reconciled_offtake_mwh": 41631301.234,
+      "reconciled_injection_minus_offtake_mwh": 1393604.051,
+      "reconciled_injection_to_offtake_ratio": 1.033475,
+      "generation_md_minus_reconciled_injection_mwh": -1786640.22,
+      "generation_md_vs_reconciled_injection_pct": -4.1526,
+      "grid_export_minus_reconciled_offtake_mwh": -3778560.08,
+      "grid_export_vs_reconciled_offtake_pct": -9.0762
     },
     "2025": {
-      "generation_mwh": 40975173.516,
+      "generation_md_mwh": 40975173.516,
       "grid_export_mwh": 37795935.353,
-      "generation_minus_grid_export_mwh": 3179238.163,
-      "generation_to_grid_export_ratio": 1.084116,
-      "overlap_days": 365,
-      "mean_daily_gap_mwh": 8710.242,
-      "min_daily_gap_mwh": 5560.962,
-      "max_daily_gap_mwh": 12033.476,
+      "generation_md_minus_grid_export_mwh": 3179238.163,
+      "generation_md_to_grid_export_ratio": 1.084116,
+      "generation_grid_export_overlap_days": 365,
+      "mean_daily_generation_minus_grid_export_mwh": 8710.242,
+      "min_daily_generation_minus_grid_export_mwh": 5560.962,
+      "max_daily_generation_minus_grid_export_mwh": 12033.476,
       "generation_by_fuel_mwh": {
         "Coal": 1169190.1,
         "Diesel": 494.15,
@@ -49,14 +58,14 @@
       }
     },
     "2026": {
-      "generation_mwh": 23903263.628,
+      "generation_md_mwh": 23903263.628,
       "grid_export_mwh": 22088425.34,
-      "generation_minus_grid_export_mwh": 1814838.288,
-      "generation_to_grid_export_ratio": 1.082162,
-      "overlap_days": 212,
-      "mean_daily_gap_mwh": 8560.558,
-      "min_daily_gap_mwh": 5836.2,
-      "max_daily_gap_mwh": 13286.039,
+      "generation_md_minus_grid_export_mwh": 1814838.288,
+      "generation_md_to_grid_export_ratio": 1.082162,
+      "generation_grid_export_overlap_days": 212,
+      "mean_daily_generation_minus_grid_export_mwh": 8560.558,
+      "min_daily_generation_minus_grid_export_mwh": 5836.2,
+      "max_daily_generation_minus_grid_export_mwh": 13286.039,
       "generation_by_fuel_mwh": {
         "Coal": 345347.984,
         "Diesel": 96.812,
