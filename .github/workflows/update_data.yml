@@ -27,6 +27,9 @@ jobs:
       - name: Fetch EA HMD Data
         run: python update_data.py
 
+      - name: Normalize Hydro Data
+        run: python normalize_hydro.py
+
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'github-actions[bot]'
