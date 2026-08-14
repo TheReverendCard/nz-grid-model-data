@@ -17,7 +17,7 @@ def fetch_ea_dataset(url, filename, is_hydro=False):
         try:
             # Tell Playwright to expect a file download instead of a normal webpage
             with page.expect_download(timeout=60000) as download_info:
-                page.goto(url)
+                page.goto(url) # Note: wait_until parameter is removed entirely
             
             # Save the raw file to a temporary location
             download = download_info.value
