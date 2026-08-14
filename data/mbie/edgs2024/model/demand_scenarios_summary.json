@@ -211,6 +211,38 @@
   },
   "datacentre_load_capacity_mw": {
     "Constraint": {
+      "2024": 50.0,
+      "2030": 113.0,
+      "2040": 113.0,
+      "2050": 113.0
+    },
+    "Environmental": {
+      "2024": 50.0,
+      "2030": 233.0,
+      "2040": 233.0,
+      "2050": 233.0
+    },
+    "Growth": {
+      "2024": 50.0,
+      "2030": 383.0,
+      "2040": 383.0,
+      "2050": 383.0
+    },
+    "Innovation": {
+      "2024": 50.0,
+      "2030": 483.0,
+      "2040": 583.0,
+      "2050": 583.0
+    },
+    "Reference": {
+      "2024": 50.0,
+      "2030": 233.0,
+      "2040": 233.0,
+      "2050": 233.0
+    }
+  },
+  "datacentre_electricity_consumption_twh": {
+    "Constraint": {
       "2024": 0.394,
       "2030": 0.892,
       "2040": 0.892,
@@ -276,6 +308,7 @@
   "notes": {
     "use": "Use EDGS total electricity demand as the main future-demand trajectory, with sector and assumption sheets retained for diagnostics and sensitivity cases.",
     "thermal": "Thermal generation is treated elsewhere as an available but potentially high-cost security backstop rather than assumed unavailable because of gas scarcity.",
-    "btm": "Our reconciled-demand baseline separately adds estimated behind-meter retained residential PV so future demand should be aligned to underlying consumption definitions before replay."
+    "btm": "Our reconciled-demand baseline separately adds estimated behind-meter retained residential PV so future demand should be aligned to underlying consumption definitions before replay.",
+    "datacentres": "The EDGS Datacentres sheet contains both load capacity (MW) and annual electricity consumption (TWh); these are retained as separate summary fields."
   }
 }
