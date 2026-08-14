@@ -1,0 +1,52 @@
+FileName,Description,PlantGroup,SiteCode,Site,DirectionCode,Direction,FlowTypeCode,FlowType,IslandCode,Island,SiteNumber,ModelFlowName
+NI_MHO_Actual_MangahaoStation_Inflow_97502(1).csv,Local inflows,Mangahao,MHO,Mangahao,I,Inflow,A,Actual,NI,North Island,97502.1,Mangahao
+NI_MAT_Actual_LakeMatahina_Inflow_93254(1).csv,Matahina Inflows,Matahina,MAT,Matahina,I,Inflow,A,Actual,NI,North Island,93254.1,Matahina
+NI_NA_Natural_MohakaRiverAtRaupunga_Flow_121801(1).csv,Mohaka River flow at Mohaka at Raupunga,Mohaka (potential),NA,Raupunga,F,Flow,N+A,Natural/Actual,NI,North Island,121801.1,Raupunga
+NI_NA_Natural_NgaruroroRiverAtWhanawhana_Flow_123103(1).csv,Ngaruroro River flow at Whanawhana recorder,Ngaruroro (potential),NA,Whanawhana,F,Flow,N+A,Natural/Actual,NI,North Island,123103.1,Whanawhana
+NI_NA_Natural_NgaruroroRiverAtKuripapango_Flow_123104(1).csv,Ngaruroro River flow at Kuripapango recorder,Ngaruroro (potential),NA,Kuripapango,F,Flow,N+A,Natural/Actual,NI,North Island,123104.1,Kuripapango
+NI_NA_Natural_NgaruroroRiverAtChesterhope_Flow_123150(1).csv,Ngaruroro River flow at Chesterhope recorder,Ngaruroro (potential),NA,Chesterhope,F,Flow,N+A,Natural/Actual,NI,North Island,123150.1,Chesterhope
+NI_RTG_Actual_PateaStation_Outflow_34300(1).csv,Patea Power Station outflow,Patea River,RTG,Lake Rotorangi,O,Outflow,A,Actual,NI,North Island,34300.1,Patea
+NI_RHI_Actual_RuahihiStation_Outflow_14130(1).csv,Kaimai outflows at Ruahihi,Ruahihi,RHI,Ruahihi,O,Outflow,A,Actual,NI,North Island,14130.1,Wairoa
+NI_RPO_Actual_RangipoStationLinear_Inflow_22790(2).csv,Linear correlations of Taupo natural inflows used,Tongariro,RPO,Rangipo,I,Inflow,A,Actual,NI,North Island,22790.2,Rangi_linear
+NI_RPO_Actual_RangipoStationNonLinear_Inflow_92790(2).csv,Sub-catchment inflows are based on non-linear function of Taupo inflows to create Rangipo inflows. Incorporates latest water right discharges.,Tongariro,RPO,Rangipo,I,Inflow,A,Actual,NI,North Island,92790.2,RangipoTPD
+NI_TKU_Actual_TokaanuStationLinear_Inflow_22790(3).csv,Linear correlations of Taupo natural inflows used to create Tokaanu inflow,Tongariro,TKU,Tokaanu,I,Inflow,A,Actual,NI,North Island,22790.3,Toka_Linear
+NI_TKU_Actual_TokaanuStationNonLinear_Inflow_92790(3).csv,Non-linear correlations of Taupo natural inflows used to create Tokaanu inflow,Tongariro,TKU,Tokaanu,I,Inflow,A,Actual,NI,North Island,92790.3,TokaanuTPD
+NI_WKA_Natural_LakeWaikaremoana_Inflow_3650(1).csv,Waikaremoana Inflows,Waikaremoana,WKA,Waikaremoana,I,Inflow,N+A,Natural/Actual,NI,North Island,3650.1,Waikaremoana
+NI_TPO_Actual_LakeTaupoLinear_Inflow_22790(1).csv,Linear correlations of Taupo natural inflows used to create Taupo inflows including TPD diversions,Waikato river,TPO,Taupo,I,Inflow,A,Actual,NI,North Island,22790.1,Taupo_Linear
+NI_TPO_Actual_LakeTaupoOperational_Inflow_42790(1).csv,"Rating distribution correlates TPD flow and Taupo inflow, from 1993 to 2005 to create Taupo inflows including TPD diversions. Reflects the current operating regime.",Waikato river,TPO,Taupo,I,Inflow,A,Actual,NI,North Island,42790.1,Taupo_Oper
+NI_TPO_Natural_LakeTaupo_Inflow_62790(1).csv,Natural Taupo Inflow,Waikato river,TPO,Taupo,I,Inflow,N,Natural,NI,North Island,62790.1,Nat_Taupo
+NI_TPO_Actual_LakeTaupoInfrastructure_Inflow_72790(1).csv,Non-linear correlations of Taupo natural inflows used to create Taupo Inflows including TPD Diversions using consent conditions as active from 2004 to present,Waikato river,TPO,Taupo,I,Inflow,A,Actual,NI,North Island,72790.1,Taupo_Infr
+NI_TPO_Actual_LakeTaupoNonLinear_Inflow_92790(1).csv,Sub catchment inflows non-linear functions of Taupo inflows to create Taupo inflows including TPD diversions,Waikato river,TPO,Taupo,I,Inflow,A,Actual,NI,North Island,92790.1,TaupoTPD
+NI_ARI_Actual_WaikatoAtArapuni_Tribflow_92724(1).csv,Waikato tributary flow between Taupo and Arapuni PS,Waikato river,ARI,Arapuni,T,Tributary flow,A,Actual,NI,North Island,92724.1,Arapuni
+NI_KPO_Actual_WaikatoAtKarapiro_Tribflow_92714(1).csv,Waikato tributary flow between Taupo and Karapiro PS,Waikato river,KPO,Karapiro,T,Tributary flow,A,Actual,NI,North Island,92714.1,Karapiro
+NI_WHE_Actual_WheaoStation_Outflow_15462(1).csv,Wheao/Flaxy Power Station outflow,Wheao,WHE,Wheao,O,Outflow,A,Actual,NI,North Island,15462.1,Wheao
+SI_BRR_Natural_WairauRiverAtDipFlat_Flow_160114(1).csv,Wairau River flow at Wairau at Dip Flat recorder,Branch River,BRR,Branch River,F,Flow,N+A,Natural/Actual,SI,South Island,160114.1,Dip Flat
+SI_ROX_Actual_LakeRoxburgh_Tribflow_99110(1).csv,Roxburgh tributary flows – but excluding Hawea outflows,Clutha,ROX,Roxburgh,T,Tributary flow,A,Actual,SI,South Island,99110.1,Roxburgh
+SI_WAN_Natural_LakeWanaka_Outflow_9154(1).csv,Wanaka outflows,Clutha,WAN,Wanaka,O,Outflow,N+A,Natural/Actual,SI,South Island,9154.1,Wanaka
+SI_HWE_Natural_LakeHawea_Inflow_9170(1).csv,Hawea inflows,Clutha,HWE,Hawea,I,Inflow,N+A,Natural/Actual,SI,South Island,9170.1,Hawea
+SI_COB_Natural_LakeCobb_Inflow_97904(2).csv,Cobb inflows,Cobb,COB,Cobb,I,Inflow,N+A,Natural/Actual,SI,South Island,97904.2,Cobb
+SI_COL_Actual_LakeColeridge_Inflow_97904(1).csv,Coleridge inflows,Coleridge,COL,Coleridge,I,Inflow,A,Actual,SI,South Island,97904.1,Coleridge
+SI_DOB_Actual_GreyAndTaramakauAtDobson(ExclTaipoClosed)_Flow_77106(1).csv,"Grey River at Dobson including Taramakau but not Taipo. This site is now closed because the Taipo and Taramakau datasets are unavailable, requiring a new methodology for calculation",Dobson,DOB,Dobson,F,Flow,A,Actual,SI,South Island,77106.1,Grey_tara_closed
+SI_DOB_Actual_GreyAndTaramakauAtDobson(ExclTaipo)_Flow_77106(2).csv,"Grey River at Dobson including Taramakau but not Taipo. Calculated by correlating the Dobson flow record with the derived Grey River+Taramakau-Taipo dataset series where they overlap, because of both the Taramakau and Taipo flow sets are now unavailable",Dobson,DOB,Dobson,F,Flow,A,Actual,SI,South Island,77106.2,Grey_tara
+SI_HBK_Actual_HighbankStation_Outflow_7968(1).csv,Highbank Power Station outflow,Highbank,HBK,Highbank,O,Outflow,A,Actual,SI,South Island,7968.1,Highbank
+SI_NA_Natural_HurunuiRiverAtSH1Bridge_Flow_165101(1).csv,Hurunui River flow at SH1 Bridge,Hurinui (potential),NA,Hurunui at SH1 Bridge,F,Flow,N+A,Natural/Actual,SI,South Island,165101.1,SH 1 Bridge
+SI_NA_Natural_HurunuiRiverAtMandamus_Flow_165104(1).csv,Hurunui River flow at Hurunui at Mandamus recorder,Hurinui (potential),NA,Mandamus,F,Flow,N+A,Natural/Actual,SI,South Island,165104.1,Mandamus
+SI_MAN_Natural_LakeManapouri(NoMararoaSpill)_Inflow_99550(1).csv,Manapouri local inflows with no Mararoa input,Manapouri,MAN,Manapouri,I,Inflow,N,Natural,SI,South Island,99550.1,Manapouri
+SI_MAN_Actual_LakeManapouri(WithMararoaSpill)_Inflow_99551(1).csv,Manapouri local inflows allowing for Mararoa dirty water spill,Manapouri,MAN,Manapouri,I,Inflow,A,Actual,SI,South Island,99551.1,Manawmara
+SI_MAN_Actual_LakeManapouri(WithMararoaSpillAndMinFlowRegime)_Inflow_99552(1).csv,"Manapouri local inflows allowing for Mararoa dirty water spill, 12, 14 and 16m³/s min flow from MLC, flushing and recreational releases from MCL",Manapouri,MAN,Manapouri,I,Inflow,A,Actual,SI,South Island,99552.1,Manareduced
+SI_TAU_Natural_LakeTeAnau_Inflow_9570(1).csv,Te Anau Inflows,Manapouri,TAU,Te Anau,I,Inflow,N+A,Natural/Actual,SI,South Island,9570.1,Teanau
+SI_MON_Natural_MonowaiStation_Inflow_199540(1).csv,Monowai Power Station inflow,Monowai,MON,Monowai,I,Inflow,N+A,Natural/Actual,SI,South Island,199540.1,Mono_Inflow
+SI_ONS_Actual_LakeOnslow_Inflow_175237(1).csv,Lake Onslow inflow,Unknown,ONS,Onslow,I,Inflow,A,Actual,SI,South Island,175237.1,LakeOnslow
+SI_NA_Natural_WaiauRiverAtClarenceAtJollies_Flow_162105(1).csv,Waiau River flow at Clarence at Jollies recorder,Waiau (potential),NA,Jollies,F,Flow,N+A,Natural/Actual,SI,South Island,162105.1,Clarence
+SI_NA_Natural_WaiauRiverAtMarblePoint_Flow_164602(1).csv,Waiau River flow at Waiau at Marble Point recorder,Waiau (potential),NA,Marble Point,F,Flow,N+A,Natural/Actual,SI,South Island,164602.1,Marble Point
+SI_NA_Natural_WaiauRiverAtGlenhope_Flow_164604(1).csv,Waiau River flow at Waiau at Glenhope recorder,Waiau (potential),NA,Glenhope,F,Flow,N+A,Natural/Actual,SI,South Island,164604.1,Glenhope
+SI_WPI_Actual_WaiporiStation_Outflow_174395(1).csv,Waipori Power Station outflow,Waipori,WPI,Waipori,O,Outflow,A,Actual,SI,South Island,174395.1,Waipori
+SI_WTK_Actual_WaitakiStation_Tribflow_98714(2).csv,Waitaki tributary flow between Lakes Pukaki & Tekapo and Waitaki Power Station,Waitaki river,WTK,Waitaki,T,Tributary flow,A,Actual,SI,South Island,98714.2,Waitaki
+SI_BEN_Actual_LakeBenmore_Tribflow_98614(4).csv,Waitaki tributary flow between Lakes Pukaki & Tekapo and Benmore includes spill from Tekapo and Ohau flows (Separate Tekapo simulation),Waitaki river,BEN,Benmore,T,Tributary flow,A,Actual,SI,South Island,98614.4,Benmore
+SI_BEN_Actual_LakeBenmoreCombined_Tribflow_98615(2).csv,Waitaki tributary flow between Lakes Pukaki & Tekapo and Benmore excludes any spill from Tekapo but includes Ohau flows (Combined lakes Tekapo - Pukaki simulation),Waitaki river,BEN,Benmore,T,Tributary flow,A,Actual,SI,South Island,98615.2,Ben_tp
+SI_OHU_Natural_LakeOhau_Inflow_98614(3).csv,Total Ohau inflow. Assumes all Ohau inflow flows into Ohau B and C,Waitaki river,OHU,Ohau,I,Inflow,N+A,Natural/Actual,SI,South Island,98614.3,Ohau
+SI_OHU_Actual_LakeOhau(ExclDiverted)_Outflow_98614(6).csv,"Ohau A only, using flows of 12m³/s May to Oct and 8m³/s Nov to Apr",Waitaki river,OHU,Ohau,O,Outflow,A,Actual,SI,South Island,98614.6,OhauRes
+SI_PKI_Actual_LakePukaki_Inflow_98614(2).csv,Pukaki + Tekapo for separate Tekapo simulation,Waitaki river,PKI,Pukaki,I,Inflow,A,Actual,SI,South Island,98614.2,Pukaki
+SI_PKI_Natural_LakePukaki_Inflow_98770(1).csv,Natural Lake Pukaki inflow,Waitaki river,PKI,Pukaki,I,Inflow,N,Natural,SI,South Island,98770.1,Nat_Puk
+SI_TEK_Actual_LakeTekapo_Inflow_98614(1).csv,Separate Tekapo simulation,Waitaki river,TEK,Tekapo,I,Inflow,A,Actual,SI,South Island,98614.1,Tekapo
+SI_TEK_Natural_LakeTekapo_Inflow_98770(2).csv,Natural Lake Tekapo inflow,Waitaki river,TEK,Tekapo,I,Inflow,N+A,Natural/Actual,SI,South Island,98770.2,Nat_Tek
