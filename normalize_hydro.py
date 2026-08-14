@@ -21,6 +21,10 @@ def read_csv(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(handle))
 
 
+def has_date(row: dict[str, str]) -> bool:
+    return bool((row.get("Date") or "").strip())
+
+
 def to_float(value: str | None) -> float | None:
     if value is None or value.strip() == "":
         return None
@@ -50,6 +54,9 @@ def normalize_storage() -> list[dict[str, object]]:
             raise RuntimeError(f"Storage file missing from index: {path.name}")
 
         for raw in read_csv(path):
+            if not has_date(raw):
+                continue
+
             active = to_float(raw.get("Active storage (Mm³)"))
             contingent = to_float(raw.get("Active contingent storage (Mm³)"))
             total = None
@@ -89,9 +96,12 @@ def normalize_flow_folder(
             raise RuntimeError(f"{series_type} file missing from index: {path.name}")
 
         for raw in read_csv(path):
+            if not has_date(raw):
+                continue
+
             flow = to_float(raw.get("Flow (m³/s)"))
             if flow is None:
-                raise RuntimeError(f"Missing Flow (m³/s) in {path.name}")
+                raise RuntimeError(f"Missing Flow (m³/s) in {path.name} for {raw['Date']}")
 
             rows.append(
                 {
@@ -132,9 +142,12 @@ def normalize_spill() -> list[dict[str, object]]:
             raise RuntimeError(f"Spill file missing from index: {path.name}")
 
         for raw in read_csv(path):
+            if not has_date(raw):
+                continue
+
             volume = to_float(raw.get("Spill (Mm³)"))
             if volume is None:
-                raise RuntimeError(f"Missing Spill (Mm³) in {path.name}")
+                raise RuntimeError(f"Missing Spill (Mm³) in {path.name} for {raw['Date']}")
 
             rows.append(
                 {
@@ -171,6 +184,12 @@ def check_unique(rows: list[dict[str, object]], keys: tuple[str, ...], label: st
         raise RuntimeError(f"Duplicate {label} rows detected for {duplicates[:5]}")
 
 
+def check_dates_present(rows: list[dict[str, object]], label: str) -> None:
+    missing = [row for row in rows if not str(row.get("date", "")).strip()]
+    if missing:
+        raise RuntimeError(f"Blank dates remain in normalized {label} data")
+
+
 def main() -> None:
     storage_rows = normalize_storage()
 
@@ -182,6 +201,14 @@ def main() -> None:
         "tributary_flows", "tributary_flow", tributary_lookup
     )
     spill_rows = normalize_spill()
+
+    for label, rows in (
+        ("storage", storage_rows),
+        ("inflow", inflow_rows),
+        ("tributary flow", tributary_rows),
+        ("spill", spill_rows),
+    ):
+        check_dates_present(rows, label)
 
     check_unique(storage_rows, ("date", "site_code"), "storage")
     check_unique(inflow_rows, ("date", "source_file"), "inflow")
@@ -224,7 +251,6 @@ def main() -> None:
     write_rows(TRIBUTARY_OUTPUT, flow_fields, tributary_rows)
     write_rows(SPILL_OUTPUT, flow_fields, spill_rows)
 
-    # Remove the former combined output if it exists from an older local run.
     old_combined = MODEL_DIR / "flows_daily.csv"
     if old_combined.exists():
         old_combined.unlink()
