@@ -1,0 +1,46 @@
+{
+  "source": {
+    "name": "Electricity Authority generation investment pipeline",
+    "dashboard_url": "https://www.ea.govt.nz/data-and-insights/charts-and-dashboards/generation-investment-pipeline/",
+    "publication_method": "Monthly dashboard populated from Transpower clause 2.16 investment-pipeline submissions",
+    "machine_readable_status": "pending stable export endpoint",
+    "do_not_use_as_current_source": "The downloadable EMI generation-investment CSV files are 2024 snapshots and must not be treated as the current pipeline."
+  },
+  "status_definitions": {
+    "committed": "Final investment decision has been made.",
+    "actively_pursued": "No final investment decision yet, but significant development milestones have been reached.",
+    "other": "Earlier-stage development project."
+  },
+  "scenarios": {
+    "committed_only": {
+      "description": "Conservative supply case. Include only projects reported as committed.",
+      "include_statuses": ["committed"]
+    },
+    "committed_plus_active": {
+      "description": "Central development case. Include committed and actively pursued projects.",
+      "include_statuses": ["committed", "actively_pursued"]
+    },
+    "full_pipeline": {
+      "description": "Upper-bound development case. Include committed, actively pursued and other projects. This is not a forecast that all projects will be built.",
+      "include_statuses": ["committed", "actively_pursued", "other"]
+    }
+  },
+  "commissioning": {
+    "preferred_field": "expected_commissioning_date",
+    "fallback_field": "expected_commissioning_year",
+    "unknown_date_policy": "exclude from dated adequacy run until a commissioning assumption is explicitly supplied"
+  },
+  "technology_treatment": {
+    "solar": "weather-dependent generation profile scaled by project MW",
+    "wind": "weather-dependent generation profile scaled by project MW",
+    "geothermal": "firm generation with explicit availability/outage assumption",
+    "hydro": "add plant and water constraints explicitly; never model as unconstrained firm energy",
+    "battery": "model MW and MWh separately with round-trip efficiency and state of charge",
+    "thermal": "dispatchable generation with fuel and availability constraints"
+  },
+  "notes": [
+    "Project status is scenario selection, not a probability of completion.",
+    "The Electricity Authority cautions that not every pipeline project will be built.",
+    "Pipeline capacity must not be compared directly with demand energy without applying technology-specific generation profiles and commissioning dates."
+  ]
+}
