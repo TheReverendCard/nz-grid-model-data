@@ -1,0 +1,36 @@
+{
+  "status": "scaffold_under_validation",
+  "notes": [
+    "Topology is separated from asset capacity and hydrological constraints so each can be audited independently.",
+    "Waikato routing below represents the main sequential river cascade from Lake Taupo to Karapiro.",
+    "Other major schemes are placeholders until their diversion/canal routing is encoded from HMD/source documentation."
+  ],
+  "schemes": {
+    "Waikato river": {
+      "type": "serial_cascade",
+      "upstream_storage": "TPO",
+      "stations_in_flow_order": ["ARA", "OHK", "ATI", "WKM", "MTI", "WPA", "ARI", "KPO"],
+      "terminal_station": "KPO",
+      "dispatch_note": "Water released from Taupo and tributary inflows propagate downstream through the serial station chain, subject to local storage, tributary additions, spill and constraints."
+    },
+    "Waikaremoana": {
+      "type": "cascade_pending_explicit_routing",
+      "stations": ["KTW", "TUI", "PRI"],
+      "storage_nodes": ["WKA", "KTW", "WNO"]
+    },
+    "Waitaki river": {
+      "type": "branched_cascade_pending_explicit_routing",
+      "stations": ["TKA", "TKB", "OHA", "OHB", "OHC", "BEN", "AVI", "WTK"]
+    },
+    "Clutha": {
+      "type": "multi_headwater_cascade_pending_explicit_routing",
+      "stations": ["CYD", "ROX"],
+      "storage_nodes": ["HWE", "WAN", "WPU"]
+    },
+    "Manapouri": {
+      "type": "linked_lake_system_pending_explicit_routing",
+      "stations": ["MAN"],
+      "storage_nodes": ["TAU", "MAN"]
+    }
+  }
+}
