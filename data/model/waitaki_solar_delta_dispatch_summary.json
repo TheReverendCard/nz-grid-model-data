@@ -1,19 +1,20 @@
 {
-  "status": "individual_lake_policy_comparison_delta_dispatch_diagnostic",
-  "purpose": "Tighten the 2024 solar-to-Waitaki-storage counterfactual by enforcing separate Tekapo, Pukaki and Ohau empirical storage headroom.",
+  "status": "dynamic_headroom_constrained_policy_comparison",
+  "purpose": "Correct the Waitaki solar-storage delta diagnostic for day-to-day loss of headroom as observed lake storage rises.",
   "method": {
-    "baseline": "Observed 2024 per-lake energy-equivalent storage, Waitaki generation and thermal generation.",
-    "delta_state": "Only incremental-solar-caused storage changes are simulated around observed hydrology.",
+    "baseline": "Observed 2024 per-lake storage plus observed Waitaki and thermal generation.",
     "individual_lake_empirical_ceilings_gwh": {
       "TKA": 1036.571,
       "PKI": 1892.039,
       "OHA": 127.887
     },
-    "allocation_rule": "Interim rule: conserved energy is distributed across TKA/PKI/OHA in proportion to each lake's available daily energy-equivalent headroom. Individual ceilings are enforced, but source-water/canal routing is not yet represented.",
-    "winter_entry_definition": "Counterfactual stored reserve at the start of 1 May, before 1 May dispatch.",
+    "simultaneous_upper_waitaki_empirical_ceiling_gwh": 2947.316,
+    "dynamic_headroom_rule": "At the start of every day, counterfactual reserve that no longer fits above the observed lake state is forced to spill before dispatch.",
+    "allocation_rule": "Remaining storable energy is allocated in proportion to current individual lake headroom and is also capped by the historical simultaneous upper-Waitaki envelope.",
+    "winter_entry_definition": "Reserve remaining after the 1 May start-of-day headroom reconciliation and before 1 May dispatch.",
     "policies": {
-      "fuel_minimizing": "Solar always displaces observed thermal generation before conserving Waitaki hydro.",
-      "winter_security": "Before 1 May solar conserves Waitaki hydro first; from 1 May solar displaces thermal first and conserved reserve can be released against remaining thermal generation."
+      "fuel_minimizing": "Solar displaces thermal first.",
+      "winter_security": "Before 1 May solar conserves hydro first; from 1 May thermal is displaced first and conserved reserve can be released."
     }
   },
   "policies": {
@@ -43,6 +44,7 @@
         "thermal_displacement_by_later_release_of_conserved_hydro_gwh": 0.0,
         "total_thermal_generation_displaced_gwh": 0.0,
         "foregone_pre_winter_direct_thermal_savings_gwh": 0.0,
+        "forced_counterfactual_spill_due_to_headroom_gwh": 0.0,
         "storage_limited_hydro_displacement_gwh": 0.0,
         "incremental_solar_curtailed_gwh": 0.0
       },
@@ -71,6 +73,7 @@
         "thermal_displacement_by_later_release_of_conserved_hydro_gwh": 0.59,
         "total_thermal_generation_displaced_gwh": 500.0,
         "foregone_pre_winter_direct_thermal_savings_gwh": 0.0,
+        "forced_counterfactual_spill_due_to_headroom_gwh": 0.0,
         "storage_limited_hydro_displacement_gwh": 0.0,
         "incremental_solar_curtailed_gwh": 0.0
       },
@@ -99,6 +102,7 @@
         "thermal_displacement_by_later_release_of_conserved_hydro_gwh": 14.436,
         "total_thermal_generation_displaced_gwh": 960.715,
         "foregone_pre_winter_direct_thermal_savings_gwh": 0.0,
+        "forced_counterfactual_spill_due_to_headroom_gwh": 0.0,
         "storage_limited_hydro_displacement_gwh": 0.0,
         "incremental_solar_curtailed_gwh": 0.0
       },
@@ -127,6 +131,7 @@
         "thermal_displacement_by_later_release_of_conserved_hydro_gwh": 3.391,
         "total_thermal_generation_displaced_gwh": 1352.972,
         "foregone_pre_winter_direct_thermal_savings_gwh": 0.0,
+        "forced_counterfactual_spill_due_to_headroom_gwh": 0.0,
         "storage_limited_hydro_displacement_gwh": 0.0,
         "incremental_solar_curtailed_gwh": 0.0
       },
@@ -138,16 +143,16 @@
           "PKI": 5.962,
           "OHA": 1.328
         },
-        "maximum_storage_increase_gwh": 378.188,
+        "maximum_storage_increase_gwh": 372.949,
         "maximum_storage_increase_by_lake_gwh": {
           "TKA": 215.25,
           "PKI": 115.34,
           "OHA": 47.598
         },
-        "year_end_storage_increase_gwh": 378.188,
+        "year_end_storage_increase_gwh": 372.949,
         "year_end_storage_increase_by_lake_gwh": {
           "TKA": 215.25,
-          "PKI": 115.34,
+          "PKI": 110.1,
           "OHA": 47.598
         },
         "waitaki_hydro_avoided_and_stored_gwh": 395.409,
@@ -155,7 +160,8 @@
         "thermal_displacement_by_later_release_of_conserved_hydro_gwh": 17.221,
         "total_thermal_generation_displaced_gwh": 2121.812,
         "foregone_pre_winter_direct_thermal_savings_gwh": 0.0,
-        "storage_limited_hydro_displacement_gwh": 0.0,
+        "forced_counterfactual_spill_due_to_headroom_gwh": 5.24,
+        "storage_limited_hydro_displacement_gwh": -0.0,
         "incremental_solar_curtailed_gwh": 0.0
       }
     },
@@ -185,6 +191,7 @@
         "thermal_displacement_by_later_release_of_conserved_hydro_gwh": 0.0,
         "total_thermal_generation_displaced_gwh": 0.0,
         "foregone_pre_winter_direct_thermal_savings_gwh": 0.0,
+        "forced_counterfactual_spill_due_to_headroom_gwh": 0.0,
         "storage_limited_hydro_displacement_gwh": 0.0,
         "incremental_solar_curtailed_gwh": 0.0
       },
@@ -213,6 +220,7 @@
         "thermal_displacement_by_later_release_of_conserved_hydro_gwh": 184.832,
         "total_thermal_generation_displaced_gwh": 500.0,
         "foregone_pre_winter_direct_thermal_savings_gwh": 184.242,
+        "forced_counterfactual_spill_due_to_headroom_gwh": 0.0,
         "storage_limited_hydro_displacement_gwh": 0.0,
         "incremental_solar_curtailed_gwh": 0.0
       },
@@ -241,6 +249,7 @@
         "thermal_displacement_by_later_release_of_conserved_hydro_gwh": 382.92,
         "total_thermal_generation_displaced_gwh": 960.715,
         "foregone_pre_winter_direct_thermal_savings_gwh": 368.484,
+        "forced_counterfactual_spill_due_to_headroom_gwh": 0.0,
         "storage_limited_hydro_displacement_gwh": 0.0,
         "incremental_solar_curtailed_gwh": 0.0
       },
@@ -269,6 +278,7 @@
         "thermal_displacement_by_later_release_of_conserved_hydro_gwh": 556.117,
         "total_thermal_generation_displaced_gwh": 1352.972,
         "foregone_pre_winter_direct_thermal_savings_gwh": 552.726,
+        "forced_counterfactual_spill_due_to_headroom_gwh": 0.0,
         "storage_limited_hydro_displacement_gwh": 0.0,
         "incremental_solar_curtailed_gwh": 0.0
       },
@@ -286,10 +296,10 @@
           "PKI": 391.912,
           "OHA": 79.733
         },
-        "year_end_storage_increase_gwh": 378.188,
+        "year_end_storage_increase_gwh": 372.949,
         "year_end_storage_increase_by_lake_gwh": {
           "TKA": 215.25,
-          "PKI": 115.34,
+          "PKI": 110.1,
           "OHA": 47.598
         },
         "waitaki_hydro_avoided_and_stored_gwh": 1300.543,
@@ -297,15 +307,16 @@
         "thermal_displacement_by_later_release_of_conserved_hydro_gwh": 922.354,
         "total_thermal_generation_displaced_gwh": 2121.812,
         "foregone_pre_winter_direct_thermal_savings_gwh": 905.133,
-        "storage_limited_hydro_displacement_gwh": 0.0,
+        "forced_counterfactual_spill_due_to_headroom_gwh": 5.24,
+        "storage_limited_hydro_displacement_gwh": -0.0,
         "incremental_solar_curtailed_gwh": 0.0
       }
     }
   },
   "important_limitations": [
-    "This remains a delta diagnostic rather than a full physical Waitaki water-routing model.",
-    "Separate lake ceilings remove the combined-bucket flexibility error, but proportional headroom allocation is still an explicit simplifying assumption.",
-    "The next physical refinement must tie conserved water to source lake releases and enforce Tekapo/Pukaki/Ohau canal, station-flow, bypass and minimum-flow constraints.",
-    "Observed 2024 storage remains the hydrological baseline, so natural inflows, tributaries, spill and historical operating behaviour are embedded rather than reconstructed."
+    "This is still a counterfactual delta diagnostic rather than a full physical Waitaki water-routing model.",
+    "The simultaneous empirical ceiling is a historical envelope, not a legal engineering maximum.",
+    "Proportional allocation among Tekapo/Pukaki/Ohau remains an interim assumption.",
+    "The next physical refinement should tie avoided generation to source-water routes and enforce canal, station-flow, bypass and minimum-flow constraints."
   ]
 }
