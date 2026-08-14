@@ -75,6 +75,9 @@ jobs:
       - name: Build 2030 Replay Inputs
         run: python build_replay_inputs.py
 
+      - name: Build Hydro Model Inputs
+        run: python build_hydro_model_inputs.py
+
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'github-actions[bot]'
