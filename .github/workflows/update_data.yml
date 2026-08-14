@@ -108,6 +108,9 @@ jobs:
       - name: Correct Waitaki Dynamic Headroom
         run: python dispatch_waitaki_solar_delta_corrected.py
 
+      - name: Dispatch Waitaki Source-Route Water Balance
+        run: python dispatch_waitaki_source_route_v1.py
+
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'github-actions[bot]'
