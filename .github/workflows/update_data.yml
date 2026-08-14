@@ -66,6 +66,9 @@ jobs:
       - name: Inspect MBIE EDGS Workbook Structure
         run: python inspect_mbie_edgs.py
 
+      - name: Normalize MBIE EDGS Demand Scenarios
+        run: python normalize_mbie_edgs.py
+
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'github-actions[bot]'
