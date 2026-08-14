@@ -87,6 +87,9 @@ jobs:
       - name: Infer Observed Hydro Reservoir Releases
         run: python build_observed_hydro_release.py
 
+      - name: Compare Hydro Inflow and Solar Seasonality
+        run: python build_hydro_solar_seasonality.py
+
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'github-actions[bot]'
