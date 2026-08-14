@@ -45,6 +45,9 @@ jobs:
       - name: Validate Wholesale Baseline
         run: python validate_baseline.py
 
+      - name: Fetch EA Distributed Generation Data
+        run: python update_distributed_generation.py
+
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'github-actions[bot]'
