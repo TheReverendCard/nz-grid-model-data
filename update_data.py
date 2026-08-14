@@ -18,25 +18,34 @@ def fetch_ea_dataset(url, filename, is_hydro=False):
                 try:
                     page.goto(url)
                 except Exception as goto_err:
-                    # Chromium aborts navigation when a file downloads. We catch and ignore this specific error.
                     if "Download is starting" not in str(goto_err) and "net::ERR_ABORTED" not in str(goto_err):
                         raise goto_err
             
-            # Save the raw file to a temporary location
             download = download_info.value
             temp_path = f"temp_{filename}"
             download.save_as(temp_path)
             
-            # Read the downloaded file into Pandas to clean metadata
-            comment_char = '#' if is_hydro else None
-            df = pd.read_csv(temp_path, comment=comment_char)
+            # --- THE TRUTH SERUM ---
+            # Print the first 500 characters of whatever we just downloaded
+            with open(temp_path, 'r', encoding='utf-8', errors='ignore') as f:
+                raw_preview = f.read(500)
             
-            # Save the clean CSV and delete the temp file
-            if not df.empty:
-                df.to_csv(filename, index=False)
-                print(f"SUCCESS: Saved {filename} ({len(df)} rows, {len(df.columns)} cols)")
-            else:
-                print(f"FAILED: Downloaded file was empty for {filename}")
+            print(f"\n--- SNEAK PEEK: {filename} ---")
+            print(raw_preview if raw_preview.strip() else "[FILE IS COMPLETELY EMPTY (0 BYTES)]")
+            print("---------------------------------------\n")
+            
+            # Read into Pandas
+            comment_char = '#' if is_hydro else None
+            
+            try:
+                df = pd.read_csv(temp_path, comment=comment_char)
+                if not df.empty:
+                    df.to_csv(filename, index=False)
+                    print(f"SUCCESS: Saved {filename} ({len(df)} rows, {len(df.columns)} cols)")
+                else:
+                    print(f"FAILED: Pandas parsed {filename} but found no data rows.")
+            except pd.errors.EmptyDataError:
+                print(f"FAILED: Pandas completely rejected {filename} (EmptyDataError).")
                 
             if os.path.exists(temp_path):
                 os.remove(temp_path)
@@ -46,10 +55,8 @@ def fetch_ea_dataset(url, filename, is_hydro=False):
         finally:
             browser.close()
 
-# 1. Hydro Storage Data
 hydro_url = "https://www.emi.ea.govt.nz/Environment/Download/DataReport/CSV/3UN1KD?DateFrom=20200101&RegionCode=NZ"
 fetch_ea_dataset(hydro_url, "hydro_storage.csv", is_hydro=True)
 
-# 2. Generation Investment Pipeline
 pipeline_url = "https://www.emi.ea.govt.nz/Wholesale/Download/DataReport/CSV/ProposedGenerationFleet"
 fetch_ea_dataset(pipeline_url, "generation_pipeline.csv", is_hydro=False)
