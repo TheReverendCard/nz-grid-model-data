@@ -1,0 +1,44 @@
+{
+  "year": 2024,
+  "total_solar_generation_mwh": 88832.948,
+  "candidate_count": 4,
+  "candidates": [
+    {
+      "site_code": "KOE",
+      "poc_code": "KOE1101",
+      "network_code": "TOPE",
+      "generator_code": "Kohira",
+      "fuel_code": "Solar",
+      "generation_mwh_2024": 52272.573,
+      "days_with_generation_rows": 366
+    },
+    {
+      "site_code": "EDG",
+      "poc_code": "EDG0331",
+      "network_code": "HEDL",
+      "generator_code": "Rangitaiki",
+      "fuel_code": "Solar",
+      "generation_mwh_2024": 36530.02,
+      "days_with_generation_rows": 306
+    },
+    {
+      "site_code": "WAI",
+      "poc_code": "WAI0331",
+      "network_code": "LODE",
+      "generator_code": "te_herenga_o_te_r\u0101_solar_farm",
+      "fuel_code": "SOL",
+      "generation_mwh_2024": 30.355,
+      "days_with_generation_rows": 40
+    },
+    {
+      "site_code": "MTO",
+      "poc_code": "MTO0331",
+      "network_code": "NPOW",
+      "generator_code": "papareirei\u0101_solar_at_maungaturoto",
+      "fuel_code": "SOL",
+      "generation_mwh_2024": 0.0,
+      "days_with_generation_rows": 86
+    }
+  ],
+  "note": "Use only sites with independently verified AC/export capacity and sufficient operating coverage for kWh/kW calibration."
+}
