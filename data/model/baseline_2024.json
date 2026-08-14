@@ -7,7 +7,7 @@
     "mapped_generation_mwh": "EA Generation_MD mapped plant generation",
     "unmapped_generation_residual_mwh": "reconciled injection minus Generation_MD mapped generation",
     "transmission_and_reconciliation_difference_mwh": "reconciled injection minus reconciled offtake",
-    "underlying_consumption_mwh": "measured grid demand plus modelled behind-meter self-consumption"
+    "underlying_consumption_mwh": "measured grid demand plus modelled behind-meter retained residential solar"
   },
   "annual": {
     "reconciled_injection_mwh": 43024905.285,
@@ -16,8 +16,9 @@
     "unmapped_generation_residual_mwh": 1786640.22,
     "transmission_and_reconciliation_difference_mwh": 1393604.051,
     "mapped_generation_share_of_reconciled_injection_pct": 95.8474,
-    "behind_meter_solar_self_consumption_mwh": null,
-    "underlying_consumption_mwh": null
+    "behind_meter_solar_self_consumption_mwh": 164115.606,
+    "underlying_consumption_mwh": 41795416.84,
+    "btm_solar_share_of_underlying_consumption_pct": 0.3927
   },
   "mapped_generation_by_fuel_mwh": {
     "Coal": 1876147.2239999997,
@@ -52,8 +53,133 @@
       "new_installations": 817,
       "average_new_install_capacity_kw": 39.193
     },
-    "gross_generation_status": "awaiting regional observed-yield calibration",
-    "self_consumption_status": "awaiting PV-only versus PV+battery split and load assumptions",
+    "btm_estimate": {
+      "model_year": 2024,
+      "method": "Monthly installed residential solar capacity, linearly averaged between month-end observations, multiplied by scenario-specific annual PV yield.",
+      "capacity": {
+        "year_start_mw": 249.931,
+        "year_end_mw": 321.317,
+        "capacity_weighted_annual_average_mw": 285.418445,
+        "monthly": [
+          {
+            "month": "2024-01",
+            "start_capacity_mw": 249.931,
+            "end_capacity_mw": 253.828,
+            "average_capacity_mw": 251.8795,
+            "days": 31
+          },
+          {
+            "month": "2024-02",
+            "start_capacity_mw": 253.828,
+            "end_capacity_mw": 258.991,
+            "average_capacity_mw": 256.4095,
+            "days": 29
+          },
+          {
+            "month": "2024-03",
+            "start_capacity_mw": 258.991,
+            "end_capacity_mw": 264.993,
+            "average_capacity_mw": 261.992,
+            "days": 31
+          },
+          {
+            "month": "2024-04",
+            "start_capacity_mw": 264.993,
+            "end_capacity_mw": 272.156,
+            "average_capacity_mw": 268.5745,
+            "days": 30
+          },
+          {
+            "month": "2024-05",
+            "start_capacity_mw": 272.156,
+            "end_capacity_mw": 282.169,
+            "average_capacity_mw": 277.1625,
+            "days": 31
+          },
+          {
+            "month": "2024-06",
+            "start_capacity_mw": 282.169,
+            "end_capacity_mw": 287.061,
+            "average_capacity_mw": 284.615,
+            "days": 30
+          },
+          {
+            "month": "2024-07",
+            "start_capacity_mw": 287.061,
+            "end_capacity_mw": 292.73,
+            "average_capacity_mw": 289.8955,
+            "days": 31
+          },
+          {
+            "month": "2024-08",
+            "start_capacity_mw": 292.73,
+            "end_capacity_mw": 297.567,
+            "average_capacity_mw": 295.1485,
+            "days": 31
+          },
+          {
+            "month": "2024-09",
+            "start_capacity_mw": 297.567,
+            "end_capacity_mw": 303.137,
+            "average_capacity_mw": 300.352,
+            "days": 30
+          },
+          {
+            "month": "2024-10",
+            "start_capacity_mw": 303.137,
+            "end_capacity_mw": 309.683,
+            "average_capacity_mw": 306.41,
+            "days": 31
+          },
+          {
+            "month": "2024-11",
+            "start_capacity_mw": 309.683,
+            "end_capacity_mw": 316.008,
+            "average_capacity_mw": 312.8455,
+            "days": 30
+          },
+          {
+            "month": "2024-12",
+            "start_capacity_mw": 316.008,
+            "end_capacity_mw": 321.317,
+            "average_capacity_mw": 318.6625,
+            "days": 31
+          }
+        ]
+      },
+      "scenarios": {
+        "low": {
+          "specific_yield_kwh_per_kwp_year": 1000.0,
+          "retained_behind_meter_fraction": 0.4,
+          "gross_residential_pv_generation_mwh": 285418.445,
+          "retained_behind_meter_pv_mwh": 114167.378,
+          "estimated_grid_export_mwh": 171251.067
+        },
+        "central": {
+          "specific_yield_kwh_per_kwp_year": 1150.0,
+          "retained_behind_meter_fraction": 0.5,
+          "gross_residential_pv_generation_mwh": 328231.212,
+          "retained_behind_meter_pv_mwh": 164115.606,
+          "estimated_grid_export_mwh": 164115.606
+        },
+        "high": {
+          "specific_yield_kwh_per_kwp_year": 1250.0,
+          "retained_behind_meter_fraction": 0.6,
+          "gross_residential_pv_generation_mwh": 356773.057,
+          "retained_behind_meter_pv_mwh": 214063.834,
+          "estimated_grid_export_mwh": 142709.223
+        }
+      },
+      "accounting": {
+        "yield_low": "Anchored by an anonymised Northland residential 13.5 kWp system with shading/non-ideal orientation that generated about 13.5 MWh in calendar 2025.",
+        "yield_central": "Fleet-average starting assumption below observed Northland tracker-farm yields, allowing for fixed roofs, mixed orientation, shading and residential losses.",
+        "yield_high": "Upper residential fleet case, still materially below observed tracker-farm specific yield.",
+        "retention": "Fraction of gross residential PV generation retained behind the meter as direct load or battery charging. Export is the remainder. The anonymised Northland PV+battery case retained about 51% of PV before storage losses in 2025.",
+        "battery_export": "Assumed zero by default. Explicit VPP/battery export scenarios can be added later.",
+        "accounting": "Only retained behind-meter PV is added back to reconciled offtake when estimating underlying end-use electricity consumption. Exported PV is not added because it is visible to the network/reconciliation system."
+      }
+    },
+    "selected_baseline_scenario": "central",
     "battery_export_assumption": "zero by default except explicit VPP/export scenarios"
   },
   "daily": [
