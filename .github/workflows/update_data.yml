@@ -30,6 +30,9 @@ jobs:
       - name: Normalize Hydro Data
         run: python normalize_hydro.py
 
+      - name: Fetch EA Wholesale Baseline Data
+        run: python update_wholesale.py
+
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'github-actions[bot]'
