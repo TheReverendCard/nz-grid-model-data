@@ -1,14 +1,4 @@
 date,plant_group,site_code,reservoir,island_code,lake_level_m,active_storage_mm3,contingent_storage_mm3,total_storage_mm3,quality_code,source_file
-,Clutha,HWE,Lake Hawea,SI,,,,,,SI_HWE_Storage_LakeHawea.csv
-,Manapouri,MAN,Lake Manapouri,SI,,,,,,SI_MAN_Storage_LakeManapouri.csv
-,Waitaki river,OHA,Lake Ohau,SI,,,,,,SI_OHA_Storage_LakeOhau.csv
-,Waitaki river,PKI,Lake Pukaki,SI,,,,,,SI_PKI_Storage_LakePukaki.csv
-,Manapouri,TAU,Lake Te Anau,SI,,,,,,SI_TAU_Storage_LakeTeAnau.csv
-,Waitaki river,TKA,Lake Tekapo,SI,,,,,,SI_TKA_Storage_LakeTekapo.csv
-,Waikato river,TPO,Lake Taupo,NI,,,,,,NI_TPO_Storage_LakeTaupo.csv
-,Clutha,WAN,Lake Wanaka,SI,,,,,,SI_WAN_Storage_LakeWanaka.csv
-,Waikaremoana,WKA,Lake Waikaremoana,NI,,,,,,NI_WKA_Storage_LakeWaikaremoana.csv
-,Clutha,WPU,Lake Wakatipu,SI,,,,,,SI_WPU_Storage_LakeWakatipu.csv
 1980-01-01,Clutha,HWE,Lake Hawea,SI,345.84,2134.608,,2134.608,320,SI_HWE_Storage_LakeHawea.csv
 1980-01-01,Manapouri,MAN,Lake Manapouri,SI,178.631,384.398,,384.398,320,SI_MAN_Storage_LakeManapouri.csv
 1980-01-01,Waitaki river,OHA,Lake Ohau,SI,520.117,41.403,,41.403,320,SI_OHA_Storage_LakeOhau.csv
