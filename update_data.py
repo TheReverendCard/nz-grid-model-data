@@ -1,5 +1,4 @@
 import os
-import io
 import pandas as pd
 from playwright.sync_api import sync_playwright
 
@@ -15,9 +14,13 @@ def fetch_ea_dataset(url, filename, is_hydro=False):
         page = context.new_page()
 
         try:
-            # Tell Playwright to expect a file download instead of a normal webpage
             with page.expect_download(timeout=60000) as download_info:
-                page.goto(url) # Note: wait_until parameter is removed entirely
+                try:
+                    page.goto(url)
+                except Exception as goto_err:
+                    # Chromium aborts navigation when a file downloads. We catch and ignore this specific error.
+                    if "Download is starting" not in str(goto_err) and "net::ERR_ABORTED" not in str(goto_err):
+                        raise goto_err
             
             # Save the raw file to a temporary location
             download = download_info.value
