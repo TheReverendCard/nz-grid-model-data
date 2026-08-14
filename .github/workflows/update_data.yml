@@ -93,6 +93,9 @@ jobs:
       - name: Diagnose Waitaki Solar Hydro Conservation
         run: python diagnose_waitaki_solar_conservation.py
 
+      - name: Dispatch Waitaki Solar Storage Delta
+        run: python dispatch_waitaki_solar_delta.py
+
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'github-actions[bot]'
