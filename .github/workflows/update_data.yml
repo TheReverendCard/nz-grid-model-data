@@ -72,6 +72,9 @@ jobs:
       - name: Build Calibrated Future Demand Scenarios
         run: python build_future_demand_scenarios.py
 
+      - name: Build 2030 Replay Inputs
+        run: python build_replay_inputs.py
+
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'github-actions[bot]'
