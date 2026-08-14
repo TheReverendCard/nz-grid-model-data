@@ -1,36 +1,36 @@
-plant_group,island_code,site_code,description,plant_type,plant_subtype,generating_capacity_mw,plant_factor_cumecs_per_mw,mw_per_cumec,active_storage_capacity_mm3,contingent_storage_capacity_mm3,max_station_flow_cumecs,min_flow_cumecs,max_spill_flow_cumecs,source_rows
-Mangahao,NI,MHO,Mangahao,Hydro,Hydro,30.0,0.395256917,2.5299999999747,,,,,,2
-Matahina,NI,MAT,Lake Matahina,Reservoir,Run of river,80.0,1.680672269,0.594999999967275,6.9,,,,,3
-Tongariro,NI,RPO,Rangipo,Hydro,Hydro,120.0,0.510204082,1.9599999985888,,,,,,2
-Tongariro,NI,TKU,Tokaanu,Hydro,Hydro,240.0,0.571428571,1.7500000013125,,,,,,2
-Waikaremoana,NI,KTW,Kaitawa,Hydro,Hydro,36.0,0.994,1.0060362173038229,0.177,0.0,37.0,,,5
-Waikaremoana,NI,PRI,Piripaua,Hydro,Hydro,44.0,1.062,0.9416195856873822,,,49.0,,,3
-Waikaremoana,NI,TUI,Tuai,Hydro,Hydro,60.0,0.63,1.5873015873015872,,,42.0,,,3
-Waikaremoana,NI,WKA,Lake Waikaremoana,Reservoir,Run of river,,,,157.1,0.0,,55.0,44.0,10
-Waikaremoana,NI,WNO,Lake Whakamarino,Reservoir,Run of river,,,,0.3874,0.0,,0.005,,3
-Waikato river,NI,ARA,Lake Aratiatia,Reservoir,Run of river,90.0,3.52,0.2840909090909091,0.9,0.0,,50.0,,5
-Waikato river,NI,ARI,Lake Arapuni,Reservoir,Run of river,,2.22,0.4504504504504504,31.4,0.0,,,,6
-Waikato river,NI,ATI,Lake Atiamuri,Reservoir,Run of river,84.0,5.11,0.19569471624266144,8.3,0.0,,,,4
-Waikato river,NI,KPO,Lake Karapiro,Reservoir,Run of river,108.0,3.79,0.2638522427440633,19.1,0.0,,148.0,,8
-Waikato river,NI,MTI,Lake Maraetai,Reservoir,Run of river,180.0,1.86,0.5376344086021505,17.2,0.0,,,,8
-Waikato river,NI,OHK,Lake Ohakuri,Reservoir,Run of river,112.0,3.52,0.2840909090909091,27.4,0.0,,,,4
-Waikato river,NI,TPO,Lake Taupo,Reservoir,Controlled,,,,855.4,0.0,,50.0,,3
-Waikato river,NI,WKM,Lake Whakamaru,Reservoir,Run of river,100.0,3.16,0.3164556962025316,17.5,0.0,,,,4
-Waikato river,NI,WPA,Lake Waipapa,Reservoir,Run of river,51.0,7.22,0.13850415512465375,6.0,0.0,,,,4
-Clutha,SI,CYD,Clyde,Hydro,Hydro,464.0,1.93,0.5181347150259068,,,1000.0,120.0,4140.0,6
-Clutha,SI,HWE,Lake Hawea,Reservoir,Controlled,,,,1141.95,263.87,,10.0,,7
-Clutha,SI,ROX,Roxburgh,Hydro,Hydro,320.0,2.49,0.4016064257028112,,,,250.0,6000.0,5
-Clutha,SI,WAN,Lake Wanaka,Reservoir,Run of river,,,,476.41,0.0,,,,2
-Clutha,SI,WPU,Lake Wakatipu,Reservoir,Run of river,,,,351.56,0.0,,,,2
-Cobb,SI,COB,Cobb,Hydro,Hydro,32.0,0.227014756,4.404999999207099,,,,,,2
-Coleridge,SI,COL,Coleridge,Hydro,Hydro,39.0,0.991080278,1.008999999493482,,,,,,2
-Manapouri,SI,MAN,Lake Manapouri,Reservoir,Controlled,800.0,0.653,1.5313935681470137,381.55,0.0,550.0,16.0,,8
-Manapouri,SI,TAU,Lake Te Anau,Reservoir,Controlled,,,,647.68,0.0,,,,2
-Waitaki river,SI,AVI,Aviemore,Hydro,Hydro,220.0,3.225,0.31007751937984496,,,,,,2
-Waitaki river,SI,BEN,Benmore,Hydro,Hydro,540.0,1.223,0.8176614881439084,,,,,,2
-Waitaki river,SI,OHA,Lake Ohau,Reservoir,Run of river,264.0,1.998,0.5005005005005005,,,,,,3
-Waitaki river,SI,OHB,Ohau B,Hydro,Hydro,212.0,2.4,0.4166666666666667,,,,,,2
-Waitaki river,SI,OHC,Ohau C,Hydro,Hydro,212.0,2.4,0.4166666666666667,,,,,,2
-Waitaki river,SI,TKA,Lake Tekapo,Reservoir,Controlled,27.0,4.306,0.2322340919647004,,,,,,3
-Waitaki river,SI,TKB,Tekapo B,Hydro,Hydro,154.0,0.7784,1.2846865364850977,,,,,,2
-Waitaki river,SI,WTK,Waitaki,Hydro,Hydro,105.0,6.165,0.16220600162206,,,,,,2
+plant_group,island_code,site_code,description,plant_type,plant_subtype,hmd_generating_capacity_mw,generating_capacity_mw,capacity_source,capacity_override_note,plant_factor_cumecs_per_mw,mw_per_cumec,active_storage_capacity_mm3,contingent_storage_capacity_mm3,max_station_flow_cumecs,min_flow_cumecs,max_spill_flow_cumecs,source_rows
+Mangahao,NI,MHO,Mangahao,Hydro,Hydro,30.0,30.0,HMD,,0.395256917,2.5299999999747,,,,,,2
+Matahina,NI,MAT,Lake Matahina,Reservoir,Run of river,80.0,80.0,HMD,,1.680672269,0.594999999967275,6.9,,,,,3
+Tongariro,NI,RPO,Rangipo,Hydro,Hydro,120.0,120.0,HMD,,0.510204082,1.9599999985888,,,,,,2
+Tongariro,NI,TKU,Tokaanu,Hydro,Hydro,240.0,240.0,HMD,,0.571428571,1.7500000013125,,,,,,2
+Waikaremoana,NI,KTW,Kaitawa,Hydro,Hydro,36.0,36.0,HMD,,0.994,1.0060362173038229,0.177,0.0,37.0,,,5
+Waikaremoana,NI,PRI,Piripaua,Hydro,Hydro,44.0,44.0,HMD,,1.062,0.9416195856873822,,,49.0,,,3
+Waikaremoana,NI,TUI,Tuai,Hydro,Hydro,60.0,60.0,HMD,,0.63,1.5873015873015872,,,42.0,,,3
+Waikaremoana,NI,WKA,Lake Waikaremoana,Reservoir,Run of river,,,HMD,,,,157.1,0.0,,55.0,44.0,10
+Waikaremoana,NI,WNO,Lake Whakamarino,Reservoir,Run of river,,,HMD,,,,0.3874,0.0,,0.005,,3
+Waikato river,NI,ARA,Lake Aratiatia,Reservoir,Run of river,90.0,78.0,https://www.mercury.co.nz/about-us/renewable-energy/hydro-generation/aratiatia-hydro-station,Mercury current station page; HMD asset extraction reported 90 MW.,3.52,0.2840909090909091,0.9,0.0,,50.0,,5
+Waikato river,NI,ARI,Lake Arapuni,Reservoir,Run of river,,198.0,https://www.mercury.co.nz/about-us/renewable-energy/hydro-generation/arapuni-hydro-station,"Mercury current station page; HMD asset extraction omitted generating capacity. A separate 2026 project page states 196 MW, so retain 198 MW from the dedicated station page and flag for periodic review.",2.22,0.4504504504504504,31.4,0.0,,,,6
+Waikato river,NI,ATI,Lake Atiamuri,Reservoir,Run of river,84.0,84.0,HMD,,5.11,0.19569471624266144,8.3,0.0,,,,4
+Waikato river,NI,KPO,Lake Karapiro,Reservoir,Run of river,108.0,112.5,https://www.mercury.co.nz/about-us/renewable-energy/hydro-generation/karapiro-hydro-station,Post-2025 refurbishment capacity. HMD asset extraction reported 108 MW.,3.79,0.2638522427440633,19.1,0.0,,148.0,,8
+Waikato river,NI,MTI,Lake Maraetai,Reservoir,Run of river,180.0,360.0,https://www.mercury.co.nz/about-us/renewable-energy/hydro-generation/maraetai-i-and-ii-hydro-station,Maraetai I and II are each 180 MW and operated as one station. HMD extraction captured only 180 MW.,1.86,0.5376344086021505,17.2,0.0,,,,8
+Waikato river,NI,OHK,Lake Ohakuri,Reservoir,Run of river,112.0,112.0,HMD,,3.52,0.2840909090909091,27.4,0.0,,,,4
+Waikato river,NI,TPO,Lake Taupo,Reservoir,Controlled,,,HMD,,,,855.4,0.0,,50.0,,3
+Waikato river,NI,WKM,Lake Whakamaru,Reservoir,Run of river,100.0,124.0,https://www.mercury.co.nz/about-us/renewable-energy/hydro-generation/whakamaru-hydro-station,Post-refurbishment capacity. HMD asset extraction reported 100 MW.,3.16,0.3164556962025316,17.5,0.0,,,,4
+Waikato river,NI,WPA,Lake Waipapa,Reservoir,Run of river,51.0,51.0,HMD,,7.22,0.13850415512465375,6.0,0.0,,,,4
+Clutha,SI,CYD,Clyde,Hydro,Hydro,464.0,464.0,HMD,,1.93,0.5181347150259068,,,1000.0,120.0,4140.0,6
+Clutha,SI,HWE,Lake Hawea,Reservoir,Controlled,,,HMD,,,,1141.95,263.87,,10.0,,7
+Clutha,SI,ROX,Roxburgh,Hydro,Hydro,320.0,320.0,HMD,,2.49,0.4016064257028112,,,,250.0,6000.0,5
+Clutha,SI,WAN,Lake Wanaka,Reservoir,Run of river,,,HMD,,,,476.41,0.0,,,,2
+Clutha,SI,WPU,Lake Wakatipu,Reservoir,Run of river,,,HMD,,,,351.56,0.0,,,,2
+Cobb,SI,COB,Cobb,Hydro,Hydro,32.0,32.0,HMD,,0.227014756,4.404999999207099,,,,,,2
+Coleridge,SI,COL,Coleridge,Hydro,Hydro,39.0,39.0,HMD,,0.991080278,1.008999999493482,,,,,,2
+Manapouri,SI,MAN,Lake Manapouri,Reservoir,Controlled,800.0,800.0,HMD,,0.653,1.5313935681470137,381.55,0.0,550.0,16.0,,8
+Manapouri,SI,TAU,Lake Te Anau,Reservoir,Controlled,,,HMD,,,,647.68,0.0,,,,2
+Waitaki river,SI,AVI,Aviemore,Hydro,Hydro,220.0,220.0,HMD,,3.225,0.31007751937984496,,,,,,2
+Waitaki river,SI,BEN,Benmore,Hydro,Hydro,540.0,540.0,HMD,,1.223,0.8176614881439084,,,,,,2
+Waitaki river,SI,OHA,Lake Ohau,Reservoir,Run of river,264.0,264.0,HMD,,1.998,0.5005005005005005,,,,,,3
+Waitaki river,SI,OHB,Ohau B,Hydro,Hydro,212.0,212.0,HMD,,2.4,0.4166666666666667,,,,,,2
+Waitaki river,SI,OHC,Ohau C,Hydro,Hydro,212.0,212.0,HMD,,2.4,0.4166666666666667,,,,,,2
+Waitaki river,SI,TKA,Lake Tekapo,Reservoir,Controlled,27.0,27.0,HMD,,4.306,0.2322340919647004,,,,,,3
+Waitaki river,SI,TKB,Tekapo B,Hydro,Hydro,154.0,154.0,HMD,,0.7784,1.2846865364850977,,,,,,2
+Waitaki river,SI,WTK,Waitaki,Hydro,Hydro,105.0,105.0,HMD,,6.165,0.16220600162206,,,,,,2

@@ -1,9 +1,11 @@
 {
   "model_date": "2030-01-01",
-  "source": "data/hydro/infrastructure_and_constraints.csv",
-  "station_count": 27,
-  "station_count_with_plant_factor": 27,
-  "total_individual_station_capacity_mw": 4724.0,
+  "hydrology_source": "data/hydro/infrastructure_and_constraints.csv",
+  "capacity_override_source": "model/hydro_capacity_overrides.json",
+  "station_count": 28,
+  "station_count_with_plant_factor": 28,
+  "stations_missing_plant_factor": [],
+  "total_station_capacity_mw_after_overrides": 5118.5,
   "storage_asset_count": 18,
   "sum_active_storage_capacity_mm3": 4146.914,
   "scheme_capacity": {
@@ -24,8 +26,8 @@
       "capacity_mw": 140.0
     },
     "Waikato river": {
-      "stations": 7,
-      "capacity_mw": 725.0
+      "stations": 8,
+      "capacity_mw": 1119.5
     },
     "Clutha": {
       "stations": 2,
@@ -48,12 +50,44 @@
       "capacity_mw": 1734.0
     }
   },
+  "capacity_overrides_applied": [
+    {
+      "site": "Waikato river:ARA",
+      "hmd_capacity_mw": 90.0,
+      "override_capacity_mw": 78.0,
+      "source": "https://www.mercury.co.nz/about-us/renewable-energy/hydro-generation/aratiatia-hydro-station"
+    },
+    {
+      "site": "Waikato river:ARI",
+      "hmd_capacity_mw": null,
+      "override_capacity_mw": 198.0,
+      "source": "https://www.mercury.co.nz/about-us/renewable-energy/hydro-generation/arapuni-hydro-station"
+    },
+    {
+      "site": "Waikato river:KPO",
+      "hmd_capacity_mw": 108.0,
+      "override_capacity_mw": 112.5,
+      "source": "https://www.mercury.co.nz/about-us/renewable-energy/hydro-generation/karapiro-hydro-station"
+    },
+    {
+      "site": "Waikato river:MTI",
+      "hmd_capacity_mw": 180.0,
+      "override_capacity_mw": 360.0,
+      "source": "https://www.mercury.co.nz/about-us/renewable-energy/hydro-generation/maraetai-i-and-ii-hydro-station"
+    },
+    {
+      "site": "Waikato river:WKM",
+      "hmd_capacity_mw": 100.0,
+      "override_capacity_mw": 124.0,
+      "source": "https://www.mercury.co.nz/about-us/renewable-energy/hydro-generation/whakamaru-hydro-station"
+    }
+  ],
   "conversion": "HMD plant factor is cumecs per MW, so instantaneous MW per cumec is 1 / plant_factor. Daily MWh from a station flow q is q * mw_per_cumec * 24, subject to station MW and flow constraints.",
   "important_limitations": [
+    "HMD is used for hydrological constraints and plant factors, but generating capacity can be overridden by newer operator-published values.",
     "Reservoir water can generate at multiple downstream stations in a cascade. Storage volume must not be multiplied by one station conversion factor and summed naively.",
-    "This file is a current-asset extraction layer, not the dispatch model.",
     "Stage-dependent, seasonal and consent constraints remain in the original HMD infrastructure table and must be evaluated during dispatch.",
-    "Combined scheme capacity rows are excluded where the HMD description explicitly marks them as combined, to reduce double counting."
+    "Capacity overrides must be periodically reviewed as refurbishments change station ratings."
   ],
-  "next_step": "Define cascade topology and reservoir-to-station routing for Waikato, Waitaki, Clutha, Manapouri/Te Anau and Waikaremoana, then run a water-balance dispatch against historical inflows."
+  "next_step": "Validate cascade topology and then run a water-balance dispatch against historical inflows, with operator capacity overrides kept separate from HMD hydrology."
 }
