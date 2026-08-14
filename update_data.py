@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import json
+from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import quote
@@ -10,16 +11,15 @@ from xml.etree import ElementTree
 import requests
 
 CONTAINER = "https://emidatasets.blob.core.windows.net/publicdata"
-HMD_PREFIX = (
-    "Datasets/Environment/HydrologicalModellingDataset/"
-    "1_InfrastructureAndHydroConstraintAttributes/"
-)
+HMD_ROOT = "Datasets/Environment/HydrologicalModellingDataset/"
+INFRA_PREFIX = HMD_ROOT + "1_InfrastructureAndHydroConstraintAttributes/"
 TARGET_SUFFIX = "_InfrastructureAndHydroConstraintAttributes.csv"
 
 DATA_DIR = Path("data/hydro")
 META_DIR = Path("data/metadata")
 OUTPUT_FILE = DATA_DIR / "infrastructure_and_constraints.csv"
 METADATA_FILE = META_DIR / "hmd_infrastructure_source.json"
+MANIFEST_FILE = META_DIR / "hmd_manifest.json"
 
 
 def list_blobs(prefix: str) -> list[dict[str, str]]:
@@ -68,7 +68,6 @@ def choose_latest_infrastructure_csv(blobs: list[dict[str, str]]) -> dict[str, s
 
 
 def blob_url(blob_name: str) -> str:
-    # Keep path separators while safely escaping spaces and punctuation.
     return f"{CONTAINER}/{quote(blob_name, safe='/')}"
 
 
@@ -82,20 +81,19 @@ def download_file(url: str, output_path: Path) -> None:
 
     output_path.write_bytes(response.content)
 
-    # Basic sanity check: confirm the downloaded file really parses as CSV.
     with output_path.open("r", encoding="utf-8-sig", newline="") as handle:
         reader = csv.reader(handle)
-        rows = list(reader)
+        row_count = sum(1 for _ in reader)
 
-    if len(rows) < 2:
+    if row_count < 2:
         raise RuntimeError(
             f"Downloaded file {output_path} does not look like a populated CSV."
         )
 
-    print(f"Downloaded {output_path} ({len(rows) - 1} data rows)")
+    print(f"Downloaded {output_path} ({row_count - 1} data rows)")
 
 
-def write_metadata(blob: dict[str, str], source_url: str) -> None:
+def write_infrastructure_metadata(blob: dict[str, str], source_url: str) -> None:
     META_DIR.mkdir(parents=True, exist_ok=True)
     metadata = {
         "source": "New Zealand Electricity Authority EMI Azure Blob Storage",
@@ -112,18 +110,46 @@ def write_metadata(blob: dict[str, str], source_url: str) -> None:
     print(f"Wrote metadata to {METADATA_FILE}")
 
 
-def main() -> None:
-    print("Listing EA HMD infrastructure blobs...")
-    blobs = list_blobs(HMD_PREFIX)
-    print(f"Found {len(blobs)} blobs under {HMD_PREFIX}")
+def write_hmd_manifest(blobs: list[dict[str, str]]) -> None:
+    """Persist the EA's current HMD blob layout so we can discover components safely."""
+    META_DIR.mkdir(parents=True, exist_ok=True)
+    grouped: dict[str, list[dict[str, str]]] = defaultdict(list)
 
-    selected = choose_latest_infrastructure_csv(blobs)
+    for blob in blobs:
+        relative = blob["name"].removeprefix(HMD_ROOT)
+        component = relative.split("/", 1)[0] if "/" in relative else "_root"
+        grouped[component].append(blob)
+
+    manifest = {
+        "source": "New Zealand Electricity Authority EMI Azure Blob Storage",
+        "prefix": HMD_ROOT,
+        "retrieved_at_utc": datetime.now(timezone.utc).isoformat(),
+        "blob_count": len(blobs),
+        "components": {
+            component: sorted(items, key=lambda item: item["name"])
+            for component, items in sorted(grouped.items())
+        },
+    }
+    MANIFEST_FILE.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    print(f"Wrote HMD manifest with {len(grouped)} components to {MANIFEST_FILE}")
+
+
+def main() -> None:
+    print("Discovering EA HMD dataset layout...")
+    all_hmd_blobs = list_blobs(HMD_ROOT)
+    print(f"Found {len(all_hmd_blobs)} blobs under {HMD_ROOT}")
+    write_hmd_manifest(all_hmd_blobs)
+
+    infrastructure_blobs = [
+        blob for blob in all_hmd_blobs if blob["name"].startswith(INFRA_PREFIX)
+    ]
+    selected = choose_latest_infrastructure_csv(infrastructure_blobs)
     source_url = blob_url(selected["name"])
-    print(f"Selected: {selected['name']}")
+    print(f"Selected infrastructure file: {selected['name']}")
 
     download_file(source_url, OUTPUT_FILE)
-    write_metadata(selected, source_url)
-    print("EA Azure updater test completed successfully.")
+    write_infrastructure_metadata(selected, source_url)
+    print("EA HMD discovery/update completed successfully.")
 
 
 if __name__ == "__main__":
