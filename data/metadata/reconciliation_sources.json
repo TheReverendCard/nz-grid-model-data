@@ -1,0 +1,91 @@
+{
+  "source": "New Zealand Electricity Authority reconciled injection and offtake (GR-010)",
+  "selection_rule": "Latest revision timestamp available for each settlement month",
+  "coverage": "2024-01-01 to 2024-12-31",
+  "months": {
+    "202401": {
+      "blob_name": "Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202401_20250325_093208.csv.gz",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202401_20250325_093208.csv.gz",
+      "etag": "0x8DD6F9DFCF00D47",
+      "last_modified": "Sun, 30 Mar 2025 15:17:30 GMT",
+      "content_length": "30153656"
+    },
+    "202402": {
+      "blob_name": "Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202402_20250423_160012.csv.gz",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202402_20250423_160012.csv.gz",
+      "etag": "0x8DD880234BD514C",
+      "last_modified": "Wed, 30 Apr 2025 16:15:21 GMT",
+      "content_length": "28201901"
+    },
+    "202403": {
+      "blob_name": "Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202403_20250522_162736.csv.gz",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202403_20250522_162736.csv.gz",
+      "etag": "0x8DDA05DF01753BC",
+      "last_modified": "Sat, 31 May 2025 16:12:27 GMT",
+      "content_length": "29912529"
+    },
+    "202404": {
+      "blob_name": "Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202404_20250626_124303.csv.gz",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202404_20250626_124303.csv.gz",
+      "etag": "0x8DDB72817F9F166",
+      "last_modified": "Sun, 29 Jun 2025 16:14:58 GMT",
+      "content_length": "28824103"
+    },
+    "202405": {
+      "blob_name": "Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202405_20250722_161557.csv.gz",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202405_20250722_161557.csv.gz",
+      "etag": "0x8DDD1169E70C05F",
+      "last_modified": "Fri, 01 Aug 2025 16:15:23 GMT",
+      "content_length": "29670169"
+    },
+    "202406": {
+      "blob_name": "Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202406_20250822_093307.csv.gz",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202406_20250822_093307.csv.gz",
+      "etag": "0x8DDE8A9801F97BE",
+      "last_modified": "Sun, 31 Aug 2025 16:14:45 GMT",
+      "content_length": "28488218"
+    },
+    "202407": {
+      "blob_name": "Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202407_20250922_114828.csv.gz",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202407_20250922_114828.csv.gz",
+      "etag": "0x8DE00FD2FA1A00A",
+      "last_modified": "Wed, 01 Oct 2025 15:14:15 GMT",
+      "content_length": "29745631"
+    },
+    "202408": {
+      "blob_name": "Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202408_20251029_101649.csv.gz",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202408_20251029_101649.csv.gz",
+      "etag": "0x8DE1BFE06CCDD21",
+      "last_modified": "Tue, 04 Nov 2025 23:58:18 GMT",
+      "content_length": "30453898"
+    },
+    "202409": {
+      "blob_name": "Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202409_20251126_180656.csv.gz",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202409_20251126_180656.csv.gz",
+      "etag": "0x8DE3022D1762D8A",
+      "last_modified": "Sun, 30 Nov 2025 15:12:03 GMT",
+      "content_length": "29895603"
+    },
+    "202410": {
+      "blob_name": "Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202410_20251223_134933.csv.gz",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202410_20251223_134933.csv.gz",
+      "etag": "0x8DE49489B0A2B29",
+      "last_modified": "Thu, 01 Jan 2026 15:15:32 GMT",
+      "content_length": "31021144"
+    },
+    "202411": {
+      "blob_name": "Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202411_20260127_161252.csv.gz",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202411_20260127_161252.csv.gz",
+      "etag": "0x8DE6EA031EB94E9",
+      "last_modified": "Wed, 18 Feb 2026 03:45:44 GMT",
+      "content_length": "30406004"
+    },
+    "202412": {
+      "blob_name": "Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202412_20260225_091230.csv.gz",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202412_20260225_091230.csv.gz",
+      "etag": "0x8DE76DC5189AEEE",
+      "last_modified": "Sat, 28 Feb 2026 15:16:16 GMT",
+      "content_length": "31605827"
+    }
+  }
+}
