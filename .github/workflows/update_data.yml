@@ -81,6 +81,9 @@ jobs:
       - name: Diagnose Hydro Storage Water Value
         run: python build_hydro_water_value_diagnostic.py
 
+      - name: Build Observed Hydro Storage Energy State
+        run: python build_hydro_storage_energy.py
+
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'github-actions[bot]'
