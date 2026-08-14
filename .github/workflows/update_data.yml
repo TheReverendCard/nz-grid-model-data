@@ -84,6 +84,9 @@ jobs:
       - name: Build Observed Hydro Storage Energy State
         run: python build_hydro_storage_energy.py
 
+      - name: Build Individual Waitaki Storage Constraints
+        run: python build_waitaki_storage_constraints.py
+
       - name: Infer Observed Hydro Reservoir Releases
         run: python build_observed_hydro_release.py
 
