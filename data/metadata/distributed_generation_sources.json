@@ -1,22 +1,22 @@
 {
   "datasets": {
     "installed_distributed_generation_trends_solar_all": {
-      "content_length": "5281",
+      "content_length": "5282",
       "description": "Installed distributed generation trends (GUEHMT), national Solar (All), all ICPs",
       "etag": "",
       "last_modified": "",
       "local_file": "data/distributed_generation/installed_dg_trends_solar_all.csv",
       "request_url": "https://www.emi.ea.govt.nz/Retail/Download/DataReport/CSV/GUEHMT?DateFrom=20130901&FuelType=solar_all&Show=CapacityAvg&_rsdr=ALL&_si=v%7C4",
-      "sha256": "600c4236d22f63e24b581d0b15235f5984ce12e4b73e8b90aff1f6e23a63bc72"
+      "sha256": "8fcecbe3a2e0971acb1942b090621a9345fb100f47136db6609982cdbf830833"
     },
     "installed_distributed_generation_trends_solar_residential": {
-      "content_length": "5168",
+      "content_length": "5170",
       "description": "Installed distributed generation trends (GUEHMT), national Solar (All), residential ICPs",
       "etag": "",
       "last_modified": "",
       "local_file": "data/distributed_generation/installed_dg_trends_solar_residential.csv",
       "request_url": "https://www.emi.ea.govt.nz/Retail/Download/DataReport/CSV/GUEHMT?DateFrom=20130901&FuelType=solar_all&Show=CapacityAvg&_rsdr=ALL&_si=v%7C4&MarketSegment=Res",
-      "sha256": "69d74225223d1f4cfa1a18eb40eb1283774a57f2c505dc60f203b722d87e576a"
+      "sha256": "5d2c2edf974bd7f8daac848fbb693eef100467589581e42958223d7cc6afd65c"
     },
     "solar_installations_by_region": {
       "content_length": "11121",
