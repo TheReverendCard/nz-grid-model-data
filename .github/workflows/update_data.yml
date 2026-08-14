@@ -90,6 +90,9 @@ jobs:
       - name: Extract Waitaki Routing Constraints
         run: python build_waitaki_routing_constraints.py
 
+      - name: Extract Waitaki Flow Series Candidates
+        run: python build_waitaki_flow_candidates.py
+
       - name: Infer Observed Hydro Reservoir Releases
         run: python build_observed_hydro_release.py
 
