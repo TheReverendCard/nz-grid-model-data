@@ -1,0 +1,356 @@
+{
+  "definition": "Observed major-reservoir storage volume converted to an energy-equivalent state using verified full-route MWh-per-Mm3 cascade values.",
+  "purpose": "Validation target and intuitive hydro-storage diagnostic. It is not a dispatchable-energy guarantee because operating constraints, spill/bypass, head variation and river routing are not applied here.",
+  "included_storage_sites": {
+    "HWE": {
+      "reservoir": "Lake Hawea",
+      "island": "SI",
+      "path": "Hawea_to_lower_Clutha",
+      "mwh_per_mm3": 255.484
+    },
+    "MAN": {
+      "reservoir": "Lake Manapouri",
+      "island": "SI",
+      "path": "Manapouri_storage_generation",
+      "mwh_per_mm3": 425.387
+    },
+    "OHA": {
+      "reservoir": "Lake Ohau",
+      "island": "SI",
+      "path": "Ohau_generation_route",
+      "mwh_per_mm3": 728.827
+    },
+    "PKI": {
+      "reservoir": "Lake Pukaki",
+      "island": "SI",
+      "path": "Pukaki_Ohau_generation_route",
+      "mwh_per_mm3": 728.827
+    },
+    "TAU": {
+      "reservoir": "Lake Te Anau",
+      "island": "SI",
+      "path": "Te_Anau_to_Manapouri_generation",
+      "mwh_per_mm3": 425.387
+    },
+    "TKA": {
+      "reservoir": "Lake Tekapo",
+      "island": "SI",
+      "path": "Tekapo_full_generation_route",
+      "mwh_per_mm3": 1150.194
+    },
+    "TPO": {
+      "reservoir": "Lake Taupo",
+      "island": "NI",
+      "path": "Taupo_to_Karapiro",
+      "mwh_per_mm3": 686.326
+    },
+    "WAN": {
+      "reservoir": "Lake Wanaka",
+      "island": "SI",
+      "path": "Wanaka_to_lower_Clutha",
+      "mwh_per_mm3": 255.484
+    },
+    "WKA": {
+      "reservoir": "Lake Waikaremoana",
+      "island": "NI",
+      "path": "Waikaremoana_main",
+      "mwh_per_mm3": 981.933
+    },
+    "WPU": {
+      "reservoir": "Lake Wakatipu",
+      "island": "SI",
+      "path": "Wakatipu_to_lower_Clutha",
+      "mwh_per_mm3": 255.484
+    }
+  },
+  "complete_daily_observations": 16437,
+  "first_complete_date": "1980-01-01",
+  "last_complete_date": "2024-12-31",
+  "historical_min": {
+    "date": "1992-06-11",
+    "energy_equivalent_gwh": 775.667
+  },
+  "historical_max": {
+    "date": "1984-12-24",
+    "energy_equivalent_gwh": 4815.196
+  },
+  "yearly_complete_summary": {
+    "1980": {
+      "days": 366,
+      "min_gwh": 2999.589,
+      "max_gwh": 4727.98,
+      "mean_gwh": 3832.578
+    },
+    "1981": {
+      "days": 365,
+      "min_gwh": 1721.194,
+      "max_gwh": 4186.299,
+      "mean_gwh": 3277.91
+    },
+    "1982": {
+      "days": 365,
+      "min_gwh": 920.114,
+      "max_gwh": 4482.745,
+      "mean_gwh": 2773.045
+    },
+    "1983": {
+      "days": 365,
+      "min_gwh": 2875.968,
+      "max_gwh": 4603.87,
+      "mean_gwh": 3670.17
+    },
+    "1984": {
+      "days": 366,
+      "min_gwh": 2052.786,
+      "max_gwh": 4815.196,
+      "mean_gwh": 3406.811
+    },
+    "1985": {
+      "days": 365,
+      "min_gwh": 1294.747,
+      "max_gwh": 4811.079,
+      "mean_gwh": 2849.868
+    },
+    "1986": {
+      "days": 365,
+      "min_gwh": 2080.516,
+      "max_gwh": 4205.285,
+      "mean_gwh": 3140.03
+    },
+    "1987": {
+      "days": 365,
+      "min_gwh": 2102.285,
+      "max_gwh": 4431.049,
+      "mean_gwh": 3268.712
+    },
+    "1988": {
+      "days": 366,
+      "min_gwh": 2111.074,
+      "max_gwh": 3968.186,
+      "mean_gwh": 2895.124
+    },
+    "1989": {
+      "days": 365,
+      "min_gwh": 973.204,
+      "max_gwh": 4001.174,
+      "mean_gwh": 2496.533
+    },
+    "1990": {
+      "days": 365,
+      "min_gwh": 1374.684,
+      "max_gwh": 3801.474,
+      "mean_gwh": 2683.662
+    },
+    "1991": {
+      "days": 365,
+      "min_gwh": 1116.826,
+      "max_gwh": 3835.416,
+      "mean_gwh": 2403.106
+    },
+    "1992": {
+      "days": 366,
+      "min_gwh": 775.667,
+      "max_gwh": 2439.253,
+      "mean_gwh": 1683.211
+    },
+    "1993": {
+      "days": 365,
+      "min_gwh": 1012.02,
+      "max_gwh": 3856.853,
+      "mean_gwh": 2463.671
+    },
+    "1994": {
+      "days": 365,
+      "min_gwh": 1737.491,
+      "max_gwh": 4019.273,
+      "mean_gwh": 3075.821
+    },
+    "1995": {
+      "days": 365,
+      "min_gwh": 2494.165,
+      "max_gwh": 4679.566,
+      "mean_gwh": 3523.384
+    },
+    "1996": {
+      "days": 366,
+      "min_gwh": 2032.148,
+      "max_gwh": 4547.822,
+      "mean_gwh": 3181.335
+    },
+    "1997": {
+      "days": 365,
+      "min_gwh": 1315.401,
+      "max_gwh": 3291.894,
+      "mean_gwh": 2397.176
+    },
+    "1998": {
+      "days": 365,
+      "min_gwh": 2698.8,
+      "max_gwh": 4141.122,
+      "mean_gwh": 3458.794
+    },
+    "1999": {
+      "days": 365,
+      "min_gwh": 1088.893,
+      "max_gwh": 3662.863,
+      "mean_gwh": 2690.866
+    },
+    "2000": {
+      "days": 366,
+      "min_gwh": 2637.007,
+      "max_gwh": 4021.721,
+      "mean_gwh": 3166.503
+    },
+    "2001": {
+      "days": 365,
+      "min_gwh": 1086.2,
+      "max_gwh": 4036.946,
+      "mean_gwh": 2228.239
+    },
+    "2002": {
+      "days": 365,
+      "min_gwh": 2265.505,
+      "max_gwh": 3855.525,
+      "mean_gwh": 2929.548
+    },
+    "2003": {
+      "days": 365,
+      "min_gwh": 1840.831,
+      "max_gwh": 3048.705,
+      "mean_gwh": 2441.427
+    },
+    "2004": {
+      "days": 366,
+      "min_gwh": 1962.52,
+      "max_gwh": 4202.08,
+      "mean_gwh": 3199.759
+    },
+    "2005": {
+      "days": 365,
+      "min_gwh": 1419.425,
+      "max_gwh": 3705.865,
+      "mean_gwh": 2514.63
+    },
+    "2006": {
+      "days": 365,
+      "min_gwh": 1728.67,
+      "max_gwh": 3477.906,
+      "mean_gwh": 2355.813
+    },
+    "2007": {
+      "days": 365,
+      "min_gwh": 1447.771,
+      "max_gwh": 3489.277,
+      "mean_gwh": 2418.905
+    },
+    "2008": {
+      "days": 366,
+      "min_gwh": 1414.03,
+      "max_gwh": 3602.974,
+      "mean_gwh": 2148.451
+    },
+    "2009": {
+      "days": 365,
+      "min_gwh": 2341.765,
+      "max_gwh": 4387.684,
+      "mean_gwh": 3245.6
+    },
+    "2010": {
+      "days": 365,
+      "min_gwh": 2327.377,
+      "max_gwh": 4374.232,
+      "mean_gwh": 3161.069
+    },
+    "2011": {
+      "days": 365,
+      "min_gwh": 1422.934,
+      "max_gwh": 4400.53,
+      "mean_gwh": 2961.347
+    },
+    "2012": {
+      "days": 366,
+      "min_gwh": 1771.974,
+      "max_gwh": 3028.75,
+      "mean_gwh": 2428.97
+    },
+    "2013": {
+      "days": 365,
+      "min_gwh": 2190.747,
+      "max_gwh": 4304.106,
+      "mean_gwh": 2918.371
+    },
+    "2014": {
+      "days": 365,
+      "min_gwh": 1727.371,
+      "max_gwh": 3827.717,
+      "mean_gwh": 2715.652
+    },
+    "2015": {
+      "days": 365,
+      "min_gwh": 1989.35,
+      "max_gwh": 3422.109,
+      "mean_gwh": 2651.665
+    },
+    "2016": {
+      "days": 366,
+      "min_gwh": 2276.085,
+      "max_gwh": 3828.573,
+      "mean_gwh": 3065.782
+    },
+    "2017": {
+      "days": 365,
+      "min_gwh": 1598.2,
+      "max_gwh": 4001.804,
+      "mean_gwh": 2610.943
+    },
+    "2018": {
+      "days": 365,
+      "min_gwh": 1611.308,
+      "max_gwh": 3876.359,
+      "mean_gwh": 2805.762
+    },
+    "2019": {
+      "days": 365,
+      "min_gwh": 1723.125,
+      "max_gwh": 4726.858,
+      "mean_gwh": 2897.095
+    },
+    "2020": {
+      "days": 366,
+      "min_gwh": 1328.647,
+      "max_gwh": 4358.97,
+      "mean_gwh": 2635.332
+    },
+    "2021": {
+      "days": 365,
+      "min_gwh": 1766.606,
+      "max_gwh": 3741.544,
+      "mean_gwh": 2599.55
+    },
+    "2022": {
+      "days": 365,
+      "min_gwh": 2187.493,
+      "max_gwh": 4023.552,
+      "mean_gwh": 3172.139
+    },
+    "2023": {
+      "days": 365,
+      "min_gwh": 1946.63,
+      "max_gwh": 4598.142,
+      "mean_gwh": 3102.859
+    },
+    "2024": {
+      "days": 366,
+      "min_gwh": 1138.111,
+      "max_gwh": 3841.928,
+      "mean_gwh": 2603.681
+    }
+  },
+  "important_limitations": [
+    "Energy-equivalent storage is not the same as assured dispatchable hydro energy.",
+    "The conversion uses constant HMD plant factors and assumes stored water follows the full generating route.",
+    "It excludes smaller run-of-river storages to avoid double counting water already represented by upstream major lakes.",
+    "Te Anau and Manapouri are both included because they are distinct stored volumes that can ultimately pass through Manapouri generation.",
+    "The eventual dispatch model must enforce daily water balances, release limits, minimum flows, spill/bypass routes and station MW constraints."
+  ]
+}
