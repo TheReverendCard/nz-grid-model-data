@@ -1,0 +1,444 @@
+{
+  "source": "New Zealand Electricity Authority EMI Azure Blob Storage",
+  "dataset": "Hydrological Modelling Dataset",
+  "purpose": "Curated raw time series for first NZ dry-year electricity model",
+  "retrieved_at_utc": "2026-08-14T04:36:12.331985+00:00",
+  "series_count": 40,
+  "selection": {
+    "storage_site_codes": [
+      "HWE",
+      "MAN",
+      "OHA",
+      "PKI",
+      "TAU",
+      "TKA",
+      "TPO",
+      "WAN",
+      "WKA",
+      "WPU"
+    ],
+    "preferred_headwater_inflow_files": [
+      "NI_TPO_Actual_LakeTaupoInfrastructure_Inflow_72790(1).csv",
+      "NI_WKA_Natural_LakeWaikaremoana_Inflow_3650(1).csv",
+      "SI_HWE_Natural_LakeHawea_Inflow_9170(1).csv",
+      "SI_MAN_Actual_LakeManapouri(WithMararoaSpillAndMinFlowRegime)_Inflow_99552(1).csv",
+      "SI_OHU_Natural_LakeOhau_Inflow_98614(3).csv",
+      "SI_PKI_Natural_LakePukaki_Inflow_98770(1).csv",
+      "SI_TAU_Natural_LakeTeAnau_Inflow_9570(1).csv",
+      "SI_TEK_Natural_LakeTekapo_Inflow_98770(2).csv"
+    ],
+    "derived_tributary_flows": "all entries in FileIndex_DerivedTributaryFlows.csv",
+    "spill_site_codes": [
+      "HWE",
+      "MAN",
+      "OHA",
+      "PKI",
+      "TAU",
+      "TKA",
+      "TPO",
+      "WKA"
+    ]
+  },
+  "series": [
+    {
+      "series_type": "storage",
+      "local_file": "data/hydro/raw/storage/NI_TPO_Storage_LakeTaupo.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_1_Storage/NI_TPO_Storage_LakeTaupo.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_1_Storage/NI_TPO_Storage_LakeTaupo.csv",
+      "source_last_modified": "Wed, 14 Jan 2026 02:33:54 GMT",
+      "source_content_length": "673777",
+      "source_etag": "0x8DE53155C716164",
+      "data_rows": 16438
+    },
+    {
+      "series_type": "storage",
+      "local_file": "data/hydro/raw/storage/NI_WKA_Storage_LakeWaikaremoana.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_1_Storage/NI_WKA_Storage_LakeWaikaremoana.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_1_Storage/NI_WKA_Storage_LakeWaikaremoana.csv",
+      "source_last_modified": "Wed, 14 Jan 2026 02:33:54 GMT",
+      "source_content_length": "663436",
+      "source_etag": "0x8DE53155C5181F1",
+      "data_rows": 16438
+    },
+    {
+      "series_type": "storage",
+      "local_file": "data/hydro/raw/storage/SI_HWE_Storage_LakeHawea.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_1_Storage/SI_HWE_Storage_LakeHawea.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_1_Storage/SI_HWE_Storage_LakeHawea.csv",
+      "source_last_modified": "Wed, 14 Jan 2026 02:33:54 GMT",
+      "source_content_length": "678402",
+      "source_etag": "0x8DE53155C83AE4E",
+      "data_rows": 16438
+    },
+    {
+      "series_type": "storage",
+      "local_file": "data/hydro/raw/storage/SI_MAN_Storage_LakeManapouri.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_1_Storage/SI_MAN_Storage_LakeManapouri.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_1_Storage/SI_MAN_Storage_LakeManapouri.csv",
+      "source_last_modified": "Wed, 14 Jan 2026 02:33:54 GMT",
+      "source_content_length": "673404",
+      "source_etag": "0x8DE53155C83AE4E",
+      "data_rows": 16438
+    },
+    {
+      "series_type": "storage",
+      "local_file": "data/hydro/raw/storage/SI_OHA_Storage_LakeOhau.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_1_Storage/SI_OHA_Storage_LakeOhau.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_1_Storage/SI_OHA_Storage_LakeOhau.csv",
+      "source_last_modified": "Wed, 14 Jan 2026 02:33:54 GMT",
+      "source_content_length": "657255",
+      "source_etag": "0x8DE53155C85D0D3",
+      "data_rows": 16438
+    },
+    {
+      "series_type": "storage",
+      "local_file": "data/hydro/raw/storage/SI_PKI_Storage_LakePukaki.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_1_Storage/SI_PKI_Storage_LakePukaki.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_1_Storage/SI_PKI_Storage_LakePukaki.csv",
+      "source_last_modified": "Wed, 14 Jan 2026 02:33:54 GMT",
+      "source_content_length": "687902",
+      "source_etag": "0x8DE53155C5EC670",
+      "data_rows": 16438
+    },
+    {
+      "series_type": "storage",
+      "local_file": "data/hydro/raw/storage/SI_TAU_Storage_LakeTeAnau.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_1_Storage/SI_TAU_Storage_LakeTeAnau.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_1_Storage/SI_TAU_Storage_LakeTeAnau.csv",
+      "source_last_modified": "Wed, 14 Jan 2026 02:33:54 GMT",
+      "source_content_length": "674238",
+      "source_etag": "0x8DE53155C6CA729",
+      "data_rows": 16438
+    },
+    {
+      "series_type": "storage",
+      "local_file": "data/hydro/raw/storage/SI_TKA_Storage_LakeTekapo.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_1_Storage/SI_TKA_Storage_LakeTekapo.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_1_Storage/SI_TKA_Storage_LakeTekapo.csv",
+      "source_last_modified": "Wed, 14 Jan 2026 02:33:54 GMT",
+      "source_content_length": "755545",
+      "source_etag": "0x8DE53155C6025CD",
+      "data_rows": 16438
+    },
+    {
+      "series_type": "storage",
+      "local_file": "data/hydro/raw/storage/SI_WAN_Storage_LakeWanaka.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_1_Storage/SI_WAN_Storage_LakeWanaka.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_1_Storage/SI_WAN_Storage_LakeWanaka.csv",
+      "source_last_modified": "Wed, 14 Jan 2026 02:33:54 GMT",
+      "source_content_length": "674027",
+      "source_etag": "0x8DE53155C4FFB81",
+      "data_rows": 16438
+    },
+    {
+      "series_type": "storage",
+      "local_file": "data/hydro/raw/storage/SI_WPU_Storage_LakeWakatipu.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_1_Storage/SI_WPU_Storage_LakeWakatipu.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_1_Storage/SI_WPU_Storage_LakeWakatipu.csv",
+      "source_last_modified": "Wed, 14 Jan 2026 02:33:54 GMT",
+      "source_content_length": "674029",
+      "source_etag": "0x8DE53155C6D1C41",
+      "data_rows": 16438
+    },
+    {
+      "series_type": "headwater_inflow",
+      "local_file": "data/hydro/raw/inflows/NI_TPO_Actual_LakeTaupoInfrastructure_Inflow_72790(1).csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/NI_TPO_Actual_LakeTaupoInfrastructure_Inflow_72790(1).csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/NI_TPO_Actual_LakeTaupoInfrastructure_Inflow_72790%281%29.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:51:24 GMT",
+      "source_content_length": "1082019",
+      "source_etag": "0x8DE180F3C4D2C6A",
+      "data_rows": 34153
+    },
+    {
+      "series_type": "headwater_inflow",
+      "local_file": "data/hydro/raw/inflows/NI_WKA_Natural_LakeWaikaremoana_Inflow_3650(1).csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/NI_WKA_Natural_LakeWaikaremoana_Inflow_3650(1).csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/NI_WKA_Natural_LakeWaikaremoana_Inflow_3650%281%29.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:51:01 GMT",
+      "source_content_length": "1043575",
+      "source_etag": "0x8DE180F2E681096",
+      "data_rows": 34153
+    },
+    {
+      "series_type": "headwater_inflow",
+      "local_file": "data/hydro/raw/inflows/SI_HWE_Natural_LakeHawea_Inflow_9170(1).csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/SI_HWE_Natural_LakeHawea_Inflow_9170(1).csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/SI_HWE_Natural_LakeHawea_Inflow_9170%281%29.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:51:06 GMT",
+      "source_content_length": "1062357",
+      "source_etag": "0x8DE180F319EA908",
+      "data_rows": 34153
+    },
+    {
+      "series_type": "headwater_inflow",
+      "local_file": "data/hydro/raw/inflows/SI_MAN_Actual_LakeManapouri(WithMararoaSpillAndMinFlowRegime)_Inflow_99552(1).csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/SI_MAN_Actual_LakeManapouri(WithMararoaSpillAndMinFlowRegime)_Inflow_99552(1).csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/SI_MAN_Actual_LakeManapouri%28WithMararoaSpillAndMinFlowRegime%29_Inflow_99552%281%29.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:52:07 GMT",
+      "source_content_length": "1071225",
+      "source_etag": "0x8DE180F55D19844",
+      "data_rows": 34153
+    },
+    {
+      "series_type": "headwater_inflow",
+      "local_file": "data/hydro/raw/inflows/SI_OHU_Natural_LakeOhau_Inflow_98614(3).csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/SI_OHU_Natural_LakeOhau_Inflow_98614(3).csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/SI_OHU_Natural_LakeOhau_Inflow_98614%283%29.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:51:49 GMT",
+      "source_content_length": "1066276",
+      "source_etag": "0x8DE180F4B23D836",
+      "data_rows": 34153
+    },
+    {
+      "series_type": "headwater_inflow",
+      "local_file": "data/hydro/raw/inflows/SI_PKI_Natural_LakePukaki_Inflow_98770(1).csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/SI_PKI_Natural_LakePukaki_Inflow_98770(1).csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/SI_PKI_Natural_LakePukaki_Inflow_98770%281%29.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:51:58 GMT",
+      "source_content_length": "1075326",
+      "source_etag": "0x8DE180F505311C1",
+      "data_rows": 34153
+    },
+    {
+      "series_type": "headwater_inflow",
+      "local_file": "data/hydro/raw/inflows/SI_TAU_Natural_LakeTeAnau_Inflow_9570(1).csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/SI_TAU_Natural_LakeTeAnau_Inflow_9570(1).csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/SI_TAU_Natural_LakeTeAnau_Inflow_9570%281%29.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:51:08 GMT",
+      "source_content_length": "1087565",
+      "source_etag": "0x8DE180F32ACBDC3",
+      "data_rows": 34153
+    },
+    {
+      "series_type": "headwater_inflow",
+      "local_file": "data/hydro/raw/inflows/SI_TEK_Natural_LakeTekapo_Inflow_98770(2).csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/SI_TEK_Natural_LakeTekapo_Inflow_98770(2).csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/SI_TEK_Natural_LakeTekapo_Inflow_98770%282%29.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:52:00 GMT",
+      "source_content_length": "1066980",
+      "source_etag": "0x8DE180F5174F9B6",
+      "data_rows": 34153
+    },
+    {
+      "series_type": "derived_tributary_flow",
+      "local_file": "data/hydro/raw/tributary_flows/NI_ARA_WaikatoAtLakeAratiatia(DerivedForSingleStage)_Tribflow.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/NI_ARA_WaikatoAtLakeAratiatia(DerivedForSingleStage)_Tribflow.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/NI_ARA_WaikatoAtLakeAratiatia%28DerivedForSingleStage%29_Tribflow.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:52:35 GMT",
+      "source_content_length": "1024649",
+      "source_etag": "0x8DE180F662955BE",
+      "data_rows": 34153
+    },
+    {
+      "series_type": "derived_tributary_flow",
+      "local_file": "data/hydro/raw/tributary_flows/NI_ARI_WaikatoAtLakeArapuni(DerivedForSingleStage)_Tribflow.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/NI_ARI_WaikatoAtLakeArapuni(DerivedForSingleStage)_Tribflow.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/NI_ARI_WaikatoAtLakeArapuni%28DerivedForSingleStage%29_Tribflow.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:52:46 GMT",
+      "source_content_length": "1025967",
+      "source_etag": "0x8DE180F6CD92C0D",
+      "data_rows": 34153
+    },
+    {
+      "series_type": "derived_tributary_flow",
+      "local_file": "data/hydro/raw/tributary_flows/NI_ATI_WaikatoAtLakeAtiamuri(DerivedForSingleStage)_Tribflow.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/NI_ATI_WaikatoAtLakeAtiamuri(DerivedForSingleStage)_Tribflow.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/NI_ATI_WaikatoAtLakeAtiamuri%28DerivedForSingleStage%29_Tribflow.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:52:38 GMT",
+      "source_content_length": "1028646",
+      "source_etag": "0x8DE180F68561ED5",
+      "data_rows": 34153
+    },
+    {
+      "series_type": "derived_tributary_flow",
+      "local_file": "data/hydro/raw/tributary_flows/NI_KPO_WaikatoAtLakeKarapiro(DerivedForSingleStage)_Tribflow.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/NI_KPO_WaikatoAtLakeKarapiro(DerivedForSingleStage)_Tribflow.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/NI_KPO_WaikatoAtLakeKarapiro%28DerivedForSingleStage%29_Tribflow.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:52:47 GMT",
+      "source_content_length": "1054525",
+      "source_etag": "0x8DE180F6DD54214",
+      "data_rows": 34153
+    },
+    {
+      "series_type": "derived_tributary_flow",
+      "local_file": "data/hydro/raw/tributary_flows/NI_MTI_WaikatoAtLakeMaraetai(DerivedForSingleStage)_Tribflow.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/NI_MTI_WaikatoAtLakeMaraetai(DerivedForSingleStage)_Tribflow.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/NI_MTI_WaikatoAtLakeMaraetai%28DerivedForSingleStage%29_Tribflow.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:52:43 GMT",
+      "source_content_length": "1051022",
+      "source_etag": "0x8DE180F6AE5E13D",
+      "data_rows": 34153
+    },
+    {
+      "series_type": "derived_tributary_flow",
+      "local_file": "data/hydro/raw/tributary_flows/NI_OHK_WaikatoAtLakeOhakuri(DerivedForSingleStage)_Tribflow.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/NI_OHK_WaikatoAtLakeOhakuri(DerivedForSingleStage)_Tribflow.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/NI_OHK_WaikatoAtLakeOhakuri%28DerivedForSingleStage%29_Tribflow.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:52:36 GMT",
+      "source_content_length": "1057523",
+      "source_etag": "0x8DE180F674BDA04",
+      "data_rows": 34153
+    },
+    {
+      "series_type": "derived_tributary_flow",
+      "local_file": "data/hydro/raw/tributary_flows/NI_WKM_WaikatoAtLakeWhakamaru(DerivedForSingleStage)_Tribflow.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/NI_WKM_WaikatoAtLakeWhakamaru(DerivedForSingleStage)_Tribflow.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/NI_WKM_WaikatoAtLakeWhakamaru%28DerivedForSingleStage%29_Tribflow.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:52:40 GMT",
+      "source_content_length": "1043090",
+      "source_etag": "0x8DE180F69AA815C",
+      "data_rows": 34153
+    },
+    {
+      "series_type": "derived_tributary_flow",
+      "local_file": "data/hydro/raw/tributary_flows/NI_WPA_WaikatoAtLakeWaipapa(DerivedForSingleStage)_Tribflow.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/NI_WPA_WaikatoAtLakeWaipapa(DerivedForSingleStage)_Tribflow.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/NI_WPA_WaikatoAtLakeWaipapa%28DerivedForSingleStage%29_Tribflow.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:52:44 GMT",
+      "source_content_length": "1026255",
+      "source_etag": "0x8DE180F6BE1F751",
+      "data_rows": 34153
+    },
+    {
+      "series_type": "derived_tributary_flow",
+      "local_file": "data/hydro/raw/tributary_flows/SI_AVI_WaitakiAtLakeAviemore(DerivedForSingleStage)_Tribflow.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/SI_AVI_WaitakiAtLakeAviemore(DerivedForSingleStage)_Tribflow.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/SI_AVI_WaitakiAtLakeAviemore%28DerivedForSingleStage%29_Tribflow.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:52:50 GMT",
+      "source_content_length": "1025615",
+      "source_etag": "0x8DE180F6F181AEE",
+      "data_rows": 34153
+    },
+    {
+      "series_type": "derived_tributary_flow",
+      "local_file": "data/hydro/raw/tributary_flows/SI_BEN_WaitakiAtLakeBenmore(DerivedForSingleStage)_Tribflow.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/SI_BEN_WaitakiAtLakeBenmore(DerivedForSingleStage)_Tribflow.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/SI_BEN_WaitakiAtLakeBenmore%28DerivedForSingleStage%29_Tribflow.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:52:53 GMT",
+      "source_content_length": "1060227",
+      "source_etag": "0x8DE180F71250489",
+      "data_rows": 34153
+    },
+    {
+      "series_type": "derived_tributary_flow",
+      "local_file": "data/hydro/raw/tributary_flows/SI_CYD_CluthaAtClyde(DerivedForSingleStage)_Tribflow.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/SI_CYD_CluthaAtClyde(DerivedForSingleStage)_Tribflow.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/SI_CYD_CluthaAtClyde%28DerivedForSingleStage%29_Tribflow.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:52:55 GMT",
+      "source_content_length": "1091482",
+      "source_etag": "0x8DE180F7251C089",
+      "data_rows": 34153
+    },
+    {
+      "series_type": "derived_tributary_flow",
+      "local_file": "data/hydro/raw/tributary_flows/SI_ROX_CluthaAtLakeRoxburgh(DerivedForSingleStage)_Tribflow.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/SI_ROX_CluthaAtLakeRoxburgh(DerivedForSingleStage)_Tribflow.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/SI_ROX_CluthaAtLakeRoxburgh%28DerivedForSingleStage%29_Tribflow.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:52:57 GMT",
+      "source_content_length": "1033185",
+      "source_etag": "0x8DE180F735B903D",
+      "data_rows": 34153
+    },
+    {
+      "series_type": "derived_tributary_flow",
+      "local_file": "data/hydro/raw/tributary_flows/SI_WTK_WaitakiAtLakeWaitaki(DerivedForSingleStage)_Tribflow.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/SI_WTK_WaitakiAtLakeWaitaki(DerivedForSingleStage)_Tribflow.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/SI_WTK_WaitakiAtLakeWaitaki%28DerivedForSingleStage%29_Tribflow.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:52:51 GMT",
+      "source_content_length": "1033342",
+      "source_etag": "0x8DE180F701B82F5",
+      "data_rows": 34153
+    },
+    {
+      "series_type": "spill_or_release",
+      "local_file": "data/hydro/raw/spill/NI_TPO_Spill_LakeTaupo.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_2_Spill/NI_TPO_Spill_LakeTaupo.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_2_Spill/NI_TPO_Spill_LakeTaupo.csv",
+      "source_last_modified": "Wed, 14 Jan 2026 02:34:24 GMT",
+      "source_content_length": "504325",
+      "source_etag": "0x8DE53156E71170C",
+      "data_rows": 16437
+    },
+    {
+      "series_type": "spill_or_release",
+      "local_file": "data/hydro/raw/spill/NI_WKA_Spill_LakeWaikaremoanaAtOnepoto.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_2_Spill/NI_WKA_Spill_LakeWaikaremoanaAtOnepoto.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_2_Spill/NI_WKA_Spill_LakeWaikaremoanaAtOnepoto.csv",
+      "source_last_modified": "Wed, 14 Jan 2026 02:34:24 GMT",
+      "source_content_length": "286745",
+      "source_etag": "0x8DE53156E557CB0",
+      "data_rows": 9557
+    },
+    {
+      "series_type": "spill_or_release",
+      "local_file": "data/hydro/raw/spill/SI_HWE_Spill_LakeHawea.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_2_Spill/SI_HWE_Spill_LakeHawea.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_2_Spill/SI_HWE_Spill_LakeHawea.csv",
+      "source_last_modified": "Wed, 14 Jan 2026 02:34:24 GMT",
+      "source_content_length": "496698",
+      "source_etag": "0x8DE53156E646EAE",
+      "data_rows": 16437
+    },
+    {
+      "series_type": "spill_or_release",
+      "local_file": "data/hydro/raw/spill/SI_MAN_Spill_LakeManapouri.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_2_Spill/SI_MAN_Spill_LakeManapouri.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_2_Spill/SI_MAN_Spill_LakeManapouri.csv",
+      "source_last_modified": "Wed, 14 Jan 2026 02:34:24 GMT",
+      "source_content_length": "495752",
+      "source_etag": "0x8DE53156E6A132B",
+      "data_rows": 16437
+    },
+    {
+      "series_type": "spill_or_release",
+      "local_file": "data/hydro/raw/spill/SI_OHA_Spill_LakeOhau.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_2_Spill/SI_OHA_Spill_LakeOhau.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_2_Spill/SI_OHA_Spill_LakeOhau.csv",
+      "source_last_modified": "Wed, 14 Jan 2026 02:34:24 GMT",
+      "source_content_length": "493221",
+      "source_etag": "0x8DE53156E46D8C6",
+      "data_rows": 16437
+    },
+    {
+      "series_type": "spill_or_release",
+      "local_file": "data/hydro/raw/spill/SI_PKI_Spill_LakePukaki.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_2_Spill/SI_PKI_Spill_LakePukaki.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_2_Spill/SI_PKI_Spill_LakePukaki.csv",
+      "source_last_modified": "Wed, 14 Jan 2026 02:34:25 GMT",
+      "source_content_length": "493939",
+      "source_etag": "0x8DE53156EBEDDC0",
+      "data_rows": 16437
+    },
+    {
+      "series_type": "spill_or_release",
+      "local_file": "data/hydro/raw/spill/SI_TAU_Spill_LakeTeAnau.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_2_Spill/SI_TAU_Spill_LakeTeAnau.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_2_Spill/SI_TAU_Spill_LakeTeAnau.csv",
+      "source_last_modified": "Wed, 14 Jan 2026 02:34:25 GMT",
+      "source_content_length": "509047",
+      "source_etag": "0x8DE53156EB8EB29",
+      "data_rows": 16437
+    },
+    {
+      "series_type": "spill_or_release",
+      "local_file": "data/hydro/raw/spill/SI_TKA_Spill_LakeGeorgeScottTekapoRiver.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_2_Spill/SI_TKA_Spill_LakeGeorgeScottTekapoRiver.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_2_Spill/SI_TKA_Spill_LakeGeorgeScottTekapoRiver.csv",
+      "source_last_modified": "Wed, 14 Jan 2026 02:34:24 GMT",
+      "source_content_length": "493476",
+      "source_etag": "0x8DE53156EACDEF9",
+      "data_rows": 16437
+    },
+    {
+      "series_type": "spill_or_release",
+      "local_file": "data/hydro/raw/spill/SI_TKA_Spill_LakeTekapoGate17.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_2_Spill/SI_TKA_Spill_LakeTekapoGate17.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_2_Spill/SI_TKA_Spill_LakeTekapoGate17.csv",
+      "source_last_modified": "Wed, 14 Jan 2026 02:34:24 GMT",
+      "source_content_length": "493297",
+      "source_etag": "0x8DE53156E410D49",
+      "data_rows": 16437
+    }
+  ]
+}
