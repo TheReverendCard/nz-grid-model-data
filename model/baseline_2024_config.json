@@ -1,0 +1,33 @@
+{
+  "model_year": 2024,
+  "resolution": "daily",
+  "accounting": {
+    "demand_series": "data/wholesale/model/reconciled_daily.csv:reconciled_offtake_mwh",
+    "total_injection_series": "data/wholesale/model/reconciled_daily.csv:reconciled_injection_mwh",
+    "mapped_generation_series": "data/wholesale/model/generation_daily.csv:generation_mwh",
+    "grid_export_diagnostic_series": "data/wholesale/model/demand_daily.csv:grid_export_mwh",
+    "generation_residual_definition": "reconciled_injection_mwh - mapped_generation_mwh",
+    "behind_meter_self_consumption_included_in_demand": false,
+    "transmission_losses_definition": "reconciled_injection_mwh - reconciled_offtake_mwh"
+  },
+  "hydro": {
+    "storage_series": "data/hydro/model/storage_daily.csv",
+    "headwater_inflow_series": "data/hydro/model/inflows_daily.csv",
+    "tributary_flow_series": "data/hydro/model/tributary_flows_daily.csv",
+    "spill_series": "data/hydro/model/spill_daily.csv",
+    "infrastructure": "data/hydro/infrastructure_and_constraints.csv"
+  },
+  "distributed_solar": {
+    "status": "pending_first_EA_DG_fetch",
+    "capacity_trend": "data/distributed_generation/installed_dg_trends_solar_all.csv",
+    "regional_snapshot": "data/distributed_generation/solar_installations_by_region.csv",
+    "gross_generation_method": "regional installed kW multiplied by observed regional solar yield proxy and rooftop performance adjustment",
+    "battery_export_default": "negligible except explicit VPP/export scenarios",
+    "self_consumption": "modelled separately from reconciled demand with uncertainty bands"
+  },
+  "future_scenarios": {
+    "distributed_solar": "regional fitted S-curves for PV-only and PV+battery adoption",
+    "utility_generation": "EA generation investment pipeline by project status and commissioning date",
+    "demand": "scenario growth applied to underlying electricity consumption, not blindly to measured grid demand"
+  }
+}
