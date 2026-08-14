@@ -90,6 +90,9 @@ jobs:
       - name: Compare Hydro Inflow and Solar Seasonality
         run: python build_hydro_solar_seasonality.py
 
+      - name: Diagnose Waitaki Solar Hydro Conservation
+        run: python diagnose_waitaki_solar_conservation.py
+
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'github-actions[bot]'
