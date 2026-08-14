@@ -78,6 +78,9 @@ jobs:
       - name: Build Hydro Model Inputs
         run: python build_hydro_model_inputs.py
 
+      - name: Diagnose Hydro Storage Water Value
+        run: python build_hydro_water_value_diagnostic.py
+
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'github-actions[bot]'
