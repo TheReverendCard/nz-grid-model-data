@@ -1,58 +1,130 @@
-import urllib.request
-import urllib.error
-import pandas as pd
-import os
+from __future__ import annotations
 
-def fetch_ea_dataset(url, filename, is_hydro=False):
-    print(f"\n--- Fetching {filename} ---")
-    
-    # Forge headers to look like a standard Firefox user clicking a link on the EA site
-    req = urllib.request.Request(
-        url, 
-        headers={
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-            'Referer': 'https://www.emi.ea.govt.nz/'
-        }
+import csv
+import json
+from datetime import datetime, timezone
+from pathlib import Path
+from urllib.parse import quote
+from xml.etree import ElementTree
+
+import requests
+
+CONTAINER = "https://emidatasets.blob.core.windows.net/publicdata"
+HMD_PREFIX = (
+    "Datasets/Environment/HydrologicalModellingDataset/"
+    "1_InfrastructureAndHydroConstraintAttributes/"
+)
+TARGET_SUFFIX = "_InfrastructureAndHydroConstraintAttributes.csv"
+
+DATA_DIR = Path("data/hydro")
+META_DIR = Path("data/metadata")
+OUTPUT_FILE = DATA_DIR / "infrastructure_and_constraints.csv"
+METADATA_FILE = META_DIR / "hmd_infrastructure_source.json"
+
+
+def list_blobs(prefix: str) -> list[dict[str, str]]:
+    """Return blobs under an EA EMI Azure prefix using the public REST endpoint."""
+    response = requests.get(
+        CONTAINER,
+        params={
+            "restype": "container",
+            "comp": "list",
+            "prefix": prefix,
+        },
+        timeout=60,
     )
-    
-    try:
-        with urllib.request.urlopen(req, timeout=30) as response:
-            content = response.read()
-            
-        print(f"HTTP Status: {response.status}")
-        print(f"Downloaded Size: {len(content)} bytes")
-        
-        if len(content) == 0:
-            print("FAILED: Still 0 bytes. The EA server is silently dropping the connection from GitHub's IP.")
-            return
+    response.raise_for_status()
 
-        # Save the raw content temporarily
-        temp_path = f"temp_{filename}"
-        with open(temp_path, 'wb') as f:
-            f.write(content)
-            
-        # Let Pandas clean up the metadata rows
-        comment_char = '#' if is_hydro else None
-        df = pd.read_csv(temp_path, comment=comment_char)
-        
-        if not df.empty:
-            df.to_csv(filename, index=False)
-            print(f"SUCCESS: Cleaned and saved {filename} ({len(df)} rows)")
-        else:
-            print(f"FAILED: Pandas parsed the file but found no data.")
-            
-        os.remove(temp_path)
-        
-    except urllib.error.HTTPError as e:
-        print(f"HTTP ERROR: {e.code} - {e.reason}. (The EA server is explicitly blocking GitHub Actions).")
-    except Exception as e:
-        print(f"ERROR: {e}")
+    root = ElementTree.fromstring(response.content)
+    blobs: list[dict[str, str]] = []
 
-# 1. Hydro Storage Data
-hydro_url = "https://www.emi.ea.govt.nz/Environment/Download/DataReport/CSV/3UN1KD?DateFrom=20200101&RegionCode=NZ"
-fetch_ea_dataset(hydro_url, "hydro_storage.csv", is_hydro=True)
+    for blob in root.findall(".//Blob"):
+        name = blob.findtext("Name")
+        if not name:
+            continue
+        blobs.append(
+            {
+                "name": name,
+                "last_modified": blob.findtext("Properties/Last-Modified") or "",
+                "content_length": blob.findtext("Properties/Content-Length") or "",
+                "etag": blob.findtext("Properties/Etag") or "",
+            }
+        )
 
-# 2. Generation Investment Pipeline
-pipeline_url = "https://www.emi.ea.govt.nz/Wholesale/Download/DataReport/CSV/ProposedGenerationFleet"
-fetch_ea_dataset(pipeline_url, "generation_pipeline.csv", is_hydro=False)
+    return blobs
+
+
+def choose_latest_infrastructure_csv(blobs: list[dict[str, str]]) -> dict[str, str]:
+    candidates = [b for b in blobs if b["name"].endswith(TARGET_SUFFIX)]
+    if not candidates:
+        names = "\n".join(b["name"] for b in blobs[:30])
+        raise RuntimeError(
+            "No HMD infrastructure CSV matched the expected filename suffix. "
+            f"First blobs returned:\n{names}"
+        )
+
+    # The files are date-prefixed YYYYMMDD, so filename order is chronological.
+    return max(candidates, key=lambda b: Path(b["name"]).name)
+
+
+def blob_url(blob_name: str) -> str:
+    # Keep path separators while safely escaping spaces and punctuation.
+    return f"{CONTAINER}/{quote(blob_name, safe='/')}"
+
+
+def download_file(url: str, output_path: Path) -> None:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    response = requests.get(url, timeout=120)
+    response.raise_for_status()
+
+    if not response.content:
+        raise RuntimeError(f"EA returned an empty file for {url}")
+
+    output_path.write_bytes(response.content)
+
+    # Basic sanity check: confirm the downloaded file really parses as CSV.
+    with output_path.open("r", encoding="utf-8-sig", newline="") as handle:
+        reader = csv.reader(handle)
+        rows = list(reader)
+
+    if len(rows) < 2:
+        raise RuntimeError(
+            f"Downloaded file {output_path} does not look like a populated CSV."
+        )
+
+    print(f"Downloaded {output_path} ({len(rows) - 1} data rows)")
+
+
+def write_metadata(blob: dict[str, str], source_url: str) -> None:
+    META_DIR.mkdir(parents=True, exist_ok=True)
+    metadata = {
+        "source": "New Zealand Electricity Authority EMI Azure Blob Storage",
+        "dataset": "Hydrological Modelling Dataset",
+        "component": "Infrastructure and Hydro Constraint Attributes",
+        "blob_name": blob["name"],
+        "source_url": source_url,
+        "source_last_modified": blob["last_modified"],
+        "source_content_length": blob["content_length"],
+        "source_etag": blob["etag"],
+        "retrieved_at_utc": datetime.now(timezone.utc).isoformat(),
+    }
+    METADATA_FILE.write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
+    print(f"Wrote metadata to {METADATA_FILE}")
+
+
+def main() -> None:
+    print("Listing EA HMD infrastructure blobs...")
+    blobs = list_blobs(HMD_PREFIX)
+    print(f"Found {len(blobs)} blobs under {HMD_PREFIX}")
+
+    selected = choose_latest_infrastructure_csv(blobs)
+    source_url = blob_url(selected["name"])
+    print(f"Selected: {selected['name']}")
+
+    download_file(source_url, OUTPUT_FILE)
+    write_metadata(selected, source_url)
+    print("EA Azure updater test completed successfully.")
+
+
+if __name__ == "__main__":
+    main()
