@@ -33,6 +33,9 @@ jobs:
       - name: Fetch EA Wholesale Baseline Data
         run: python update_wholesale.py
 
+      - name: Normalize Wholesale Baseline Data
+        run: python normalize_wholesale.py
+
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'github-actions[bot]'
