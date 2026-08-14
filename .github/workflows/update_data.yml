@@ -48,6 +48,12 @@ jobs:
       - name: Fetch EA Distributed Generation Data
         run: python update_distributed_generation.py
 
+      - name: Normalize Distributed Generation Data
+        run: python normalize_distributed_generation.py
+
+      - name: Build Calibrated 2024 Baseline
+        run: python build_baseline_2024.py
+
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'github-actions[bot]'
