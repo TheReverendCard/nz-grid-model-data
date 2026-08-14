@@ -1,0 +1,281 @@
+{
+  "source": "MBIE Electricity Demand and Generation Scenarios 2024",
+  "scenarios": [
+    "Constraint",
+    "Environmental",
+    "Growth",
+    "Innovation",
+    "Reference"
+  ],
+  "selected_years": [
+    2024,
+    2030,
+    2040,
+    2050
+  ],
+  "total_electricity_demand": {
+    "Constraint": {
+      "2024": 40.477,
+      "2030": 44.101,
+      "2040": 50.466,
+      "2050": 53.593
+    },
+    "Environmental": {
+      "2024": 41.08,
+      "2030": 50.388,
+      "2040": 63.381,
+      "2050": 68.604
+    },
+    "Growth": {
+      "2024": 40.595,
+      "2030": 48.176,
+      "2040": 62.233,
+      "2050": 71.672
+    },
+    "Innovation": {
+      "2024": 41.197,
+      "2030": 52.386,
+      "2040": 66.434,
+      "2050": 72.11
+    },
+    "Reference": {
+      "2024": 40.575,
+      "2030": 46.181,
+      "2040": 55.92,
+      "2050": 62.056
+    }
+  },
+  "electricity_demand_by_sector": {
+    "Constraint": {
+      "2024": {
+        "Commercial": 10.122,
+        "Industrial": 16.686,
+        "Residential": 13.338,
+        "Transport": 0.331
+      },
+      "2030": {
+        "Commercial": 11.764,
+        "Industrial": 18.652,
+        "Residential": 12.922,
+        "Transport": 0.763
+      },
+      "2040": {
+        "Commercial": 13.007,
+        "Industrial": 20.915,
+        "Residential": 13.548,
+        "Transport": 2.996
+      },
+      "2050": {
+        "Commercial": 12.906,
+        "Industrial": 20.081,
+        "Residential": 13.965,
+        "Transport": 6.642
+      }
+    },
+    "Environmental": {
+      "2024": {
+        "Commercial": 10.17,
+        "Industrial": 17.068,
+        "Residential": 13.471,
+        "Transport": 0.372
+      },
+      "2030": {
+        "Commercial": 13.4,
+        "Industrial": 21.948,
+        "Residential": 13.719,
+        "Transport": 1.321
+      },
+      "2040": {
+        "Commercial": 15.962,
+        "Industrial": 27.106,
+        "Residential": 15.036,
+        "Transport": 5.276
+      },
+      "2050": {
+        "Commercial": 16.546,
+        "Industrial": 26.677,
+        "Residential": 15.83,
+        "Transport": 9.551
+      }
+    },
+    "Growth": {
+      "2024": {
+        "Commercial": 10.113,
+        "Industrial": 16.638,
+        "Residential": 13.466,
+        "Transport": 0.379
+      },
+      "2030": {
+        "Commercial": 14.192,
+        "Industrial": 18.732,
+        "Residential": 13.848,
+        "Transport": 1.404
+      },
+      "2040": {
+        "Commercial": 17.303,
+        "Industrial": 23.49,
+        "Residential": 15.499,
+        "Transport": 5.942
+      },
+      "2050": {
+        "Commercial": 18.98,
+        "Industrial": 24.587,
+        "Residential": 16.762,
+        "Transport": 11.343
+      }
+    },
+    "Innovation": {
+      "2024": {
+        "Commercial": 10.2,
+        "Industrial": 17.151,
+        "Residential": 13.471,
+        "Transport": 0.375
+      },
+      "2030": {
+        "Commercial": 15.363,
+        "Industrial": 21.946,
+        "Residential": 13.719,
+        "Transport": 1.358
+      },
+      "2040": {
+        "Commercial": 18.552,
+        "Industrial": 27.319,
+        "Residential": 15.036,
+        "Transport": 5.527
+      },
+      "2050": {
+        "Commercial": 19.079,
+        "Industrial": 27.054,
+        "Residential": 15.83,
+        "Transport": 10.147
+      }
+    },
+    "Reference": {
+      "2024": {
+        "Commercial": 10.119,
+        "Industrial": 16.671,
+        "Residential": 13.432,
+        "Transport": 0.354
+      },
+      "2030": {
+        "Commercial": 12.898,
+        "Industrial": 18.777,
+        "Residential": 13.47,
+        "Transport": 1.036
+      },
+      "2040": {
+        "Commercial": 14.953,
+        "Industrial": 22.036,
+        "Residential": 14.481,
+        "Transport": 4.45
+      },
+      "2050": {
+        "Commercial": 15.705,
+        "Industrial": 22.099,
+        "Residential": 15.303,
+        "Transport": 8.949
+      }
+    }
+  },
+  "peak_demand": {
+    "Constraint": {
+      "2024": 6.744,
+      "2030": 7.407,
+      "2040": 8.552,
+      "2050": 9.086
+    },
+    "Environmental": {
+      "2024": 6.858,
+      "2030": 8.465,
+      "2040": 10.553,
+      "2050": 11.156
+    },
+    "Growth": {
+      "2024": 6.767,
+      "2030": 8.175,
+      "2040": 10.768,
+      "2050": 12.486
+    },
+    "Innovation": {
+      "2024": 6.879,
+      "2030": 8.702,
+      "2040": 10.673,
+      "2050": 11.036
+    },
+    "Reference": {
+      "2024": 6.763,
+      "2030": 7.8,
+      "2040": 9.579,
+      "2050": 10.677
+    }
+  },
+  "datacentre_load_capacity_mw": {
+    "Constraint": {
+      "2024": 0.394,
+      "2030": 0.892,
+      "2040": 0.892,
+      "2050": 0.892
+    },
+    "Environmental": {
+      "2024": 0.394,
+      "2030": 1.838,
+      "2040": 1.838,
+      "2050": 1.838
+    },
+    "Growth": {
+      "2024": 0.394,
+      "2030": 3.022,
+      "2040": 3.022,
+      "2050": 3.022
+    },
+    "Innovation": {
+      "2024": 0.394,
+      "2030": 3.811,
+      "2040": 4.6,
+      "2050": 4.6
+    },
+    "Reference": {
+      "2024": 0.394,
+      "2030": 1.838,
+      "2040": 1.838,
+      "2050": 1.838
+    }
+  },
+  "ev_share_of_vkt": {
+    "Constraint": {
+      "2024": 0.019,
+      "2030": 0.053,
+      "2040": 0.253,
+      "2050": 0.608
+    },
+    "Environmental": {
+      "2024": 0.022,
+      "2030": 0.095,
+      "2040": 0.418,
+      "2050": 0.759
+    },
+    "Growth": {
+      "2024": 0.022,
+      "2030": 0.096,
+      "2040": 0.421,
+      "2050": 0.762
+    },
+    "Innovation": {
+      "2024": 0.022,
+      "2030": 0.095,
+      "2040": 0.421,
+      "2050": 0.764
+    },
+    "Reference": {
+      "2024": 0.02,
+      "2030": 0.072,
+      "2040": 0.344,
+      "2050": 0.699
+    }
+  },
+  "notes": {
+    "use": "Use EDGS total electricity demand as the main future-demand trajectory, with sector and assumption sheets retained for diagnostics and sensitivity cases.",
+    "thermal": "Thermal generation is treated elsewhere as an available but potentially high-cost security backstop rather than assumed unavailable because of gas scarcity.",
+    "btm": "Our reconciled-demand baseline separately adds estimated behind-meter retained residential PV so future demand should be aligned to underlying consumption definitions before replay."
+  }
+}
