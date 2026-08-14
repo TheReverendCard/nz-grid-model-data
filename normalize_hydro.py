@@ -9,7 +9,9 @@ INDEX_DIR = Path("data/hydro/indexes")
 MODEL_DIR = Path("data/hydro/model")
 
 STORAGE_OUTPUT = MODEL_DIR / "storage_daily.csv"
-FLOWS_OUTPUT = MODEL_DIR / "flows_daily.csv"
+INFLOWS_OUTPUT = MODEL_DIR / "inflows_daily.csv"
+TRIBUTARY_OUTPUT = MODEL_DIR / "tributary_flows_daily.csv"
+SPILL_OUTPUT = MODEL_DIR / "spill_daily.csv"
 
 MM3_PER_DAY_PER_CUMECS = 86400 / 1_000_000  # 0.0864 Mm3/day per m3/s
 
@@ -99,7 +101,10 @@ def normalize_flow_folder(
                     "site_code": meta.get("SiteCode", ""),
                     "site": meta.get("Site", meta.get("Description", "")),
                     "island_code": meta.get("IslandCode", ""),
-                    "flow_type": meta.get("FlowType", "Derived tributary flow" if series_type == "tributary_flow" else ""),
+                    "flow_type": meta.get(
+                        "FlowType",
+                        "Derived tributary flow" if series_type == "tributary_flow" else "",
+                    ),
                     "flow_m3s": flow,
                     "volume_mm3_day": flow * MM3_PER_DAY_PER_CUMECS,
                     "quality_code": raw.get("QualityCode", ""),
@@ -107,6 +112,13 @@ def normalize_flow_folder(
                 }
             )
 
+    rows.sort(
+        key=lambda row: (
+            str(row["date"]),
+            str(row["site_code"]),
+            str(row["source_file"]),
+        )
+    )
     return rows
 
 
@@ -140,6 +152,13 @@ def normalize_spill() -> list[dict[str, object]]:
                 }
             )
 
+    rows.sort(
+        key=lambda row: (
+            str(row["date"]),
+            str(row["site_code"]),
+            str(row["source_file"]),
+        )
+    )
     return rows
 
 
@@ -149,8 +168,7 @@ def check_unique(rows: list[dict[str, object]], keys: tuple[str, ...], label: st
         counts[tuple(row[key] for key in keys)] += 1
     duplicates = [key for key, count in counts.items() if count > 1]
     if duplicates:
-        example = duplicates[:5]
-        raise RuntimeError(f"Duplicate {label} rows detected for {example}")
+        raise RuntimeError(f"Duplicate {label} rows detected for {duplicates[:5]}")
 
 
 def main() -> None:
@@ -158,13 +176,17 @@ def main() -> None:
 
     flow_lookup = build_lookup(INDEX_DIR / "FileIndex_Flows.csv")
     tributary_lookup = build_lookup(INDEX_DIR / "FileIndex_DerivedTributaryFlows.csv")
-    flow_rows = normalize_flow_folder("inflows", "inflow", flow_lookup)
-    flow_rows += normalize_flow_folder("tributary_flows", "tributary_flow", tributary_lookup)
-    flow_rows += normalize_spill()
-    flow_rows.sort(key=lambda row: (str(row["date"]), str(row["series_type"]), str(row["site_code"]), str(row["source_file"])))
+
+    inflow_rows = normalize_flow_folder("inflows", "inflow", flow_lookup)
+    tributary_rows = normalize_flow_folder(
+        "tributary_flows", "tributary_flow", tributary_lookup
+    )
+    spill_rows = normalize_spill()
 
     check_unique(storage_rows, ("date", "site_code"), "storage")
-    check_unique(flow_rows, ("date", "series_type", "source_file"), "flow")
+    check_unique(inflow_rows, ("date", "source_file"), "inflow")
+    check_unique(tributary_rows, ("date", "source_file"), "tributary flow")
+    check_unique(spill_rows, ("date", "source_file"), "spill")
 
     write_rows(
         STORAGE_OUTPUT,
@@ -183,23 +205,30 @@ def main() -> None:
         ],
         storage_rows,
     )
-    write_rows(
-        FLOWS_OUTPUT,
-        [
-            "date",
-            "series_type",
-            "plant_group",
-            "site_code",
-            "site",
-            "island_code",
-            "flow_type",
-            "flow_m3s",
-            "volume_mm3_day",
-            "quality_code",
-            "source_file",
-        ],
-        flow_rows,
-    )
+
+    flow_fields = [
+        "date",
+        "series_type",
+        "plant_group",
+        "site_code",
+        "site",
+        "island_code",
+        "flow_type",
+        "flow_m3s",
+        "volume_mm3_day",
+        "quality_code",
+        "source_file",
+    ]
+
+    write_rows(INFLOWS_OUTPUT, flow_fields, inflow_rows)
+    write_rows(TRIBUTARY_OUTPUT, flow_fields, tributary_rows)
+    write_rows(SPILL_OUTPUT, flow_fields, spill_rows)
+
+    # Remove the former combined output if it exists from an older local run.
+    old_combined = MODEL_DIR / "flows_daily.csv"
+    if old_combined.exists():
+        old_combined.unlink()
+        print(f"Removed obsolete {old_combined}")
 
     print("Hydro normalization completed successfully.")
 
