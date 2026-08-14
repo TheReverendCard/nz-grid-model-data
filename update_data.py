@@ -16,10 +16,12 @@ INFRA_PREFIX = HMD_ROOT + "1_InfrastructureAndHydroConstraintAttributes/"
 TARGET_SUFFIX = "_InfrastructureAndHydroConstraintAttributes.csv"
 
 DATA_DIR = Path("data/hydro")
+INDEX_DIR = DATA_DIR / "indexes"
 META_DIR = Path("data/metadata")
 OUTPUT_FILE = DATA_DIR / "infrastructure_and_constraints.csv"
 METADATA_FILE = META_DIR / "hmd_infrastructure_source.json"
 MANIFEST_FILE = META_DIR / "hmd_manifest.json"
+INDEX_METADATA_FILE = META_DIR / "hmd_index_sources.json"
 
 
 def list_blobs(prefix: str) -> list[dict[str, str]]:
@@ -71,7 +73,7 @@ def blob_url(blob_name: str) -> str:
     return f"{CONTAINER}/{quote(blob_name, safe='/')}"
 
 
-def download_file(url: str, output_path: Path) -> None:
+def download_file(url: str, output_path: Path) -> int:
     output_path.parent.mkdir(parents=True, exist_ok=True)
     response = requests.get(url, timeout=120)
     response.raise_for_status()
@@ -91,6 +93,7 @@ def download_file(url: str, output_path: Path) -> None:
         )
 
     print(f"Downloaded {output_path} ({row_count - 1} data rows)")
+    return row_count - 1
 
 
 def write_infrastructure_metadata(blob: dict[str, str], source_url: str) -> None:
@@ -134,11 +137,69 @@ def write_hmd_manifest(blobs: list[dict[str, str]]) -> None:
     print(f"Wrote HMD manifest with {len(grouped)} components to {MANIFEST_FILE}")
 
 
+def fetch_file_indexes(blobs: list[dict[str, str]]) -> None:
+    """Download all small HMD FileIndex CSVs discovered in the public container."""
+    indexes = [
+        blob
+        for blob in blobs
+        if Path(blob["name"]).name.startswith("FileIndex")
+        and blob["name"].lower().endswith(".csv")
+    ]
+
+    if not indexes:
+        raise RuntimeError("No HMD FileIndex CSV files were discovered.")
+
+    INDEX_DIR.mkdir(parents=True, exist_ok=True)
+    source_records: list[dict[str, str | int]] = []
+
+    # Include the parent folder in the local filename if two indexes share a basename.
+    basename_counts: dict[str, int] = defaultdict(int)
+    for blob in indexes:
+        basename_counts[Path(blob["name"]).name] += 1
+
+    for blob in sorted(indexes, key=lambda item: item["name"]):
+        source_name = blob["name"]
+        basename = Path(source_name).name
+        if basename_counts[basename] > 1:
+            parent = Path(source_name).parent.name
+            local_name = f"{parent}_{basename}"
+        else:
+            local_name = basename
+
+        source_url = blob_url(source_name)
+        output_path = INDEX_DIR / local_name
+        data_rows = download_file(source_url, output_path)
+        source_records.append(
+            {
+                "local_file": str(output_path),
+                "blob_name": source_name,
+                "source_url": source_url,
+                "source_last_modified": blob["last_modified"],
+                "source_content_length": blob["content_length"],
+                "source_etag": blob["etag"],
+                "data_rows": data_rows,
+            }
+        )
+
+    index_metadata = {
+        "source": "New Zealand Electricity Authority EMI Azure Blob Storage",
+        "dataset": "Hydrological Modelling Dataset",
+        "retrieved_at_utc": datetime.now(timezone.utc).isoformat(),
+        "index_count": len(source_records),
+        "indexes": source_records,
+    }
+    INDEX_METADATA_FILE.write_text(
+        json.dumps(index_metadata, indent=2) + "\n", encoding="utf-8"
+    )
+    print(f"Downloaded {len(source_records)} HMD file indexes")
+
+
 def main() -> None:
     print("Discovering EA HMD dataset layout...")
     all_hmd_blobs = list_blobs(HMD_ROOT)
     print(f"Found {len(all_hmd_blobs)} blobs under {HMD_ROOT}")
     write_hmd_manifest(all_hmd_blobs)
+    fetch_file_indexes(all_hmd_blobs)
 
     infrastructure_blobs = [
         blob for blob in all_hmd_blobs if blob["name"].startswith(INFRA_PREFIX)
