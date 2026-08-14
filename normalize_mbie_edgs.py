@@ -77,12 +77,22 @@ def write_csv(name: str, rows: list[dict[str, object]]) -> None:
     print(f"Wrote {path} ({len(rows)} rows)")
 
 
-def projected_summary(rows: list[dict[str, object]], years=(2024, 2030, 2040, 2050)) -> dict[str, dict[str, float]]:
+def projected_summary(
+    rows: list[dict[str, object]],
+    years=(2024, 2030, 2040, 2050),
+    *,
+    variable: str | None = None,
+    unit: str | None = None,
+) -> dict[str, dict[str, float]]:
     out: dict[str, dict[str, float]] = {}
     for scenario in SCENARIOS:
         year_map: dict[str, float] = {}
         for row in rows:
             if str(row.get("Scenario")) != scenario:
+                continue
+            if variable is not None and str(row.get("Variable")) != variable:
+                continue
+            if unit is not None and str(row.get("Unit")) != unit:
                 continue
             try:
                 year = int(row["TimePeriod"])
@@ -136,12 +146,18 @@ def main() -> None:
         "total_electricity_demand": projected_summary(normalized["total_electricity_demand"]),
         "electricity_demand_by_sector": sector_summary(normalized["electricity_demand_by_sector"]),
         "peak_demand": projected_summary(normalized["peak_demand"]),
-        "datacentre_load_capacity_mw": projected_summary(normalized["datacentres"]),
+        "datacentre_load_capacity_mw": projected_summary(
+            normalized["datacentres"], variable="Load capacity", unit="MW"
+        ),
+        "datacentre_electricity_consumption_twh": projected_summary(
+            normalized["datacentres"], variable="Electricity consumption", unit="TWh"
+        ),
         "ev_share_of_vkt": projected_summary(normalized["ev_share_vkt"]),
         "notes": {
             "use": "Use EDGS total electricity demand as the main future-demand trajectory, with sector and assumption sheets retained for diagnostics and sensitivity cases.",
             "thermal": "Thermal generation is treated elsewhere as an available but potentially high-cost security backstop rather than assumed unavailable because of gas scarcity.",
             "btm": "Our reconciled-demand baseline separately adds estimated behind-meter retained residential PV so future demand should be aligned to underlying consumption definitions before replay.",
+            "datacentres": "The EDGS Datacentres sheet contains both load capacity (MW) and annual electricity consumption (TWh); these are retained as separate summary fields.",
         },
     }
     MODEL_DIR.mkdir(parents=True, exist_ok=True)
