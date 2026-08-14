@@ -39,6 +39,9 @@ jobs:
       - name: Aggregate Reconciled Demand and Injection
         run: python update_reconciliation.py
 
+      - name: Diagnose Generation POC Coverage
+        run: python diagnose_generation_poc.py
+
       - name: Validate Wholesale Baseline
         run: python validate_baseline.py
 
