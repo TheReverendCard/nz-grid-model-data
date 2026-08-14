@@ -51,6 +51,9 @@ jobs:
       - name: Normalize Distributed Generation Data
         run: python normalize_distributed_generation.py
 
+      - name: Diagnose Solar Generation Yield Candidates
+        run: python diagnose_solar_yield.py
+
       - name: Build Calibrated 2024 Baseline
         run: python build_baseline_2024.py
 
