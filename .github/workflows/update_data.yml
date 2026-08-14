@@ -22,7 +22,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install Dependencies
-        run: pip install requests
+        run: pip install requests openpyxl
 
       - name: Fetch EA HMD Data
         run: python update_data.py
@@ -60,11 +60,17 @@ jobs:
       - name: Build Calibrated 2024 Baseline
         run: python build_baseline_2024.py
 
+      - name: Fetch MBIE EDGS 2024 Workbooks
+        run: python update_mbie_edgs.py
+
+      - name: Inspect MBIE EDGS Workbook Structure
+        run: python inspect_mbie_edgs.py
+
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add data/
           git diff --cached --quiet && echo "No data changes to commit" && exit 0
-          git commit -m "Automated EA data update"
+          git commit -m "Automated EA and MBIE data update"
           git push
