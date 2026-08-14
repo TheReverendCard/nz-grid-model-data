@@ -1,0 +1,82 @@
+{
+  "status": "upper_bound_diagnostic_not_dispatch_model",
+  "purpose": "Quantify the maximum plausible 2024 Waitaki hydro-storage conservation from incremental solar before building the full scheme dispatcher.",
+  "method": {
+    "weather_and_system": "Observed 2024 grid demand, Waitaki generation, thermal generation and upper-Waitaki storage trajectory.",
+    "incremental_solar_shape": "Observed NZ utility-solar monthly seasonality, scaled to exact annual scenario energy.",
+    "priority": "Incremental solar displaces observed Waitaki hydro first; retained hydro is carried as additional stored-energy equivalent subject to an empirical upper-storage ceiling. Remaining solar then displaces observed thermal generation, then is curtailed.",
+    "upper_waitaki_storage_sites": [
+      "TKA",
+      "PKI",
+      "OHA"
+    ],
+    "waitaki_generation_sites": [
+      "AVI",
+      "BEN",
+      "OHA",
+      "OHB",
+      "OHC",
+      "TKA",
+      "TKB",
+      "WTK"
+    ],
+    "winter_entry_date": "2024-05-01",
+    "empirical_storage_floor_gwh": 211.649,
+    "empirical_storage_ceiling_gwh": 2947.316
+  },
+  "scenarios": {
+    "0": {
+      "incremental_solar_gwh": 0,
+      "waitaki_hydro_generation_avoided_and_retained_gwh": 0.0,
+      "winter_entry_storage_increase_gwh": 0.0,
+      "maximum_storage_increase_gwh": 0.0,
+      "thermal_generation_displaced_gwh": 0.0,
+      "storage_limited_hydro_displacement_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0
+    },
+    "500": {
+      "incremental_solar_gwh": 500,
+      "waitaki_hydro_generation_avoided_and_retained_gwh": 500.0,
+      "winter_entry_storage_increase_gwh": 185.201,
+      "maximum_storage_increase_gwh": 500.0,
+      "thermal_generation_displaced_gwh": 0.0,
+      "storage_limited_hydro_displacement_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0
+    },
+    "1000": {
+      "incremental_solar_gwh": 1000,
+      "waitaki_hydro_generation_avoided_and_retained_gwh": 882.441,
+      "winter_entry_storage_increase_gwh": 370.401,
+      "maximum_storage_increase_gwh": 882.441,
+      "thermal_generation_displaced_gwh": 83.815,
+      "storage_limited_hydro_displacement_gwh": 117.559,
+      "incremental_solar_curtailed_gwh": 33.744
+    },
+    "1500": {
+      "incremental_solar_gwh": 1500,
+      "waitaki_hydro_generation_avoided_and_retained_gwh": 1203.076,
+      "winter_entry_storage_increase_gwh": 555.602,
+      "maximum_storage_increase_gwh": 1203.076,
+      "thermal_generation_displaced_gwh": 160.091,
+      "storage_limited_hydro_displacement_gwh": 296.924,
+      "incremental_solar_curtailed_gwh": 136.833
+    },
+    "2500": {
+      "incremental_solar_gwh": 2500,
+      "waitaki_hydro_generation_avoided_and_retained_gwh": 1755.895,
+      "winter_entry_storage_increase_gwh": 926.004,
+      "maximum_storage_increase_gwh": 1755.895,
+      "thermal_generation_displaced_gwh": 364.771,
+      "storage_limited_hydro_displacement_gwh": 744.105,
+      "incremental_solar_curtailed_gwh": 379.334
+    }
+  },
+  "important_limitations": [
+    "This is deliberately an upper-bound conservation diagnostic, not an operational dispatch forecast.",
+    "It assumes operators can choose to displace Waitaki hydro before thermal generation when incremental solar arrives.",
+    "It carries conserved hydro forward without re-optimising later releases; a real dispatcher may use some of that water before winter or for peaks.",
+    "The storage ceiling is the maximum observed combined Tekapo/Pukaki/Ohau energy-equivalent storage in the downloaded historical series, not a legal or engineering maximum.",
+    "The calculation works in energy-equivalent storage and therefore does not yet enforce individual canal, station, spill, minimum-flow or travel-time constraints.",
+    "Its value is as a ceiling and sanity check: the later scheme-based dispatcher should generally preserve no more hydro than this diagnostic for the same solar scenario."
+  ]
+}
