@@ -7,6 +7,7 @@ from pathlib import Path
 
 YEAR = 2024
 BASELINE_SUMMARY = Path("data/wholesale/model/baseline_summary.json")
+DG_SUMMARY = Path("data/distributed_generation/model/distributed_solar_summary.json")
 RECONCILED_DAILY = Path("data/wholesale/model/reconciled_daily.csv")
 GENERATION_DAILY = Path("data/wholesale/model/generation_daily.csv")
 OUTPUT = Path("data/model/baseline_2024.json")
@@ -42,6 +43,8 @@ def read_generation_2024() -> tuple[dict[str, float], dict[str, float]]:
 
 def main() -> None:
     summary = json.loads(BASELINE_SUMMARY.read_text(encoding="utf-8"))["years"][str(YEAR)]
+    dg_summary = json.loads(DG_SUMMARY.read_text(encoding="utf-8"))
+    dg_2024 = dg_summary["historical"]["2024_year_end"]
     reconciled = read_reconciled_2024()
     generation_daily, generation_by_fuel = read_generation_2024()
 
@@ -73,28 +76,25 @@ def main() -> None:
             "mapped_generation_mwh": "EA Generation_MD mapped plant generation",
             "unmapped_generation_residual_mwh": "reconciled injection minus Generation_MD mapped generation",
             "transmission_and_reconciliation_difference_mwh": "reconciled injection minus reconciled offtake",
-            "underlying_consumption_mwh": "not yet calculated; will equal measured grid demand plus modelled behind-meter self-consumption"
+            "underlying_consumption_mwh": "measured grid demand plus modelled behind-meter self-consumption",
         },
         "annual": {
             "reconciled_injection_mwh": summary["reconciled_injection_mwh"],
             "measured_grid_demand_mwh": summary["reconciled_offtake_mwh"],
             "mapped_generation_mwh": summary["generation_md_mwh"],
-            "unmapped_generation_residual_mwh": round(
-                summary["reconciled_injection_mwh"] - summary["generation_md_mwh"], 6
-            ),
-            "transmission_and_reconciliation_difference_mwh": round(
-                summary["reconciled_injection_mwh"] - summary["reconciled_offtake_mwh"], 6
-            ),
-            "mapped_generation_share_of_reconciled_injection_pct": round(
-                summary["generation_md_mwh"] / summary["reconciled_injection_mwh"] * 100, 4
-            ),
+            "unmapped_generation_residual_mwh": round(summary["reconciled_injection_mwh"] - summary["generation_md_mwh"], 6),
+            "transmission_and_reconciliation_difference_mwh": round(summary["reconciled_injection_mwh"] - summary["reconciled_offtake_mwh"], 6),
+            "mapped_generation_share_of_reconciled_injection_pct": round(summary["generation_md_mwh"] / summary["reconciled_injection_mwh"] * 100, 4),
             "behind_meter_solar_self_consumption_mwh": None,
-            "underlying_consumption_mwh": None
+            "underlying_consumption_mwh": None,
         },
         "mapped_generation_by_fuel_mwh": generation_by_fuel,
         "distributed_solar": {
-            "status": "awaiting EA distributed-generation fetch and regional-yield calibration",
-            "battery_export_assumption": "zero by default except explicit VPP/export scenarios"
+            "year_end_2024_residential_solar": dg_2024["residential_solar"],
+            "year_end_2024_all_solar": dg_2024["all_solar"],
+            "gross_generation_status": "awaiting regional observed-yield calibration",
+            "self_consumption_status": "awaiting PV-only versus PV+battery split and load assumptions",
+            "battery_export_assumption": "zero by default except explicit VPP/export scenarios",
         },
         "daily": daily_rows,
     }
