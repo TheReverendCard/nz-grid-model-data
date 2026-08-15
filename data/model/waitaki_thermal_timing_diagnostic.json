@@ -1,0 +1,40 @@
+{
+  "status": "waitaki_revealed_monthly_thermal_timing_diagnostic",
+  "purpose": "Test whether getting the seasonal timing of 2024 thermal availability right is sufficient for the simplified Waitaki hydrology to reproduce the observed storage trajectory.",
+  "validation_only": true,
+  "thermal_timing_constraint": "Each fuel's observed 2024 monthly electrical generation total is imposed exactly; daily timing within the month remains optimized.",
+  "modeled_waitaki_hydro_gwh": 7559.942,
+  "observed_waitaki_hydro_gwh": 7559.942,
+  "modeled_thermal_gwh": {
+    "Gas": 4148.114,
+    "Coal": 1876.147,
+    "Diesel": 19.053
+  },
+  "shortage_gwh": 0.0,
+  "winter_entry_storage_mm3": {
+    "TKA": 712.878,
+    "PKI": 991.108,
+    "OHA": 5.357
+  },
+  "winter_entry_difference_vs_observed_mm3": {
+    "TKA": 243.615,
+    "PKI": -947.175,
+    "OHA": -16.004
+  },
+  "year_end_storage_mm3": {
+    "TKA": 384.428,
+    "PKI": 1673.904,
+    "OHA": 23.184
+  },
+  "year_end_difference_vs_observed_mm3": {
+    "TKA": -91.27,
+    "PKI": -771.036,
+    "OHA": -2.045
+  },
+  "storage_mae_mm3": {
+    "TKA": 159.729,
+    "PKI": 643.349,
+    "OHA": 35.091
+  },
+  "interpretation_rule": "If storage tracking remains poor even with revealed monthly thermal timing, the dominant remaining error is in hydro source allocation/routing/storage physics rather than thermal seasonal timing."
+}
