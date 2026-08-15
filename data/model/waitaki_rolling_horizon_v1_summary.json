@@ -1,0 +1,57 @@
+{
+  "status": "waitaki_rolling_horizon_v1_validation",
+  "year": 2024,
+  "purpose": "Test a receding-horizon water-value dispatcher before using it for future solar counterfactuals.",
+  "method": {
+    "horizon_days": 60,
+    "forecast_information": "Perfect knowledge of historical inflows and dispatchable requirement only within the rolling horizon.",
+    "terminal_storage_target": "Historical day-of-year median storage excluding the 2024 validation year.",
+    "terminal_target_type": "Soft target; shortfall is allowed at a penalty rather than enforced as a hard minimum.",
+    "terminal_water_value_factor": 1.0,
+    "thermal_cost_units": "1 objective unit per MWh thermal",
+    "terminal_shortfall_cost": "Source downstream MWh-per-Mm3 multiplied by terminal_water_value_factor per missing Mm3.",
+    "daily_storage_guard": "None. Storage decisions are made by the rolling LP subject to reservoir floors/ceilings and route capacities."
+  },
+  "observed_waitaki_generation_gwh": 7559.942,
+  "modeled_waitaki_generation_gwh": 8583.83,
+  "waitaki_generation_relative_error": 0.135436,
+  "observed_thermal_generation_gwh": 6043.314,
+  "modeled_thermal_backstop_gwh": 5019.426,
+  "forced_or_optimized_spill_mm3": 0.0,
+  "winter_entry_storage_mm3": {
+    "TKA": 46.412,
+    "PKI": 194.731,
+    "OHA": 67.168
+  },
+  "winter_entry_storage_difference_vs_observed_mm3": {
+    "TKA": -422.851,
+    "PKI": -1743.552,
+    "OHA": 45.807
+  },
+  "year_end_storage_mm3": {
+    "TKA": 289.707,
+    "PKI": 678.484,
+    "OHA": 23.02
+  },
+  "year_end_storage_difference_vs_observed_mm3": {
+    "TKA": -185.991,
+    "PKI": -1766.456,
+    "OHA": -2.209
+  },
+  "storage_mae_vs_observed_mm3": {
+    "TKA": 264.195,
+    "PKI": 979.144,
+    "OHA": 51.498
+  },
+  "source_release_mm3": {
+    "TKA": 2541.184,
+    "PKI": 5169.782,
+    "OHA": 2597.459
+  },
+  "important_limitations": [
+    "This is still a simplified three-source upper-Waitaki routing model; Ruataniwha, Benmore and Aviemore are not independent storage decision nodes.",
+    "The LP sees perfect inflow and load information inside each rolling horizon, so it is an optimistic operational benchmark rather than a reconstruction of operator behaviour.",
+    "The terminal reserve target is historical climatology, not a calibrated market water-value curve.",
+    "Travel time, intra-day dispatch and lower-catchment tributary additions are still omitted."
+  ]
+}
