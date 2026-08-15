@@ -1,0 +1,368 @@
+{
+  "status": "first_source_route_waitaki_water_balance_dispatcher",
+  "year": 2024,
+  "purpose": "Replace generic Waitaki energy-bucket conservation with an explicit source-reservoir and common-canal water balance for Tekapo, Pukaki and Ohau.",
+  "validation_reference": {
+    "observed_waitaki_generation_gwh": 7559.942,
+    "observed_thermal_generation_gwh": 6043.314,
+    "dispatchable_requirement_definition": "Observed 2024 Waitaki hydro plus observed coal/gas/diesel generation, with the rest of the grid held fixed."
+  },
+  "routing": {
+    "source_energy_mwh_per_mm3": {
+      "TKA": 1150.194,
+      "PKI": 728.827,
+      "OHA": 728.827
+    },
+    "tka_source_cap_m3s": 116.262,
+    "pki_source_canal_cap_m3s": 560.0,
+    "common_route_cap_m3s": 508.8,
+    "station_hydraulic_caps_m3s": {
+      "TKA": 116.262,
+      "TKB": 119.8736,
+      "OHA": 527.472,
+      "OHB": 508.8,
+      "OHC": 508.8,
+      "BEN": 660.0,
+      "AVI": 709.5,
+      "WTK": 647.325
+    }
+  },
+  "dispatch_policy": {
+    "seasonal_guard": "Normal releases are limited to water above each source lake's historical day-of-year 25th-percentile storage curve.",
+    "source_selection": "Among available sources, release priority increases with normalized surplus above the seasonal guard and downstream MWh per Mm3.",
+    "overflow": "Water above an empirical storage ceiling is routed through generation first if load and hydraulic capacity permit; remaining overflow is spill.",
+    "thermal": "Unlimited thermal is an expensive backstop proxy and fills the remaining dispatchable requirement."
+  },
+  "scenarios": {
+    "0": {
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7763.142,
+      "modeled_thermal_backstop_gwh": 5840.115,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 509.834,
+        "PKI": 1670.666,
+        "OHA": 20.914
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 40.571,
+        "PKI": -267.617,
+        "OHA": -0.447
+      },
+      "year_end_storage_mm3": {
+        "TKA": 469.205,
+        "PKI": 1522.804,
+        "OHA": 21.467
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": -6.493,
+        "PKI": -922.136,
+        "OHA": -3.762
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 72.526,
+        "PKI": 293.522,
+        "OHA": 6.869
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 937.146,
+        "OHA": 19.21
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 546.259,
+        "PKI": 1954.683,
+        "OHA": 86.615
+      },
+      "source_release_mm3": {
+        "TKA": 2361.686,
+        "PKI": 4325.462,
+        "OHA": 2599.012
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "change_vs_modeled_zero_solar": {
+        "waitaki_hydro_gwh": 0.0,
+        "thermal_backstop_gwh": 0.0,
+        "winter_entry_storage_mm3": {
+          "TKA": 0.0,
+          "PKI": 0.0,
+          "OHA": 0.0
+        },
+        "forced_spill_mm3": 0.0
+      }
+    },
+    "500": {
+      "incremental_solar_gwh": 500.0,
+      "modeled_waitaki_hydro_gwh": 7553.586,
+      "modeled_thermal_backstop_gwh": 5549.67,
+      "incremental_solar_used_gwh": 500.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 509.834,
+        "PKI": 1677.718,
+        "OHA": 20.914
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 40.571,
+        "PKI": -260.565,
+        "OHA": -0.447
+      },
+      "year_end_storage_mm3": {
+        "TKA": 471.591,
+        "PKI": 1762.197,
+        "OHA": 65.832
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": -4.107,
+        "PKI": -682.743,
+        "OHA": 40.603
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 71.685,
+        "PKI": 257.131,
+        "OHA": 10.467
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1019.59,
+        "OHA": 19.21
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 546.259,
+        "PKI": 1954.683,
+        "OHA": 103.34
+      },
+      "source_release_mm3": {
+        "TKA": 2359.3,
+        "PKI": 4086.069,
+        "OHA": 2554.648
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "change_vs_modeled_zero_solar": {
+        "waitaki_hydro_gwh": -209.556,
+        "thermal_backstop_gwh": -290.445,
+        "winter_entry_storage_mm3": {
+          "TKA": 0.0,
+          "PKI": 7.052,
+          "OHA": 0.0
+        },
+        "forced_spill_mm3": 0.0
+      }
+    },
+    "1000": {
+      "incremental_solar_gwh": 1000.0,
+      "modeled_waitaki_hydro_gwh": 7342.254,
+      "modeled_thermal_backstop_gwh": 5261.002,
+      "incremental_solar_used_gwh": 1000.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 509.834,
+        "PKI": 1677.718,
+        "OHA": 20.914
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 40.571,
+        "PKI": -260.565,
+        "OHA": -0.447
+      },
+      "year_end_storage_mm3": {
+        "TKA": 502.607,
+        "PKI": 1973.858,
+        "OHA": 95.186
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": 26.909,
+        "PKI": -471.082,
+        "OHA": 69.957
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 74.305,
+        "PKI": 230.963,
+        "OHA": 14.033
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1019.59,
+        "OHA": 19.21
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 546.259,
+        "PKI": 1982.287,
+        "OHA": 125.868
+      },
+      "source_release_mm3": {
+        "TKA": 2328.284,
+        "PKI": 3874.409,
+        "OHA": 2525.293
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "change_vs_modeled_zero_solar": {
+        "waitaki_hydro_gwh": -420.888,
+        "thermal_backstop_gwh": -579.113,
+        "winter_entry_storage_mm3": {
+          "TKA": 0.0,
+          "PKI": 7.052,
+          "OHA": 0.0
+        },
+        "forced_spill_mm3": 0.0
+      }
+    },
+    "1500": {
+      "incremental_solar_gwh": 1500.0,
+      "modeled_waitaki_hydro_gwh": 7130.922,
+      "modeled_thermal_backstop_gwh": 4972.334,
+      "incremental_solar_used_gwh": 1500.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 509.834,
+        "PKI": 1677.718,
+        "OHA": 20.914
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 40.571,
+        "PKI": -260.565,
+        "OHA": -0.447
+      },
+      "year_end_storage_mm3": {
+        "TKA": 558.053,
+        "PKI": 2174.553,
+        "OHA": 96.949
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": 82.355,
+        "PKI": -270.387,
+        "OHA": 71.72
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 79.757,
+        "PKI": 207.61,
+        "OHA": 17.75
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1019.59,
+        "OHA": 19.405
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 565.92,
+        "PKI": 2175.795,
+        "OHA": 138.677
+      },
+      "source_release_mm3": {
+        "TKA": 2272.838,
+        "PKI": 3673.713,
+        "OHA": 2523.53
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "change_vs_modeled_zero_solar": {
+        "waitaki_hydro_gwh": -632.22,
+        "thermal_backstop_gwh": -867.781,
+        "winter_entry_storage_mm3": {
+          "TKA": 0.0,
+          "PKI": 7.052,
+          "OHA": 0.0
+        },
+        "forced_spill_mm3": 0.0
+      }
+    },
+    "2500": {
+      "incremental_solar_gwh": 2500.0,
+      "modeled_waitaki_hydro_gwh": 6708.259,
+      "modeled_thermal_backstop_gwh": 4394.997,
+      "incremental_solar_used_gwh": 2500.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 513.332,
+        "PKI": 1677.718,
+        "OHA": 20.914
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 44.069,
+        "PKI": -260.565,
+        "OHA": -0.447
+      },
+      "year_end_storage_mm3": {
+        "TKA": 658.671,
+        "PKI": 2526.1,
+        "OHA": 166.537
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": 182.973,
+        "PKI": 81.16,
+        "OHA": 141.308
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 94.576,
+        "PKI": 195.628,
+        "OHA": 25.671
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1019.59,
+        "OHA": 19.405
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 659.886,
+        "PKI": 2531.212,
+        "OHA": 170.426
+      },
+      "source_release_mm3": {
+        "TKA": 2172.22,
+        "PKI": 3322.167,
+        "OHA": 2453.942
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "change_vs_modeled_zero_solar": {
+        "waitaki_hydro_gwh": -1054.883,
+        "thermal_backstop_gwh": -1445.118,
+        "winter_entry_storage_mm3": {
+          "TKA": 3.498,
+          "PKI": 7.052,
+          "OHA": 0.0
+        },
+        "forced_spill_mm3": 0.0
+      }
+    }
+  },
+  "important_limitations": [
+    "This is a transparent daily heuristic, not an optimized market dispatch or a reconstruction of historical operator releases.",
+    "Empirical storage extrema are still used as reservoir ceilings/floors; HMD scheduled consent curves are not yet evaluated day by day.",
+    "The daily source-route abstraction allows Tekapo source water to traverse Pukaki and the common canal within the same model day; travel time and intra-day lake mixing are ignored.",
+    "Ruataniwha, Benmore and Aviemore are treated as routing stages rather than independently dispatched storage nodes in this first version.",
+    "Lower-catchment tributary additions are not yet included in the source-route water balance.",
+    "The historical 25th-percentile storage guard is a transparent operating heuristic chosen for validation, not a claim about Meridian/Genesis water values.",
+    "Incremental solar uses the observed utility-solar monthly seasonality diagnostic rather than a full hourly geographic PV model."
+  ],
+  "next_validation_tests": [
+    "Compare zero-solar modeled annual Waitaki hydro and thermal with observed 2024 totals.",
+    "Compare zero-solar storage MAE and winter-entry storage with observed Tekapo/Pukaki/Ohau trajectories.",
+    "If zero-solar validation is poor, calibrate the seasonal storage guard before interpreting solar counterfactuals.",
+    "Then compare incremental solar effects on winter-entry storage, thermal generation and spill against the earlier energy-bucket ceiling."
+  ]
+}
