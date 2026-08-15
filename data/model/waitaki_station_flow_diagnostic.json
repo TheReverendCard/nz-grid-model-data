@@ -1,0 +1,105 @@
+{
+  "status": "waitaki_observed_station_flow_diagnostic",
+  "year": 2024,
+  "purpose": "Use observed daily station generation and HMD plant factors to infer average turbine flow, validating cascade topology before an explicit node-and-arc dispatcher is built.",
+  "matched_generation_site_codes": [
+    "AVI",
+    "BEN",
+    "OHA",
+    "OHB",
+    "OHC",
+    "TKA",
+    "TKB",
+    "WTK"
+  ],
+  "expected_station_codes": [
+    "TKA",
+    "TKB",
+    "OHA",
+    "OHB",
+    "OHC",
+    "BEN",
+    "AVI",
+    "WTK"
+  ],
+  "annual_generation_gwh_by_station": {
+    "TKA": 116.396,
+    "TKB": 808.725,
+    "OHA": 1113.109,
+    "OHB": 930.01,
+    "OHC": 926.062,
+    "BEN": 2249.127,
+    "AVI": 934.52,
+    "WTK": 481.994
+  },
+  "mean_implied_turbine_flow_m3s_by_station": {
+    "TKA": 57.058,
+    "TKB": 71.666,
+    "OHA": 253.187,
+    "OHB": 254.101,
+    "OHC": 253.022,
+    "BEN": 313.147,
+    "AVI": 343.104,
+    "WTK": 338.285
+  },
+  "adjacent_station_flow_tests": [
+    {
+      "upstream": "TKA",
+      "downstream": "TKB",
+      "correlation_daily_implied_flow": 0.604,
+      "mean_downstream_minus_upstream_m3s": 14.607,
+      "mean_absolute_difference_m3s": 15.553
+    },
+    {
+      "upstream": "OHA",
+      "downstream": "OHB",
+      "correlation_daily_implied_flow": 0.9959,
+      "mean_downstream_minus_upstream_m3s": 0.914,
+      "mean_absolute_difference_m3s": 4.935
+    },
+    {
+      "upstream": "OHB",
+      "downstream": "OHC",
+      "correlation_daily_implied_flow": 0.9999,
+      "mean_downstream_minus_upstream_m3s": -1.079,
+      "mean_absolute_difference_m3s": 1.357
+    },
+    {
+      "upstream": "BEN",
+      "downstream": "AVI",
+      "correlation_daily_implied_flow": 0.9118,
+      "mean_downstream_minus_upstream_m3s": 29.957,
+      "mean_absolute_difference_m3s": 38.707
+    },
+    {
+      "upstream": "AVI",
+      "downstream": "WTK",
+      "correlation_daily_implied_flow": 0.9572,
+      "mean_downstream_minus_upstream_m3s": -4.82,
+      "mean_absolute_difference_m3s": 19.997
+    }
+  ],
+  "lower_cascade_balance_tests": [
+    {
+      "upstream": "BEN",
+      "downstream": "AVI",
+      "tributary_added_at": "AVI",
+      "mean_residual_m3s": 25.973,
+      "mean_absolute_residual_m3s": 36.255,
+      "note": "Residual also contains lower-reservoir storage change, spill, timing and generation/plant-factor approximation error."
+    },
+    {
+      "upstream": "AVI",
+      "downstream": "WTK",
+      "tributary_added_at": "WTK",
+      "mean_residual_m3s": -14.277,
+      "mean_absolute_residual_m3s": 23.291,
+      "note": "Residual also contains lower-reservoir storage change, spill, timing and generation/plant-factor approximation error."
+    }
+  ],
+  "important_limitations": [
+    "Daily MWh divided by 24 and multiplied by HMD plant factor is an average turbine-flow equivalent, not a measured instantaneous discharge.",
+    "Station outages, efficiency variation, spill, reservoir storage changes and intra-day travel/timing can create real differences between adjacent stations.",
+    "This diagnostic is intended to falsify or support routing assumptions, not to infer exact daily releases from generation alone."
+  ]
+}
