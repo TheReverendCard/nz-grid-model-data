@@ -114,6 +114,9 @@ jobs:
       - name: Diagnose Waitaki Seasonal Storage Guard
         run: python diagnose_waitaki_storage_guard.py
 
+      - name: Diagnose Waitaki Lake-Specific Guards
+        run: python diagnose_waitaki_lake_guard_grid.py
+
       - name: Plot Waitaki WiP Progress
         run: python plot_waitaki_progress.py
 
