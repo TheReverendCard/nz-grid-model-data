@@ -131,6 +131,9 @@ jobs:
       - name: Validate Waitaki Thermal Scarcity Dispatch
         run: python dispatch_waitaki_thermal_scarcity_v1.py
 
+      - name: Diagnose Revealed Monthly Thermal Timing
+        run: python diagnose_waitaki_thermal_timing.py
+
       - name: Plot Waitaki WiP Progress
         run: python plot_waitaki_progress.py
 
