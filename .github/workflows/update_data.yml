@@ -22,7 +22,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install Dependencies
-        run: pip install requests openpyxl matplotlib
+        run: pip install requests openpyxl matplotlib scipy
 
       - name: Fetch EA HMD Data
         run: python update_data.py
@@ -116,6 +116,9 @@ jobs:
 
       - name: Diagnose Waitaki Lake-Specific Guards
         run: python diagnose_waitaki_lake_guard_grid.py
+
+      - name: Validate Waitaki Rolling-Horizon Dispatch
+        run: python dispatch_waitaki_rolling_horizon_v1.py
 
       - name: Plot Waitaki WiP Progress
         run: python plot_waitaki_progress.py
