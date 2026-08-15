@@ -1,0 +1,182 @@
+{
+  "status": "waitaki_storage_guard_sensitivity",
+  "purpose": "Test transparent historical seasonal storage guard percentiles before changing the routed dispatcher policy.",
+  "zero_solar_only": true,
+  "guards": {
+    "q25": {
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7763.142,
+      "modeled_thermal_backstop_gwh": 5840.115,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 509.834,
+        "PKI": 1670.666,
+        "OHA": 20.914
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 40.571,
+        "PKI": -267.617,
+        "OHA": -0.447
+      },
+      "year_end_storage_mm3": {
+        "TKA": 469.205,
+        "PKI": 1522.804,
+        "OHA": 21.467
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": -6.493,
+        "PKI": -922.136,
+        "OHA": -3.762
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 72.526,
+        "PKI": 293.522,
+        "OHA": 6.869
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 937.146,
+        "OHA": 19.21
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 546.259,
+        "PKI": 1954.683,
+        "OHA": 86.615
+      },
+      "source_release_mm3": {
+        "TKA": 2361.686,
+        "PKI": 4325.462,
+        "OHA": 2599.012
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.079783,
+      "waitaki_hydro_relative_error": 0.026879,
+      "simple_validation_score": 0.106661
+    },
+    "q50": {
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7415.333,
+      "modeled_thermal_backstop_gwh": 6187.923,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 619.817,
+        "PKI": 1955.532,
+        "OHA": 22.291
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 150.554,
+        "PKI": 17.249,
+        "OHA": 0.93
+      },
+      "year_end_storage_mm3": {
+        "TKA": 520.779,
+        "PKI": 1880.892,
+        "OHA": 59.205
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": 45.081,
+        "PKI": -564.048,
+        "OHA": 33.976
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 141.883,
+        "PKI": 398.886,
+        "OHA": 8.198
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1331.557,
+        "OHA": 21.444
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 658.823,
+        "PKI": 2184.627,
+        "OHA": 99.496
+      },
+      "source_release_mm3": {
+        "TKA": 2310.112,
+        "PKI": 3967.375,
+        "OHA": 2561.274
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.122301,
+      "waitaki_hydro_relative_error": 0.019128,
+      "simple_validation_score": 0.141429
+    },
+    "q75": {
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7051.792,
+      "modeled_thermal_backstop_gwh": 6551.464,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 718.199,
+        "PKI": 2213.851,
+        "OHA": 27.006
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 248.936,
+        "PKI": 275.568,
+        "OHA": 5.645
+      },
+      "year_end_storage_mm3": {
+        "TKA": 621.14,
+        "PKI": 2233.282,
+        "OHA": 47.233
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": 145.442,
+        "PKI": -211.658,
+        "OHA": 22.004
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 233.31,
+        "PKI": 580.991,
+        "OHA": 14.353
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1610.433,
+        "OHA": 22.172
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 767.681,
+        "PKI": 2474.675,
+        "OHA": 108.435
+      },
+      "source_release_mm3": {
+        "TKA": 2209.751,
+        "PKI": 3614.985,
+        "OHA": 2573.246
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.192585,
+      "waitaki_hydro_relative_error": 0.067216,
+      "simple_validation_score": 0.259801
+    }
+  },
+  "ranking_by_simple_validation_score": [
+    "q25",
+    "q50",
+    "q75"
+  ],
+  "score_definition": "Mean per-lake storage MAE normalized by empirical storage range, plus absolute annual Waitaki hydro relative error.",
+  "important_note": "The ranking is diagnostic, not an automatic calibration choice. A better annual score can still hide poor winter-entry or terminal-storage behaviour."
+}

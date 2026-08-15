@@ -43,22 +43,22 @@
   },
   "current_registry_snapshot": {
     "residential": {
-      "icps": 81963,
+      "icps": 82053,
       "average_capacity_kw": 5.7,
-      "capacity_mw": 468.6311
+      "capacity_mw": 469.44890000000004
     },
     "business": {
-      "icps": 8089,
-      "average_capacity_kw": 90.2,
-      "capacity_mw": 729.8265
+      "icps": 8107,
+      "average_capacity_kw": 90.1,
+      "capacity_mw": 730.4928000000001
     },
     "all": {
-      "icps": 90052,
+      "icps": 90160,
       "average_capacity_kw": 13.3,
-      "capacity_mw": 1198.4576000000002
+      "capacity_mw": 1199.9416999999999
     },
-    "regional_residential_capacity_mw_sum": 468.0303,
-    "regional_residential_icps_sum": 81917
+    "regional_residential_capacity_mw_sum": 468.8481,
+    "regional_residential_icps_sum": 82007
   },
   "model_use": {
     "behind_meter_starting_population": "Residential solar ICPs are the primary BTM population. Business solar is kept separate because the category includes large installations.",

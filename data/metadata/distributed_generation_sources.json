@@ -1,31 +1,31 @@
 {
   "datasets": {
     "installed_distributed_generation_trends_solar_all": {
-      "content_length": "5270",
+      "content_length": "5267",
       "description": "Installed distributed generation trends (GUEHMT), national Solar (All), all ICPs",
       "etag": "",
       "last_modified": "",
       "local_file": "data/distributed_generation/installed_dg_trends_solar_all.csv",
       "request_url": "https://www.emi.ea.govt.nz/Retail/Download/DataReport/CSV/GUEHMT?DateFrom=20130901&FuelType=solar_all&Show=CapacityAvg&_rsdr=ALL&_si=v%7C4",
-      "sha256": "47a2f14e1d67fc1e8818245036a876dbec52aea4cb9516938b8958f8879fb670"
+      "sha256": "a97d577c1d8678544bbfad1dd398e02876c6f66132feecb5aa91331c1bb1914e"
     },
     "installed_distributed_generation_trends_solar_residential": {
-      "content_length": "5169",
+      "content_length": "5168",
       "description": "Installed distributed generation trends (GUEHMT), national Solar (All), residential ICPs",
       "etag": "",
       "last_modified": "",
       "local_file": "data/distributed_generation/installed_dg_trends_solar_residential.csv",
       "request_url": "https://www.emi.ea.govt.nz/Retail/Download/DataReport/CSV/GUEHMT?DateFrom=20130901&FuelType=solar_all&Show=CapacityAvg&_rsdr=ALL&_si=v%7C4&MarketSegment=Res",
-      "sha256": "1987b8728133203f40faf24639547fc53fa47092b4bf584ef8279aed2af9ef9a"
+      "sha256": "d85ff1e02585a3f63f955e3f2f4cbe070651e3b63f5d860f9e57701105772c46"
     },
     "solar_installations_by_region": {
       "content_length": "11121",
       "description": "Current solar installation counts/capacity by region and market segment from the Electricity Registry",
-      "etag": "0x8DEFA3F9C7CB5DA",
-      "last_modified": "Fri, 14 Aug 2026 20:07:04 GMT",
+      "etag": "0x8DEFB08BF4A30AA",
+      "last_modified": "Sat, 15 Aug 2026 20:06:52 GMT",
       "local_file": "data/distributed_generation/solar_installations_by_region.csv",
       "request_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Retail/SolarInstallations/SolarInstallationsByRegion.csv",
-      "sha256": "8533a1a9bc99e25eae336f0a0d5ac4be70b4e9b6a9ecc2ee93a16d7ee829da38"
+      "sha256": "62c5c62c285acd0e887f5e6c9b85feb1a68c0ea841f2c0beff1767fc159fb09e"
     }
   },
   "source": "New Zealand Electricity Authority EMI"
