@@ -146,6 +146,9 @@ jobs:
       - name: Test Revealed Thermal Timing with Lower Tributaries
         run: python diagnose_waitaki_thermal_timing_with_tributaries.py
 
+      - name: Diagnose Observed Waitaki Station Flows
+        run: python diagnose_waitaki_station_flows.py
+
       - name: Plot Waitaki WiP Progress
         run: python plot_waitaki_progress.py
 
