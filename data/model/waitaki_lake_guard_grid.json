@@ -1,0 +1,2131 @@
+{
+  "status": "waitaki_lake_specific_guard_grid",
+  "purpose": "Test whether separate historical storage guards for Tekapo, Pukaki and Ohau materially improve 2024 routed-dispatch validation before moving to a rolling-horizon water-value rule.",
+  "zero_solar_only": true,
+  "levels": [
+    "q25",
+    "q50",
+    "q75"
+  ],
+  "combination_count": 27,
+  "ranking_by_simple_validation_score": [
+    "TKA=q25,PKI=q50,OHA=q25",
+    "TKA=q25,PKI=q50,OHA=q50",
+    "TKA=q25,PKI=q25,OHA=q25",
+    "TKA=q25,PKI=q25,OHA=q50",
+    "TKA=q25,PKI=q50,OHA=q75",
+    "TKA=q25,PKI=q25,OHA=q75",
+    "TKA=q50,PKI=q25,OHA=q50",
+    "TKA=q50,PKI=q25,OHA=q25",
+    "TKA=q50,PKI=q25,OHA=q75",
+    "TKA=q50,PKI=q50,OHA=q25",
+    "TKA=q50,PKI=q50,OHA=q50",
+    "TKA=q50,PKI=q50,OHA=q75",
+    "TKA=q75,PKI=q25,OHA=q25",
+    "TKA=q75,PKI=q25,OHA=q50",
+    "TKA=q75,PKI=q25,OHA=q75",
+    "TKA=q25,PKI=q75,OHA=q25",
+    "TKA=q25,PKI=q75,OHA=q50",
+    "TKA=q25,PKI=q75,OHA=q75",
+    "TKA=q50,PKI=q75,OHA=q50",
+    "TKA=q50,PKI=q75,OHA=q25",
+    "TKA=q50,PKI=q75,OHA=q75",
+    "TKA=q75,PKI=q50,OHA=q25",
+    "TKA=q75,PKI=q50,OHA=q50",
+    "TKA=q75,PKI=q50,OHA=q75",
+    "TKA=q75,PKI=q75,OHA=q25",
+    "TKA=q75,PKI=q75,OHA=q50",
+    "TKA=q75,PKI=q75,OHA=q75"
+  ],
+  "ranking_by_trajectory_validation_score": [
+    "TKA=q25,PKI=q50,OHA=q25",
+    "TKA=q25,PKI=q50,OHA=q50",
+    "TKA=q25,PKI=q50,OHA=q75",
+    "TKA=q25,PKI=q25,OHA=q25",
+    "TKA=q25,PKI=q25,OHA=q50",
+    "TKA=q25,PKI=q75,OHA=q50",
+    "TKA=q25,PKI=q75,OHA=q25",
+    "TKA=q25,PKI=q25,OHA=q75",
+    "TKA=q25,PKI=q75,OHA=q75",
+    "TKA=q50,PKI=q50,OHA=q25",
+    "TKA=q50,PKI=q25,OHA=q50",
+    "TKA=q50,PKI=q25,OHA=q25",
+    "TKA=q50,PKI=q50,OHA=q50",
+    "TKA=q50,PKI=q50,OHA=q75",
+    "TKA=q50,PKI=q25,OHA=q75",
+    "TKA=q50,PKI=q75,OHA=q50",
+    "TKA=q50,PKI=q75,OHA=q25",
+    "TKA=q50,PKI=q75,OHA=q75",
+    "TKA=q75,PKI=q25,OHA=q25",
+    "TKA=q75,PKI=q25,OHA=q50",
+    "TKA=q75,PKI=q25,OHA=q75",
+    "TKA=q75,PKI=q50,OHA=q50",
+    "TKA=q75,PKI=q50,OHA=q25",
+    "TKA=q75,PKI=q50,OHA=q75",
+    "TKA=q75,PKI=q75,OHA=q25",
+    "TKA=q75,PKI=q75,OHA=q50",
+    "TKA=q75,PKI=q75,OHA=q75"
+  ],
+  "top_five_by_trajectory_score": [
+    {
+      "policy": "TKA=q25,PKI=q50,OHA=q25",
+      "guard_by_lake": {
+        "TKA": "q25",
+        "PKI": "q50",
+        "OHA": "q25"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7495.965,
+      "modeled_thermal_backstop_gwh": 6107.291,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 499.789,
+        "PKI": 1955.532,
+        "OHA": 20.914
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 30.526,
+        "PKI": 17.249,
+        "OHA": -0.447
+      },
+      "year_end_storage_mm3": {
+        "TKA": 457.695,
+        "PKI": 1872.15,
+        "OHA": 56.869
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": -18.003,
+        "PKI": -572.79,
+        "OHA": 31.64
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 74.623,
+        "PKI": 396.954,
+        "OHA": 7.588
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1306.04,
+        "OHA": 19.21
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 546.259,
+        "PKI": 2184.627,
+        "OHA": 90.717
+      },
+      "source_release_mm3": {
+        "TKA": 2373.196,
+        "PKI": 3976.117,
+        "OHA": 2563.611
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.09598,
+      "waitaki_hydro_relative_error": 0.008463,
+      "normalized_winter_entry_error": 0.014494,
+      "normalized_year_end_error": 0.144603,
+      "simple_validation_score": 0.104442,
+      "trajectory_validation_score": 0.183991
+    },
+    {
+      "policy": "TKA=q25,PKI=q50,OHA=q50",
+      "guard_by_lake": {
+        "TKA": "q25",
+        "PKI": "q50",
+        "OHA": "q50"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7494.017,
+      "modeled_thermal_backstop_gwh": 6109.24,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 499.789,
+        "PKI": 1955.532,
+        "OHA": 22.291
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 30.526,
+        "PKI": 17.249,
+        "OHA": 0.93
+      },
+      "year_end_storage_mm3": {
+        "TKA": 467.29,
+        "PKI": 1859.386,
+        "OHA": 57.164
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": -8.408,
+        "PKI": -585.554,
+        "OHA": 31.935
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 73.302,
+        "PKI": 399.215,
+        "OHA": 7.767
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1308.011,
+        "OHA": 21.444
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 546.259,
+        "PKI": 2184.627,
+        "OHA": 99.496
+      },
+      "source_release_mm3": {
+        "TKA": 2363.601,
+        "PKI": 3988.88,
+        "OHA": 2563.315
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.096138,
+      "waitaki_hydro_relative_error": 0.00872,
+      "normalized_winter_entry_error": 0.015411,
+      "normalized_year_end_error": 0.143346,
+      "simple_validation_score": 0.104858,
+      "trajectory_validation_score": 0.184237
+    },
+    {
+      "policy": "TKA=q25,PKI=q50,OHA=q75",
+      "guard_by_lake": {
+        "TKA": "q25",
+        "PKI": "q50",
+        "OHA": "q75"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7492.42,
+      "modeled_thermal_backstop_gwh": 6110.836,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 499.789,
+        "PKI": 1955.532,
+        "OHA": 27.006
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 30.526,
+        "PKI": 17.249,
+        "OHA": 5.645
+      },
+      "year_end_storage_mm3": {
+        "TKA": 466.292,
+        "PKI": 1867.007,
+        "OHA": 53.309
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": -9.406,
+        "PKI": -577.933,
+        "OHA": 28.08
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 73.387,
+        "PKI": 399.589,
+        "OHA": 10.296
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1308.458,
+        "OHA": 22.172
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 546.259,
+        "PKI": 2184.627,
+        "OHA": 97.079
+      },
+      "source_release_mm3": {
+        "TKA": 2364.599,
+        "PKI": 3981.259,
+        "OHA": 2567.17
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.101025,
+      "waitaki_hydro_relative_error": 0.008932,
+      "normalized_winter_entry_error": 0.024368,
+      "normalized_year_end_error": 0.135356,
+      "simple_validation_score": 0.109956,
+      "trajectory_validation_score": 0.189818
+    },
+    {
+      "policy": "TKA=q25,PKI=q25,OHA=q25",
+      "guard_by_lake": {
+        "TKA": "q25",
+        "PKI": "q25",
+        "OHA": "q25"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7763.142,
+      "modeled_thermal_backstop_gwh": 5840.115,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 509.834,
+        "PKI": 1670.666,
+        "OHA": 20.914
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 40.571,
+        "PKI": -267.617,
+        "OHA": -0.447
+      },
+      "year_end_storage_mm3": {
+        "TKA": 469.205,
+        "PKI": 1522.804,
+        "OHA": 21.467
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": -6.493,
+        "PKI": -922.136,
+        "OHA": -3.762
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 72.526,
+        "PKI": 293.522,
+        "OHA": 6.869
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 937.146,
+        "OHA": 19.21
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 546.259,
+        "PKI": 1954.683,
+        "OHA": 86.615
+      },
+      "source_release_mm3": {
+        "TKA": 2361.686,
+        "PKI": 4325.462,
+        "OHA": 2599.012
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.079783,
+      "waitaki_hydro_relative_error": 0.026879,
+      "normalized_winter_entry_error": 0.052233,
+      "normalized_year_end_error": 0.134853,
+      "simple_validation_score": 0.106661,
+      "trajectory_validation_score": 0.200205
+    },
+    {
+      "policy": "TKA=q25,PKI=q25,OHA=q50",
+      "guard_by_lake": {
+        "TKA": "q25",
+        "PKI": "q25",
+        "OHA": "q50"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7761.645,
+      "modeled_thermal_backstop_gwh": 5841.611,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 509.834,
+        "PKI": 1671.21,
+        "OHA": 22.291
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 40.571,
+        "PKI": -267.073,
+        "OHA": 0.93
+      },
+      "year_end_storage_mm3": {
+        "TKA": 466.431,
+        "PKI": 1519.743,
+        "OHA": 30.959
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": -9.267,
+        "PKI": -925.197,
+        "OHA": 5.73
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 73.173,
+        "PKI": 294.111,
+        "OHA": 7.002
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 921.325,
+        "OHA": 21.444
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 546.259,
+        "PKI": 1954.683,
+        "OHA": 89.379
+      },
+      "source_release_mm3": {
+        "TKA": 2364.46,
+        "PKI": 4328.523,
+        "OHA": 2589.52
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.080355,
+      "waitaki_hydro_relative_error": 0.026681,
+      "normalized_winter_entry_error": 0.053077,
+      "normalized_year_end_error": 0.140035,
+      "simple_validation_score": 0.107036,
+      "trajectory_validation_score": 0.203592
+    }
+  ],
+  "score_definition": {
+    "simple": "Mean per-lake storage MAE normalized by empirical range plus absolute annual Waitaki hydro relative error.",
+    "trajectory": "Simple score plus half-weighted normalized 1 May storage error and half-weighted normalized year-end storage error."
+  },
+  "important_note": "This is a diagnostic grid, not an automatic calibration. If no lake-specific fixed guard reproduces both seasonal trajectory and annual energy, the next step should be a rolling-horizon or water-value dispatch rule rather than further percentile tuning.",
+  "results": {
+    "TKA=q25,PKI=q25,OHA=q25": {
+      "guard_by_lake": {
+        "TKA": "q25",
+        "PKI": "q25",
+        "OHA": "q25"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7763.142,
+      "modeled_thermal_backstop_gwh": 5840.115,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 509.834,
+        "PKI": 1670.666,
+        "OHA": 20.914
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 40.571,
+        "PKI": -267.617,
+        "OHA": -0.447
+      },
+      "year_end_storage_mm3": {
+        "TKA": 469.205,
+        "PKI": 1522.804,
+        "OHA": 21.467
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": -6.493,
+        "PKI": -922.136,
+        "OHA": -3.762
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 72.526,
+        "PKI": 293.522,
+        "OHA": 6.869
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 937.146,
+        "OHA": 19.21
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 546.259,
+        "PKI": 1954.683,
+        "OHA": 86.615
+      },
+      "source_release_mm3": {
+        "TKA": 2361.686,
+        "PKI": 4325.462,
+        "OHA": 2599.012
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.079783,
+      "waitaki_hydro_relative_error": 0.026879,
+      "normalized_winter_entry_error": 0.052233,
+      "normalized_year_end_error": 0.134853,
+      "simple_validation_score": 0.106661,
+      "trajectory_validation_score": 0.200205
+    },
+    "TKA=q25,PKI=q25,OHA=q50": {
+      "guard_by_lake": {
+        "TKA": "q25",
+        "PKI": "q25",
+        "OHA": "q50"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7761.645,
+      "modeled_thermal_backstop_gwh": 5841.611,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 509.834,
+        "PKI": 1671.21,
+        "OHA": 22.291
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 40.571,
+        "PKI": -267.073,
+        "OHA": 0.93
+      },
+      "year_end_storage_mm3": {
+        "TKA": 466.431,
+        "PKI": 1519.743,
+        "OHA": 30.959
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": -9.267,
+        "PKI": -925.197,
+        "OHA": 5.73
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 73.173,
+        "PKI": 294.111,
+        "OHA": 7.002
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 921.325,
+        "OHA": 21.444
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 546.259,
+        "PKI": 1954.683,
+        "OHA": 89.379
+      },
+      "source_release_mm3": {
+        "TKA": 2364.46,
+        "PKI": 4328.523,
+        "OHA": 2589.52
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.080355,
+      "waitaki_hydro_relative_error": 0.026681,
+      "normalized_winter_entry_error": 0.053077,
+      "normalized_year_end_error": 0.140035,
+      "simple_validation_score": 0.107036,
+      "trajectory_validation_score": 0.203592
+    },
+    "TKA=q25,PKI=q25,OHA=q75": {
+      "guard_by_lake": {
+        "TKA": "q25",
+        "PKI": "q25",
+        "OHA": "q75"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7759.744,
+      "modeled_thermal_backstop_gwh": 5843.512,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 510.073,
+        "PKI": 1669.703,
+        "OHA": 27.006
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 40.81,
+        "PKI": -268.58,
+        "OHA": 5.645
+      },
+      "year_end_storage_mm3": {
+        "TKA": 476.106,
+        "PKI": 1499.645,
+        "OHA": 38.395
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": 0.408,
+        "PKI": -945.295,
+        "OHA": 13.166
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 71.873,
+        "PKI": 296.761,
+        "OHA": 9.489
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 926.182,
+        "OHA": 22.172
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 539.465,
+        "PKI": 1954.683,
+        "OHA": 91.348
+      },
+      "source_release_mm3": {
+        "TKA": 2354.785,
+        "PKI": 4348.621,
+        "OHA": 2582.084
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.084958,
+      "waitaki_hydro_relative_error": 0.026429,
+      "normalized_winter_entry_error": 0.062327,
+      "normalized_year_end_error": 0.153612,
+      "simple_validation_score": 0.111387,
+      "trajectory_validation_score": 0.219357
+    },
+    "TKA=q25,PKI=q50,OHA=q25": {
+      "guard_by_lake": {
+        "TKA": "q25",
+        "PKI": "q50",
+        "OHA": "q25"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7495.965,
+      "modeled_thermal_backstop_gwh": 6107.291,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 499.789,
+        "PKI": 1955.532,
+        "OHA": 20.914
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 30.526,
+        "PKI": 17.249,
+        "OHA": -0.447
+      },
+      "year_end_storage_mm3": {
+        "TKA": 457.695,
+        "PKI": 1872.15,
+        "OHA": 56.869
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": -18.003,
+        "PKI": -572.79,
+        "OHA": 31.64
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 74.623,
+        "PKI": 396.954,
+        "OHA": 7.588
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1306.04,
+        "OHA": 19.21
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 546.259,
+        "PKI": 2184.627,
+        "OHA": 90.717
+      },
+      "source_release_mm3": {
+        "TKA": 2373.196,
+        "PKI": 3976.117,
+        "OHA": 2563.611
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.09598,
+      "waitaki_hydro_relative_error": 0.008463,
+      "normalized_winter_entry_error": 0.014494,
+      "normalized_year_end_error": 0.144603,
+      "simple_validation_score": 0.104442,
+      "trajectory_validation_score": 0.183991
+    },
+    "TKA=q25,PKI=q50,OHA=q50": {
+      "guard_by_lake": {
+        "TKA": "q25",
+        "PKI": "q50",
+        "OHA": "q50"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7494.017,
+      "modeled_thermal_backstop_gwh": 6109.24,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 499.789,
+        "PKI": 1955.532,
+        "OHA": 22.291
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 30.526,
+        "PKI": 17.249,
+        "OHA": 0.93
+      },
+      "year_end_storage_mm3": {
+        "TKA": 467.29,
+        "PKI": 1859.386,
+        "OHA": 57.164
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": -8.408,
+        "PKI": -585.554,
+        "OHA": 31.935
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 73.302,
+        "PKI": 399.215,
+        "OHA": 7.767
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1308.011,
+        "OHA": 21.444
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 546.259,
+        "PKI": 2184.627,
+        "OHA": 99.496
+      },
+      "source_release_mm3": {
+        "TKA": 2363.601,
+        "PKI": 3988.88,
+        "OHA": 2563.315
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.096138,
+      "waitaki_hydro_relative_error": 0.00872,
+      "normalized_winter_entry_error": 0.015411,
+      "normalized_year_end_error": 0.143346,
+      "simple_validation_score": 0.104858,
+      "trajectory_validation_score": 0.184237
+    },
+    "TKA=q25,PKI=q50,OHA=q75": {
+      "guard_by_lake": {
+        "TKA": "q25",
+        "PKI": "q50",
+        "OHA": "q75"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7492.42,
+      "modeled_thermal_backstop_gwh": 6110.836,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 499.789,
+        "PKI": 1955.532,
+        "OHA": 27.006
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 30.526,
+        "PKI": 17.249,
+        "OHA": 5.645
+      },
+      "year_end_storage_mm3": {
+        "TKA": 466.292,
+        "PKI": 1867.007,
+        "OHA": 53.309
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": -9.406,
+        "PKI": -577.933,
+        "OHA": 28.08
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 73.387,
+        "PKI": 399.589,
+        "OHA": 10.296
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1308.458,
+        "OHA": 22.172
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 546.259,
+        "PKI": 2184.627,
+        "OHA": 97.079
+      },
+      "source_release_mm3": {
+        "TKA": 2364.599,
+        "PKI": 3981.259,
+        "OHA": 2567.17
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.101025,
+      "waitaki_hydro_relative_error": 0.008932,
+      "normalized_winter_entry_error": 0.024368,
+      "normalized_year_end_error": 0.135356,
+      "simple_validation_score": 0.109956,
+      "trajectory_validation_score": 0.189818
+    },
+    "TKA=q25,PKI=q75,OHA=q25": {
+      "guard_by_lake": {
+        "TKA": "q25",
+        "PKI": "q75",
+        "OHA": "q25"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7293.733,
+      "modeled_thermal_backstop_gwh": 6309.523,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 529.924,
+        "PKI": 2213.851,
+        "OHA": 20.914
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 60.661,
+        "PKI": 275.568,
+        "OHA": -0.447
+      },
+      "year_end_storage_mm3": {
+        "TKA": 449.115,
+        "PKI": 2198.57,
+        "OHA": 21.467
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": -26.583,
+        "PKI": -246.37,
+        "OHA": -3.762
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 76.693,
+        "PKI": 569.983,
+        "OHA": 8.435
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1545.17,
+        "OHA": 19.21
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 574.78,
+        "PKI": 2474.675,
+        "OHA": 104.149
+      },
+      "source_release_mm3": {
+        "TKA": 2381.776,
+        "PKI": 3649.697,
+        "OHA": 2599.012
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.121867,
+      "waitaki_hydro_relative_error": 0.035213,
+      "normalized_winter_entry_error": 0.060751,
+      "normalized_year_end_error": 0.050465,
+      "simple_validation_score": 0.15708,
+      "trajectory_validation_score": 0.212688
+    },
+    "TKA=q25,PKI=q75,OHA=q50": {
+      "guard_by_lake": {
+        "TKA": "q25",
+        "PKI": "q75",
+        "OHA": "q50"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7289.74,
+      "modeled_thermal_backstop_gwh": 6313.516,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 529.924,
+        "PKI": 2213.851,
+        "OHA": 22.291
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 60.661,
+        "PKI": 275.568,
+        "OHA": 0.93
+      },
+      "year_end_storage_mm3": {
+        "TKA": 453.426,
+        "PKI": 2195.464,
+        "OHA": 23.247
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": -22.272,
+        "PKI": -249.476,
+        "OHA": -1.982
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 75.875,
+        "PKI": 571.712,
+        "OHA": 8.567
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1554.701,
+        "OHA": 21.444
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 574.78,
+        "PKI": 2474.675,
+        "OHA": 105.77
+      },
+      "source_release_mm3": {
+        "TKA": 2377.465,
+        "PKI": 3652.803,
+        "OHA": 2597.232
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.12205,
+      "waitaki_hydro_relative_error": 0.035741,
+      "normalized_winter_entry_error": 0.061669,
+      "normalized_year_end_error": 0.04591,
+      "simple_validation_score": 0.157791,
+      "trajectory_validation_score": 0.21158
+    },
+    "TKA=q25,PKI=q75,OHA=q75": {
+      "guard_by_lake": {
+        "TKA": "q25",
+        "PKI": "q75",
+        "OHA": "q75"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7279.924,
+      "modeled_thermal_backstop_gwh": 6323.332,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 529.924,
+        "PKI": 2213.851,
+        "OHA": 27.006
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 60.661,
+        "PKI": 275.568,
+        "OHA": 5.645
+      },
+      "year_end_storage_mm3": {
+        "TKA": 457.922,
+        "PKI": 2195.688,
+        "OHA": 29.396
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": -17.776,
+        "PKI": -249.252,
+        "OHA": 4.167
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 74.862,
+        "PKI": 572.845,
+        "OHA": 10.774
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1561.957,
+        "OHA": 22.172
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 574.78,
+        "PKI": 2474.675,
+        "OHA": 108.435
+      },
+      "source_release_mm3": {
+        "TKA": 2372.97,
+        "PKI": 3652.578,
+        "OHA": 2591.083
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.126021,
+      "waitaki_hydro_relative_error": 0.03704,
+      "normalized_winter_entry_error": 0.070626,
+      "normalized_year_end_error": 0.048366,
+      "simple_validation_score": 0.163061,
+      "trajectory_validation_score": 0.222557
+    },
+    "TKA=q50,PKI=q25,OHA=q25": {
+      "guard_by_lake": {
+        "TKA": "q50",
+        "PKI": "q25",
+        "OHA": "q25"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7677.971,
+      "modeled_thermal_backstop_gwh": 5925.285,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 622.398,
+        "PKI": 1669.154,
+        "OHA": 20.914
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 153.135,
+        "PKI": -269.129,
+        "OHA": -0.447
+      },
+      "year_end_storage_mm3": {
+        "TKA": 523.164,
+        "PKI": 1551.734,
+        "OHA": 24.242
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": 47.466,
+        "PKI": -893.206,
+        "OHA": -0.987
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 142.379,
+        "PKI": 289.06,
+        "OHA": 7.389
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 968.851,
+        "OHA": 19.21
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 651.09,
+        "PKI": 1954.683,
+        "OHA": 89.951
+      },
+      "source_release_mm3": {
+        "TKA": 2307.727,
+        "PKI": 4296.532,
+        "OHA": 2596.237
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.106024,
+      "waitaki_hydro_relative_error": 0.015612,
+      "normalized_winter_entry_error": 0.09411,
+      "normalized_year_end_error": 0.140819,
+      "simple_validation_score": 0.121637,
+      "trajectory_validation_score": 0.239101
+    },
+    "TKA=q50,PKI=q25,OHA=q50": {
+      "guard_by_lake": {
+        "TKA": "q50",
+        "PKI": "q25",
+        "OHA": "q50"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7676.527,
+      "modeled_thermal_backstop_gwh": 5926.729,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 622.398,
+        "PKI": 1669.698,
+        "OHA": 22.291
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 153.135,
+        "PKI": -268.585,
+        "OHA": 0.93
+      },
+      "year_end_storage_mm3": {
+        "TKA": 508.397,
+        "PKI": 1572.292,
+        "OHA": 28.97
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": 32.699,
+        "PKI": -872.648,
+        "OHA": 3.741
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 139.764,
+        "PKI": 285.49,
+        "OHA": 7.791
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 976.87,
+        "OHA": 21.444
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 651.09,
+        "PKI": 1954.683,
+        "OHA": 92.131
+      },
+      "source_release_mm3": {
+        "TKA": 2322.495,
+        "PKI": 4275.975,
+        "OHA": 2591.509
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.105335,
+      "waitaki_hydro_relative_error": 0.015421,
+      "normalized_winter_entry_error": 0.094954,
+      "normalized_year_end_error": 0.13779,
+      "simple_validation_score": 0.120756,
+      "trajectory_validation_score": 0.237128
+    },
+    "TKA=q50,PKI=q25,OHA=q75": {
+      "guard_by_lake": {
+        "TKA": "q50",
+        "PKI": "q25",
+        "OHA": "q75"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7674.626,
+      "modeled_thermal_backstop_gwh": 5928.63,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 622.398,
+        "PKI": 1668.669,
+        "OHA": 27.006
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 153.135,
+        "PKI": -269.614,
+        "OHA": 5.645
+      },
+      "year_end_storage_mm3": {
+        "TKA": 527.839,
+        "PKI": 1534.407,
+        "OHA": 38.779
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": 52.141,
+        "PKI": -910.533,
+        "OHA": 13.55
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 143.636,
+        "PKI": 291.516,
+        "OHA": 9.88
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 961.328,
+        "OHA": 22.172
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 651.09,
+        "PKI": 1954.683,
+        "OHA": 94.684
+      },
+      "source_release_mm3": {
+        "TKA": 2303.052,
+        "PKI": 4313.859,
+        "OHA": 2581.7
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.111555,
+      "waitaki_hydro_relative_error": 0.01517,
+      "normalized_winter_entry_error": 0.104051,
+      "normalized_year_end_error": 0.16877,
+      "simple_validation_score": 0.126725,
+      "trajectory_validation_score": 0.263135
+    },
+    "TKA=q50,PKI=q50,OHA=q25": {
+      "guard_by_lake": {
+        "TKA": "q50",
+        "PKI": "q50",
+        "OHA": "q25"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7417.282,
+      "modeled_thermal_backstop_gwh": 6185.974,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 619.817,
+        "PKI": 1955.532,
+        "OHA": 20.914
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 150.554,
+        "PKI": 17.249,
+        "OHA": -0.447
+      },
+      "year_end_storage_mm3": {
+        "TKA": 520.139,
+        "PKI": 1892.313,
+        "OHA": 46.118
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": 44.441,
+        "PKI": -552.627,
+        "OHA": 20.889
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 141.753,
+        "PKI": 398.765,
+        "OHA": 7.838
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1331.306,
+        "OHA": 19.21
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 658.823,
+        "PKI": 2184.627,
+        "OHA": 98.082
+      },
+      "source_release_mm3": {
+        "TKA": 2310.752,
+        "PKI": 3955.953,
+        "OHA": 2574.361
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.121552,
+      "waitaki_hydro_relative_error": 0.01887,
+      "normalized_winter_entry_error": 0.058928,
+      "normalized_year_end_error": 0.131227,
+      "simple_validation_score": 0.140423,
+      "trajectory_validation_score": 0.235501
+    },
+    "TKA=q50,PKI=q50,OHA=q50": {
+      "guard_by_lake": {
+        "TKA": "q50",
+        "PKI": "q50",
+        "OHA": "q50"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7415.333,
+      "modeled_thermal_backstop_gwh": 6187.923,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 619.817,
+        "PKI": 1955.532,
+        "OHA": 22.291
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 150.554,
+        "PKI": 17.249,
+        "OHA": 0.93
+      },
+      "year_end_storage_mm3": {
+        "TKA": 520.779,
+        "PKI": 1880.892,
+        "OHA": 59.205
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": 45.081,
+        "PKI": -564.048,
+        "OHA": 33.976
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 141.883,
+        "PKI": 398.886,
+        "OHA": 8.198
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1331.557,
+        "OHA": 21.444
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 658.823,
+        "PKI": 2184.627,
+        "OHA": 99.496
+      },
+      "source_release_mm3": {
+        "TKA": 2310.112,
+        "PKI": 3967.375,
+        "OHA": 2561.274
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.122301,
+      "waitaki_hydro_relative_error": 0.019128,
+      "normalized_winter_entry_error": 0.059846,
+      "normalized_year_end_error": 0.157877,
+      "simple_validation_score": 0.141429,
+      "trajectory_validation_score": 0.250291
+    },
+    "TKA=q50,PKI=q50,OHA=q75": {
+      "guard_by_lake": {
+        "TKA": "q50",
+        "PKI": "q50",
+        "OHA": "q75"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7413.737,
+      "modeled_thermal_backstop_gwh": 6189.519,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 619.817,
+        "PKI": 1955.532,
+        "OHA": 27.006
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 150.554,
+        "PKI": 17.249,
+        "OHA": 5.645
+      },
+      "year_end_storage_mm3": {
+        "TKA": 517.516,
+        "PKI": 1895.271,
+        "OHA": 52.165
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": 41.818,
+        "PKI": -549.669,
+        "OHA": 26.936
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 141.055,
+        "PKI": 398.878,
+        "OHA": 10.505
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1335.577,
+        "OHA": 22.172
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 658.823,
+        "PKI": 2184.627,
+        "OHA": 102.815
+      },
+      "source_release_mm3": {
+        "TKA": 2313.375,
+        "PKI": 3952.996,
+        "OHA": 2568.314
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.126376,
+      "waitaki_hydro_relative_error": 0.019339,
+      "normalized_winter_entry_error": 0.068803,
+      "normalized_year_end_error": 0.141342,
+      "simple_validation_score": 0.145715,
+      "trajectory_validation_score": 0.250787
+    },
+    "TKA=q50,PKI=q75,OHA=q25": {
+      "guard_by_lake": {
+        "TKA": "q50",
+        "PKI": "q75",
+        "OHA": "q25"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7222.278,
+      "modeled_thermal_backstop_gwh": 6380.978,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 650.431,
+        "PKI": 2213.851,
+        "OHA": 20.914
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 181.168,
+        "PKI": 275.568,
+        "OHA": -0.447
+      },
+      "year_end_storage_mm3": {
+        "TKA": 510.865,
+        "PKI": 2199.16,
+        "OHA": 21.467
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": 35.167,
+        "PKI": -245.78,
+        "OHA": -3.762
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 142.805,
+        "PKI": 573.833,
+        "OHA": 9.314
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1573.313,
+        "OHA": 19.21
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 682.524,
+        "PKI": 2474.675,
+        "OHA": 104.149
+      },
+      "source_release_mm3": {
+        "TKA": 2320.026,
+        "PKI": 3649.107,
+        "OHA": 2599.012
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.148535,
+      "waitaki_hydro_relative_error": 0.044665,
+      "normalized_winter_entry_error": 0.105363,
+      "normalized_year_end_error": 0.053563,
+      "simple_validation_score": 0.1932,
+      "trajectory_validation_score": 0.272662
+    },
+    "TKA=q50,PKI=q75,OHA=q50": {
+      "guard_by_lake": {
+        "TKA": "q50",
+        "PKI": "q75",
+        "OHA": "q50"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7220.651,
+      "modeled_thermal_backstop_gwh": 6382.605,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 650.58,
+        "PKI": 2213.851,
+        "OHA": 22.291
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 181.317,
+        "PKI": 275.568,
+        "OHA": 0.93
+      },
+      "year_end_storage_mm3": {
+        "TKA": 511.152,
+        "PKI": 2199.16,
+        "OHA": 23.247
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": 35.454,
+        "PKI": -245.78,
+        "OHA": -1.982
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 142.801,
+        "PKI": 573.801,
+        "OHA": 9.045
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1572.744,
+        "OHA": 21.444
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 682.524,
+        "PKI": 2474.675,
+        "OHA": 105.77
+      },
+      "source_release_mm3": {
+        "TKA": 2319.739,
+        "PKI": 3649.107,
+        "OHA": 2597.232
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.148018,
+      "waitaki_hydro_relative_error": 0.04488,
+      "normalized_winter_entry_error": 0.106336,
+      "normalized_year_end_error": 0.050288,
+      "simple_validation_score": 0.192898,
+      "trajectory_validation_score": 0.27121
+    },
+    "TKA=q50,PKI=q75,OHA=q75": {
+      "guard_by_lake": {
+        "TKA": "q50",
+        "PKI": "q75",
+        "OHA": "q75"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7216.33,
+      "modeled_thermal_backstop_gwh": 6386.926,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 650.955,
+        "PKI": 2213.851,
+        "OHA": 27.006
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 181.692,
+        "PKI": 275.568,
+        "OHA": 5.645
+      },
+      "year_end_storage_mm3": {
+        "TKA": 511.012,
+        "PKI": 2199.16,
+        "OHA": 29.396
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": 35.314,
+        "PKI": -245.78,
+        "OHA": 4.167
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 141.666,
+        "PKI": 575.711,
+        "OHA": 11.661
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1587.722,
+        "OHA": 22.172
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 682.524,
+        "PKI": 2474.675,
+        "OHA": 108.435
+      },
+      "source_release_mm3": {
+        "TKA": 2319.879,
+        "PKI": 3649.107,
+        "OHA": 2591.083
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.152827,
+      "waitaki_hydro_relative_error": 0.045452,
+      "normalized_winter_entry_error": 0.115431,
+      "normalized_year_end_error": 0.054387,
+      "simple_validation_score": 0.198278,
+      "trajectory_validation_score": 0.283187
+    },
+    "TKA=q75,PKI=q25,OHA=q25": {
+      "guard_by_lake": {
+        "TKA": "q75",
+        "PKI": "q25",
+        "OHA": "q25"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7491.69,
+      "modeled_thermal_backstop_gwh": 6111.566,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 712.061,
+        "PKI": 1677.718,
+        "OHA": 20.914
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 242.798,
+        "PKI": -260.565,
+        "OHA": -0.447
+      },
+      "year_end_storage_mm3": {
+        "TKA": 631.185,
+        "PKI": 1621.435,
+        "OHA": 39.658
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": 155.487,
+        "PKI": -823.505,
+        "OHA": 14.429
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 233.663,
+        "PKI": 272.724,
+        "OHA": 9.32
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1019.59,
+        "OHA": 19.405
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 747.861,
+        "PKI": 1954.683,
+        "OHA": 101.647
+      },
+      "source_release_mm3": {
+        "TKA": 2199.706,
+        "PKI": 4226.832,
+        "OHA": 2580.821
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.141266,
+      "waitaki_hydro_relative_error": 0.009028,
+      "normalized_winter_entry_error": 0.12614,
+      "normalized_year_end_error": 0.196873,
+      "simple_validation_score": 0.150294,
+      "trajectory_validation_score": 0.3118
+    },
+    "TKA=q75,PKI=q25,OHA=q50": {
+      "guard_by_lake": {
+        "TKA": "q75",
+        "PKI": "q25",
+        "OHA": "q50"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7490.246,
+      "modeled_thermal_backstop_gwh": 6113.01,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 712.061,
+        "PKI": 1677.718,
+        "OHA": 22.291
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 242.798,
+        "PKI": -260.565,
+        "OHA": 0.93
+      },
+      "year_end_storage_mm3": {
+        "TKA": 631.185,
+        "PKI": 1621.1,
+        "OHA": 41.974
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": 155.487,
+        "PKI": -823.84,
+        "OHA": 16.745
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 233.69,
+        "PKI": 272.775,
+        "OHA": 9.585
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1019.59,
+        "OHA": 21.444
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 747.861,
+        "PKI": 1954.683,
+        "OHA": 103.061
+      },
+      "source_release_mm3": {
+        "TKA": 2199.706,
+        "PKI": 4227.167,
+        "OHA": 2578.505
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.141786,
+      "waitaki_hydro_relative_error": 0.009219,
+      "normalized_winter_entry_error": 0.127057,
+      "normalized_year_end_error": 0.201318,
+      "simple_validation_score": 0.151006,
+      "trajectory_validation_score": 0.315193
+    },
+    "TKA=q75,PKI=q25,OHA=q75": {
+      "guard_by_lake": {
+        "TKA": "q75",
+        "PKI": "q25",
+        "OHA": "q75"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7488.345,
+      "modeled_thermal_backstop_gwh": 6114.911,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 712.061,
+        "PKI": 1677.718,
+        "OHA": 27.006
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 242.798,
+        "PKI": -260.565,
+        "OHA": 5.645
+      },
+      "year_end_storage_mm3": {
+        "TKA": 631.185,
+        "PKI": 1626.512,
+        "OHA": 39.17
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": 155.487,
+        "PKI": -818.428,
+        "OHA": 13.941
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 233.636,
+        "PKI": 273.21,
+        "OHA": 11.726
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1019.59,
+        "OHA": 22.172
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 747.861,
+        "PKI": 1954.683,
+        "OHA": 106.38
+      },
+      "source_release_mm3": {
+        "TKA": 2199.706,
+        "PKI": 4221.754,
+        "OHA": 2581.309
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.145893,
+      "waitaki_hydro_relative_error": 0.009471,
+      "normalized_winter_entry_error": 0.136014,
+      "normalized_year_end_error": 0.195256,
+      "simple_validation_score": 0.155363,
+      "trajectory_validation_score": 0.320998
+    },
+    "TKA=q75,PKI=q50,OHA=q25": {
+      "guard_by_lake": {
+        "TKA": "q75",
+        "PKI": "q50",
+        "OHA": "q25"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7231.001,
+      "modeled_thermal_backstop_gwh": 6372.255,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 712.061,
+        "PKI": 1955.532,
+        "OHA": 20.914
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 242.798,
+        "PKI": 17.249,
+        "OHA": -0.447
+      },
+      "year_end_storage_mm3": {
+        "TKA": 631.185,
+        "PKI": 1947.914,
+        "OHA": 70.861
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": 155.487,
+        "PKI": -497.026,
+        "OHA": 45.632
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 233.906,
+        "PKI": 397.549,
+        "OHA": 10.136
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1384.991,
+        "OHA": 19.405
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 754.624,
+        "PKI": 2184.627,
+        "OHA": 103.688
+      },
+      "source_release_mm3": {
+        "TKA": 2199.706,
+        "PKI": 3900.352,
+        "OHA": 2549.618
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.159868,
+      "waitaki_hydro_relative_error": 0.043511,
+      "normalized_winter_entry_error": 0.093077,
+      "normalized_year_end_error": 0.211785,
+      "simple_validation_score": 0.203379,
+      "trajectory_validation_score": 0.35581
+    },
+    "TKA=q75,PKI=q50,OHA=q50": {
+      "guard_by_lake": {
+        "TKA": "q75",
+        "PKI": "q50",
+        "OHA": "q50"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7229.052,
+      "modeled_thermal_backstop_gwh": 6374.204,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 712.061,
+        "PKI": 1955.532,
+        "OHA": 22.291
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 242.798,
+        "PKI": 17.249,
+        "OHA": 0.93
+      },
+      "year_end_storage_mm3": {
+        "TKA": 631.185,
+        "PKI": 1971.486,
+        "OHA": 49.964
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": 155.487,
+        "PKI": -473.454,
+        "OHA": 24.735
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 233.894,
+        "PKI": 397.537,
+        "OHA": 10.522
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1384.991,
+        "OHA": 21.444
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 754.624,
+        "PKI": 2184.627,
+        "OHA": 105.811
+      },
+      "source_release_mm3": {
+        "TKA": 2199.706,
+        "PKI": 3876.781,
+        "OHA": 2570.515
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.160595,
+      "waitaki_hydro_relative_error": 0.043769,
+      "normalized_winter_entry_error": 0.093995,
+      "normalized_year_end_error": 0.168885,
+      "simple_validation_score": 0.204364,
+      "trajectory_validation_score": 0.335804
+    },
+    "TKA=q75,PKI=q50,OHA=q75": {
+      "guard_by_lake": {
+        "TKA": "q75",
+        "PKI": "q50",
+        "OHA": "q75"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7227.456,
+      "modeled_thermal_backstop_gwh": 6375.8,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 712.061,
+        "PKI": 1955.532,
+        "OHA": 27.006
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 242.798,
+        "PKI": 17.249,
+        "OHA": 5.645
+      },
+      "year_end_storage_mm3": {
+        "TKA": 631.185,
+        "PKI": 1961.365,
+        "OHA": 62.275
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": 155.487,
+        "PKI": -483.575,
+        "OHA": 37.046
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 233.877,
+        "PKI": 397.651,
+        "OHA": 12.894
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1384.991,
+        "OHA": 22.172
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 754.624,
+        "PKI": 2184.627,
+        "OHA": 106.818
+      },
+      "source_release_mm3": {
+        "TKA": 2199.706,
+        "PKI": 3886.902,
+        "OHA": 2558.204
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.16511,
+      "waitaki_hydro_relative_error": 0.04398,
+      "normalized_winter_entry_error": 0.102952,
+      "normalized_year_end_error": 0.193647,
+      "simple_validation_score": 0.20909,
+      "trajectory_validation_score": 0.357389
+    },
+    "TKA=q75,PKI=q75,OHA=q25": {
+      "guard_by_lake": {
+        "TKA": "q75",
+        "PKI": "q75",
+        "OHA": "q25"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7054.923,
+      "modeled_thermal_backstop_gwh": 6548.333,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 718.199,
+        "PKI": 2213.851,
+        "OHA": 20.914
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 248.936,
+        "PKI": 275.568,
+        "OHA": -0.447
+      },
+      "year_end_storage_mm3": {
+        "TKA": 631.185,
+        "PKI": 2226.659,
+        "OHA": 33.708
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": 155.487,
+        "PKI": -218.281,
+        "OHA": 8.479
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 235.368,
+        "PKI": 580.379,
+        "OHA": 11.705
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1610.433,
+        "OHA": 19.405
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 767.681,
+        "PKI": 2474.675,
+        "OHA": 104.149
+      },
+      "source_release_mm3": {
+        "TKA": 2199.706,
+        "PKI": 3621.607,
+        "OHA": 2586.771
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.188233,
+      "waitaki_hydro_relative_error": 0.066802,
+      "normalized_winter_entry_error": 0.130451,
+      "normalized_year_end_error": 0.10333,
+      "simple_validation_score": 0.255035,
+      "trajectory_validation_score": 0.371925
+    },
+    "TKA=q75,PKI=q75,OHA=q50": {
+      "guard_by_lake": {
+        "TKA": "q75",
+        "PKI": "q75",
+        "OHA": "q50"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7053.24,
+      "modeled_thermal_backstop_gwh": 6550.016,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 718.199,
+        "PKI": 2213.851,
+        "OHA": 22.291
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 248.936,
+        "PKI": 275.568,
+        "OHA": 0.93
+      },
+      "year_end_storage_mm3": {
+        "TKA": 623.258,
+        "PKI": 2237.655,
+        "OHA": 37.531
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": 147.56,
+        "PKI": -207.285,
+        "OHA": 12.302
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 233.939,
+        "PKI": 580.679,
+        "OHA": 12.147
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1610.433,
+        "OHA": 21.444
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 767.681,
+        "PKI": 2474.675,
+        "OHA": 105.822
+      },
+      "source_release_mm3": {
+        "TKA": 2207.634,
+        "PKI": 3610.611,
+        "OHA": 2582.948
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.188585,
+      "waitaki_hydro_relative_error": 0.067025,
+      "normalized_winter_entry_error": 0.131368,
+      "normalized_year_end_error": 0.106163,
+      "simple_validation_score": 0.255609,
+      "trajectory_validation_score": 0.374375
+    },
+    "TKA=q75,PKI=q75,OHA=q75": {
+      "guard_by_lake": {
+        "TKA": "q75",
+        "PKI": "q75",
+        "OHA": "q75"
+      },
+      "incremental_solar_gwh": 0.0,
+      "modeled_waitaki_hydro_gwh": 7051.792,
+      "modeled_thermal_backstop_gwh": 6551.464,
+      "incremental_solar_used_gwh": 0.0,
+      "incremental_solar_curtailed_gwh": 0.0,
+      "forced_spill_mm3": 0.0,
+      "winter_entry_storage_mm3": {
+        "TKA": 718.199,
+        "PKI": 2213.851,
+        "OHA": 27.006
+      },
+      "winter_entry_storage_difference_vs_observed_mm3": {
+        "TKA": 248.936,
+        "PKI": 275.568,
+        "OHA": 5.645
+      },
+      "year_end_storage_mm3": {
+        "TKA": 621.14,
+        "PKI": 2233.282,
+        "OHA": 47.233
+      },
+      "year_end_storage_difference_vs_observed_mm3": {
+        "TKA": 145.442,
+        "PKI": -211.658,
+        "OHA": 22.004
+      },
+      "storage_mae_vs_observed_mm3": {
+        "TKA": 233.31,
+        "PKI": 580.991,
+        "OHA": 14.353
+      },
+      "minimum_modeled_storage_mm3": {
+        "TKA": 136.385,
+        "PKI": 1610.433,
+        "OHA": 22.172
+      },
+      "maximum_modeled_storage_mm3": {
+        "TKA": 767.681,
+        "PKI": 2474.675,
+        "OHA": 108.435
+      },
+      "source_release_mm3": {
+        "TKA": 2209.751,
+        "PKI": 3614.985,
+        "OHA": 2573.246
+      },
+      "source_spill_mm3": {
+        "TKA": 0.0,
+        "PKI": 0.0,
+        "OHA": 0.0
+      },
+      "normalized_mean_storage_mae": 0.192585,
+      "waitaki_hydro_relative_error": 0.067216,
+      "normalized_winter_entry_error": 0.140325,
+      "normalized_year_end_error": 0.124404,
+      "simple_validation_score": 0.259801,
+      "trajectory_validation_score": 0.392166
+    }
+  }
+}
