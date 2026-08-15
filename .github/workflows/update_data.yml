@@ -22,7 +22,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install Dependencies
-        run: pip install requests openpyxl
+        run: pip install requests openpyxl matplotlib
 
       - name: Fetch EA HMD Data
         run: python update_data.py
@@ -110,6 +110,9 @@ jobs:
 
       - name: Dispatch Waitaki Source-Route Water Balance
         run: python dispatch_waitaki_source_route_v1.py
+
+      - name: Plot Waitaki WiP Progress
+        run: python plot_waitaki_progress.py
 
       - name: Commit and Push Changes
         run: |
