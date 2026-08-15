@@ -111,6 +111,9 @@ jobs:
       - name: Dispatch Waitaki Source-Route Water Balance
         run: python dispatch_waitaki_source_route_v1.py
 
+      - name: Diagnose Waitaki Seasonal Storage Guard
+        run: python diagnose_waitaki_storage_guard.py
+
       - name: Plot Waitaki WiP Progress
         run: python plot_waitaki_progress.py
 
