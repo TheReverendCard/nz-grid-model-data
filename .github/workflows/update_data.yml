@@ -46,6 +46,9 @@ jobs:
       - name: Build JADE Weekly Security Visual Data
         run: python build_jade_weekly_security.py
 
+      - name: Build JADE Weekly Thermal Dispatch Data
+        run: python build_jade_thermal_dispatch.py
+
       - name: Render JADE Seasonal Security Charts
         run: python build_jade_security_charts.py
 
