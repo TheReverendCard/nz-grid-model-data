@@ -1,6 +1,13 @@
-name: Daily EA Data Fetch
+name: Daily Public Electricity Data Refresh
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '*.py'
+      - '.github/workflows/**'
+      - 'docs/**'
+      - 'DATA_DICTIONARY.md'
   schedule:
     - cron: '0 14 * * *'
   workflow_dispatch:
@@ -8,31 +15,44 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: public-data-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  update-data:
+  refresh:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4.2.2
-
-      - name: Set up Python
-        uses: actions/setup-python@v5.3.0
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-python@v5.3.0
         with:
-          python-version: '3.10'
-
-      - name: Install Dependencies
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install requests openpyxl
+      - name: Refresh hydro source data
         run: |
-          pip install pandas playwright
-          playwright install --with-deps chromium
-
-      - name: Run Scraper Script
-        run: python update_data.py
-
-      - name: Commit and Push Changes
+          python update_data.py
+          python normalize_hydro.py
+      - name: Refresh wholesale generation and demand
+        run: |
+          python update_wholesale.py
+          python normalize_wholesale.py
+      - name: Refresh distributed solar
+        run: |
+          python update_distributed_generation.py
+          python normalize_distributed_generation.py
+      - name: Refresh Transpower connection pipeline
+        run: python update_connection_pipeline.py
+      - name: Refresh wholesale prices
+        run: python update_prices.py
+      - name: Build public dashboard CSVs
+        run: python build_public_views.py
+      - name: Commit changed public data
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add .
-          git commit -m "Automated EA data update" || echo "No changes to commit"
-          git push
+          git add data/
+          git diff --cached --quiet && echo "No public-data changes to commit" && exit 0
+          git commit -m "Automated public electricity data refresh"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin HEAD:"${GITHUB_REF_NAME}"

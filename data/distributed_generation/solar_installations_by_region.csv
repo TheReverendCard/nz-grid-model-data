@@ -1,0 +1,175 @@
+RegionType,RegionCode,Region,MarketSegment,ICPs,GenerationCapacityKilowattsAvg,GenerationCapacityKilowattsSum
+NZ,NZ,New Zealand,Res,82056,5.7,469480.0
+NZ,NZ,New Zealand,Bus,8107,90.1,730507.8
+NZ,NZ,New Zealand,All,90163,13.3,1199987.8
+ISLAND,NI,North Island,Res,55696,5.7,316602.1
+ISLAND,NI,North Island,Bus,5735,72.2,413920.4
+ISLAND,NI,North Island,All,61431,11.9,730522.5
+ISLAND,SI,South Island,Res,26360,5.8,152877.9
+ISLAND,SI,South Island,Bus,2372,133.5,316587.4
+ISLAND,SI,South Island,All,28732,16.3,469465.3
+REG_COUNCIL,1,Northland,Res,5700,5.5,31275.7
+REG_COUNCIL,1,Northland,Bus,721,140.9,101588.8
+REG_COUNCIL,1,Northland,All,6421,20.7,132864.5
+REG_COUNCIL,2,Auckland,Res,15218,5.3,80711.3
+REG_COUNCIL,2,Auckland,Bus,1492,38.7,57684.6
+REG_COUNCIL,2,Auckland,All,16710,8.3,138395.9
+REG_COUNCIL,3,Waikato,Res,8804,6.0,52983.6
+REG_COUNCIL,3,Waikato,Bus,1185,95.4,113056.0
+REG_COUNCIL,3,Waikato,All,9989,16.6,166039.6
+REG_COUNCIL,4,Bay of Plenty,Res,7145,5.9,42368.3
+REG_COUNCIL,4,Bay of Plenty,Bus,556,119.2,66266.1
+REG_COUNCIL,4,Bay of Plenty,All,7701,14.1,108634.4
+REG_COUNCIL,5,Gisborne,Res,596,4.7,2779.4
+REG_COUNCIL,5,Gisborne,Bus,68,92.6,6294.4
+REG_COUNCIL,5,Gisborne,All,664,13.7,9073.8
+REG_COUNCIL,6,Hawke's Bay,Res,4361,5.8,25117.7
+REG_COUNCIL,6,Hawke's Bay,Bus,542,22.8,12370.8
+REG_COUNCIL,6,Hawke's Bay,All,4903,7.6,37488.5
+REG_COUNCIL,7,Taranaki,Res,2446,6.4,15757.2
+REG_COUNCIL,7,Taranaki,Bus,355,53.8,19089.2
+REG_COUNCIL,7,Taranaki,All,2801,12.4,34846.4
+REG_COUNCIL,8,Manawatu-Wanganui,Res,3874,5.9,22901.1
+REG_COUNCIL,8,Manawatu-Wanganui,Bus,406,25.9,10528.6
+REG_COUNCIL,8,Manawatu-Wanganui,All,4280,7.8,33429.6
+REG_COUNCIL,9,Wellington,Res,7532,5.6,42352.4
+REG_COUNCIL,9,Wellington,Bus,407,35.0,14257.1
+REG_COUNCIL,9,Wellington,All,7939,7.1,56609.6
+REG_COUNCIL,16,Tasman,Res,2159,6.4,13919.9
+REG_COUNCIL,16,Tasman,Bus,211,35.2,7423.0
+REG_COUNCIL,16,Tasman,All,2370,9.0,21342.8
+REG_COUNCIL,17,Nelson,Res,1682,5.5,9255.6
+REG_COUNCIL,17,Nelson,Bus,128,37.8,4844.0
+REG_COUNCIL,17,Nelson,All,1810,7.8,14099.6
+REG_COUNCIL,18,Marlborough,Res,1586,5.4,8578.0
+REG_COUNCIL,18,Marlborough,Bus,152,188.6,28669.8
+REG_COUNCIL,18,Marlborough,All,1738,21.4,37247.8
+REG_COUNCIL,12,West Coast,Res,310,6.7,2069.8
+REG_COUNCIL,12,West Coast,Bus,38,17.0,647.0
+REG_COUNCIL,12,West Coast,All,348,7.8,2716.8
+REG_COUNCIL,13,Canterbury,Res,14210,5.8,81926.3
+REG_COUNCIL,13,Canterbury,Bus,1237,207.6,256788.7
+REG_COUNCIL,13,Canterbury,All,15447,21.9,338715.0
+REG_COUNCIL,14,Otago,Res,5482,5.8,31750.2
+REG_COUNCIL,14,Otago,Bus,472,23.8,11233.6
+REG_COUNCIL,14,Otago,All,5954,7.2,42983.8
+REG_COUNCIL,15,Southland,Res,905,5.7,5132.7
+REG_COUNCIL,15,Southland,Bus,116,17.8,2069.7
+REG_COUNCIL,15,Southland,All,1021,7.1,7202.4
+NWK_REPORTING_REGION,1,Bay of Islands (Top Energy),Res,2401,5.4,12855.9
+NWK_REPORTING_REGION,1,Bay of Islands (Top Energy),Bus,331,219.8,72748.9
+NWK_REPORTING_REGION,1,Bay of Islands (Top Energy),All,2732,31.3,85604.8
+NWK_REPORTING_REGION,2,Whangārei and Kaipara (Northpower),Res,3272,5.6,18249.7
+NWK_REPORTING_REGION,2,Whangārei and Kaipara (Northpower),Bus,383,118.0,45208.0
+NWK_REPORTING_REGION,2,Whangārei and Kaipara (Northpower),All,3655,17.4,63457.6
+NWK_REPORTING_REGION,3,Waitemata (Vector),Res,6939,5.5,38104.4
+NWK_REPORTING_REGION,3,Waitemata (Vector),Bus,530,19.5,10318.2
+NWK_REPORTING_REGION,3,Waitemata (Vector),All,7469,6.5,48422.7
+NWK_REPORTING_REGION,4,Auckland (Vector),Res,6740,5.1,34532.1
+NWK_REPORTING_REGION,4,Auckland (Vector),Bus,847,51.1,43257.7
+NWK_REPORTING_REGION,4,Auckland (Vector),All,7587,10.3,77789.8
+NWK_REPORTING_REGION,5,Counties (Counties Power),Res,2123,5.2,11132.8
+NWK_REPORTING_REGION,5,Counties (Counties Power),Bus,173,36.4,6294.5
+NWK_REPORTING_REGION,5,Counties (Counties Power),All,2296,7.6,17427.3
+NWK_REPORTING_REGION,6,Thames Valley (Powerco),Res,2447,5.8,14077.9
+NWK_REPORTING_REGION,6,Thames Valley (Powerco),Bus,454,136.1,61777.9
+NWK_REPORTING_REGION,6,Thames Valley (Powerco),All,2901,26.1,75855.8
+NWK_REPORTING_REGION,7,Waikato (WEL Networks),Res,3524,6.2,21923.5
+NWK_REPORTING_REGION,7,Waikato (WEL Networks),Bus,351,103.5,36333.5
+NWK_REPORTING_REGION,7,Waikato (WEL Networks),All,3875,15.0,58257.0
+NWK_REPORTING_REGION,8,Waipa (Waipa Networks),Res,1545,6.5,10091.6
+NWK_REPORTING_REGION,8,Waipa (Waipa Networks),Bus,163,26.3,4282.2
+NWK_REPORTING_REGION,8,Waipa (Waipa Networks),All,1708,8.4,14373.9
+NWK_REPORTING_REGION,9,King Country (The Lines Company),Res,341,5.8,1978.3
+NWK_REPORTING_REGION,9,King Country (The Lines Company),Bus,117,23.9,2800.4
+NWK_REPORTING_REGION,9,King Country (The Lines Company),All,458,10.4,4778.7
+NWK_REPORTING_REGION,10,Tauranga (Powerco),Res,5084,6.1,30961.3
+NWK_REPORTING_REGION,10,Tauranga (Powerco),Bus,320,28.7,9175.4
+NWK_REPORTING_REGION,10,Tauranga (Powerco),All,5404,7.4,40136.7
+NWK_REPORTING_REGION,11,Rotorua (Unison Networks),Res,1050,5.7,5958.4
+NWK_REPORTING_REGION,11,Rotorua (Unison Networks),Bus,107,26.0,2776.8
+NWK_REPORTING_REGION,11,Rotorua (Unison Networks),All,1157,7.5,8735.1
+NWK_REPORTING_REGION,12,Eastern Bay of Plenty (Horizon Energy),Res,916,5.4,4923.5
+NWK_REPORTING_REGION,12,Eastern Bay of Plenty (Horizon Energy),Bus,136,401.9,54652.2
+NWK_REPORTING_REGION,12,Eastern Bay of Plenty (Horizon Energy),All,1052,56.6,59575.7
+NWK_REPORTING_REGION,13,Taupō (Unison Networks),Res,605,5.8,3479.4
+NWK_REPORTING_REGION,13,Taupō (Unison Networks),Bus,59,13.9,822.0
+NWK_REPORTING_REGION,13,Taupō (Unison Networks),All,664,6.5,4301.4
+NWK_REPORTING_REGION,14,Tairāwhiti and Wairoa (Firstlight Network),Res,692,4.6,3201.8
+NWK_REPORTING_REGION,14,Tairāwhiti and Wairoa (Firstlight Network),Bus,90,77.2,6946.9
+NWK_REPORTING_REGION,14,Tairāwhiti and Wairoa (Firstlight Network),All,782,13.0,10148.7
+NWK_REPORTING_REGION,15,Hawke's Bay (Unison Networks),Res,3784,5.7,21568.7
+NWK_REPORTING_REGION,15,Hawke's Bay (Unison Networks),Bus,446,23.2,10364.2
+NWK_REPORTING_REGION,15,Hawke's Bay (Unison Networks),All,4230,7.5,31932.8
+NWK_REPORTING_REGION,16,Central Hawke's Bay (Centralines),Res,473,6.5,3084.4
+NWK_REPORTING_REGION,16,Central Hawke's Bay (Centralines),Bus,76,18.4,1399.2
+NWK_REPORTING_REGION,16,Central Hawke's Bay (Centralines),All,549,8.2,4483.6
+NWK_REPORTING_REGION,17,Southern Hawke's Bay (Scanpower),Res,91,5.0,451.4
+NWK_REPORTING_REGION,17,Southern Hawke's Bay (Scanpower),Bus,23,46.9,1077.9
+NWK_REPORTING_REGION,17,Southern Hawke's Bay (Scanpower),All,114,13.4,1529.3
+NWK_REPORTING_REGION,18,Wairarapa (Powerco),Res,1618,6.2,10099.1
+NWK_REPORTING_REGION,18,Wairarapa (Powerco),Bus,138,51.6,7124.9
+NWK_REPORTING_REGION,18,Wairarapa (Powerco),All,1756,9.8,17224.0
+NWK_REPORTING_REGION,19,Taranaki (Powerco),Res,2418,6.5,15599.3
+NWK_REPORTING_REGION,19,Taranaki (Powerco),Bus,346,54.6,18877.3
+NWK_REPORTING_REGION,19,Taranaki (Powerco),All,2764,12.5,34476.6
+NWK_REPORTING_REGION,20,Whanganui (Powerco),Res,1055,6.0,6283.9
+NWK_REPORTING_REGION,20,Whanganui (Powerco),Bus,101,17.5,1762.7
+NWK_REPORTING_REGION,20,Whanganui (Powerco),All,1156,7.0,8046.6
+NWK_REPORTING_REGION,21,Manawatū (Powerco),Res,1975,6.1,12127.8
+NWK_REPORTING_REGION,21,Manawatū (Powerco),Bus,224,28.5,6380.6
+NWK_REPORTING_REGION,21,Manawatū (Powerco),All,2199,8.4,18508.4
+NWK_REPORTING_REGION,22,Kāpiti and Horowhenua (Electra),Res,2311,5.7,13070.4
+NWK_REPORTING_REGION,22,Kāpiti and Horowhenua (Electra),Bus,118,20.1,2376.7
+NWK_REPORTING_REGION,22,Kāpiti and Horowhenua (Electra),All,2429,6.4,15447.1
+NWK_REPORTING_REGION,23,Wellington (Wellington Electricity),Res,4283,5.3,22811.5
+NWK_REPORTING_REGION,23,Wellington (Wellington Electricity),Bus,193,28.9,5579.4
+NWK_REPORTING_REGION,23,Wellington (Wellington Electricity),All,4476,6.3,28391.0
+NWK_REPORTING_REGION,25,Tasman (Network Tasman),Res,3843,6.0,23212.5
+NWK_REPORTING_REGION,25,Tasman (Network Tasman),Bus,343,36.4,12495.0
+NWK_REPORTING_REGION,25,Tasman (Network Tasman),All,4186,8.5,35707.5
+NWK_REPORTING_REGION,26,Marlborough (Marlborough Lines),Res,1584,5.4,8569.7
+NWK_REPORTING_REGION,26,Marlborough (Marlborough Lines),Bus,153,187.4,28676.8
+NWK_REPORTING_REGION,26,Marlborough (Marlborough Lines),All,1737,21.4,37246.4
+NWK_REPORTING_REGION,27,Buller (Buller Electricity),Res,68,5.9,401.6
+NWK_REPORTING_REGION,27,Buller (Buller Electricity),Bus,13,20.2,263.0
+NWK_REPORTING_REGION,27,Buller (Buller Electricity),All,81,8.2,664.6
+NWK_REPORTING_REGION,28,West Coast (Westpower),Res,241,6.8,1648.1
+NWK_REPORTING_REGION,28,West Coast (Westpower),Bus,25,11.9,296.5
+NWK_REPORTING_REGION,28,West Coast (Westpower),All,266,7.3,1944.6
+NWK_REPORTING_REGION,29,North Canterbury (MainPower NZ),Res,3104,5.7,17557.4
+NWK_REPORTING_REGION,29,North Canterbury (MainPower NZ),Bus,234,51.6,12065.9
+NWK_REPORTING_REGION,29,North Canterbury (MainPower NZ),All,3338,8.9,29623.4
+NWK_REPORTING_REGION,30,Central Canterbury (Orion New Zealand),Res,9182,5.8,53529.0
+NWK_REPORTING_REGION,30,Central Canterbury (Orion New Zealand),Bus,650,273.4,177735.7
+NWK_REPORTING_REGION,30,Central Canterbury (Orion New Zealand),All,9832,23.5,231264.7
+NWK_REPORTING_REGION,31,Ashburton (Electricity Ashburton),Res,717,6.2,4429.5
+NWK_REPORTING_REGION,31,Ashburton (Electricity Ashburton),Bus,204,332.5,67833.9
+NWK_REPORTING_REGION,31,Ashburton (Electricity Ashburton),All,921,78.5,72263.4
+NWK_REPORTING_REGION,32,South Canterbury (Alpine Energy),Res,1131,5.3,6048.8
+NWK_REPORTING_REGION,32,South Canterbury (Alpine Energy),Bus,134,18.0,2413.4
+NWK_REPORTING_REGION,32,South Canterbury (Alpine Energy),All,1265,6.7,8462.1
+NWK_REPORTING_REGION,33,Waitaki (Network Waitaki),Res,361,5.7,2072.6
+NWK_REPORTING_REGION,33,Waitaki (Network Waitaki),Bus,65,42.0,2728.8
+NWK_REPORTING_REGION,33,Waitaki (Network Waitaki),All,426,11.3,4801.4
+NWK_REPORTING_REGION,40,Frankton (Lakelands),Res,262,6.5,1702.5
+NWK_REPORTING_REGION,40,Frankton (Lakelands),Bus,19,45.4,862.5
+NWK_REPORTING_REGION,40,Frankton (Lakelands),All,281,9.1,2565.0
+NWK_REPORTING_REGION,34,Queenstown (Aurora Energy),Res,880,6.3,5542.1
+NWK_REPORTING_REGION,34,Queenstown (Aurora Energy),Bus,61,15.8,963.8
+NWK_REPORTING_REGION,34,Queenstown (Aurora Energy),All,941,6.9,6505.9
+NWK_REPORTING_REGION,35,Central Otago (Aurora Energy),Res,2576,5.9,15279.0
+NWK_REPORTING_REGION,35,Central Otago (Aurora Energy),Bus,214,27.2,5812.4
+NWK_REPORTING_REGION,35,Central Otago (Aurora Energy),All,2790,7.6,21091.4
+NWK_REPORTING_REGION,36,Otago (OtagoNet),Res,450,5.3,2383.9
+NWK_REPORTING_REGION,36,Otago (OtagoNet),Bus,72,24.4,1757.0
+NWK_REPORTING_REGION,36,Otago (OtagoNet),All,522,7.9,4140.9
+NWK_REPORTING_REGION,37,Dunedin (Aurora Energy),Res,1024,5.1,5179.0
+NWK_REPORTING_REGION,37,Dunedin (Aurora Energy),Bus,68,11.0,750.7
+NWK_REPORTING_REGION,37,Dunedin (Aurora Energy),All,1092,5.4,5929.7
+NWK_REPORTING_REGION,38,Southland (The Power Company),Res,752,5.9,4446.7
+NWK_REPORTING_REGION,38,Southland (The Power Company),Bus,93,15.2,1417.0
+NWK_REPORTING_REGION,38,Southland (The Power Company),All,845,6.9,5863.8
+NWK_REPORTING_REGION,39,Invercargill (Electricity Invercargill),Res,185,4.7,875.6
+NWK_REPORTING_REGION,39,Invercargill (Electricity Invercargill),Bus,24,21.5,515.0
+NWK_REPORTING_REGION,39,Invercargill (Electricity Invercargill),All,209,6.7,1390.6

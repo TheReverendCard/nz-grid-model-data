@@ -1,0 +1,69 @@
+{
+  "historical": {
+    "2024_year_end": {
+      "residential_solar": {
+        "month_end": "2024-12-31",
+        "icp_count": 64013,
+        "icp_uptake_rate_pct": 3.22492,
+        "installed_capacity_mw": 321.326,
+        "average_capacity_kw": 5.02,
+        "new_installations": 707,
+        "average_new_install_capacity_kw": 7.714
+      },
+      "all_solar": {
+        "month_end": "2024-12-31",
+        "icp_count": 69053,
+        "icp_uptake_rate_pct": 2.96441,
+        "installed_capacity_mw": 564.145,
+        "average_capacity_kw": 8.17,
+        "new_installations": 817,
+        "average_new_install_capacity_kw": 39.193
+      }
+    },
+    "latest_trend": {
+      "residential_solar": {
+        "month_end": "2026-07-31",
+        "icp_count": 82056,
+        "icp_uptake_rate_pct": 4.05824,
+        "installed_capacity_mw": 469.48,
+        "average_capacity_kw": 5.721,
+        "new_installations": 1250,
+        "average_new_install_capacity_kw": 8.963
+      },
+      "all_solar": {
+        "month_end": "2026-07-31",
+        "icp_count": 90163,
+        "icp_uptake_rate_pct": 3.80465,
+        "installed_capacity_mw": 1199.988,
+        "average_capacity_kw": 13.309,
+        "new_installations": 1382,
+        "average_new_install_capacity_kw": 126.484
+      }
+    }
+  },
+  "current_registry_snapshot": {
+    "residential": {
+      "icps": 82056,
+      "average_capacity_kw": 5.7,
+      "capacity_mw": 469.48
+    },
+    "business": {
+      "icps": 8107,
+      "average_capacity_kw": 90.1,
+      "capacity_mw": 730.5078000000001
+    },
+    "all": {
+      "icps": 90163,
+      "average_capacity_kw": 13.3,
+      "capacity_mw": 1199.9878
+    },
+    "regional_residential_capacity_mw_sum": 468.8792,
+    "regional_residential_icps_sum": 82010
+  },
+  "model_use": {
+    "behind_meter_starting_population": "Residential solar ICPs are the primary BTM population. Business solar is kept separate because the category includes large installations.",
+    "battery_export_assumption": "Zero by default except explicit VPP/export scenarios.",
+    "gross_generation_method": "Apply regional observed/representative solar yield (kWh per installed kW) to regional residential installed capacity.",
+    "self_consumption_method": "Split gross PV among direct load, battery charging, and residual export using explicit assumptions/sensitivity ranges."
+  }
+}
