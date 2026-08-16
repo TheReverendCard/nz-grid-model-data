@@ -1,0 +1,72 @@
+{
+  "status": "waitaki_network_balance_v4_storage_timing",
+  "year": 2024,
+  "purpose": "Use observed Lake Ohau storage changes to infer its daily release into the validated upstream-Ohau-A junction, and identify the HMD daily timestamp convention before optimization.",
+  "oha_spill_rows_found": true,
+  "candidate_residual_m3s": {
+    "junction_previous_delta": {
+      "count": 363,
+      "mean": -8.368,
+      "mae": 73.278,
+      "rmse": 124.517,
+      "min": -629.844,
+      "max": 911.875
+    },
+    "junction_same_day_delta": {
+      "count": 363,
+      "mean": -8.392,
+      "mae": 58.937,
+      "rmse": 85.855,
+      "min": -381.869,
+      "max": 417.731
+    },
+    "junction_next_delta": {
+      "count": 363,
+      "mean": -8.383,
+      "mae": 56.991,
+      "rmse": 84.065,
+      "min": -308.119,
+      "max": 647.281
+    },
+    "junction_no_storage_timing": {
+      "count": 363,
+      "mean": -8.3,
+      "mae": 70.631,
+      "rmse": 111.009,
+      "min": -298.003,
+      "max": 878.611
+    },
+    "OHA_minus_RTHspill_minus_OHB": {
+      "count": 363,
+      "mean": -0.957,
+      "mae": 4.899,
+      "rmse": 7.879,
+      "min": -63.362,
+      "max": 15.215
+    },
+    "OHB_minus_OHC": {
+      "count": 363,
+      "mean": 1.074,
+      "mae": 1.355,
+      "rmse": 1.633,
+      "min": -3.704,
+      "max": 5.729
+    }
+  },
+  "monthly_same_day_junction_residual_m3s": {
+    "2024-01": 9.151,
+    "2024-02": -24.479,
+    "2024-03": -31.29,
+    "2024-04": -40.671,
+    "2024-05": -46.483,
+    "2024-06": -17.138,
+    "2024-07": 13.484,
+    "2024-08": 25.16,
+    "2024-09": 27.739,
+    "2024-10": 24.073,
+    "2024-11": -14.866,
+    "2024-12": -26.233
+  },
+  "decision_rule": "Prefer the storage timing convention with materially lower MAE/RMSE and weak mean bias. If none improves on the no-storage case, retain the v3 daily residual as unresolved timing/canal storage noise rather than forcing an artificial balance.",
+  "next_gate": "If a storage-timed junction materially improves daily closure while downstream OHA-OHB-OHC remains tight, proceed to the explicit network validation LP."
+}
