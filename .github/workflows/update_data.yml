@@ -38,6 +38,9 @@ jobs:
       - name: Fetch EA HMD Data
         run: python update_data.py
 
+      - name: Fetch Waitaki Validation Flow Series
+        run: python update_waitaki_validation_flows.py
+
       - name: Normalize Hydro Data
         run: python normalize_hydro.py
 
@@ -151,6 +154,9 @@ jobs:
 
       - name: Diagnose Explicit Waitaki Network Balance
         run: python diagnose_waitaki_network_balance.py
+
+      - name: Validate Corrected Waitaki Network Balance
+        run: python diagnose_waitaki_network_balance_v2.py
 
       - name: Plot Waitaki WiP Progress
         run: python plot_waitaki_progress.py
