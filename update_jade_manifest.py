@@ -58,6 +58,27 @@ def write_if_changed(path: Path, payload: dict) -> None:
         print(f"Wrote {path}")
 
 
+def classify_outputs(files: list[dict[str, str]]) -> dict[str, list[dict[str, str]]]:
+    categories = {
+        "storage": ("storage", "reservoir"),
+        "generation": ("generation", "hydro", "thermal", "station"),
+        "thermal": ("thermal", "fuel"),
+        "lost_load": ("lostload", "lost_load", "shortage"),
+        "water_value": ("watervalue", "water_value", "storagecost", "futurecost"),
+        "price_or_cost": ("price", "cost"),
+        "flows": ("flow",),
+    }
+    selected: dict[str, list[dict[str, str]]] = {}
+    for category, needles in categories.items():
+        matches = []
+        for item in files:
+            basename = item["name"].rsplit("/", 1)[-1].lower()
+            if any(needle in basename for needle in needles):
+                matches.append(item)
+        selected[category] = matches
+    return selected
+
+
 def build_latest_summary(years: dict) -> dict:
     numeric_years = sorted((int(year), year) for year in years if year.isdigit())
     if not numeric_years:
@@ -75,8 +96,8 @@ def build_latest_summary(years: dict) -> dict:
 
     _, latest_week = max(week_candidates)
     files = folders[latest_week]["files"]
-    output_files = [item for item in files if "/Outputs/" in item["name"]]
-    input_files = [item for item in files if "/Inputs/" in item["name"]]
+    output_files = [item for item in files if "/Outputs/" in item["name"] and int(item.get("content_length") or 0) > 0]
+    input_files = [item for item in files if "/Inputs/" in item["name"] and int(item.get("content_length") or 0) > 0]
 
     return {
         "source": "New Zealand Electricity Authority EMI JADE published weekly model files",
@@ -87,6 +108,7 @@ def build_latest_summary(years: dict) -> dict:
         "latest_week_modified": folders[latest_week]["latest_modified"],
         "latest_week_blob_count": folders[latest_week]["blob_count"],
         "output_file_count": len(output_files),
+        "chart_relevant_outputs": classify_outputs(output_files),
         "output_files": output_files,
         "input_file_count": len(input_files),
         "input_files": input_files,
@@ -137,8 +159,10 @@ def main() -> None:
     write_if_changed(LATEST_OUT, latest)
     print(
         f"JADE latest: {latest['latest_year']} {latest['latest_week']} with "
-        f"{latest['output_file_count']} output files and {latest['input_file_count']} input files"
+        f"{latest['output_file_count']} non-empty output files and {latest['input_file_count']} input files"
     )
+    for category, items in latest["chart_relevant_outputs"].items():
+        print(f"  {category}: {len(items)} candidate files")
 
 
 if __name__ == "__main__":
