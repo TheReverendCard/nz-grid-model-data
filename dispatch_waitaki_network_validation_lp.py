@@ -27,9 +27,9 @@ def station_limits() -> dict[str, dict[str, float]]:
         code = row.get("site_code", "")
         if code not in STATIONS:
             continue
-        if not row.get("capacity_mw") or not row.get("plant_factor_cumecs_per_mw"):
+        if not row.get("generating_capacity_mw") or not row.get("plant_factor_cumecs_per_mw"):
             continue
-        capacity = float(row["capacity_mw"])
+        capacity = float(row["generating_capacity_mw"])
         pf = float(row["plant_factor_cumecs_per_mw"])
         out[code] = {
             "capacity_mw": capacity,
@@ -62,11 +62,6 @@ def main() -> None:
     limits = station_limits()
     n = len(rows)
 
-    # Variable blocks:
-    # q_OHA, q_OHB, q_OHC (3n)
-    # positive/negative observed-flow deviations (6n)
-    # signed latent storage states at junction, Ruataniwha and B-C transit (3n)
-    # positive/negative latent storage magnitudes for L1 penalty (6n)
     q0 = 0
     dev0 = 3 * n
     state0 = 9 * n
@@ -92,11 +87,8 @@ def main() -> None:
         return state_abs0 + (2 * node + 1) * n + t
 
     c = np.zeros(nv)
-    # Mean absolute station-flow error dominates the validation objective.
     for s in range(3):
         c[dev0 + (2 * s) * n : dev0 + (2 * s + 2) * n] = 1.0 / n
-    # Very light penalty keeps latent storage states compact without forcing
-    # arbitrary water-value tuning. Units are Mm3-state-days.
     for node in range(3):
         c[state_abs0 + (2 * node) * n : state_abs0 + (2 * node + 2) * n] = 0.002 / n
 
@@ -104,7 +96,6 @@ def main() -> None:
     beq: list[float] = []
 
     obs_cols = ["OHA_turbine_flow_m3s", "OHB_turbine_flow_m3s", "OHC_turbine_flow_m3s"]
-    # q - dev_pos + dev_neg = observed flow
     for s, col in enumerate(obs_cols):
         for t, row in enumerate(rows):
             a = np.zeros(nv)
@@ -114,15 +105,12 @@ def main() -> None:
             Aeq.append(a)
             beq.append(float(row[col]))
 
-    # Physical storage/transit balances. States are cyclic so annual drift must
-    # be reconciled through tiny flow adjustments rather than hidden in a year-end residual.
     for t, row in enumerate(rows):
         prev = (t - 1) % n
         pki = float(row["PKI_balance_release_m3s"])
         ohu = float(row["OHU_release_next_delta_m3s"])
         spill_rth = float(row["RTH_spill_m3s"])
 
-        # Junction buffer: Pukaki + Lake Ohau -> Ohau A.
         a = np.zeros(nv)
         a[sidx(0, t)] = 1.0
         a[sidx(0, prev)] = -1.0
@@ -130,7 +118,6 @@ def main() -> None:
         Aeq.append(a)
         beq.append(MM3_PER_DAY_PER_CUMECS * (pki + ohu))
 
-        # Lake Ruataniwha / short transit: Ohau A -> Ohau B, less RTH spill.
         a = np.zeros(nv)
         a[sidx(1, t)] = 1.0
         a[sidx(1, prev)] = -1.0
@@ -139,7 +126,6 @@ def main() -> None:
         Aeq.append(a)
         beq.append(-MM3_PER_DAY_PER_CUMECS * spill_rth)
 
-        # Ohau B -> Ohau C short transit/buffer.
         a = np.zeros(nv)
         a[sidx(2, t)] = 1.0
         a[sidx(2, prev)] = -1.0
@@ -148,7 +134,6 @@ def main() -> None:
         Aeq.append(a)
         beq.append(0.0)
 
-        # Signed state = positive component - negative component for L1 penalty.
         for node in range(3):
             a = np.zeros(nv)
             a[sidx(node, t)] = 1.0
