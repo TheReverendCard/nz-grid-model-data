@@ -42,25 +42,18 @@
           "note": "Tekapo A and Gate 17 feed the Tekapo-Pukaki canal; Tekapo B discharges the combined canal flow into Lake Pukaki. Gate 17 can bypass Tekapo A but is already upstream of Tekapo B."
         },
         {
-          "name": "Pukaki_to_Ruataniwha",
-          "source": "PKI",
+          "name": "Pukaki_Ohau_junction_to_Ruataniwha",
+          "sources": ["PKI", "OHA"],
           "stations": ["OHA"],
           "destination": "RTH",
-          "note": "The Pukaki canal feeds Ohau A, whose tailrace enters Lake Ruataniwha. Lake Ohau water is not treated as an input to Ohau A."
-        },
-        {
-          "name": "Lake_Ohau_to_Ruataniwha",
-          "source": "OHA",
-          "stations": [],
-          "destination": "RTH",
-          "note": "Lake Ohau contributes independently to Lake Ruataniwha via the Upper Ohau River/canal system; HMD natural Ohau inflow is defined for the Ohau B/C portion of the scheme rather than as an Ohau A input."
+          "note": "2024 HMD balance diagnostics support Lake Ohau joining the Pukaki/Tekapo route upstream of Ohau A. Pukaki storage-balance release plus Lake Ohau release therefore feeds Ohau A; its tailrace enters Lake Ruataniwha. Daily Lake Ohau contribution timing remains approximate because short-term canal storage and timestamp conventions are unresolved."
         },
         {
           "name": "Ruataniwha_to_Benmore",
           "source": "RTH",
           "stations": ["OHB", "OHC"],
           "destination": "BEN",
-          "note": "Water from Lake Ruataniwha passes through Ohau B and then Ohau C before entering Lake Benmore."
+          "note": "Observed 2024 generation-derived flows show Ohau A to Ohau B and Ohau B to Ohau C as a tightly coupled serial path; Lake Ruataniwha spill bypasses Ohau B/C to Benmore."
         },
         {
           "name": "Benmore_downstream_route",
@@ -88,7 +81,7 @@
           "bypasses_stations": ["OHB", "OHC"]
         }
       ],
-      "dispatch_note": "Upper Waitaki is branched. Pukaki water generates first at Ohau A before entering Ruataniwha; Lake Ohau contributes separately to Ruataniwha; Ohau B/C then share the combined Ruataniwha outflow. Direct river/spill releases sacrifice different sets of stations and must retain distinct route values."
+      "dispatch_note": "Upper Waitaki is branched. Tekapo contributes to Pukaki; Pukaki release and Lake Ohau release join upstream of Ohau A; Ohau A discharges to Ruataniwha; Ohau B/C form the downstream serial path to Benmore. Direct river/spill releases sacrifice different sets of stations and must retain distinct route values."
     },
     "Clutha": {
       "type": "multi_headwater_merge_cascade",
