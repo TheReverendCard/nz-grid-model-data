@@ -1,4 +1,4 @@
-name: Daily EA Data Fetch
+name: Daily NZ Grid Data Refresh
 
 on:
   push:
@@ -13,8 +13,6 @@ on:
 permissions:
   contents: write
 
-# Modelling commits can arrive faster than a full data/model refresh. Keep only
-# the newest run for this branch so stale runs do not race to publish outputs.
 concurrency:
   group: nz-grid-model-data-${{ github.ref }}
   cancel-in-progress: true
@@ -35,11 +33,9 @@ jobs:
       - name: Install Dependencies
         run: pip install requests openpyxl matplotlib scipy
 
+      # Official source ingestion and normalization.
       - name: Fetch EA HMD Data
         run: python update_data.py
-
-      - name: Fetch Waitaki Validation Flow Series
-        run: python update_waitaki_validation_flows.py
 
       - name: Normalize Hydro Data
         run: python normalize_hydro.py
@@ -65,6 +61,7 @@ jobs:
       - name: Normalize Distributed Generation Data
         run: python normalize_distributed_generation.py
 
+      # Derived data that adds information not already published upstream.
       - name: Diagnose Solar Generation Yield Candidates
         run: python diagnose_solar_yield.py
 
@@ -89,104 +86,20 @@ jobs:
       - name: Build 2030 Replay Inputs
         run: python build_replay_inputs.py
 
-      - name: Build Hydro Model Inputs
-        run: python build_hydro_model_inputs.py
-
-      - name: Diagnose Hydro Storage Water Value
-        run: python build_hydro_water_value_diagnostic.py
-
-      - name: Build Observed Hydro Storage Energy State
-        run: python build_hydro_storage_energy.py
-
-      - name: Build Individual Waitaki Storage Constraints
-        run: python build_waitaki_storage_constraints.py
-
-      - name: Extract Waitaki Routing Constraints
-        run: python build_waitaki_routing_constraints.py
-
-      - name: Extract Waitaki Flow Series Candidates
-        run: python build_waitaki_flow_candidates.py
-
-      - name: Infer Observed Hydro Reservoir Releases
-        run: python build_observed_hydro_release.py
-
       - name: Compare Hydro Inflow and Solar Seasonality
         run: python build_hydro_solar_seasonality.py
 
-      - name: Diagnose Waitaki Solar Hydro Conservation
-        run: python diagnose_waitaki_solar_conservation.py
+      # The former Waitaki-specific dispatch and water-value experiments are
+      # intentionally retained in the repository as research/audit scripts but
+      # are no longer production workflow steps. JADE/HSS/vSPD should be used
+      # for authoritative hydro/security/dispatch behaviour where available.
 
-      - name: Dispatch Waitaki Solar Storage Delta
-        run: python dispatch_waitaki_solar_delta.py
-
-      - name: Correct Waitaki Dynamic Headroom
-        run: python dispatch_waitaki_solar_delta_corrected.py
-
-      - name: Dispatch Waitaki Source-Route Water Balance
-        run: python dispatch_waitaki_source_route_v1.py
-
-      - name: Diagnose Waitaki Seasonal Storage Guard
-        run: python diagnose_waitaki_storage_guard.py
-
-      - name: Diagnose Waitaki Lake-Specific Guards
-        run: python diagnose_waitaki_lake_guard_grid.py
-
-      - name: Validate Waitaki Rolling-Horizon Dispatch
-        run: python dispatch_waitaki_rolling_horizon_v1.py
-
-      - name: Diagnose Waitaki Rolling-Horizon Water Value
-        run: python diagnose_waitaki_rolling_horizon_grid.py
-
-      - name: Validate Waitaki Thermal Scarcity Dispatch
-        run: python dispatch_waitaki_thermal_scarcity_v1.py
-
-      - name: Diagnose Revealed Monthly Thermal Timing
-        run: python diagnose_waitaki_thermal_timing.py
-
-      - name: Quantify Lower Waitaki Tributary Energy
-        run: python diagnose_waitaki_lower_tributaries.py
-
-      - name: Test Revealed Thermal Timing with Lower Tributaries
-        run: python diagnose_waitaki_thermal_timing_with_tributaries.py
-
-      - name: Diagnose Observed Waitaki Station Flows
-        run: python diagnose_waitaki_station_flows.py
-
-      - name: Diagnose Explicit Waitaki Network Balance
-        run: python diagnose_waitaki_network_balance.py
-
-      - name: Validate Corrected Waitaki Network Balance
-        run: python diagnose_waitaki_network_balance_v2.py
-
-      - name: Diagnose Waitaki HMD Series Semantics
-        run: python diagnose_waitaki_series_semantics.py
-
-      - name: Validate Waitaki Ohau Junction Topology
-        run: python diagnose_waitaki_network_balance_v3.py
-
-      - name: Diagnose Waitaki Ohau Storage Timing
-        run: python diagnose_waitaki_network_balance_v4.py
-
-      - name: Diagnose Waitaki Pukaki-Ohau Storage Timing Grid
-        run: python diagnose_waitaki_storage_timing_grid.py
-
-      - name: Compare Explicit Waitaki Upstream Sources
-        run: python diagnose_waitaki_upstream_source_balance.py
-
-      - name: Validate Explicit Waitaki Network LP
-        run: python dispatch_waitaki_network_validation_lp.py
-
-      - name: Plot Waitaki WiP Progress
-        run: python plot_waitaki_progress.py
-
-      - name: Commit and Push Changes
+      - name: Commit and Push Derived Changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add data/
           git diff --cached --quiet && echo "No data changes to commit" && exit 0
-          git commit -m "Automated EA and MBIE data update"
-          # A modelling commit may have landed while this run was calculating.
-          # Rebase the generated data commit onto the current branch before push.
+          git commit -m "Automated NZ grid data refresh"
           git pull --rebase origin "${GITHUB_REF_NAME}"
           git push origin HEAD:"${GITHUB_REF_NAME}"
