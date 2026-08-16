@@ -23,38 +23,38 @@
     "gas_storage_deliverability_tj_day": 65.0,
     "flat_gas_supply_tj_day": 81.602
   },
-  "modeled_waitaki_hydro_gwh": 7839.556,
+  "modeled_waitaki_hydro_gwh": 8004.813,
   "observed_waitaki_hydro_gwh": 7559.942,
   "modeled_thermal_gwh": {
     "Gas": 4148.114,
-    "Coal": 1615.586,
+    "Coal": 1450.329,
     "Diesel": 0.0
   },
   "shortage_gwh": 0.0,
   "winter_entry_storage_mm3": {
-    "TKA": 759.008,
-    "PKI": 1144.715,
-    "OHA": 5.357
+    "TKA": 756.554,
+    "PKI": 1144.078,
+    "OHA": 162.336
   },
   "winter_entry_difference_vs_observed_mm3": {
-    "TKA": 289.745,
-    "PKI": -793.568,
-    "OHA": -16.004
+    "TKA": 287.291,
+    "PKI": -794.205,
+    "OHA": 140.975
   },
   "year_end_storage_mm3": {
     "TKA": 384.428,
-    "PKI": 1073.342,
+    "PKI": 1346.47,
     "OHA": 0.0
   },
   "year_end_difference_vs_observed_mm3": {
     "TKA": -91.27,
-    "PKI": -1371.598,
+    "PKI": -1098.47,
     "OHA": -25.229
   },
   "storage_mae_mm3": {
-    "TKA": 197.275,
-    "PKI": 599.681,
-    "OHA": 19.323
+    "TKA": 195.783,
+    "PKI": 594.638,
+    "OHA": 67.608
   },
   "important_limitations": [
     "Observed 2024 thermal generation totals are used as revealed fuel-availability envelopes for validation; they are not future assumptions.",

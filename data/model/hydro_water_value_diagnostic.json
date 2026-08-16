@@ -107,8 +107,8 @@
     },
     {
       "scheme": "Waitaki river",
-      "path": "Pukaki_to_Ruataniwha",
-      "source_storage": "PKI",
+      "path": "Pukaki_Ohau_junction_to_Ruataniwha",
+      "source_storage": null,
       "stations": [
         {
           "site_code": "OHA",
@@ -118,16 +118,7 @@
       ],
       "full_route_mwh_per_mm3": 139.028,
       "complete": true,
-      "note": "The Pukaki canal feeds Ohau A, whose tailrace enters Lake Ruataniwha. Lake Ohau water is not treated as an input to Ohau A."
-    },
-    {
-      "scheme": "Waitaki river",
-      "path": "Lake_Ohau_to_Ruataniwha",
-      "source_storage": "OHA",
-      "stations": [],
-      "full_route_mwh_per_mm3": 0.0,
-      "complete": true,
-      "note": "Lake Ohau contributes independently to Lake Ruataniwha via the Upper Ohau River/canal system; HMD natural Ohau inflow is defined for the Ohau B/C portion of the scheme rather than as an Ohau A input."
+      "note": "2024 HMD balance diagnostics support Lake Ohau joining the Pukaki/Tekapo route upstream of Ohau A. Pukaki storage-balance release plus Lake Ohau release therefore feeds Ohau A; its tailrace enters Lake Ruataniwha. Daily Lake Ohau contribution timing remains approximate because short-term canal storage and timestamp conventions are unresolved."
     },
     {
       "scheme": "Waitaki river",
@@ -147,7 +138,7 @@
       ],
       "full_route_mwh_per_mm3": 231.481,
       "complete": true,
-      "note": "Water from Lake Ruataniwha passes through Ohau B and then Ohau C before entering Lake Benmore."
+      "note": "Observed 2024 generation-derived flows show Ohau A to Ohau B and Ohau B to Ohau C as a tightly coupled serial path; Lake Ruataniwha spill bypasses Ohau B/C to Benmore."
     },
     {
       "scheme": "Waitaki river",

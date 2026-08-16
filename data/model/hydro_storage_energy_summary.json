@@ -22,17 +22,17 @@
       "reservoir": "Lake Ohau",
       "island": "SI",
       "paths": [
-        "Lake_Ohau_to_Ruataniwha",
+        "Pukaki_Ohau_junction_to_Ruataniwha",
         "Ruataniwha_to_Benmore",
         "Benmore_downstream_route"
       ],
-      "mwh_per_mm3": 589.799
+      "mwh_per_mm3": 728.827
     },
     "PKI": {
       "reservoir": "Lake Pukaki",
       "island": "SI",
       "paths": [
-        "Pukaki_to_Ruataniwha",
+        "Pukaki_Ohau_junction_to_Ruataniwha",
         "Ruataniwha_to_Benmore",
         "Benmore_downstream_route"
       ],
@@ -51,7 +51,7 @@
       "island": "SI",
       "paths": [
         "Tekapo_to_Pukaki",
-        "Pukaki_to_Ruataniwha",
+        "Pukaki_Ohau_junction_to_Ruataniwha",
         "Ruataniwha_to_Benmore",
         "Benmore_downstream_route"
       ],
@@ -95,289 +95,289 @@
   "last_complete_date": "2024-12-31",
   "historical_min": {
     "date": "1992-06-11",
-    "energy_equivalent_gwh": 772.992
+    "energy_equivalent_gwh": 775.667
   },
   "historical_max": {
-    "date": "1985-01-13",
-    "energy_equivalent_gwh": 4801.899
+    "date": "1984-12-24",
+    "energy_equivalent_gwh": 4815.196
   },
   "yearly_complete_summary": {
     "1980": {
       "days": 366,
-      "min_gwh": 2998.382,
-      "max_gwh": 4722.237,
-      "mean_gwh": 3830.038
+      "min_gwh": 2999.589,
+      "max_gwh": 4727.98,
+      "mean_gwh": 3832.578
     },
     "1981": {
       "days": 365,
-      "min_gwh": 1720.768,
-      "max_gwh": 4179.549,
-      "mean_gwh": 3275.882
+      "min_gwh": 1721.194,
+      "max_gwh": 4186.299,
+      "mean_gwh": 3277.91
     },
     "1982": {
       "days": 365,
-      "min_gwh": 917.421,
-      "max_gwh": 4472.492,
-      "mean_gwh": 2769.536
+      "min_gwh": 920.114,
+      "max_gwh": 4482.745,
+      "mean_gwh": 2773.045
     },
     "1983": {
       "days": 365,
-      "min_gwh": 2873.518,
-      "max_gwh": 4595.877,
-      "mean_gwh": 3666.94
+      "min_gwh": 2875.968,
+      "max_gwh": 4603.87,
+      "mean_gwh": 3670.17
     },
     "1984": {
       "days": 366,
-      "min_gwh": 2050.323,
-      "max_gwh": 4795.552,
-      "mean_gwh": 3403.566
+      "min_gwh": 2052.786,
+      "max_gwh": 4815.196,
+      "mean_gwh": 3406.811
     },
     "1985": {
       "days": 365,
-      "min_gwh": 1291.803,
-      "max_gwh": 4801.899,
-      "mean_gwh": 2846.821
+      "min_gwh": 1294.747,
+      "max_gwh": 4811.079,
+      "mean_gwh": 2849.868
     },
     "1986": {
       "days": 365,
-      "min_gwh": 2077.348,
-      "max_gwh": 4202.261,
-      "mean_gwh": 3136.875
+      "min_gwh": 2080.516,
+      "max_gwh": 4205.285,
+      "mean_gwh": 3140.03
     },
     "1987": {
       "days": 365,
-      "min_gwh": 2099.215,
-      "max_gwh": 4421.848,
-      "mean_gwh": 3265.308
+      "min_gwh": 2102.285,
+      "max_gwh": 4431.049,
+      "mean_gwh": 3268.712
     },
     "1988": {
       "days": 366,
-      "min_gwh": 2108.042,
-      "max_gwh": 3961.636,
-      "mean_gwh": 2891.962
+      "min_gwh": 2111.074,
+      "max_gwh": 3968.186,
+      "mean_gwh": 2895.124
     },
     "1989": {
       "days": 365,
-      "min_gwh": 970.275,
-      "max_gwh": 3996.585,
-      "mean_gwh": 2493.275
+      "min_gwh": 973.204,
+      "max_gwh": 4001.174,
+      "mean_gwh": 2496.533
     },
     "1990": {
       "days": 365,
-      "min_gwh": 1371.937,
-      "max_gwh": 3798.639,
-      "mean_gwh": 2680.279
+      "min_gwh": 1374.684,
+      "max_gwh": 3801.474,
+      "mean_gwh": 2683.662
     },
     "1991": {
       "days": 365,
-      "min_gwh": 1114.165,
-      "max_gwh": 3832.184,
-      "mean_gwh": 2400.104
+      "min_gwh": 1116.826,
+      "max_gwh": 3835.416,
+      "mean_gwh": 2403.106
     },
     "1992": {
       "days": 366,
-      "min_gwh": 772.992,
-      "max_gwh": 2435.011,
-      "mean_gwh": 1679.946
+      "min_gwh": 775.667,
+      "max_gwh": 2439.253,
+      "mean_gwh": 1683.211
     },
     "1993": {
       "days": 365,
-      "min_gwh": 1008.138,
-      "max_gwh": 3853.444,
-      "mean_gwh": 2459.76
+      "min_gwh": 1012.02,
+      "max_gwh": 3856.853,
+      "mean_gwh": 2463.671
     },
     "1994": {
       "days": 365,
-      "min_gwh": 1732.449,
-      "max_gwh": 4005.332,
-      "mean_gwh": 3071.279
+      "min_gwh": 1737.491,
+      "max_gwh": 4019.273,
+      "mean_gwh": 3075.821
     },
     "1995": {
       "days": 365,
-      "min_gwh": 2490.521,
-      "max_gwh": 4665.987,
-      "mean_gwh": 3518.808
+      "min_gwh": 2494.165,
+      "max_gwh": 4679.566,
+      "mean_gwh": 3523.384
     },
     "1996": {
       "days": 366,
-      "min_gwh": 2028.057,
-      "max_gwh": 4536.753,
-      "mean_gwh": 3177.262
+      "min_gwh": 2032.148,
+      "max_gwh": 4547.822,
+      "mean_gwh": 3181.335
     },
     "1997": {
       "days": 365,
-      "min_gwh": 1312.001,
-      "max_gwh": 3288.565,
-      "mean_gwh": 2393.532
+      "min_gwh": 1315.401,
+      "max_gwh": 3291.894,
+      "mean_gwh": 2397.176
     },
     "1998": {
       "days": 365,
-      "min_gwh": 2695.534,
-      "max_gwh": 4134.312,
-      "mean_gwh": 3455.107
+      "min_gwh": 2698.8,
+      "max_gwh": 4141.122,
+      "mean_gwh": 3458.794
     },
     "1999": {
       "days": 365,
-      "min_gwh": 1086.404,
-      "max_gwh": 3647.894,
-      "mean_gwh": 2687.518
+      "min_gwh": 1088.893,
+      "max_gwh": 3662.863,
+      "mean_gwh": 2690.866
     },
     "2000": {
       "days": 366,
-      "min_gwh": 2634.661,
-      "max_gwh": 4008.148,
-      "mean_gwh": 3162.958
+      "min_gwh": 2637.007,
+      "max_gwh": 4021.721,
+      "mean_gwh": 3166.503
     },
     "2001": {
       "days": 365,
-      "min_gwh": 1082.77,
-      "max_gwh": 4024.636,
-      "mean_gwh": 2224.536
+      "min_gwh": 1086.2,
+      "max_gwh": 4036.946,
+      "mean_gwh": 2228.239
     },
     "2002": {
       "days": 365,
-      "min_gwh": 2262.557,
-      "max_gwh": 3848.409,
-      "mean_gwh": 2925.752
+      "min_gwh": 2265.505,
+      "max_gwh": 3855.525,
+      "mean_gwh": 2929.548
     },
     "2003": {
       "days": 365,
-      "min_gwh": 1837.484,
-      "max_gwh": 3041.909,
-      "mean_gwh": 2437.899
+      "min_gwh": 1840.831,
+      "max_gwh": 3048.705,
+      "mean_gwh": 2441.427
     },
     "2004": {
       "days": 366,
-      "min_gwh": 1958.955,
-      "max_gwh": 4192.909,
-      "mean_gwh": 3195.77
+      "min_gwh": 1962.52,
+      "max_gwh": 4202.08,
+      "mean_gwh": 3199.759
     },
     "2005": {
       "days": 365,
-      "min_gwh": 1415.495,
-      "max_gwh": 3701.857,
-      "mean_gwh": 2511.159
+      "min_gwh": 1419.425,
+      "max_gwh": 3705.865,
+      "mean_gwh": 2514.63
     },
     "2006": {
       "days": 365,
-      "min_gwh": 1724.749,
-      "max_gwh": 3474.222,
-      "mean_gwh": 2351.98
+      "min_gwh": 1728.67,
+      "max_gwh": 3477.906,
+      "mean_gwh": 2355.813
     },
     "2007": {
       "days": 365,
-      "min_gwh": 1444.32,
-      "max_gwh": 3484.572,
-      "mean_gwh": 2415.391
+      "min_gwh": 1447.771,
+      "max_gwh": 3489.277,
+      "mean_gwh": 2418.905
     },
     "2008": {
       "days": 366,
-      "min_gwh": 1410.803,
-      "max_gwh": 3599.492,
-      "mean_gwh": 2144.576
+      "min_gwh": 1414.03,
+      "max_gwh": 3602.974,
+      "mean_gwh": 2148.451
     },
     "2009": {
       "days": 365,
-      "min_gwh": 2337.094,
-      "max_gwh": 4373.212,
-      "mean_gwh": 3241.525
+      "min_gwh": 2341.765,
+      "max_gwh": 4387.684,
+      "mean_gwh": 3245.6
     },
     "2010": {
       "days": 365,
-      "min_gwh": 2324.63,
-      "max_gwh": 4356.023,
-      "mean_gwh": 3156.914
+      "min_gwh": 2327.377,
+      "max_gwh": 4374.232,
+      "mean_gwh": 3161.069
     },
     "2011": {
       "days": 365,
-      "min_gwh": 1419.778,
-      "max_gwh": 4389.333,
-      "mean_gwh": 2957.573
+      "min_gwh": 1422.934,
+      "max_gwh": 4400.53,
+      "mean_gwh": 2961.347
     },
     "2012": {
       "days": 366,
-      "min_gwh": 1767.867,
-      "max_gwh": 3022.382,
-      "mean_gwh": 2425.543
+      "min_gwh": 1771.974,
+      "max_gwh": 3028.75,
+      "mean_gwh": 2428.97
     },
     "2013": {
       "days": 365,
-      "min_gwh": 2189.456,
-      "max_gwh": 4288.025,
-      "mean_gwh": 2914.396
+      "min_gwh": 2190.747,
+      "max_gwh": 4304.106,
+      "mean_gwh": 2918.371
     },
     "2014": {
       "days": 365,
-      "min_gwh": 1724.233,
-      "max_gwh": 3822.077,
-      "mean_gwh": 2712.25
+      "min_gwh": 1727.371,
+      "max_gwh": 3827.717,
+      "mean_gwh": 2715.652
     },
     "2015": {
       "days": 365,
-      "min_gwh": 1986.204,
-      "max_gwh": 3417.407,
-      "mean_gwh": 2648.427
+      "min_gwh": 1989.35,
+      "max_gwh": 3422.109,
+      "mean_gwh": 2651.665
     },
     "2016": {
       "days": 366,
-      "min_gwh": 2273.285,
-      "max_gwh": 3820.512,
-      "mean_gwh": 3062.206
+      "min_gwh": 2276.085,
+      "max_gwh": 3828.573,
+      "mean_gwh": 3065.782
     },
     "2017": {
       "days": 365,
-      "min_gwh": 1594.335,
-      "max_gwh": 3996.661,
-      "mean_gwh": 2607.271
+      "min_gwh": 1598.2,
+      "max_gwh": 4001.804,
+      "mean_gwh": 2610.943
     },
     "2018": {
       "days": 365,
-      "min_gwh": 1608.044,
-      "max_gwh": 3872.549,
-      "mean_gwh": 2802.298
+      "min_gwh": 1611.308,
+      "max_gwh": 3876.359,
+      "mean_gwh": 2805.762
     },
     "2019": {
       "days": 365,
-      "min_gwh": 1719.602,
-      "max_gwh": 4707.967,
-      "mean_gwh": 2892.634
+      "min_gwh": 1723.125,
+      "max_gwh": 4726.858,
+      "mean_gwh": 2897.095
     },
     "2020": {
       "days": 366,
-      "min_gwh": 1325.746,
-      "max_gwh": 4348.037,
-      "mean_gwh": 2631.769
+      "min_gwh": 1328.647,
+      "max_gwh": 4358.97,
+      "mean_gwh": 2635.332
     },
     "2021": {
       "days": 365,
-      "min_gwh": 1763.422,
-      "max_gwh": 3738.433,
-      "mean_gwh": 2596.199
+      "min_gwh": 1766.606,
+      "max_gwh": 3741.544,
+      "mean_gwh": 2599.55
     },
     "2022": {
       "days": 365,
-      "min_gwh": 2184.484,
-      "max_gwh": 4018.402,
-      "mean_gwh": 3168.377
+      "min_gwh": 2187.493,
+      "max_gwh": 4023.552,
+      "mean_gwh": 3172.139
     },
     "2023": {
       "days": 365,
-      "min_gwh": 1943.723,
-      "max_gwh": 4591.133,
-      "mean_gwh": 3099.348
+      "min_gwh": 1946.63,
+      "max_gwh": 4598.142,
+      "mean_gwh": 3102.859
     },
     "2024": {
       "days": 366,
-      "min_gwh": 1135.049,
-      "max_gwh": 3836.871,
-      "mean_gwh": 2599.962
+      "min_gwh": 1138.111,
+      "max_gwh": 3841.928,
+      "mean_gwh": 2603.681
     }
   },
   "important_limitations": [
     "Energy-equivalent storage is not the same as assured dispatchable hydro energy.",
     "The conversion uses constant HMD plant factors and sums only the generating route segments physically downstream of each storage node.",
     "It excludes smaller run-of-river storages to avoid double counting water already represented by upstream major lakes.",
-    "Lake Ohau stored water does not receive Ohau A generation value because Ohau A is on the Pukaki canal route; Lake Ohau joins the system at Ruataniwha.",
+    "2024 Waitaki validation indicates Lake Ohau joins the Pukaki/Tekapo route upstream of Ohau A; Lake Ohau storage therefore includes Ohau A generation value in this diagnostic.",
     "Te Anau and Manapouri are both included because they are distinct stored volumes that can ultimately pass through Manapouri generation.",
     "The eventual dispatch model must enforce daily water balances, release limits, minimum flows, spill/bypass routes and station MW constraints."
   ]

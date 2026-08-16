@@ -1,0 +1,83 @@
+{
+  "status": "waitaki_explicit_network_validation_lp",
+  "year": 2024,
+  "solver": "scipy.optimize.linprog HiGHS",
+  "success": true,
+  "objective": 26.099193,
+  "network": [
+    "Pukaki storage-balance release + storage-timed Lake Ohau release -> Ohau A",
+    "Ohau A -> Lake Ruataniwha -> Ohau B",
+    "Ohau B -> Ohau C"
+  ],
+  "station_capacity_limits": {
+    "OHA": {
+      "capacity_mw": 264.0,
+      "plant_factor_cumecs_per_mw": 1.998,
+      "capacity_flow_m3s": 527.472
+    },
+    "OHB": {
+      "capacity_mw": 212.0,
+      "plant_factor_cumecs_per_mw": 2.4,
+      "capacity_flow_m3s": 508.79999999999995
+    },
+    "OHC": {
+      "capacity_mw": 212.0,
+      "plant_factor_cumecs_per_mw": 2.4,
+      "capacity_flow_m3s": 508.79999999999995
+    }
+  },
+  "station_flow_error_m3s": {
+    "OHA": {
+      "count": 363,
+      "mean": -8.3832,
+      "mae": 8.3832,
+      "rmse": 25.6723,
+      "max_abs": 165.748
+    },
+    "OHB": {
+      "count": 363,
+      "mean": -9.3403,
+      "mae": 9.3403,
+      "rmse": 24.8901,
+      "max_abs": 153.0977
+    },
+    "OHC": {
+      "count": 363,
+      "mean": -8.2662,
+      "mae": 8.2662,
+      "rmse": 24.1848,
+      "max_abs": 153.2631
+    }
+  },
+  "latent_storage": {
+    "junction": {
+      "min_mm3": -158.7828,
+      "max_mm3": 122.8986,
+      "range_mm3": 281.6814,
+      "mean_abs_mm3": 52.2716
+    },
+    "ruataniwha": {
+      "min_mm3": -14.0624,
+      "max_mm3": 8.1987,
+      "range_mm3": 22.2611,
+      "mean_abs_mm3": 2.0553
+    },
+    "ohb_ohc_transit": {
+      "min_mm3": -1.4933,
+      "max_mm3": 4.2781,
+      "range_mm3": 5.7715,
+      "mean_abs_mm3": 0.4453
+    }
+  },
+  "generation": {
+    "observed_OHA_OHB_OHC_gwh": 2950.359,
+    "lp_OHA_OHB_OHC_gwh": 2849.894,
+    "difference_percent": -3.4052
+  },
+  "interpretation": [
+    "This is a validation LP, not a forecasting dispatch policy.",
+    "Observed PKI/OHA storage timing is used to test the explicit junction and serial Ohau network.",
+    "Latent storage states represent unresolved daily canal, Ruataniwha and transit timing; their required ranges are diagnostics, not assumed physical reservoir capacities.",
+    "A credible validation result should reproduce observed station flows with small errors and modest latent-storage ranges while respecting turbine capacity bounds."
+  ]
+}

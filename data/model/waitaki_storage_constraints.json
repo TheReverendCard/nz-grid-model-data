@@ -86,7 +86,7 @@
     },
     "OHA": {
       "reservoir": "Lake Ohau",
-      "mwh_per_mm3_full_route": 589.799,
+      "mwh_per_mm3_full_route": 728.827,
       "historical_observations": 16437,
       "empirical_min": {
         "date": "1980-01-10",
@@ -96,32 +96,32 @@
       "empirical_max": {
         "date": "1994-01-10",
         "storage_mm3": 175.469,
-        "energy_equivalent_gwh": 103.491441
+        "energy_equivalent_gwh": 127.886545
       },
       "key_2024_states": {
         "2024-01-01": {
           "storage_mm3": 22.172,
-          "energy_equivalent_gwh": 13.077023,
+          "energy_equivalent_gwh": 16.159552,
           "headroom_to_empirical_max_mm3": 153.297,
-          "headroom_to_empirical_max_gwh": 90.414417
+          "headroom_to_empirical_max_gwh": 111.726993
         },
         "2024-05-01": {
           "storage_mm3": 21.361,
-          "energy_equivalent_gwh": 12.598696,
+          "energy_equivalent_gwh": 15.568474,
           "headroom_to_empirical_max_mm3": 154.108,
-          "headroom_to_empirical_max_gwh": 90.892744
+          "headroom_to_empirical_max_gwh": 112.318071
         },
         "2024-08-01": {
           "storage_mm3": 25.193,
-          "energy_equivalent_gwh": 14.858806,
+          "energy_equivalent_gwh": 18.361339,
           "headroom_to_empirical_max_mm3": 150.276,
-          "headroom_to_empirical_max_gwh": 88.632635
+          "headroom_to_empirical_max_gwh": 109.525206
         },
         "2024-12-31": {
           "storage_mm3": 25.229,
-          "energy_equivalent_gwh": 14.880039,
+          "energy_equivalent_gwh": 18.387576,
           "headroom_to_empirical_max_mm3": 150.24,
-          "headroom_to_empirical_max_gwh": 88.611402
+          "headroom_to_empirical_max_gwh": 109.498968
         }
       }
     }
