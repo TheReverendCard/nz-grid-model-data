@@ -167,6 +167,9 @@ jobs:
       - name: Diagnose Waitaki Ohau Storage Timing
         run: python diagnose_waitaki_network_balance_v4.py
 
+      - name: Diagnose Waitaki Pukaki-Ohau Storage Timing Grid
+        run: python diagnose_waitaki_storage_timing_grid.py
+
       - name: Validate Explicit Waitaki Network LP
         run: python dispatch_waitaki_network_validation_lp.py
 
