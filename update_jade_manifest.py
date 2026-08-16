@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from collections import defaultdict
 from pathlib import Path
 from urllib.parse import quote
@@ -11,6 +12,8 @@ import requests
 CONTAINER = "https://emidatasets.blob.core.windows.net/publicdata"
 JADE_ROOT = "Datasets/Wholesale/Expected water values/"
 OUT = Path("data/metadata/jade_manifest.json")
+LATEST_OUT = Path("data/metadata/jade_latest.json")
+WEEK_RE = re.compile(r"^Week\s+(\d+)$", re.IGNORECASE)
 
 
 def list_blobs(prefix: str) -> list[dict[str, str]]:
@@ -43,6 +46,52 @@ def list_blobs(prefix: str) -> list[dict[str, str]]:
         if not marker:
             break
     return blobs
+
+
+def write_if_changed(path: Path, payload: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    text = json.dumps(payload, indent=2) + "\n"
+    if path.exists() and path.read_text(encoding="utf-8") == text:
+        print(f"Unchanged {path}")
+    else:
+        path.write_text(text, encoding="utf-8")
+        print(f"Wrote {path}")
+
+
+def build_latest_summary(years: dict) -> dict:
+    numeric_years = sorted((int(year), year) for year in years if year.isdigit())
+    if not numeric_years:
+        raise RuntimeError("JADE manifest contains no numeric year folders")
+    latest_year = numeric_years[-1][1]
+    folders = years[latest_year]["folders"]
+
+    week_candidates: list[tuple[int, str]] = []
+    for folder in folders:
+        match = WEEK_RE.match(folder)
+        if match:
+            week_candidates.append((int(match.group(1)), folder))
+    if not week_candidates:
+        raise RuntimeError(f"JADE year {latest_year} contains no weekly folders")
+
+    _, latest_week = max(week_candidates)
+    files = folders[latest_week]["files"]
+    output_files = [item for item in files if "/Outputs/" in item["name"]]
+    input_files = [item for item in files if "/Inputs/" in item["name"]]
+
+    return {
+        "source": "New Zealand Electricity Authority EMI JADE published weekly model files",
+        "available_years": [year for _, year in numeric_years],
+        "year_blob_counts": {year: years[year]["blob_count"] for _, year in numeric_years},
+        "latest_year": latest_year,
+        "latest_week": latest_week,
+        "latest_week_modified": folders[latest_week]["latest_modified"],
+        "latest_week_blob_count": folders[latest_week]["blob_count"],
+        "output_file_count": len(output_files),
+        "output_files": output_files,
+        "input_file_count": len(input_files),
+        "input_files": input_files,
+        "note": "Compact discovery summary generated from the fully paginated JADE Azure manifest. Raw JADE files remain upstream; derived subsets may be stored locally for public charts and reproducibility.",
+    }
 
 
 def main() -> None:
@@ -83,13 +132,13 @@ def main() -> None:
         "years": years,
     }
 
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    text = json.dumps(manifest, indent=2) + "\n"
-    if OUT.exists() and OUT.read_text(encoding="utf-8") == text:
-        print(f"Unchanged {OUT}")
-    else:
-        OUT.write_text(text, encoding="utf-8")
-        print(f"Wrote {OUT} with {len(blobs)} upstream JADE blobs")
+    write_if_changed(OUT, manifest)
+    latest = build_latest_summary(years)
+    write_if_changed(LATEST_OUT, latest)
+    print(
+        f"JADE latest: {latest['latest_year']} {latest['latest_week']} with "
+        f"{latest['output_file_count']} output files and {latest['input_file_count']} input files"
+    )
 
 
 if __name__ == "__main__":
