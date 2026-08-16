@@ -25,18 +25,33 @@ INCLUDED_STORAGE = {
     "MAN",  # Manapouri
 }
 
-# Preferred topology path for each storage node.
-PATH_BY_STORAGE = {
-    "TPO": "Taupo_to_Karapiro",
-    "WKA": "Waikaremoana_main",
-    "TKA": "Tekapo_full_generation_route",
-    "PKI": "Pukaki_Ohau_generation_route",
-    "OHA": "Ohau_generation_route",
-    "HWE": "Hawea_to_lower_Clutha",
-    "WAN": "Wanaka_to_lower_Clutha",
-    "WPU": "Wakatipu_to_lower_Clutha",
-    "TAU": "Te_Anau_to_Manapouri_generation",
-    "MAN": "Manapouri_storage_generation",
+# Preferred topology segments for each storage node. Waitaki values are sums of
+# explicit staged routes so the energy value follows the corrected physical
+# topology instead of relying on the obsolete all-in-one route names.
+PATHS_BY_STORAGE = {
+    "TPO": ["Taupo_to_Karapiro"],
+    "WKA": ["Waikaremoana_main"],
+    "TKA": [
+        "Tekapo_to_Pukaki",
+        "Pukaki_to_Ruataniwha",
+        "Ruataniwha_to_Benmore",
+        "Benmore_downstream_route",
+    ],
+    "PKI": [
+        "Pukaki_to_Ruataniwha",
+        "Ruataniwha_to_Benmore",
+        "Benmore_downstream_route",
+    ],
+    "OHA": [
+        "Lake_Ohau_to_Ruataniwha",
+        "Ruataniwha_to_Benmore",
+        "Benmore_downstream_route",
+    ],
+    "HWE": ["Hawea_to_lower_Clutha"],
+    "WAN": ["Wanaka_to_lower_Clutha"],
+    "WPU": ["Wakatipu_to_lower_Clutha"],
+    "TAU": ["Te_Anau_to_Manapouri_generation"],
+    "MAN": ["Manapouri_storage_generation"],
 }
 
 
@@ -50,11 +65,12 @@ def main() -> None:
 
     value_by_storage: dict[str, float] = {}
     missing_paths: list[str] = []
-    for site, path_name in PATH_BY_STORAGE.items():
-        if path_name not in path_value:
-            missing_paths.append(f"{site}:{path_name}")
+    for site, path_names in PATHS_BY_STORAGE.items():
+        missing = [path_name for path_name in path_names if path_name not in path_value]
+        if missing:
+            missing_paths.extend(f"{site}:{path_name}" for path_name in missing)
         else:
-            value_by_storage[site] = path_value[path_name]
+            value_by_storage[site] = sum(path_value[path_name] for path_name in path_names)
     if missing_paths:
         raise RuntimeError(f"Missing water-value paths: {missing_paths}")
 
@@ -137,13 +153,13 @@ def main() -> None:
     }
 
     summary = {
-        "definition": "Observed major-reservoir storage volume converted to an energy-equivalent state using verified full-route MWh-per-Mm3 cascade values.",
+        "definition": "Observed major-reservoir storage volume converted to an energy-equivalent state using verified downstream MWh-per-Mm3 cascade route segments.",
         "purpose": "Validation target and intuitive hydro-storage diagnostic. It is not a dispatchable-energy guarantee because operating constraints, spill/bypass, head variation and river routing are not applied here.",
         "included_storage_sites": {
             site: {
                 "reservoir": names.get(site, site),
                 "island": islands.get(site),
-                "path": PATH_BY_STORAGE[site],
+                "paths": PATHS_BY_STORAGE[site],
                 "mwh_per_mm3": round(value_by_storage[site], 6),
             }
             for site in sites
@@ -156,8 +172,9 @@ def main() -> None:
         "yearly_complete_summary": yearly_summary,
         "important_limitations": [
             "Energy-equivalent storage is not the same as assured dispatchable hydro energy.",
-            "The conversion uses constant HMD plant factors and assumes stored water follows the full generating route.",
+            "The conversion uses constant HMD plant factors and sums only the generating route segments physically downstream of each storage node.",
             "It excludes smaller run-of-river storages to avoid double counting water already represented by upstream major lakes.",
+            "Lake Ohau stored water does not receive Ohau A generation value because Ohau A is on the Pukaki canal route; Lake Ohau joins the system at Ruataniwha.",
             "Te Anau and Manapouri are both included because they are distinct stored volumes that can ultimately pass through Manapouri generation.",
             "The eventual dispatch model must enforce daily water balances, release limits, minimum flows, spill/bypass routes and station MW constraints."
         ],
