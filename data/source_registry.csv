@@ -1,0 +1,11 @@
+source_id,source_name,owner,purpose,authoritative_url,local_copy_policy,notes
+jade,JADE,EPOC / Electricity Authority,Stochastic hydro scheduling and reservoir water values,https://www.ea.govt.nz/data-and-insights/tools-and-apis/,link_upstream,Use professional hydro scheduling rather than custom dispatcher
+jade_expected_water_values,JADE expected water values,Electricity Authority,Weekly JADE inputs outputs and marginal water values,https://www.ea.govt.nz/data-and-insights/datasets/wholesale/expected-water-values/,link_upstream,Publish only derived chart-ready aggregates or scenario joins
+gem,GEM,Electricity Authority,Long-term generation and transmission expansion,https://www.emi.ea.govt.nz/wholesale/Tools/GEM,link_upstream,GEM outputs include CSV; do not duplicate unchanged outputs
+vspd,vSPD,Electricity Authority,Detailed scheduling pricing and dispatch,https://www.emi.ea.govt.nz/Wholesale/Tools,link_upstream,Use when market-level dispatch or prices are needed
+hss,Hydro Supply Security test,Electricity Authority,Deterministic hydro supply-security cross-check,https://www.emi.ea.govt.nz/Wholesale/Tools,link_upstream,Useful benchmark for dry-period framing
+hmd,Hydrological Modelling Dataset,Electricity Authority,Hydro infrastructure constraints flows storage and spill,https://www.ea.govt.nz/data-and-insights/,derived_only,Raw source should not be mirrored merely for convenience
+ea_generation_pipeline,Generation investment pipeline,Electricity Authority,Committed actively-pursued and other generation projects,https://www.ea.govt.nz/data-and-insights/charts-and-dashboards/generation-investment-pipeline/,link_upstream,Use EA status definitions
+mbie_edgs,Electricity Demand and Generation Scenarios,MBIE,Future electricity demand pathways,https://www.mbie.govt.nz/,derived_only,Repository may publish calibrated scenario transformations with provenance
+ea_wholesale,EA wholesale data,Electricity Authority,Observed demand generation and reconciliation,https://www.ea.govt.nz/data-and-insights/,derived_only,Publish normalized or joined tables only when they add value
+ea_distributed_generation,EA distributed generation,Electricity Authority,Rooftop/distributed generation capacity,https://www.ea.govt.nz/data-and-insights/,derived_only,Publish derived BTM estimates or scenario inputs rather than duplicate raw files
