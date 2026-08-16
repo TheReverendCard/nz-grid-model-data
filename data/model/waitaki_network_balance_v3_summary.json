@@ -1,0 +1,71 @@
+{
+  "status": "waitaki_network_balance_v3_corrected_ohau_junction",
+  "year": 2024,
+  "network_backbone": [
+    "Tekapo contribution -> Lake Pukaki actual combined inflow/storage balance",
+    "Pukaki release + Lake Ohau contribution -> Ohau A",
+    "Ohau A -> Lake Ruataniwha -> Ohau B -> Ohau C -> Lake Benmore"
+  ],
+  "candidate_balance_residual_m3s": {
+    "PKI_plus_OHU_natural_minus_OHA": {
+      "count": 365,
+      "mean": 3.568,
+      "mae": 67.851,
+      "rmse": 110.348,
+      "min": -285.237,
+      "max": 913.333
+    },
+    "PKI_plus_OHU_actual_minus_OHA": {
+      "count": 365,
+      "mean": -6.429,
+      "mae": 69.997,
+      "rmse": 110.699,
+      "min": -296.998,
+      "max": 900.963
+    },
+    "OHA_minus_RTHspill_minus_OHB": {
+      "count": 365,
+      "mean": -0.962,
+      "mae": 4.882,
+      "rmse": 7.859,
+      "min": -63.362,
+      "max": 15.215
+    },
+    "OHB_minus_OHC": {
+      "count": 365,
+      "mean": 1.08,
+      "mae": 1.36,
+      "rmse": 1.642,
+      "min": -3.704,
+      "max": 5.729
+    },
+    "OHU_natural_minus_actual": {
+      "count": 365,
+      "mean": 9.997,
+      "mae": 9.997,
+      "rmse": 10.203,
+      "min": 7.502,
+      "max": 12.497
+    }
+  },
+  "monthly_OHU_natural_minus_actual_m3s": {
+    "2024-01": 12.068,
+    "2024-02": 12.059,
+    "2024-03": 12.051,
+    "2024-04": 11.892,
+    "2024-05": 8.031,
+    "2024-06": 8.028,
+    "2024-07": 7.964,
+    "2024-08": 7.972,
+    "2024-09": 8.006,
+    "2024-10": 8.092,
+    "2024-11": 11.972,
+    "2024-12": 12.02
+  },
+  "decision_rule": "Use the Lake Ohau candidate that best closes Pukaki-release-plus-Ohau on observed OHA, while respecting the HMD metadata definition. Never add Lake Ohau again between OHA and OHB.",
+  "important_limitations": [
+    "Generation-derived turbine flows are daily-average equivalents using fixed HMD plant factors.",
+    "The Pukaki actual-combined series is a historical validation construct, not a future dispatch rule.",
+    "Unobserved short-term canal/reservoir storage and timestamp conventions remain in daily residuals."
+  ]
+}
