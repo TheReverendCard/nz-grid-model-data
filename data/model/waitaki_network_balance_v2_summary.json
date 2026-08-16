@@ -1,0 +1,52 @@
+{
+  "status": "waitaki_corrected_network_balance_diagnostic",
+  "year": 2024,
+  "network_backbone": [
+    "Tekapo branch -> Pukaki storage",
+    "Pukaki canal -> Ohau A -> Lake Ruataniwha",
+    "Lake Ohau -> Upper Ohau River/canal -> Lake Ruataniwha",
+    "Lake Ruataniwha -> Ohau B -> Ohau C -> Lake Benmore"
+  ],
+  "validation_series": {
+    "pukaki_actual_inflow": "SI_PKI_Actual_LakePukaki_Inflow_98614(2).csv",
+    "lake_ohau_actual_outflow": "SI_OHU_Actual_LakeOhau(ExclDiverted)_Outflow_98614(6).csv",
+    "ruataniwha_spill": "SI_RTH_Spill_LakeRuataniwha.csv",
+    "pukaki_river_spill": "SI_PKI_Spill_LakePukaki.csv"
+  },
+  "balance_residual_m3s": {
+    "PKI_actual_balance_minus_OHA_turbine": {
+      "count": 365,
+      "mean": -78.632,
+      "mae": 90.051,
+      "rmse": 112.697,
+      "min": -493.581,
+      "max": 227.983
+    },
+    "Ruataniwha_OHA_plus_Ohau_minus_spill_to_OHB": {
+      "count": 365,
+      "mean": -71.242,
+      "mae": 71.242,
+      "rmse": 107.522,
+      "min": -857.652,
+      "max": -3.693
+    },
+    "OHC_minus_OHB": {
+      "count": 365,
+      "mean": -1.08,
+      "mae": 1.36,
+      "rmse": 1.642,
+      "min": -5.729,
+      "max": 3.704
+    }
+  },
+  "interpretation": [
+    "A small, weakly biased Pukaki residual supports treating Ohau A turbine flow as the main Pukaki-canal release in 2024 validation.",
+    "The Ruataniwha residual should not be expected to be zero because no observed daily Ruataniwha storage state is available in the HMD storage index.",
+    "The Ohau B/C residual is the cleanest serial-cascade check because the two stations are tightly coupled."
+  ],
+  "important_limitations": [
+    "Generation-derived turbine flow is a daily-average equivalent using fixed HMD plant factors.",
+    "HMD actual flow series are used here as validation targets, not as future dispatch assumptions.",
+    "Daily storage timestamp conventions can produce residual noise even when the physical balance is valid at finer resolution."
+  ]
+}

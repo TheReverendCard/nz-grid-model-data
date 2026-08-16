@@ -1,0 +1,49 @@
+{
+  "source": "New Zealand Electricity Authority Hydrological Modelling Dataset",
+  "purpose": "Observed-series validation of explicit Waitaki routing; not forecasting assumptions.",
+  "series": [
+    {
+      "series_type": "waitaki_validation_flow",
+      "purpose": "Actual Pukaki inflow including Tekapo for the separate-Tekapo simulation",
+      "site_code": "PKI",
+      "direction": "Inflow",
+      "flow_type": "Actual",
+      "description": "Pukaki + Tekapo for separate Tekapo simulation",
+      "local_file": "data/hydro/raw/inflows/SI_PKI_Actual_LakePukaki_Inflow_98614(2).csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/SI_PKI_Actual_LakePukaki_Inflow_98614(2).csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/SI_PKI_Actual_LakePukaki_Inflow_98614%282%29.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:51:48 GMT",
+      "source_content_length": "1085784",
+      "source_etag": "0x8DE180F4A279B47",
+      "data_rows": 34153
+    },
+    {
+      "series_type": "waitaki_validation_flow",
+      "purpose": "Actual Lake Ohau outflow excluding diverted flow",
+      "site_code": "OHU",
+      "direction": "Outflow",
+      "flow_type": "Actual",
+      "description": "Ohau A only, using flows of 12m\u00b3/s May to Oct and 8m\u00b3/s Nov to Apr",
+      "local_file": "data/hydro/raw/inflows/SI_OHU_Actual_LakeOhau(ExclDiverted)_Outflow_98614(6).csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/SI_OHU_Actual_LakeOhau(ExclDiverted)_Outflow_98614(6).csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/SI_OHU_Actual_LakeOhau%28ExclDiverted%29_Outflow_98614%286%29.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:51:53 GMT",
+      "source_content_length": "1064459",
+      "source_etag": "0x8DE180F4D3E2D3D",
+      "data_rows": 34153
+    },
+    {
+      "series_type": "waitaki_validation_spill",
+      "purpose": "Ruataniwha spill bypassing Ohau B and C to Lake Benmore",
+      "site_code": "RTH",
+      "description": "Lake Ruataniwha to Benmore via Ohau River",
+      "local_file": "data/hydro/raw/spill/SI_RTH_Spill_LakeRuataniwha.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_2_Spill/SI_RTH_Spill_LakeRuataniwha.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_2_Spill/SI_RTH_Spill_LakeRuataniwha.csv",
+      "source_last_modified": "Wed, 14 Jan 2026 02:34:24 GMT",
+      "source_content_length": "417343",
+      "source_etag": "0x8DE53156E5D1CB7",
+      "data_rows": 13910
+    }
+  ]
+}

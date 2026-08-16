@@ -87,7 +87,7 @@
     },
     {
       "scheme": "Waitaki river",
-      "path": "Tekapo_full_generation_route",
+      "path": "Tekapo_to_Pukaki",
       "source_storage": "TKA",
       "stations": [
         {
@@ -99,92 +99,41 @@
           "site_code": "TKB",
           "mw_per_cumec": 1.28468654,
           "mwh_per_mm3": 356.857
-        },
-        {
-          "site_code": "OHA",
-          "mw_per_cumec": 0.5005005,
-          "mwh_per_mm3": 139.028
-        },
-        {
-          "site_code": "OHB",
-          "mw_per_cumec": 0.41666667,
-          "mwh_per_mm3": 115.741
-        },
-        {
-          "site_code": "OHC",
-          "mw_per_cumec": 0.41666667,
-          "mwh_per_mm3": 115.741
-        },
-        {
-          "site_code": "BEN",
-          "mw_per_cumec": 0.81766149,
-          "mwh_per_mm3": 227.128
-        },
-        {
-          "site_code": "AVI",
-          "mw_per_cumec": 0.31007752,
-          "mwh_per_mm3": 86.133
-        },
-        {
-          "site_code": "WTK",
-          "mw_per_cumec": 0.162206,
-          "mwh_per_mm3": 45.057
         }
       ],
-      "full_route_mwh_per_mm3": 1150.194,
+      "full_route_mwh_per_mm3": 421.367,
       "complete": true,
-      "note": "Tekapo A discharge enters the Tekapo canal, passes Tekapo B into Lake Pukaki, then can join the Pukaki/Ohau canal route."
+      "note": "Tekapo A and Gate 17 feed the Tekapo-Pukaki canal; Tekapo B discharges the combined canal flow into Lake Pukaki. Gate 17 can bypass Tekapo A but is already upstream of Tekapo B."
     },
     {
       "scheme": "Waitaki river",
-      "path": "Pukaki_Ohau_generation_route",
+      "path": "Pukaki_to_Ruataniwha",
       "source_storage": "PKI",
       "stations": [
         {
           "site_code": "OHA",
           "mw_per_cumec": 0.5005005,
           "mwh_per_mm3": 139.028
-        },
-        {
-          "site_code": "OHB",
-          "mw_per_cumec": 0.41666667,
-          "mwh_per_mm3": 115.741
-        },
-        {
-          "site_code": "OHC",
-          "mw_per_cumec": 0.41666667,
-          "mwh_per_mm3": 115.741
-        },
-        {
-          "site_code": "BEN",
-          "mw_per_cumec": 0.81766149,
-          "mwh_per_mm3": 227.128
-        },
-        {
-          "site_code": "AVI",
-          "mw_per_cumec": 0.31007752,
-          "mwh_per_mm3": 86.133
-        },
-        {
-          "site_code": "WTK",
-          "mw_per_cumec": 0.162206,
-          "mwh_per_mm3": 45.057
         }
       ],
-      "full_route_mwh_per_mm3": 728.827,
+      "full_route_mwh_per_mm3": 139.028,
       "complete": true,
-      "note": "Pukaki canal joins Ohau canal upstream of Ohau A; water then passes through Ohau B and C to Lake Benmore."
+      "note": "The Pukaki canal feeds Ohau A, whose tailrace enters Lake Ruataniwha. Lake Ohau water is not treated as an input to Ohau A."
     },
     {
       "scheme": "Waitaki river",
-      "path": "Ohau_generation_route",
+      "path": "Lake_Ohau_to_Ruataniwha",
       "source_storage": "OHA",
+      "stations": [],
+      "full_route_mwh_per_mm3": 0.0,
+      "complete": true,
+      "note": "Lake Ohau contributes independently to Lake Ruataniwha via the Upper Ohau River/canal system; HMD natural Ohau inflow is defined for the Ohau B/C portion of the scheme rather than as an Ohau A input."
+    },
+    {
+      "scheme": "Waitaki river",
+      "path": "Ruataniwha_to_Benmore",
+      "source_storage": "RTH",
       "stations": [
-        {
-          "site_code": "OHA",
-          "mw_per_cumec": 0.5005005,
-          "mwh_per_mm3": 139.028
-        },
         {
           "site_code": "OHB",
           "mw_per_cumec": 0.41666667,
@@ -194,26 +143,11 @@
           "site_code": "OHC",
           "mw_per_cumec": 0.41666667,
           "mwh_per_mm3": 115.741
-        },
-        {
-          "site_code": "BEN",
-          "mw_per_cumec": 0.81766149,
-          "mwh_per_mm3": 227.128
-        },
-        {
-          "site_code": "AVI",
-          "mw_per_cumec": 0.31007752,
-          "mwh_per_mm3": 86.133
-        },
-        {
-          "site_code": "WTK",
-          "mw_per_cumec": 0.162206,
-          "mwh_per_mm3": 45.057
         }
       ],
-      "full_route_mwh_per_mm3": 728.827,
+      "full_route_mwh_per_mm3": 231.481,
       "complete": true,
-      "note": null
+      "note": "Water from Lake Ruataniwha passes through Ohau B and then Ohau C before entering Lake Benmore."
     },
     {
       "scheme": "Waitaki river",

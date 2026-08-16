@@ -98,44 +98,44 @@
     "OHU": {
       "site": "Ohau",
       "monthly_inflow_index_vs_annual_mean_daily": {
-        "1": 1.344,
-        "2": 1.1422,
-        "3": 0.9929,
-        "4": 0.9569,
-        "5": 0.8886,
-        "6": 0.7005,
-        "7": 0.5742,
-        "8": 0.6057,
-        "9": 0.7885,
-        "10": 1.1314,
-        "11": 1.3777,
-        "12": 1.5044
+        "1": 1.3534,
+        "2": 1.1382,
+        "3": 0.979,
+        "4": 0.9415,
+        "5": 0.8944,
+        "6": 0.6939,
+        "7": 0.5591,
+        "8": 0.5929,
+        "9": 0.7876,
+        "10": 1.1524,
+        "11": 1.3893,
+        "12": 1.5244
       },
       "peak_inflow_month": 12,
-      "summer_nov_mar_inflow_share": 0.527533,
-      "winter_may_aug_inflow_share": 0.233091,
-      "monthly_correlation_with_observed_solar_shape": 0.8815
+      "summer_nov_mar_inflow_share": 0.529501,
+      "winter_may_aug_inflow_share": 0.230674,
+      "monthly_correlation_with_observed_solar_shape": 0.8797
     },
     "PKI": {
       "site": "Pukaki",
       "monthly_inflow_index_vs_annual_mean_daily": {
-        "1": 1.7496,
-        "2": 1.6571,
-        "3": 1.3347,
-        "4": 1.0228,
-        "5": 0.7495,
-        "6": 0.5351,
-        "7": 0.4298,
-        "8": 0.4603,
-        "9": 0.5714,
-        "10": 0.84,
-        "11": 1.1243,
-        "12": 1.5594
+        "1": 1.6783,
+        "2": 1.5742,
+        "3": 1.2599,
+        "4": 0.9229,
+        "5": 0.7238,
+        "6": 0.6037,
+        "7": 0.5237,
+        "8": 0.5559,
+        "9": 0.6504,
+        "10": 0.8629,
+        "11": 1.1445,
+        "12": 1.5287
       },
       "peak_inflow_month": 1,
-      "summer_nov_mar_inflow_share": 0.614663,
-      "winter_may_aug_inflow_share": 0.183109,
-      "monthly_correlation_with_observed_solar_shape": 0.792
+      "summer_nov_mar_inflow_share": 0.59491,
+      "winter_may_aug_inflow_share": 0.202636,
+      "monthly_correlation_with_observed_solar_shape": 0.8218
     },
     "TAU": {
       "site": "Te Anau",
@@ -229,20 +229,20 @@
       "OHU"
     ],
     "monthly_inflow_index_vs_annual_mean_daily": {
-      "1": 1.5124,
-      "2": 1.3601,
-      "3": 1.1297,
-      "4": 0.9864,
-      "5": 0.8378,
-      "6": 0.6383,
-      "7": 0.5252,
-      "8": 0.5539,
-      "9": 0.6868,
-      "10": 0.9966,
-      "11": 1.2709,
-      "12": 1.5203
+      "1": 1.4918,
+      "2": 1.3312,
+      "3": 1.1001,
+      "4": 0.948,
+      "5": 0.8312,
+      "6": 0.6589,
+      "7": 0.5515,
+      "8": 0.5815,
+      "9": 0.7129,
+      "10": 1.0112,
+      "11": 1.2815,
+      "12": 1.5167
     },
-    "monthly_correlation_with_observed_solar_shape": 0.8623
+    "monthly_correlation_with_observed_solar_shape": 0.8762
   },
   "interpretation_note": "Positive monthly correlation means high-solar months tend also to be high-inflow months. That can be favourable for hydro conservation because solar can reduce turbine releases while reservoirs are naturally refilling, subject to storage capacity and spill constraints."
 }
