@@ -1,0 +1,21 @@
+{
+  "source": "New Zealand Electricity Authority published JADE weekly outputs and inputs",
+  "jade_source_year": "2025",
+  "jade_source_week": "Week 52",
+  "upstream_files": {
+    "thermal_dispatch": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/tidy_results.csv",
+    "block_durations": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/hours_per_block.csv"
+  },
+  "jade_code_evidence": {
+    "simulate": "JADE src/simulate.jl records :thermal_use and writes it to tidy_results.csv",
+    "results": "JADE src/results.jl computes thermal costs as thermal_use * fuel cost * heat rate * block duration",
+    "durations": "JADE src/data.jl loads hours_per_block.csv into d.durations"
+  },
+  "method": "Filter tidy_results.csv to type=thermal_use. JADE represents each station's thermal dispatch by load block in MW. Multiply station MW by the matching JADE hours_per_block.csv duration and divide by 1000 to obtain GWh, then aggregate by stochastic simulation and calendar week. Peak-block MW is the maximum across weekly load blocks after summing stations within each block.",
+  "raw_data_policy": "Raw JADE files remain upstream; this repository stores only the compact derived thermal dispatch tables needed for visualisation and reproducibility.",
+  "derived_files": [
+    "data/jade/model/weekly_thermal_dispatch_simulations.csv",
+    "data/jade/model/weekly_thermal_dispatch_summary.csv"
+  ],
+  "thermal_use_rows_processed": 141960
+}
