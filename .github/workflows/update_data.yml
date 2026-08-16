@@ -164,6 +164,9 @@ jobs:
       - name: Validate Waitaki Ohau Junction Topology
         run: python diagnose_waitaki_network_balance_v3.py
 
+      - name: Diagnose Waitaki Ohau Storage Timing
+        run: python diagnose_waitaki_network_balance_v4.py
+
       - name: Plot Waitaki WiP Progress
         run: python plot_waitaki_progress.py
 
@@ -175,6 +178,5 @@ jobs:
           git diff --cached --quiet && echo "No data changes to commit" && exit 0
           git commit -m "Automated EA and MBIE data update"
           # A modelling commit may have landed while this run was calculating.
-          # Rebase the generated data commit onto the current branch before push.
           git pull --rebase origin "${GITHUB_REF_NAME}"
           git push origin HEAD:"${GITHUB_REF_NAME}"
