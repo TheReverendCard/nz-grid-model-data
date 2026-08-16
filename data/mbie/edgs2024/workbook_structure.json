@@ -1,0 +1,1736 @@
+{
+  "assumptions": {
+    "file": "data/mbie/edgs2024/edgs_2024_assumptions.xlsx",
+    "sheets": [
+      {
+        "name": "Contents",
+        "max_row": 40,
+        "max_column": 11,
+        "sample_nonempty_rows": [
+          [
+            "Electricity Demand and Generation Scenarios (2024) - Assumptions",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "This workbook provides time series on key assumptions used for EDGS 2024 modelling. More information on the assumptions and how they differ by scenarios is available in the EDGS 2024 summary report. ",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "Data is presented in long format and is machine-readable. It is also able to queried within this file either through filtering or creating a PivotTable.",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "Generation stack data is also presented. This lists the pipeline of available plants that the Generation Expansion Model may select from to meet demand in projected years.",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "Contents",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ]
+      },
+      {
+        "name": "GDP",
+        "max_row": 306,
+        "max_column": 6,
+        "sample_nonempty_rows": [
+          [
+            "TimePeriod",
+            "Status",
+            "Value",
+            "Variable",
+            "Unit",
+            "Scenario"
+          ],
+          [
+            1990,
+            "Historical",
+            112594,
+            "National GDP",
+            "Real GDP (production measure, in 2009/10 dollars, million)",
+            "Reference"
+          ],
+          [
+            1991,
+            "Historical",
+            111106,
+            "National GDP",
+            "Real GDP (production measure, in 2009/10 dollars, million)",
+            "Reference"
+          ],
+          [
+            1992,
+            "Historical",
+            111888,
+            "National GDP",
+            "Real GDP (production measure, in 2009/10 dollars, million)",
+            "Reference"
+          ],
+          [
+            1993,
+            "Historical",
+            117734,
+            "National GDP",
+            "Real GDP (production measure, in 2009/10 dollars, million)",
+            "Reference"
+          ],
+          [
+            1994,
+            "Historical",
+            124307,
+            "National GDP",
+            "Real GDP (production measure, in 2009/10 dollars, million)",
+            "Reference"
+          ],
+          [
+            1995,
+            "Historical",
+            130389,
+            "National GDP",
+            "Real GDP (production measure, in 2009/10 dollars, million)",
+            "Reference"
+          ],
+          [
+            1996,
+            "Historical",
+            135702,
+            "National GDP",
+            "Real GDP (production measure, in 2009/10 dollars, million)",
+            "Reference"
+          ]
+        ]
+      },
+      {
+        "name": "Population",
+        "max_row": 306,
+        "max_column": 6,
+        "sample_nonempty_rows": [
+          [
+            "TimePeriod",
+            "Status",
+            "Value",
+            "Variable",
+            "Unit",
+            "Scenario"
+          ],
+          [
+            1990,
+            "Historical",
+            3454300.601,
+            "Population",
+            "Number",
+            "Reference"
+          ],
+          [
+            1991,
+            "Historical",
+            3491500,
+            "Population",
+            "Number",
+            "Reference"
+          ],
+          [
+            1992,
+            "Historical",
+            3529100,
+            "Population",
+            "Number",
+            "Reference"
+          ],
+          [
+            1993,
+            "Historical",
+            3568300,
+            "Population",
+            "Number",
+            "Reference"
+          ],
+          [
+            1994,
+            "Historical",
+            3615700,
+            "Population",
+            "Number",
+            "Reference"
+          ],
+          [
+            1995,
+            "Historical",
+            3668500,
+            "Population",
+            "Number",
+            "Reference"
+          ],
+          [
+            1996,
+            "Historical",
+            3727700,
+            "Population",
+            "Number",
+            "Reference"
+          ]
+        ]
+      },
+      {
+        "name": "Commodity prices",
+        "max_row": 1526,
+        "max_column": 6,
+        "sample_nonempty_rows": [
+          [
+            "TimePeriod",
+            "Status",
+            "Variable",
+            "Unit",
+            "Scenario",
+            "Value"
+          ],
+          [
+            1990,
+            "Historical",
+            "Coal wholesale price estimate",
+            "Dollars per net GJ",
+            "Constraint",
+            6.548
+          ],
+          [
+            1990,
+            "Historical",
+            "Coal wholesale price estimate",
+            "Dollars per net GJ",
+            "Environmental",
+            6.548
+          ],
+          [
+            1990,
+            "Historical",
+            "Coal wholesale price estimate",
+            "Dollars per net GJ",
+            "Growth",
+            6.548
+          ],
+          [
+            1990,
+            "Historical",
+            "Coal wholesale price estimate",
+            "Dollars per net GJ",
+            "Innovation",
+            6.548
+          ],
+          [
+            1990,
+            "Historical",
+            "Coal wholesale price estimate",
+            "Dollars per net GJ",
+            "Reference",
+            6.548
+          ],
+          [
+            1990,
+            "Historical",
+            "Diesel wholesale price estimate",
+            "Dollars per net GJ",
+            "Constraint",
+            32.955
+          ],
+          [
+            1990,
+            "Historical",
+            "Diesel wholesale price estimate",
+            "Dollars per net GJ",
+            "Environmental",
+            32.955
+          ]
+        ]
+      },
+      {
+        "name": "Vehicle kilometres travelled",
+        "max_row": 946,
+        "max_column": 7,
+        "sample_nonempty_rows": [
+          [
+            "TimePeriod",
+            "Variable",
+            "VehicleType",
+            "Unit",
+            "Scenario",
+            "Value",
+            "Status"
+          ],
+          [
+            2001,
+            "Vehicle kilometers travelled",
+            "Electric",
+            "Vehicle km",
+            "Constraint",
+            1713901.71,
+            "Historical"
+          ],
+          [
+            2001,
+            "Vehicle kilometers travelled",
+            "Electric",
+            "Vehicle km",
+            "Environmental",
+            1713901.71,
+            "Historical"
+          ],
+          [
+            2001,
+            "Vehicle kilometers travelled",
+            "Electric",
+            "Vehicle km",
+            "Growth",
+            1713901.71,
+            "Historical"
+          ],
+          [
+            2001,
+            "Vehicle kilometers travelled",
+            "Electric",
+            "Vehicle km",
+            "Innovation",
+            1713901.71,
+            "Historical"
+          ],
+          [
+            2001,
+            "Vehicle kilometers travelled",
+            "Electric",
+            "Vehicle km",
+            "Reference",
+            1713901.71,
+            "Historical"
+          ],
+          [
+            2001,
+            "Vehicle kilometers travelled",
+            "ICE",
+            "Vehicle km",
+            "Constraint",
+            36515507698.08,
+            "Historical"
+          ],
+          [
+            2001,
+            "Vehicle kilometers travelled",
+            "ICE",
+            "Vehicle km",
+            "Environmental",
+            36515507698.08,
+            "Historical"
+          ]
+        ]
+      },
+      {
+        "name": "Electric vehicle share of VKT",
+        "max_row": 251,
+        "max_column": 6,
+        "sample_nonempty_rows": [
+          [
+            "TimePeriod",
+            "Scenario",
+            "Status",
+            "Unit",
+            "Value",
+            "Variable"
+          ],
+          [
+            2001,
+            "Constraint",
+            "Historical",
+            "Percentage",
+            0,
+            "Share of vehicle kilometres travelled that use electricity"
+          ],
+          [
+            2001,
+            "Environmental",
+            "Historical",
+            "Percentage",
+            0,
+            "Share of vehicle kilometres travelled that use electricity"
+          ],
+          [
+            2001,
+            "Growth",
+            "Historical",
+            "Percentage",
+            0,
+            "Share of vehicle kilometres travelled that use electricity"
+          ],
+          [
+            2001,
+            "Innovation",
+            "Historical",
+            "Percentage",
+            0,
+            "Share of vehicle kilometres travelled that use electricity"
+          ],
+          [
+            2001,
+            "Reference",
+            "Historical",
+            "Percentage",
+            0,
+            "Share of vehicle kilometres travelled that use electricity"
+          ],
+          [
+            2002,
+            "Constraint",
+            "Historical",
+            "Percentage",
+            0,
+            "Share of vehicle kilometres travelled that use electricity"
+          ],
+          [
+            2002,
+            "Environmental",
+            "Historical",
+            "Percentage",
+            0,
+            "Share of vehicle kilometres travelled that use electricity"
+          ]
+        ]
+      },
+      {
+        "name": "Peak ratios",
+        "max_row": 271,
+        "max_column": 6,
+        "sample_nonempty_rows": [
+          [
+            "TimePeriod",
+            "Variable",
+            "Value",
+            "Unit",
+            "Scenario",
+            "Status"
+          ],
+          [
+            2024,
+            "Peak ratio North Island",
+            1.75,
+            "Number",
+            "Reference",
+            "Projected"
+          ],
+          [
+            2025,
+            "Peak ratio North Island",
+            1.75,
+            "Number",
+            "Reference",
+            "Projected"
+          ],
+          [
+            2026,
+            "Peak ratio North Island",
+            1.75,
+            "Number",
+            "Reference",
+            "Projected"
+          ],
+          [
+            2027,
+            "Peak ratio North Island",
+            1.75,
+            "Number",
+            "Reference",
+            "Projected"
+          ],
+          [
+            2028,
+            "Peak ratio North Island",
+            1.75,
+            "Number",
+            "Reference",
+            "Projected"
+          ],
+          [
+            2029,
+            "Peak ratio North Island",
+            1.75,
+            "Number",
+            "Reference",
+            "Projected"
+          ],
+          [
+            2030,
+            "Peak ratio North Island",
+            1.75,
+            "Number",
+            "Reference",
+            "Projected"
+          ]
+        ]
+      },
+      {
+        "name": "Island share of demand",
+        "max_row": 271,
+        "max_column": 6,
+        "sample_nonempty_rows": [
+          [
+            "TimePeriod",
+            "Variable",
+            "Value",
+            "Unit",
+            "Scenario",
+            "Status"
+          ],
+          [
+            2024,
+            "North Island share of national demand",
+            0.61,
+            "Percentage",
+            "Reference",
+            "Projected"
+          ],
+          [
+            2025,
+            "North Island share of national demand",
+            0.61,
+            "Percentage",
+            "Reference",
+            "Projected"
+          ],
+          [
+            2026,
+            "North Island share of national demand",
+            0.61,
+            "Percentage",
+            "Reference",
+            "Projected"
+          ],
+          [
+            2027,
+            "North Island share of national demand",
+            0.61,
+            "Percentage",
+            "Reference",
+            "Projected"
+          ],
+          [
+            2028,
+            "North Island share of national demand",
+            0.61,
+            "Percentage",
+            "Reference",
+            "Projected"
+          ],
+          [
+            2029,
+            "North Island share of national demand",
+            0.61,
+            "Percentage",
+            "Reference",
+            "Projected"
+          ],
+          [
+            2030,
+            "North Island share of national demand",
+            0.61,
+            "Percentage",
+            "Reference",
+            "Projected"
+          ]
+        ]
+      },
+      {
+        "name": "Datacentres",
+        "max_row": 271,
+        "max_column": 6,
+        "sample_nonempty_rows": [
+          [
+            "TimePeriod",
+            "Variable",
+            "Scenario",
+            "Status",
+            "Unit",
+            "Value"
+          ],
+          [
+            2024,
+            "Load capacity",
+            "Reference",
+            "Projected",
+            "MW",
+            50
+          ],
+          [
+            2025,
+            "Load capacity",
+            "Reference",
+            "Projected",
+            "MW",
+            101
+          ],
+          [
+            2026,
+            "Load capacity",
+            "Reference",
+            "Projected",
+            "MW",
+            113
+          ],
+          [
+            2027,
+            "Load capacity",
+            "Reference",
+            "Projected",
+            "MW",
+            183
+          ],
+          [
+            2028,
+            "Load capacity",
+            "Reference",
+            "Projected",
+            "MW",
+            183
+          ],
+          [
+            2029,
+            "Load capacity",
+            "Reference",
+            "Projected",
+            "MW",
+            233
+          ],
+          [
+            2030,
+            "Load capacity",
+            "Reference",
+            "Projected",
+            "MW",
+            233
+          ]
+        ]
+      },
+      {
+        "name": "Distributed solar PV",
+        "max_row": 2356,
+        "max_column": 6,
+        "sample_nonempty_rows": [
+          [
+            "TimePeriod",
+            "Variable",
+            "Scenario",
+            "Sector",
+            "Unit",
+            "Value"
+          ],
+          [
+            2013,
+            "Total ICPs",
+            "Constraint",
+            "Commercial",
+            "Number",
+            83
+          ],
+          [
+            2013,
+            "Total ICPs",
+            "Constraint",
+            "Industrial",
+            "Number",
+            80
+          ],
+          [
+            2013,
+            "Total ICPs",
+            "Constraint",
+            "Residential",
+            "Number",
+            2122
+          ],
+          [
+            2013,
+            "Total ICPs",
+            "Environmental",
+            "Commercial",
+            "Number",
+            83
+          ],
+          [
+            2013,
+            "Total ICPs",
+            "Environmental",
+            "Industrial",
+            "Number",
+            80
+          ],
+          [
+            2013,
+            "Total ICPs",
+            "Environmental",
+            "Residential",
+            "Number",
+            2122
+          ],
+          [
+            2013,
+            "Total ICPs",
+            "Growth",
+            "Commercial",
+            "Number",
+            83
+          ]
+        ]
+      },
+      {
+        "name": "Fuel switching",
+        "max_row": 953,
+        "max_column": 7,
+        "sample_nonempty_rows": [
+          [
+            "Year",
+            "Scenario",
+            "Sector",
+            "Commodity From",
+            "Proportion Switched",
+            "Commodity To",
+            "Coefficient of Performance Ratio"
+          ],
+          [
+            2023,
+            "Reference",
+            "Commercial",
+            "Coal",
+            0,
+            "Electricity",
+            0.511493093063274
+          ],
+          [
+            2023,
+            "Reference",
+            "Commercial",
+            "Coal",
+            0,
+            "Wood",
+            1
+          ],
+          [
+            2023,
+            "Reference",
+            "General Industry",
+            "Coal",
+            0,
+            "Electricity",
+            0.626456427765069
+          ],
+          [
+            2023,
+            "Reference",
+            "General Industry",
+            "Coal",
+            0,
+            "Wood",
+            1
+          ],
+          [
+            2023,
+            "Reference",
+            "Residential",
+            "Coal",
+            0,
+            "Electricity",
+            0.5
+          ],
+          [
+            2023,
+            "Reference",
+            "Commercial",
+            "Diesel",
+            0,
+            "Electricity",
+            0.66909792994923
+          ],
+          [
+            2023,
+            "Reference",
+            "General Industry",
+            "Diesel",
+            0,
+            "Electricity",
+            0.988622817195086
+          ]
+        ]
+      },
+      {
+        "name": "Generation Stack",
+        "max_row": 1325,
+        "max_column": 18,
+        "sample_nonempty_rows": [
+          [
+            "Scenario",
+            "Plant",
+            "Status",
+            "PlantType",
+            "Tech",
+            "TechName",
+            "Substation",
+            "Region",
+            "Capacity (MW)",
+            "Heat Rate (GJ/GWh)",
+            "Variable operating costs (NZD/MWh)",
+            "Fixed operating costs (NZD/kW/year)",
+            "Fuel delivery costs (NZD/GJ)",
+            "Capital cost (NZD/kW)",
+            "Connection cost (NZD $m)",
+            "Total Capital costs (NZD $m)",
+            "Earliest Commissioning Year",
+            "Fixed Commissioning Year"
+          ],
+          [
+            "Constraint",
+            "Generic OCGT peaker: 1 (Huntly)",
+            "Generic",
+            "PELE",
+            "GasPkr",
+            "Peaker, gas-fired OCGT",
+            "HLY",
+            "Waikato",
+            100,
+            11750,
+            13.4285221887118,
+            5.41852649719948,
+            2.65036622145627,
+            1213.00159667486,
+            13.1929340801379,
+            134.493093747624,
+            2025,
+            null
+          ],
+          [
+            "Constraint",
+            "Generic OCGT peaker: 2 (Stratford)",
+            "Generic",
+            "PELE",
+            "GasPkr",
+            "Peaker, gas-fired OCGT",
+            "SFD",
+            "Taranaki",
+            100,
+            11750,
+            13.4285221887118,
+            5.41852649719948,
+            2.65036622145627,
+            1213.00159667486,
+            13.1929340801379,
+            134.493093747624,
+            2025,
+            null
+          ],
+          [
+            "Constraint",
+            "Generic OCGT peaker: 3 (Otahuhu)",
+            "Generic",
+            "PELE",
+            "GasPkr",
+            "Peaker, gas-fired OCGT",
+            "OTA",
+            "Auckland",
+            100,
+            11750,
+            13.4285221887118,
+            5.41852649719948,
+            2.65036622145627,
+            1213.00159667486,
+            13.1929340801379,
+            134.493093747624,
+            2025,
+            null
+          ],
+          [
+            "Constraint",
+            "Generic OCGT peaker: 4 (Southdown)",
+            "Generic",
+            "PELE",
+            "GasPkr",
+            "Peaker, gas-fired OCGT",
+            "SWN",
+            "Auckland",
+            100,
+            11750,
+            13.4285221887118,
+            5.41852649719948,
+            2.65036622145627,
+            1213.00159667486,
+            13.1929340801379,
+            134.493093747624,
+            2025,
+            null
+          ],
+          [
+            "Constraint",
+            "Generic OCGT peaker: 5 (Marsden)",
+            "Generic",
+            "PELE",
+            "GasPkr",
+            "Peaker, gas-fired OCGT",
+            "MDN",
+            "Northland",
+            100,
+            11750,
+            13.4285221887118,
+            5.41852649719948,
+            2.65036622145627,
+            1213.00159667486,
+            13.1929340801379,
+            134.493093747624,
+            2030,
+            null
+          ],
+          [
+            "Constraint",
+            "Generic OCGT peaker: 6 (Huntly)",
+            "Generic",
+            "PELE",
+            "GasPkr",
+            "Peaker, gas-fired OCGT",
+            "HLY",
+            "Waikato",
+            100,
+            11750,
+            13.4285221887118,
+            5.41852649719948,
+            2.65036622145627,
+            1213.00159667486,
+            13.1929340801379,
+            134.493093747624,
+            2030,
+            null
+          ],
+          [
+            "Constraint",
+            "Generic OCGT peaker: 7 (Otahuhu)",
+            "Generic",
+            "PELE",
+            "GasPkr",
+            "Peaker, gas-fired OCGT",
+            "OTA",
+            "Auckland",
+            100,
+            11750,
+            13.4285221887118,
+            5.41852649719948,
+            2.65036622145627,
+            1213.00159667486,
+            13.1929340801379,
+            134.493093747624,
+            2035,
+            null
+          ]
+        ]
+      }
+    ]
+  },
+  "results": {
+    "file": "data/mbie/edgs2024/edgs_2024_results.xlsx",
+    "sheets": [
+      {
+        "name": "Contents",
+        "max_row": 32,
+        "max_column": 11,
+        "sample_nonempty_rows": [
+          [
+            "Electricity Demand and Generation Scenarios (2024) - Results",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "This workbook provides time series of results from EDGS 2024 modelling. More information on these results and how they differ by scenarios is available in the EDGS 2024 summary report. ",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "Data is presented in long format and is machine-readable. It is also able to queried within this file either through filtering or creating a PivotTable.",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "Contents",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "Total electricity demand",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ]
+      },
+      {
+        "name": "Total electricity demand",
+        "max_row": 306,
+        "max_column": 7,
+        "sample_nonempty_rows": [
+          [
+            "TimePeriod",
+            "Scenario",
+            "Status",
+            "Unit",
+            "Value",
+            null,
+            null
+          ],
+          [
+            1990,
+            "Constraint",
+            "Historical",
+            "TWh",
+            28.806,
+            null,
+            null
+          ],
+          [
+            1990,
+            "Environmental",
+            "Historical",
+            "TWh",
+            28.806,
+            null,
+            null
+          ],
+          [
+            1990,
+            "Growth",
+            "Historical",
+            "TWh",
+            28.806,
+            null,
+            null
+          ],
+          [
+            1990,
+            "Innovation",
+            "Historical",
+            "TWh",
+            28.806,
+            null,
+            null
+          ],
+          [
+            1990,
+            "Reference",
+            "Historical",
+            "TWh",
+            28.806,
+            null,
+            null
+          ],
+          [
+            1991,
+            "Constraint",
+            "Historical",
+            "TWh",
+            29.42,
+            null,
+            null
+          ],
+          [
+            1991,
+            "Environmental",
+            "Historical",
+            "TWh",
+            29.42,
+            null,
+            null
+          ]
+        ]
+      },
+      {
+        "name": "Electricity demand by sector",
+        "max_row": 1221,
+        "max_column": 7,
+        "sample_nonempty_rows": [
+          [
+            "TimePeriod",
+            "Scenario",
+            "Sector",
+            "Variable",
+            "Status",
+            "Unit",
+            "Value"
+          ],
+          [
+            1990,
+            "Constraint",
+            "Commercial",
+            "Electricity demand",
+            "Historical",
+            "TWh",
+            5.321
+          ],
+          [
+            1990,
+            "Constraint",
+            "Industrial",
+            "Electricity demand",
+            "Historical",
+            "TWh",
+            13.26
+          ],
+          [
+            1990,
+            "Constraint",
+            "Residential",
+            "Electricity demand",
+            "Historical",
+            "TWh",
+            10.164
+          ],
+          [
+            1990,
+            "Constraint",
+            "Transport",
+            "Electricity demand",
+            "Historical",
+            "TWh",
+            0.061
+          ],
+          [
+            1990,
+            "Environmental",
+            "Commercial",
+            "Electricity demand",
+            "Historical",
+            "TWh",
+            5.321
+          ],
+          [
+            1990,
+            "Environmental",
+            "Industrial",
+            "Electricity demand",
+            "Historical",
+            "TWh",
+            13.26
+          ],
+          [
+            1990,
+            "Environmental",
+            "Residential",
+            "Electricity demand",
+            "Historical",
+            "TWh",
+            10.164
+          ]
+        ]
+      },
+      {
+        "name": "Peak demand",
+        "max_row": 136,
+        "max_column": 6,
+        "sample_nonempty_rows": [
+          [
+            "TimePeriod",
+            "Scenario",
+            "Variable",
+            "Status",
+            "Unit",
+            "Value"
+          ],
+          [
+            2024,
+            "Reference",
+            "New Zealand peak load",
+            "Projected",
+            "GW",
+            6.763
+          ],
+          [
+            2025,
+            "Reference",
+            "New Zealand peak load",
+            "Projected",
+            "GW",
+            6.962
+          ],
+          [
+            2026,
+            "Reference",
+            "New Zealand peak load",
+            "Projected",
+            "GW",
+            7.097
+          ],
+          [
+            2027,
+            "Reference",
+            "New Zealand peak load",
+            "Projected",
+            "GW",
+            7.321
+          ],
+          [
+            2028,
+            "Reference",
+            "New Zealand peak load",
+            "Projected",
+            "GW",
+            7.454
+          ],
+          [
+            2029,
+            "Reference",
+            "New Zealand peak load",
+            "Projected",
+            "GW",
+            7.665
+          ],
+          [
+            2030,
+            "Reference",
+            "New Zealand peak load",
+            "Projected",
+            "GW",
+            7.8
+          ]
+        ]
+      },
+      {
+        "name": "Total energy demand",
+        "max_row": 1221,
+        "max_column": 7,
+        "sample_nonempty_rows": [
+          [
+            "TimePeriod",
+            "Scenario",
+            "Sector",
+            "Unit",
+            "Value",
+            "Variable",
+            "Status"
+          ],
+          [
+            1990,
+            "Constraint",
+            "Commercial",
+            "Gross PJ",
+            34.808,
+            "Total energy demand",
+            "Historical"
+          ],
+          [
+            1990,
+            "Constraint",
+            "Industrial",
+            "Gross PJ",
+            170.505,
+            "Total energy demand",
+            "Historical"
+          ],
+          [
+            1990,
+            "Constraint",
+            "Residential",
+            "Gross PJ",
+            64.777,
+            "Total energy demand",
+            "Historical"
+          ],
+          [
+            1990,
+            "Constraint",
+            "Transport",
+            "Gross PJ",
+            119.577,
+            "Total energy demand",
+            "Historical"
+          ],
+          [
+            1990,
+            "Environmental",
+            "Commercial",
+            "Gross PJ",
+            34.808,
+            "Total energy demand",
+            "Historical"
+          ],
+          [
+            1990,
+            "Environmental",
+            "Industrial",
+            "Gross PJ",
+            170.505,
+            "Total energy demand",
+            "Historical"
+          ],
+          [
+            1990,
+            "Environmental",
+            "Residential",
+            "Gross PJ",
+            64.777,
+            "Total energy demand",
+            "Historical"
+          ]
+        ]
+      },
+      {
+        "name": "GEM build schedule",
+        "max_row": 939,
+        "max_column": 9,
+        "sample_nonempty_rows": [
+          [
+            "Commissioning_Year",
+            "Value",
+            "Variable",
+            "Unit",
+            "Island",
+            "Technology_Type",
+            "Commodity",
+            "Scenario",
+            "Plant_Name"
+          ],
+          [
+            2033,
+            20.508,
+            "Electricity generation capacity",
+            "MW",
+            "North Island",
+            "Demand side response",
+            "Demand side response",
+            "Reference",
+            "Demand Side Response: Auckland 1"
+          ],
+          [
+            2034,
+            19.492,
+            "Electricity generation capacity",
+            "MW",
+            "North Island",
+            "Demand side response",
+            "Demand side response",
+            "Reference",
+            "Demand Side Response: Auckland 1"
+          ],
+          [
+            2033,
+            40,
+            "Electricity generation capacity",
+            "MW",
+            "North Island",
+            "Demand side response",
+            "Demand side response",
+            "Reference",
+            "Demand Side Response: Auckland 2"
+          ],
+          [
+            2035,
+            13.23,
+            "Electricity generation capacity",
+            "MW",
+            "North Island",
+            "Demand side response",
+            "Demand side response",
+            "Reference",
+            "Demand Side Response: Bay of Plenty 1"
+          ],
+          [
+            2036,
+            1.17,
+            "Electricity generation capacity",
+            "MW",
+            "North Island",
+            "Demand side response",
+            "Demand side response",
+            "Reference",
+            "Demand Side Response: Bay of Plenty 1"
+          ],
+          [
+            2035,
+            14.4,
+            "Electricity generation capacity",
+            "MW",
+            "North Island",
+            "Demand side response",
+            "Demand side response",
+            "Reference",
+            "Demand Side Response: Bay of Plenty 2"
+          ],
+          [
+            2036,
+            9.6,
+            "Electricity generation capacity",
+            "MW",
+            "North Island",
+            "Demand side response",
+            "Demand side response",
+            "Reference",
+            "Demand Side Response: Tararua 1"
+          ]
+        ]
+      },
+      {
+        "name": "Electricity generation",
+        "max_row": 9781,
+        "max_column": 7,
+        "sample_nonempty_rows": [
+          [
+            "TimePeriod",
+            "Scenario",
+            "Commodity",
+            "Variable",
+            "Unit",
+            "Status",
+            "Value"
+          ],
+          [
+            1990,
+            "Constraint",
+            "Biogas",
+            "Electricity generation capacity",
+            "MW",
+            "Historical",
+            18.66
+          ],
+          [
+            1990,
+            "Environmental",
+            "Biogas",
+            "Electricity generation capacity",
+            "MW",
+            "Historical",
+            18.66
+          ],
+          [
+            1990,
+            "Growth",
+            "Biogas",
+            "Electricity generation capacity",
+            "MW",
+            "Historical",
+            18.66
+          ],
+          [
+            1990,
+            "Innovation",
+            "Biogas",
+            "Electricity generation capacity",
+            "MW",
+            "Historical",
+            18.66
+          ],
+          [
+            1990,
+            "Reference",
+            "Biogas",
+            "Electricity generation capacity",
+            "MW",
+            "Historical",
+            18.66
+          ],
+          [
+            1990,
+            "Constraint",
+            "Biogas",
+            "Electricity generation use",
+            "Gross PJ",
+            "Historical",
+            1.679
+          ],
+          [
+            1990,
+            "Environmental",
+            "Biogas",
+            "Electricity generation use",
+            "Gross PJ",
+            "Historical",
+            1.679
+          ]
+        ]
+      },
+      {
+        "name": "Greenhouse gas emissions",
+        "max_row": 916,
+        "max_column": 6,
+        "sample_nonempty_rows": [
+          [
+            "TimePeriod",
+            "Scenario",
+            "Emission_Sector",
+            "Value",
+            "Unit",
+            "Status"
+          ],
+          [
+            1990,
+            "Constraint",
+            "Electricity generation",
+            3.78,
+            "Mt CO2-e",
+            "Historical"
+          ],
+          [
+            1990,
+            "Constraint",
+            "Other non-transport energy",
+            12.096,
+            "Mt CO2-e",
+            "Historical"
+          ],
+          [
+            1990,
+            "Constraint",
+            "Transport",
+            8.123,
+            "Mt CO2-e",
+            "Historical"
+          ],
+          [
+            1990,
+            "Environmental",
+            "Electricity generation",
+            3.78,
+            "Mt CO2-e",
+            "Historical"
+          ],
+          [
+            1990,
+            "Environmental",
+            "Other non-transport energy",
+            12.096,
+            "Mt CO2-e",
+            "Historical"
+          ],
+          [
+            1990,
+            "Environmental",
+            "Transport",
+            8.123,
+            "Mt CO2-e",
+            "Historical"
+          ],
+          [
+            1990,
+            "Growth",
+            "Electricity generation",
+            3.78,
+            "Mt CO2-e",
+            "Historical"
+          ]
+        ]
+      },
+      {
+        "name": "Emission factors",
+        "max_row": 306,
+        "max_column": 5,
+        "sample_nonempty_rows": [
+          [
+            "TimePeriod",
+            "Scenario",
+            "Value",
+            "Unit",
+            "Variable"
+          ],
+          [
+            1990,
+            "Constraint",
+            0.1233,
+            "CO2-e kg/kWh",
+            "Emission factor - primary activity electricity generation"
+          ],
+          [
+            1990,
+            "Environmental",
+            0.1233,
+            "CO2-e kg/kWh",
+            "Emission factor - primary activity electricity generation"
+          ],
+          [
+            1990,
+            "Growth",
+            0.1233,
+            "CO2-e kg/kWh",
+            "Emission factor - primary activity electricity generation"
+          ],
+          [
+            1990,
+            "Innovation",
+            0.1233,
+            "CO2-e kg/kWh",
+            "Emission factor - primary activity electricity generation"
+          ],
+          [
+            1990,
+            "Reference",
+            0.1233,
+            "CO2-e kg/kWh",
+            "Emission factor - primary activity electricity generation"
+          ],
+          [
+            1991,
+            "Constraint",
+            0.1336,
+            "CO2-e kg/kWh",
+            "Emission factor - primary activity electricity generation"
+          ],
+          [
+            1991,
+            "Environmental",
+            0.1336,
+            "CO2-e kg/kWh",
+            "Emission factor - primary activity electricity generation"
+          ]
+        ]
+      },
+      {
+        "name": "Measures and indicators",
+        "max_row": 1526,
+        "max_column": 6,
+        "sample_nonempty_rows": [
+          [
+            "TimePeriod",
+            "Scenario",
+            "Value",
+            "Variable",
+            "Unit",
+            "Status"
+          ],
+          [
+            1990,
+            "Constraint",
+            0.266,
+            "Electricity share of demand",
+            "Percentage",
+            "Historical"
+          ],
+          [
+            1990,
+            "Environmental",
+            0.266,
+            "Electricity share of demand",
+            "Percentage",
+            "Historical"
+          ],
+          [
+            1990,
+            "Growth",
+            0.266,
+            "Electricity share of demand",
+            "Percentage",
+            "Historical"
+          ],
+          [
+            1990,
+            "Innovation",
+            0.266,
+            "Electricity share of demand",
+            "Percentage",
+            "Historical"
+          ],
+          [
+            1990,
+            "Reference",
+            0.266,
+            "Electricity share of demand",
+            "Percentage",
+            "Historical"
+          ],
+          [
+            1991,
+            "Constraint",
+            0.27,
+            "Electricity share of demand",
+            "Percentage",
+            "Historical"
+          ],
+          [
+            1991,
+            "Environmental",
+            0.27,
+            "Electricity share of demand",
+            "Percentage",
+            "Historical"
+          ]
+        ]
+      }
+    ]
+  }
+}

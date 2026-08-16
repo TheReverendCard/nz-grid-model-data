@@ -1,0 +1,43 @@
+{
+  "source": "New Zealand Electricity Authority EMI Azure Blob Storage",
+  "dataset": "Hydrological Modelling Dataset",
+  "index_count": 4,
+  "indexes": [
+    {
+      "local_file": "data/hydro/indexes/FileIndex_DerivedTributaryFlows.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/FileIndex_DerivedTributaryFlows.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/DerivedTributoryFlows/FileIndex_DerivedTributaryFlows.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:53:57 GMT",
+      "source_content_length": "4232",
+      "source_etag": "0x8DE180F9732177B",
+      "data_rows": 13
+    },
+    {
+      "local_file": "data/hydro/indexes/FileIndex_Flows.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/FileIndex_Flows.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/2_Flows_20241231/FileIndex_Flows.csv",
+      "source_last_modified": "Thu, 30 Oct 2025 23:53:55 GMT",
+      "source_content_length": "10175",
+      "source_etag": "0x8DE180F9637AEF6",
+      "data_rows": 51
+    },
+    {
+      "local_file": "data/hydro/indexes/FileIndex_Storage.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_1_Storage/FileIndex_Storage.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_1_Storage/FileIndex_Storage.csv",
+      "source_last_modified": "Wed, 14 Jan 2026 02:33:54 GMT",
+      "source_content_length": "804",
+      "source_etag": "0x8DE53155C7335E3",
+      "data_rows": 10
+    },
+    {
+      "local_file": "data/hydro/indexes/FileIndex_Spill.csv",
+      "blob_name": "Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_2_Spill/FileIndex_Spill.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Environment/HydrologicalModellingDataset/3_StorageAndSpill_20241231/3_2_Spill/FileIndex_Spill.csv",
+      "source_last_modified": "Wed, 14 Jan 2026 02:34:24 GMT",
+      "source_content_length": "2370",
+      "source_etag": "0x8DE53156E84C345",
+      "data_rows": 25
+    }
+  ]
+}

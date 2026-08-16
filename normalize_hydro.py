@@ -1,0 +1,263 @@
+from __future__ import annotations
+
+import csv
+from collections import defaultdict
+from pathlib import Path
+
+RAW_DIR = Path("data/hydro/raw")
+INDEX_DIR = Path("data/hydro/indexes")
+MODEL_DIR = Path("data/hydro/model")
+
+STORAGE_OUTPUT = MODEL_DIR / "storage_daily.csv"
+INFLOWS_OUTPUT = MODEL_DIR / "inflows_daily.csv"
+TRIBUTARY_OUTPUT = MODEL_DIR / "tributary_flows_daily.csv"
+SPILL_OUTPUT = MODEL_DIR / "spill_daily.csv"
+
+MM3_PER_DAY_PER_CUMECS = 86400 / 1_000_000  # 0.0864 Mm3/day per m3/s
+
+
+def read_csv(path: Path) -> list[dict[str, str]]:
+    with path.open("r", encoding="utf-8-sig", newline="") as handle:
+        return list(csv.DictReader(handle))
+
+
+def has_date(row: dict[str, str]) -> bool:
+    return bool((row.get("Date") or "").strip())
+
+
+def to_float(value: str | None) -> float | None:
+    if value is None or value.strip() == "":
+        return None
+    return float(value)
+
+
+def build_lookup(index_path: Path) -> dict[str, dict[str, str]]:
+    return {row["FileName"]: row for row in read_csv(index_path)}
+
+
+def write_rows(path: Path, fieldnames: list[str], rows: list[dict[str, object]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+    print(f"Wrote {path} ({len(rows)} rows)")
+
+
+def normalize_storage() -> list[dict[str, object]]:
+    lookup = build_lookup(INDEX_DIR / "FileIndex_Storage.csv")
+    rows: list[dict[str, object]] = []
+
+    for path in sorted((RAW_DIR / "storage").glob("*.csv")):
+        meta = lookup.get(path.name)
+        if meta is None:
+            raise RuntimeError(f"Storage file missing from index: {path.name}")
+
+        for raw in read_csv(path):
+            if not has_date(raw):
+                continue
+
+            active = to_float(raw.get("Active storage (Mm³)"))
+            contingent = to_float(raw.get("Active contingent storage (Mm³)"))
+            total = None
+            if active is not None or contingent is not None:
+                total = (active or 0.0) + (contingent or 0.0)
+
+            rows.append(
+                {
+                    "date": raw["Date"],
+                    "plant_group": meta.get("PlantGroup", ""),
+                    "site_code": meta.get("SiteCode", ""),
+                    "reservoir": meta.get("Description", ""),
+                    "island_code": meta.get("IslandCode", ""),
+                    "lake_level_m": to_float(raw.get("Lake level (m)")),
+                    "active_storage_mm3": active,
+                    "contingent_storage_mm3": contingent,
+                    "total_storage_mm3": total,
+                    "quality_code": raw.get("QualityCode", ""),
+                    "source_file": path.name,
+                }
+            )
+
+    rows.sort(key=lambda row: (str(row["date"]), str(row["site_code"])))
+    return rows
+
+
+def normalize_flow_folder(
+    folder: str,
+    series_type: str,
+    lookup: dict[str, dict[str, str]],
+) -> list[dict[str, object]]:
+    rows: list[dict[str, object]] = []
+
+    for path in sorted((RAW_DIR / folder).glob("*.csv")):
+        meta = lookup.get(path.name)
+        if meta is None:
+            raise RuntimeError(f"{series_type} file missing from index: {path.name}")
+
+        for raw in read_csv(path):
+            if not has_date(raw):
+                continue
+
+            flow = to_float(raw.get("Flow (m³/s)"))
+            if flow is None:
+                raise RuntimeError(f"Missing Flow (m³/s) in {path.name} for {raw['Date']}")
+
+            rows.append(
+                {
+                    "date": raw["Date"],
+                    "series_type": series_type,
+                    "plant_group": meta.get("PlantGroup", ""),
+                    "site_code": meta.get("SiteCode", ""),
+                    "site": meta.get("Site", meta.get("Description", "")),
+                    "island_code": meta.get("IslandCode", ""),
+                    "flow_type": meta.get(
+                        "FlowType",
+                        "Derived tributary flow" if series_type == "tributary_flow" else "",
+                    ),
+                    "flow_m3s": flow,
+                    "volume_mm3_day": flow * MM3_PER_DAY_PER_CUMECS,
+                    "quality_code": raw.get("QualityCode", ""),
+                    "source_file": path.name,
+                }
+            )
+
+    rows.sort(
+        key=lambda row: (
+            str(row["date"]),
+            str(row["site_code"]),
+            str(row["source_file"]),
+        )
+    )
+    return rows
+
+
+def normalize_spill() -> list[dict[str, object]]:
+    lookup = build_lookup(INDEX_DIR / "FileIndex_Spill.csv")
+    rows: list[dict[str, object]] = []
+
+    for path in sorted((RAW_DIR / "spill").glob("*.csv")):
+        meta = lookup.get(path.name)
+        if meta is None:
+            raise RuntimeError(f"Spill file missing from index: {path.name}")
+
+        for raw in read_csv(path):
+            if not has_date(raw):
+                continue
+
+            volume = to_float(raw.get("Spill (Mm³)"))
+            if volume is None:
+                raise RuntimeError(f"Missing Spill (Mm³) in {path.name} for {raw['Date']}")
+
+            rows.append(
+                {
+                    "date": raw["Date"],
+                    "series_type": "spill",
+                    "plant_group": meta.get("PlantGroup", ""),
+                    "site_code": meta.get("SiteCode", ""),
+                    "site": meta.get("Description", ""),
+                    "island_code": meta.get("IslandCode", ""),
+                    "flow_type": "Spill/release",
+                    "flow_m3s": volume / MM3_PER_DAY_PER_CUMECS,
+                    "volume_mm3_day": volume,
+                    "quality_code": raw.get("QualityCode", ""),
+                    "source_file": path.name,
+                }
+            )
+
+    rows.sort(
+        key=lambda row: (
+            str(row["date"]),
+            str(row["site_code"]),
+            str(row["source_file"]),
+        )
+    )
+    return rows
+
+
+def check_unique(rows: list[dict[str, object]], keys: tuple[str, ...], label: str) -> None:
+    counts: defaultdict[tuple[object, ...], int] = defaultdict(int)
+    for row in rows:
+        counts[tuple(row[key] for key in keys)] += 1
+    duplicates = [key for key, count in counts.items() if count > 1]
+    if duplicates:
+        raise RuntimeError(f"Duplicate {label} rows detected for {duplicates[:5]}")
+
+
+def check_dates_present(rows: list[dict[str, object]], label: str) -> None:
+    missing = [row for row in rows if not str(row.get("date", "")).strip()]
+    if missing:
+        raise RuntimeError(f"Blank dates remain in normalized {label} data")
+
+
+def main() -> None:
+    storage_rows = normalize_storage()
+
+    flow_lookup = build_lookup(INDEX_DIR / "FileIndex_Flows.csv")
+    tributary_lookup = build_lookup(INDEX_DIR / "FileIndex_DerivedTributaryFlows.csv")
+
+    inflow_rows = normalize_flow_folder("inflows", "inflow", flow_lookup)
+    tributary_rows = normalize_flow_folder(
+        "tributary_flows", "tributary_flow", tributary_lookup
+    )
+    spill_rows = normalize_spill()
+
+    for label, rows in (
+        ("storage", storage_rows),
+        ("inflow", inflow_rows),
+        ("tributary flow", tributary_rows),
+        ("spill", spill_rows),
+    ):
+        check_dates_present(rows, label)
+
+    check_unique(storage_rows, ("date", "site_code"), "storage")
+    check_unique(inflow_rows, ("date", "source_file"), "inflow")
+    check_unique(tributary_rows, ("date", "source_file"), "tributary flow")
+    check_unique(spill_rows, ("date", "source_file"), "spill")
+
+    write_rows(
+        STORAGE_OUTPUT,
+        [
+            "date",
+            "plant_group",
+            "site_code",
+            "reservoir",
+            "island_code",
+            "lake_level_m",
+            "active_storage_mm3",
+            "contingent_storage_mm3",
+            "total_storage_mm3",
+            "quality_code",
+            "source_file",
+        ],
+        storage_rows,
+    )
+
+    flow_fields = [
+        "date",
+        "series_type",
+        "plant_group",
+        "site_code",
+        "site",
+        "island_code",
+        "flow_type",
+        "flow_m3s",
+        "volume_mm3_day",
+        "quality_code",
+        "source_file",
+    ]
+
+    write_rows(INFLOWS_OUTPUT, flow_fields, inflow_rows)
+    write_rows(TRIBUTARY_OUTPUT, flow_fields, tributary_rows)
+    write_rows(SPILL_OUTPUT, flow_fields, spill_rows)
+
+    old_combined = MODEL_DIR / "flows_daily.csv"
+    if old_combined.exists():
+        old_combined.unlink()
+        print(f"Removed obsolete {old_combined}")
+
+    print("Hydro normalization completed successfully.")
+
+
+if __name__ == "__main__":
+    main()

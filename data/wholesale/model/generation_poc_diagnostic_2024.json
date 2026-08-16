@@ -1,0 +1,193 @@
+{
+  "reconciled_injection_mwh": 43024905.285,
+  "generation_md_mwh": 41238265.065,
+  "gap_mwh": 1786640.22,
+  "generation_md_share_of_reconciled_pct": 95.8474,
+  "poc_count_reconciled": 201,
+  "poc_count_generation_md": 79,
+  "poc_count_union": 202,
+  "top_20_positive_gap_mwh": 1449170.467,
+  "top_20_share_of_total_gap_pct": 81.111,
+  "top_missing_pocs": [
+    {
+      "point_of_connection": "MAT1101",
+      "network": "CNIR",
+      "island": "NI",
+      "reconciled_injection_mwh": 363707.522,
+      "generation_md_mwh": 120951.318,
+      "reconciled_minus_generation_md_mwh": 242756.204,
+      "generation_md_share_of_reconciled_pct": 33.2551
+    },
+    {
+      "point_of_connection": "HWB0331",
+      "network": "OTPO",
+      "island": "SI",
+      "reconciled_injection_mwh": 177509.126,
+      "generation_md_mwh": 205.858,
+      "reconciled_minus_generation_md_mwh": 177303.268,
+      "generation_md_share_of_reconciled_pct": 0.116
+    },
+    {
+      "point_of_connection": "KAW0111",
+      "network": "HEDL",
+      "island": "NI",
+      "reconciled_injection_mwh": 192728.039,
+      "generation_md_mwh": 87320.694,
+      "reconciled_minus_generation_md_mwh": 105407.345,
+      "generation_md_share_of_reconciled_pct": 45.3077
+    },
+    {
+      "point_of_connection": "MHO0331",
+      "network": "ELEC",
+      "island": "NI",
+      "reconciled_injection_mwh": 108730.127,
+      "generation_md_mwh": 9288.596,
+      "reconciled_minus_generation_md_mwh": 99441.531,
+      "generation_md_share_of_reconciled_pct": 8.5428
+    },
+    {
+      "point_of_connection": "CYD0331",
+      "network": "DUNE",
+      "island": "SI",
+      "reconciled_injection_mwh": 127896.166,
+      "generation_md_mwh": 32434.285,
+      "reconciled_minus_generation_md_mwh": 95461.881,
+      "generation_md_share_of_reconciled_pct": 25.3599
+    },
+    {
+      "point_of_connection": "STK0661",
+      "network": "TASM",
+      "island": "SI",
+      "reconciled_injection_mwh": 125511.552,
+      "generation_md_mwh": 30579.123,
+      "reconciled_minus_generation_md_mwh": 94932.429,
+      "generation_md_share_of_reconciled_pct": 24.3636
+    },
+    {
+      "point_of_connection": "SVL0331",
+      "network": "UNET",
+      "island": "NI",
+      "reconciled_injection_mwh": 89680.476,
+      "generation_md_mwh": 0.0,
+      "reconciled_minus_generation_md_mwh": 89680.476,
+      "generation_md_share_of_reconciled_pct": 0.0
+    },
+    {
+      "point_of_connection": "HKK0661",
+      "network": "WPOW",
+      "island": "SI",
+      "reconciled_injection_mwh": 80360.653,
+      "generation_md_mwh": 0.0,
+      "reconciled_minus_generation_md_mwh": 80360.653,
+      "generation_md_share_of_reconciled_pct": 0.0
+    },
+    {
+      "point_of_connection": "WKM2201",
+      "network": "TUAR",
+      "island": "NI",
+      "reconciled_injection_mwh": 1277201.162,
+      "generation_md_mwh": 1207230.383,
+      "reconciled_minus_generation_md_mwh": 69970.779,
+      "generation_md_share_of_reconciled_pct": 94.5216
+    },
+    {
+      "point_of_connection": "BOB1101",
+      "network": "COUP",
+      "island": "NI",
+      "reconciled_injection_mwh": 59038.414,
+      "generation_md_mwh": 0.0,
+      "reconciled_minus_generation_md_mwh": 59038.414,
+      "generation_md_share_of_reconciled_pct": 0.0
+    },
+    {
+      "point_of_connection": "KUM0661",
+      "network": "WPOW",
+      "island": "SI",
+      "reconciled_injection_mwh": 41946.364,
+      "generation_md_mwh": 0.0,
+      "reconciled_minus_generation_md_mwh": 41946.364,
+      "generation_md_share_of_reconciled_pct": 0.0
+    },
+    {
+      "point_of_connection": "TAK0331",
+      "network": "VECT",
+      "island": "NI",
+      "reconciled_injection_mwh": 39021.053,
+      "generation_md_mwh": 0.0,
+      "reconciled_minus_generation_md_mwh": 39021.053,
+      "generation_md_share_of_reconciled_pct": 0.0
+    },
+    {
+      "point_of_connection": "HTI0331",
+      "network": "LINE",
+      "island": "NI",
+      "reconciled_injection_mwh": 35926.974,
+      "generation_md_mwh": 0.0,
+      "reconciled_minus_generation_md_mwh": 35926.974,
+      "generation_md_share_of_reconciled_pct": 0.0
+    },
+    {
+      "point_of_connection": "CML0331",
+      "network": "DUNE",
+      "island": "SI",
+      "reconciled_injection_mwh": 34780.154,
+      "generation_md_mwh": 0.0,
+      "reconciled_minus_generation_md_mwh": 34780.154,
+      "generation_md_share_of_reconciled_pct": 0.0
+    },
+    {
+      "point_of_connection": "WRK0331",
+      "network": "HAWK",
+      "island": "NI",
+      "reconciled_injection_mwh": 425090.217,
+      "generation_md_mwh": 390621.711,
+      "reconciled_minus_generation_md_mwh": 34468.506,
+      "generation_md_share_of_reconciled_pct": 91.8915
+    },
+    {
+      "point_of_connection": "HUI0331",
+      "network": "POCO",
+      "island": "NI",
+      "reconciled_injection_mwh": 34169.579,
+      "generation_md_mwh": 0.0,
+      "reconciled_minus_generation_md_mwh": 34169.579,
+      "generation_md_share_of_reconciled_pct": 0.0
+    },
+    {
+      "point_of_connection": "NMA0331",
+      "network": "TPCO",
+      "island": "SI",
+      "reconciled_injection_mwh": 193594.266,
+      "generation_md_mwh": 162662.255,
+      "reconciled_minus_generation_md_mwh": 30932.011,
+      "generation_md_share_of_reconciled_pct": 84.0222
+    },
+    {
+      "point_of_connection": "ONG0331",
+      "network": "LINE",
+      "island": "NI",
+      "reconciled_injection_mwh": 30900.646,
+      "generation_md_mwh": 0.0,
+      "reconciled_minus_generation_md_mwh": 30900.646,
+      "generation_md_share_of_reconciled_pct": 0.0
+    },
+    {
+      "point_of_connection": "DOB0331",
+      "network": "WPOW",
+      "island": "SI",
+      "reconciled_injection_mwh": 27450.891,
+      "generation_md_mwh": 0.0,
+      "reconciled_minus_generation_md_mwh": 27450.891,
+      "generation_md_share_of_reconciled_pct": 0.0
+    },
+    {
+      "point_of_connection": "ASB0661",
+      "network": "EASH",
+      "island": "SI",
+      "reconciled_injection_mwh": 114646.801,
+      "generation_md_mwh": 89425.492,
+      "reconciled_minus_generation_md_mwh": 25221.309,
+      "generation_md_share_of_reconciled_pct": 78.0009
+    }
+  ]
+}

@@ -1,0 +1,3115 @@
+{
+  "model_year": 2024,
+  "status": "calibrated_energy_accounting_baseline",
+  "definitions": {
+    "measured_grid_demand_mwh": "EA reconciled offtake; excludes behind-meter self-consumption",
+    "reconciled_injection_mwh": "EA reconciled injection; authoritative national supply-side accounting total",
+    "mapped_generation_mwh": "EA Generation_MD mapped plant generation",
+    "unmapped_generation_residual_mwh": "reconciled injection minus Generation_MD mapped generation",
+    "transmission_and_reconciliation_difference_mwh": "reconciled injection minus reconciled offtake",
+    "underlying_consumption_mwh": "measured grid demand plus modelled behind-meter retained residential solar"
+  },
+  "annual": {
+    "reconciled_injection_mwh": 43024905.285,
+    "measured_grid_demand_mwh": 41631301.234,
+    "mapped_generation_mwh": 41238265.065,
+    "unmapped_generation_residual_mwh": 1786640.22,
+    "transmission_and_reconciliation_difference_mwh": 1393604.051,
+    "mapped_generation_share_of_reconciled_injection_pct": 95.8474,
+    "behind_meter_solar_self_consumption_mwh": 164119.307,
+    "underlying_consumption_mwh": 41795420.541,
+    "btm_solar_share_of_underlying_consumption_pct": 0.3927
+  },
+  "mapped_generation_by_fuel_mwh": {
+    "Coal": 1876147.2239999997,
+    "Diesel": 19053.075,
+    "ELE": 4.886,
+    "GEO": 39555.05699999999,
+    "Gas": 4148113.9070000025,
+    "Geo": 8321851.492999991,
+    "HYD": 0.0,
+    "Hydro": 22733253.665999994,
+    "SOL": 30.355,
+    "Solar": 88802.59300000005,
+    "Wind": 3768737.0749999927,
+    "Wood": 242715.73399999994
+  },
+  "distributed_solar": {
+    "year_end_2024_residential_solar": {
+      "month_end": "2024-12-31",
+      "icp_count": 64013,
+      "icp_uptake_rate_pct": 3.22492,
+      "installed_capacity_mw": 321.326,
+      "average_capacity_kw": 5.02,
+      "new_installations": 707,
+      "average_new_install_capacity_kw": 7.714
+    },
+    "year_end_2024_all_solar": {
+      "month_end": "2024-12-31",
+      "icp_count": 69053,
+      "icp_uptake_rate_pct": 2.96441,
+      "installed_capacity_mw": 564.145,
+      "average_capacity_kw": 8.17,
+      "new_installations": 817,
+      "average_new_install_capacity_kw": 39.193
+    },
+    "btm_estimate": {
+      "model_year": 2024,
+      "method": "Monthly installed residential solar capacity, linearly averaged between month-end observations, multiplied by scenario-specific annual PV yield.",
+      "capacity": {
+        "year_start_mw": 249.93,
+        "year_end_mw": 321.326,
+        "capacity_weighted_annual_average_mw": 285.424883,
+        "monthly": [
+          {
+            "month": "2024-01",
+            "start_capacity_mw": 249.93,
+            "end_capacity_mw": 253.827,
+            "average_capacity_mw": 251.8785,
+            "days": 31
+          },
+          {
+            "month": "2024-02",
+            "start_capacity_mw": 253.827,
+            "end_capacity_mw": 258.989,
+            "average_capacity_mw": 256.408,
+            "days": 29
+          },
+          {
+            "month": "2024-03",
+            "start_capacity_mw": 258.989,
+            "end_capacity_mw": 265.002,
+            "average_capacity_mw": 261.9955,
+            "days": 31
+          },
+          {
+            "month": "2024-04",
+            "start_capacity_mw": 265.002,
+            "end_capacity_mw": 272.164,
+            "average_capacity_mw": 268.583,
+            "days": 30
+          },
+          {
+            "month": "2024-05",
+            "start_capacity_mw": 272.164,
+            "end_capacity_mw": 282.177,
+            "average_capacity_mw": 277.1705,
+            "days": 31
+          },
+          {
+            "month": "2024-06",
+            "start_capacity_mw": 282.177,
+            "end_capacity_mw": 287.07,
+            "average_capacity_mw": 284.6235,
+            "days": 30
+          },
+          {
+            "month": "2024-07",
+            "start_capacity_mw": 287.07,
+            "end_capacity_mw": 292.738,
+            "average_capacity_mw": 289.904,
+            "days": 31
+          },
+          {
+            "month": "2024-08",
+            "start_capacity_mw": 292.738,
+            "end_capacity_mw": 297.576,
+            "average_capacity_mw": 295.157,
+            "days": 31
+          },
+          {
+            "month": "2024-09",
+            "start_capacity_mw": 297.576,
+            "end_capacity_mw": 303.145,
+            "average_capacity_mw": 300.3605,
+            "days": 30
+          },
+          {
+            "month": "2024-10",
+            "start_capacity_mw": 303.145,
+            "end_capacity_mw": 309.692,
+            "average_capacity_mw": 306.4185,
+            "days": 31
+          },
+          {
+            "month": "2024-11",
+            "start_capacity_mw": 309.692,
+            "end_capacity_mw": 316.016,
+            "average_capacity_mw": 312.854,
+            "days": 30
+          },
+          {
+            "month": "2024-12",
+            "start_capacity_mw": 316.016,
+            "end_capacity_mw": 321.326,
+            "average_capacity_mw": 318.671,
+            "days": 31
+          }
+        ]
+      },
+      "scenarios": {
+        "low": {
+          "specific_yield_kwh_per_kwp_year": 1000.0,
+          "retained_behind_meter_fraction": 0.4,
+          "gross_residential_pv_generation_mwh": 285424.883,
+          "retained_behind_meter_pv_mwh": 114169.953,
+          "estimated_grid_export_mwh": 171254.93
+        },
+        "central": {
+          "specific_yield_kwh_per_kwp_year": 1150.0,
+          "retained_behind_meter_fraction": 0.5,
+          "gross_residential_pv_generation_mwh": 328238.615,
+          "retained_behind_meter_pv_mwh": 164119.307,
+          "estimated_grid_export_mwh": 164119.307
+        },
+        "high": {
+          "specific_yield_kwh_per_kwp_year": 1250.0,
+          "retained_behind_meter_fraction": 0.6,
+          "gross_residential_pv_generation_mwh": 356781.103,
+          "retained_behind_meter_pv_mwh": 214068.662,
+          "estimated_grid_export_mwh": 142712.441
+        }
+      },
+      "accounting": {
+        "yield_low": "Anchored by an anonymised Northland residential 13.5 kWp system with shading/non-ideal orientation that generated about 13.5 MWh in calendar 2025.",
+        "yield_central": "Fleet-average starting assumption below observed Northland tracker-farm yields, allowing for fixed roofs, mixed orientation, shading and residential losses.",
+        "yield_high": "Upper residential fleet case, still materially below observed tracker-farm specific yield.",
+        "retention": "Fraction of gross residential PV generation retained behind the meter as direct load or battery charging. Export is the remainder. The anonymised Northland PV+battery case retained about 51% of PV before storage losses in 2025.",
+        "battery_export": "Assumed zero by default. Explicit VPP/battery export scenarios can be added later.",
+        "accounting": "Only retained behind-meter PV is added back to reconciled offtake when estimating underlying end-use electricity consumption. Exported PV is not added because it is visible to the network/reconciliation system."
+      }
+    },
+    "selected_baseline_scenario": "central",
+    "battery_export_assumption": "zero by default except explicit VPP/export scenarios"
+  },
+  "daily": [
+    {
+      "date": "2024-01-01",
+      "measured_grid_demand_mwh": 92729.608,
+      "reconciled_injection_mwh": 95336.618,
+      "mapped_generation_mwh": 89681.054,
+      "unmapped_generation_residual_mwh": 5655.564,
+      "transmission_and_reconciliation_difference_mwh": 2607.01
+    },
+    {
+      "date": "2024-01-02",
+      "measured_grid_demand_mwh": 94130.972,
+      "reconciled_injection_mwh": 96769.302,
+      "mapped_generation_mwh": 90936.872,
+      "unmapped_generation_residual_mwh": 5832.43,
+      "transmission_and_reconciliation_difference_mwh": 2638.33
+    },
+    {
+      "date": "2024-01-03",
+      "measured_grid_demand_mwh": 99946.245,
+      "reconciled_injection_mwh": 102941.798,
+      "mapped_generation_mwh": 97203.146,
+      "unmapped_generation_residual_mwh": 5738.652,
+      "transmission_and_reconciliation_difference_mwh": 2995.553
+    },
+    {
+      "date": "2024-01-04",
+      "measured_grid_demand_mwh": 103573.733,
+      "reconciled_injection_mwh": 106587.04,
+      "mapped_generation_mwh": 100834.924,
+      "unmapped_generation_residual_mwh": 5752.116,
+      "transmission_and_reconciliation_difference_mwh": 3013.307
+    },
+    {
+      "date": "2024-01-05",
+      "measured_grid_demand_mwh": 104611.419,
+      "reconciled_injection_mwh": 107624.737,
+      "mapped_generation_mwh": 102496.56,
+      "unmapped_generation_residual_mwh": 5128.177,
+      "transmission_and_reconciliation_difference_mwh": 3013.318
+    },
+    {
+      "date": "2024-01-06",
+      "measured_grid_demand_mwh": 99411.94,
+      "reconciled_injection_mwh": 102144.608,
+      "mapped_generation_mwh": 96875.123,
+      "unmapped_generation_residual_mwh": 5269.485,
+      "transmission_and_reconciliation_difference_mwh": 2732.668
+    },
+    {
+      "date": "2024-01-07",
+      "measured_grid_demand_mwh": 99009.859,
+      "reconciled_injection_mwh": 101758.165,
+      "mapped_generation_mwh": 96789.505,
+      "unmapped_generation_residual_mwh": 4968.66,
+      "transmission_and_reconciliation_difference_mwh": 2748.306
+    },
+    {
+      "date": "2024-01-08",
+      "measured_grid_demand_mwh": 108916.97,
+      "reconciled_injection_mwh": 112080.453,
+      "mapped_generation_mwh": 107314.701,
+      "unmapped_generation_residual_mwh": 4765.752,
+      "transmission_and_reconciliation_difference_mwh": 3163.483
+    },
+    {
+      "date": "2024-01-09",
+      "measured_grid_demand_mwh": 112565.408,
+      "reconciled_injection_mwh": 115912.954,
+      "mapped_generation_mwh": 111032.914,
+      "unmapped_generation_residual_mwh": 4880.04,
+      "transmission_and_reconciliation_difference_mwh": 3347.546
+    },
+    {
+      "date": "2024-01-10",
+      "measured_grid_demand_mwh": 113994.054,
+      "reconciled_injection_mwh": 117333.074,
+      "mapped_generation_mwh": 112590.069,
+      "unmapped_generation_residual_mwh": 4743.005,
+      "transmission_and_reconciliation_difference_mwh": 3339.02
+    },
+    {
+      "date": "2024-01-11",
+      "measured_grid_demand_mwh": 114651.911,
+      "reconciled_injection_mwh": 118235.702,
+      "mapped_generation_mwh": 113729.069,
+      "unmapped_generation_residual_mwh": 4506.633,
+      "transmission_and_reconciliation_difference_mwh": 3583.791
+    },
+    {
+      "date": "2024-01-12",
+      "measured_grid_demand_mwh": 113956.678,
+      "reconciled_injection_mwh": 117407.513,
+      "mapped_generation_mwh": 112444.049,
+      "unmapped_generation_residual_mwh": 4963.464,
+      "transmission_and_reconciliation_difference_mwh": 3450.835
+    },
+    {
+      "date": "2024-01-13",
+      "measured_grid_demand_mwh": 106672.072,
+      "reconciled_injection_mwh": 109873.154,
+      "mapped_generation_mwh": 104884.616,
+      "unmapped_generation_residual_mwh": 4988.538,
+      "transmission_and_reconciliation_difference_mwh": 3201.082
+    },
+    {
+      "date": "2024-01-14",
+      "measured_grid_demand_mwh": 105231.054,
+      "reconciled_injection_mwh": 108510.043,
+      "mapped_generation_mwh": 103984.069,
+      "unmapped_generation_residual_mwh": 4525.974,
+      "transmission_and_reconciliation_difference_mwh": 3278.989
+    },
+    {
+      "date": "2024-01-15",
+      "measured_grid_demand_mwh": 113736.24,
+      "reconciled_injection_mwh": 117523.844,
+      "mapped_generation_mwh": 112848.794,
+      "unmapped_generation_residual_mwh": 4675.05,
+      "transmission_and_reconciliation_difference_mwh": 3787.604
+    },
+    {
+      "date": "2024-01-16",
+      "measured_grid_demand_mwh": 114763.25,
+      "reconciled_injection_mwh": 118771.223,
+      "mapped_generation_mwh": 114065.19,
+      "unmapped_generation_residual_mwh": 4706.033,
+      "transmission_and_reconciliation_difference_mwh": 4007.973
+    },
+    {
+      "date": "2024-01-17",
+      "measured_grid_demand_mwh": 117540.696,
+      "reconciled_injection_mwh": 121616.186,
+      "mapped_generation_mwh": 116745.933,
+      "unmapped_generation_residual_mwh": 4870.253,
+      "transmission_and_reconciliation_difference_mwh": 4075.49
+    },
+    {
+      "date": "2024-01-18",
+      "measured_grid_demand_mwh": 118670.48,
+      "reconciled_injection_mwh": 122810.982,
+      "mapped_generation_mwh": 117863.07,
+      "unmapped_generation_residual_mwh": 4947.912,
+      "transmission_and_reconciliation_difference_mwh": 4140.502
+    },
+    {
+      "date": "2024-01-19",
+      "measured_grid_demand_mwh": 118963.465,
+      "reconciled_injection_mwh": 122822.209,
+      "mapped_generation_mwh": 117798.239,
+      "unmapped_generation_residual_mwh": 5023.97,
+      "transmission_and_reconciliation_difference_mwh": 3858.744
+    },
+    {
+      "date": "2024-01-20",
+      "measured_grid_demand_mwh": 110007.185,
+      "reconciled_injection_mwh": 113387.135,
+      "mapped_generation_mwh": 108630.093,
+      "unmapped_generation_residual_mwh": 4757.042,
+      "transmission_and_reconciliation_difference_mwh": 3379.95
+    },
+    {
+      "date": "2024-01-21",
+      "measured_grid_demand_mwh": 108075.807,
+      "reconciled_injection_mwh": 111540.046,
+      "mapped_generation_mwh": 106720.145,
+      "unmapped_generation_residual_mwh": 4819.901,
+      "transmission_and_reconciliation_difference_mwh": 3464.239
+    },
+    {
+      "date": "2024-01-22",
+      "measured_grid_demand_mwh": 118338.149,
+      "reconciled_injection_mwh": 122622.749,
+      "mapped_generation_mwh": 118015.022,
+      "unmapped_generation_residual_mwh": 4607.727,
+      "transmission_and_reconciliation_difference_mwh": 4284.6
+    },
+    {
+      "date": "2024-01-23",
+      "measured_grid_demand_mwh": 116769.246,
+      "reconciled_injection_mwh": 121373.375,
+      "mapped_generation_mwh": 116488.642,
+      "unmapped_generation_residual_mwh": 4884.733,
+      "transmission_and_reconciliation_difference_mwh": 4604.129
+    },
+    {
+      "date": "2024-01-24",
+      "measured_grid_demand_mwh": 109319.208,
+      "reconciled_injection_mwh": 113688.6,
+      "mapped_generation_mwh": 109007.742,
+      "unmapped_generation_residual_mwh": 4680.858,
+      "transmission_and_reconciliation_difference_mwh": 4369.392
+    },
+    {
+      "date": "2024-01-25",
+      "measured_grid_demand_mwh": 110358.049,
+      "reconciled_injection_mwh": 114742.522,
+      "mapped_generation_mwh": 110125.224,
+      "unmapped_generation_residual_mwh": 4617.298,
+      "transmission_and_reconciliation_difference_mwh": 4384.473
+    },
+    {
+      "date": "2024-01-26",
+      "measured_grid_demand_mwh": 110198.443,
+      "reconciled_injection_mwh": 114247.633,
+      "mapped_generation_mwh": 109736.508,
+      "unmapped_generation_residual_mwh": 4511.125,
+      "transmission_and_reconciliation_difference_mwh": 4049.19
+    },
+    {
+      "date": "2024-01-27",
+      "measured_grid_demand_mwh": 102688.398,
+      "reconciled_injection_mwh": 105990.25,
+      "mapped_generation_mwh": 101784.572,
+      "unmapped_generation_residual_mwh": 4205.678,
+      "transmission_and_reconciliation_difference_mwh": 3301.852
+    },
+    {
+      "date": "2024-01-28",
+      "measured_grid_demand_mwh": 102906.78,
+      "reconciled_injection_mwh": 106135.357,
+      "mapped_generation_mwh": 101623.07,
+      "unmapped_generation_residual_mwh": 4512.287,
+      "transmission_and_reconciliation_difference_mwh": 3228.577
+    },
+    {
+      "date": "2024-01-29",
+      "measured_grid_demand_mwh": 106925.61,
+      "reconciled_injection_mwh": 110282.774,
+      "mapped_generation_mwh": 105825.979,
+      "unmapped_generation_residual_mwh": 4456.795,
+      "transmission_and_reconciliation_difference_mwh": 3357.164
+    },
+    {
+      "date": "2024-01-30",
+      "measured_grid_demand_mwh": 115582.321,
+      "reconciled_injection_mwh": 119825.419,
+      "mapped_generation_mwh": 114534.921,
+      "unmapped_generation_residual_mwh": 5290.498,
+      "transmission_and_reconciliation_difference_mwh": 4243.098
+    },
+    {
+      "date": "2024-01-31",
+      "measured_grid_demand_mwh": 117960.374,
+      "reconciled_injection_mwh": 122411.982,
+      "mapped_generation_mwh": 117207.464,
+      "unmapped_generation_residual_mwh": 5204.518,
+      "transmission_and_reconciliation_difference_mwh": 4451.608
+    },
+    {
+      "date": "2024-02-01",
+      "measured_grid_demand_mwh": 115985.897,
+      "reconciled_injection_mwh": 119930.615,
+      "mapped_generation_mwh": 115061.875,
+      "unmapped_generation_residual_mwh": 4868.74,
+      "transmission_and_reconciliation_difference_mwh": 3944.718
+    },
+    {
+      "date": "2024-02-02",
+      "measured_grid_demand_mwh": 114732.332,
+      "reconciled_injection_mwh": 118654.717,
+      "mapped_generation_mwh": 114144.328,
+      "unmapped_generation_residual_mwh": 4510.389,
+      "transmission_and_reconciliation_difference_mwh": 3922.385
+    },
+    {
+      "date": "2024-02-03",
+      "measured_grid_demand_mwh": 103585.931,
+      "reconciled_injection_mwh": 106584.844,
+      "mapped_generation_mwh": 102251.039,
+      "unmapped_generation_residual_mwh": 4333.805,
+      "transmission_and_reconciliation_difference_mwh": 2998.913
+    },
+    {
+      "date": "2024-02-04",
+      "measured_grid_demand_mwh": 100712.353,
+      "reconciled_injection_mwh": 103616.886,
+      "mapped_generation_mwh": 99228.013,
+      "unmapped_generation_residual_mwh": 4388.873,
+      "transmission_and_reconciliation_difference_mwh": 2904.533
+    },
+    {
+      "date": "2024-02-05",
+      "measured_grid_demand_mwh": 109722.32,
+      "reconciled_injection_mwh": 113278.972,
+      "mapped_generation_mwh": 108210.31,
+      "unmapped_generation_residual_mwh": 5068.662,
+      "transmission_and_reconciliation_difference_mwh": 3556.652
+    },
+    {
+      "date": "2024-02-06",
+      "measured_grid_demand_mwh": 106203.318,
+      "reconciled_injection_mwh": 109466.559,
+      "mapped_generation_mwh": 104780.132,
+      "unmapped_generation_residual_mwh": 4686.427,
+      "transmission_and_reconciliation_difference_mwh": 3263.241
+    },
+    {
+      "date": "2024-02-07",
+      "measured_grid_demand_mwh": 115536.258,
+      "reconciled_injection_mwh": 119333.87,
+      "mapped_generation_mwh": 114452.825,
+      "unmapped_generation_residual_mwh": 4881.045,
+      "transmission_and_reconciliation_difference_mwh": 3797.612
+    },
+    {
+      "date": "2024-02-08",
+      "measured_grid_demand_mwh": 117052.818,
+      "reconciled_injection_mwh": 120963.014,
+      "mapped_generation_mwh": 115935.195,
+      "unmapped_generation_residual_mwh": 5027.819,
+      "transmission_and_reconciliation_difference_mwh": 3910.196
+    },
+    {
+      "date": "2024-02-09",
+      "measured_grid_demand_mwh": 115195.38,
+      "reconciled_injection_mwh": 119000.673,
+      "mapped_generation_mwh": 114369.448,
+      "unmapped_generation_residual_mwh": 4631.225,
+      "transmission_and_reconciliation_difference_mwh": 3805.293
+    },
+    {
+      "date": "2024-02-10",
+      "measured_grid_demand_mwh": 105820.274,
+      "reconciled_injection_mwh": 109006.259,
+      "mapped_generation_mwh": 104713.485,
+      "unmapped_generation_residual_mwh": 4292.774,
+      "transmission_and_reconciliation_difference_mwh": 3185.985
+    },
+    {
+      "date": "2024-02-11",
+      "measured_grid_demand_mwh": 100377.046,
+      "reconciled_injection_mwh": 103200.155,
+      "mapped_generation_mwh": 99003.942,
+      "unmapped_generation_residual_mwh": 4196.213,
+      "transmission_and_reconciliation_difference_mwh": 2823.109
+    },
+    {
+      "date": "2024-02-12",
+      "measured_grid_demand_mwh": 110226.199,
+      "reconciled_injection_mwh": 113705.732,
+      "mapped_generation_mwh": 109216.061,
+      "unmapped_generation_residual_mwh": 4489.671,
+      "transmission_and_reconciliation_difference_mwh": 3479.533
+    },
+    {
+      "date": "2024-02-13",
+      "measured_grid_demand_mwh": 111878.141,
+      "reconciled_injection_mwh": 115500.713,
+      "mapped_generation_mwh": 111165.71,
+      "unmapped_generation_residual_mwh": 4335.003,
+      "transmission_and_reconciliation_difference_mwh": 3622.572
+    },
+    {
+      "date": "2024-02-14",
+      "measured_grid_demand_mwh": 113816.984,
+      "reconciled_injection_mwh": 117524.402,
+      "mapped_generation_mwh": 113223.623,
+      "unmapped_generation_residual_mwh": 4300.779,
+      "transmission_and_reconciliation_difference_mwh": 3707.418
+    },
+    {
+      "date": "2024-02-15",
+      "measured_grid_demand_mwh": 115694.972,
+      "reconciled_injection_mwh": 119441.019,
+      "mapped_generation_mwh": 115024.061,
+      "unmapped_generation_residual_mwh": 4416.958,
+      "transmission_and_reconciliation_difference_mwh": 3746.047
+    },
+    {
+      "date": "2024-02-16",
+      "measured_grid_demand_mwh": 114887.971,
+      "reconciled_injection_mwh": 118522.896,
+      "mapped_generation_mwh": 114223.445,
+      "unmapped_generation_residual_mwh": 4299.451,
+      "transmission_and_reconciliation_difference_mwh": 3634.925
+    },
+    {
+      "date": "2024-02-17",
+      "measured_grid_demand_mwh": 105843.607,
+      "reconciled_injection_mwh": 108885.474,
+      "mapped_generation_mwh": 104819.504,
+      "unmapped_generation_residual_mwh": 4065.97,
+      "transmission_and_reconciliation_difference_mwh": 3041.867
+    },
+    {
+      "date": "2024-02-18",
+      "measured_grid_demand_mwh": 103896.006,
+      "reconciled_injection_mwh": 106929.071,
+      "mapped_generation_mwh": 103053.97,
+      "unmapped_generation_residual_mwh": 3875.101,
+      "transmission_and_reconciliation_difference_mwh": 3033.065
+    },
+    {
+      "date": "2024-02-19",
+      "measured_grid_demand_mwh": 115528.84,
+      "reconciled_injection_mwh": 119369.509,
+      "mapped_generation_mwh": 115364.883,
+      "unmapped_generation_residual_mwh": 4004.626,
+      "transmission_and_reconciliation_difference_mwh": 3840.669
+    },
+    {
+      "date": "2024-02-20",
+      "measured_grid_demand_mwh": 115557.105,
+      "reconciled_injection_mwh": 119293.762,
+      "mapped_generation_mwh": 115252.326,
+      "unmapped_generation_residual_mwh": 4041.436,
+      "transmission_and_reconciliation_difference_mwh": 3736.657
+    },
+    {
+      "date": "2024-02-21",
+      "measured_grid_demand_mwh": 114434.751,
+      "reconciled_injection_mwh": 117799.142,
+      "mapped_generation_mwh": 113725.039,
+      "unmapped_generation_residual_mwh": 4074.103,
+      "transmission_and_reconciliation_difference_mwh": 3364.391
+    },
+    {
+      "date": "2024-02-22",
+      "measured_grid_demand_mwh": 115744.603,
+      "reconciled_injection_mwh": 119261.778,
+      "mapped_generation_mwh": 114762.871,
+      "unmapped_generation_residual_mwh": 4498.907,
+      "transmission_and_reconciliation_difference_mwh": 3517.175
+    },
+    {
+      "date": "2024-02-23",
+      "measured_grid_demand_mwh": 114301.92,
+      "reconciled_injection_mwh": 117697.035,
+      "mapped_generation_mwh": 113462.926,
+      "unmapped_generation_residual_mwh": 4234.109,
+      "transmission_and_reconciliation_difference_mwh": 3395.115
+    },
+    {
+      "date": "2024-02-24",
+      "measured_grid_demand_mwh": 106783.611,
+      "reconciled_injection_mwh": 109833.53,
+      "mapped_generation_mwh": 106051.274,
+      "unmapped_generation_residual_mwh": 3782.256,
+      "transmission_and_reconciliation_difference_mwh": 3049.919
+    },
+    {
+      "date": "2024-02-25",
+      "measured_grid_demand_mwh": 104935.777,
+      "reconciled_injection_mwh": 107905.628,
+      "mapped_generation_mwh": 103899.265,
+      "unmapped_generation_residual_mwh": 4006.363,
+      "transmission_and_reconciliation_difference_mwh": 2969.851
+    },
+    {
+      "date": "2024-02-26",
+      "measured_grid_demand_mwh": 114246.641,
+      "reconciled_injection_mwh": 117636.216,
+      "mapped_generation_mwh": 113126.472,
+      "unmapped_generation_residual_mwh": 4509.744,
+      "transmission_and_reconciliation_difference_mwh": 3389.575
+    },
+    {
+      "date": "2024-02-27",
+      "measured_grid_demand_mwh": 114927.105,
+      "reconciled_injection_mwh": 118363.014,
+      "mapped_generation_mwh": 113919.824,
+      "unmapped_generation_residual_mwh": 4443.19,
+      "transmission_and_reconciliation_difference_mwh": 3435.909
+    },
+    {
+      "date": "2024-02-28",
+      "measured_grid_demand_mwh": 114305.402,
+      "reconciled_injection_mwh": 117664.518,
+      "mapped_generation_mwh": 113067.98,
+      "unmapped_generation_residual_mwh": 4596.538,
+      "transmission_and_reconciliation_difference_mwh": 3359.116
+    },
+    {
+      "date": "2024-02-29",
+      "measured_grid_demand_mwh": 113769.828,
+      "reconciled_injection_mwh": 116954.762,
+      "mapped_generation_mwh": 112476.859,
+      "unmapped_generation_residual_mwh": 4477.903,
+      "transmission_and_reconciliation_difference_mwh": 3184.934
+    },
+    {
+      "date": "2024-03-01",
+      "measured_grid_demand_mwh": 112172.518,
+      "reconciled_injection_mwh": 115381.1,
+      "mapped_generation_mwh": 111340.985,
+      "unmapped_generation_residual_mwh": 4040.115,
+      "transmission_and_reconciliation_difference_mwh": 3208.582
+    },
+    {
+      "date": "2024-03-02",
+      "measured_grid_demand_mwh": 103411.335,
+      "reconciled_injection_mwh": 106332.703,
+      "mapped_generation_mwh": 102673.773,
+      "unmapped_generation_residual_mwh": 3658.93,
+      "transmission_and_reconciliation_difference_mwh": 2921.368
+    },
+    {
+      "date": "2024-03-03",
+      "measured_grid_demand_mwh": 102702.817,
+      "reconciled_injection_mwh": 105563.563,
+      "mapped_generation_mwh": 101564.234,
+      "unmapped_generation_residual_mwh": 3999.329,
+      "transmission_and_reconciliation_difference_mwh": 2860.746
+    },
+    {
+      "date": "2024-03-04",
+      "measured_grid_demand_mwh": 113130.1,
+      "reconciled_injection_mwh": 116836.704,
+      "mapped_generation_mwh": 112462.35,
+      "unmapped_generation_residual_mwh": 4374.354,
+      "transmission_and_reconciliation_difference_mwh": 3706.604
+    },
+    {
+      "date": "2024-03-05",
+      "measured_grid_demand_mwh": 112023.34,
+      "reconciled_injection_mwh": 115730.668,
+      "mapped_generation_mwh": 110087.063,
+      "unmapped_generation_residual_mwh": 5643.605,
+      "transmission_and_reconciliation_difference_mwh": 3707.328
+    },
+    {
+      "date": "2024-03-06",
+      "measured_grid_demand_mwh": 112751.349,
+      "reconciled_injection_mwh": 116392.265,
+      "mapped_generation_mwh": 110990.903,
+      "unmapped_generation_residual_mwh": 5401.362,
+      "transmission_and_reconciliation_difference_mwh": 3640.916
+    },
+    {
+      "date": "2024-03-07",
+      "measured_grid_demand_mwh": 113744.079,
+      "reconciled_injection_mwh": 117492.705,
+      "mapped_generation_mwh": 112706.085,
+      "unmapped_generation_residual_mwh": 4786.62,
+      "transmission_and_reconciliation_difference_mwh": 3748.626
+    },
+    {
+      "date": "2024-03-08",
+      "measured_grid_demand_mwh": 112548.719,
+      "reconciled_injection_mwh": 115939.642,
+      "mapped_generation_mwh": 110671.524,
+      "unmapped_generation_residual_mwh": 5268.118,
+      "transmission_and_reconciliation_difference_mwh": 3390.923
+    },
+    {
+      "date": "2024-03-09",
+      "measured_grid_demand_mwh": 104161.372,
+      "reconciled_injection_mwh": 107133.662,
+      "mapped_generation_mwh": 101910.595,
+      "unmapped_generation_residual_mwh": 5223.067,
+      "transmission_and_reconciliation_difference_mwh": 2972.29
+    },
+    {
+      "date": "2024-03-10",
+      "measured_grid_demand_mwh": 101946.758,
+      "reconciled_injection_mwh": 104797.002,
+      "mapped_generation_mwh": 100426.867,
+      "unmapped_generation_residual_mwh": 4370.135,
+      "transmission_and_reconciliation_difference_mwh": 2850.244
+    },
+    {
+      "date": "2024-03-11",
+      "measured_grid_demand_mwh": 112956.707,
+      "reconciled_injection_mwh": 116514.521,
+      "mapped_generation_mwh": 111883.73,
+      "unmapped_generation_residual_mwh": 4630.791,
+      "transmission_and_reconciliation_difference_mwh": 3557.814
+    },
+    {
+      "date": "2024-03-12",
+      "measured_grid_demand_mwh": 114021.271,
+      "reconciled_injection_mwh": 117617.827,
+      "mapped_generation_mwh": 113873.637,
+      "unmapped_generation_residual_mwh": 3744.19,
+      "transmission_and_reconciliation_difference_mwh": 3596.556
+    },
+    {
+      "date": "2024-03-13",
+      "measured_grid_demand_mwh": 114190.29,
+      "reconciled_injection_mwh": 117646.798,
+      "mapped_generation_mwh": 113452.292,
+      "unmapped_generation_residual_mwh": 4194.506,
+      "transmission_and_reconciliation_difference_mwh": 3456.508
+    },
+    {
+      "date": "2024-03-14",
+      "measured_grid_demand_mwh": 113619.901,
+      "reconciled_injection_mwh": 117002.28,
+      "mapped_generation_mwh": 113148.398,
+      "unmapped_generation_residual_mwh": 3853.882,
+      "transmission_and_reconciliation_difference_mwh": 3382.379
+    },
+    {
+      "date": "2024-03-15",
+      "measured_grid_demand_mwh": 113724.948,
+      "reconciled_injection_mwh": 117002.382,
+      "mapped_generation_mwh": 112148.09,
+      "unmapped_generation_residual_mwh": 4854.292,
+      "transmission_and_reconciliation_difference_mwh": 3277.434
+    },
+    {
+      "date": "2024-03-16",
+      "measured_grid_demand_mwh": 102531.7,
+      "reconciled_injection_mwh": 105379.282,
+      "mapped_generation_mwh": 100681.698,
+      "unmapped_generation_residual_mwh": 4697.584,
+      "transmission_and_reconciliation_difference_mwh": 2847.582
+    },
+    {
+      "date": "2024-03-17",
+      "measured_grid_demand_mwh": 100556.1,
+      "reconciled_injection_mwh": 103297.027,
+      "mapped_generation_mwh": 98722.634,
+      "unmapped_generation_residual_mwh": 4574.393,
+      "transmission_and_reconciliation_difference_mwh": 2740.927
+    },
+    {
+      "date": "2024-03-18",
+      "measured_grid_demand_mwh": 110532.879,
+      "reconciled_injection_mwh": 113750.037,
+      "mapped_generation_mwh": 109665.792,
+      "unmapped_generation_residual_mwh": 4084.245,
+      "transmission_and_reconciliation_difference_mwh": 3217.158
+    },
+    {
+      "date": "2024-03-19",
+      "measured_grid_demand_mwh": 112292.289,
+      "reconciled_injection_mwh": 115603.191,
+      "mapped_generation_mwh": 112394.319,
+      "unmapped_generation_residual_mwh": 3208.872,
+      "transmission_and_reconciliation_difference_mwh": 3310.902
+    },
+    {
+      "date": "2024-03-20",
+      "measured_grid_demand_mwh": 112517.976,
+      "reconciled_injection_mwh": 115853.008,
+      "mapped_generation_mwh": 112782.804,
+      "unmapped_generation_residual_mwh": 3070.204,
+      "transmission_and_reconciliation_difference_mwh": 3335.032
+    },
+    {
+      "date": "2024-03-21",
+      "measured_grid_demand_mwh": 112274.672,
+      "reconciled_injection_mwh": 115570.955,
+      "mapped_generation_mwh": 112208.883,
+      "unmapped_generation_residual_mwh": 3362.072,
+      "transmission_and_reconciliation_difference_mwh": 3296.283
+    },
+    {
+      "date": "2024-03-22",
+      "measured_grid_demand_mwh": 112193.281,
+      "reconciled_injection_mwh": 115476.782,
+      "mapped_generation_mwh": 111557.57,
+      "unmapped_generation_residual_mwh": 3919.212,
+      "transmission_and_reconciliation_difference_mwh": 3283.501
+    },
+    {
+      "date": "2024-03-23",
+      "measured_grid_demand_mwh": 104504.693,
+      "reconciled_injection_mwh": 107584.468,
+      "mapped_generation_mwh": 103827.943,
+      "unmapped_generation_residual_mwh": 3756.525,
+      "transmission_and_reconciliation_difference_mwh": 3079.775
+    },
+    {
+      "date": "2024-03-24",
+      "measured_grid_demand_mwh": 102048.964,
+      "reconciled_injection_mwh": 104931.541,
+      "mapped_generation_mwh": 101666.46,
+      "unmapped_generation_residual_mwh": 3265.081,
+      "transmission_and_reconciliation_difference_mwh": 2882.577
+    },
+    {
+      "date": "2024-03-25",
+      "measured_grid_demand_mwh": 112192.607,
+      "reconciled_injection_mwh": 115620.958,
+      "mapped_generation_mwh": 111726.21,
+      "unmapped_generation_residual_mwh": 3894.748,
+      "transmission_and_reconciliation_difference_mwh": 3428.351
+    },
+    {
+      "date": "2024-03-26",
+      "measured_grid_demand_mwh": 114511.015,
+      "reconciled_injection_mwh": 117978.1,
+      "mapped_generation_mwh": 113612.828,
+      "unmapped_generation_residual_mwh": 4365.272,
+      "transmission_and_reconciliation_difference_mwh": 3467.085
+    },
+    {
+      "date": "2024-03-27",
+      "measured_grid_demand_mwh": 115217.471,
+      "reconciled_injection_mwh": 118795.118,
+      "mapped_generation_mwh": 114476.388,
+      "unmapped_generation_residual_mwh": 4318.73,
+      "transmission_and_reconciliation_difference_mwh": 3577.647
+    },
+    {
+      "date": "2024-03-28",
+      "measured_grid_demand_mwh": 116256.392,
+      "reconciled_injection_mwh": 119867.013,
+      "mapped_generation_mwh": 115075.311,
+      "unmapped_generation_residual_mwh": 4791.702,
+      "transmission_and_reconciliation_difference_mwh": 3610.621
+    },
+    {
+      "date": "2024-03-29",
+      "measured_grid_demand_mwh": 104344.536,
+      "reconciled_injection_mwh": 107323.772,
+      "mapped_generation_mwh": 102552.258,
+      "unmapped_generation_residual_mwh": 4771.514,
+      "transmission_and_reconciliation_difference_mwh": 2979.236
+    },
+    {
+      "date": "2024-03-30",
+      "measured_grid_demand_mwh": 103496.292,
+      "reconciled_injection_mwh": 106594.856,
+      "mapped_generation_mwh": 102842.025,
+      "unmapped_generation_residual_mwh": 3752.831,
+      "transmission_and_reconciliation_difference_mwh": 3098.564
+    },
+    {
+      "date": "2024-03-31",
+      "measured_grid_demand_mwh": 101020.402,
+      "reconciled_injection_mwh": 103988.235,
+      "mapped_generation_mwh": 100512.53,
+      "unmapped_generation_residual_mwh": 3475.705,
+      "transmission_and_reconciliation_difference_mwh": 2967.833
+    },
+    {
+      "date": "2024-04-01",
+      "measured_grid_demand_mwh": 102808.067,
+      "reconciled_injection_mwh": 105747.714,
+      "mapped_generation_mwh": 102461.726,
+      "unmapped_generation_residual_mwh": 3285.988,
+      "transmission_and_reconciliation_difference_mwh": 2939.647
+    },
+    {
+      "date": "2024-04-02",
+      "measured_grid_demand_mwh": 112288.224,
+      "reconciled_injection_mwh": 115795.002,
+      "mapped_generation_mwh": 111806.35,
+      "unmapped_generation_residual_mwh": 3988.652,
+      "transmission_and_reconciliation_difference_mwh": 3506.778
+    },
+    {
+      "date": "2024-04-03",
+      "measured_grid_demand_mwh": 113356.679,
+      "reconciled_injection_mwh": 116881.401,
+      "mapped_generation_mwh": 113043.266,
+      "unmapped_generation_residual_mwh": 3838.135,
+      "transmission_and_reconciliation_difference_mwh": 3524.722
+    },
+    {
+      "date": "2024-04-04",
+      "measured_grid_demand_mwh": 113590.223,
+      "reconciled_injection_mwh": 117137.125,
+      "mapped_generation_mwh": 113158.48,
+      "unmapped_generation_residual_mwh": 3978.645,
+      "transmission_and_reconciliation_difference_mwh": 3546.902
+    },
+    {
+      "date": "2024-04-05",
+      "measured_grid_demand_mwh": 112508.187,
+      "reconciled_injection_mwh": 115990.185,
+      "mapped_generation_mwh": 112206.27,
+      "unmapped_generation_residual_mwh": 3783.915,
+      "transmission_and_reconciliation_difference_mwh": 3481.998
+    },
+    {
+      "date": "2024-04-06",
+      "measured_grid_demand_mwh": 104290.51,
+      "reconciled_injection_mwh": 107243.875,
+      "mapped_generation_mwh": 103577.243,
+      "unmapped_generation_residual_mwh": 3666.632,
+      "transmission_and_reconciliation_difference_mwh": 2953.365
+    },
+    {
+      "date": "2024-04-07",
+      "measured_grid_demand_mwh": 106692.792,
+      "reconciled_injection_mwh": 109786.723,
+      "mapped_generation_mwh": 105937.657,
+      "unmapped_generation_residual_mwh": 3849.066,
+      "transmission_and_reconciliation_difference_mwh": 3093.931
+    },
+    {
+      "date": "2024-04-08",
+      "measured_grid_demand_mwh": 112615.092,
+      "reconciled_injection_mwh": 115971.01,
+      "mapped_generation_mwh": 112482.757,
+      "unmapped_generation_residual_mwh": 3488.253,
+      "transmission_and_reconciliation_difference_mwh": 3355.918
+    },
+    {
+      "date": "2024-04-09",
+      "measured_grid_demand_mwh": 113014.528,
+      "reconciled_injection_mwh": 116159.944,
+      "mapped_generation_mwh": 112444.845,
+      "unmapped_generation_residual_mwh": 3715.099,
+      "transmission_and_reconciliation_difference_mwh": 3145.416
+    },
+    {
+      "date": "2024-04-10",
+      "measured_grid_demand_mwh": 112436.437,
+      "reconciled_injection_mwh": 115628.491,
+      "mapped_generation_mwh": 111689.74,
+      "unmapped_generation_residual_mwh": 3938.751,
+      "transmission_and_reconciliation_difference_mwh": 3192.054
+    },
+    {
+      "date": "2024-04-11",
+      "measured_grid_demand_mwh": 114647.346,
+      "reconciled_injection_mwh": 118150.516,
+      "mapped_generation_mwh": 114138.701,
+      "unmapped_generation_residual_mwh": 4011.815,
+      "transmission_and_reconciliation_difference_mwh": 3503.17
+    },
+    {
+      "date": "2024-04-12",
+      "measured_grid_demand_mwh": 114864.938,
+      "reconciled_injection_mwh": 118395.045,
+      "mapped_generation_mwh": 114413.606,
+      "unmapped_generation_residual_mwh": 3981.439,
+      "transmission_and_reconciliation_difference_mwh": 3530.107
+    },
+    {
+      "date": "2024-04-13",
+      "measured_grid_demand_mwh": 105164.707,
+      "reconciled_injection_mwh": 108165.482,
+      "mapped_generation_mwh": 103360.929,
+      "unmapped_generation_residual_mwh": 4804.553,
+      "transmission_and_reconciliation_difference_mwh": 3000.775
+    },
+    {
+      "date": "2024-04-14",
+      "measured_grid_demand_mwh": 101763.546,
+      "reconciled_injection_mwh": 104663.938,
+      "mapped_generation_mwh": 100046.995,
+      "unmapped_generation_residual_mwh": 4616.943,
+      "transmission_and_reconciliation_difference_mwh": 2900.392
+    },
+    {
+      "date": "2024-04-15",
+      "measured_grid_demand_mwh": 111666.647,
+      "reconciled_injection_mwh": 115470.657,
+      "mapped_generation_mwh": 110962.612,
+      "unmapped_generation_residual_mwh": 4508.045,
+      "transmission_and_reconciliation_difference_mwh": 3804.01
+    },
+    {
+      "date": "2024-04-16",
+      "measured_grid_demand_mwh": 113131.625,
+      "reconciled_injection_mwh": 117079.26,
+      "mapped_generation_mwh": 112837.365,
+      "unmapped_generation_residual_mwh": 4241.895,
+      "transmission_and_reconciliation_difference_mwh": 3947.635
+    },
+    {
+      "date": "2024-04-17",
+      "measured_grid_demand_mwh": 112343.523,
+      "reconciled_injection_mwh": 116237.637,
+      "mapped_generation_mwh": 111671.106,
+      "unmapped_generation_residual_mwh": 4566.531,
+      "transmission_and_reconciliation_difference_mwh": 3894.114
+    },
+    {
+      "date": "2024-04-18",
+      "measured_grid_demand_mwh": 112466.578,
+      "reconciled_injection_mwh": 116294.576,
+      "mapped_generation_mwh": 111757.913,
+      "unmapped_generation_residual_mwh": 4536.663,
+      "transmission_and_reconciliation_difference_mwh": 3827.998
+    },
+    {
+      "date": "2024-04-19",
+      "measured_grid_demand_mwh": 113650.554,
+      "reconciled_injection_mwh": 117126.439,
+      "mapped_generation_mwh": 112604.49,
+      "unmapped_generation_residual_mwh": 4521.949,
+      "transmission_and_reconciliation_difference_mwh": 3475.885
+    },
+    {
+      "date": "2024-04-20",
+      "measured_grid_demand_mwh": 106588.909,
+      "reconciled_injection_mwh": 109735.2,
+      "mapped_generation_mwh": 105498.355,
+      "unmapped_generation_residual_mwh": 4236.845,
+      "transmission_and_reconciliation_difference_mwh": 3146.291
+    },
+    {
+      "date": "2024-04-21",
+      "measured_grid_demand_mwh": 103248.233,
+      "reconciled_injection_mwh": 106115.958,
+      "mapped_generation_mwh": 101599.781,
+      "unmapped_generation_residual_mwh": 4516.177,
+      "transmission_and_reconciliation_difference_mwh": 2867.725
+    },
+    {
+      "date": "2024-04-22",
+      "measured_grid_demand_mwh": 114004.907,
+      "reconciled_injection_mwh": 117408.101,
+      "mapped_generation_mwh": 112638.698,
+      "unmapped_generation_residual_mwh": 4769.403,
+      "transmission_and_reconciliation_difference_mwh": 3403.194
+    },
+    {
+      "date": "2024-04-23",
+      "measured_grid_demand_mwh": 115449.497,
+      "reconciled_injection_mwh": 118985.561,
+      "mapped_generation_mwh": 113996.06,
+      "unmapped_generation_residual_mwh": 4989.501,
+      "transmission_and_reconciliation_difference_mwh": 3536.064
+    },
+    {
+      "date": "2024-04-24",
+      "measured_grid_demand_mwh": 115193.103,
+      "reconciled_injection_mwh": 118646.635,
+      "mapped_generation_mwh": 113963.295,
+      "unmapped_generation_residual_mwh": 4683.34,
+      "transmission_and_reconciliation_difference_mwh": 3453.532
+    },
+    {
+      "date": "2024-04-25",
+      "measured_grid_demand_mwh": 106356.801,
+      "reconciled_injection_mwh": 109366.63,
+      "mapped_generation_mwh": 105212.958,
+      "unmapped_generation_residual_mwh": 4153.672,
+      "transmission_and_reconciliation_difference_mwh": 3009.829
+    },
+    {
+      "date": "2024-04-26",
+      "measured_grid_demand_mwh": 111811.892,
+      "reconciled_injection_mwh": 114955.726,
+      "mapped_generation_mwh": 110224.904,
+      "unmapped_generation_residual_mwh": 4730.822,
+      "transmission_and_reconciliation_difference_mwh": 3143.834
+    },
+    {
+      "date": "2024-04-27",
+      "measured_grid_demand_mwh": 108343.01,
+      "reconciled_injection_mwh": 111225.46,
+      "mapped_generation_mwh": 106202.463,
+      "unmapped_generation_residual_mwh": 5022.997,
+      "transmission_and_reconciliation_difference_mwh": 2882.45
+    },
+    {
+      "date": "2024-04-28",
+      "measured_grid_demand_mwh": 105884.805,
+      "reconciled_injection_mwh": 108817.965,
+      "mapped_generation_mwh": 104242.345,
+      "unmapped_generation_residual_mwh": 4575.62,
+      "transmission_and_reconciliation_difference_mwh": 2933.16
+    },
+    {
+      "date": "2024-04-29",
+      "measured_grid_demand_mwh": 116843.078,
+      "reconciled_injection_mwh": 120278.193,
+      "mapped_generation_mwh": 115637.847,
+      "unmapped_generation_residual_mwh": 4640.346,
+      "transmission_and_reconciliation_difference_mwh": 3435.115
+    },
+    {
+      "date": "2024-04-30",
+      "measured_grid_demand_mwh": 117215.282,
+      "reconciled_injection_mwh": 120538.8,
+      "mapped_generation_mwh": 116138.121,
+      "unmapped_generation_residual_mwh": 4400.679,
+      "transmission_and_reconciliation_difference_mwh": 3323.518
+    },
+    {
+      "date": "2024-05-01",
+      "measured_grid_demand_mwh": 118894.826,
+      "reconciled_injection_mwh": 122488.807,
+      "mapped_generation_mwh": 118154.735,
+      "unmapped_generation_residual_mwh": 4334.072,
+      "transmission_and_reconciliation_difference_mwh": 3593.981
+    },
+    {
+      "date": "2024-05-02",
+      "measured_grid_demand_mwh": 119263.247,
+      "reconciled_injection_mwh": 122812.641,
+      "mapped_generation_mwh": 117983.949,
+      "unmapped_generation_residual_mwh": 4828.692,
+      "transmission_and_reconciliation_difference_mwh": 3549.394
+    },
+    {
+      "date": "2024-05-03",
+      "measured_grid_demand_mwh": 119453.18,
+      "reconciled_injection_mwh": 123008.748,
+      "mapped_generation_mwh": 118418.888,
+      "unmapped_generation_residual_mwh": 4589.86,
+      "transmission_and_reconciliation_difference_mwh": 3555.568
+    },
+    {
+      "date": "2024-05-04",
+      "measured_grid_demand_mwh": 110407.032,
+      "reconciled_injection_mwh": 113628.448,
+      "mapped_generation_mwh": 109679.68,
+      "unmapped_generation_residual_mwh": 3948.768,
+      "transmission_and_reconciliation_difference_mwh": 3221.416
+    },
+    {
+      "date": "2024-05-05",
+      "measured_grid_demand_mwh": 107815.431,
+      "reconciled_injection_mwh": 110907.238,
+      "mapped_generation_mwh": 107106.494,
+      "unmapped_generation_residual_mwh": 3800.744,
+      "transmission_and_reconciliation_difference_mwh": 3091.807
+    },
+    {
+      "date": "2024-05-06",
+      "measured_grid_demand_mwh": 119611.908,
+      "reconciled_injection_mwh": 123145.698,
+      "mapped_generation_mwh": 119200.408,
+      "unmapped_generation_residual_mwh": 3945.29,
+      "transmission_and_reconciliation_difference_mwh": 3533.79
+    },
+    {
+      "date": "2024-05-07",
+      "measured_grid_demand_mwh": 123691.797,
+      "reconciled_injection_mwh": 127455.408,
+      "mapped_generation_mwh": 123595.723,
+      "unmapped_generation_residual_mwh": 3859.685,
+      "transmission_and_reconciliation_difference_mwh": 3763.611
+    },
+    {
+      "date": "2024-05-08",
+      "measured_grid_demand_mwh": 127554.787,
+      "reconciled_injection_mwh": 131475.032,
+      "mapped_generation_mwh": 127104.117,
+      "unmapped_generation_residual_mwh": 4370.915,
+      "transmission_and_reconciliation_difference_mwh": 3920.245
+    },
+    {
+      "date": "2024-05-09",
+      "measured_grid_demand_mwh": 131083.318,
+      "reconciled_injection_mwh": 135111.697,
+      "mapped_generation_mwh": 131169.33,
+      "unmapped_generation_residual_mwh": 3942.367,
+      "transmission_and_reconciliation_difference_mwh": 4028.379
+    },
+    {
+      "date": "2024-05-10",
+      "measured_grid_demand_mwh": 131644.859,
+      "reconciled_injection_mwh": 135539.278,
+      "mapped_generation_mwh": 131378.335,
+      "unmapped_generation_residual_mwh": 4160.943,
+      "transmission_and_reconciliation_difference_mwh": 3894.419
+    },
+    {
+      "date": "2024-05-11",
+      "measured_grid_demand_mwh": 119267.378,
+      "reconciled_injection_mwh": 122711.392,
+      "mapped_generation_mwh": 118887.432,
+      "unmapped_generation_residual_mwh": 3823.96,
+      "transmission_and_reconciliation_difference_mwh": 3444.014
+    },
+    {
+      "date": "2024-05-12",
+      "measured_grid_demand_mwh": 117245.423,
+      "reconciled_injection_mwh": 120778.688,
+      "mapped_generation_mwh": 117314.434,
+      "unmapped_generation_residual_mwh": 3464.254,
+      "transmission_and_reconciliation_difference_mwh": 3533.265
+    },
+    {
+      "date": "2024-05-13",
+      "measured_grid_demand_mwh": 125627.21,
+      "reconciled_injection_mwh": 129437.387,
+      "mapped_generation_mwh": 125628.182,
+      "unmapped_generation_residual_mwh": 3809.205,
+      "transmission_and_reconciliation_difference_mwh": 3810.177
+    },
+    {
+      "date": "2024-05-14",
+      "measured_grid_demand_mwh": 128705.366,
+      "reconciled_injection_mwh": 132580.489,
+      "mapped_generation_mwh": 128909.911,
+      "unmapped_generation_residual_mwh": 3670.578,
+      "transmission_and_reconciliation_difference_mwh": 3875.123
+    },
+    {
+      "date": "2024-05-15",
+      "measured_grid_demand_mwh": 122705.582,
+      "reconciled_injection_mwh": 126346.773,
+      "mapped_generation_mwh": 122891.249,
+      "unmapped_generation_residual_mwh": 3455.524,
+      "transmission_and_reconciliation_difference_mwh": 3641.191
+    },
+    {
+      "date": "2024-05-16",
+      "measured_grid_demand_mwh": 122667.446,
+      "reconciled_injection_mwh": 126184.249,
+      "mapped_generation_mwh": 122429.731,
+      "unmapped_generation_residual_mwh": 3754.518,
+      "transmission_and_reconciliation_difference_mwh": 3516.803
+    },
+    {
+      "date": "2024-05-17",
+      "measured_grid_demand_mwh": 121964.651,
+      "reconciled_injection_mwh": 125387.829,
+      "mapped_generation_mwh": 121712.841,
+      "unmapped_generation_residual_mwh": 3674.988,
+      "transmission_and_reconciliation_difference_mwh": 3423.178
+    },
+    {
+      "date": "2024-05-18",
+      "measured_grid_demand_mwh": 115074.393,
+      "reconciled_injection_mwh": 118411.533,
+      "mapped_generation_mwh": 115067.172,
+      "unmapped_generation_residual_mwh": 3344.361,
+      "transmission_and_reconciliation_difference_mwh": 3337.14
+    },
+    {
+      "date": "2024-05-19",
+      "measured_grid_demand_mwh": 114211.155,
+      "reconciled_injection_mwh": 117478.152,
+      "mapped_generation_mwh": 113958.262,
+      "unmapped_generation_residual_mwh": 3519.89,
+      "transmission_and_reconciliation_difference_mwh": 3266.997
+    },
+    {
+      "date": "2024-05-20",
+      "measured_grid_demand_mwh": 128875.07,
+      "reconciled_injection_mwh": 133067.891,
+      "mapped_generation_mwh": 128472.801,
+      "unmapped_generation_residual_mwh": 4595.09,
+      "transmission_and_reconciliation_difference_mwh": 4192.821
+    },
+    {
+      "date": "2024-05-21",
+      "measured_grid_demand_mwh": 124512.299,
+      "reconciled_injection_mwh": 128826.134,
+      "mapped_generation_mwh": 125142.565,
+      "unmapped_generation_residual_mwh": 3683.569,
+      "transmission_and_reconciliation_difference_mwh": 4313.835
+    },
+    {
+      "date": "2024-05-22",
+      "measured_grid_demand_mwh": 122710.908,
+      "reconciled_injection_mwh": 126779.885,
+      "mapped_generation_mwh": 122844.979,
+      "unmapped_generation_residual_mwh": 3934.906,
+      "transmission_and_reconciliation_difference_mwh": 4068.977
+    },
+    {
+      "date": "2024-05-23",
+      "measured_grid_demand_mwh": 125331.841,
+      "reconciled_injection_mwh": 129296.288,
+      "mapped_generation_mwh": 125027.556,
+      "unmapped_generation_residual_mwh": 4268.732,
+      "transmission_and_reconciliation_difference_mwh": 3964.447
+    },
+    {
+      "date": "2024-05-24",
+      "measured_grid_demand_mwh": 126861.83,
+      "reconciled_injection_mwh": 130789.802,
+      "mapped_generation_mwh": 126497.645,
+      "unmapped_generation_residual_mwh": 4292.157,
+      "transmission_and_reconciliation_difference_mwh": 3927.972
+    },
+    {
+      "date": "2024-05-25",
+      "measured_grid_demand_mwh": 116901.637,
+      "reconciled_injection_mwh": 120155.025,
+      "mapped_generation_mwh": 115998.698,
+      "unmapped_generation_residual_mwh": 4156.327,
+      "transmission_and_reconciliation_difference_mwh": 3253.388
+    },
+    {
+      "date": "2024-05-26",
+      "measured_grid_demand_mwh": 113964.169,
+      "reconciled_injection_mwh": 117305.259,
+      "mapped_generation_mwh": 113505.455,
+      "unmapped_generation_residual_mwh": 3799.804,
+      "transmission_and_reconciliation_difference_mwh": 3341.09
+    },
+    {
+      "date": "2024-05-27",
+      "measured_grid_demand_mwh": 126815.701,
+      "reconciled_injection_mwh": 130823.568,
+      "mapped_generation_mwh": 126888.256,
+      "unmapped_generation_residual_mwh": 3935.312,
+      "transmission_and_reconciliation_difference_mwh": 4007.867
+    },
+    {
+      "date": "2024-05-28",
+      "measured_grid_demand_mwh": 129739.331,
+      "reconciled_injection_mwh": 133969.574,
+      "mapped_generation_mwh": 130174.58,
+      "unmapped_generation_residual_mwh": 3794.994,
+      "transmission_and_reconciliation_difference_mwh": 4230.243
+    },
+    {
+      "date": "2024-05-29",
+      "measured_grid_demand_mwh": 134282.134,
+      "reconciled_injection_mwh": 138580.598,
+      "mapped_generation_mwh": 134398.08,
+      "unmapped_generation_residual_mwh": 4182.518,
+      "transmission_and_reconciliation_difference_mwh": 4298.464
+    },
+    {
+      "date": "2024-05-30",
+      "measured_grid_demand_mwh": 128622.507,
+      "reconciled_injection_mwh": 132465.287,
+      "mapped_generation_mwh": 128391.064,
+      "unmapped_generation_residual_mwh": 4074.223,
+      "transmission_and_reconciliation_difference_mwh": 3842.78
+    },
+    {
+      "date": "2024-05-31",
+      "measured_grid_demand_mwh": 120372.72,
+      "reconciled_injection_mwh": 123988.815,
+      "mapped_generation_mwh": 120202.513,
+      "unmapped_generation_residual_mwh": 3786.302,
+      "transmission_and_reconciliation_difference_mwh": 3616.095
+    },
+    {
+      "date": "2024-06-01",
+      "measured_grid_demand_mwh": 107649.039,
+      "reconciled_injection_mwh": 110631.579,
+      "mapped_generation_mwh": 107163.568,
+      "unmapped_generation_residual_mwh": 3468.011,
+      "transmission_and_reconciliation_difference_mwh": 2982.54
+    },
+    {
+      "date": "2024-06-02",
+      "measured_grid_demand_mwh": 105837.321,
+      "reconciled_injection_mwh": 108804.749,
+      "mapped_generation_mwh": 105071.301,
+      "unmapped_generation_residual_mwh": 3733.448,
+      "transmission_and_reconciliation_difference_mwh": 2967.428
+    },
+    {
+      "date": "2024-06-03",
+      "measured_grid_demand_mwh": 110397.959,
+      "reconciled_injection_mwh": 113563.965,
+      "mapped_generation_mwh": 109976.676,
+      "unmapped_generation_residual_mwh": 3587.289,
+      "transmission_and_reconciliation_difference_mwh": 3166.006
+    },
+    {
+      "date": "2024-06-04",
+      "measured_grid_demand_mwh": 124374.455,
+      "reconciled_injection_mwh": 128316.136,
+      "mapped_generation_mwh": 124701.307,
+      "unmapped_generation_residual_mwh": 3614.829,
+      "transmission_and_reconciliation_difference_mwh": 3941.681
+    },
+    {
+      "date": "2024-06-05",
+      "measured_grid_demand_mwh": 128327.518,
+      "reconciled_injection_mwh": 132450.661,
+      "mapped_generation_mwh": 128876.839,
+      "unmapped_generation_residual_mwh": 3573.822,
+      "transmission_and_reconciliation_difference_mwh": 4123.143
+    },
+    {
+      "date": "2024-06-06",
+      "measured_grid_demand_mwh": 125665.684,
+      "reconciled_injection_mwh": 129475.669,
+      "mapped_generation_mwh": 125649.738,
+      "unmapped_generation_residual_mwh": 3825.931,
+      "transmission_and_reconciliation_difference_mwh": 3809.985
+    },
+    {
+      "date": "2024-06-07",
+      "measured_grid_demand_mwh": 121454.376,
+      "reconciled_injection_mwh": 125062.538,
+      "mapped_generation_mwh": 120818.526,
+      "unmapped_generation_residual_mwh": 4244.012,
+      "transmission_and_reconciliation_difference_mwh": 3608.162
+    },
+    {
+      "date": "2024-06-08",
+      "measured_grid_demand_mwh": 110923.618,
+      "reconciled_injection_mwh": 114284.155,
+      "mapped_generation_mwh": 110576.336,
+      "unmapped_generation_residual_mwh": 3707.819,
+      "transmission_and_reconciliation_difference_mwh": 3360.537
+    },
+    {
+      "date": "2024-06-09",
+      "measured_grid_demand_mwh": 110680.467,
+      "reconciled_injection_mwh": 114341.348,
+      "mapped_generation_mwh": 110424.926,
+      "unmapped_generation_residual_mwh": 3916.422,
+      "transmission_and_reconciliation_difference_mwh": 3660.881
+    },
+    {
+      "date": "2024-06-10",
+      "measured_grid_demand_mwh": 116483.103,
+      "reconciled_injection_mwh": 120172.036,
+      "mapped_generation_mwh": 115771.162,
+      "unmapped_generation_residual_mwh": 4400.874,
+      "transmission_and_reconciliation_difference_mwh": 3688.933
+    },
+    {
+      "date": "2024-06-11",
+      "measured_grid_demand_mwh": 123420.991,
+      "reconciled_injection_mwh": 127077.173,
+      "mapped_generation_mwh": 121912.676,
+      "unmapped_generation_residual_mwh": 5164.497,
+      "transmission_and_reconciliation_difference_mwh": 3656.182
+    },
+    {
+      "date": "2024-06-12",
+      "measured_grid_demand_mwh": 129563.403,
+      "reconciled_injection_mwh": 133624.946,
+      "mapped_generation_mwh": 128415.533,
+      "unmapped_generation_residual_mwh": 5209.413,
+      "transmission_and_reconciliation_difference_mwh": 4061.543
+    },
+    {
+      "date": "2024-06-13",
+      "measured_grid_demand_mwh": 127134.055,
+      "reconciled_injection_mwh": 131102.022,
+      "mapped_generation_mwh": 126107.745,
+      "unmapped_generation_residual_mwh": 4994.277,
+      "transmission_and_reconciliation_difference_mwh": 3967.967
+    },
+    {
+      "date": "2024-06-14",
+      "measured_grid_demand_mwh": 122817.962,
+      "reconciled_injection_mwh": 126593.92,
+      "mapped_generation_mwh": 121674.703,
+      "unmapped_generation_residual_mwh": 4919.217,
+      "transmission_and_reconciliation_difference_mwh": 3775.958
+    },
+    {
+      "date": "2024-06-15",
+      "measured_grid_demand_mwh": 111516.532,
+      "reconciled_injection_mwh": 114820.11,
+      "mapped_generation_mwh": 109928.106,
+      "unmapped_generation_residual_mwh": 4892.004,
+      "transmission_and_reconciliation_difference_mwh": 3303.578
+    },
+    {
+      "date": "2024-06-16",
+      "measured_grid_demand_mwh": 111819.207,
+      "reconciled_injection_mwh": 115101.019,
+      "mapped_generation_mwh": 109764.251,
+      "unmapped_generation_residual_mwh": 5336.768,
+      "transmission_and_reconciliation_difference_mwh": 3281.812
+    },
+    {
+      "date": "2024-06-17",
+      "measured_grid_demand_mwh": 121728.757,
+      "reconciled_injection_mwh": 125520.692,
+      "mapped_generation_mwh": 120055.399,
+      "unmapped_generation_residual_mwh": 5465.293,
+      "transmission_and_reconciliation_difference_mwh": 3791.935
+    },
+    {
+      "date": "2024-06-18",
+      "measured_grid_demand_mwh": 121816.558,
+      "reconciled_injection_mwh": 125454.034,
+      "mapped_generation_mwh": 120380.642,
+      "unmapped_generation_residual_mwh": 5073.392,
+      "transmission_and_reconciliation_difference_mwh": 3637.476
+    },
+    {
+      "date": "2024-06-19",
+      "measured_grid_demand_mwh": 126021.295,
+      "reconciled_injection_mwh": 129736.264,
+      "mapped_generation_mwh": 124740.295,
+      "unmapped_generation_residual_mwh": 4995.969,
+      "transmission_and_reconciliation_difference_mwh": 3714.969
+    },
+    {
+      "date": "2024-06-20",
+      "measured_grid_demand_mwh": 125451.162,
+      "reconciled_injection_mwh": 129214.799,
+      "mapped_generation_mwh": 124080.984,
+      "unmapped_generation_residual_mwh": 5133.815,
+      "transmission_and_reconciliation_difference_mwh": 3763.637
+    },
+    {
+      "date": "2024-06-21",
+      "measured_grid_demand_mwh": 123959.928,
+      "reconciled_injection_mwh": 127697.859,
+      "mapped_generation_mwh": 122304.441,
+      "unmapped_generation_residual_mwh": 5393.418,
+      "transmission_and_reconciliation_difference_mwh": 3737.931
+    },
+    {
+      "date": "2024-06-22",
+      "measured_grid_demand_mwh": 115447.746,
+      "reconciled_injection_mwh": 119104.124,
+      "mapped_generation_mwh": 114470.573,
+      "unmapped_generation_residual_mwh": 4633.551,
+      "transmission_and_reconciliation_difference_mwh": 3656.378
+    },
+    {
+      "date": "2024-06-23",
+      "measured_grid_demand_mwh": 114088.843,
+      "reconciled_injection_mwh": 117852.444,
+      "mapped_generation_mwh": 113256.278,
+      "unmapped_generation_residual_mwh": 4596.166,
+      "transmission_and_reconciliation_difference_mwh": 3763.601
+    },
+    {
+      "date": "2024-06-24",
+      "measured_grid_demand_mwh": 126104.501,
+      "reconciled_injection_mwh": 130109.27,
+      "mapped_generation_mwh": 125260.284,
+      "unmapped_generation_residual_mwh": 4848.986,
+      "transmission_and_reconciliation_difference_mwh": 4004.769
+    },
+    {
+      "date": "2024-06-25",
+      "measured_grid_demand_mwh": 126937.736,
+      "reconciled_injection_mwh": 130731.931,
+      "mapped_generation_mwh": 126124.834,
+      "unmapped_generation_residual_mwh": 4607.097,
+      "transmission_and_reconciliation_difference_mwh": 3794.195
+    },
+    {
+      "date": "2024-06-26",
+      "measured_grid_demand_mwh": 123264.47,
+      "reconciled_injection_mwh": 126879.791,
+      "mapped_generation_mwh": 122139.127,
+      "unmapped_generation_residual_mwh": 4740.664,
+      "transmission_and_reconciliation_difference_mwh": 3615.321
+    },
+    {
+      "date": "2024-06-27",
+      "measured_grid_demand_mwh": 123189.085,
+      "reconciled_injection_mwh": 126707.438,
+      "mapped_generation_mwh": 121884.859,
+      "unmapped_generation_residual_mwh": 4822.579,
+      "transmission_and_reconciliation_difference_mwh": 3518.353
+    },
+    {
+      "date": "2024-06-28",
+      "measured_grid_demand_mwh": 116061.705,
+      "reconciled_injection_mwh": 119231.968,
+      "mapped_generation_mwh": 114261.665,
+      "unmapped_generation_residual_mwh": 4970.303,
+      "transmission_and_reconciliation_difference_mwh": 3170.263
+    },
+    {
+      "date": "2024-06-29",
+      "measured_grid_demand_mwh": 113072.94,
+      "reconciled_injection_mwh": 116185.976,
+      "mapped_generation_mwh": 111292.688,
+      "unmapped_generation_residual_mwh": 4893.288,
+      "transmission_and_reconciliation_difference_mwh": 3113.036
+    },
+    {
+      "date": "2024-06-30",
+      "measured_grid_demand_mwh": 116011.48,
+      "reconciled_injection_mwh": 119423.573,
+      "mapped_generation_mwh": 114424.281,
+      "unmapped_generation_residual_mwh": 4999.292,
+      "transmission_and_reconciliation_difference_mwh": 3412.093
+    },
+    {
+      "date": "2024-07-01",
+      "measured_grid_demand_mwh": 126710.731,
+      "reconciled_injection_mwh": 130682.318,
+      "mapped_generation_mwh": 125272.2,
+      "unmapped_generation_residual_mwh": 5410.118,
+      "transmission_and_reconciliation_difference_mwh": 3971.587
+    },
+    {
+      "date": "2024-07-02",
+      "measured_grid_demand_mwh": 128127.985,
+      "reconciled_injection_mwh": 132151.984,
+      "mapped_generation_mwh": 126706.185,
+      "unmapped_generation_residual_mwh": 5445.799,
+      "transmission_and_reconciliation_difference_mwh": 4023.999
+    },
+    {
+      "date": "2024-07-03",
+      "measured_grid_demand_mwh": 131462.281,
+      "reconciled_injection_mwh": 135688.96,
+      "mapped_generation_mwh": 130063.069,
+      "unmapped_generation_residual_mwh": 5625.891,
+      "transmission_and_reconciliation_difference_mwh": 4226.679
+    },
+    {
+      "date": "2024-07-04",
+      "measured_grid_demand_mwh": 135486.872,
+      "reconciled_injection_mwh": 139922.624,
+      "mapped_generation_mwh": 134270.045,
+      "unmapped_generation_residual_mwh": 5652.579,
+      "transmission_and_reconciliation_difference_mwh": 4435.752
+    },
+    {
+      "date": "2024-07-05",
+      "measured_grid_demand_mwh": 136183.335,
+      "reconciled_injection_mwh": 140545.412,
+      "mapped_generation_mwh": 135061.385,
+      "unmapped_generation_residual_mwh": 5484.027,
+      "transmission_and_reconciliation_difference_mwh": 4362.077
+    },
+    {
+      "date": "2024-07-06",
+      "measured_grid_demand_mwh": 123483.402,
+      "reconciled_injection_mwh": 127212.892,
+      "mapped_generation_mwh": 122305.704,
+      "unmapped_generation_residual_mwh": 4907.188,
+      "transmission_and_reconciliation_difference_mwh": 3729.49
+    },
+    {
+      "date": "2024-07-07",
+      "measured_grid_demand_mwh": 120352.259,
+      "reconciled_injection_mwh": 123843.348,
+      "mapped_generation_mwh": 119025.233,
+      "unmapped_generation_residual_mwh": 4818.115,
+      "transmission_and_reconciliation_difference_mwh": 3491.089
+    },
+    {
+      "date": "2024-07-08",
+      "measured_grid_demand_mwh": 127791.704,
+      "reconciled_injection_mwh": 131691.697,
+      "mapped_generation_mwh": 126815.047,
+      "unmapped_generation_residual_mwh": 4876.65,
+      "transmission_and_reconciliation_difference_mwh": 3899.993
+    },
+    {
+      "date": "2024-07-09",
+      "measured_grid_demand_mwh": 128661.621,
+      "reconciled_injection_mwh": 132591.24,
+      "mapped_generation_mwh": 127933.087,
+      "unmapped_generation_residual_mwh": 4658.153,
+      "transmission_and_reconciliation_difference_mwh": 3929.619
+    },
+    {
+      "date": "2024-07-10",
+      "measured_grid_demand_mwh": 131485.001,
+      "reconciled_injection_mwh": 135544.632,
+      "mapped_generation_mwh": 130817.148,
+      "unmapped_generation_residual_mwh": 4727.484,
+      "transmission_and_reconciliation_difference_mwh": 4059.631
+    },
+    {
+      "date": "2024-07-11",
+      "measured_grid_demand_mwh": 131990.705,
+      "reconciled_injection_mwh": 136079.213,
+      "mapped_generation_mwh": 131854.883,
+      "unmapped_generation_residual_mwh": 4224.33,
+      "transmission_and_reconciliation_difference_mwh": 4088.508
+    },
+    {
+      "date": "2024-07-12",
+      "measured_grid_demand_mwh": 134552.165,
+      "reconciled_injection_mwh": 138764.343,
+      "mapped_generation_mwh": 134237.776,
+      "unmapped_generation_residual_mwh": 4526.567,
+      "transmission_and_reconciliation_difference_mwh": 4212.178
+    },
+    {
+      "date": "2024-07-13",
+      "measured_grid_demand_mwh": 123311.918,
+      "reconciled_injection_mwh": 127391.737,
+      "mapped_generation_mwh": 123201.01,
+      "unmapped_generation_residual_mwh": 4190.727,
+      "transmission_and_reconciliation_difference_mwh": 4079.819
+    },
+    {
+      "date": "2024-07-14",
+      "measured_grid_demand_mwh": 120152.966,
+      "reconciled_injection_mwh": 124229.909,
+      "mapped_generation_mwh": 120279.83,
+      "unmapped_generation_residual_mwh": 3950.079,
+      "transmission_and_reconciliation_difference_mwh": 4076.943
+    },
+    {
+      "date": "2024-07-15",
+      "measured_grid_demand_mwh": 131861.964,
+      "reconciled_injection_mwh": 136188.603,
+      "mapped_generation_mwh": 132142.48,
+      "unmapped_generation_residual_mwh": 4046.123,
+      "transmission_and_reconciliation_difference_mwh": 4326.639
+    },
+    {
+      "date": "2024-07-16",
+      "measured_grid_demand_mwh": 124523.072,
+      "reconciled_injection_mwh": 128485.709,
+      "mapped_generation_mwh": 124459.821,
+      "unmapped_generation_residual_mwh": 4025.888,
+      "transmission_and_reconciliation_difference_mwh": 3962.637
+    },
+    {
+      "date": "2024-07-17",
+      "measured_grid_demand_mwh": 129688.258,
+      "reconciled_injection_mwh": 134009.646,
+      "mapped_generation_mwh": 129495.865,
+      "unmapped_generation_residual_mwh": 4513.781,
+      "transmission_and_reconciliation_difference_mwh": 4321.388
+    },
+    {
+      "date": "2024-07-18",
+      "measured_grid_demand_mwh": 126241.482,
+      "reconciled_injection_mwh": 130370.23,
+      "mapped_generation_mwh": 126458.515,
+      "unmapped_generation_residual_mwh": 3911.715,
+      "transmission_and_reconciliation_difference_mwh": 4128.748
+    },
+    {
+      "date": "2024-07-19",
+      "measured_grid_demand_mwh": 126018.012,
+      "reconciled_injection_mwh": 129830.677,
+      "mapped_generation_mwh": 125601.054,
+      "unmapped_generation_residual_mwh": 4229.623,
+      "transmission_and_reconciliation_difference_mwh": 3812.665
+    },
+    {
+      "date": "2024-07-20",
+      "measured_grid_demand_mwh": 116076.14,
+      "reconciled_injection_mwh": 119847.264,
+      "mapped_generation_mwh": 115455.535,
+      "unmapped_generation_residual_mwh": 4391.729,
+      "transmission_and_reconciliation_difference_mwh": 3771.124
+    },
+    {
+      "date": "2024-07-21",
+      "measured_grid_demand_mwh": 114774.776,
+      "reconciled_injection_mwh": 118779.392,
+      "mapped_generation_mwh": 114504.769,
+      "unmapped_generation_residual_mwh": 4274.623,
+      "transmission_and_reconciliation_difference_mwh": 4004.616
+    },
+    {
+      "date": "2024-07-22",
+      "measured_grid_demand_mwh": 126630.537,
+      "reconciled_injection_mwh": 130701.05,
+      "mapped_generation_mwh": 126072.276,
+      "unmapped_generation_residual_mwh": 4628.774,
+      "transmission_and_reconciliation_difference_mwh": 4070.513
+    },
+    {
+      "date": "2024-07-23",
+      "measured_grid_demand_mwh": 128689.587,
+      "reconciled_injection_mwh": 133049.736,
+      "mapped_generation_mwh": 127997.28,
+      "unmapped_generation_residual_mwh": 5052.456,
+      "transmission_and_reconciliation_difference_mwh": 4360.149
+    },
+    {
+      "date": "2024-07-24",
+      "measured_grid_demand_mwh": 127760.15,
+      "reconciled_injection_mwh": 131987.443,
+      "mapped_generation_mwh": 127061.557,
+      "unmapped_generation_residual_mwh": 4925.886,
+      "transmission_and_reconciliation_difference_mwh": 4227.293
+    },
+    {
+      "date": "2024-07-25",
+      "measured_grid_demand_mwh": 125920.588,
+      "reconciled_injection_mwh": 129854.95,
+      "mapped_generation_mwh": 125263.03,
+      "unmapped_generation_residual_mwh": 4591.92,
+      "transmission_and_reconciliation_difference_mwh": 3934.362
+    },
+    {
+      "date": "2024-07-26",
+      "measured_grid_demand_mwh": 124815.805,
+      "reconciled_injection_mwh": 128764.359,
+      "mapped_generation_mwh": 124220.778,
+      "unmapped_generation_residual_mwh": 4543.581,
+      "transmission_and_reconciliation_difference_mwh": 3948.554
+    },
+    {
+      "date": "2024-07-27",
+      "measured_grid_demand_mwh": 114643.015,
+      "reconciled_injection_mwh": 118192.674,
+      "mapped_generation_mwh": 114098.77,
+      "unmapped_generation_residual_mwh": 4093.904,
+      "transmission_and_reconciliation_difference_mwh": 3549.659
+    },
+    {
+      "date": "2024-07-28",
+      "measured_grid_demand_mwh": 114112.4,
+      "reconciled_injection_mwh": 117941.744,
+      "mapped_generation_mwh": 113773.792,
+      "unmapped_generation_residual_mwh": 4167.952,
+      "transmission_and_reconciliation_difference_mwh": 3829.344
+    },
+    {
+      "date": "2024-07-29",
+      "measured_grid_demand_mwh": 127595.286,
+      "reconciled_injection_mwh": 132083.844,
+      "mapped_generation_mwh": 127382.893,
+      "unmapped_generation_residual_mwh": 4700.951,
+      "transmission_and_reconciliation_difference_mwh": 4488.558
+    },
+    {
+      "date": "2024-07-30",
+      "measured_grid_demand_mwh": 129067.113,
+      "reconciled_injection_mwh": 133738.217,
+      "mapped_generation_mwh": 128746.026,
+      "unmapped_generation_residual_mwh": 4992.191,
+      "transmission_and_reconciliation_difference_mwh": 4671.104
+    },
+    {
+      "date": "2024-07-31",
+      "measured_grid_demand_mwh": 129901.511,
+      "reconciled_injection_mwh": 134750.946,
+      "mapped_generation_mwh": 129971.761,
+      "unmapped_generation_residual_mwh": 4779.185,
+      "transmission_and_reconciliation_difference_mwh": 4849.435
+    },
+    {
+      "date": "2024-08-01",
+      "measured_grid_demand_mwh": 134651.679,
+      "reconciled_injection_mwh": 139827.969,
+      "mapped_generation_mwh": 134484.564,
+      "unmapped_generation_residual_mwh": 5343.405,
+      "transmission_and_reconciliation_difference_mwh": 5176.29
+    },
+    {
+      "date": "2024-08-02",
+      "measured_grid_demand_mwh": 132446.245,
+      "reconciled_injection_mwh": 137157.487,
+      "mapped_generation_mwh": 131627.348,
+      "unmapped_generation_residual_mwh": 5530.139,
+      "transmission_and_reconciliation_difference_mwh": 4711.242
+    },
+    {
+      "date": "2024-08-03",
+      "measured_grid_demand_mwh": 124085.129,
+      "reconciled_injection_mwh": 128283.98,
+      "mapped_generation_mwh": 123296.939,
+      "unmapped_generation_residual_mwh": 4987.041,
+      "transmission_and_reconciliation_difference_mwh": 4198.851
+    },
+    {
+      "date": "2024-08-04",
+      "measured_grid_demand_mwh": 123741.378,
+      "reconciled_injection_mwh": 127993.338,
+      "mapped_generation_mwh": 123172.793,
+      "unmapped_generation_residual_mwh": 4820.545,
+      "transmission_and_reconciliation_difference_mwh": 4251.96
+    },
+    {
+      "date": "2024-08-05",
+      "measured_grid_demand_mwh": 131047.476,
+      "reconciled_injection_mwh": 135402.576,
+      "mapped_generation_mwh": 130609.541,
+      "unmapped_generation_residual_mwh": 4793.035,
+      "transmission_and_reconciliation_difference_mwh": 4355.1
+    },
+    {
+      "date": "2024-08-06",
+      "measured_grid_demand_mwh": 130520.11,
+      "reconciled_injection_mwh": 134727.847,
+      "mapped_generation_mwh": 130131.088,
+      "unmapped_generation_residual_mwh": 4596.759,
+      "transmission_and_reconciliation_difference_mwh": 4207.737
+    },
+    {
+      "date": "2024-08-07",
+      "measured_grid_demand_mwh": 130408.414,
+      "reconciled_injection_mwh": 134637.688,
+      "mapped_generation_mwh": 129977.804,
+      "unmapped_generation_residual_mwh": 4659.884,
+      "transmission_and_reconciliation_difference_mwh": 4229.274
+    },
+    {
+      "date": "2024-08-08",
+      "measured_grid_demand_mwh": 130823.445,
+      "reconciled_injection_mwh": 135369.048,
+      "mapped_generation_mwh": 130341.581,
+      "unmapped_generation_residual_mwh": 5027.467,
+      "transmission_and_reconciliation_difference_mwh": 4545.603
+    },
+    {
+      "date": "2024-08-09",
+      "measured_grid_demand_mwh": 125821.86,
+      "reconciled_injection_mwh": 129904.518,
+      "mapped_generation_mwh": 125259.596,
+      "unmapped_generation_residual_mwh": 4644.922,
+      "transmission_and_reconciliation_difference_mwh": 4082.658
+    },
+    {
+      "date": "2024-08-10",
+      "measured_grid_demand_mwh": 115396.615,
+      "reconciled_injection_mwh": 119347.998,
+      "mapped_generation_mwh": 114794.688,
+      "unmapped_generation_residual_mwh": 4553.31,
+      "transmission_and_reconciliation_difference_mwh": 3951.383
+    },
+    {
+      "date": "2024-08-11",
+      "measured_grid_demand_mwh": 111589.889,
+      "reconciled_injection_mwh": 115073.178,
+      "mapped_generation_mwh": 110367.424,
+      "unmapped_generation_residual_mwh": 4705.754,
+      "transmission_and_reconciliation_difference_mwh": 3483.289
+    },
+    {
+      "date": "2024-08-12",
+      "measured_grid_demand_mwh": 122977.859,
+      "reconciled_injection_mwh": 127151.507,
+      "mapped_generation_mwh": 122507.399,
+      "unmapped_generation_residual_mwh": 4644.108,
+      "transmission_and_reconciliation_difference_mwh": 4173.648
+    },
+    {
+      "date": "2024-08-13",
+      "measured_grid_demand_mwh": 124169.034,
+      "reconciled_injection_mwh": 128436.666,
+      "mapped_generation_mwh": 123717.665,
+      "unmapped_generation_residual_mwh": 4719.001,
+      "transmission_and_reconciliation_difference_mwh": 4267.632
+    },
+    {
+      "date": "2024-08-14",
+      "measured_grid_demand_mwh": 125342.761,
+      "reconciled_injection_mwh": 129470.184,
+      "mapped_generation_mwh": 124628.899,
+      "unmapped_generation_residual_mwh": 4841.285,
+      "transmission_and_reconciliation_difference_mwh": 4127.423
+    },
+    {
+      "date": "2024-08-15",
+      "measured_grid_demand_mwh": 125562.182,
+      "reconciled_injection_mwh": 129944.672,
+      "mapped_generation_mwh": 125009.747,
+      "unmapped_generation_residual_mwh": 4934.925,
+      "transmission_and_reconciliation_difference_mwh": 4382.49
+    },
+    {
+      "date": "2024-08-16",
+      "measured_grid_demand_mwh": 119499.955,
+      "reconciled_injection_mwh": 123500.934,
+      "mapped_generation_mwh": 118522.899,
+      "unmapped_generation_residual_mwh": 4978.035,
+      "transmission_and_reconciliation_difference_mwh": 4000.979
+    },
+    {
+      "date": "2024-08-17",
+      "measured_grid_demand_mwh": 112044.554,
+      "reconciled_injection_mwh": 116063.93,
+      "mapped_generation_mwh": 110859.582,
+      "unmapped_generation_residual_mwh": 5204.348,
+      "transmission_and_reconciliation_difference_mwh": 4019.376
+    },
+    {
+      "date": "2024-08-18",
+      "measured_grid_demand_mwh": 112076.335,
+      "reconciled_injection_mwh": 116922.9,
+      "mapped_generation_mwh": 111519.071,
+      "unmapped_generation_residual_mwh": 5403.829,
+      "transmission_and_reconciliation_difference_mwh": 4846.565
+    },
+    {
+      "date": "2024-08-19",
+      "measured_grid_demand_mwh": 128126.318,
+      "reconciled_injection_mwh": 133069.15,
+      "mapped_generation_mwh": 127071.12,
+      "unmapped_generation_residual_mwh": 5998.03,
+      "transmission_and_reconciliation_difference_mwh": 4942.832
+    },
+    {
+      "date": "2024-08-20",
+      "measured_grid_demand_mwh": 129135.797,
+      "reconciled_injection_mwh": 133654.249,
+      "mapped_generation_mwh": 127107.035,
+      "unmapped_generation_residual_mwh": 6547.214,
+      "transmission_and_reconciliation_difference_mwh": 4518.452
+    },
+    {
+      "date": "2024-08-21",
+      "measured_grid_demand_mwh": 126208.059,
+      "reconciled_injection_mwh": 130429.763,
+      "mapped_generation_mwh": 123890.708,
+      "unmapped_generation_residual_mwh": 6539.055,
+      "transmission_and_reconciliation_difference_mwh": 4221.704
+    },
+    {
+      "date": "2024-08-22",
+      "measured_grid_demand_mwh": 123558.607,
+      "reconciled_injection_mwh": 127561.42,
+      "mapped_generation_mwh": 121196.356,
+      "unmapped_generation_residual_mwh": 6365.064,
+      "transmission_and_reconciliation_difference_mwh": 4002.813
+    },
+    {
+      "date": "2024-08-23",
+      "measured_grid_demand_mwh": 119571.295,
+      "reconciled_injection_mwh": 123622.716,
+      "mapped_generation_mwh": 117457.885,
+      "unmapped_generation_residual_mwh": 6164.831,
+      "transmission_and_reconciliation_difference_mwh": 4051.421
+    },
+    {
+      "date": "2024-08-24",
+      "measured_grid_demand_mwh": 107151.848,
+      "reconciled_injection_mwh": 110442.441,
+      "mapped_generation_mwh": 104891.902,
+      "unmapped_generation_residual_mwh": 5550.539,
+      "transmission_and_reconciliation_difference_mwh": 3290.593
+    },
+    {
+      "date": "2024-08-25",
+      "measured_grid_demand_mwh": 107824.504,
+      "reconciled_injection_mwh": 111494.863,
+      "mapped_generation_mwh": 105829.364,
+      "unmapped_generation_residual_mwh": 5665.499,
+      "transmission_and_reconciliation_difference_mwh": 3670.359
+    },
+    {
+      "date": "2024-08-26",
+      "measured_grid_demand_mwh": 119395.032,
+      "reconciled_injection_mwh": 123696.776,
+      "mapped_generation_mwh": 117617.948,
+      "unmapped_generation_residual_mwh": 6078.828,
+      "transmission_and_reconciliation_difference_mwh": 4301.744
+    },
+    {
+      "date": "2024-08-27",
+      "measured_grid_demand_mwh": 115770.551,
+      "reconciled_injection_mwh": 119614.305,
+      "mapped_generation_mwh": 113977.767,
+      "unmapped_generation_residual_mwh": 5636.538,
+      "transmission_and_reconciliation_difference_mwh": 3843.754
+    },
+    {
+      "date": "2024-08-28",
+      "measured_grid_demand_mwh": 113722.842,
+      "reconciled_injection_mwh": 117459.544,
+      "mapped_generation_mwh": 111792.526,
+      "unmapped_generation_residual_mwh": 5667.018,
+      "transmission_and_reconciliation_difference_mwh": 3736.702
+    },
+    {
+      "date": "2024-08-29",
+      "measured_grid_demand_mwh": 115186.995,
+      "reconciled_injection_mwh": 118905.517,
+      "mapped_generation_mwh": 113809.681,
+      "unmapped_generation_residual_mwh": 5095.836,
+      "transmission_and_reconciliation_difference_mwh": 3718.522
+    },
+    {
+      "date": "2024-08-30",
+      "measured_grid_demand_mwh": 111828.841,
+      "reconciled_injection_mwh": 115379.732,
+      "mapped_generation_mwh": 110658.155,
+      "unmapped_generation_residual_mwh": 4721.577,
+      "transmission_and_reconciliation_difference_mwh": 3550.891
+    },
+    {
+      "date": "2024-08-31",
+      "measured_grid_demand_mwh": 104073.34,
+      "reconciled_injection_mwh": 107223.733,
+      "mapped_generation_mwh": 103186.214,
+      "unmapped_generation_residual_mwh": 4037.519,
+      "transmission_and_reconciliation_difference_mwh": 3150.393
+    },
+    {
+      "date": "2024-09-01",
+      "measured_grid_demand_mwh": 99819.369,
+      "reconciled_injection_mwh": 102745.757,
+      "mapped_generation_mwh": 98200.408,
+      "unmapped_generation_residual_mwh": 4545.349,
+      "transmission_and_reconciliation_difference_mwh": 2926.388
+    },
+    {
+      "date": "2024-09-02",
+      "measured_grid_demand_mwh": 109250.791,
+      "reconciled_injection_mwh": 113091.011,
+      "mapped_generation_mwh": 108319.653,
+      "unmapped_generation_residual_mwh": 4771.358,
+      "transmission_and_reconciliation_difference_mwh": 3840.22
+    },
+    {
+      "date": "2024-09-03",
+      "measured_grid_demand_mwh": 112482.743,
+      "reconciled_injection_mwh": 116470.737,
+      "mapped_generation_mwh": 111401.828,
+      "unmapped_generation_residual_mwh": 5068.909,
+      "transmission_and_reconciliation_difference_mwh": 3987.994
+    },
+    {
+      "date": "2024-09-04",
+      "measured_grid_demand_mwh": 115194.489,
+      "reconciled_injection_mwh": 119289.459,
+      "mapped_generation_mwh": 113733.857,
+      "unmapped_generation_residual_mwh": 5555.602,
+      "transmission_and_reconciliation_difference_mwh": 4094.97
+    },
+    {
+      "date": "2024-09-05",
+      "measured_grid_demand_mwh": 115912.815,
+      "reconciled_injection_mwh": 120370.908,
+      "mapped_generation_mwh": 114646.757,
+      "unmapped_generation_residual_mwh": 5724.151,
+      "transmission_and_reconciliation_difference_mwh": 4458.093
+    },
+    {
+      "date": "2024-09-06",
+      "measured_grid_demand_mwh": 114466.876,
+      "reconciled_injection_mwh": 118859.159,
+      "mapped_generation_mwh": 113279.371,
+      "unmapped_generation_residual_mwh": 5579.788,
+      "transmission_and_reconciliation_difference_mwh": 4392.283
+    },
+    {
+      "date": "2024-09-07",
+      "measured_grid_demand_mwh": 104091.269,
+      "reconciled_injection_mwh": 107386.132,
+      "mapped_generation_mwh": 102452.017,
+      "unmapped_generation_residual_mwh": 4934.115,
+      "transmission_and_reconciliation_difference_mwh": 3294.863
+    },
+    {
+      "date": "2024-09-08",
+      "measured_grid_demand_mwh": 102642.487,
+      "reconciled_injection_mwh": 105825.693,
+      "mapped_generation_mwh": 100826.053,
+      "unmapped_generation_residual_mwh": 4999.64,
+      "transmission_and_reconciliation_difference_mwh": 3183.206
+    },
+    {
+      "date": "2024-09-09",
+      "measured_grid_demand_mwh": 113421.615,
+      "reconciled_injection_mwh": 117360.645,
+      "mapped_generation_mwh": 111918.182,
+      "unmapped_generation_residual_mwh": 5442.463,
+      "transmission_and_reconciliation_difference_mwh": 3939.03
+    },
+    {
+      "date": "2024-09-10",
+      "measured_grid_demand_mwh": 113971.772,
+      "reconciled_injection_mwh": 118126.85,
+      "mapped_generation_mwh": 112554.38,
+      "unmapped_generation_residual_mwh": 5572.47,
+      "transmission_and_reconciliation_difference_mwh": 4155.078
+    },
+    {
+      "date": "2024-09-11",
+      "measured_grid_demand_mwh": 115513.853,
+      "reconciled_injection_mwh": 119469.77,
+      "mapped_generation_mwh": 113576.197,
+      "unmapped_generation_residual_mwh": 5893.573,
+      "transmission_and_reconciliation_difference_mwh": 3955.917
+    },
+    {
+      "date": "2024-09-12",
+      "measured_grid_demand_mwh": 119120.643,
+      "reconciled_injection_mwh": 123285.068,
+      "mapped_generation_mwh": 117833.0,
+      "unmapped_generation_residual_mwh": 5452.068,
+      "transmission_and_reconciliation_difference_mwh": 4164.425
+    },
+    {
+      "date": "2024-09-13",
+      "measured_grid_demand_mwh": 118879.211,
+      "reconciled_injection_mwh": 122853.214,
+      "mapped_generation_mwh": 117475.699,
+      "unmapped_generation_residual_mwh": 5377.515,
+      "transmission_and_reconciliation_difference_mwh": 3974.003
+    },
+    {
+      "date": "2024-09-14",
+      "measured_grid_demand_mwh": 108504.309,
+      "reconciled_injection_mwh": 112170.494,
+      "mapped_generation_mwh": 107012.939,
+      "unmapped_generation_residual_mwh": 5157.555,
+      "transmission_and_reconciliation_difference_mwh": 3666.185
+    },
+    {
+      "date": "2024-09-15",
+      "measured_grid_demand_mwh": 106391.834,
+      "reconciled_injection_mwh": 109735.995,
+      "mapped_generation_mwh": 104296.732,
+      "unmapped_generation_residual_mwh": 5439.263,
+      "transmission_and_reconciliation_difference_mwh": 3344.161
+    },
+    {
+      "date": "2024-09-16",
+      "measured_grid_demand_mwh": 120749.471,
+      "reconciled_injection_mwh": 124705.677,
+      "mapped_generation_mwh": 118825.675,
+      "unmapped_generation_residual_mwh": 5880.002,
+      "transmission_and_reconciliation_difference_mwh": 3956.206
+    },
+    {
+      "date": "2024-09-17",
+      "measured_grid_demand_mwh": 130238.356,
+      "reconciled_injection_mwh": 134782.743,
+      "mapped_generation_mwh": 128346.791,
+      "unmapped_generation_residual_mwh": 6435.952,
+      "transmission_and_reconciliation_difference_mwh": 4544.387
+    },
+    {
+      "date": "2024-09-18",
+      "measured_grid_demand_mwh": 125505.476,
+      "reconciled_injection_mwh": 129574.085,
+      "mapped_generation_mwh": 123207.369,
+      "unmapped_generation_residual_mwh": 6366.716,
+      "transmission_and_reconciliation_difference_mwh": 4068.609
+    },
+    {
+      "date": "2024-09-19",
+      "measured_grid_demand_mwh": 119495.103,
+      "reconciled_injection_mwh": 123423.028,
+      "mapped_generation_mwh": 117791.698,
+      "unmapped_generation_residual_mwh": 5631.33,
+      "transmission_and_reconciliation_difference_mwh": 3927.925
+    },
+    {
+      "date": "2024-09-20",
+      "measured_grid_demand_mwh": 118316.284,
+      "reconciled_injection_mwh": 122481.043,
+      "mapped_generation_mwh": 116688.478,
+      "unmapped_generation_residual_mwh": 5792.565,
+      "transmission_and_reconciliation_difference_mwh": 4164.759
+    },
+    {
+      "date": "2024-09-21",
+      "measured_grid_demand_mwh": 104954.998,
+      "reconciled_injection_mwh": 108341.473,
+      "mapped_generation_mwh": 103008.084,
+      "unmapped_generation_residual_mwh": 5333.389,
+      "transmission_and_reconciliation_difference_mwh": 3386.475
+    },
+    {
+      "date": "2024-09-22",
+      "measured_grid_demand_mwh": 101689.344,
+      "reconciled_injection_mwh": 105001.368,
+      "mapped_generation_mwh": 99900.013,
+      "unmapped_generation_residual_mwh": 5101.355,
+      "transmission_and_reconciliation_difference_mwh": 3312.024
+    },
+    {
+      "date": "2024-09-23",
+      "measured_grid_demand_mwh": 110208.988,
+      "reconciled_injection_mwh": 114185.878,
+      "mapped_generation_mwh": 108802.165,
+      "unmapped_generation_residual_mwh": 5383.713,
+      "transmission_and_reconciliation_difference_mwh": 3976.89
+    },
+    {
+      "date": "2024-09-24",
+      "measured_grid_demand_mwh": 112395.285,
+      "reconciled_injection_mwh": 116388.496,
+      "mapped_generation_mwh": 110593.135,
+      "unmapped_generation_residual_mwh": 5795.361,
+      "transmission_and_reconciliation_difference_mwh": 3993.211
+    },
+    {
+      "date": "2024-09-25",
+      "measured_grid_demand_mwh": 113206.178,
+      "reconciled_injection_mwh": 117309.87,
+      "mapped_generation_mwh": 111293.784,
+      "unmapped_generation_residual_mwh": 6016.086,
+      "transmission_and_reconciliation_difference_mwh": 4103.692
+    },
+    {
+      "date": "2024-09-26",
+      "measured_grid_demand_mwh": 114861.19,
+      "reconciled_injection_mwh": 118987.768,
+      "mapped_generation_mwh": 113173.754,
+      "unmapped_generation_residual_mwh": 5814.014,
+      "transmission_and_reconciliation_difference_mwh": 4126.578
+    },
+    {
+      "date": "2024-09-27",
+      "measured_grid_demand_mwh": 115778.784,
+      "reconciled_injection_mwh": 119937.252,
+      "mapped_generation_mwh": 113853.433,
+      "unmapped_generation_residual_mwh": 6083.819,
+      "transmission_and_reconciliation_difference_mwh": 4158.468
+    },
+    {
+      "date": "2024-09-28",
+      "measured_grid_demand_mwh": 106644.555,
+      "reconciled_injection_mwh": 110257.535,
+      "mapped_generation_mwh": 104356.746,
+      "unmapped_generation_residual_mwh": 5900.789,
+      "transmission_and_reconciliation_difference_mwh": 3612.98
+    },
+    {
+      "date": "2024-09-29",
+      "measured_grid_demand_mwh": 99184.591,
+      "reconciled_injection_mwh": 102542.307,
+      "mapped_generation_mwh": 97129.913,
+      "unmapped_generation_residual_mwh": 5412.394,
+      "transmission_and_reconciliation_difference_mwh": 3357.716
+    },
+    {
+      "date": "2024-09-30",
+      "measured_grid_demand_mwh": 111154.382,
+      "reconciled_injection_mwh": 115356.264,
+      "mapped_generation_mwh": 109505.591,
+      "unmapped_generation_residual_mwh": 5850.673,
+      "transmission_and_reconciliation_difference_mwh": 4201.882
+    },
+    {
+      "date": "2024-10-01",
+      "measured_grid_demand_mwh": 111902.278,
+      "reconciled_injection_mwh": 116133.937,
+      "mapped_generation_mwh": 110592.003,
+      "unmapped_generation_residual_mwh": 5541.934,
+      "transmission_and_reconciliation_difference_mwh": 4231.659
+    },
+    {
+      "date": "2024-10-02",
+      "measured_grid_demand_mwh": 114375.306,
+      "reconciled_injection_mwh": 118708.814,
+      "mapped_generation_mwh": 112947.885,
+      "unmapped_generation_residual_mwh": 5760.929,
+      "transmission_and_reconciliation_difference_mwh": 4333.508
+    },
+    {
+      "date": "2024-10-03",
+      "measured_grid_demand_mwh": 115328.889,
+      "reconciled_injection_mwh": 119718.221,
+      "mapped_generation_mwh": 113570.81,
+      "unmapped_generation_residual_mwh": 6147.411,
+      "transmission_and_reconciliation_difference_mwh": 4389.332
+    },
+    {
+      "date": "2024-10-04",
+      "measured_grid_demand_mwh": 111723.377,
+      "reconciled_injection_mwh": 116362.16,
+      "mapped_generation_mwh": 109374.415,
+      "unmapped_generation_residual_mwh": 6987.745,
+      "transmission_and_reconciliation_difference_mwh": 4638.783
+    },
+    {
+      "date": "2024-10-05",
+      "measured_grid_demand_mwh": 101141.812,
+      "reconciled_injection_mwh": 104752.524,
+      "mapped_generation_mwh": 99064.371,
+      "unmapped_generation_residual_mwh": 5688.153,
+      "transmission_and_reconciliation_difference_mwh": 3610.712
+    },
+    {
+      "date": "2024-10-06",
+      "measured_grid_demand_mwh": 99980.194,
+      "reconciled_injection_mwh": 103316.175,
+      "mapped_generation_mwh": 97863.922,
+      "unmapped_generation_residual_mwh": 5452.253,
+      "transmission_and_reconciliation_difference_mwh": 3335.981
+    },
+    {
+      "date": "2024-10-07",
+      "measured_grid_demand_mwh": 109522.213,
+      "reconciled_injection_mwh": 113274.568,
+      "mapped_generation_mwh": 107257.94,
+      "unmapped_generation_residual_mwh": 6016.628,
+      "transmission_and_reconciliation_difference_mwh": 3752.355
+    },
+    {
+      "date": "2024-10-08",
+      "measured_grid_demand_mwh": 109670.831,
+      "reconciled_injection_mwh": 113492.486,
+      "mapped_generation_mwh": 107129.321,
+      "unmapped_generation_residual_mwh": 6363.165,
+      "transmission_and_reconciliation_difference_mwh": 3821.655
+    },
+    {
+      "date": "2024-10-09",
+      "measured_grid_demand_mwh": 112650.326,
+      "reconciled_injection_mwh": 116603.492,
+      "mapped_generation_mwh": 110110.057,
+      "unmapped_generation_residual_mwh": 6493.435,
+      "transmission_and_reconciliation_difference_mwh": 3953.166
+    },
+    {
+      "date": "2024-10-10",
+      "measured_grid_demand_mwh": 114147.124,
+      "reconciled_injection_mwh": 118500.374,
+      "mapped_generation_mwh": 111719.25,
+      "unmapped_generation_residual_mwh": 6781.124,
+      "transmission_and_reconciliation_difference_mwh": 4353.25
+    },
+    {
+      "date": "2024-10-11",
+      "measured_grid_demand_mwh": 112004.631,
+      "reconciled_injection_mwh": 116169.773,
+      "mapped_generation_mwh": 109338.746,
+      "unmapped_generation_residual_mwh": 6831.027,
+      "transmission_and_reconciliation_difference_mwh": 4165.142
+    },
+    {
+      "date": "2024-10-12",
+      "measured_grid_demand_mwh": 103060.249,
+      "reconciled_injection_mwh": 106495.072,
+      "mapped_generation_mwh": 100465.296,
+      "unmapped_generation_residual_mwh": 6029.776,
+      "transmission_and_reconciliation_difference_mwh": 3434.823
+    },
+    {
+      "date": "2024-10-13",
+      "measured_grid_demand_mwh": 104034.797,
+      "reconciled_injection_mwh": 107394.877,
+      "mapped_generation_mwh": 101565.843,
+      "unmapped_generation_residual_mwh": 5829.034,
+      "transmission_and_reconciliation_difference_mwh": 3360.08
+    },
+    {
+      "date": "2024-10-14",
+      "measured_grid_demand_mwh": 114554.522,
+      "reconciled_injection_mwh": 118523.183,
+      "mapped_generation_mwh": 112205.942,
+      "unmapped_generation_residual_mwh": 6317.241,
+      "transmission_and_reconciliation_difference_mwh": 3968.661
+    },
+    {
+      "date": "2024-10-15",
+      "measured_grid_demand_mwh": 117117.34,
+      "reconciled_injection_mwh": 121380.19,
+      "mapped_generation_mwh": 115108.067,
+      "unmapped_generation_residual_mwh": 6272.123,
+      "transmission_and_reconciliation_difference_mwh": 4262.85
+    },
+    {
+      "date": "2024-10-16",
+      "measured_grid_demand_mwh": 114217.052,
+      "reconciled_injection_mwh": 118451.449,
+      "mapped_generation_mwh": 112727.479,
+      "unmapped_generation_residual_mwh": 5723.97,
+      "transmission_and_reconciliation_difference_mwh": 4234.397
+    },
+    {
+      "date": "2024-10-17",
+      "measured_grid_demand_mwh": 112209.835,
+      "reconciled_injection_mwh": 116489.615,
+      "mapped_generation_mwh": 111093.715,
+      "unmapped_generation_residual_mwh": 5395.9,
+      "transmission_and_reconciliation_difference_mwh": 4279.78
+    },
+    {
+      "date": "2024-10-18",
+      "measured_grid_demand_mwh": 109812.119,
+      "reconciled_injection_mwh": 113919.489,
+      "mapped_generation_mwh": 108708.652,
+      "unmapped_generation_residual_mwh": 5210.837,
+      "transmission_and_reconciliation_difference_mwh": 4107.37
+    },
+    {
+      "date": "2024-10-19",
+      "measured_grid_demand_mwh": 100475.811,
+      "reconciled_injection_mwh": 103667.57,
+      "mapped_generation_mwh": 98887.527,
+      "unmapped_generation_residual_mwh": 4780.043,
+      "transmission_and_reconciliation_difference_mwh": 3191.759
+    },
+    {
+      "date": "2024-10-20",
+      "measured_grid_demand_mwh": 98424.857,
+      "reconciled_injection_mwh": 101473.106,
+      "mapped_generation_mwh": 96423.811,
+      "unmapped_generation_residual_mwh": 5049.295,
+      "transmission_and_reconciliation_difference_mwh": 3048.249
+    },
+    {
+      "date": "2024-10-21",
+      "measured_grid_demand_mwh": 108181.154,
+      "reconciled_injection_mwh": 111902.587,
+      "mapped_generation_mwh": 106727.614,
+      "unmapped_generation_residual_mwh": 5174.973,
+      "transmission_and_reconciliation_difference_mwh": 3721.433
+    },
+    {
+      "date": "2024-10-22",
+      "measured_grid_demand_mwh": 109241.808,
+      "reconciled_injection_mwh": 112959.303,
+      "mapped_generation_mwh": 107233.13,
+      "unmapped_generation_residual_mwh": 5726.173,
+      "transmission_and_reconciliation_difference_mwh": 3717.495
+    },
+    {
+      "date": "2024-10-23",
+      "measured_grid_demand_mwh": 109013.121,
+      "reconciled_injection_mwh": 113092.997,
+      "mapped_generation_mwh": 107723.939,
+      "unmapped_generation_residual_mwh": 5369.058,
+      "transmission_and_reconciliation_difference_mwh": 4079.876
+    },
+    {
+      "date": "2024-10-24",
+      "measured_grid_demand_mwh": 107857.412,
+      "reconciled_injection_mwh": 111725.231,
+      "mapped_generation_mwh": 106738.21,
+      "unmapped_generation_residual_mwh": 4987.021,
+      "transmission_and_reconciliation_difference_mwh": 3867.819
+    },
+    {
+      "date": "2024-10-25",
+      "measured_grid_demand_mwh": 106128.48,
+      "reconciled_injection_mwh": 110447.955,
+      "mapped_generation_mwh": 104703.985,
+      "unmapped_generation_residual_mwh": 5743.97,
+      "transmission_and_reconciliation_difference_mwh": 4319.475
+    },
+    {
+      "date": "2024-10-26",
+      "measured_grid_demand_mwh": 102258.122,
+      "reconciled_injection_mwh": 105592.927,
+      "mapped_generation_mwh": 99645.174,
+      "unmapped_generation_residual_mwh": 5947.753,
+      "transmission_and_reconciliation_difference_mwh": 3334.805
+    },
+    {
+      "date": "2024-10-27",
+      "measured_grid_demand_mwh": 96870.635,
+      "reconciled_injection_mwh": 99697.435,
+      "mapped_generation_mwh": 93927.881,
+      "unmapped_generation_residual_mwh": 5769.554,
+      "transmission_and_reconciliation_difference_mwh": 2826.8
+    },
+    {
+      "date": "2024-10-28",
+      "measured_grid_demand_mwh": 99266.205,
+      "reconciled_injection_mwh": 102079.521,
+      "mapped_generation_mwh": 97053.661,
+      "unmapped_generation_residual_mwh": 5025.86,
+      "transmission_and_reconciliation_difference_mwh": 2813.316
+    },
+    {
+      "date": "2024-10-29",
+      "measured_grid_demand_mwh": 109358.08,
+      "reconciled_injection_mwh": 112789.386,
+      "mapped_generation_mwh": 107182.738,
+      "unmapped_generation_residual_mwh": 5606.648,
+      "transmission_and_reconciliation_difference_mwh": 3431.306
+    },
+    {
+      "date": "2024-10-30",
+      "measured_grid_demand_mwh": 110170.959,
+      "reconciled_injection_mwh": 114327.716,
+      "mapped_generation_mwh": 108447.551,
+      "unmapped_generation_residual_mwh": 5880.165,
+      "transmission_and_reconciliation_difference_mwh": 4156.757
+    },
+    {
+      "date": "2024-10-31",
+      "measured_grid_demand_mwh": 108031.073,
+      "reconciled_injection_mwh": 112257.72,
+      "mapped_generation_mwh": 106665.635,
+      "unmapped_generation_residual_mwh": 5592.085,
+      "transmission_and_reconciliation_difference_mwh": 4226.647
+    },
+    {
+      "date": "2024-11-01",
+      "measured_grid_demand_mwh": 107494.345,
+      "reconciled_injection_mwh": 111482.686,
+      "mapped_generation_mwh": 105690.589,
+      "unmapped_generation_residual_mwh": 5792.097,
+      "transmission_and_reconciliation_difference_mwh": 3988.341
+    },
+    {
+      "date": "2024-11-02",
+      "measured_grid_demand_mwh": 100322.803,
+      "reconciled_injection_mwh": 103533.568,
+      "mapped_generation_mwh": 97714.317,
+      "unmapped_generation_residual_mwh": 5819.251,
+      "transmission_and_reconciliation_difference_mwh": 3210.765
+    },
+    {
+      "date": "2024-11-03",
+      "measured_grid_demand_mwh": 100548.577,
+      "reconciled_injection_mwh": 103836.276,
+      "mapped_generation_mwh": 97816.968,
+      "unmapped_generation_residual_mwh": 6019.308,
+      "transmission_and_reconciliation_difference_mwh": 3287.699
+    },
+    {
+      "date": "2024-11-04",
+      "measured_grid_demand_mwh": 110166.429,
+      "reconciled_injection_mwh": 115066.173,
+      "mapped_generation_mwh": 109043.887,
+      "unmapped_generation_residual_mwh": 6022.286,
+      "transmission_and_reconciliation_difference_mwh": 4899.744
+    },
+    {
+      "date": "2024-11-05",
+      "measured_grid_demand_mwh": 110688.685,
+      "reconciled_injection_mwh": 115448.503,
+      "mapped_generation_mwh": 109776.074,
+      "unmapped_generation_residual_mwh": 5672.429,
+      "transmission_and_reconciliation_difference_mwh": 4759.818
+    },
+    {
+      "date": "2024-11-06",
+      "measured_grid_demand_mwh": 110089.282,
+      "reconciled_injection_mwh": 115051.651,
+      "mapped_generation_mwh": 109664.557,
+      "unmapped_generation_residual_mwh": 5387.094,
+      "transmission_and_reconciliation_difference_mwh": 4962.369
+    },
+    {
+      "date": "2024-11-07",
+      "measured_grid_demand_mwh": 110077.699,
+      "reconciled_injection_mwh": 115023.872,
+      "mapped_generation_mwh": 109347.69,
+      "unmapped_generation_residual_mwh": 5676.182,
+      "transmission_and_reconciliation_difference_mwh": 4946.173
+    },
+    {
+      "date": "2024-11-08",
+      "measured_grid_demand_mwh": 109723.171,
+      "reconciled_injection_mwh": 114566.441,
+      "mapped_generation_mwh": 108997.932,
+      "unmapped_generation_residual_mwh": 5568.509,
+      "transmission_and_reconciliation_difference_mwh": 4843.27
+    },
+    {
+      "date": "2024-11-09",
+      "measured_grid_demand_mwh": 101540.442,
+      "reconciled_injection_mwh": 105572.313,
+      "mapped_generation_mwh": 100642.356,
+      "unmapped_generation_residual_mwh": 4929.957,
+      "transmission_and_reconciliation_difference_mwh": 4031.871
+    },
+    {
+      "date": "2024-11-10",
+      "measured_grid_demand_mwh": 100760.133,
+      "reconciled_injection_mwh": 104992.623,
+      "mapped_generation_mwh": 99874.19,
+      "unmapped_generation_residual_mwh": 5118.433,
+      "transmission_and_reconciliation_difference_mwh": 4232.49
+    },
+    {
+      "date": "2024-11-11",
+      "measured_grid_demand_mwh": 110001.586,
+      "reconciled_injection_mwh": 114928.123,
+      "mapped_generation_mwh": 109275.607,
+      "unmapped_generation_residual_mwh": 5652.516,
+      "transmission_and_reconciliation_difference_mwh": 4926.537
+    },
+    {
+      "date": "2024-11-12",
+      "measured_grid_demand_mwh": 111006.233,
+      "reconciled_injection_mwh": 116130.804,
+      "mapped_generation_mwh": 110177.792,
+      "unmapped_generation_residual_mwh": 5953.012,
+      "transmission_and_reconciliation_difference_mwh": 5124.571
+    },
+    {
+      "date": "2024-11-13",
+      "measured_grid_demand_mwh": 110878.466,
+      "reconciled_injection_mwh": 116271.228,
+      "mapped_generation_mwh": 110655.678,
+      "unmapped_generation_residual_mwh": 5615.55,
+      "transmission_and_reconciliation_difference_mwh": 5392.762
+    },
+    {
+      "date": "2024-11-14",
+      "measured_grid_demand_mwh": 111932.667,
+      "reconciled_injection_mwh": 116920.478,
+      "mapped_generation_mwh": 111527.594,
+      "unmapped_generation_residual_mwh": 5392.884,
+      "transmission_and_reconciliation_difference_mwh": 4987.811
+    },
+    {
+      "date": "2024-11-15",
+      "measured_grid_demand_mwh": 111018.097,
+      "reconciled_injection_mwh": 115927.834,
+      "mapped_generation_mwh": 110257.197,
+      "unmapped_generation_residual_mwh": 5670.637,
+      "transmission_and_reconciliation_difference_mwh": 4909.737
+    },
+    {
+      "date": "2024-11-16",
+      "measured_grid_demand_mwh": 101637.497,
+      "reconciled_injection_mwh": 104794.103,
+      "mapped_generation_mwh": 99049.588,
+      "unmapped_generation_residual_mwh": 5744.515,
+      "transmission_and_reconciliation_difference_mwh": 3156.606
+    },
+    {
+      "date": "2024-11-17",
+      "measured_grid_demand_mwh": 99306.312,
+      "reconciled_injection_mwh": 102750.262,
+      "mapped_generation_mwh": 97275.592,
+      "unmapped_generation_residual_mwh": 5474.67,
+      "transmission_and_reconciliation_difference_mwh": 3443.95
+    },
+    {
+      "date": "2024-11-18",
+      "measured_grid_demand_mwh": 107817.18,
+      "reconciled_injection_mwh": 112622.162,
+      "mapped_generation_mwh": 106851.295,
+      "unmapped_generation_residual_mwh": 5770.867,
+      "transmission_and_reconciliation_difference_mwh": 4804.982
+    },
+    {
+      "date": "2024-11-19",
+      "measured_grid_demand_mwh": 109202.472,
+      "reconciled_injection_mwh": 113839.988,
+      "mapped_generation_mwh": 107873.411,
+      "unmapped_generation_residual_mwh": 5966.577,
+      "transmission_and_reconciliation_difference_mwh": 4637.516
+    },
+    {
+      "date": "2024-11-20",
+      "measured_grid_demand_mwh": 110788.076,
+      "reconciled_injection_mwh": 115307.453,
+      "mapped_generation_mwh": 110020.901,
+      "unmapped_generation_residual_mwh": 5286.552,
+      "transmission_and_reconciliation_difference_mwh": 4519.377
+    },
+    {
+      "date": "2024-11-21",
+      "measured_grid_demand_mwh": 112792.254,
+      "reconciled_injection_mwh": 117275.665,
+      "mapped_generation_mwh": 111589.399,
+      "unmapped_generation_residual_mwh": 5686.266,
+      "transmission_and_reconciliation_difference_mwh": 4483.411
+    },
+    {
+      "date": "2024-11-22",
+      "measured_grid_demand_mwh": 111158.053,
+      "reconciled_injection_mwh": 115844.802,
+      "mapped_generation_mwh": 109642.943,
+      "unmapped_generation_residual_mwh": 6201.859,
+      "transmission_and_reconciliation_difference_mwh": 4686.749
+    },
+    {
+      "date": "2024-11-23",
+      "measured_grid_demand_mwh": 102728.397,
+      "reconciled_injection_mwh": 106751.014,
+      "mapped_generation_mwh": 101242.232,
+      "unmapped_generation_residual_mwh": 5508.782,
+      "transmission_and_reconciliation_difference_mwh": 4022.617
+    },
+    {
+      "date": "2024-11-24",
+      "measured_grid_demand_mwh": 100189.885,
+      "reconciled_injection_mwh": 104060.239,
+      "mapped_generation_mwh": 98699.837,
+      "unmapped_generation_residual_mwh": 5360.402,
+      "transmission_and_reconciliation_difference_mwh": 3870.354
+    },
+    {
+      "date": "2024-11-25",
+      "measured_grid_demand_mwh": 110246.318,
+      "reconciled_injection_mwh": 115642.104,
+      "mapped_generation_mwh": 110520.459,
+      "unmapped_generation_residual_mwh": 5121.645,
+      "transmission_and_reconciliation_difference_mwh": 5395.786
+    },
+    {
+      "date": "2024-11-26",
+      "measured_grid_demand_mwh": 113867.893,
+      "reconciled_injection_mwh": 119468.832,
+      "mapped_generation_mwh": 114145.627,
+      "unmapped_generation_residual_mwh": 5323.205,
+      "transmission_and_reconciliation_difference_mwh": 5600.939
+    },
+    {
+      "date": "2024-11-27",
+      "measured_grid_demand_mwh": 113585.055,
+      "reconciled_injection_mwh": 118397.535,
+      "mapped_generation_mwh": 112976.616,
+      "unmapped_generation_residual_mwh": 5420.919,
+      "transmission_and_reconciliation_difference_mwh": 4812.48
+    },
+    {
+      "date": "2024-11-28",
+      "measured_grid_demand_mwh": 113976.883,
+      "reconciled_injection_mwh": 118788.834,
+      "mapped_generation_mwh": 113105.068,
+      "unmapped_generation_residual_mwh": 5683.766,
+      "transmission_and_reconciliation_difference_mwh": 4811.951
+    },
+    {
+      "date": "2024-11-29",
+      "measured_grid_demand_mwh": 112869.485,
+      "reconciled_injection_mwh": 117707.978,
+      "mapped_generation_mwh": 112114.113,
+      "unmapped_generation_residual_mwh": 5593.865,
+      "transmission_and_reconciliation_difference_mwh": 4838.493
+    },
+    {
+      "date": "2024-11-30",
+      "measured_grid_demand_mwh": 104947.953,
+      "reconciled_injection_mwh": 109062.835,
+      "mapped_generation_mwh": 104187.32,
+      "unmapped_generation_residual_mwh": 4875.515,
+      "transmission_and_reconciliation_difference_mwh": 4114.882
+    },
+    {
+      "date": "2024-12-01",
+      "measured_grid_demand_mwh": 103261.874,
+      "reconciled_injection_mwh": 107341.082,
+      "mapped_generation_mwh": 101757.681,
+      "unmapped_generation_residual_mwh": 5583.401,
+      "transmission_and_reconciliation_difference_mwh": 4079.208
+    },
+    {
+      "date": "2024-12-02",
+      "measured_grid_demand_mwh": 113747.413,
+      "reconciled_injection_mwh": 118999.301,
+      "mapped_generation_mwh": 113328.664,
+      "unmapped_generation_residual_mwh": 5670.637,
+      "transmission_and_reconciliation_difference_mwh": 5251.888
+    },
+    {
+      "date": "2024-12-03",
+      "measured_grid_demand_mwh": 116423.6,
+      "reconciled_injection_mwh": 121697.263,
+      "mapped_generation_mwh": 115954.544,
+      "unmapped_generation_residual_mwh": 5742.719,
+      "transmission_and_reconciliation_difference_mwh": 5273.663
+    },
+    {
+      "date": "2024-12-04",
+      "measured_grid_demand_mwh": 116469.054,
+      "reconciled_injection_mwh": 122007.031,
+      "mapped_generation_mwh": 116446.246,
+      "unmapped_generation_residual_mwh": 5560.785,
+      "transmission_and_reconciliation_difference_mwh": 5537.977
+    },
+    {
+      "date": "2024-12-05",
+      "measured_grid_demand_mwh": 117704.911,
+      "reconciled_injection_mwh": 123089.761,
+      "mapped_generation_mwh": 117087.941,
+      "unmapped_generation_residual_mwh": 6001.82,
+      "transmission_and_reconciliation_difference_mwh": 5384.85
+    },
+    {
+      "date": "2024-12-06",
+      "measured_grid_demand_mwh": 114671.547,
+      "reconciled_injection_mwh": 119773.644,
+      "mapped_generation_mwh": 113789.58,
+      "unmapped_generation_residual_mwh": 5984.064,
+      "transmission_and_reconciliation_difference_mwh": 5102.097
+    },
+    {
+      "date": "2024-12-07",
+      "measured_grid_demand_mwh": 104885.7,
+      "reconciled_injection_mwh": 109016.789,
+      "mapped_generation_mwh": 103516.848,
+      "unmapped_generation_residual_mwh": 5499.941,
+      "transmission_and_reconciliation_difference_mwh": 4131.089
+    },
+    {
+      "date": "2024-12-08",
+      "measured_grid_demand_mwh": 103654.464,
+      "reconciled_injection_mwh": 107287.522,
+      "mapped_generation_mwh": 102316.623,
+      "unmapped_generation_residual_mwh": 4970.899,
+      "transmission_and_reconciliation_difference_mwh": 3633.058
+    },
+    {
+      "date": "2024-12-09",
+      "measured_grid_demand_mwh": 114541.29,
+      "reconciled_injection_mwh": 119053.88,
+      "mapped_generation_mwh": 113309.287,
+      "unmapped_generation_residual_mwh": 5744.593,
+      "transmission_and_reconciliation_difference_mwh": 4512.59
+    },
+    {
+      "date": "2024-12-10",
+      "measured_grid_demand_mwh": 114634.091,
+      "reconciled_injection_mwh": 119794.539,
+      "mapped_generation_mwh": 114357.083,
+      "unmapped_generation_residual_mwh": 5437.456,
+      "transmission_and_reconciliation_difference_mwh": 5160.448
+    },
+    {
+      "date": "2024-12-11",
+      "measured_grid_demand_mwh": 116237.071,
+      "reconciled_injection_mwh": 121516.721,
+      "mapped_generation_mwh": 115551.894,
+      "unmapped_generation_residual_mwh": 5964.827,
+      "transmission_and_reconciliation_difference_mwh": 5279.65
+    },
+    {
+      "date": "2024-12-12",
+      "measured_grid_demand_mwh": 116978.343,
+      "reconciled_injection_mwh": 121800.211,
+      "mapped_generation_mwh": 116204.594,
+      "unmapped_generation_residual_mwh": 5595.617,
+      "transmission_and_reconciliation_difference_mwh": 4821.868
+    },
+    {
+      "date": "2024-12-13",
+      "measured_grid_demand_mwh": 115040.524,
+      "reconciled_injection_mwh": 119871.007,
+      "mapped_generation_mwh": 114440.721,
+      "unmapped_generation_residual_mwh": 5430.286,
+      "transmission_and_reconciliation_difference_mwh": 4830.483
+    },
+    {
+      "date": "2024-12-14",
+      "measured_grid_demand_mwh": 108562.38,
+      "reconciled_injection_mwh": 112983.769,
+      "mapped_generation_mwh": 107217.687,
+      "unmapped_generation_residual_mwh": 5766.082,
+      "transmission_and_reconciliation_difference_mwh": 4421.389
+    },
+    {
+      "date": "2024-12-15",
+      "measured_grid_demand_mwh": 106326.297,
+      "reconciled_injection_mwh": 110980.534,
+      "mapped_generation_mwh": 105438.07,
+      "unmapped_generation_residual_mwh": 5542.464,
+      "transmission_and_reconciliation_difference_mwh": 4654.237
+    },
+    {
+      "date": "2024-12-16",
+      "measured_grid_demand_mwh": 115615.516,
+      "reconciled_injection_mwh": 120901.481,
+      "mapped_generation_mwh": 115689.101,
+      "unmapped_generation_residual_mwh": 5212.38,
+      "transmission_and_reconciliation_difference_mwh": 5285.965
+    },
+    {
+      "date": "2024-12-17",
+      "measured_grid_demand_mwh": 113223.366,
+      "reconciled_injection_mwh": 118091.371,
+      "mapped_generation_mwh": 112717.91,
+      "unmapped_generation_residual_mwh": 5373.461,
+      "transmission_and_reconciliation_difference_mwh": 4868.005
+    },
+    {
+      "date": "2024-12-18",
+      "measured_grid_demand_mwh": 111971.182,
+      "reconciled_injection_mwh": 116852.971,
+      "mapped_generation_mwh": 111424.836,
+      "unmapped_generation_residual_mwh": 5428.135,
+      "transmission_and_reconciliation_difference_mwh": 4881.789
+    },
+    {
+      "date": "2024-12-19",
+      "measured_grid_demand_mwh": 111763.661,
+      "reconciled_injection_mwh": 117069.385,
+      "mapped_generation_mwh": 111754.203,
+      "unmapped_generation_residual_mwh": 5315.182,
+      "transmission_and_reconciliation_difference_mwh": 5305.724
+    },
+    {
+      "date": "2024-12-20",
+      "measured_grid_demand_mwh": 106832.781,
+      "reconciled_injection_mwh": 111673.251,
+      "mapped_generation_mwh": 106609.336,
+      "unmapped_generation_residual_mwh": 5063.915,
+      "transmission_and_reconciliation_difference_mwh": 4840.47
+    },
+    {
+      "date": "2024-12-21",
+      "measured_grid_demand_mwh": 98259.422,
+      "reconciled_injection_mwh": 102327.304,
+      "mapped_generation_mwh": 97464.703,
+      "unmapped_generation_residual_mwh": 4862.601,
+      "transmission_and_reconciliation_difference_mwh": 4067.882
+    },
+    {
+      "date": "2024-12-22",
+      "measured_grid_demand_mwh": 95558.804,
+      "reconciled_injection_mwh": 98919.322,
+      "mapped_generation_mwh": 93842.462,
+      "unmapped_generation_residual_mwh": 5076.86,
+      "transmission_and_reconciliation_difference_mwh": 3360.518
+    },
+    {
+      "date": "2024-12-23",
+      "measured_grid_demand_mwh": 99818.825,
+      "reconciled_injection_mwh": 103499.575,
+      "mapped_generation_mwh": 98005.521,
+      "unmapped_generation_residual_mwh": 5494.054,
+      "transmission_and_reconciliation_difference_mwh": 3680.75
+    },
+    {
+      "date": "2024-12-24",
+      "measured_grid_demand_mwh": 99978.917,
+      "reconciled_injection_mwh": 103876.107,
+      "mapped_generation_mwh": 98398.509,
+      "unmapped_generation_residual_mwh": 5477.598,
+      "transmission_and_reconciliation_difference_mwh": 3897.19
+    },
+    {
+      "date": "2024-12-25",
+      "measured_grid_demand_mwh": 91850.054,
+      "reconciled_injection_mwh": 95032.148,
+      "mapped_generation_mwh": 89844.057,
+      "unmapped_generation_residual_mwh": 5188.091,
+      "transmission_and_reconciliation_difference_mwh": 3182.094
+    },
+    {
+      "date": "2024-12-26",
+      "measured_grid_demand_mwh": 91585.563,
+      "reconciled_injection_mwh": 94675.43,
+      "mapped_generation_mwh": 90097.042,
+      "unmapped_generation_residual_mwh": 4578.388,
+      "transmission_and_reconciliation_difference_mwh": 3089.867
+    },
+    {
+      "date": "2024-12-27",
+      "measured_grid_demand_mwh": 94210.496,
+      "reconciled_injection_mwh": 97194.305,
+      "mapped_generation_mwh": 92116.394,
+      "unmapped_generation_residual_mwh": 5077.911,
+      "transmission_and_reconciliation_difference_mwh": 2983.809
+    },
+    {
+      "date": "2024-12-28",
+      "measured_grid_demand_mwh": 91448.013,
+      "reconciled_injection_mwh": 94317.889,
+      "mapped_generation_mwh": 88846.133,
+      "unmapped_generation_residual_mwh": 5471.756,
+      "transmission_and_reconciliation_difference_mwh": 2869.876
+    },
+    {
+      "date": "2024-12-29",
+      "measured_grid_demand_mwh": 92175.424,
+      "reconciled_injection_mwh": 95193.799,
+      "mapped_generation_mwh": 90108.088,
+      "unmapped_generation_residual_mwh": 5085.711,
+      "transmission_and_reconciliation_difference_mwh": 3018.375
+    },
+    {
+      "date": "2024-12-30",
+      "measured_grid_demand_mwh": 95778.669,
+      "reconciled_injection_mwh": 99211.693,
+      "mapped_generation_mwh": 94351.721,
+      "unmapped_generation_residual_mwh": 4859.972,
+      "transmission_and_reconciliation_difference_mwh": 3433.024
+    },
+    {
+      "date": "2024-12-31",
+      "measured_grid_demand_mwh": 95273.852,
+      "reconciled_injection_mwh": 98247.439,
+      "mapped_generation_mwh": 93396.563,
+      "unmapped_generation_residual_mwh": 4850.876,
+      "transmission_and_reconciliation_difference_mwh": 2973.587
+    }
+  ]
+}

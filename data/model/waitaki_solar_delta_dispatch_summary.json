@@ -1,0 +1,322 @@
+{
+  "status": "dynamic_headroom_constrained_policy_comparison",
+  "purpose": "Correct the Waitaki solar-storage delta diagnostic for day-to-day loss of headroom as observed lake storage rises.",
+  "method": {
+    "baseline": "Observed 2024 per-lake storage plus observed Waitaki and thermal generation.",
+    "individual_lake_empirical_ceilings_gwh": {
+      "TKA": 1036.571,
+      "PKI": 1892.039,
+      "OHA": 103.491
+    },
+    "simultaneous_upper_waitaki_empirical_ceiling_gwh": 2932.843,
+    "dynamic_headroom_rule": "At the start of every day, counterfactual reserve that no longer fits above the observed lake state is forced to spill before dispatch.",
+    "allocation_rule": "Remaining storable energy is allocated in proportion to current individual lake headroom and is also capped by the historical simultaneous upper-Waitaki envelope.",
+    "winter_entry_definition": "Reserve remaining after the 1 May start-of-day headroom reconciliation and before 1 May dispatch.",
+    "policies": {
+      "fuel_minimizing": "Solar displaces thermal first.",
+      "winter_security": "Before 1 May solar conserves hydro first; from 1 May thermal is displaced first and conserved reserve can be released."
+    }
+  },
+  "policies": {
+    "fuel_minimizing": {
+      "0": {
+        "incremental_solar_gwh": 0,
+        "winter_entry_storage_increase_gwh": 0.0,
+        "winter_entry_storage_increase_by_lake_gwh": {
+          "TKA": 0.0,
+          "PKI": 0.0,
+          "OHA": 0.0
+        },
+        "maximum_storage_increase_gwh": 0.0,
+        "maximum_storage_increase_by_lake_gwh": {
+          "TKA": 0.0,
+          "PKI": 0.0,
+          "OHA": 0.0
+        },
+        "year_end_storage_increase_gwh": 0.0,
+        "year_end_storage_increase_by_lake_gwh": {
+          "TKA": 0.0,
+          "PKI": 0.0,
+          "OHA": 0.0
+        },
+        "waitaki_hydro_avoided_and_stored_gwh": 0.0,
+        "direct_thermal_displacement_by_solar_gwh": 0.0,
+        "thermal_displacement_by_later_release_of_conserved_hydro_gwh": 0.0,
+        "total_thermal_generation_displaced_gwh": 0.0,
+        "foregone_pre_winter_direct_thermal_savings_gwh": 0.0,
+        "forced_counterfactual_spill_due_to_headroom_gwh": 0.0,
+        "storage_limited_hydro_displacement_gwh": 0.0,
+        "incremental_solar_curtailed_gwh": 0.0
+      },
+      "500": {
+        "incremental_solar_gwh": 500,
+        "winter_entry_storage_increase_gwh": 0.0,
+        "winter_entry_storage_increase_by_lake_gwh": {
+          "TKA": 0.0,
+          "PKI": 0.0,
+          "OHA": 0.0
+        },
+        "maximum_storage_increase_gwh": 0.455,
+        "maximum_storage_increase_by_lake_gwh": {
+          "TKA": 0.294,
+          "PKI": 0.106,
+          "OHA": 0.055
+        },
+        "year_end_storage_increase_gwh": -0.0,
+        "year_end_storage_increase_by_lake_gwh": {
+          "TKA": 0.0,
+          "PKI": -0.0,
+          "OHA": 0.0
+        },
+        "waitaki_hydro_avoided_and_stored_gwh": 0.59,
+        "direct_thermal_displacement_by_solar_gwh": 499.41,
+        "thermal_displacement_by_later_release_of_conserved_hydro_gwh": 0.59,
+        "total_thermal_generation_displaced_gwh": 500.0,
+        "foregone_pre_winter_direct_thermal_savings_gwh": 0.0,
+        "forced_counterfactual_spill_due_to_headroom_gwh": 0.0,
+        "storage_limited_hydro_displacement_gwh": 0.0,
+        "incremental_solar_curtailed_gwh": 0.0
+      },
+      "1000": {
+        "incremental_solar_gwh": 1000,
+        "winter_entry_storage_increase_gwh": 0.0,
+        "winter_entry_storage_increase_by_lake_gwh": {
+          "TKA": 0.0,
+          "PKI": 0.0,
+          "OHA": 0.0
+        },
+        "maximum_storage_increase_gwh": 39.285,
+        "maximum_storage_increase_by_lake_gwh": {
+          "TKA": 24.337,
+          "PKI": 10.472,
+          "OHA": 4.476
+        },
+        "year_end_storage_increase_gwh": 39.285,
+        "year_end_storage_increase_by_lake_gwh": {
+          "TKA": 24.337,
+          "PKI": 10.472,
+          "OHA": 4.476
+        },
+        "waitaki_hydro_avoided_and_stored_gwh": 53.721,
+        "direct_thermal_displacement_by_solar_gwh": 946.279,
+        "thermal_displacement_by_later_release_of_conserved_hydro_gwh": 14.436,
+        "total_thermal_generation_displaced_gwh": 960.715,
+        "foregone_pre_winter_direct_thermal_savings_gwh": 0.0,
+        "forced_counterfactual_spill_due_to_headroom_gwh": 0.0,
+        "storage_limited_hydro_displacement_gwh": 0.0,
+        "incremental_solar_curtailed_gwh": 0.0
+      },
+      "1500": {
+        "incremental_solar_gwh": 1500,
+        "winter_entry_storage_increase_gwh": 0.0,
+        "winter_entry_storage_increase_by_lake_gwh": {
+          "TKA": 0.0,
+          "PKI": 0.0,
+          "OHA": 0.0
+        },
+        "maximum_storage_increase_gwh": 147.028,
+        "maximum_storage_increase_by_lake_gwh": {
+          "TKA": 84.168,
+          "PKI": 47.816,
+          "OHA": 15.044
+        },
+        "year_end_storage_increase_gwh": 147.028,
+        "year_end_storage_increase_by_lake_gwh": {
+          "TKA": 84.168,
+          "PKI": 47.816,
+          "OHA": 15.044
+        },
+        "waitaki_hydro_avoided_and_stored_gwh": 150.42,
+        "direct_thermal_displacement_by_solar_gwh": 1349.58,
+        "thermal_displacement_by_later_release_of_conserved_hydro_gwh": 3.391,
+        "total_thermal_generation_displaced_gwh": 1352.972,
+        "foregone_pre_winter_direct_thermal_savings_gwh": 0.0,
+        "forced_counterfactual_spill_due_to_headroom_gwh": 0.0,
+        "storage_limited_hydro_displacement_gwh": 0.0,
+        "incremental_solar_curtailed_gwh": 0.0
+      },
+      "2500": {
+        "incremental_solar_gwh": 2500,
+        "winter_entry_storage_increase_gwh": 16.076,
+        "winter_entry_storage_increase_by_lake_gwh": {
+          "TKA": 8.926,
+          "PKI": 6.058,
+          "OHA": 1.092
+        },
+        "maximum_storage_increase_gwh": 371.118,
+        "maximum_storage_increase_by_lake_gwh": {
+          "TKA": 221.363,
+          "PKI": 117.17,
+          "OHA": 39.655
+        },
+        "year_end_storage_increase_gwh": 371.118,
+        "year_end_storage_increase_by_lake_gwh": {
+          "TKA": 221.363,
+          "PKI": 110.1,
+          "OHA": 39.655
+        },
+        "waitaki_hydro_avoided_and_stored_gwh": 395.409,
+        "direct_thermal_displacement_by_solar_gwh": 2104.591,
+        "thermal_displacement_by_later_release_of_conserved_hydro_gwh": 17.221,
+        "total_thermal_generation_displaced_gwh": 2121.812,
+        "foregone_pre_winter_direct_thermal_savings_gwh": 0.0,
+        "forced_counterfactual_spill_due_to_headroom_gwh": 7.07,
+        "storage_limited_hydro_displacement_gwh": -0.0,
+        "incremental_solar_curtailed_gwh": 0.0
+      }
+    },
+    "winter_security": {
+      "0": {
+        "incremental_solar_gwh": 0,
+        "winter_entry_storage_increase_gwh": 0.0,
+        "winter_entry_storage_increase_by_lake_gwh": {
+          "TKA": 0.0,
+          "PKI": 0.0,
+          "OHA": 0.0
+        },
+        "maximum_storage_increase_gwh": 0.0,
+        "maximum_storage_increase_by_lake_gwh": {
+          "TKA": 0.0,
+          "PKI": 0.0,
+          "OHA": 0.0
+        },
+        "year_end_storage_increase_gwh": 0.0,
+        "year_end_storage_increase_by_lake_gwh": {
+          "TKA": 0.0,
+          "PKI": 0.0,
+          "OHA": 0.0
+        },
+        "waitaki_hydro_avoided_and_stored_gwh": 0.0,
+        "direct_thermal_displacement_by_solar_gwh": 0.0,
+        "thermal_displacement_by_later_release_of_conserved_hydro_gwh": 0.0,
+        "total_thermal_generation_displaced_gwh": 0.0,
+        "foregone_pre_winter_direct_thermal_savings_gwh": 0.0,
+        "forced_counterfactual_spill_due_to_headroom_gwh": 0.0,
+        "storage_limited_hydro_displacement_gwh": 0.0,
+        "incremental_solar_curtailed_gwh": 0.0
+      },
+      "500": {
+        "incremental_solar_gwh": 500,
+        "winter_entry_storage_increase_gwh": 184.242,
+        "winter_entry_storage_increase_by_lake_gwh": {
+          "TKA": 96.786,
+          "PKI": 75.629,
+          "OHA": 11.826
+        },
+        "maximum_storage_increase_gwh": 184.242,
+        "maximum_storage_increase_by_lake_gwh": {
+          "TKA": 96.786,
+          "PKI": 75.629,
+          "OHA": 11.826
+        },
+        "year_end_storage_increase_gwh": -0.0,
+        "year_end_storage_increase_by_lake_gwh": {
+          "TKA": 0.0,
+          "PKI": -0.0,
+          "OHA": 0.0
+        },
+        "waitaki_hydro_avoided_and_stored_gwh": 184.832,
+        "direct_thermal_displacement_by_solar_gwh": 315.168,
+        "thermal_displacement_by_later_release_of_conserved_hydro_gwh": 184.832,
+        "total_thermal_generation_displaced_gwh": 500.0,
+        "foregone_pre_winter_direct_thermal_savings_gwh": 184.242,
+        "forced_counterfactual_spill_due_to_headroom_gwh": 0.0,
+        "storage_limited_hydro_displacement_gwh": 0.0,
+        "incremental_solar_curtailed_gwh": 0.0
+      },
+      "1000": {
+        "incremental_solar_gwh": 1000,
+        "winter_entry_storage_increase_gwh": 368.484,
+        "winter_entry_storage_increase_by_lake_gwh": {
+          "TKA": 192.448,
+          "PKI": 152.151,
+          "OHA": 23.885
+        },
+        "maximum_storage_increase_gwh": 368.484,
+        "maximum_storage_increase_by_lake_gwh": {
+          "TKA": 192.448,
+          "PKI": 152.151,
+          "OHA": 23.885
+        },
+        "year_end_storage_increase_gwh": 39.285,
+        "year_end_storage_increase_by_lake_gwh": {
+          "TKA": 24.337,
+          "PKI": 10.472,
+          "OHA": 4.476
+        },
+        "waitaki_hydro_avoided_and_stored_gwh": 422.205,
+        "direct_thermal_displacement_by_solar_gwh": 577.795,
+        "thermal_displacement_by_later_release_of_conserved_hydro_gwh": 382.92,
+        "total_thermal_generation_displaced_gwh": 960.715,
+        "foregone_pre_winter_direct_thermal_savings_gwh": 368.484,
+        "forced_counterfactual_spill_due_to_headroom_gwh": 0.0,
+        "storage_limited_hydro_displacement_gwh": 0.0,
+        "incremental_solar_curtailed_gwh": 0.0
+      },
+      "1500": {
+        "incremental_solar_gwh": 1500,
+        "winter_entry_storage_increase_gwh": 552.726,
+        "winter_entry_storage_increase_by_lake_gwh": {
+          "TKA": 286.118,
+          "PKI": 230.258,
+          "OHA": 36.349
+        },
+        "maximum_storage_increase_gwh": 552.726,
+        "maximum_storage_increase_by_lake_gwh": {
+          "TKA": 286.118,
+          "PKI": 230.258,
+          "OHA": 36.349
+        },
+        "year_end_storage_increase_gwh": 147.028,
+        "year_end_storage_increase_by_lake_gwh": {
+          "TKA": 84.168,
+          "PKI": 47.816,
+          "OHA": 15.044
+        },
+        "waitaki_hydro_avoided_and_stored_gwh": 703.145,
+        "direct_thermal_displacement_by_solar_gwh": 796.855,
+        "thermal_displacement_by_later_release_of_conserved_hydro_gwh": 556.117,
+        "total_thermal_generation_displaced_gwh": 1352.972,
+        "foregone_pre_winter_direct_thermal_savings_gwh": 552.726,
+        "forced_counterfactual_spill_due_to_headroom_gwh": 0.0,
+        "storage_limited_hydro_displacement_gwh": 0.0,
+        "incremental_solar_curtailed_gwh": 0.0
+      },
+      "2500": {
+        "incremental_solar_gwh": 2500,
+        "winter_entry_storage_increase_gwh": 921.209,
+        "winter_entry_storage_increase_by_lake_gwh": {
+          "TKA": 455.038,
+          "PKI": 399.829,
+          "OHA": 66.343
+        },
+        "maximum_storage_increase_gwh": 921.209,
+        "maximum_storage_increase_by_lake_gwh": {
+          "TKA": 455.038,
+          "PKI": 399.829,
+          "OHA": 66.343
+        },
+        "year_end_storage_increase_gwh": 371.118,
+        "year_end_storage_increase_by_lake_gwh": {
+          "TKA": 221.363,
+          "PKI": 110.1,
+          "OHA": 39.655
+        },
+        "waitaki_hydro_avoided_and_stored_gwh": 1300.543,
+        "direct_thermal_displacement_by_solar_gwh": 1199.457,
+        "thermal_displacement_by_later_release_of_conserved_hydro_gwh": 922.354,
+        "total_thermal_generation_displaced_gwh": 2121.812,
+        "foregone_pre_winter_direct_thermal_savings_gwh": 905.133,
+        "forced_counterfactual_spill_due_to_headroom_gwh": 7.07,
+        "storage_limited_hydro_displacement_gwh": -0.0,
+        "incremental_solar_curtailed_gwh": 0.0
+      }
+    }
+  },
+  "important_limitations": [
+    "This is still a counterfactual delta diagnostic rather than a full physical Waitaki water-routing model.",
+    "The simultaneous empirical ceiling is a historical envelope, not a legal engineering maximum.",
+    "Proportional allocation among Tekapo/Pukaki/Ohau remains an interim assumption.",
+    "The next physical refinement should tie avoided generation to source-water routes and enforce canal, station-flow, bypass and minimum-flow constraints."
+  ]
+}

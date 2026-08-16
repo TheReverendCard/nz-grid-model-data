@@ -1,0 +1,128 @@
+{
+  "source": "New Zealand Electricity Authority reconciled injection and offtake (GR-010)",
+  "blob_name": "Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202401_20250325_093208.csv.gz",
+  "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Volumes/Reconciliation/2024/ReconciledInjectionAndOfftake_202401_20250325_093208.csv.gz",
+  "etag": "0x8DD6F9DFCF00D47",
+  "last_modified": "Sun, 30 Mar 2025 15:17:30 GMT",
+  "content_length": "30153656",
+  "inspected_at_utc": "2026-08-14T05:45:33.415918+00:00",
+  "rows_sampled": 5000,
+  "fieldnames": [
+    "PointOfConnection",
+    "Network",
+    "Island",
+    "Participant",
+    "TradingDate",
+    "TradingPeriod",
+    "TradingPeriodStartTime",
+    "FlowDirection",
+    "KilowattHours"
+  ],
+  "sample_values": {
+    "PointOfConnection": [
+      "ABY0111",
+      "APS0111",
+      "ARI1102",
+      "BAL0331",
+      "BRK0331",
+      "DVK0111",
+      "EDN0331",
+      "GYT0331",
+      "HLY0331",
+      "HOR0661",
+      "HUI0331",
+      "HWA0331"
+    ],
+    "Network": [
+      "ALPE",
+      "CKHK",
+      "COUP",
+      "MRPL",
+      "ORON",
+      "OTPO",
+      "POCO",
+      "SCAN",
+      "TPCO",
+      "UNET",
+      "VECT",
+      "WAIK"
+    ],
+    "Island": [
+      "NI",
+      "SI"
+    ],
+    "Participant": [
+      "CNIR",
+      "CTCS",
+      "CTCT",
+      "ELKI",
+      "FLCK",
+      "MEEN",
+      "MERX",
+      "PRME",
+      "SWCH",
+      "TODD",
+      "TRUS",
+      "WISE"
+    ],
+    "TradingDate": [
+      "2024-01-01",
+      "2024-01-02",
+      "2024-01-04",
+      "2024-01-05",
+      "2024-01-06",
+      "2024-01-07",
+      "2024-01-08",
+      "2024-01-09",
+      "2024-01-24",
+      "2024-01-27",
+      "2024-01-28",
+      "2024-01-29"
+    ],
+    "TradingPeriod": [
+      "1",
+      "10",
+      "11",
+      "12",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "TradingPeriodStartTime": [
+      "00:00",
+      "00:30",
+      "01:00",
+      "01:30",
+      "02:00",
+      "02:30",
+      "03:00",
+      "03:30",
+      "04:00",
+      "04:30",
+      "05:00",
+      "05:30"
+    ],
+    "FlowDirection": [
+      "Offtake"
+    ],
+    "KilowattHours": [
+      "3.0",
+      "301.0",
+      "303.0",
+      "304.0",
+      "313.0",
+      "318.0",
+      "322.0",
+      "334.0",
+      "4.0",
+      "5.0",
+      "6.0",
+      "7.0"
+    ]
+  }
+}

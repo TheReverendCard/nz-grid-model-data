@@ -1,0 +1,30 @@
+{
+  "purpose": "Override stale or incomplete HMD generating-capacity values with newer operator-published values. Hydrological constraints and plant factors still come from HMD unless separately overridden.",
+  "overrides": {
+    "Waikato river:ARA": {
+      "generating_capacity_mw": 78.0,
+      "source": "https://www.mercury.co.nz/about-us/renewable-energy/hydro-generation/aratiatia-hydro-station",
+      "note": "Mercury current station page; HMD asset extraction reported 90 MW."
+    },
+    "Waikato river:ARI": {
+      "generating_capacity_mw": 198.0,
+      "source": "https://www.mercury.co.nz/about-us/renewable-energy/hydro-generation/arapuni-hydro-station",
+      "note": "Mercury current station page; HMD asset extraction omitted generating capacity. A separate 2026 project page states 196 MW, so retain 198 MW from the dedicated station page and flag for periodic review."
+    },
+    "Waikato river:KPO": {
+      "generating_capacity_mw": 112.5,
+      "source": "https://www.mercury.co.nz/about-us/renewable-energy/hydro-generation/karapiro-hydro-station",
+      "note": "Post-2025 refurbishment capacity. HMD asset extraction reported 108 MW."
+    },
+    "Waikato river:MTI": {
+      "generating_capacity_mw": 360.0,
+      "source": "https://www.mercury.co.nz/about-us/renewable-energy/hydro-generation/maraetai-i-and-ii-hydro-station",
+      "note": "Maraetai I and II are each 180 MW and operated as one station. HMD extraction captured only 180 MW."
+    },
+    "Waikato river:WKM": {
+      "generating_capacity_mw": 124.0,
+      "source": "https://www.mercury.co.nz/about-us/renewable-energy/hydro-generation/whakamaru-hydro-station",
+      "note": "Post-refurbishment capacity. HMD asset extraction reported 100 MW."
+    }
+  }
+}

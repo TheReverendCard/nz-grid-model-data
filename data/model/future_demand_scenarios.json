@@ -1,0 +1,432 @@
+{
+  "source": "MBIE Electricity Demand and Generation Scenarios 2024, calibrated to observed/modelled 2024 national underlying electricity consumption",
+  "baseline": {
+    "year": 2024,
+    "calibrated_underlying_consumption_twh": 41.795421,
+    "definition": "EA reconciled offtake plus central estimate of residential PV retained behind the meter."
+  },
+  "method": {
+    "annual_energy": "For each EDGS scenario, preserve the EDGS percentage growth from its own 2024 starting value and apply that growth factor to the calibrated 2024 underlying-consumption baseline.",
+    "reason": "This retains EDGS electrification/economic/sector assumptions without replacing observed 2024 electricity use with an older modelled starting value.",
+    "daily_shape": "Not yet generated. Future replay will scale a calibrated historical daily underlying-demand shape to these annual targets, with future behind-meter PV represented separately.",
+    "peak_demand": "EDGS peak demand is retained as a capacity-adequacy reference but is not yet recalibrated to an observed 2024 national peak.",
+    "thermal": "Thermal plant remains an available high-cost backstop; energy adequacy should report thermal MWh required rather than assume gas generation is unavailable."
+  },
+  "scenarios": {
+    "Constraint": {
+      "edgs_2024_start_twh": 40.477,
+      "years": {
+        "2024": {
+          "edgs_raw_twh": 40.477,
+          "growth_factor_vs_edgs_2024": 1.0,
+          "growth_pct_vs_2024": 0.0,
+          "calibrated_underlying_demand_twh": 41.795421,
+          "calibrated_underlying_demand_mwh": 41795420.541
+        },
+        "2030": {
+          "edgs_raw_twh": 44.101,
+          "growth_factor_vs_edgs_2024": 1.08953233,
+          "growth_pct_vs_2024": 8.9532,
+          "calibrated_underlying_demand_twh": 45.537462,
+          "calibrated_underlying_demand_mwh": 45537461.8
+        },
+        "2040": {
+          "edgs_raw_twh": 50.466,
+          "growth_factor_vs_edgs_2024": 1.24678212,
+          "growth_pct_vs_2024": 24.6782,
+          "calibrated_underlying_demand_twh": 52.109783,
+          "calibrated_underlying_demand_mwh": 52109783.161
+        },
+        "2050": {
+          "edgs_raw_twh": 53.593,
+          "growth_factor_vs_edgs_2024": 1.32403587,
+          "growth_pct_vs_2024": 32.4036,
+          "calibrated_underlying_demand_twh": 55.338636,
+          "calibrated_underlying_demand_mwh": 55338636.091
+        }
+      },
+      "sector_demand_twh": {
+        "2024": {
+          "Commercial": 10.122,
+          "Industrial": 16.686,
+          "Residential": 13.338,
+          "Transport": 0.331
+        },
+        "2030": {
+          "Commercial": 11.764,
+          "Industrial": 18.652,
+          "Residential": 12.922,
+          "Transport": 0.763
+        },
+        "2040": {
+          "Commercial": 13.007,
+          "Industrial": 20.915,
+          "Residential": 13.548,
+          "Transport": 2.996
+        },
+        "2050": {
+          "Commercial": 12.906,
+          "Industrial": 20.081,
+          "Residential": 13.965,
+          "Transport": 6.642
+        }
+      },
+      "edgs_peak_demand_gw": {
+        "2024": 6.744,
+        "2030": 7.407,
+        "2040": 8.552,
+        "2050": 9.086
+      },
+      "datacentre_load_capacity_mw": {
+        "2024": 50.0,
+        "2030": 113.0,
+        "2040": 113.0,
+        "2050": 113.0
+      },
+      "datacentre_electricity_consumption_twh": {
+        "2024": 0.394,
+        "2030": 0.892,
+        "2040": 0.892,
+        "2050": 0.892
+      },
+      "ev_share_of_vkt": {
+        "2024": 0.019,
+        "2030": 0.053,
+        "2040": 0.253,
+        "2050": 0.608
+      }
+    },
+    "Environmental": {
+      "edgs_2024_start_twh": 41.08,
+      "years": {
+        "2024": {
+          "edgs_raw_twh": 41.08,
+          "growth_factor_vs_edgs_2024": 1.0,
+          "growth_pct_vs_2024": 0.0,
+          "calibrated_underlying_demand_twh": 41.795421,
+          "calibrated_underlying_demand_mwh": 41795420.541
+        },
+        "2030": {
+          "edgs_raw_twh": 50.388,
+          "growth_factor_vs_edgs_2024": 1.22658228,
+          "growth_pct_vs_2024": 22.6582,
+          "calibrated_underlying_demand_twh": 51.265522,
+          "calibrated_underlying_demand_mwh": 51265522.157
+        },
+        "2040": {
+          "edgs_raw_twh": 63.381,
+          "growth_factor_vs_edgs_2024": 1.54286758,
+          "growth_pct_vs_2024": 54.2868,
+          "calibrated_underlying_demand_twh": 64.484799,
+          "calibrated_underlying_demand_mwh": 64484799.156
+        },
+        "2050": {
+          "edgs_raw_twh": 68.604,
+          "growth_factor_vs_edgs_2024": 1.67000974,
+          "growth_pct_vs_2024": 67.001,
+          "calibrated_underlying_demand_twh": 69.798759,
+          "calibrated_underlying_demand_mwh": 69798759.27
+        }
+      },
+      "sector_demand_twh": {
+        "2024": {
+          "Commercial": 10.17,
+          "Industrial": 17.068,
+          "Residential": 13.471,
+          "Transport": 0.372
+        },
+        "2030": {
+          "Commercial": 13.4,
+          "Industrial": 21.948,
+          "Residential": 13.719,
+          "Transport": 1.321
+        },
+        "2040": {
+          "Commercial": 15.962,
+          "Industrial": 27.106,
+          "Residential": 15.036,
+          "Transport": 5.276
+        },
+        "2050": {
+          "Commercial": 16.546,
+          "Industrial": 26.677,
+          "Residential": 15.83,
+          "Transport": 9.551
+        }
+      },
+      "edgs_peak_demand_gw": {
+        "2024": 6.858,
+        "2030": 8.465,
+        "2040": 10.553,
+        "2050": 11.156
+      },
+      "datacentre_load_capacity_mw": {
+        "2024": 50.0,
+        "2030": 233.0,
+        "2040": 233.0,
+        "2050": 233.0
+      },
+      "datacentre_electricity_consumption_twh": {
+        "2024": 0.394,
+        "2030": 1.838,
+        "2040": 1.838,
+        "2050": 1.838
+      },
+      "ev_share_of_vkt": {
+        "2024": 0.022,
+        "2030": 0.095,
+        "2040": 0.418,
+        "2050": 0.759
+      }
+    },
+    "Growth": {
+      "edgs_2024_start_twh": 40.595,
+      "years": {
+        "2024": {
+          "edgs_raw_twh": 40.595,
+          "growth_factor_vs_edgs_2024": 1.0,
+          "growth_pct_vs_2024": 0.0,
+          "calibrated_underlying_demand_twh": 41.795421,
+          "calibrated_underlying_demand_mwh": 41795420.541
+        },
+        "2030": {
+          "edgs_raw_twh": 48.176,
+          "growth_factor_vs_edgs_2024": 1.18674714,
+          "growth_pct_vs_2024": 18.6747,
+          "calibrated_underlying_demand_twh": 49.600596,
+          "calibrated_underlying_demand_mwh": 49600595.639
+        },
+        "2040": {
+          "edgs_raw_twh": 62.233,
+          "growth_factor_vs_edgs_2024": 1.53302131,
+          "growth_pct_vs_2024": 53.3021,
+          "calibrated_underlying_demand_twh": 64.07327,
+          "calibrated_underlying_demand_mwh": 64073270.268
+        },
+        "2050": {
+          "edgs_raw_twh": 71.672,
+          "growth_factor_vs_edgs_2024": 1.76553763,
+          "growth_pct_vs_2024": 76.5538,
+          "calibrated_underlying_demand_twh": 73.791388,
+          "calibrated_underlying_demand_mwh": 73791387.634
+        }
+      },
+      "sector_demand_twh": {
+        "2024": {
+          "Commercial": 10.113,
+          "Industrial": 16.638,
+          "Residential": 13.466,
+          "Transport": 0.379
+        },
+        "2030": {
+          "Commercial": 14.192,
+          "Industrial": 18.732,
+          "Residential": 13.848,
+          "Transport": 1.404
+        },
+        "2040": {
+          "Commercial": 17.303,
+          "Industrial": 23.49,
+          "Residential": 15.499,
+          "Transport": 5.942
+        },
+        "2050": {
+          "Commercial": 18.98,
+          "Industrial": 24.587,
+          "Residential": 16.762,
+          "Transport": 11.343
+        }
+      },
+      "edgs_peak_demand_gw": {
+        "2024": 6.767,
+        "2030": 8.175,
+        "2040": 10.768,
+        "2050": 12.486
+      },
+      "datacentre_load_capacity_mw": {
+        "2024": 50.0,
+        "2030": 383.0,
+        "2040": 383.0,
+        "2050": 383.0
+      },
+      "datacentre_electricity_consumption_twh": {
+        "2024": 0.394,
+        "2030": 3.022,
+        "2040": 3.022,
+        "2050": 3.022
+      },
+      "ev_share_of_vkt": {
+        "2024": 0.022,
+        "2030": 0.096,
+        "2040": 0.421,
+        "2050": 0.762
+      }
+    },
+    "Innovation": {
+      "edgs_2024_start_twh": 41.197,
+      "years": {
+        "2024": {
+          "edgs_raw_twh": 41.197,
+          "growth_factor_vs_edgs_2024": 1.0,
+          "growth_pct_vs_2024": 0.0,
+          "calibrated_underlying_demand_twh": 41.795421,
+          "calibrated_underlying_demand_mwh": 41795420.541
+        },
+        "2030": {
+          "edgs_raw_twh": 52.386,
+          "growth_factor_vs_edgs_2024": 1.27159745,
+          "growth_pct_vs_2024": 27.1597,
+          "calibrated_underlying_demand_twh": 53.14695,
+          "calibrated_underlying_demand_mwh": 53146950.032
+        },
+        "2040": {
+          "edgs_raw_twh": 66.434,
+          "growth_factor_vs_edgs_2024": 1.61259315,
+          "growth_pct_vs_2024": 61.2593,
+          "calibrated_underlying_demand_twh": 67.399009,
+          "calibrated_underlying_demand_mwh": 67399008.865
+        },
+        "2050": {
+          "edgs_raw_twh": 72.11,
+          "growth_factor_vs_edgs_2024": 1.75037017,
+          "growth_pct_vs_2024": 75.037,
+          "calibrated_underlying_demand_twh": 73.157457,
+          "calibrated_underlying_demand_mwh": 73157457.466
+        }
+      },
+      "sector_demand_twh": {
+        "2024": {
+          "Commercial": 10.2,
+          "Industrial": 17.151,
+          "Residential": 13.471,
+          "Transport": 0.375
+        },
+        "2030": {
+          "Commercial": 15.363,
+          "Industrial": 21.946,
+          "Residential": 13.719,
+          "Transport": 1.358
+        },
+        "2040": {
+          "Commercial": 18.552,
+          "Industrial": 27.319,
+          "Residential": 15.036,
+          "Transport": 5.527
+        },
+        "2050": {
+          "Commercial": 19.079,
+          "Industrial": 27.054,
+          "Residential": 15.83,
+          "Transport": 10.147
+        }
+      },
+      "edgs_peak_demand_gw": {
+        "2024": 6.879,
+        "2030": 8.702,
+        "2040": 10.673,
+        "2050": 11.036
+      },
+      "datacentre_load_capacity_mw": {
+        "2024": 50.0,
+        "2030": 483.0,
+        "2040": 583.0,
+        "2050": 583.0
+      },
+      "datacentre_electricity_consumption_twh": {
+        "2024": 0.394,
+        "2030": 3.811,
+        "2040": 4.6,
+        "2050": 4.6
+      },
+      "ev_share_of_vkt": {
+        "2024": 0.022,
+        "2030": 0.095,
+        "2040": 0.421,
+        "2050": 0.764
+      }
+    },
+    "Reference": {
+      "edgs_2024_start_twh": 40.575,
+      "years": {
+        "2024": {
+          "edgs_raw_twh": 40.575,
+          "growth_factor_vs_edgs_2024": 1.0,
+          "growth_pct_vs_2024": 0.0,
+          "calibrated_underlying_demand_twh": 41.795421,
+          "calibrated_underlying_demand_mwh": 41795420.541
+        },
+        "2030": {
+          "edgs_raw_twh": 46.181,
+          "growth_factor_vs_edgs_2024": 1.13816389,
+          "growth_pct_vs_2024": 13.8164,
+          "calibrated_underlying_demand_twh": 47.570039,
+          "calibrated_underlying_demand_mwh": 47570038.595
+        },
+        "2040": {
+          "edgs_raw_twh": 55.92,
+          "growth_factor_vs_edgs_2024": 1.37818854,
+          "growth_pct_vs_2024": 37.8189,
+          "calibrated_underlying_demand_twh": 57.60197,
+          "calibrated_underlying_demand_mwh": 57601969.603
+        },
+        "2050": {
+          "edgs_raw_twh": 62.056,
+          "growth_factor_vs_edgs_2024": 1.52941466,
+          "growth_pct_vs_2024": 52.9415,
+          "calibrated_underlying_demand_twh": 63.922529,
+          "calibrated_underlying_demand_mwh": 63922529.072
+        }
+      },
+      "sector_demand_twh": {
+        "2024": {
+          "Commercial": 10.119,
+          "Industrial": 16.671,
+          "Residential": 13.432,
+          "Transport": 0.354
+        },
+        "2030": {
+          "Commercial": 12.898,
+          "Industrial": 18.777,
+          "Residential": 13.47,
+          "Transport": 1.036
+        },
+        "2040": {
+          "Commercial": 14.953,
+          "Industrial": 22.036,
+          "Residential": 14.481,
+          "Transport": 4.45
+        },
+        "2050": {
+          "Commercial": 15.705,
+          "Industrial": 22.099,
+          "Residential": 15.303,
+          "Transport": 8.949
+        }
+      },
+      "edgs_peak_demand_gw": {
+        "2024": 6.763,
+        "2030": 7.8,
+        "2040": 9.579,
+        "2050": 10.677
+      },
+      "datacentre_load_capacity_mw": {
+        "2024": 50.0,
+        "2030": 233.0,
+        "2040": 233.0,
+        "2050": 233.0
+      },
+      "datacentre_electricity_consumption_twh": {
+        "2024": 0.394,
+        "2030": 1.838,
+        "2040": 1.838,
+        "2050": 1.838
+      },
+      "ev_share_of_vkt": {
+        "2024": 0.02,
+        "2030": 0.072,
+        "2040": 0.344,
+        "2050": 0.699
+      }
+    }
+  }
+}

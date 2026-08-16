@@ -1,0 +1,269 @@
+{
+  "method": {
+    "definition": "Diagnostic potential electrical energy from routing one Mm3 of water through every generating station on a topology path.",
+    "conversion": "For a station with HMD MW-per-cumec conversion c, one Mm3 produces (1,000,000 / 3,600) * c MWh if all of that volume passes through the turbine.",
+    "limitations": [
+      "This is an energy-accounting sanity check, not dispatchable storage MWh.",
+      "It assumes the whole Mm3 follows the listed generating route and ignores spill/bypass, head variation, efficiency changes with lake level, travel time and operating constraints.",
+      "Run-of-river tributary inflows can add water between stations, so downstream generation is not solely attributable to upstream storage.",
+      "Actual dispatch must enforce reservoir balances, station MW/flow limits, minimum flows and bypass routes."
+    ]
+  },
+  "paths": [
+    {
+      "scheme": "Waikato river",
+      "path": "Taupo_to_Karapiro",
+      "source_storage": "TPO",
+      "stations": [
+        {
+          "site_code": "ARA",
+          "mw_per_cumec": 0.28409091,
+          "mwh_per_mm3": 78.914
+        },
+        {
+          "site_code": "OHK",
+          "mw_per_cumec": 0.28409091,
+          "mwh_per_mm3": 78.914
+        },
+        {
+          "site_code": "ATI",
+          "mw_per_cumec": 0.19569472,
+          "mwh_per_mm3": 54.36
+        },
+        {
+          "site_code": "WKM",
+          "mw_per_cumec": 0.3164557,
+          "mwh_per_mm3": 87.904
+        },
+        {
+          "site_code": "MTI",
+          "mw_per_cumec": 0.53763441,
+          "mwh_per_mm3": 149.343
+        },
+        {
+          "site_code": "WPA",
+          "mw_per_cumec": 0.13850416,
+          "mwh_per_mm3": 38.473
+        },
+        {
+          "site_code": "ARI",
+          "mw_per_cumec": 0.45045045,
+          "mwh_per_mm3": 125.125
+        },
+        {
+          "site_code": "KPO",
+          "mw_per_cumec": 0.26385224,
+          "mwh_per_mm3": 73.292
+        }
+      ],
+      "full_route_mwh_per_mm3": 686.326,
+      "complete": true,
+      "note": null
+    },
+    {
+      "scheme": "Waikaremoana",
+      "path": "Waikaremoana_main",
+      "source_storage": "WKA",
+      "stations": [
+        {
+          "site_code": "KTW",
+          "mw_per_cumec": 1.00603622,
+          "mwh_per_mm3": 279.455
+        },
+        {
+          "site_code": "TUI",
+          "mw_per_cumec": 1.58730159,
+          "mwh_per_mm3": 440.917
+        },
+        {
+          "site_code": "PRI",
+          "mw_per_cumec": 0.94161959,
+          "mwh_per_mm3": 261.561
+        }
+      ],
+      "full_route_mwh_per_mm3": 981.933,
+      "complete": true,
+      "note": null
+    },
+    {
+      "scheme": "Waitaki river",
+      "path": "Tekapo_to_Pukaki",
+      "source_storage": "TKA",
+      "stations": [
+        {
+          "site_code": "TKA",
+          "mw_per_cumec": 0.23223409,
+          "mwh_per_mm3": 64.509
+        },
+        {
+          "site_code": "TKB",
+          "mw_per_cumec": 1.28468654,
+          "mwh_per_mm3": 356.857
+        }
+      ],
+      "full_route_mwh_per_mm3": 421.367,
+      "complete": true,
+      "note": "Tekapo A and Gate 17 feed the Tekapo-Pukaki canal; Tekapo B discharges the combined canal flow into Lake Pukaki. Gate 17 can bypass Tekapo A but is already upstream of Tekapo B."
+    },
+    {
+      "scheme": "Waitaki river",
+      "path": "Pukaki_to_Ruataniwha",
+      "source_storage": "PKI",
+      "stations": [
+        {
+          "site_code": "OHA",
+          "mw_per_cumec": 0.5005005,
+          "mwh_per_mm3": 139.028
+        }
+      ],
+      "full_route_mwh_per_mm3": 139.028,
+      "complete": true,
+      "note": "The Pukaki canal feeds Ohau A, whose tailrace enters Lake Ruataniwha. Lake Ohau water is not treated as an input to Ohau A."
+    },
+    {
+      "scheme": "Waitaki river",
+      "path": "Lake_Ohau_to_Ruataniwha",
+      "source_storage": "OHA",
+      "stations": [],
+      "full_route_mwh_per_mm3": 0.0,
+      "complete": true,
+      "note": "Lake Ohau contributes independently to Lake Ruataniwha via the Upper Ohau River/canal system; HMD natural Ohau inflow is defined for the Ohau B/C portion of the scheme rather than as an Ohau A input."
+    },
+    {
+      "scheme": "Waitaki river",
+      "path": "Ruataniwha_to_Benmore",
+      "source_storage": "RTH",
+      "stations": [
+        {
+          "site_code": "OHB",
+          "mw_per_cumec": 0.41666667,
+          "mwh_per_mm3": 115.741
+        },
+        {
+          "site_code": "OHC",
+          "mw_per_cumec": 0.41666667,
+          "mwh_per_mm3": 115.741
+        }
+      ],
+      "full_route_mwh_per_mm3": 231.481,
+      "complete": true,
+      "note": "Water from Lake Ruataniwha passes through Ohau B and then Ohau C before entering Lake Benmore."
+    },
+    {
+      "scheme": "Waitaki river",
+      "path": "Benmore_downstream_route",
+      "source_storage": "BEN",
+      "stations": [
+        {
+          "site_code": "BEN",
+          "mw_per_cumec": 0.81766149,
+          "mwh_per_mm3": 227.128
+        },
+        {
+          "site_code": "AVI",
+          "mw_per_cumec": 0.31007752,
+          "mwh_per_mm3": 86.133
+        },
+        {
+          "site_code": "WTK",
+          "mw_per_cumec": 0.162206,
+          "mwh_per_mm3": 45.057
+        }
+      ],
+      "full_route_mwh_per_mm3": 358.318,
+      "complete": true,
+      "note": null
+    },
+    {
+      "scheme": "Clutha",
+      "path": "Hawea_to_lower_Clutha",
+      "source_storage": "HWE",
+      "stations": [
+        {
+          "site_code": "CYD",
+          "mw_per_cumec": 0.51813472,
+          "mwh_per_mm3": 143.926
+        },
+        {
+          "site_code": "ROX",
+          "mw_per_cumec": 0.40160643,
+          "mwh_per_mm3": 111.557
+        }
+      ],
+      "full_route_mwh_per_mm3": 255.484,
+      "complete": true,
+      "note": null
+    },
+    {
+      "scheme": "Clutha",
+      "path": "Wanaka_to_lower_Clutha",
+      "source_storage": "WAN",
+      "stations": [
+        {
+          "site_code": "CYD",
+          "mw_per_cumec": 0.51813472,
+          "mwh_per_mm3": 143.926
+        },
+        {
+          "site_code": "ROX",
+          "mw_per_cumec": 0.40160643,
+          "mwh_per_mm3": 111.557
+        }
+      ],
+      "full_route_mwh_per_mm3": 255.484,
+      "complete": true,
+      "note": null
+    },
+    {
+      "scheme": "Clutha",
+      "path": "Wakatipu_to_lower_Clutha",
+      "source_storage": "WPU",
+      "stations": [
+        {
+          "site_code": "CYD",
+          "mw_per_cumec": 0.51813472,
+          "mwh_per_mm3": 143.926
+        },
+        {
+          "site_code": "ROX",
+          "mw_per_cumec": 0.40160643,
+          "mwh_per_mm3": 111.557
+        }
+      ],
+      "full_route_mwh_per_mm3": 255.484,
+      "complete": true,
+      "note": null
+    },
+    {
+      "scheme": "Manapouri",
+      "path": "Te_Anau_to_Manapouri_generation",
+      "source_storage": "TAU",
+      "stations": [
+        {
+          "site_code": "MAN",
+          "mw_per_cumec": 1.53139357,
+          "mwh_per_mm3": 425.387
+        }
+      ],
+      "full_route_mwh_per_mm3": 425.387,
+      "complete": true,
+      "note": "Te Anau releases flow down the Upper Waiau into Lake Manapouri; Manapouri generation discharges through the tailrace to Deep Cove rather than continuing down a hydro cascade."
+    },
+    {
+      "scheme": "Manapouri",
+      "path": "Manapouri_storage_generation",
+      "source_storage": "MAN",
+      "stations": [
+        {
+          "site_code": "MAN",
+          "mw_per_cumec": 1.53139357,
+          "mwh_per_mm3": 425.387
+        }
+      ],
+      "full_route_mwh_per_mm3": 425.387,
+      "complete": true,
+      "note": null
+    }
+  ],
+  "warnings": []
+}

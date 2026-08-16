@@ -1,0 +1,21 @@
+{
+  "model_year": 2024,
+  "yield_scenarios_kwh_per_kwp_year": {
+    "low": 1000,
+    "central": 1150,
+    "high": 1250
+  },
+  "retained_behind_meter_fraction": {
+    "low": 0.40,
+    "central": 0.50,
+    "high": 0.60
+  },
+  "notes": {
+    "yield_low": "Anchored by an anonymised Northland residential 13.5 kWp system with shading/non-ideal orientation that generated about 13.5 MWh in calendar 2025.",
+    "yield_central": "Fleet-average starting assumption below observed Northland tracker-farm yields, allowing for fixed roofs, mixed orientation, shading and residential losses.",
+    "yield_high": "Upper residential fleet case, still materially below observed tracker-farm specific yield.",
+    "retention": "Fraction of gross residential PV generation retained behind the meter as direct load or battery charging. Export is the remainder. The anonymised Northland PV+battery case retained about 51% of PV before storage losses in 2025.",
+    "battery_export": "Assumed zero by default. Explicit VPP/battery export scenarios can be added later.",
+    "accounting": "Only retained behind-meter PV is added back to reconciled offtake when estimating underlying end-use electricity consumption. Exported PV is not added because it is visible to the network/reconciliation system."
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "definition": "Observed one-day reservoir water balance: implied total outflow = headwater inflow - change in observed storage. Residual controlled release = implied total outflow - HMD spill/release series.",
+  "purpose": "Calibration diagnostic for future synthetic hydro dispatch. It is not assumed to be turbine flow without further validation.",
+  "sites": {
+    "HWE": {
+      "reservoir": "Lake Hawea",
+      "days": 16436,
+      "negative_residual_days": 8771,
+      "negative_residual_fraction": 0.533646,
+      "mean_residual_controlled_release_mm3_day": 0.094312,
+      "min_residual_controlled_release_mm3_day": -56.653901,
+      "max_residual_controlled_release_mm3_day": 1022.5568
+    },
+    "MAN": {
+      "reservoir": "Lake Manapouri",
+      "days": 16436,
+      "negative_residual_days": 3568,
+      "negative_residual_fraction": 0.217084,
+      "mean_residual_controlled_release_mm3_day": 5.16993,
+      "min_residual_controlled_release_mm3_day": -114.027024,
+      "max_residual_controlled_release_mm3_day": 84.409488
+    },
+    "OHA": {
+      "reservoir": "Lake Ohau",
+      "days": 16436,
+      "negative_residual_days": 147,
+      "negative_residual_fraction": 0.008944,
+      "mean_residual_controlled_release_mm3_day": 6.037674,
+      "min_residual_controlled_release_mm3_day": -37.958,
+      "max_residual_controlled_release_mm3_day": 53.2564
+    },
+    "PKI": {
+      "reservoir": "Lake Pukaki",
+      "days": 16436,
+      "negative_residual_days": 3088,
+      "negative_residual_fraction": 0.18788,
+      "mean_residual_controlled_release_mm3_day": 9.667484,
+      "min_residual_controlled_release_mm3_day": -96.473618,
+      "max_residual_controlled_release_mm3_day": 106.474995
+    },
+    "TAU": {
+      "reservoir": "Lake Te Anau",
+      "days": 16436,
+      "negative_residual_days": 8852,
+      "negative_residual_fraction": 0.538574,
+      "mean_residual_controlled_release_mm3_day": 0.026691,
+      "min_residual_controlled_release_mm3_day": -174.023632,
+      "max_residual_controlled_release_mm3_day": 200.300275
+    },
+    "TKA": {
+      "reservoir": "Lake Tekapo",
+      "days": 16436,
+      "negative_residual_days": 1622,
+      "negative_residual_fraction": 0.098686,
+      "mean_residual_controlled_release_mm3_day": 5.806754,
+      "min_residual_controlled_release_mm3_day": -194.627506,
+      "max_residual_controlled_release_mm3_day": 201.954126
+    },
+    "TPO": {
+      "reservoir": "Lake Taupo",
+      "days": 16436,
+      "negative_residual_days": 9189,
+      "negative_residual_fraction": 0.559078,
+      "mean_residual_controlled_release_mm3_day": -0.166989,
+      "min_residual_controlled_release_mm3_day": -52.751245,
+      "max_residual_controlled_release_mm3_day": 38.296741
+    },
+    "WKA": {
+      "reservoir": "Lake Waikaremoana",
+      "days": 16436,
+      "negative_residual_days": 475,
+      "negative_residual_fraction": 0.0289,
+      "mean_residual_controlled_release_mm3_day": 1.470767,
+      "min_residual_controlled_release_mm3_day": -14.479178,
+      "max_residual_controlled_release_mm3_day": 20.046222
+    }
+  },
+  "important_cautions": [
+    "The HMD spill series is labelled spill/release and can include regulated outflow or bypass flows, not only wasted spill.",
+    "Daily storage/inflow timing and measurement conventions can create negative residuals even when the physical daily balance is valid at finer resolution.",
+    "Te Anau/Manapouri and branched Waitaki routing require system-level interpretation before residual release is converted to generation.",
+    "This diagnostic intentionally preserves negative residuals instead of clipping them so data-alignment problems remain visible."
+  ],
+  "next_step": "Use observed release distributions and storage trajectories as calibration targets for a synthetic daily dispatcher, then validate simulated annual hydro generation and minimum storage against historical years."
+}

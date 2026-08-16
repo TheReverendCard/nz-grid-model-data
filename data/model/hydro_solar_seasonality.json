@@ -1,0 +1,248 @@
+{
+  "definition": "Long-run monthly hydro inflow seasonality compared with observed NZ grid-scale solar generation seasonality.",
+  "purpose": "Test whether solar-rich months coincide with natural refill/snowmelt periods, which determines how effectively summer solar can conserve hydro for winter.",
+  "hydro_period": {
+    "start_year": 1932,
+    "end_year": 2024
+  },
+  "solar_method": {
+    "source": "data/wholesale/model/generation_daily.csv",
+    "qualification": "solar plant-year with at least 330 days of rows and 1000 MWh annual generation",
+    "qualified_plant_years": [
+      {
+        "site_code": "EDG",
+        "year": 2025,
+        "days_with_rows": 365,
+        "annual_generation_mwh": 50206.662,
+        "summer_nov_mar_share": 0.560439,
+        "winter_may_aug_share": 0.21123
+      },
+      {
+        "site_code": "KOE",
+        "year": 2024,
+        "days_with_rows": 366,
+        "annual_generation_mwh": 52272.573,
+        "summer_nov_mar_share": 0.501328,
+        "winter_may_aug_share": 0.226393
+      },
+      {
+        "site_code": "KOE",
+        "year": 2025,
+        "days_with_rows": 365,
+        "annual_generation_mwh": 53515.479,
+        "summer_nov_mar_share": 0.54517,
+        "winter_may_aug_share": 0.223455
+      }
+    ],
+    "monthly_index_vs_annual_mean_daily": {
+      "1": 1.249,
+      "2": 1.2542,
+      "3": 1.1838,
+      "4": 0.7672,
+      "5": 0.7016,
+      "6": 0.5386,
+      "7": 0.5668,
+      "8": 0.8049,
+      "9": 1.0042,
+      "10": 1.1587,
+      "11": 1.3487,
+      "12": 1.4224
+    },
+    "mean_summer_nov_mar_generation_share": 0.535646,
+    "mean_winter_may_aug_generation_share": 0.220359,
+    "caution": "Current observed utility-solar history is short and dominated by tracker/bifacial plants; use this primarily for seasonal shape, not residential rooftop yield."
+  },
+  "hydro_sites": {
+    "HWE": {
+      "site": "Hawea",
+      "monthly_inflow_index_vs_annual_mean_daily": {
+        "1": 1.0711,
+        "2": 0.8477,
+        "3": 0.8391,
+        "4": 0.8616,
+        "5": 0.9316,
+        "6": 0.8112,
+        "7": 0.732,
+        "8": 0.8149,
+        "9": 1.0575,
+        "10": 1.3397,
+        "11": 1.3746,
+        "12": 1.3089
+      },
+      "peak_inflow_month": 11,
+      "summer_nov_mar_inflow_share": 0.451692,
+      "winter_may_aug_inflow_share": 0.27698,
+      "monthly_correlation_with_observed_solar_shape": 0.711
+    },
+    "MAN": {
+      "site": "Manapouri",
+      "monthly_inflow_index_vs_annual_mean_daily": {
+        "1": 0.9643,
+        "2": 0.8135,
+        "3": 0.7908,
+        "4": 0.9745,
+        "5": 1.0942,
+        "6": 0.9641,
+        "7": 0.8623,
+        "8": 0.915,
+        "9": 1.1888,
+        "10": 1.3105,
+        "11": 1.1607,
+        "12": 0.9541
+      },
+      "peak_inflow_month": 10,
+      "summer_nov_mar_inflow_share": 0.388206,
+      "winter_may_aug_inflow_share": 0.322892,
+      "monthly_correlation_with_observed_solar_shape": 0.1152
+    },
+    "OHU": {
+      "site": "Ohau",
+      "monthly_inflow_index_vs_annual_mean_daily": {
+        "1": 1.3534,
+        "2": 1.1382,
+        "3": 0.979,
+        "4": 0.9415,
+        "5": 0.8944,
+        "6": 0.6939,
+        "7": 0.5591,
+        "8": 0.5929,
+        "9": 0.7876,
+        "10": 1.1524,
+        "11": 1.3893,
+        "12": 1.5244
+      },
+      "peak_inflow_month": 12,
+      "summer_nov_mar_inflow_share": 0.529501,
+      "winter_may_aug_inflow_share": 0.230674,
+      "monthly_correlation_with_observed_solar_shape": 0.8797
+    },
+    "PKI": {
+      "site": "Pukaki",
+      "monthly_inflow_index_vs_annual_mean_daily": {
+        "1": 1.6783,
+        "2": 1.5742,
+        "3": 1.2599,
+        "4": 0.9229,
+        "5": 0.7238,
+        "6": 0.6037,
+        "7": 0.5237,
+        "8": 0.5559,
+        "9": 0.6504,
+        "10": 0.8629,
+        "11": 1.1445,
+        "12": 1.5287
+      },
+      "peak_inflow_month": 1,
+      "summer_nov_mar_inflow_share": 0.59491,
+      "winter_may_aug_inflow_share": 0.202636,
+      "monthly_correlation_with_observed_solar_shape": 0.8218
+    },
+    "TAU": {
+      "site": "Te Anau",
+      "monthly_inflow_index_vs_annual_mean_daily": {
+        "1": 1.0171,
+        "2": 0.8881,
+        "3": 0.8954,
+        "4": 0.9841,
+        "5": 1.0428,
+        "6": 0.8838,
+        "7": 0.7843,
+        "8": 0.8771,
+        "9": 1.1417,
+        "10": 1.2593,
+        "11": 1.1705,
+        "12": 1.0518
+      },
+      "peak_inflow_month": 10,
+      "summer_nov_mar_inflow_share": 0.416435,
+      "winter_may_aug_inflow_share": 0.302095,
+      "monthly_correlation_with_observed_solar_shape": 0.4987
+    },
+    "TEK": {
+      "site": "Tekapo",
+      "monthly_inflow_index_vs_annual_mean_daily": {
+        "1": 1.4437,
+        "2": 1.2811,
+        "3": 1.0614,
+        "4": 0.9795,
+        "5": 0.8754,
+        "6": 0.6792,
+        "7": 0.5716,
+        "8": 0.5956,
+        "9": 0.7006,
+        "10": 1.0184,
+        "11": 1.3106,
+        "12": 1.4971
+      },
+      "peak_inflow_month": 12,
+      "summer_nov_mar_inflow_share": 0.546427,
+      "winter_may_aug_inflow_share": 0.22914,
+      "monthly_correlation_with_observed_solar_shape": 0.8625
+    },
+    "TPO": {
+      "site": "Taupo",
+      "monthly_inflow_index_vs_annual_mean_daily": {
+        "1": 0.8468,
+        "2": 0.7963,
+        "3": 0.6893,
+        "4": 0.7178,
+        "5": 0.9097,
+        "6": 1.1107,
+        "7": 1.2253,
+        "8": 1.2404,
+        "9": 1.1966,
+        "10": 1.189,
+        "11": 1.0583,
+        "12": 1.0046
+      },
+      "peak_inflow_month": 8,
+      "summer_nov_mar_inflow_share": 0.364161,
+      "winter_may_aug_inflow_share": 0.377693,
+      "monthly_correlation_with_observed_solar_shape": -0.2847
+    },
+    "WKA": {
+      "site": "Waikaremoana",
+      "monthly_inflow_index_vs_annual_mean_daily": {
+        "1": 0.5724,
+        "2": 0.6469,
+        "3": 0.7244,
+        "4": 0.881,
+        "5": 1.1154,
+        "6": 1.3704,
+        "7": 1.5625,
+        "8": 1.4121,
+        "9": 1.2565,
+        "10": 0.9766,
+        "11": 0.8111,
+        "12": 0.6498
+      },
+      "peak_inflow_month": 7,
+      "summer_nov_mar_inflow_share": 0.281872,
+      "winter_may_aug_inflow_share": 0.459683,
+      "monthly_correlation_with_observed_solar_shape": -0.8324
+    }
+  },
+  "waitaki_snowfed_composite": {
+    "sites": [
+      "TEK",
+      "PKI",
+      "OHU"
+    ],
+    "monthly_inflow_index_vs_annual_mean_daily": {
+      "1": 1.4918,
+      "2": 1.3312,
+      "3": 1.1001,
+      "4": 0.948,
+      "5": 0.8312,
+      "6": 0.6589,
+      "7": 0.5515,
+      "8": 0.5815,
+      "9": 0.7129,
+      "10": 1.0112,
+      "11": 1.2815,
+      "12": 1.5167
+    },
+    "monthly_correlation_with_observed_solar_shape": 0.8762
+  },
+  "interpretation_note": "Positive monthly correlation means high-solar months tend also to be high-inflow months. That can be favourable for hydro conservation because solar can reduce turbine releases while reservoirs are naturally refilling, subject to storage capacity and spill constraints."
+}

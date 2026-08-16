@@ -1,0 +1,69 @@
+{
+  "status": "waitaki_explicit_network_balance_diagnostic",
+  "year": 2024,
+  "purpose": "Validate explicit Waitaki routing and empirically estimate the Pukaki-canal contribution to Ohau A before building an optimizing node-and-arc dispatcher.",
+  "network_backbone": [
+    "TKA storage -> Tekapo A -> Tekapo B -> PKI storage",
+    "PKI canal + OHA lake release -> Ohau A -> Lake Ruataniwha -> Ohau B -> Ohau C -> BEN",
+    "BEN -> Aviemore -> Waitaki"
+  ],
+  "pukaki_canal_estimate": {
+    "method": "OHA turbine-equivalent flow minus Lake Ohau release inferred from natural inflow, observed storage change and HMD spill/release.",
+    "mean_m3s": 265.268,
+    "annual_volume_mm3": 8365.507,
+    "negative_day_count": 0,
+    "day_count": 365
+  },
+  "balance_residual_m3s": {
+    "TKA_storage_accounting_minus_TKA_turbine": {
+      "count": 365,
+      "mean": -80.702,
+      "mae": 92.39,
+      "rmse": 199.346,
+      "min": -2264.65,
+      "max": 2133.125
+    },
+    "PKI_storage_balance_minus_estimated_canal_release": {
+      "count": 365,
+      "mean": 115.043,
+      "mae": 117.736,
+      "rmse": 160.116,
+      "min": -71.623,
+      "max": 1128.318
+    },
+    "OHA_split_identity_check": {
+      "count": 365,
+      "mean": -0.0,
+      "mae": 0.0,
+      "rmse": 0.0,
+      "min": -0.0,
+      "max": 0.0
+    },
+    "BEN_to_AVI_after_incremental_tributary": {
+      "count": 365,
+      "mean": 25.948,
+      "mae": 36.259,
+      "rmse": 45.192,
+      "min": -77.47,
+      "max": 140.2
+    },
+    "AVI_to_WTK_after_incremental_tributary": {
+      "count": 365,
+      "mean": -14.232,
+      "mae": 23.271,
+      "rmse": 31.02,
+      "min": -108.78,
+      "max": 91.343
+    }
+  },
+  "interpretation": [
+    "A small PKI residual would support using the inferred Pukaki-canal series as an empirical validation target for the explicit dispatcher.",
+    "A large or biased PKI residual means additional Pukaki/Tekapo bypass, timing or series-definition terms must be represented before dispatch calibration.",
+    "Lower-cascade residuals are expected to retain short-term storage, spill and daily timing effects because Benmore/Aviemore observed storage series are not present in the HMD storage index."
+  ],
+  "important_limitations": [
+    "Generation-derived turbine flows are daily-average equivalents using fixed HMD plant factors.",
+    "Storage accounting uses day-to-day changes and can be sensitive to timestamp conventions.",
+    "The inferred Pukaki-canal contribution is a validation diagnostic, not yet a direct measured canal-flow series."
+  ]
+}

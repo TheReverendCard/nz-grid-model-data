@@ -1,12 +1,23 @@
 name: Daily EA Data Fetch
 
 on:
+  push:
+    branches:
+      - agent/test-ea-azure-updater
+    paths-ignore:
+      - 'data/**'
   schedule:
     - cron: '0 14 * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
+
+# Modelling commits can arrive faster than a full data/model refresh. Keep only
+# the newest run for this branch so stale runs do not race to publish outputs.
+concurrency:
+  group: nz-grid-model-data-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   update-data:
@@ -19,20 +30,148 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5.3.0
         with:
-          python-version: '3.10'
+          python-version: '3.12'
 
       - name: Install Dependencies
-        run: |
-          pip install pandas playwright
-          playwright install --with-deps chromium
+        run: pip install requests openpyxl matplotlib scipy
 
-      - name: Run Scraper Script
+      - name: Fetch EA HMD Data
         run: python update_data.py
+
+      - name: Fetch Waitaki Validation Flow Series
+        run: python update_waitaki_validation_flows.py
+
+      - name: Normalize Hydro Data
+        run: python normalize_hydro.py
+
+      - name: Fetch EA Wholesale Baseline Data
+        run: python update_wholesale.py
+
+      - name: Normalize Wholesale Baseline Data
+        run: python normalize_wholesale.py
+
+      - name: Aggregate Reconciled Demand and Injection
+        run: python update_reconciliation.py
+
+      - name: Diagnose Generation POC Coverage
+        run: python diagnose_generation_poc.py
+
+      - name: Validate Wholesale Baseline
+        run: python validate_baseline.py
+
+      - name: Fetch EA Distributed Generation Data
+        run: python update_distributed_generation.py
+
+      - name: Normalize Distributed Generation Data
+        run: python normalize_distributed_generation.py
+
+      - name: Diagnose Solar Generation Yield Candidates
+        run: python diagnose_solar_yield.py
+
+      - name: Estimate 2024 Behind-Meter Solar
+        run: python estimate_btm_solar_2024.py
+
+      - name: Build Calibrated 2024 Baseline
+        run: python build_baseline_2024.py
+
+      - name: Fetch MBIE EDGS 2024 Workbooks
+        run: python update_mbie_edgs.py
+
+      - name: Inspect MBIE EDGS Workbook Structure
+        run: python inspect_mbie_edgs.py
+
+      - name: Normalize MBIE EDGS Demand Scenarios
+        run: python normalize_mbie_edgs.py
+
+      - name: Build Calibrated Future Demand Scenarios
+        run: python build_future_demand_scenarios.py
+
+      - name: Build 2030 Replay Inputs
+        run: python build_replay_inputs.py
+
+      - name: Build Hydro Model Inputs
+        run: python build_hydro_model_inputs.py
+
+      - name: Diagnose Hydro Storage Water Value
+        run: python build_hydro_water_value_diagnostic.py
+
+      - name: Build Observed Hydro Storage Energy State
+        run: python build_hydro_storage_energy.py
+
+      - name: Build Individual Waitaki Storage Constraints
+        run: python build_waitaki_storage_constraints.py
+
+      - name: Extract Waitaki Routing Constraints
+        run: python build_waitaki_routing_constraints.py
+
+      - name: Extract Waitaki Flow Series Candidates
+        run: python build_waitaki_flow_candidates.py
+
+      - name: Infer Observed Hydro Reservoir Releases
+        run: python build_observed_hydro_release.py
+
+      - name: Compare Hydro Inflow and Solar Seasonality
+        run: python build_hydro_solar_seasonality.py
+
+      - name: Diagnose Waitaki Solar Hydro Conservation
+        run: python diagnose_waitaki_solar_conservation.py
+
+      - name: Dispatch Waitaki Solar Storage Delta
+        run: python dispatch_waitaki_solar_delta.py
+
+      - name: Correct Waitaki Dynamic Headroom
+        run: python dispatch_waitaki_solar_delta_corrected.py
+
+      - name: Dispatch Waitaki Source-Route Water Balance
+        run: python dispatch_waitaki_source_route_v1.py
+
+      - name: Diagnose Waitaki Seasonal Storage Guard
+        run: python diagnose_waitaki_storage_guard.py
+
+      - name: Diagnose Waitaki Lake-Specific Guards
+        run: python diagnose_waitaki_lake_guard_grid.py
+
+      - name: Validate Waitaki Rolling-Horizon Dispatch
+        run: python dispatch_waitaki_rolling_horizon_v1.py
+
+      - name: Diagnose Waitaki Rolling-Horizon Water Value
+        run: python diagnose_waitaki_rolling_horizon_grid.py
+
+      - name: Validate Waitaki Thermal Scarcity Dispatch
+        run: python dispatch_waitaki_thermal_scarcity_v1.py
+
+      - name: Diagnose Revealed Monthly Thermal Timing
+        run: python diagnose_waitaki_thermal_timing.py
+
+      - name: Quantify Lower Waitaki Tributary Energy
+        run: python diagnose_waitaki_lower_tributaries.py
+
+      - name: Test Revealed Thermal Timing with Lower Tributaries
+        run: python diagnose_waitaki_thermal_timing_with_tributaries.py
+
+      - name: Diagnose Observed Waitaki Station Flows
+        run: python diagnose_waitaki_station_flows.py
+
+      - name: Diagnose Explicit Waitaki Network Balance
+        run: python diagnose_waitaki_network_balance.py
+
+      - name: Validate Corrected Waitaki Network Balance
+        run: python diagnose_waitaki_network_balance_v2.py
+
+      - name: Diagnose Waitaki HMD Series Semantics
+        run: python diagnose_waitaki_series_semantics.py
+
+      - name: Plot Waitaki WiP Progress
+        run: python plot_waitaki_progress.py
 
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add .
-          git commit -m "Automated EA data update" || echo "No changes to commit"
-          git push
+          git add data/
+          git diff --cached --quiet && echo "No data changes to commit" && exit 0
+          git commit -m "Automated EA and MBIE data update"
+          # A modelling commit may have landed while this run was calculating.
+          # Rebase the generated data commit onto the current branch before push.
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin HEAD:"${GITHUB_REF_NAME}"

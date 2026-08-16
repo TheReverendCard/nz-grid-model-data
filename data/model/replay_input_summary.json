@@ -1,0 +1,22 @@
+{
+  "target_year": 2030,
+  "demand_shape_year": 2024,
+  "demand_method": "Scale the observed 2024 reconciled daily demand shape to each calibrated EDGS annual underlying-demand target. This is a first replay scaffold; future BTM PV and load-shape changes will be represented separately.",
+  "annual_demand_check_mwh": {
+    "Constraint": 45537461.8,
+    "Environmental": 51265522.157,
+    "Growth": 49600595.639,
+    "Innovation": 53146950.032,
+    "Reference": 47570038.595
+  },
+  "hydro": {
+    "headwater_inflow_source": "data/hydro/model/inflows_daily.csv",
+    "storage_source": "data/hydro/model/storage_daily.csv",
+    "inflow_series_start": 1932,
+    "inflow_series_last_complete_year": 2024,
+    "storage_series_start": 1980,
+    "storage_series_last_complete_year": 2024,
+    "warning": "Headwater inflow volume is a hydrology index, not directly MWh. Conversion to hydroelectric energy requires cascade topology, plant factors, release constraints and reservoir dispatch."
+  },
+  "next_step": "Construct hydro cascade/energy conversion and dispatch, then combine weather-dependent wind/solar profiles and thermal backstop to replay each historical hydrological year."
+}

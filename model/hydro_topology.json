@@ -1,0 +1,134 @@
+{
+  "status": "first_order_validated_topology",
+  "notes": [
+    "Topology is separated from asset capacity and hydrological constraints so each can be audited independently.",
+    "Routes describe the main energy-producing water paths. Spill/bypass arcs are represented separately where they bypass generation.",
+    "Daily dispatch will still use HMD tributary inflows, storage, spill and consent constraints; this file defines connectivity, not operating policy."
+  ],
+  "schemes": {
+    "Waikato river": {
+      "type": "serial_cascade",
+      "storage_nodes": ["TPO", "ARA", "OHK", "ATI", "WKM", "MTI", "WPA", "ARI", "KPO"],
+      "generation_paths": [
+        {
+          "name": "Taupo_to_Karapiro",
+          "source": "TPO",
+          "stations": ["ARA", "OHK", "ATI", "WKM", "MTI", "WPA", "ARI", "KPO"]
+        }
+      ],
+      "dispatch_note": "Lake Taupo releases and tributary additions propagate through the Waikato cascade, subject to small intermediate storages, local inflows, spill and consent constraints."
+    },
+    "Waikaremoana": {
+      "type": "serial_cascade",
+      "storage_nodes": ["WKA", "KTW", "WNO"],
+      "generation_paths": [
+        {
+          "name": "Waikaremoana_main",
+          "source": "WKA",
+          "stations": ["KTW", "TUI", "PRI"]
+        }
+      ],
+      "dispatch_note": "First-order energy path follows Lake Waikaremoana through Kaitawa, Tuai and Piripaua; detailed siphon/spill and stage-dependent rules remain in HMD constraints."
+    },
+    "Waitaki river": {
+      "type": "branched_cascade",
+      "storage_nodes": ["TKA", "PKI", "OHA", "RTH", "BEN", "AVI"],
+      "generation_paths": [
+        {
+          "name": "Tekapo_to_Pukaki",
+          "source": "TKA",
+          "stations": ["TKA", "TKB"],
+          "destination": "PKI",
+          "note": "Tekapo A and Gate 17 feed the Tekapo-Pukaki canal; Tekapo B discharges the combined canal flow into Lake Pukaki. Gate 17 can bypass Tekapo A but is already upstream of Tekapo B."
+        },
+        {
+          "name": "Pukaki_to_Ruataniwha",
+          "source": "PKI",
+          "stations": ["OHA"],
+          "destination": "RTH",
+          "note": "The Pukaki canal feeds Ohau A, whose tailrace enters Lake Ruataniwha. Lake Ohau water is not treated as an input to Ohau A."
+        },
+        {
+          "name": "Lake_Ohau_to_Ruataniwha",
+          "source": "OHA",
+          "stations": [],
+          "destination": "RTH",
+          "note": "Lake Ohau contributes independently to Lake Ruataniwha via the Upper Ohau River/canal system; HMD natural Ohau inflow is defined for the Ohau B/C portion of the scheme rather than as an Ohau A input."
+        },
+        {
+          "name": "Ruataniwha_to_Benmore",
+          "source": "RTH",
+          "stations": ["OHB", "OHC"],
+          "destination": "BEN",
+          "note": "Water from Lake Ruataniwha passes through Ohau B and then Ohau C before entering Lake Benmore."
+        },
+        {
+          "name": "Benmore_downstream_route",
+          "source": "BEN",
+          "stations": ["BEN", "AVI", "WTK"]
+        }
+      ],
+      "bypass_paths": [
+        {
+          "name": "Tekapo_river_bypass",
+          "source": "TKA",
+          "destination": "BEN",
+          "bypasses_stations": ["TKA", "TKB", "OHA", "OHB", "OHC"]
+        },
+        {
+          "name": "Pukaki_river_bypass",
+          "source": "PKI",
+          "destination": "BEN",
+          "bypasses_stations": ["OHA", "OHB", "OHC"]
+        },
+        {
+          "name": "Ruataniwha_spill_bypass",
+          "source": "RTH",
+          "destination": "BEN",
+          "bypasses_stations": ["OHB", "OHC"]
+        }
+      ],
+      "dispatch_note": "Upper Waitaki is branched. Pukaki water generates first at Ohau A before entering Ruataniwha; Lake Ohau contributes separately to Ruataniwha; Ohau B/C then share the combined Ruataniwha outflow. Direct river/spill releases sacrifice different sets of stations and must retain distinct route values."
+    },
+    "Clutha": {
+      "type": "multi_headwater_merge_cascade",
+      "storage_nodes": ["HWE", "WAN", "WPU", "Lake_Dunstan"],
+      "generation_paths": [
+        {
+          "name": "Hawea_to_lower_Clutha",
+          "source": "HWE",
+          "stations": ["CYD", "ROX"]
+        },
+        {
+          "name": "Wanaka_to_lower_Clutha",
+          "source": "WAN",
+          "stations": ["CYD", "ROX"]
+        },
+        {
+          "name": "Wakatipu_to_lower_Clutha",
+          "source": "WPU",
+          "stations": ["CYD", "ROX"]
+        }
+      ],
+      "dispatch_note": "Hāwea regulation, Lake Wānaka outflow and Lake Wakatipu/Kawarau flows merge upstream of Lake Dunstan/Clyde; Clyde discharge continues to Roxburgh."
+    },
+    "Manapouri": {
+      "type": "linked_lake_single_station",
+      "storage_nodes": ["TAU", "MAN"],
+      "generation_paths": [
+        {
+          "name": "Te_Anau_to_Manapouri_generation",
+          "source": "TAU",
+          "stations": ["MAN"],
+          "note": "Te Anau releases flow down the Upper Waiau into Lake Manapouri; Manapouri generation discharges through the tailrace to Deep Cove rather than continuing down a hydro cascade."
+        },
+        {
+          "name": "Manapouri_storage_generation",
+          "source": "MAN",
+          "stations": ["MAN"]
+        }
+      ],
+      "dispatch_note": "Lower Waiau releases from Manapouri are non-generating bypass outflows for this energy topology and remain governed by operating guidelines/constraints."
+    }
+  }
+}

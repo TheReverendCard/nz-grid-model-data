@@ -1,0 +1,22 @@
+{
+  "source": "MBIE Electricity Demand and Generation Scenarios 2024",
+  "source_page": "https://www.mbie.govt.nz/building-and-energy/energy-and-natural-resources/energy-statistics-and-modelling/energy-modelling/electricity-demand-and-generation-scenarios",
+  "notes": [
+    "EDGS 2024 was published July 2024.",
+    "MBIE updated the assumptions/results data files after publication, including fuel switching in November 2024 and sector-split distributed solar plus generation-stack inputs in March 2025."
+  ],
+  "files": {
+    "assumptions": {
+      "url": "https://www.mbie.govt.nz/assets/Data-Files/Energy/electricity-demand-generation-scenarios-2024-assumptions.xlsx",
+      "bytes": 427038,
+      "etag": "\"f17878c6\"",
+      "last_modified": "Wed, 05 Mar 2025 21:00:04 GMT"
+    },
+    "results": {
+      "url": "https://www.mbie.govt.nz/assets/Data-Files/Energy/electricity-demand-generation-scenarios-2024-results.xlsx",
+      "bytes": 582319,
+      "etag": "\"1bb0257a\"",
+      "last_modified": "Thu, 31 Oct 2024 20:42:45 GMT"
+    }
+  }
+}

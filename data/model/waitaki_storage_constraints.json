@@ -1,0 +1,135 @@
+{
+  "status": "empirical_individual_lake_storage_constraints",
+  "purpose": "Replace the combined upper-Waitaki storage bucket with auditable per-lake storage headroom before adding detailed routing constraints.",
+  "sites": {
+    "TKA": {
+      "reservoir": "Lake Tekapo",
+      "mwh_per_mm3_full_route": 1150.194,
+      "historical_observations": 16437,
+      "empirical_min": {
+        "date": "1985-09-30",
+        "storage_mm3": 0.804,
+        "energy_equivalent_gwh": 0.924756
+      },
+      "empirical_max": {
+        "date": "2009-05-19",
+        "storage_mm3": 901.214,
+        "energy_equivalent_gwh": 1036.570936
+      },
+      "key_2024_states": {
+        "2024-01-01": {
+          "storage_mm3": 136.385,
+          "energy_equivalent_gwh": 156.869209,
+          "headroom_to_empirical_max_mm3": 764.829,
+          "headroom_to_empirical_max_gwh": 879.701727
+        },
+        "2024-05-01": {
+          "storage_mm3": 469.263,
+          "energy_equivalent_gwh": 539.743487,
+          "headroom_to_empirical_max_mm3": 431.951,
+          "headroom_to_empirical_max_gwh": 496.827448
+        },
+        "2024-08-01": {
+          "storage_mm3": 271.643,
+          "energy_equivalent_gwh": 312.442149,
+          "headroom_to_empirical_max_mm3": 629.571,
+          "headroom_to_empirical_max_gwh": 724.128787
+        },
+        "2024-12-31": {
+          "storage_mm3": 475.698,
+          "energy_equivalent_gwh": 547.144985,
+          "headroom_to_empirical_max_mm3": 425.516,
+          "headroom_to_empirical_max_gwh": 489.42595
+        }
+      }
+    },
+    "PKI": {
+      "reservoir": "Lake Pukaki",
+      "mwh_per_mm3_full_route": 728.827,
+      "historical_observations": 16437,
+      "empirical_min": {
+        "date": "1992-06-12",
+        "storage_mm3": 142.924,
+        "energy_equivalent_gwh": 104.16687
+      },
+      "empirical_max": {
+        "date": "1995-12-14",
+        "storage_mm3": 2596.005,
+        "energy_equivalent_gwh": 1892.038536
+      },
+      "key_2024_states": {
+        "2024-01-01": {
+          "storage_mm3": 1610.433,
+          "energy_equivalent_gwh": 1173.727052,
+          "headroom_to_empirical_max_mm3": 985.572,
+          "headroom_to_empirical_max_gwh": 718.311484
+        },
+        "2024-05-01": {
+          "storage_mm3": 1938.283,
+          "energy_equivalent_gwh": 1412.672984,
+          "headroom_to_empirical_max_mm3": 657.722,
+          "headroom_to_empirical_max_gwh": 479.365552
+        },
+        "2024-08-01": {
+          "storage_mm3": 615.407,
+          "energy_equivalent_gwh": 448.525238,
+          "headroom_to_empirical_max_mm3": 1980.598,
+          "headroom_to_empirical_max_gwh": 1443.513299
+        },
+        "2024-12-31": {
+          "storage_mm3": 2444.94,
+          "energy_equivalent_gwh": 1781.938285,
+          "headroom_to_empirical_max_mm3": 151.065,
+          "headroom_to_empirical_max_gwh": 110.100251
+        }
+      }
+    },
+    "OHA": {
+      "reservoir": "Lake Ohau",
+      "mwh_per_mm3_full_route": 589.799,
+      "historical_observations": 16437,
+      "empirical_min": {
+        "date": "1980-01-10",
+        "storage_mm3": 0.0,
+        "energy_equivalent_gwh": 0.0
+      },
+      "empirical_max": {
+        "date": "1994-01-10",
+        "storage_mm3": 175.469,
+        "energy_equivalent_gwh": 103.491441
+      },
+      "key_2024_states": {
+        "2024-01-01": {
+          "storage_mm3": 22.172,
+          "energy_equivalent_gwh": 13.077023,
+          "headroom_to_empirical_max_mm3": 153.297,
+          "headroom_to_empirical_max_gwh": 90.414417
+        },
+        "2024-05-01": {
+          "storage_mm3": 21.361,
+          "energy_equivalent_gwh": 12.598696,
+          "headroom_to_empirical_max_mm3": 154.108,
+          "headroom_to_empirical_max_gwh": 90.892744
+        },
+        "2024-08-01": {
+          "storage_mm3": 25.193,
+          "energy_equivalent_gwh": 14.858806,
+          "headroom_to_empirical_max_mm3": 150.276,
+          "headroom_to_empirical_max_gwh": 88.632635
+        },
+        "2024-12-31": {
+          "storage_mm3": 25.229,
+          "energy_equivalent_gwh": 14.880039,
+          "headroom_to_empirical_max_mm3": 150.24,
+          "headroom_to_empirical_max_gwh": 88.611402
+        }
+      }
+    }
+  },
+  "notes": [
+    "Current limits are empirical extrema from the downloaded normalized storage history, not yet legal/consent engineering limits.",
+    "Energy-equivalent values use the verified full downstream generating route for each lake.",
+    "This is a tighter constraint than one combined storage bucket because unused headroom in one lake cannot automatically absorb water conserved in another.",
+    "Future refinement should replace empirical extrema with explicit HMD/consent operating bounds where available."
+  ]
+}
