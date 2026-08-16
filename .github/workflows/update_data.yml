@@ -40,6 +40,9 @@ jobs:
       - name: Index EA JADE Published Inputs and Outputs
         run: python update_jade_manifest.py
 
+      - name: Inspect Latest JADE Output Schemas
+        run: python inspect_jade_latest_outputs.py
+
       - name: Normalize Hydro Data
         run: python normalize_hydro.py
 
