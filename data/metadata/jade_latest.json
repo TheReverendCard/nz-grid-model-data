@@ -14,15 +14,150 @@
   "latest_week": "Week 52",
   "latest_week_modified": "Fri, 26 Dec 2025 02:09:45 GMT",
   "latest_week_blob_count": 120,
-  "output_file_count": 96,
+  "output_file_count": 91,
+  "chart_relevant_outputs": {
+    "storage": [
+      {
+        "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ContingentStorageCost.csv",
+        "last_modified": "Fri, 26 Dec 2025 02:09:23 GMT",
+        "content_length": "49101",
+        "etag": "0x8DE4423C9E91B1D",
+        "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ContingentStorageCost.csv"
+      }
+    ],
+    "generation": [
+      {
+        "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ThermalCosts.csv",
+        "last_modified": "Fri, 26 Dec 2025 02:09:37 GMT",
+        "content_length": "112194",
+        "etag": "0x8DE4423D248AEE7",
+        "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ThermalCosts.csv"
+      }
+    ],
+    "thermal": [
+      {
+        "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ThermalCosts.csv",
+        "last_modified": "Fri, 26 Dec 2025 02:09:37 GMT",
+        "content_length": "112194",
+        "etag": "0x8DE4423D248AEE7",
+        "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ThermalCosts.csv"
+      }
+    ],
+    "lost_load": [
+      {
+        "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/LostLoadCost.csv",
+        "last_modified": "Fri, 26 Dec 2025 02:09:24 GMT",
+        "content_length": "46056",
+        "etag": "0x8DE4423CA4EFA5A",
+        "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/LostLoadCost.csv"
+      }
+    ],
+    "water_value": [
+      {
+        "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ContingentStorageCost.csv",
+        "last_modified": "Fri, 26 Dec 2025 02:09:23 GMT",
+        "content_length": "49101",
+        "etag": "0x8DE4423C9E91B1D",
+        "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ContingentStorageCost.csv"
+      },
+      {
+        "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/FutureCost.csv",
+        "last_modified": "Fri, 26 Dec 2025 02:09:24 GMT",
+        "content_length": "130237",
+        "etag": "0x8DE4423CA35A98A",
+        "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/FutureCost.csv"
+      }
+    ],
+    "price_or_cost": [
+      {
+        "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ContingentStorageCost.csv",
+        "last_modified": "Fri, 26 Dec 2025 02:09:23 GMT",
+        "content_length": "49101",
+        "etag": "0x8DE4423C9E91B1D",
+        "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ContingentStorageCost.csv"
+      },
+      {
+        "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/FlowLBCost.csv",
+        "last_modified": "Fri, 26 Dec 2025 02:09:23 GMT",
+        "content_length": "48361",
+        "etag": "0x8DE4423CA0244D7",
+        "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/FlowLBCost.csv"
+      },
+      {
+        "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/FlowUBCost.csv",
+        "last_modified": "Fri, 26 Dec 2025 02:09:23 GMT",
+        "content_length": "46646",
+        "etag": "0x8DE4423CA1AAB54",
+        "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/FlowUBCost.csv"
+      },
+      {
+        "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/FutureCost.csv",
+        "last_modified": "Fri, 26 Dec 2025 02:09:24 GMT",
+        "content_length": "130237",
+        "etag": "0x8DE4423CA35A98A",
+        "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/FutureCost.csv"
+      },
+      {
+        "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/LostLoadCost.csv",
+        "last_modified": "Fri, 26 Dec 2025 02:09:24 GMT",
+        "content_length": "46056",
+        "etag": "0x8DE4423CA4EFA5A",
+        "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/LostLoadCost.csv"
+      },
+      {
+        "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/PresentCost.csv",
+        "last_modified": "Fri, 26 Dec 2025 02:09:27 GMT",
+        "content_length": "114390",
+        "etag": "0x8DE4423CC5D1C9C",
+        "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/PresentCost.csv"
+      },
+      {
+        "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SummedCosts.csv",
+        "last_modified": "Fri, 26 Dec 2025 02:09:37 GMT",
+        "content_length": "130218",
+        "etag": "0x8DE4423D22FD33F",
+        "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SummedCosts.csv"
+      },
+      {
+        "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ThermalCosts.csv",
+        "last_modified": "Fri, 26 Dec 2025 02:09:37 GMT",
+        "content_length": "112194",
+        "etag": "0x8DE4423D248AEE7",
+        "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ThermalCosts.csv"
+      },
+      {
+        "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/TotalCost.csv",
+        "last_modified": "Fri, 26 Dec 2025 02:09:37 GMT",
+        "content_length": "1841",
+        "etag": "0x8DE4423D25EA4BB",
+        "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/TotalCost.csv"
+      }
+    ],
+    "flows": [
+      {
+        "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/adjusted_inflows.csv",
+        "last_modified": "Fri, 26 Dec 2025 02:09:40 GMT",
+        "content_length": "2544298",
+        "etag": "0x8DE4423D401917E",
+        "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/adjusted_inflows.csv"
+      },
+      {
+        "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/FlowLBCost.csv",
+        "last_modified": "Fri, 26 Dec 2025 02:09:23 GMT",
+        "content_length": "48361",
+        "etag": "0x8DE4423CA0244D7",
+        "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/FlowLBCost.csv"
+      },
+      {
+        "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/FlowUBCost.csv",
+        "last_modified": "Fri, 26 Dec 2025 02:09:23 GMT",
+        "content_length": "46646",
+        "etag": "0x8DE4423CA1AAB54",
+        "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/FlowUBCost.csv"
+      }
+    ]
+  },
   "output_files": [
-    {
-      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52",
-      "last_modified": "Fri, 26 Dec 2025 02:09:44 GMT",
-      "content_length": "0",
-      "etag": "0x8DE4423D6B0E5CE",
-      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52"
-    },
     {
       "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/adjusted_inflows.csv",
       "last_modified": "Fri, 26 Dec 2025 02:09:40 GMT",
@@ -50,13 +185,6 @@
       "content_length": "912",
       "etag": "0x8DE4423D69F0E0F",
       "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/rundata.json"
-    },
-    {
-      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52",
-      "last_modified": "Fri, 26 Dec 2025 02:09:37 GMT",
-      "content_length": "0",
-      "etag": "0x8DE4423D2819111",
-      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52"
     },
     {
       "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ContingentStorageCost.csv",
@@ -92,13 +220,6 @@
       "content_length": "46056",
       "etag": "0x8DE4423CA4EFA5A",
       "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/LostLoadCost.csv"
-    },
-    {
-      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows",
-      "last_modified": "Fri, 26 Dec 2025 02:09:27 GMT",
-      "content_length": "0",
-      "etag": "0x8DE4423CC3527FF",
-      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows"
     },
     {
       "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/CLYDE_TAIL_LAKE_ROXBURGH.csv",
@@ -239,13 +360,6 @@
       "content_length": "114390",
       "etag": "0x8DE4423CC5D1C9C",
       "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/PresentCost.csv"
-    },
-    {
-      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows",
-      "last_modified": "Fri, 26 Dec 2025 02:09:32 GMT",
-      "content_length": "0",
-      "etag": "0x8DE4423CF296AB0",
-      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows"
     },
     {
       "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKES_MANAPOURI_TE_ANAU_HEAD_SEA.csv",
@@ -428,13 +542,6 @@
       "content_length": "267185",
       "etag": "0x8DE4423CF35C501",
       "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/TEKAPO_CANAL_TAIL_LAKE_PUKAKI.csv"
-    },
-    {
-      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows",
-      "last_modified": "Fri, 26 Dec 2025 02:09:36 GMT",
-      "content_length": "0",
-      "etag": "0x8DE4423D1ADE498",
-      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows"
     },
     {
       "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKES_MANAPOURI_TE_ANAU_HEAD_SEA.csv",
@@ -689,35 +796,14 @@
       "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/solveoptions.json"
     }
   ],
-  "input_file_count": 21,
+  "input_file_count": 18,
   "input_files": [
-    {
-      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/EOH",
-      "last_modified": "Fri, 26 Dec 2025 02:09:22 GMT",
-      "content_length": "0",
-      "etag": "0x8DE4423C98ADBFC",
-      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/EOH"
-    },
     {
       "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/EOH/readme.txt",
       "last_modified": "Fri, 26 Dec 2025 02:09:23 GMT",
       "content_length": "578",
       "etag": "0x8DE4423C99BF091",
       "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/EOH/readme.txt"
-    },
-    {
-      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files",
-      "last_modified": "Fri, 26 Dec 2025 02:09:19 GMT",
-      "content_length": "0",
-      "etag": "0x8DE4423C74ED266",
-      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files"
-    },
-    {
-      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609",
-      "last_modified": "Fri, 26 Dec 2025 02:09:22 GMT",
-      "content_length": "0",
-      "etag": "0x8DE4423C91F0A38",
-      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609"
     },
     {
       "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/demand.csv",
