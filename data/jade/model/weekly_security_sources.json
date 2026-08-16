@@ -1,0 +1,18 @@
+{
+  "source": "New Zealand Electricity Authority published JADE weekly outputs",
+  "jade_source_year": "2025",
+  "jade_source_week": "Week 52",
+  "upstream_files": {
+    "calendar": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/tidy_results.csv",
+    "stored_energy": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/StoredEnergy.csv",
+    "thermal_cost": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ThermalCosts.csv",
+    "lost_load_cost": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/LostLoadCost.csv"
+  },
+  "derived_files": [
+    "data/jade/model/weekly_security_simulations.csv",
+    "data/jade/model/weekly_security_summary.csv"
+  ],
+  "method": "Join JADE tidy_results simulation/stage calendar mapping to StoredEnergy, ThermalCosts and LostLoadCost. Summarise stochastic simulations by calendar week using storage percentiles and shares/cost percentiles for thermal and lost load.",
+  "important_caveat": "ThermalCosts is a cost output, not thermal generation energy. This first dataset is suitable for storage/security-risk visuals. Thermal GWh/MW will be added only after an authoritative JADE dispatch output is identified from its published schemas.",
+  "raw_data_policy": "Raw JADE CSV files remain upstream at the Electricity Authority; this repository stores only the compact derived join needed for visualisation and reproducibility."
+}
