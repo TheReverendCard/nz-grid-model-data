@@ -37,6 +37,9 @@ jobs:
       - name: Fetch EA HMD Data
         run: python update_data.py
 
+      - name: Index EA JADE Published Inputs and Outputs
+        run: python update_jade_manifest.py
+
       - name: Normalize Hydro Data
         run: python normalize_hydro.py
 
