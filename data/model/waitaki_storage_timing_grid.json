@@ -1,0 +1,122 @@
+{
+  "status": "waitaki_pukaki_ohau_storage_timing_grid",
+  "year": 2024,
+  "purpose": "Test whether daily Pukaki and Lake Ohau storage timestamp conventions explain the remaining upstream-Ohau-A balance noise and large latent junction buffer.",
+  "ranking": [
+    {
+      "pki_storage_delta_timing": "next",
+      "ohu_storage_delta_timing": "same_day",
+      "count": 363,
+      "mean": -8.517,
+      "mae": 49.027,
+      "rmse": 65.302,
+      "max_abs": 335.166,
+      "implied_unbounded_junction_storage_range_mm3": 435.835,
+      "score": 87.853
+    },
+    {
+      "pki_storage_delta_timing": "next",
+      "ohu_storage_delta_timing": "previous",
+      "count": 363,
+      "mean": -8.494,
+      "mae": 56.527,
+      "rmse": 85.376,
+      "max_abs": 635.417,
+      "implied_unbounded_junction_storage_range_mm3": 435.823,
+      "score": 95.306
+    },
+    {
+      "pki_storage_delta_timing": "next",
+      "ohu_storage_delta_timing": "next",
+      "count": 363,
+      "mean": -8.508,
+      "mae": 56.922,
+      "rmse": 92.061,
+      "max_abs": 666.578,
+      "implied_unbounded_junction_storage_range_mm3": 436.985,
+      "score": 95.787
+    },
+    {
+      "pki_storage_delta_timing": "same_day",
+      "ohu_storage_delta_timing": "next",
+      "count": 363,
+      "mean": -8.383,
+      "mae": 56.991,
+      "rmse": 84.065,
+      "max_abs": 647.281,
+      "implied_unbounded_junction_storage_range_mm3": 456.511,
+      "score": 96.583
+    },
+    {
+      "pki_storage_delta_timing": "same_day",
+      "ohu_storage_delta_timing": "same_day",
+      "count": 363,
+      "mean": -8.392,
+      "mae": 58.937,
+      "rmse": 85.855,
+      "max_abs": 417.731,
+      "implied_unbounded_junction_storage_range_mm3": 460.008,
+      "score": 98.721
+    },
+    {
+      "pki_storage_delta_timing": "same_day",
+      "ohu_storage_delta_timing": "previous",
+      "count": 363,
+      "mean": -8.368,
+      "mae": 73.278,
+      "rmse": 124.517,
+      "max_abs": 911.875,
+      "implied_unbounded_junction_storage_range_mm3": 487.995,
+      "score": 114.414
+    },
+    {
+      "pki_storage_delta_timing": "previous",
+      "ohu_storage_delta_timing": "same_day",
+      "count": 363,
+      "mean": -8.539,
+      "mae": 95.352,
+      "rmse": 149.736,
+      "max_abs": 1068.103,
+      "implied_unbounded_junction_storage_range_mm3": 541.825,
+      "score": 139.521
+    },
+    {
+      "pki_storage_delta_timing": "previous",
+      "ohu_storage_delta_timing": "next",
+      "count": 363,
+      "mean": -8.531,
+      "mae": 96.729,
+      "rmse": 155.771,
+      "max_abs": 1316.078,
+      "implied_unbounded_junction_storage_range_mm3": 534.723,
+      "score": 140.527
+    },
+    {
+      "pki_storage_delta_timing": "previous",
+      "ohu_storage_delta_timing": "previous",
+      "count": 363,
+      "mean": -8.516,
+      "mae": 109.739,
+      "rmse": 187.263,
+      "max_abs": 1399.515,
+      "implied_unbounded_junction_storage_range_mm3": 570.826,
+      "score": 155.312
+    }
+  ],
+  "best": {
+    "pki_storage_delta_timing": "next",
+    "ohu_storage_delta_timing": "same_day",
+    "count": 363,
+    "mean": -8.517,
+    "mae": 49.027,
+    "rmse": 65.302,
+    "max_abs": 335.166,
+    "implied_unbounded_junction_storage_range_mm3": 435.835,
+    "score": 87.853
+  },
+  "interpretation": [
+    "The preferred combination should reduce MAE/RMSE and, especially, the cumulative implied junction-storage range.",
+    "A large implied junction-storage range indicates unresolved accounting or timestamp mismatch and should not be treated as physical canal storage.",
+    "This diagnostic changes no dispatch assumptions; it only tests daily source/storage alignment against observed Ohau A flow."
+  ]
+}
