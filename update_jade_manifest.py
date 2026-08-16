@@ -14,25 +14,34 @@ OUT = Path("data/metadata/jade_manifest.json")
 
 
 def list_blobs(prefix: str) -> list[dict[str, str]]:
-    response = requests.get(
-        CONTAINER,
-        params={"restype": "container", "comp": "list", "prefix": prefix},
-        timeout=60,
-    )
-    response.raise_for_status()
-    root = ElementTree.fromstring(response.content)
     blobs: list[dict[str, str]] = []
-    for blob in root.findall(".//Blob"):
-        name = blob.findtext("Name")
-        if not name:
-            continue
-        blobs.append({
-            "name": name,
-            "last_modified": blob.findtext("Properties/Last-Modified") or "",
-            "content_length": blob.findtext("Properties/Content-Length") or "",
-            "etag": blob.findtext("Properties/Etag") or "",
-            "source_url": f"{CONTAINER}/{quote(name, safe='/')}",
-        })
+    marker = ""
+    page = 0
+    while True:
+        params = {"restype": "container", "comp": "list", "prefix": prefix}
+        if marker:
+            params["marker"] = marker
+        response = requests.get(CONTAINER, params=params, timeout=60)
+        response.raise_for_status()
+        root = ElementTree.fromstring(response.content)
+        page += 1
+        page_count = 0
+        for blob in root.findall(".//Blob"):
+            name = blob.findtext("Name")
+            if not name:
+                continue
+            blobs.append({
+                "name": name,
+                "last_modified": blob.findtext("Properties/Last-Modified") or "",
+                "content_length": blob.findtext("Properties/Content-Length") or "",
+                "etag": blob.findtext("Properties/Etag") or "",
+                "source_url": f"{CONTAINER}/{quote(name, safe='/')}",
+            })
+            page_count += 1
+        print(f"JADE Azure listing page {page}: {page_count} blobs")
+        marker = root.findtext("NextMarker") or ""
+        if not marker:
+            break
     return blobs
 
 
