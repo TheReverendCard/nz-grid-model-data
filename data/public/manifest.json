@@ -1,0 +1,12 @@
+{
+  "datasets": [
+    "data/public/demand_daily.csv",
+    "data/public/generation_mix_daily.csv",
+    "data/public/hydro_storage_daily.csv",
+    "data/public/renewable_share_daily.csv",
+    "data/public/renewables_vs_price_daily.csv",
+    "data/public/solar_installations_monthly.csv",
+    "data/public/wholesale_prices_daily.csv"
+  ],
+  "note": "Observed/public-data derivatives only; model scenarios are excluded."
+}
