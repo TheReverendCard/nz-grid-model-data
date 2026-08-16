@@ -1,0 +1,1124 @@
+{
+  "source": "New Zealand Electricity Authority EMI JADE published weekly model files",
+  "latest_year": "2025",
+  "latest_week": "Week 52",
+  "purpose": "Identify authoritative JADE physical generation/dispatch output for thermal GWh/MW visualisation without guessing from filenames.",
+  "candidate_count": 30,
+  "candidates": [
+    {
+      "score": 9,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/StoredEnergy.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/StoredEnergy.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        " energy_GWh"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "3720.0225658980144"
+        ],
+        [
+          "1",
+          "2",
+          "3752.590833388393"
+        ],
+        [
+          "1",
+          "3",
+          "3620.4610000933408"
+        ]
+      ],
+      "reasons": [
+        "schema contains power/energy terminology",
+        "filename contains generation/dispatch/thermal/energy/power"
+      ]
+    },
+    {
+      "score": 7,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpilledEnergy_OFFPEAK.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpilledEnergy_OFFPEAK.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        " energy_MWh"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "201.26557919999976"
+        ],
+        [
+          "1",
+          "2",
+          "1759.4947058074058"
+        ],
+        [
+          "1",
+          "3",
+          "691.2343600895213"
+        ]
+      ],
+      "reasons": [
+        "schema contains power/energy terminology",
+        "filename contains generation/dispatch/thermal/energy/power",
+        "physical energy but spill rather than generation"
+      ]
+    },
+    {
+      "score": 7,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpilledEnergy_PEAK.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpilledEnergy_PEAK.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        " energy_MWh"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "1266.3121609252244"
+        ],
+        [
+          "1",
+          "2",
+          "5853.32344324983"
+        ],
+        [
+          "1",
+          "3",
+          "124.02640559999998"
+        ]
+      ],
+      "reasons": [
+        "schema contains power/energy terminology",
+        "filename contains generation/dispatch/thermal/energy/power",
+        "physical energy but spill rather than generation"
+      ]
+    },
+    {
+      "score": 7,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpilledEnergy_SHOULDER.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpilledEnergy_SHOULDER.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        " energy_MWh"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "2997.8721609080303"
+        ],
+        [
+          "1",
+          "2",
+          "5344.884747077335"
+        ],
+        [
+          "1",
+          "3",
+          "471.2961546064917"
+        ]
+      ],
+      "reasons": [
+        "schema contains power/energy terminology",
+        "filename contains generation/dispatch/thermal/energy/power",
+        "physical energy but spill rather than generation"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKES_MANAPOURI_TE_ANAU_HEAD_SEA.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKES_MANAPOURI_TE_ANAU_HEAD_SEA.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "466.24004179182447",
+          "466.24004179182447",
+          "365.9545228999688"
+        ],
+        [
+          "1",
+          "2",
+          "436.2021679508946",
+          "436.2021679508946",
+          "282.98611732026063"
+        ],
+        [
+          "1",
+          "3",
+          "371.5554394671542",
+          "371.5554394671542",
+          "371.5554394671542"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_ARAPUNI_LAKE_KARAPIRO.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_ARAPUNI_LAKE_KARAPIRO.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "124.788222",
+          "124.788222",
+          "124.788222"
+        ],
+        [
+          "1",
+          "2",
+          "174.12733987289604",
+          "123.966571",
+          "123.966571"
+        ],
+        [
+          "1",
+          "3",
+          "309.59082052392296",
+          "278.2292612585802",
+          "125.438571"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_ARATIATIA_LAKE_OHAKURI.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_ARATIATIA_LAKE_OHAKURI.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "61.451110000000014",
+          "61.451110000000014",
+          "61.451110000000014"
+        ],
+        [
+          "1",
+          "2",
+          "107.37005387289607",
+          "57.209284999999994",
+          "57.209284999999994"
+        ],
+        [
+          "1",
+          "3",
+          "248.96110652392295",
+          "217.5995472585802",
+          "64.808857"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_ATIAMURI_LAKE_WHAKAMARU.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_ATIAMURI_LAKE_WHAKAMARU.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "94.30944400000001",
+          "94.30944400000001",
+          "94.30944400000001"
+        ],
+        [
+          "1",
+          "2",
+          "142.00305387289606",
+          "91.842285",
+          "91.842285"
+        ],
+        [
+          "1",
+          "3",
+          "280.41496352392295",
+          "249.0534042585802",
+          "96.262714"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_AVIEMORE_LAKE_WAITAKI.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_AVIEMORE_LAKE_WAITAKI.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "631.7477237977804",
+          "447.1343517639045",
+          "269.1351888202185"
+        ],
+        [
+          "1",
+          "2",
+          "709.448564979039",
+          "632.8337237977804",
+          "317.45630684466107"
+        ],
+        [
+          "1",
+          "3",
+          "618.8878263041458",
+          "618.8878263041458",
+          "334.3711685874323"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_BENMORE_LAKE_AVIEMORE.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_BENMORE_LAKE_AVIEMORE.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "627.7727237977804",
+          "443.15935176390445",
+          "265.1601888202185"
+        ],
+        [
+          "1",
+          "2",
+          "651.8282988871224",
+          "629.3160097977805",
+          "313.93859284466106"
+        ],
+        [
+          "1",
+          "3",
+          "616.3629693041457",
+          "616.3629693041457",
+          "331.8463115874323"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_COBB_SEA.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_COBB_SEA.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "7.264472190692395",
+          "7.264472190692395",
+          "7.264472190692395"
+        ],
+        [
+          "1",
+          "2",
+          "5.183143",
+          "0.9951078347627221",
+          "0.6441513948833826"
+        ],
+        [
+          "1",
+          "3",
+          "4.721571",
+          "4.721571",
+          "4.721571"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_COLERIDGE_SEA.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_COLERIDGE_SEA.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "23.549",
+          "23.549",
+          "23.549"
+        ],
+        [
+          "1",
+          "2",
+          "12.464571",
+          "12.464571",
+          "12.464571"
+        ],
+        [
+          "1",
+          "3",
+          "10.404286",
+          "10.404286",
+          "10.404286"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_DUNSTAN_CLYDE_TAIL.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_DUNSTAN_CLYDE_TAIL.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "437.5943839444807",
+          "403.39250000000004",
+          "403.39250000000004"
+        ],
+        [
+          "1",
+          "2",
+          "611.6783537836252",
+          "448.977571",
+          "448.977571"
+        ],
+        [
+          "1",
+          "3",
+          "611.3477499999999",
+          "611.3477499999999",
+          "421.34774999999996"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_KARAPIRO_KARAPIRO_TAIL.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_KARAPIRO_KARAPIRO_TAIL.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "140.0",
+          "140.0",
+          "140.0"
+        ],
+        [
+          "1",
+          "2",
+          "190.16076887289606",
+          "140.0",
+          "140.0"
+        ],
+        [
+          "1",
+          "3",
+          "324.15224952392293",
+          "292.7906902585802",
+          "140.0"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_MARAETAI_LAKE_WAIPAPA.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_MARAETAI_LAKE_WAIPAPA.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "115.635444",
+          "115.635444",
+          "115.635444"
+        ],
+        [
+          "1",
+          "2",
+          "164.48048287289606",
+          "114.319714",
+          "114.319714"
+        ],
+        [
+          "1",
+          "3",
+          "300.82924852392296",
+          "269.4676892585802",
+          "116.676999"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_MATAHINA_SEA.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_MATAHINA_SEA.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "54.197154",
+          "54.197154",
+          "54.197154"
+        ],
+        [
+          "1",
+          "2",
+          "55.423667",
+          "55.423667",
+          "55.423667"
+        ],
+        [
+          "1",
+          "3",
+          "57.101889",
+          "57.101889",
+          "57.101889"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_MOAWHANGO_SEA.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_MOAWHANGO_SEA.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "25.510204081632654",
+          "25.510204081632654",
+          "25.510204081632654"
+        ],
+        [
+          "1",
+          "2",
+          "24.964083",
+          "24.964083",
+          "24.964083"
+        ],
+        [
+          "1",
+          "3",
+          "25.510204081632654",
+          "25.510204081632654",
+          "25.510204081632654"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_OHAKURI_LAKE_ATIAMURI.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_OHAKURI_LAKE_ATIAMURI.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "88.68966600000002",
+          "88.68966600000002",
+          "88.68966600000002"
+        ],
+        [
+          "1",
+          "2",
+          "136.07976787289607",
+          "85.918999",
+          "85.918999"
+        ],
+        [
+          "1",
+          "3",
+          "275.03539252392295",
+          "243.6738332585802",
+          "90.883143"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_ROTOAIRA_SEA.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_ROTOAIRA_SEA.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "36.280625",
+          "36.280625",
+          "36.280625"
+        ],
+        [
+          "1",
+          "2",
+          "33.81075",
+          "33.81075",
+          "33.81075"
+        ],
+        [
+          "1",
+          "3",
+          "40.299286",
+          "40.299286",
+          "40.299286"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_ROXBURGH_ROXBURGH_TAIL.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_ROXBURGH_ROXBURGH_TAIL.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "442.9093839444807",
+          "408.70750000000004",
+          "408.70750000000004"
+        ],
+        [
+          "1",
+          "2",
+          "620.2392107836253",
+          "457.538428",
+          "457.538428"
+        ],
+        [
+          "1",
+          "3",
+          "619.1894639999999",
+          "619.1894639999999",
+          "429.189464"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_RUATANIWHA_OHAU_BC_CANAL.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_RUATANIWHA_OHAU_BC_CANAL.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "302.37580993520515",
+          "302.37580993520515",
+          "217.2641888202185"
+        ],
+        [
+          "1",
+          "2",
+          "379.16966642668586",
+          "379.16966642668586",
+          "271.55416384466105"
+        ],
+        [
+          "1",
+          "3",
+          "379.16966642668586",
+          "379.16966642668586",
+          "301.4274545874323"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_TEKAPO_TEKAPO_CANAL_HEAD.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_TEKAPO_TEKAPO_CANAL_HEAD.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "116.27906976744187",
+          "116.27906976744187",
+          "2.856994002903011"
+        ],
+        [
+          "1",
+          "2",
+          "111.9724375538329",
+          "111.9724375538329",
+          "103.82305032923853"
+        ],
+        [
+          "1",
+          "3",
+          "111.9724375538329",
+          "111.9724375538329",
+          "111.9724375538329"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_WAIKAREMOANA_HEAD_SEA.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_WAIKAREMOANA_HEAD_SEA.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "0.0",
+          "0.0",
+          "0.0"
+        ],
+        [
+          "1",
+          "2",
+          "0.0",
+          "0.0",
+          "0.0"
+        ],
+        [
+          "1",
+          "3",
+          "0.0",
+          "0.0",
+          "0.0"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_WAIPAPA_LAKE_ARAPUNI.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_WAIPAPA_LAKE_ARAPUNI.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "120.30333300000001",
+          "120.30333300000001",
+          "120.30333300000001"
+        ],
+        [
+          "1",
+          "2",
+          "169.40048287289605",
+          "119.239714",
+          "119.239714"
+        ],
+        [
+          "1",
+          "3",
+          "305.29767752392297",
+          "273.9361182585802",
+          "121.145428"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_WAITAKI_WAITAKI_TAIL.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_WAITAKI_WAITAKI_TAIL.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "641.1837237977804",
+          "456.57035176390445",
+          "278.5711888202185"
+        ],
+        [
+          "1",
+          "2",
+          "641.1837237977804",
+          "641.1837237977804",
+          "325.8063068446611"
+        ],
+        [
+          "1",
+          "3",
+          "624.8805403041458",
+          "624.8805403041458",
+          "340.3638825874323"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_WHAKAMARU_LAKE_MARAETAI.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_WHAKAMARU_LAKE_MARAETAI.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "103.53533300000001",
+          "103.53533300000001",
+          "103.53533300000001"
+        ],
+        [
+          "1",
+          "2",
+          "151.72719687289606",
+          "101.566428",
+          "101.566428"
+        ],
+        [
+          "1",
+          "3",
+          "289.24653452392295",
+          "257.8849752585802",
+          "105.094285"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/MANGAHAO_HEAD_SEA.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/MANGAHAO_HEAD_SEA.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "6.259333",
+          "6.259333",
+          "6.259333"
+        ],
+        [
+          "1",
+          "2",
+          "8.245714",
+          "8.245714",
+          "8.245714"
+        ],
+        [
+          "1",
+          "3",
+          "3.956571",
+          "3.956571",
+          "3.956571"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/OHAU_BC_CANAL_LAKE_BENMORE.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/OHAU_BC_CANAL_LAKE_BENMORE.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "381.5694744420446",
+          "381.5694744420446",
+          "217.2641888202185"
+        ],
+        [
+          "1",
+          "2",
+          "381.5694744420446",
+          "381.5694744420446",
+          "271.55416384466105"
+        ],
+        [
+          "1",
+          "3",
+          "362.37101031917445",
+          "362.37101031917445",
+          "301.4274545874323"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/PUKAKI_OHAU_CANAL_JUNCTION_LAKE_RUATANIWHA.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/PUKAKI_OHAU_CANAL_JUNCTION_LAKE_RUATANIWHA.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "303.69630369630374",
+          "303.69630369630374",
+          "209.2641888202185"
+        ],
+        [
+          "1",
+          "2",
+          "415.58441558441564",
+          "415.58441558441564",
+          "263.55416384466105"
+        ],
+        [
+          "1",
+          "3",
+          "397.6023976023977",
+          "397.6023976023977",
+          "293.4274545874323"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    },
+    {
+      "score": 5,
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/TEKAPO_CANAL_TAIL_LAKE_PUKAKI.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/TEKAPO_CANAL_TAIL_LAKE_PUKAKI.csv",
+      "columns": [
+        "simulation",
+        " stage",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "1",
+          "1",
+          "119.87234373783764",
+          "119.87234373783764",
+          "2.856994002903011"
+        ],
+        [
+          "1",
+          "2",
+          "119.87234373783764",
+          "119.87234373783764",
+          "103.82305032923853"
+        ],
+        [
+          "1",
+          "3",
+          "119.09395189538414",
+          "119.09395189538414",
+          "119.09395189538414"
+        ]
+      ],
+      "reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ]
+    }
+  ]
+}

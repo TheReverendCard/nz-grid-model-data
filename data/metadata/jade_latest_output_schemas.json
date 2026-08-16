@@ -137,6 +137,10 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -6,
+      "dispatch_candidate_reasons": [
+        "hydrological flow table"
+      ],
       "content_length": "2544298"
     },
     {
@@ -168,6 +172,10 @@
         "price_or_cost",
         "storage",
         "water_value"
+      ],
+      "dispatch_candidate_score": -8,
+      "dispatch_candidate_reasons": [
+        "cost/penalty table, not physical dispatch"
       ],
       "content_length": "49101"
     },
@@ -201,6 +209,10 @@
         "price_or_cost",
         "water_value"
       ],
+      "dispatch_candidate_score": -8,
+      "dispatch_candidate_reasons": [
+        "cost/penalty table, not physical dispatch"
+      ],
       "content_length": "48361"
     },
     {
@@ -233,6 +245,10 @@
         "price_or_cost",
         "water_value"
       ],
+      "dispatch_candidate_score": -8,
+      "dispatch_candidate_reasons": [
+        "cost/penalty table, not physical dispatch"
+      ],
       "content_length": "46646"
     },
     {
@@ -263,6 +279,10 @@
       "tags": [
         "price_or_cost",
         "water_value"
+      ],
+      "dispatch_candidate_score": -8,
+      "dispatch_candidate_reasons": [
+        "cost/penalty table, not physical dispatch"
       ],
       "content_length": "130237"
     },
@@ -295,6 +315,10 @@
         "lost_load",
         "price_or_cost",
         "water_value"
+      ],
+      "dispatch_candidate_score": -8,
+      "dispatch_candidate_reasons": [
+        "cost/penalty table, not physical dispatch"
       ],
       "content_length": "46056"
     },
@@ -335,6 +359,11 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
+      ],
       "content_length": "222777"
     },
     {
@@ -373,6 +402,11 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
       ],
       "content_length": "259817"
     },
@@ -413,6 +447,11 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
+      ],
       "content_length": "275747"
     },
     {
@@ -451,6 +490,11 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
       ],
       "content_length": "150510"
     },
@@ -491,6 +535,11 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
+      ],
       "content_length": "115207"
     },
     {
@@ -529,6 +578,11 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
       ],
       "content_length": "156123"
     },
@@ -569,6 +623,11 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
+      ],
       "content_length": "89282"
     },
     {
@@ -607,6 +666,11 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
       ],
       "content_length": "269191"
     },
@@ -647,6 +711,11 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
+      ],
       "content_length": "88054"
     },
     {
@@ -685,6 +754,11 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
       ],
       "content_length": "89576"
     },
@@ -725,6 +799,11 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
+      ],
       "content_length": "130999"
     },
     {
@@ -763,6 +842,11 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
       ],
       "content_length": "266685"
     },
@@ -803,6 +887,11 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
+      ],
       "content_length": "133466"
     },
     {
@@ -841,6 +930,11 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
       ],
       "content_length": "215493"
     },
@@ -881,6 +975,11 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
+      ],
       "content_length": "185682"
     },
     {
@@ -919,6 +1018,11 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
       ],
       "content_length": "98780"
     },
@@ -959,6 +1063,11 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
+      ],
       "content_length": "227675"
     },
     {
@@ -997,6 +1106,11 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
       ],
       "content_length": "265155"
     },
@@ -1037,6 +1151,11 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
+      ],
       "content_length": "276622"
     },
     {
@@ -1067,6 +1186,10 @@
       "tags": [
         "price_or_cost",
         "water_value"
+      ],
+      "dispatch_candidate_score": -8,
+      "dispatch_candidate_reasons": [
+        "cost/penalty table, not physical dispatch"
       ],
       "content_length": "114390"
     },
@@ -1107,6 +1230,10 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ],
       "content_length": "281851"
     },
     {
@@ -1145,6 +1272,10 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
       ],
       "content_length": "270322"
     },
@@ -1185,6 +1316,10 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ],
       "content_length": "272066"
     },
     {
@@ -1223,6 +1358,10 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
       ],
       "content_length": "274142"
     },
@@ -1263,6 +1402,10 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ],
       "content_length": "280290"
     },
     {
@@ -1301,6 +1444,10 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
       ],
       "content_length": "283740"
     },
@@ -1341,6 +1488,10 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ],
       "content_length": "206694"
     },
     {
@@ -1379,6 +1530,10 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
       ],
       "content_length": "203189"
     },
@@ -1419,6 +1574,10 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ],
       "content_length": "225036"
     },
     {
@@ -1457,6 +1616,10 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
       ],
       "content_length": "260769"
     },
@@ -1497,6 +1660,10 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ],
       "content_length": "274537"
     },
     {
@@ -1535,6 +1702,10 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
       ],
       "content_length": "176470"
     },
@@ -1575,6 +1746,10 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ],
       "content_length": "195113"
     },
     {
@@ -1613,6 +1788,10 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
       ],
       "content_length": "273816"
     },
@@ -1653,6 +1832,10 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ],
       "content_length": "177363"
     },
     {
@@ -1691,6 +1874,10 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
       ],
       "content_length": "231755"
     },
@@ -1731,6 +1918,10 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ],
       "content_length": "286238"
     },
     {
@@ -1769,6 +1960,10 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
       ],
       "content_length": "267751"
     },
@@ -1809,6 +2004,10 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ],
       "content_length": "215060"
     },
     {
@@ -1847,6 +2046,10 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
       ],
       "content_length": "274527"
     },
@@ -1887,6 +2090,10 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ],
       "content_length": "276787"
     },
     {
@@ -1925,6 +2132,10 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
       ],
       "content_length": "275454"
     },
@@ -1965,6 +2176,10 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ],
       "content_length": "212246"
     },
     {
@@ -2003,6 +2218,10 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
       ],
       "content_length": "286010"
     },
@@ -2043,6 +2262,10 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
+      ],
       "content_length": "284927"
     },
     {
@@ -2081,6 +2304,10 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": 5,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns"
       ],
       "content_length": "267185"
     },
@@ -2121,6 +2348,11 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
+      ],
       "content_length": "91589"
     },
     {
@@ -2159,6 +2391,11 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
       ],
       "content_length": "107648"
     },
@@ -2199,6 +2436,11 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
+      ],
       "content_length": "93619"
     },
     {
@@ -2237,6 +2479,11 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
       ],
       "content_length": "86163"
     },
@@ -2277,6 +2524,11 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
+      ],
       "content_length": "86784"
     },
     {
@@ -2315,6 +2567,11 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
       ],
       "content_length": "115212"
     },
@@ -2355,6 +2612,11 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
+      ],
       "content_length": "134511"
     },
     {
@@ -2393,6 +2655,11 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
       ],
       "content_length": "135675"
     },
@@ -2433,6 +2700,11 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
+      ],
       "content_length": "98260"
     },
     {
@@ -2471,6 +2743,11 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
       ],
       "content_length": "99016"
     },
@@ -2511,6 +2788,11 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
+      ],
       "content_length": "84088"
     },
     {
@@ -2549,6 +2831,11 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
       ],
       "content_length": "88288"
     },
@@ -2589,6 +2876,11 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
+      ],
       "content_length": "133394"
     },
     {
@@ -2627,6 +2919,11 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
       ],
       "content_length": "87976"
     },
@@ -2667,6 +2964,11 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
+      ],
       "content_length": "86509"
     },
     {
@@ -2705,6 +3007,11 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
       ],
       "content_length": "108415"
     },
@@ -2745,6 +3052,11 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
+      ],
       "content_length": "110683"
     },
     {
@@ -2783,6 +3095,11 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
       ],
       "content_length": "96309"
     },
@@ -2823,6 +3140,11 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
+      ],
       "content_length": "85750"
     },
     {
@@ -2861,6 +3183,11 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
       ],
       "content_length": "141643"
     },
@@ -2901,6 +3228,11 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
+      ],
       "content_length": "101013"
     },
     {
@@ -2939,6 +3271,11 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
       ],
       "content_length": "97555"
     },
@@ -2979,6 +3316,11 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
+      ],
       "content_length": "133554"
     },
     {
@@ -3017,6 +3359,11 @@
       "tags": [
         "flows",
         "water_value"
+      ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
       ],
       "content_length": "85816"
     },
@@ -3057,6 +3404,11 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
+      ],
       "content_length": "83928"
     },
     {
@@ -3096,6 +3448,11 @@
         "flows",
         "water_value"
       ],
+      "dispatch_candidate_score": -1,
+      "dispatch_candidate_reasons": [
+        "has PEAK/SHOULDER/OFFPEAK dispatch-period columns",
+        "hydrological flow table"
+      ],
       "content_length": "89448"
     },
     {
@@ -3126,6 +3483,12 @@
       "tags": [
         "generation",
         "water_value"
+      ],
+      "dispatch_candidate_score": 7,
+      "dispatch_candidate_reasons": [
+        "schema contains power/energy terminology",
+        "filename contains generation/dispatch/thermal/energy/power",
+        "physical energy but spill rather than generation"
       ],
       "content_length": "91332"
     },
@@ -3158,6 +3521,12 @@
         "generation",
         "water_value"
       ],
+      "dispatch_candidate_score": 7,
+      "dispatch_candidate_reasons": [
+        "schema contains power/energy terminology",
+        "filename contains generation/dispatch/thermal/energy/power",
+        "physical energy but spill rather than generation"
+      ],
       "content_length": "106925"
     },
     {
@@ -3189,6 +3558,12 @@
         "generation",
         "water_value"
       ],
+      "dispatch_candidate_score": 7,
+      "dispatch_candidate_reasons": [
+        "schema contains power/energy terminology",
+        "filename contains generation/dispatch/thermal/energy/power",
+        "physical energy but spill rather than generation"
+      ],
       "content_length": "100956"
     },
     {
@@ -3218,6 +3593,11 @@
       ],
       "tags": [
         "water_value"
+      ],
+      "dispatch_candidate_score": 9,
+      "dispatch_candidate_reasons": [
+        "schema contains power/energy terminology",
+        "filename contains generation/dispatch/thermal/energy/power"
       ],
       "content_length": "114743"
     },
@@ -3249,6 +3629,10 @@
       "tags": [
         "price_or_cost",
         "water_value"
+      ],
+      "dispatch_candidate_score": -8,
+      "dispatch_candidate_reasons": [
+        "cost/penalty table, not physical dispatch"
       ],
       "content_length": "130218"
     },
@@ -3282,6 +3666,11 @@
         "thermal",
         "water_value"
       ],
+      "dispatch_candidate_score": -4,
+      "dispatch_candidate_reasons": [
+        "filename contains generation/dispatch/thermal/energy/power",
+        "cost/penalty table, not physical dispatch"
+      ],
       "content_length": "112194"
     },
     {
@@ -3304,6 +3693,10 @@
       "tags": [
         "price_or_cost",
         "water_value"
+      ],
+      "dispatch_candidate_score": -8,
+      "dispatch_candidate_reasons": [
+        "cost/penalty table, not physical dispatch"
       ],
       "content_length": "1841"
     },
@@ -3359,6 +3752,8 @@
       "tags": [
         "water_value"
       ],
+      "dispatch_candidate_score": 0,
+      "dispatch_candidate_reasons": [],
       "content_length": "88454908"
     }
   ],
