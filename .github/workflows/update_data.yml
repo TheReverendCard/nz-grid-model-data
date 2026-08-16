@@ -149,6 +149,9 @@ jobs:
       - name: Diagnose Observed Waitaki Station Flows
         run: python diagnose_waitaki_station_flows.py
 
+      - name: Diagnose Explicit Waitaki Network Balance
+        run: python diagnose_waitaki_network_balance.py
+
       - name: Plot Waitaki WiP Progress
         run: python plot_waitaki_progress.py
 
