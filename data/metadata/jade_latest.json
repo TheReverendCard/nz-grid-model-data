@@ -1,0 +1,843 @@
+{
+  "source": "New Zealand Electricity Authority EMI JADE published weekly model files",
+  "available_years": [
+    "2023",
+    "2024",
+    "2025"
+  ],
+  "year_blob_counts": {
+    "2023": 5966,
+    "2024": 6262,
+    "2025": 5763
+  },
+  "latest_year": "2025",
+  "latest_week": "Week 52",
+  "latest_week_modified": "Fri, 26 Dec 2025 02:09:45 GMT",
+  "latest_week_blob_count": 120,
+  "output_file_count": 96,
+  "output_files": [
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52",
+      "last_modified": "Fri, 26 Dec 2025 02:09:44 GMT",
+      "content_length": "0",
+      "etag": "0x8DE4423D6B0E5CE",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/adjusted_inflows.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:40 GMT",
+      "content_length": "2544298",
+      "etag": "0x8DE4423D401917E",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/adjusted_inflows.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/convergence.json",
+      "last_modified": "Fri, 26 Dec 2025 02:09:40 GMT",
+      "content_length": "948783",
+      "etag": "0x8DE4423D4278AB0",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/convergence.json"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/cuts.json",
+      "last_modified": "Fri, 26 Dec 2025 02:09:44 GMT",
+      "content_length": "180848779",
+      "etag": "0x8DE4423D668C393",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/cuts.json"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/rundata.json",
+      "last_modified": "Fri, 26 Dec 2025 02:09:44 GMT",
+      "content_length": "912",
+      "etag": "0x8DE4423D69F0E0F",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/rundata.json"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52",
+      "last_modified": "Fri, 26 Dec 2025 02:09:37 GMT",
+      "content_length": "0",
+      "etag": "0x8DE4423D2819111",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ContingentStorageCost.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:23 GMT",
+      "content_length": "49101",
+      "etag": "0x8DE4423C9E91B1D",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ContingentStorageCost.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/FlowLBCost.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:23 GMT",
+      "content_length": "48361",
+      "etag": "0x8DE4423CA0244D7",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/FlowLBCost.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/FlowUBCost.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:23 GMT",
+      "content_length": "46646",
+      "etag": "0x8DE4423CA1AAB54",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/FlowUBCost.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/FutureCost.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:24 GMT",
+      "content_length": "130237",
+      "etag": "0x8DE4423CA35A98A",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/FutureCost.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/LostLoadCost.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:24 GMT",
+      "content_length": "46056",
+      "etag": "0x8DE4423CA4EFA5A",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/LostLoadCost.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows",
+      "last_modified": "Fri, 26 Dec 2025 02:09:27 GMT",
+      "content_length": "0",
+      "etag": "0x8DE4423CC3527FF",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/CLYDE_TAIL_LAKE_ROXBURGH.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:24 GMT",
+      "content_length": "222777",
+      "etag": "0x8DE4423CA776419",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/CLYDE_TAIL_LAKE_ROXBURGH.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/KARAPIRO_TAIL_SEA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:24 GMT",
+      "content_length": "259817",
+      "etag": "0x8DE4423CA92149F",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/KARAPIRO_TAIL_SEA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKES_MANAPOURI_TE_ANAU_LAKES_MANAPOURI_TE_ANAU_HEAD.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:24 GMT",
+      "content_length": "275747",
+      "etag": "0x8DE4423CAAD1271",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKES_MANAPOURI_TE_ANAU_LAKES_MANAPOURI_TE_ANAU_HEAD.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKE_HAWEA_LAKE_DUNSTAN.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:24 GMT",
+      "content_length": "150510",
+      "etag": "0x8DE4423CAC72656",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKE_HAWEA_LAKE_DUNSTAN.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKE_OHAU_LAKE_RUATANIWHA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:25 GMT",
+      "content_length": "115207",
+      "etag": "0x8DE4423CADEF0B0",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKE_OHAU_LAKE_RUATANIWHA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKE_OHAU_PUKAKI_OHAU_CANAL_JUNCTION.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:25 GMT",
+      "content_length": "156123",
+      "etag": "0x8DE4423CAF7F35C",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKE_OHAU_PUKAKI_OHAU_CANAL_JUNCTION.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKE_PUKAKI_LAKE_BENMORE.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:25 GMT",
+      "content_length": "89282",
+      "etag": "0x8DE4423CB10A7F6",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKE_PUKAKI_LAKE_BENMORE.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKE_PUKAKI_PUKAKI_OHAU_CANAL_JUNCTION.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:25 GMT",
+      "content_length": "269191",
+      "etag": "0x8DE4423CB2D539C",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKE_PUKAKI_PUKAKI_OHAU_CANAL_JUNCTION.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKE_RUATANIWHA_LAKE_BENMORE.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:25 GMT",
+      "content_length": "88054",
+      "etag": "0x8DE4423CB4433B6",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKE_RUATANIWHA_LAKE_BENMORE.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKE_SCOTT_LAKE_BENMORE.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:25 GMT",
+      "content_length": "89576",
+      "etag": "0x8DE4423CB5BAFFB",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKE_SCOTT_LAKE_BENMORE.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKE_SCOTT_TEKAPO_CANAL_HEAD.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:26 GMT",
+      "content_length": "130999",
+      "etag": "0x8DE4423CB726978",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKE_SCOTT_TEKAPO_CANAL_HEAD.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKE_TAUPO_LAKE_ARATIATIA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:26 GMT",
+      "content_length": "266685",
+      "etag": "0x8DE4423CB8C2EED",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKE_TAUPO_LAKE_ARATIATIA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKE_TEKAPO_LAKE_SCOTT.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:26 GMT",
+      "content_length": "133466",
+      "etag": "0x8DE4423CBA46E57",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKE_TEKAPO_LAKE_SCOTT.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKE_WAIKAREMOANA_LAKE_WAIKAREMOANA_HEAD.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:26 GMT",
+      "content_length": "215493",
+      "etag": "0x8DE4423CBBDE62A",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKE_WAIKAREMOANA_LAKE_WAIKAREMOANA_HEAD.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKE_WANAKA_LAKE_DUNSTAN.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:26 GMT",
+      "content_length": "185682",
+      "etag": "0x8DE4423CBD58976",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/LAKE_WANAKA_LAKE_DUNSTAN.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/OHAU_BC_CANAL_LAKE_BENMORE.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:26 GMT",
+      "content_length": "98780",
+      "etag": "0x8DE4423CBED2CD3",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/OHAU_BC_CANAL_LAKE_BENMORE.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/ROXBURGH_TAIL_SEA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:27 GMT",
+      "content_length": "227675",
+      "etag": "0x8DE4423CC0A74A2",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/ROXBURGH_TAIL_SEA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/TEKAPO_CANAL_HEAD_TEKAPO_CANAL_TAIL.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:27 GMT",
+      "content_length": "265155",
+      "etag": "0x8DE4423CC274741",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/TEKAPO_CANAL_HEAD_TEKAPO_CANAL_TAIL.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/WAITAKI_TAIL_SEA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:27 GMT",
+      "content_length": "276622",
+      "etag": "0x8DE4423CC43F2E4",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/NaturalFlows/WAITAKI_TAIL_SEA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/PresentCost.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:27 GMT",
+      "content_length": "114390",
+      "etag": "0x8DE4423CC5D1C9C",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/PresentCost.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows",
+      "last_modified": "Fri, 26 Dec 2025 02:09:32 GMT",
+      "content_length": "0",
+      "etag": "0x8DE4423CF296AB0",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKES_MANAPOURI_TE_ANAU_HEAD_SEA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:27 GMT",
+      "content_length": "281851",
+      "etag": "0x8DE4423CC85FB8E",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKES_MANAPOURI_TE_ANAU_HEAD_SEA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_ARAPUNI_LAKE_KARAPIRO.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:28 GMT",
+      "content_length": "270322",
+      "etag": "0x8DE4423CCA28022",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_ARAPUNI_LAKE_KARAPIRO.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_ARATIATIA_LAKE_OHAKURI.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:28 GMT",
+      "content_length": "272066",
+      "etag": "0x8DE4423CCBC9418",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_ARATIATIA_LAKE_OHAKURI.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_ATIAMURI_LAKE_WHAKAMARU.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:28 GMT",
+      "content_length": "274142",
+      "etag": "0x8DE4423CCD87C8E",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_ATIAMURI_LAKE_WHAKAMARU.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_AVIEMORE_LAKE_WAITAKI.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:28 GMT",
+      "content_length": "280290",
+      "etag": "0x8DE4423CCF37ABB",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_AVIEMORE_LAKE_WAITAKI.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_BENMORE_LAKE_AVIEMORE.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:28 GMT",
+      "content_length": "283740",
+      "etag": "0x8DE4423CD177857",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_BENMORE_LAKE_AVIEMORE.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_COBB_SEA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:29 GMT",
+      "content_length": "206694",
+      "etag": "0x8DE4423CD329D94",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_COBB_SEA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_COLERIDGE_SEA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:29 GMT",
+      "content_length": "203189",
+      "etag": "0x8DE4423CD4B2B25",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_COLERIDGE_SEA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_DUNSTAN_CLYDE_TAIL.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:29 GMT",
+      "content_length": "225036",
+      "etag": "0x8DE4423CD658D2B",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_DUNSTAN_CLYDE_TAIL.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_KARAPIRO_KARAPIRO_TAIL.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:29 GMT",
+      "content_length": "260769",
+      "etag": "0x8DE4423CD7EB6E2",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_KARAPIRO_KARAPIRO_TAIL.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_MARAETAI_LAKE_WAIPAPA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:29 GMT",
+      "content_length": "274537",
+      "etag": "0x8DE4423CD9D0FF7",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_MARAETAI_LAKE_WAIPAPA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_MATAHINA_SEA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:29 GMT",
+      "content_length": "176470",
+      "etag": "0x8DE4423CDB6FCE5",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_MATAHINA_SEA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_MOAWHANGO_SEA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:30 GMT",
+      "content_length": "195113",
+      "etag": "0x8DE4423CDCFFF92",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_MOAWHANGO_SEA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_OHAKURI_LAKE_ATIAMURI.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:30 GMT",
+      "content_length": "273816",
+      "etag": "0x8DE4423CDEB72E2",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_OHAKURI_LAKE_ATIAMURI.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_ROTOAIRA_SEA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:30 GMT",
+      "content_length": "177363",
+      "etag": "0x8DE4423CE06E636",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_ROTOAIRA_SEA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_ROXBURGH_ROXBURGH_TAIL.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:30 GMT",
+      "content_length": "231755",
+      "etag": "0x8DE4423CE20D324",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_ROXBURGH_ROXBURGH_TAIL.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_RUATANIWHA_OHAU_BC_CANAL.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:30 GMT",
+      "content_length": "286238",
+      "etag": "0x8DE4423CE3BF861",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_RUATANIWHA_OHAU_BC_CANAL.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_TEKAPO_TEKAPO_CANAL_HEAD.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:30 GMT",
+      "content_length": "267751",
+      "etag": "0x8DE4423CE56A8CD",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_TEKAPO_TEKAPO_CANAL_HEAD.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_WAIKAREMOANA_HEAD_SEA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:31 GMT",
+      "content_length": "215060",
+      "etag": "0x8DE4423CE7290EC",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_WAIKAREMOANA_HEAD_SEA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_WAIPAPA_LAKE_ARAPUNI.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:31 GMT",
+      "content_length": "274527",
+      "etag": "0x8DE4423CE904DDC",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_WAIPAPA_LAKE_ARAPUNI.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_WAITAKI_WAITAKI_TAIL.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:31 GMT",
+      "content_length": "276787",
+      "etag": "0x8DE4423CEAD6EA0",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_WAITAKI_WAITAKI_TAIL.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_WHAKAMARU_LAKE_MARAETAI.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:31 GMT",
+      "content_length": "275454",
+      "etag": "0x8DE4423CECADD88",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/LAKE_WHAKAMARU_LAKE_MARAETAI.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/MANGAHAO_HEAD_SEA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:31 GMT",
+      "content_length": "212246",
+      "etag": "0x8DE4423CEE73B0C",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/MANGAHAO_HEAD_SEA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/OHAU_BC_CANAL_LAKE_BENMORE.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:32 GMT",
+      "content_length": "286010",
+      "etag": "0x8DE4423CF0127FA",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/OHAU_BC_CANAL_LAKE_BENMORE.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/PUKAKI_OHAU_CANAL_JUNCTION_LAKE_RUATANIWHA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:32 GMT",
+      "content_length": "284927",
+      "etag": "0x8DE4423CF1C9B47",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/PUKAKI_OHAU_CANAL_JUNCTION_LAKE_RUATANIWHA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/TEKAPO_CANAL_TAIL_LAKE_PUKAKI.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:32 GMT",
+      "content_length": "267185",
+      "etag": "0x8DE4423CF35C501",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ReleaseFlows/TEKAPO_CANAL_TAIL_LAKE_PUKAKI.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows",
+      "last_modified": "Fri, 26 Dec 2025 02:09:36 GMT",
+      "content_length": "0",
+      "etag": "0x8DE4423D1ADE498",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKES_MANAPOURI_TE_ANAU_HEAD_SEA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:32 GMT",
+      "content_length": "91589",
+      "etag": "0x8DE4423CF5C5A46",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKES_MANAPOURI_TE_ANAU_HEAD_SEA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_ARAPUNI_LAKE_KARAPIRO.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:32 GMT",
+      "content_length": "107648",
+      "etag": "0x8DE4423CF74E7D7",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_ARAPUNI_LAKE_KARAPIRO.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_ARATIATIA_LAKE_OHAKURI.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:32 GMT",
+      "content_length": "93619",
+      "etag": "0x8DE4423CF8D003F",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_ARATIATIA_LAKE_OHAKURI.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_ATIAMURI_LAKE_WHAKAMARU.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:33 GMT",
+      "content_length": "86163",
+      "etag": "0x8DE4423CFA3B94A",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_ATIAMURI_LAKE_WHAKAMARU.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_AVIEMORE_LAKE_WAITAKI.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:33 GMT",
+      "content_length": "86784",
+      "etag": "0x8DE4423CFBDA638",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_AVIEMORE_LAKE_WAITAKI.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_BENMORE_LAKE_AVIEMORE.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:33 GMT",
+      "content_length": "115212",
+      "etag": "0x8DE4423CFD967A1",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_BENMORE_LAKE_AVIEMORE.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_COBB_SEA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:33 GMT",
+      "content_length": "134511",
+      "etag": "0x8DE4423CFF1A71D",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_COBB_SEA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_COLERIDGE_SEA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:33 GMT",
+      "content_length": "135675",
+      "etag": "0x8DE4423D0099889",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_COLERIDGE_SEA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_DUNSTAN_CLYDE_TAIL.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:33 GMT",
+      "content_length": "98260",
+      "etag": "0x8DE4423D023D37B",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_DUNSTAN_CLYDE_TAIL.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_KARAPIRO_KARAPIRO_TAIL.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:34 GMT",
+      "content_length": "99016",
+      "etag": "0x8DE4423D03C8811",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_KARAPIRO_KARAPIRO_TAIL.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_MARAETAI_LAKE_WAIPAPA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:34 GMT",
+      "content_length": "84088",
+      "etag": "0x8DE4423D05674FD",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_MARAETAI_LAKE_WAIPAPA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_MATAHINA_SEA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:34 GMT",
+      "content_length": "88288",
+      "etag": "0x8DE4423D06FC5C2",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_MATAHINA_SEA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_MOAWHANGO_SEA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:34 GMT",
+      "content_length": "133394",
+      "etag": "0x8DE4423D0908F80",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_MOAWHANGO_SEA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_OHAKURI_LAKE_ATIAMURI.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:34 GMT",
+      "content_length": "87976",
+      "etag": "0x8DE4423D0A6AC69",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_OHAKURI_LAKE_ATIAMURI.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_ROTOAIRA_SEA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:34 GMT",
+      "content_length": "86509",
+      "etag": "0x8DE4423D0BCA23F",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_ROTOAIRA_SEA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_ROXBURGH_ROXBURGH_TAIL.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:35 GMT",
+      "content_length": "108415",
+      "etag": "0x8DE4423D0D44598",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_ROXBURGH_ROXBURGH_TAIL.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_RUATANIWHA_OHAU_BC_CANAL.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:35 GMT",
+      "content_length": "110683",
+      "etag": "0x8DE4423D0EC5DFD",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_RUATANIWHA_OHAU_BC_CANAL.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_TEKAPO_TEKAPO_CANAL_HEAD.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:35 GMT",
+      "content_length": "96309",
+      "etag": "0x8DE4423D103B32F",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_TEKAPO_TEKAPO_CANAL_HEAD.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_WAIKAREMOANA_HEAD_SEA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:35 GMT",
+      "content_length": "85750",
+      "etag": "0x8DE4423D11933F0",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_WAIKAREMOANA_HEAD_SEA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_WAIPAPA_LAKE_ARAPUNI.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:35 GMT",
+      "content_length": "141643",
+      "etag": "0x8DE4423D12FC5F4",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_WAIPAPA_LAKE_ARAPUNI.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_WAITAKI_WAITAKI_TAIL.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:35 GMT",
+      "content_length": "101013",
+      "etag": "0x8DE4423D14630F9",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_WAITAKI_WAITAKI_TAIL.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_WHAKAMARU_LAKE_MARAETAI.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:36 GMT",
+      "content_length": "97555",
+      "etag": "0x8DE4423D15E224F",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/LAKE_WHAKAMARU_LAKE_MARAETAI.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/MANGAHAO_HEAD_SEA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:36 GMT",
+      "content_length": "133554",
+      "etag": "0x8DE4423D175026B",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/MANGAHAO_HEAD_SEA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/OHAU_BC_CANAL_LAKE_BENMORE.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:36 GMT",
+      "content_length": "85816",
+      "etag": "0x8DE4423D18B465D",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/OHAU_BC_CANAL_LAKE_BENMORE.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/PUKAKI_OHAU_CANAL_JUNCTION_LAKE_RUATANIWHA.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:36 GMT",
+      "content_length": "83928",
+      "etag": "0x8DE4423D1A18A4D",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/PUKAKI_OHAU_CANAL_JUNCTION_LAKE_RUATANIWHA.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/TEKAPO_CANAL_TAIL_LAKE_PUKAKI.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:36 GMT",
+      "content_length": "89448",
+      "etag": "0x8DE4423D1B9A2C5",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpillFlows/TEKAPO_CANAL_TAIL_LAKE_PUKAKI.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpilledEnergy_OFFPEAK.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:36 GMT",
+      "content_length": "91332",
+      "etag": "0x8DE4423D1D16D0F",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpilledEnergy_OFFPEAK.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpilledEnergy_PEAK.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:36 GMT",
+      "content_length": "106925",
+      "etag": "0x8DE4423D1E8743B",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpilledEnergy_PEAK.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SpilledEnergy_SHOULDER.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:37 GMT",
+      "content_length": "100956",
+      "etag": "0x8DE4423D1FFA2C8",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SpilledEnergy_SHOULDER.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/StoredEnergy.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:37 GMT",
+      "content_length": "114743",
+      "etag": "0x8DE4423D218A51A",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/StoredEnergy.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/SummedCosts.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:37 GMT",
+      "content_length": "130218",
+      "etag": "0x8DE4423D22FD33F",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/SummedCosts.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/ThermalCosts.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:37 GMT",
+      "content_length": "112194",
+      "etag": "0x8DE4423D248AEE7",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/ThermalCosts.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/TotalCost.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:37 GMT",
+      "content_length": "1841",
+      "etag": "0x8DE4423D25EA4BB",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/TotalCost.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/sim_parameters.json",
+      "last_modified": "Fri, 26 Dec 2025 02:09:37 GMT",
+      "content_length": "675",
+      "etag": "0x8DE4423D2755DCC",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/sim_parameters.json"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/simulation_week_52/tidy_results.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:39 GMT",
+      "content_length": "88454908",
+      "etag": "0x8DE4423D3B99648",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/simulation_week_52/tidy_results.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Outputs/finite_horizon_from_week_52/solveoptions.json",
+      "last_modified": "Fri, 26 Dec 2025 02:09:45 GMT",
+      "content_length": "261",
+      "etag": "0x8DE4423D6BC55E4",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Outputs/finite_horizon_from_week_52/solveoptions.json"
+    }
+  ],
+  "input_file_count": 21,
+  "input_files": [
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/EOH",
+      "last_modified": "Fri, 26 Dec 2025 02:09:22 GMT",
+      "content_length": "0",
+      "etag": "0x8DE4423C98ADBFC",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/EOH"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/EOH/readme.txt",
+      "last_modified": "Fri, 26 Dec 2025 02:09:23 GMT",
+      "content_length": "578",
+      "etag": "0x8DE4423C99BF091",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/EOH/readme.txt"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files",
+      "last_modified": "Fri, 26 Dec 2025 02:09:19 GMT",
+      "content_length": "0",
+      "etag": "0x8DE4423C74ED266",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609",
+      "last_modified": "Fri, 26 Dec 2025 02:09:22 GMT",
+      "content_length": "0",
+      "etag": "0x8DE4423C91F0A38",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/demand.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:19 GMT",
+      "content_length": "99628",
+      "etag": "0x8DE4423C792887C",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/demand.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/fixed_stations.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:19 GMT",
+      "content_length": "1620051",
+      "etag": "0x8DE4423C7C3557C",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/fixed_stations.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/hours_per_block.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:20 GMT",
+      "content_length": "14911",
+      "etag": "0x8DE4423C7E9278E",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/hours_per_block.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/hydro_arcs.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:20 GMT",
+      "content_length": "732",
+      "etag": "0x8DE4423C8064853",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/hydro_arcs.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/hydro_stations.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:20 GMT",
+      "content_length": "1442",
+      "etag": "0x8DE4423C81DC493",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/hydro_stations.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/inflows.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:20 GMT",
+      "content_length": "1289921",
+      "etag": "0x8DE4423C847DBE1",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/inflows.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/lost_load.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:20 GMT",
+      "content_length": "1088",
+      "etag": "0x8DE4423C865E6E2",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/lost_load.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/reservoir_limits.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:21 GMT",
+      "content_length": "78899",
+      "etag": "0x8DE4423C87DFF47",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/reservoir_limits.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/reservoirs.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:21 GMT",
+      "content_length": "208",
+      "etag": "0x8DE4423C8963EC0",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/reservoirs.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/station_outages.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:21 GMT",
+      "content_length": "80948",
+      "etag": "0x8DE4423C8B13CF0",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/station_outages.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/terminal_water_value.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:21 GMT",
+      "content_length": "596",
+      "etag": "0x8DE4423C8CADBC3",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/terminal_water_value.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/thermal_fuel_costs.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:21 GMT",
+      "content_length": "26271",
+      "etag": "0x8DE4423C8E4A1A6",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/thermal_fuel_costs.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/thermal_stations.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:21 GMT",
+      "content_length": "630",
+      "etag": "0x8DE4423C8FBCFD1",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/thermal_stations.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/transmission.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:22 GMT",
+      "content_length": "611",
+      "etag": "0x8DE4423C912FE03",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/transmission.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/transmission_outages.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:22 GMT",
+      "content_length": "9496",
+      "etag": "0x8DE4423C92968FE",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/transmission_outages.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/run.csv",
+      "last_modified": "Fri, 26 Dec 2025 02:09:22 GMT",
+      "content_length": "707",
+      "etag": "0x8DE4423C94A59C8",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/run.csv"
+    },
+    {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/run.jl",
+      "last_modified": "Fri, 26 Dec 2025 02:09:22 GMT",
+      "content_length": "869",
+      "etag": "0x8DE4423C96A3943",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/run.jl"
+    }
+  ],
+  "note": "Compact discovery summary generated from the fully paginated JADE Azure manifest. Raw JADE files remain upstream; derived subsets may be stored locally for public charts and reproducibility."
+}
