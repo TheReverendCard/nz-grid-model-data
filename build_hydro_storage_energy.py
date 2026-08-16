@@ -26,24 +26,29 @@ INCLUDED_STORAGE = {
 }
 
 # Preferred topology segments for each storage node. Waitaki values are sums of
-# explicit staged routes so the energy value follows the corrected physical
-# topology instead of relying on the obsolete all-in-one route names.
+# explicit staged routes so the energy value follows the validated physical
+# topology instead of relying on obsolete all-in-one route names.
+#
+# Validation of the 2024 water balances showed that Lake Ohau joins Pukaki/Tekapo
+# water upstream of Ohau A. Consequently both stored Pukaki water and stored Lake
+# Ohau water receive the Ohau A segment value before continuing through Ohau B/C
+# and the lower Waitaki cascade.
 PATHS_BY_STORAGE = {
     "TPO": ["Taupo_to_Karapiro"],
     "WKA": ["Waikaremoana_main"],
     "TKA": [
         "Tekapo_to_Pukaki",
-        "Pukaki_to_Ruataniwha",
+        "Pukaki_Ohau_junction_to_Ruataniwha",
         "Ruataniwha_to_Benmore",
         "Benmore_downstream_route",
     ],
     "PKI": [
-        "Pukaki_to_Ruataniwha",
+        "Pukaki_Ohau_junction_to_Ruataniwha",
         "Ruataniwha_to_Benmore",
         "Benmore_downstream_route",
     ],
     "OHA": [
-        "Lake_Ohau_to_Ruataniwha",
+        "Pukaki_Ohau_junction_to_Ruataniwha",
         "Ruataniwha_to_Benmore",
         "Benmore_downstream_route",
     ],
@@ -174,7 +179,7 @@ def main() -> None:
             "Energy-equivalent storage is not the same as assured dispatchable hydro energy.",
             "The conversion uses constant HMD plant factors and sums only the generating route segments physically downstream of each storage node.",
             "It excludes smaller run-of-river storages to avoid double counting water already represented by upstream major lakes.",
-            "Lake Ohau stored water does not receive Ohau A generation value because Ohau A is on the Pukaki canal route; Lake Ohau joins the system at Ruataniwha.",
+            "2024 Waitaki validation indicates Lake Ohau joins the Pukaki/Tekapo route upstream of Ohau A; Lake Ohau storage therefore includes Ohau A generation value in this diagnostic.",
             "Te Anau and Manapouri are both included because they are distinct stored volumes that can ultimately pass through Manapouri generation.",
             "The eventual dispatch model must enforce daily water balances, release limits, minimum flows, spill/bypass routes and station MW constraints."
         ],
