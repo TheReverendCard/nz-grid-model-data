@@ -1,0 +1,96 @@
+name: JADE Renewable Impulse Response
+
+on:
+  workflow_dispatch:
+    inputs:
+      pulse_year:
+        description: Calendar year of +1 GWh renewable pulse
+        required: true
+        default: '2026'
+      pulse_week:
+        description: ISO/model week of +1 GWh renewable pulse
+        required: true
+        default: '3'
+      pulse_node:
+        description: JADE power-system node for pulse
+        required: true
+        type: choice
+        options:
+          - NI
+          - SI
+          - HAY
+        default: NI
+  push:
+    branches:
+      - agent/test-ea-azure-updater
+    paths:
+      - '.github/workflows/jade_impulse_response.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  fixed-policy-diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5.3.0
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: pip install requests numpy
+
+      - name: Set pulse parameters
+        id: params
+        shell: bash
+        run: |
+          echo "year=${{ github.event.inputs.pulse_year || '2026' }}" >> "$GITHUB_OUTPUT"
+          echo "week=${{ github.event.inputs.pulse_week || '3' }}" >> "$GITHUB_OUTPUT"
+          echo "node=${{ github.event.inputs.pulse_node || 'NI' }}" >> "$GITHUB_OUTPUT"
+
+      - name: Prepare temporary EA JADE workspace
+        run: |
+          python prepare_jade_impulse_workspace.py \
+            --year "${{ steps.params.outputs.year }}" \
+            --week "${{ steps.params.outputs.week }}" \
+            --node "${{ steps.params.outputs.node }}" \
+            --energy-mwh 1000
+
+      - name: Set up Julia
+        uses: julia-actions/setup-julia@v2
+        with:
+          version: '1.10'
+
+      - name: Install JADE and open-source solver
+        run: |
+          julia -e 'using Pkg; Pkg.add(url="https://github.com/EPOC-NZ/JADE.jl"); Pkg.add("GLPK")'
+
+      - name: Run paired JADE fixed-policy simulations
+        env:
+          JADE_IMPULSE_WORKDIR: .jade_impulse
+        run: julia run_jade_impulse.jl
+
+      - name: Summarize paired differences
+        run: python summarize_jade_impulse.py
+
+      - name: Upload small derived diagnostic
+        uses: actions/upload-artifact@v4
+        with:
+          name: jade-impulse-${{ steps.params.outputs.year }}-w${{ steps.params.outputs.week }}-${{ steps.params.outputs.node }}
+          path: |
+            data/jade/impulse/fixed_policy_impulse_summary.csv
+            data/jade/impulse/fixed_policy_impulse_simulations.csv
+            data/jade/impulse/fixed_policy_impulse_provenance.json
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Confirm raw JADE workspace is not published
+        run: |
+          test -d .jade_impulse
+          echo "EA JADE raw inputs/cuts remained temporary and were not uploaded."
