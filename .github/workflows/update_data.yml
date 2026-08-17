@@ -131,5 +131,8 @@ jobs:
           git add data/
           git diff --cached --quiet && echo "No data changes to commit" && exit 0
           git commit -m "Automated NZ grid data refresh"
-          git pull --rebase origin "${GITHUB_REF_NAME}"
+          # If another bot refresh advanced the branch while this run was working,
+          # rebase onto it but prefer this run's freshly regenerated data files in
+          # data-only conflicts. During rebase, 'theirs' is the commit being replayed.
+          git pull --rebase -X theirs origin "${GITHUB_REF_NAME}"
           git push origin HEAD:"${GITHUB_REF_NAME}"
