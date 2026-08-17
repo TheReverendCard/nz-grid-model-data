@@ -64,7 +64,10 @@ def load_final_prices() -> pd.DataFrame:
         tp_candidates = [c for c in frame.columns if "tradingperiod" in c.replace(" ", "").lower() or "trading period" in c.lower()]
         tp_col = tp_candidates[0] if tp_candidates else None
         keep = frame[frame[poc_col].astype(str).str.strip().isin(REFERENCE_NODES)].copy()
-        keep["date"] = pd.to_datetime(keep[date_col], errors="coerce", dayfirst=True)
+        # EA FinalEnergyPrices trading dates are ISO year-month-day. Do not use
+        # dayfirst=True here: that swaps the month/day for ambiguous dates and
+        # leaves only the 12x12 set of coincidental date matches against HMD.
+        keep["date"] = pd.to_datetime(keep[date_col], errors="coerce")
         keep["price"] = pd.to_numeric(keep[price_col], errors="coerce")
         if tp_col:
             keep["trading_period"] = pd.to_numeric(keep[tp_col], errors="coerce")
