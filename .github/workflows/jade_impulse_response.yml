@@ -69,7 +69,7 @@ jobs:
 
       - name: Install JADE and open-source solver
         run: |
-          julia -e 'using Pkg; Pkg.add(url="https://github.com/EPOC-NZ/JADE.jl"); Pkg.add("GLPK")'
+          julia -e 'using Pkg; Pkg.add(url="https://github.com/EPOC-NZ/JADE.jl"); Pkg.add(["JuMP", "GLPK"])'
 
       - name: Run paired JADE fixed-policy simulations
         env:
