@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from calendar import month_abbr
-from io import BytesIO
+from io import StringIO
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -25,13 +25,49 @@ TARGET_SERIES = {
 }
 
 
-def fetch_erc_history() -> pd.DataFrame:
-    """Fetch the full 2024 NZ historical ERC report from EMI's CSV endpoint.
+def parse_emi_csv_download(content: bytes) -> pd.DataFrame:
+    """Parse an EMI DataReport CSV export, allowing report metadata before the table.
 
-    The public report HTML displays only the first 50 rows. The report's own
-    Download data link points to /All/Download/DataReport/CSV/RM3RAS, which
-    returns the complete table and avoids scraping/truncation.
+    EMI's download endpoint can prepend human-readable report metadata before the
+    comma-separated table.  Find the actual header row rather than assuming row 1
+    is the CSV header.  This also gives a useful failure message if EMI changes the
+    export format again.
     """
+    text = content.decode("utf-8-sig", errors="replace")
+    lines = text.splitlines()
+    header_index: int | None = None
+
+    for i, line in enumerate(lines):
+        normalized = line.lower().replace('"', "").replace(" ", "")
+        if (
+            "riskdate" in normalized
+            and "dateofpublication" in normalized
+            and "series" in normalized
+            and "value" in normalized
+        ):
+            header_index = i
+            break
+
+    if header_index is None:
+        preview = " | ".join(lines[:12])[:1200]
+        raise RuntimeError(
+            "Could not locate the ERC table header in EMI CSV download. "
+            f"First lines: {preview}"
+        )
+
+    table_text = "\n".join(lines[header_index:])
+    raw = pd.read_csv(StringIO(table_text), low_memory=False)
+    if raw.empty:
+        raise RuntimeError("EMI ERC CSV table was found but contained no rows")
+    print(
+        f"Parsed EMI ERC CSV after {header_index} metadata lines: "
+        f"{len(raw)} rows; columns={list(raw.columns)}"
+    )
+    return raw
+
+
+def fetch_erc_history() -> pd.DataFrame:
+    """Fetch the full 2024 NZ historical ERC report from EMI's CSV endpoint."""
     if ERC_CACHE.exists():
         cached = pd.read_csv(ERC_CACHE, parse_dates=["date"])
         required = {"date", "watch_gwh", "alert_gwh", "emergency_gwh"}
@@ -48,17 +84,20 @@ def fetch_erc_history() -> pd.DataFrame:
     }
     response = requests.get(ERC_CSV_URL, params=params, timeout=180)
     response.raise_for_status()
+    raw = parse_emi_csv_download(response.content)
 
-    raw = pd.read_csv(BytesIO(response.content), low_memory=False)
-    print(f"Downloaded EMI ERC CSV: {len(raw)} rows; columns={list(raw.columns)}")
-
-    normalized = {c.strip().lower().replace(" ", "").replace("_", ""): c for c in raw.columns}
+    normalized = {
+        c.strip().lower().replace(" ", "").replace("_", ""): c
+        for c in raw.columns
+    }
 
     def find_col(*needles: str) -> str:
         for norm, original in normalized.items():
             if all(n.replace(" ", "").lower() in norm for n in needles):
                 return original
-        raise RuntimeError(f"Could not find ERC column {needles}; columns={list(raw.columns)}")
+        raise RuntimeError(
+            f"Could not find ERC column {needles}; columns={list(raw.columns)}"
+        )
 
     risk_date_col = find_col("risk", "date")
     publication_col = find_col("dateofpublication")
@@ -73,21 +112,29 @@ def fetch_erc_history() -> pd.DataFrame:
     data = raw[[risk_date_col, publication_col, series_col, value_col]].copy()
     data.columns = ["date", "publication_date", "series", "value_gwh"]
     data["date"] = pd.to_datetime(data["date"], dayfirst=True, errors="coerce")
-    data["publication_date"] = pd.to_datetime(data["publication_date"], dayfirst=True, errors="coerce")
+    data["publication_date"] = pd.to_datetime(
+        data["publication_date"], dayfirst=True, errors="coerce"
+    )
     data["value_gwh"] = pd.to_numeric(data["value_gwh"], errors="coerce")
-    data = data[data["series"].astype(str).isin(TARGET_SERIES)].dropna(subset=["date", "value_gwh"])
+    data = data[
+        data["series"].astype(str).str.strip().isin(TARGET_SERIES)
+    ].dropna(subset=["date", "value_gwh"])
     data = data[data["date"].dt.year == YEAR].copy()
 
     if data.empty:
         raise RuntimeError("EMI ERC CSV contained no 2024 target-series rows")
 
+    # Choose the latest curve vintage that had actually been published by each
+    # risk date, so this is contemporaneous rather than a hindsight reconstruction.
     eligible = data[data["publication_date"] <= data["date"]].copy()
     if eligible.empty:
         eligible = data.copy()
     eligible = eligible.sort_values(["date", "series", "publication_date"])
     eligible = eligible.groupby(["date", "series"], as_index=False).tail(1)
 
-    daily = eligible.pivot(index="date", columns="series", values="value_gwh").reset_index()
+    daily = eligible.pivot(
+        index="date", columns="series", values="value_gwh"
+    ).reset_index()
     daily = daily.rename(columns=TARGET_SERIES).sort_values("date")
 
     required = ["watch_gwh", "alert_gwh", "emergency_gwh"]
@@ -145,9 +192,15 @@ def render(base: pd.DataFrame, erc: pd.DataFrame) -> None:
     alert = df["alert_gwh"].to_numpy(dtype=float)
     watch = df["watch_gwh"].to_numpy(dtype=float)
 
-    risk_ax.fill_between(x, 0, emergency, color="#d73027", alpha=0.12, linewidth=0, zorder=0)
-    risk_ax.fill_between(x, emergency, alert, color="#f46d43", alpha=0.11, linewidth=0, zorder=0)
-    risk_ax.fill_between(x, alert, watch, color="#fdae61", alpha=0.12, linewidth=0, zorder=0)
+    risk_ax.fill_between(
+        x, 0, emergency, color="#d73027", alpha=0.12, linewidth=0, zorder=0
+    )
+    risk_ax.fill_between(
+        x, emergency, alert, color="#f46d43", alpha=0.11, linewidth=0, zorder=0
+    )
+    risk_ax.fill_between(
+        x, alert, watch, color="#fdae61", alpha=0.12, linewidth=0, zorder=0
+    )
     risk_ax.plot(x, emergency, color="#b2182b", linewidth=0.8, alpha=0.75, zorder=1)
     risk_ax.plot(x, alert, color="#ef8a62", linewidth=0.8, alpha=0.75, zorder=1)
     risk_ax.plot(x, watch, color="#f6b44b", linewidth=0.8, alpha=0.8, zorder=1)
@@ -172,16 +225,27 @@ def render(base: pd.DataFrame, erc: pd.DataFrame) -> None:
             )
 
     ax.fill_between(
-        x, df["storage_p05_mm3"], df["storage_p95_mm3"],
-        alpha=0.14, label="Historical P5–P95", zorder=2,
+        x,
+        df["storage_p05_mm3"],
+        df["storage_p95_mm3"],
+        alpha=0.14,
+        label="Historical P5–P95",
+        zorder=2,
     )
     ax.fill_between(
-        x, df["storage_p25_mm3"], df["storage_p75_mm3"],
-        alpha=0.28, label="Historical P25–P75", zorder=3,
+        x,
+        df["storage_p25_mm3"],
+        df["storage_p75_mm3"],
+        alpha=0.28,
+        label="Historical P25–P75",
+        zorder=3,
     )
     ax.plot(
-        x, df["represented_storage_mm3"], linewidth=2.5,
-        label="2024 observed HMD storage", zorder=4,
+        x,
+        df["represented_storage_mm3"],
+        linewidth=2.5,
+        label="2024 observed HMD storage",
+        zorder=4,
     )
 
     ax.set_xlim(pd.Timestamp(f"{YEAR}-01-01"), pd.Timestamp(f"{YEAR}-12-31"))
@@ -190,7 +254,9 @@ def render(base: pd.DataFrame, erc: pd.DataFrame) -> None:
     ax.set_ylabel("Represented active + contingent hydro storage (Mm³)")
     ax.set_title(
         "2024 hydro storage, wholesale price stress and WAEERC risk zones",
-        loc="left", fontsize=15, pad=12,
+        loc="left",
+        fontsize=15,
+        pad=12,
     )
     ax.grid(axis="y", alpha=0.20)
 
@@ -199,27 +265,35 @@ def render(base: pd.DataFrame, erc: pd.DataFrame) -> None:
     ax.set_xticklabels([month_abbr[d.month] for d in month_starts])
 
     handles, labels = ax.get_legend_handles_labels()
-    handles.extend([
-        Patch(facecolor="#fdae61", alpha=0.24, label="Watch zone (right axis)"),
-        Patch(facecolor="#f46d43", alpha=0.22, label="Alert zone (right axis)"),
-        Patch(facecolor="#d73027", alpha=0.24, label="Emergency zone (right axis)"),
-        Patch(facecolor="red", alpha=0.35, label="Daily P95 wholesale price stress"),
-    ])
-    labels.extend([
-        "Watch zone (right axis)",
-        "Alert zone (right axis)",
-        "Emergency zone (right axis)",
-        "Daily P95 wholesale price stress",
-    ])
+    handles.extend(
+        [
+            Patch(facecolor="#fdae61", alpha=0.24, label="Watch zone (right axis)"),
+            Patch(facecolor="#f46d43", alpha=0.22, label="Alert zone (right axis)"),
+            Patch(facecolor="#d73027", alpha=0.24, label="Emergency zone (right axis)"),
+            Patch(facecolor="red", alpha=0.35, label="Daily P95 wholesale price stress"),
+        ]
+    )
+    labels.extend(
+        [
+            "Watch zone (right axis)",
+            "Alert zone (right axis)",
+            "Emergency zone (right axis)",
+            "Daily P95 wholesale price stress",
+        ]
+    )
     ax.legend(handles, labels, frameon=False, loc="upper right", fontsize=8.5)
 
     ax.text(
-        0.01, 0.022,
+        0.01,
+        0.022,
         "Darker vertical red stripes = higher daily P95 wholesale price. WAEERC zones use the System Operator's native controlled-storage GWh scale on the right axis.",
-        transform=ax.transAxes, fontsize=8.8, va="bottom",
+        transform=ax.transAxes,
+        fontsize=8.8,
+        va="bottom",
     )
     fig.text(
-        0.01, 0.004,
+        0.01,
+        0.004,
         "Sources: Electricity Authority HMD, final wholesale prices, and EMI historical electricity risk curves. "
         "The HMD storage line/bands and WAEERC zones use different storage definitions and axes; the overlay is contextual, not a one-to-one threshold comparison.",
         fontsize=8,
