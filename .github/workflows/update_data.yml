@@ -61,6 +61,9 @@ jobs:
       - name: Normalize Hydro Data
         run: python normalize_hydro.py
 
+      - name: Render Observed 2024 Hydro Price Stripes
+        run: python build_observed_2024_hydro_price_stripes.py
+
       - name: Fetch EA Wholesale Baseline Data
         run: python update_wholesale.py
 
