@@ -6,7 +6,7 @@
       "last_modified": "",
       "local_file": "data/distributed_generation/installed_dg_trends_solar_all.csv",
       "request_url": "https://www.emi.ea.govt.nz/Retail/Download/DataReport/CSV/GUEHMT?DateFrom=20130901&Show=CapacityAvg&_rsdr=ALL&_si=v%7C4&FuelType=solar_all",
-      "sha256": "a7d9e6522eb68ead0e1e1b762278608ac7df20029c9222cb8b7a6f344c2758eb"
+      "sha256": "2f706d4ea129299718e8f1782537f6f9fb7f66f0bb19f50568522a54444d92c8"
     },
     "solar_all_residential": {
       "description": "solar_all_residential",
@@ -14,7 +14,7 @@
       "last_modified": "",
       "local_file": "data/distributed_generation/installed_dg_trends_solar_residential.csv",
       "request_url": "https://www.emi.ea.govt.nz/Retail/Download/DataReport/CSV/GUEHMT?DateFrom=20130901&Show=CapacityAvg&_rsdr=ALL&_si=v%7C4&FuelType=solar_all&MarketSegment=Res",
-      "sha256": "a5d03fb662af2ff9c2dfcfcf8c57d8d3d5867148f33bbae55c983c48653074f7"
+      "sha256": "ba9aa223f9a397e4ca5e713e2f0a447d6a2ab83daba153e60a4e7163beb24a09"
     },
     "solar_installations_by_region": {
       "description": "Solar installations by region",
@@ -30,7 +30,7 @@
       "last_modified": "",
       "local_file": "data/distributed_generation/installed_dg_trends_solar_without_battery_all.csv",
       "request_url": "https://www.emi.ea.govt.nz/Retail/Download/DataReport/CSV/GUEHMT?DateFrom=20130901&Show=CapacityAvg&_rsdr=ALL&_si=v%7C4&FuelType=solar",
-      "sha256": "4b06ef6a24b7389376358f4ec2ef5151a34224ac19e69e78dc7b1b53342efa77"
+      "sha256": "553dadb202db4376d6eb8307a872bbb00ea46654677c0dc2c0c2fbbbb61d98cd"
     },
     "solar_without_battery_residential": {
       "description": "solar_without_battery_residential",
@@ -38,7 +38,7 @@
       "last_modified": "",
       "local_file": "data/distributed_generation/installed_dg_trends_solar_without_battery_residential.csv",
       "request_url": "https://www.emi.ea.govt.nz/Retail/Download/DataReport/CSV/GUEHMT?DateFrom=20130901&Show=CapacityAvg&_rsdr=ALL&_si=v%7C4&FuelType=solar&MarketSegment=Res",
-      "sha256": "0e1ebe3a37fcb6df29c6686cd0f3fe80267a91121e8ad440091aab4dfb15796b"
+      "sha256": "881bc9ff75acbc2ef131c4b354d1cdbd6b77474cb508b904dc40435b63bb4013"
     }
   },
   "source": "New Zealand Electricity Authority EMI"
