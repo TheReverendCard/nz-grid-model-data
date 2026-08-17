@@ -31,7 +31,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install Dependencies
-        run: pip install requests openpyxl matplotlib scipy pandas
+        run: pip install requests openpyxl matplotlib scipy pandas beautifulsoup4
 
       # Official source ingestion and normalization.
       - name: Fetch EA HMD Data
@@ -63,6 +63,9 @@ jobs:
 
       - name: Render Observed 2024 Hydro Price Stripes
         run: python build_observed_2024_hydro_price_stripes.py
+
+      - name: Render Observed 2024 WAEERC Risk Zones
+        run: python build_observed_2024_erc_zones.py
 
       - name: Fetch EA Wholesale Baseline Data
         run: python update_wholesale.py
