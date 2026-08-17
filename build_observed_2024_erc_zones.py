@@ -5,6 +5,8 @@ from io import StringIO
 from pathlib import Path
 
 import matplotlib.pyplot as plt
+from matplotlib.collections import LineCollection
+from matplotlib.colors import Normalize
 from matplotlib.patches import Patch
 import numpy as np
 import pandas as pd
@@ -13,7 +15,8 @@ import requests
 YEAR = 2024
 INPUT = Path("data/model/observed_2024_hydro_stress_daily.csv")
 ERC_CACHE = Path("data/model/observed_2024_erc_daily.csv")
-OUTPUT = Path("data/visuals/observed_2024_hydro_bands_price_p95_erc_zones.png")
+OUTPUT_TOP = Path("data/visuals/observed_2024_hydro_bands_price_p95_erc_zones_top_ribbon.png")
+OUTPUT_LINE = Path("data/visuals/observed_2024_hydro_bands_price_p95_erc_zones_line_overlay.png")
 ERC_CSV_URL = "https://www.emi.ea.govt.nz/All/Download/DataReport/CSV/RM3RAS"
 
 TARGET_SERIES = {
@@ -26,13 +29,7 @@ TARGET_SERIES = {
 
 
 def parse_emi_csv_download(content: bytes) -> pd.DataFrame:
-    """Parse an EMI DataReport CSV export, allowing report metadata before the table.
-
-    EMI's download endpoint can prepend human-readable report metadata before the
-    comma-separated table.  Find the actual header row rather than assuming row 1
-    is the CSV header.  This also gives a useful failure message if EMI changes the
-    export format again.
-    """
+    """Parse an EMI DataReport CSV export, allowing report metadata before the table."""
     text = content.decode("utf-8-sig", errors="replace")
     lines = text.splitlines()
     header_index: int | None = None
@@ -55,8 +52,7 @@ def parse_emi_csv_download(content: bytes) -> pd.DataFrame:
             f"First lines: {preview}"
         )
 
-    table_text = "\n".join(lines[header_index:])
-    raw = pd.read_csv(StringIO(table_text), low_memory=False)
+    raw = pd.read_csv(StringIO("\n".join(lines[header_index:])), low_memory=False)
     if raw.empty:
         raise RuntimeError("EMI ERC CSV table was found but contained no rows")
     print(
@@ -124,8 +120,6 @@ def fetch_erc_history() -> pd.DataFrame:
     if data.empty:
         raise RuntimeError("EMI ERC CSV contained no 2024 target-series rows")
 
-    # Choose the latest curve vintage that had actually been published by each
-    # risk date, so this is contemporaneous rather than a hindsight reconstruction.
     eligible = data[data["publication_date"] <= data["date"]].copy()
     if eligible.empty:
         eligible = data.copy()
@@ -166,44 +160,31 @@ def fetch_erc_history() -> pd.DataFrame:
     return daily
 
 
-def stripe_intensity(series: pd.Series) -> np.ndarray:
+def price_norm(series: pd.Series) -> tuple[np.ndarray, Normalize]:
     vals = pd.to_numeric(series, errors="coerce").to_numpy(dtype=float)
     finite = vals[np.isfinite(vals)]
     if not len(finite):
-        return np.zeros(len(vals))
+        return np.zeros(len(vals)), Normalize(0, 1)
     lo = max(0.0, float(np.quantile(finite, 0.05)))
     hi = float(np.quantile(finite, 0.95))
     if hi <= lo:
-        return np.zeros(len(vals))
-    return np.clip((vals - lo) / (hi - lo), 0, 1)
+        hi = lo + 1.0
+    score = np.clip((vals - lo) / (hi - lo), 0, 1)
+    return score, Normalize(vmin=lo, vmax=hi, clip=True)
 
 
-def render(base: pd.DataFrame, erc: pd.DataFrame) -> None:
-    df = base.merge(erc, on="date", how="left").sort_values("date")
-    if len(df) < 350:
-        raise RuntimeError(f"Only {len(df)} joined chart days")
-
-    score = stripe_intensity(df["price_p95_nzd_mwh"])
-    fig, ax = plt.subplots(figsize=(13.5, 7.4))
-    risk_ax = ax.twinx()
-
+def draw_base(ax, risk_ax, df: pd.DataFrame) -> None:
     x = df["date"]
     emergency = df["emergency_gwh"].to_numpy(dtype=float)
     alert = df["alert_gwh"].to_numpy(dtype=float)
     watch = df["watch_gwh"].to_numpy(dtype=float)
 
-    risk_ax.fill_between(
-        x, 0, emergency, color="#d73027", alpha=0.12, linewidth=0, zorder=0
-    )
-    risk_ax.fill_between(
-        x, emergency, alert, color="#f46d43", alpha=0.11, linewidth=0, zorder=0
-    )
-    risk_ax.fill_between(
-        x, alert, watch, color="#fdae61", alpha=0.12, linewidth=0, zorder=0
-    )
-    risk_ax.plot(x, emergency, color="#b2182b", linewidth=0.8, alpha=0.75, zorder=1)
-    risk_ax.plot(x, alert, color="#ef8a62", linewidth=0.8, alpha=0.75, zorder=1)
-    risk_ax.plot(x, watch, color="#f6b44b", linewidth=0.8, alpha=0.8, zorder=1)
+    risk_ax.fill_between(x, 0, emergency, color="#d73027", alpha=0.10, linewidth=0, zorder=0)
+    risk_ax.fill_between(x, emergency, alert, color="#f46d43", alpha=0.10, linewidth=0, zorder=0)
+    risk_ax.fill_between(x, alert, watch, color="#fdae61", alpha=0.11, linewidth=0, zorder=0)
+    risk_ax.plot(x, emergency, color="#b2182b", linewidth=0.8, alpha=0.72, zorder=1)
+    risk_ax.plot(x, alert, color="#ef8a62", linewidth=0.8, alpha=0.72, zorder=1)
+    risk_ax.plot(x, watch, color="#f6b44b", linewidth=0.8, alpha=0.78, zorder=1)
 
     scale_candidates = [float(np.nanmax(watch))]
     for col in ["nominal_full_gwh", "controlled_storage_gwh"]:
@@ -213,96 +194,127 @@ def render(base: pd.DataFrame, erc: pd.DataFrame) -> None:
     risk_ax.set_ylabel("System Operator controlled-storage risk scale (GWh)")
     risk_ax.grid(False)
 
-    for d, s in zip(df["date"], score):
-        if np.isfinite(s) and s > 0:
-            ax.axvspan(
-                d,
-                d + pd.Timedelta(days=1),
-                color="red",
-                alpha=float(0.48 * s),
-                linewidth=0,
-                zorder=0,
-            )
-
     ax.fill_between(
-        x,
-        df["storage_p05_mm3"],
-        df["storage_p95_mm3"],
-        alpha=0.14,
-        label="Historical P5–P95",
-        zorder=2,
+        x, df["storage_p05_mm3"], df["storage_p95_mm3"],
+        alpha=0.14, label="Historical P5–P95", zorder=2,
     )
     ax.fill_between(
-        x,
-        df["storage_p25_mm3"],
-        df["storage_p75_mm3"],
-        alpha=0.28,
-        label="Historical P25–P75",
-        zorder=3,
+        x, df["storage_p25_mm3"], df["storage_p75_mm3"],
+        alpha=0.28, label="Historical P25–P75", zorder=3,
     )
     ax.plot(
-        x,
-        df["represented_storage_mm3"],
-        linewidth=2.5,
-        label="2024 observed HMD storage",
-        zorder=4,
+        x, df["represented_storage_mm3"], linewidth=2.3,
+        label="2024 observed HMD storage", zorder=5,
     )
 
     ax.set_xlim(pd.Timestamp(f"{YEAR}-01-01"), pd.Timestamp(f"{YEAR}-12-31"))
     ax.set_ylim(bottom=0)
     ax.set_xlabel("Month")
     ax.set_ylabel("Represented active + contingent hydro storage (Mm³)")
-    ax.set_title(
-        "2024 hydro storage, wholesale price stress and WAEERC risk zones",
-        loc="left",
-        fontsize=15,
-        pad=12,
-    )
     ax.grid(axis="y", alpha=0.20)
 
     month_starts = pd.date_range(f"{YEAR}-01-01", f"{YEAR}-12-01", freq="MS")
     ax.set_xticks(month_starts)
     ax.set_xticklabels([month_abbr[d.month] for d in month_starts])
 
-    handles, labels = ax.get_legend_handles_labels()
-    handles.extend(
-        [
-            Patch(facecolor="#fdae61", alpha=0.24, label="Watch zone (right axis)"),
-            Patch(facecolor="#f46d43", alpha=0.22, label="Alert zone (right axis)"),
-            Patch(facecolor="#d73027", alpha=0.24, label="Emergency zone (right axis)"),
-            Patch(facecolor="red", alpha=0.35, label="Daily P95 wholesale price stress"),
-        ]
-    )
-    labels.extend(
-        [
-            "Watch zone (right axis)",
-            "Alert zone (right axis)",
-            "Emergency zone (right axis)",
-            "Daily P95 wholesale price stress",
-        ]
-    )
-    ax.legend(handles, labels, frameon=False, loc="upper right", fontsize=8.5)
 
+def add_top_ribbon(ax, df: pd.DataFrame, score: np.ndarray) -> None:
+    """Draw price stress as a narrow ribbon inside the top of the plotting area."""
+    y0, y1 = ax.get_ylim()
+    ribbon_bottom = y1 - 0.055 * (y1 - y0)
+    for d, s in zip(df["date"], score):
+        if np.isfinite(s):
+            ax.fill_between(
+                [d, d + pd.Timedelta(days=1)],
+                [ribbon_bottom, ribbon_bottom],
+                [y1, y1],
+                color="#8b0000",
+                alpha=float(0.08 + 0.78 * s),
+                linewidth=0,
+                zorder=8,
+            )
+    ax.axhline(ribbon_bottom, linewidth=0.5, alpha=0.35, zorder=9)
     ax.text(
-        0.01,
-        0.022,
-        "Darker vertical red stripes = higher daily P95 wholesale price. WAEERC zones use the System Operator's native controlled-storage GWh scale on the right axis.",
-        transform=ax.transAxes,
-        fontsize=8.8,
-        va="bottom",
+        0.006, 0.976, "Daily P95 wholesale price stress",
+        transform=ax.transAxes, fontsize=8.2, va="top", ha="left", zorder=10,
     )
+
+
+def add_line_overlay(ax, df: pd.DataFrame, score: np.ndarray) -> None:
+    """Colour a thin halo directly along the observed storage line by price stress."""
+    dates = df["date"].map(pd.Timestamp.toordinal).to_numpy(dtype=float)
+    storage = df["represented_storage_mm3"].to_numpy(dtype=float)
+    points = np.column_stack([dates, storage])
+    segments = np.stack([points[:-1], points[1:]], axis=1)
+    seg_score = (score[:-1] + score[1:]) / 2
+
+    rgba = plt.cm.Reds(0.28 + 0.72 * np.clip(seg_score, 0, 1))
+    rgba[:, 3] = 0.25 + 0.70 * np.clip(seg_score, 0, 1)
+    halo = LineCollection(segments, colors=rgba, linewidths=7.0, zorder=6)
+    ax.add_collection(halo)
+
+    # Restore the observed storage line over the halo so its trajectory remains crisp.
+    ax.plot(
+        df["date"], df["represented_storage_mm3"],
+        linewidth=1.7, color="#222222", alpha=0.92, zorder=7,
+    )
+
+
+def finish(ax, fig, mode: str, output: Path) -> None:
+    title_suffix = "top price-stress ribbon" if mode == "top" else "price stress on observed storage line"
+    ax.set_title(
+        f"2024 hydro storage and WAEERC risk zones, with {title_suffix}",
+        loc="left", fontsize=14.5, pad=12,
+    )
+
+    handles, labels = ax.get_legend_handles_labels()
+    handles.extend([
+        Patch(facecolor="#fdae61", alpha=0.24, label="Watch zone (right axis)"),
+        Patch(facecolor="#f46d43", alpha=0.22, label="Alert zone (right axis)"),
+        Patch(facecolor="#d73027", alpha=0.24, label="Emergency zone (right axis)"),
+        Patch(facecolor="#8b0000", alpha=0.65, label="Daily P95 wholesale price stress"),
+    ])
+    labels.extend([
+        "Watch zone (right axis)",
+        "Alert zone (right axis)",
+        "Emergency zone (right axis)",
+        "Daily P95 wholesale price stress",
+    ])
+    ax.legend(handles, labels, frameon=False, loc="upper right", fontsize=8.3)
+
+    note = (
+        "Price stress is shown only in the narrow top ribbon; it no longer washes across the hydro/WAEERC field."
+        if mode == "top"
+        else "Price stress colours a halo along the observed hydro line. This is a temporal overlay, not a claim that hydro level alone caused price."
+    )
+    ax.text(0.01, 0.022, note, transform=ax.transAxes, fontsize=8.6, va="bottom")
     fig.text(
-        0.01,
-        0.004,
+        0.01, 0.004,
         "Sources: Electricity Authority HMD, final wholesale prices, and EMI historical electricity risk curves. "
         "The HMD storage line/bands and WAEERC zones use different storage definitions and axes; the overlay is contextual, not a one-to-one threshold comparison.",
         fontsize=8,
     )
     fig.tight_layout(rect=(0, 0.06, 1, 1))
-    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(OUTPUT, dpi=180)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output, dpi=180)
     plt.close(fig)
-    print(f"Wrote {OUTPUT}")
+    print(f"Wrote {output}")
+
+
+def render_variant(df: pd.DataFrame, mode: str, output: Path) -> None:
+    score, _ = price_norm(df["price_p95_nzd_mwh"])
+    fig, ax = plt.subplots(figsize=(13.5, 7.4))
+    risk_ax = ax.twinx()
+    draw_base(ax, risk_ax, df)
+
+    if mode == "top":
+        add_top_ribbon(ax, df, score)
+    elif mode == "line":
+        add_line_overlay(ax, df, score)
+    else:
+        raise ValueError(mode)
+
+    finish(ax, fig, mode, output)
 
 
 def main() -> None:
@@ -310,7 +322,12 @@ def main() -> None:
         raise RuntimeError(f"Missing prerequisite {INPUT}")
     base = pd.read_csv(INPUT, parse_dates=["date"])
     erc = fetch_erc_history()
-    render(base, erc)
+    df = base.merge(erc, on="date", how="left").sort_values("date")
+    if len(df) < 350:
+        raise RuntimeError(f"Only {len(df)} joined chart days")
+
+    render_variant(df, "top", OUTPUT_TOP)
+    render_variant(df, "line", OUTPUT_LINE)
 
 
 if __name__ == "__main__":
