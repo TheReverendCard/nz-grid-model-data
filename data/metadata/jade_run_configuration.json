@@ -1,0 +1,579 @@
+{
+  "source": "New Zealand Electricity Authority EMI JADE published weekly model files",
+  "latest_year": "2025",
+  "latest_week": "Week 52",
+  "purpose": "Capture the Electricity Authority's published JADE run configuration and input schemas needed to design a reproducible +1 GWh renewable-generation impulse-response experiment without re-hosting raw model inputs.",
+  "files": {
+    "demand.csv": {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/demand.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/demand.csv",
+      "content_length": "99628",
+      "columns": [
+        "NODE",
+        "YEAR",
+        "WEEK",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "HAY",
+          "2010",
+          "1",
+          "378.28",
+          "328.648",
+          "239.634"
+        ],
+        [
+          "NI",
+          "2010",
+          "1",
+          "2810.405",
+          "2509.252",
+          "1974.556"
+        ],
+        [
+          "SI",
+          "2010",
+          "1",
+          "1885.849",
+          "1755.206",
+          "1548.675"
+        ],
+        [
+          "HAY",
+          "2010",
+          "2",
+          "407.903",
+          "373.419",
+          "257.762"
+        ],
+        [
+          "NI",
+          "2010",
+          "2",
+          "2942.92",
+          "2755.634",
+          "2112.684"
+        ]
+      ]
+    },
+    "fixed_stations.csv": {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/fixed_stations.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/fixed_stations.csv",
+      "content_length": "1620051",
+      "columns": [
+        "STATION",
+        "NODE",
+        "YEAR",
+        "WEEK",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "Glenbrook_cogen",
+          "NI",
+          "2010",
+          "1",
+          "75.45",
+          "75.611",
+          "75.845"
+        ],
+        [
+          "Glenbrook_cogen",
+          "NI",
+          "2010",
+          "2",
+          "63.115",
+          "60.308",
+          "65.484"
+        ],
+        [
+          "Glenbrook_cogen",
+          "NI",
+          "2010",
+          "3",
+          "62.627",
+          "62.482",
+          "66.278"
+        ],
+        [
+          "Glenbrook_cogen",
+          "NI",
+          "2010",
+          "4",
+          "64.573",
+          "67.671",
+          "70.157"
+        ],
+        [
+          "Glenbrook_cogen",
+          "NI",
+          "2010",
+          "5",
+          "69.149",
+          "70.179",
+          "74.983"
+        ]
+      ]
+    },
+    "hours_per_block.csv": {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/hours_per_block.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/hours_per_block.csv",
+      "content_length": "14911",
+      "columns": [
+        "YEAR",
+        "WEEK",
+        "PEAK",
+        "SHOULDER",
+        "OFFPEAK"
+      ],
+      "sample_rows": [
+        [
+          "2010",
+          "1",
+          "20",
+          "60",
+          "88"
+        ],
+        [
+          "2010",
+          "2",
+          "20",
+          "60",
+          "88"
+        ],
+        [
+          "2010",
+          "3",
+          "20",
+          "60",
+          "88"
+        ],
+        [
+          "2010",
+          "4",
+          "20",
+          "60",
+          "88"
+        ],
+        [
+          "2010",
+          "5",
+          "20",
+          "60",
+          "88"
+        ]
+      ]
+    },
+    "hydro_arcs.csv": {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/hydro_arcs.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/hydro_arcs.csv",
+      "content_length": "732",
+      "columns": [
+        "ORIG",
+        "DEST",
+        "MIN_FLOW",
+        "MAX_FLOW"
+      ],
+      "sample_rows": [
+        [
+          "Clyde_tail",
+          "Lake_Roxburgh",
+          "66.25",
+          "na"
+        ],
+        [
+          "Karapiro_tail",
+          "SEA",
+          "140.0",
+          "550.0"
+        ],
+        [
+          "Lake_Hawea",
+          "Lake_Dunstan",
+          "10.0",
+          "200.0"
+        ],
+        [
+          "Lake_Ohau",
+          "Lake_Ruataniwha",
+          "8.0",
+          "560.0"
+        ],
+        [
+          "Lake_Ohau",
+          "Pukaki_Ohau_canal_junction",
+          "na",
+          "200.0"
+        ]
+      ]
+    },
+    "hydro_stations.csv": {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/hydro_stations.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/hydro_stations.csv",
+      "content_length": "1442",
+      "columns": [
+        "GENERATOR",
+        "HEAD_WATER_FROM",
+        "TAIL_WATER_TO",
+        "POWER_SYSTEM_NODE",
+        "CAPACITY",
+        "SPECIFIC_POWER",
+        "SPILLWAY_MAX_FLOW"
+      ],
+      "sample_rows": [
+        [
+          "Mangahao",
+          "Mangahao_head",
+          "SEA",
+          "NI",
+          "37",
+          "2.53",
+          "na"
+        ],
+        [
+          "Waikaremoana",
+          "Lake_Waikaremoana_head",
+          "SEA",
+          "NI",
+          "140",
+          "3.535",
+          "44"
+        ],
+        [
+          "Cobb",
+          "Lake_Cobb",
+          "SEA",
+          "SI",
+          "32",
+          "4.405",
+          "na"
+        ],
+        [
+          "Whakamaru",
+          "Lake_Whakamaru",
+          "Lake_Maraetai",
+          "NI",
+          "124",
+          "0.3165",
+          "na"
+        ],
+        [
+          "Ohakuri",
+          "Lake_Ohakuri",
+          "Lake_Atiamuri",
+          "NI",
+          "112",
+          "0.2841",
+          "na"
+        ]
+      ]
+    },
+    "reservoir_limits.csv": {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/reservoir_limits.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/reservoir_limits.csv",
+      "content_length": "78899",
+      "columns": [
+        "YEAR",
+        "WEEK",
+        "Lake_Hawea MAX_LEVEL",
+        "Lake_Hawea MIN_1_LEVEL",
+        "Lake_Hawea MIN_1_PENALTY",
+        "Lake_Ohau MAX_LEVEL",
+        "Lake_Pukaki MAX_LEVEL",
+        "Lake_Pukaki MIN_1_LEVEL",
+        "Lake_Pukaki MIN_1_PENALTY",
+        "Lake_Taupo MAX_LEVEL",
+        "Lake_Tekapo MAX_LEVEL",
+        "Lake_Tekapo MIN_1_LEVEL",
+        "Lake_Tekapo MIN_1_PENALTY",
+        "Lake_Waikaremoana MAX_LEVEL",
+        "Lakes_Manapouri_Te_Anau MAX_LEVEL"
+      ],
+      "sample_rows": [
+        [
+          "2010",
+          "1",
+          "1141.95",
+          "-263.87",
+          "5000",
+          "30.22",
+          "2335.92",
+          "0",
+          "0",
+          "855.4",
+          "514.1",
+          "-191",
+          "5000",
+          "157.1",
+          "1029.23"
+        ],
+        [
+          "2010",
+          "2",
+          "1141.95",
+          "-263.87",
+          "5000",
+          "30.22",
+          "2335.92",
+          "0",
+          "0",
+          "855.4",
+          "514.1",
+          "-191",
+          "5000",
+          "157.1",
+          "1029.23"
+        ],
+        [
+          "2010",
+          "3",
+          "1141.95",
+          "-263.87",
+          "5000",
+          "30.22",
+          "2335.92",
+          "0",
+          "0",
+          "855.4",
+          "514.1",
+          "-191",
+          "5000",
+          "157.1",
+          "1029.23"
+        ],
+        [
+          "2010",
+          "4",
+          "1141.95",
+          "-263.87",
+          "5000",
+          "30.22",
+          "2335.92",
+          "0",
+          "0",
+          "855.4",
+          "514.1",
+          "-191",
+          "5000",
+          "157.1",
+          "1029.23"
+        ],
+        [
+          "2010",
+          "5",
+          "1141.95",
+          "-263.87",
+          "5000",
+          "30.22",
+          "2335.92",
+          "0",
+          "0",
+          "855.4",
+          "514.1",
+          "-191",
+          "5000",
+          "157.1",
+          "1029.23"
+        ]
+      ]
+    },
+    "reservoirs.csv": {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/reservoirs.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/reservoirs.csv",
+      "content_length": "208",
+      "columns": [
+        "RESERVOIR",
+        "INFLOW_REGION",
+        "INI_STATE"
+      ],
+      "sample_rows": [
+        [
+          "Lake_Hawea",
+          "SI",
+          "1060.094"
+        ],
+        [
+          "Lake_Ohau",
+          "SI",
+          "3.05"
+        ],
+        [
+          "Lake_Pukaki",
+          "SI",
+          "2444.693"
+        ],
+        [
+          "Lake_Taupo",
+          "NI",
+          "749.628"
+        ],
+        [
+          "Lake_Tekapo",
+          "SI",
+          "476.421"
+        ]
+      ]
+    },
+    "run.csv": {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/run.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/run.csv",
+      "content_length": "707",
+      "columns": [
+        "Policy name",
+        "  \"finite_horizon_from_week_52\""
+      ],
+      "sample_rows": [
+        [
+          "Problem start year",
+          " 2025"
+        ],
+        [
+          "Problem start week",
+          " 52"
+        ],
+        [
+          "Number of weeks",
+          " 52"
+        ],
+        [
+          "Use saved cuts from",
+          " \"\" "
+        ],
+        [
+          "Maximum iterations",
+          " 5000"
+        ]
+      ]
+    },
+    "run.jl": {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/run.jl",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/run.jl",
+      "content_length": "869",
+      "text_preview": "using JADE, JuMP \n \n# Choose your solver \nusing Gurobi \nenv = Gurobi.Env() \noptimizer = optimizer_with_attributes(() -> Gurobi.Optimizer(env), \"OutputFlag\" => 0) \n \n## Set directory containing the Input / Output subdirectories \ncd(@__DIR__) \nENV[\"JADE_DIR\"] = dirname(dirname(@__DIR__)) \n \n## Modify these settings \ninputdir = basename(@__DIR__) \nrunfile = \"run\" \ntraining = true \nsimulation = true \n \n## Set up inputs for JADE models \nrundata = define_JADE_model(inputdir, run_file = runfile) \n \n## Create JADE model from the runfile data \nmodel = create_JADE_model(rundata, optimizer) \n \nif training \n    solve_options = define_JADE_solve_options(inputdir, run_file = runfile) \n    optimize_policy!(model, solve_options) \nend \n \nif simulation \n    sim_settings = define_JADE_simulation(inputdir, run_file = runfile) \n    results = simulate(model, sim_settings) \nend \n"
+    },
+    "thermal_stations.csv": {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/thermal_stations.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/thermal_stations.csv",
+      "content_length": "630",
+      "columns": [
+        "% Thermal station data. Source From Roger."
+      ],
+      "sample_rows": [
+        [
+          "% Heat rate in GJ/MWh."
+        ],
+        [
+          "% Capacity in MW."
+        ],
+        [
+          "GENERATOR",
+          "NODE",
+          "FUEL",
+          "HEAT_RATE",
+          "CAPACITY",
+          "OMCOST",
+          "START_YEAR",
+          "START_WEEK",
+          "END_YEAR",
+          "END_WEEK"
+        ],
+        [
+          "Huntly_e3p",
+          "NI",
+          "gas",
+          "7.4",
+          "385",
+          "5.2",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "Huntly_main_g1",
+          "NI",
+          "coal",
+          "10.9",
+          "240",
+          "9.6",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    "transmission_outages.csv": {
+      "name": "Datasets/Wholesale/Expected water values/2025/Week 52/Inputs/data_files/202512250609/transmission_outages.csv",
+      "source_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/Expected%20water%20values/2025/Week%2052/Inputs/data_files/202512250609/transmission_outages.csv",
+      "content_length": "9496",
+      "columns": [
+        "YEAR",
+        "WEEK",
+        "NI_to_HAY",
+        "HAY_to_NI",
+        "HAY_to_SI",
+        "SI_to_HAY"
+      ],
+      "sample_rows": [
+        [
+          "2016",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "2016",
+          "2",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "2016",
+          "3",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "2016",
+          "4",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "2016",
+          "5",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ]
+    }
+  },
+  "impulse_experiment_notes": {
+    "preferred_perturbation_input": "fixed_stations.csv",
+    "reason": "JADE treats fixed generation as demand reduction and converts fixed MW to MWh using the model's hours_per_block.csv durations. A +1 GWh pulse can therefore be represented without changing demand or hydro constraints.",
+    "required_comparison_outputs": [
+      "tidy_results.csv: total_storage / reslevel",
+      "tidy_results.csv: hydro_disp",
+      "tidy_results.csv: thermal_use",
+      "tidy_results.csv: spills",
+      "tidy_results.csv: prices and mwv (diagnostic)"
+    ],
+    "method": "Run an otherwise identical baseline and perturbed simulation using the same policy/cuts, initial state, inflow sequence and random seed; subtract outputs week by week to measure preserved hydro energy and later thermal displacement."
+  }
+}
