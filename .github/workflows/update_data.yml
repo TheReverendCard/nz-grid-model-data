@@ -31,7 +31,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install Dependencies
-        run: pip install requests openpyxl matplotlib scipy
+        run: pip install requests openpyxl matplotlib scipy pandas
 
       # Official source ingestion and normalization.
       - name: Fetch EA HMD Data
