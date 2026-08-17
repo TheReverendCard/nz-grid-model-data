@@ -43,6 +43,9 @@ jobs:
       - name: Inspect Latest JADE Output Schemas
         run: python inspect_jade_latest_outputs.py
 
+      - name: Inspect Published JADE Run Configuration
+        run: python inspect_jade_run_configuration.py
+
       - name: Build JADE Weekly Security Visual Data
         run: python build_jade_weekly_security.py
 
