@@ -64,9 +64,6 @@ jobs:
       - name: Render Observed 2024 Hydro Price Stripes
         run: python build_observed_2024_hydro_price_stripes.py
 
-      - name: Render Observed 2024 WAEERC Risk Zones
-        run: python build_observed_2024_erc_zones.py
-
       - name: Fetch EA Wholesale Baseline Data
         run: python update_wholesale.py
 
@@ -115,6 +112,12 @@ jobs:
 
       - name: Compare Hydro Inflow and Solar Seasonality
         run: python build_hydro_solar_seasonality.py
+
+      # Experimental visualisation. Keep this non-blocking so an EMI report-format
+      # change cannot prevent the production refresh or derived-data commit.
+      - name: Render Observed 2024 WAEERC Risk Zones
+        continue-on-error: true
+        run: python build_observed_2024_erc_zones.py
 
       # The former Waitaki-specific dispatch and water-value experiments are
       # intentionally retained in the repository as research/audit scripts but
