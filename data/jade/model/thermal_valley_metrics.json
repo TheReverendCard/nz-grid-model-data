@@ -1,0 +1,27 @@
+{
+  "method": "Derived join of published JADE stochastic simulation outputs already normalized in this repository.",
+  "join_keys": [
+    "simulation",
+    "calendar_year",
+    "calendar_week"
+  ],
+  "seasonality_control": "Within-week demeaning across simulations; this removes the common calendar-week level before correlation.",
+  "interpretation_warning": "Association is not proof that low storage alone causes thermal dispatch. JADE also responds to demand, inflows, outages, fuel costs, transmission and forward-looking water values.",
+  "source_files": [
+    "data/jade/model/weekly_security_simulations.csv",
+    "data/jade/model/weekly_thermal_dispatch_simulations.csv"
+  ],
+  "metrics": {
+    "rows": 4732,
+    "simulations": 91,
+    "weeks": 52,
+    "raw_storage_vs_thermal_gwh_correlation": -0.5840778122663204,
+    "within_week_storage_vs_thermal_gwh_correlation": -0.8433442641588353,
+    "raw_storage_vs_peak_thermal_mw_correlation": -0.4515727219000633,
+    "within_week_storage_vs_peak_thermal_mw_correlation": -0.7970242826726277,
+    "within_week_storage_vs_thermal_gwh_lead_1_correlation": -0.8042544653970142,
+    "within_week_storage_vs_thermal_gwh_lead_2_correlation": -0.7573098531334556,
+    "within_week_storage_vs_thermal_gwh_lead_3_correlation": -0.7108410351724387,
+    "within_week_storage_vs_thermal_gwh_lead_4_correlation": -0.6661609040240145
+  }
+}
