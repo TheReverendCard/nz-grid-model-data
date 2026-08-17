@@ -1,8 +1,7 @@
 from __future__ import annotations
 
 from calendar import month_abbr
-from datetime import timedelta
-from io import StringIO
+from io import BytesIO
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -10,13 +9,12 @@ from matplotlib.patches import Patch
 import numpy as np
 import pandas as pd
 import requests
-from bs4 import BeautifulSoup
 
 YEAR = 2024
 INPUT = Path("data/model/observed_2024_hydro_stress_daily.csv")
 ERC_CACHE = Path("data/model/observed_2024_erc_daily.csv")
 OUTPUT = Path("data/visuals/observed_2024_hydro_bands_price_p95_erc_zones.png")
-ERC_REPORT_URL = "https://www.emi.ea.govt.nz/All/Reports/RM3RAS"
+ERC_CSV_URL = "https://www.emi.ea.govt.nz/All/Download/DataReport/CSV/RM3RAS"
 
 TARGET_SERIES = {
     "Watch status curve": "watch_gwh",
@@ -27,40 +25,12 @@ TARGET_SERIES = {
 }
 
 
-def parse_report_page(html: str) -> list[dict[str, object]]:
-    """Extract visible EMI risk-curve table rows from one report response."""
-    soup = BeautifulSoup(html, "html.parser")
-    rows: list[dict[str, object]] = []
-
-    for tr in soup.find_all("tr"):
-        cells = [c.get_text(" ", strip=True) for c in tr.find_all(["th", "td"])]
-        if len(cells) < 5:
-            continue
-        risk_date, publication, _curve_group, series, value = cells[:5]
-        if series not in TARGET_SERIES:
-            continue
-        try:
-            rows.append(
-                {
-                    "date": pd.to_datetime(risk_date, dayfirst=True),
-                    "publication_date": pd.to_datetime(publication, dayfirst=True),
-                    "series": series,
-                    "value_gwh": float(str(value).replace(",", "")),
-                }
-            )
-        except (TypeError, ValueError):
-            continue
-
-    return rows
-
-
 def fetch_erc_history() -> pd.DataFrame:
-    """Fetch 2024 NZ ERC history in short windows so EMI's table row cap is harmless.
+    """Fetch the full 2024 NZ historical ERC report from EMI's CSV endpoint.
 
-    The report can expose several series per day and displays only a limited number
-    of rows in a single response. Six-day windows keep the relevant rows below
-    that cap. For each risk date/series we retain the latest publication that was
-    already available on that date.
+    The public report HTML displays only the first 50 rows. The report's own
+    Download data link points to /All/Download/DataReport/CSV/RM3RAS, which
+    returns the complete table and avoids scraping/truncation.
     """
     if ERC_CACHE.exists():
         cached = pd.read_csv(ERC_CACHE, parse_dates=["date"])
@@ -69,41 +39,51 @@ def fetch_erc_history() -> pd.DataFrame:
             print(f"Using cached ERC history from {ERC_CACHE} ({len(cached)} days)")
             return cached
 
-    frames: list[dict[str, object]] = []
-    start = pd.Timestamp(f"{YEAR}-01-01")
-    stop = pd.Timestamp(f"{YEAR}-12-31")
-    cursor = start
+    params = {
+        "DateFrom": f"{YEAR}0101",
+        "DateTo": f"{YEAR}1231",
+        "RegionCode": "NZ",
+        "Show": "RMSB",
+        "_si": "v|4",
+    }
+    response = requests.get(ERC_CSV_URL, params=params, timeout=180)
+    response.raise_for_status()
 
-    while cursor <= stop:
-        window_end = min(cursor + pd.Timedelta(days=5), stop)
-        params = {
-            "DateFrom": cursor.strftime("%Y%m%d"),
-            "DateTo": window_end.strftime("%Y%m%d"),
-            "RegionCode": "NZ",
-            "Show": "RMSB",
-            "_si": "v|3",
-        }
-        response = requests.get(ERC_REPORT_URL, params=params, timeout=120)
-        response.raise_for_status()
-        parsed = parse_report_page(response.text)
-        frames.extend(parsed)
-        print(
-            f"ERC {cursor.date()} to {window_end.date()}: "
-            f"{len(parsed)} relevant rows"
-        )
-        cursor = window_end + pd.Timedelta(days=1)
+    raw = pd.read_csv(BytesIO(response.content), low_memory=False)
+    print(f"Downloaded EMI ERC CSV: {len(raw)} rows; columns={list(raw.columns)}")
 
-    if not frames:
-        raise RuntimeError("EMI ERC report returned no parsable risk-curve rows")
+    normalized = {c.strip().lower().replace(" ", "").replace("_", ""): c for c in raw.columns}
 
-    raw = pd.DataFrame(frames)
-    raw = raw[(raw["date"].dt.year == YEAR)].copy()
-    # If a response contains overlapping publication vintages, use the newest
-    # one that was known by the risk date. This follows the information set the
-    # System Operator had available at the time rather than hindsight.
-    eligible = raw[raw["publication_date"] <= raw["date"]].copy()
+    def find_col(*needles: str) -> str:
+        for norm, original in normalized.items():
+            if all(n.replace(" ", "").lower() in norm for n in needles):
+                return original
+        raise RuntimeError(f"Could not find ERC column {needles}; columns={list(raw.columns)}")
+
+    risk_date_col = find_col("risk", "date")
+    publication_col = find_col("dateofpublication")
+    series_col = find_col("series")
+    value_col = next(
+        (c for c in raw.columns if "value" in c.lower() and "gwh" in c.lower()),
+        None,
+    )
+    if value_col is None:
+        value_col = find_col("value")
+
+    data = raw[[risk_date_col, publication_col, series_col, value_col]].copy()
+    data.columns = ["date", "publication_date", "series", "value_gwh"]
+    data["date"] = pd.to_datetime(data["date"], dayfirst=True, errors="coerce")
+    data["publication_date"] = pd.to_datetime(data["publication_date"], dayfirst=True, errors="coerce")
+    data["value_gwh"] = pd.to_numeric(data["value_gwh"], errors="coerce")
+    data = data[data["series"].astype(str).isin(TARGET_SERIES)].dropna(subset=["date", "value_gwh"])
+    data = data[data["date"].dt.year == YEAR].copy()
+
+    if data.empty:
+        raise RuntimeError("EMI ERC CSV contained no 2024 target-series rows")
+
+    eligible = data[data["publication_date"] <= data["date"]].copy()
     if eligible.empty:
-        eligible = raw.copy()
+        eligible = data.copy()
     eligible = eligible.sort_values(["date", "series", "publication_date"])
     eligible = eligible.groupby(["date", "series"], as_index=False).tail(1)
 
@@ -111,26 +91,28 @@ def fetch_erc_history() -> pd.DataFrame:
     daily = daily.rename(columns=TARGET_SERIES).sort_values("date")
 
     required = ["watch_gwh", "alert_gwh", "emergency_gwh"]
-    for col in required:
-        if col not in daily:
-            raise RuntimeError(f"ERC scrape missing required series {col}")
+    missing = [c for c in required if c not in daily]
+    if missing:
+        raise RuntimeError(f"ERC CSV missing required series: {missing}")
 
-    # Curves are smooth daily series; interpolate occasional report-table gaps,
-    # but do not silently manufacture a mostly absent year.
+    start = pd.Timestamp(f"{YEAR}-01-01")
+    stop = pd.Timestamp(f"{YEAR}-12-31")
     daily = daily.set_index("date").reindex(pd.date_range(start, stop, freq="D"))
-    observed_days = daily[required].notna().all(axis=1).sum()
+    observed_days = int(daily[required].notna().all(axis=1).sum())
+    print(f"ERC complete Watch/Alert/Emergency dates before interpolation: {observed_days}")
     if observed_days < 250:
         raise RuntimeError(
-            f"Only {observed_days} 2024 ERC dates parsed before interpolation; "
-            "report layout/query likely changed"
+            f"Only {observed_days} 2024 ERC dates found in the full CSV; "
+            "report query/series selection likely changed"
         )
+
     daily[required] = daily[required].interpolate(limit_direction="both")
     for optional in ["controlled_storage_gwh", "nominal_full_gwh"]:
         if optional in daily:
             daily[optional] = daily[optional].interpolate(limit_direction="both")
+
     daily.index.name = "date"
     daily = daily.reset_index()
-
     ERC_CACHE.parent.mkdir(parents=True, exist_ok=True)
     daily.to_csv(ERC_CACHE, index=False)
     print(f"Wrote {ERC_CACHE} ({len(daily)} days)")
@@ -158,8 +140,6 @@ def render(base: pd.DataFrame, erc: pd.DataFrame) -> None:
     fig, ax = plt.subplots(figsize=(13.5, 7.4))
     risk_ax = ax.twinx()
 
-    # System Operator risk-status zones, in their native controlled-storage GWh
-    # scale on the right axis. These are deliberately not converted to HMD Mm3.
     x = df["date"]
     emergency = df["emergency_gwh"].to_numpy(dtype=float)
     alert = df["alert_gwh"].to_numpy(dtype=float)
@@ -172,19 +152,14 @@ def render(base: pd.DataFrame, erc: pd.DataFrame) -> None:
     risk_ax.plot(x, alert, color="#ef8a62", linewidth=0.8, alpha=0.75, zorder=1)
     risk_ax.plot(x, watch, color="#f6b44b", linewidth=0.8, alpha=0.8, zorder=1)
 
-    # Set the ERC axis from native report context where available. Nominal-full
-    # or controlled-storage values prevent an arbitrary vertical scaling of the
-    # risk zones; otherwise use a conservative multiple of the Watch maximum.
     scale_candidates = [float(np.nanmax(watch))]
     for col in ["nominal_full_gwh", "controlled_storage_gwh"]:
         if col in df and df[col].notna().any():
             scale_candidates.append(float(df[col].max()))
-    risk_top = max(scale_candidates) * 1.05
-    risk_ax.set_ylim(0, risk_top)
+    risk_ax.set_ylim(0, max(scale_candidates) * 1.05)
     risk_ax.set_ylabel("System Operator controlled-storage risk scale (GWh)")
     risk_ax.grid(False)
 
-    # Climate-stripe-style daily wholesale price stress.
     for d, s in zip(df["date"], score):
         if np.isfinite(s) and s > 0:
             ax.axvspan(
@@ -196,7 +171,6 @@ def render(base: pd.DataFrame, erc: pd.DataFrame) -> None:
                 zorder=0,
             )
 
-    # Historical HMD hydro envelope and 2024 actual storage, on the left axis.
     ax.fill_between(
         x, df["storage_p05_mm3"], df["storage_p95_mm3"],
         alpha=0.14, label="Historical P5–P95", zorder=2,
@@ -225,14 +199,12 @@ def render(base: pd.DataFrame, erc: pd.DataFrame) -> None:
     ax.set_xticklabels([month_abbr[d.month] for d in month_starts])
 
     handles, labels = ax.get_legend_handles_labels()
-    handles.extend(
-        [
-            Patch(facecolor="#fdae61", alpha=0.24, label="Watch zone (right axis)"),
-            Patch(facecolor="#f46d43", alpha=0.22, label="Alert zone (right axis)"),
-            Patch(facecolor="#d73027", alpha=0.24, label="Emergency zone (right axis)"),
-            Patch(facecolor="red", alpha=0.35, label="Daily P95 wholesale price stress"),
-        ]
-    )
+    handles.extend([
+        Patch(facecolor="#fdae61", alpha=0.24, label="Watch zone (right axis)"),
+        Patch(facecolor="#f46d43", alpha=0.22, label="Alert zone (right axis)"),
+        Patch(facecolor="#d73027", alpha=0.24, label="Emergency zone (right axis)"),
+        Patch(facecolor="red", alpha=0.35, label="Daily P95 wholesale price stress"),
+    ])
     labels.extend([
         "Watch zone (right axis)",
         "Alert zone (right axis)",
@@ -242,17 +214,13 @@ def render(base: pd.DataFrame, erc: pd.DataFrame) -> None:
     ax.legend(handles, labels, frameon=False, loc="upper right", fontsize=8.5)
 
     ax.text(
-        0.01,
-        0.022,
+        0.01, 0.022,
         "Darker vertical red stripes = higher daily P95 wholesale price. WAEERC zones use the System Operator's native controlled-storage GWh scale on the right axis.",
-        transform=ax.transAxes,
-        fontsize=8.8,
-        va="bottom",
+        transform=ax.transAxes, fontsize=8.8, va="bottom",
     )
     fig.text(
-        0.01,
-        0.004,
-        "Sources: Electricity Authority HMD, final wholesale prices, and EMI historical electricity risk curves (WAEERC). "
+        0.01, 0.004,
+        "Sources: Electricity Authority HMD, final wholesale prices, and EMI historical electricity risk curves. "
         "The HMD storage line/bands and WAEERC zones use different storage definitions and axes; the overlay is contextual, not a one-to-one threshold comparison.",
         fontsize=8,
     )
