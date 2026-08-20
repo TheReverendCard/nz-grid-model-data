@@ -15,7 +15,7 @@ YEAR = 2024
 INPUT = Path("data/model/observed_2024_hydro_stress_daily.csv")
 ERC_CACHE = Path("data/model/observed_2024_erc_daily.csv")
 OUTPUT_TOP = Path("data/visuals/observed_2024_hydro_bands_price_p95_erc_zones_top_ribbon.png")
-OUTPUT_DOTS = Path("data/visuals/observed_2024_hydro_bands_price_p95_erc_zones_price_dots.png")
+OUTPUT_DOTS = Path("data/visuals/observed_2024_hydro_bands_price_p95_erc_zones_dot_overlay.png")
 ERC_CSV_URL = "https://www.emi.ea.govt.nz/All/Download/DataReport/CSV/RM3RAS"
 
 TARGET_SERIES = {
@@ -172,27 +172,33 @@ def price_norm(series: pd.Series) -> tuple[np.ndarray, Normalize]:
     return score, Normalize(vmin=lo, vmax=hi, clip=True)
 
 
-def price_dot_areas(series: pd.Series) -> tuple[np.ndarray, float]:
-    """Map daily P95 price linearly to marker area, capped at the price P95.
+def price_dot_areas(series: pd.Series) -> tuple[np.ndarray, float, float]:
+    """Map clipped daily P95 price linearly to translucent marker area.
 
     Matplotlib scatter ``s`` is marker area in points squared.  At 180 dpi a
     0.4-point diameter is about one rendered pixel, so the minimum area is
     0.16 pt².  A 6.5-point maximum diameter is about 16 rendered pixels, around
-    2–3 times the apparent width of the 2.3-point hydro line.  Area, not
-    diameter, is linear in price; the apparent square-root radius relationship
-    therefore follows naturally from drawing circles.
+    2–3 times the apparent width of the 2.3-point hydro line.  Prices are first
+    robustly clipped to their P5–P95 range, then marker AREA is mapped linearly
+    across that range.  Radius therefore follows the intended square-root
+    relationship rather than scaling directly with price.
     """
     vals = pd.to_numeric(series, errors="coerce").to_numpy(dtype=float)
     finite = vals[np.isfinite(vals)]
     if not len(finite):
-        return np.full(len(vals), 0.16), 1.0
+        return np.full(len(vals), 0.16), 0.0, 1.0
 
-    cap = max(1.0, float(np.quantile(finite, 0.95)))
-    clipped = np.clip(np.nan_to_num(vals, nan=0.0), 0.0, cap)
+    lo = max(0.0, float(np.quantile(finite, 0.05)))
+    hi = float(np.quantile(finite, 0.95))
+    if hi <= lo:
+        hi = lo + 1.0
+
+    clipped = np.clip(np.nan_to_num(vals, nan=lo), lo, hi)
+    stress = (clipped - lo) / (hi - lo)
     min_area = 0.16
     max_area = 6.5 ** 2
-    areas = min_area + (clipped / cap) * (max_area - min_area)
-    return areas, cap
+    areas = min_area + stress * (max_area - min_area)
+    return areas, lo, hi
 
 
 def draw_base(ax, risk_ax, df: pd.DataFrame) -> None:
@@ -262,33 +268,30 @@ def add_top_ribbon(ax, df: pd.DataFrame, score: np.ndarray) -> None:
     )
 
 
-def add_price_dots(ax, df: pd.DataFrame) -> float:
+def add_price_dots(ax, df: pd.DataFrame) -> tuple[float, float]:
     """Annotate the observed hydro line with translucent, area-scaled price dots."""
-    areas, cap = price_dot_areas(df["price_p95_nzd_mwh"])
+    areas, floor, cap = price_dot_areas(df["price_p95_nzd_mwh"])
     ax.scatter(
         df["date"],
         df["represented_storage_mm3"],
         s=areas,
         color="#a50026",
-        alpha=0.28,
+        alpha=0.24,
         edgecolors="none",
         linewidths=0,
         zorder=7,
     )
-    # Re-draw a fine centreline so the storage trajectory remains legible through
-    # larger/overlapping dots without erasing their accumulated transparency.
-    ax.plot(
-        df["date"],
-        df["represented_storage_mm3"],
-        linewidth=0.9,
-        color="#222222",
-        alpha=0.72,
-        zorder=8,
-    )
-    return cap
+    return floor, cap
 
 
-def finish(ax, fig, mode: str, output: Path, price_cap: float | None = None) -> None:
+def finish(
+    ax,
+    fig,
+    mode: str,
+    output: Path,
+    price_floor: float | None = None,
+    price_cap: float | None = None,
+) -> None:
     if mode == "top":
         title_suffix = "top price-stress ribbon"
     else:
@@ -318,10 +321,11 @@ def finish(ax, fig, mode: str, output: Path, price_cap: float | None = None) -> 
             "Price stress is shown only in the narrow top ribbon; it no longer washes across the hydro/WAEERC field."
         )
     else:
-        cap_text = f"${price_cap:,.0f}/MWh" if price_cap is not None else "the price P95"
+        floor_text = f"${price_floor:,.0f}/MWh" if price_floor is not None else "price P5"
+        cap_text = f"${price_cap:,.0f}/MWh" if price_cap is not None else "price P95"
         note = (
-            "Dot area is directly proportional to daily P95 wholesale price (capped at "
-            f"{cap_text}); translucent overlap makes sustained stress more vivid."
+            "Dot area is directly proportional to daily P95 wholesale price stress after robust P5–P95 clipping "
+            f"({floor_text}–{cap_text}); translucent overlap makes sustained stress more vivid."
         )
     ax.text(0.01, 0.022, note, transform=ax.transAxes, fontsize=8.6, va="bottom")
     fig.text(
@@ -343,15 +347,23 @@ def render_variant(df: pd.DataFrame, mode: str, output: Path) -> None:
     risk_ax = ax.twinx()
     draw_base(ax, risk_ax, df)
 
+    price_floor = None
     price_cap = None
     if mode == "top":
         add_top_ribbon(ax, df, score)
     elif mode == "dots":
-        price_cap = add_price_dots(ax, df)
+        price_floor, price_cap = add_price_dots(ax, df)
     else:
         raise ValueError(mode)
 
-    finish(ax, fig, mode, output, price_cap=price_cap)
+    finish(
+        ax,
+        fig,
+        mode,
+        output,
+        price_floor=price_floor,
+        price_cap=price_cap,
+    )
 
 
 def main() -> None:
