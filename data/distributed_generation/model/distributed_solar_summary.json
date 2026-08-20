@@ -3,18 +3,18 @@
     "2024_year_end": {
       "residential_solar": {
         "month_end": "2024-12-31",
-        "icp_count": 64013,
-        "icp_uptake_rate_pct": 3.22492,
-        "installed_capacity_mw": 321.326,
+        "icp_count": 64012,
+        "icp_uptake_rate_pct": 3.22499,
+        "installed_capacity_mw": 321.312,
         "average_capacity_kw": 5.02,
         "new_installations": 707,
         "average_new_install_capacity_kw": 7.714
       },
       "all_solar": {
         "month_end": "2024-12-31",
-        "icp_count": 69053,
-        "icp_uptake_rate_pct": 2.96441,
-        "installed_capacity_mw": 564.145,
+        "icp_count": 69054,
+        "icp_uptake_rate_pct": 2.96445,
+        "installed_capacity_mw": 564.154,
         "average_capacity_kw": 8.17,
         "new_installations": 817,
         "average_new_install_capacity_kw": 39.193
@@ -23,42 +23,42 @@
     "latest_trend": {
       "residential_solar": {
         "month_end": "2026-07-31",
-        "icp_count": 82055,
-        "icp_uptake_rate_pct": 4.05819,
-        "installed_capacity_mw": 469.464,
-        "average_capacity_kw": 5.721,
-        "new_installations": 1251,
-        "average_new_install_capacity_kw": 8.965
+        "icp_count": 82133,
+        "icp_uptake_rate_pct": 4.06222,
+        "installed_capacity_mw": 470.202,
+        "average_capacity_kw": 5.725,
+        "new_installations": 1290,
+        "average_new_install_capacity_kw": 8.984
       },
       "all_solar": {
         "month_end": "2026-07-31",
-        "icp_count": 90162,
-        "icp_uptake_rate_pct": 3.80461,
-        "installed_capacity_mw": 1199.972,
-        "average_capacity_kw": 13.309,
-        "new_installations": 1383,
-        "average_new_install_capacity_kw": 126.401
+        "icp_count": 90259,
+        "icp_uptake_rate_pct": 3.80869,
+        "installed_capacity_mw": 1201.306,
+        "average_capacity_kw": 13.31,
+        "new_installations": 1434,
+        "average_new_install_capacity_kw": 122.374
       }
     }
   },
   "current_registry_snapshot": {
     "residential": {
-      "icps": 82055,
+      "icps": 82133,
       "average_capacity_kw": 5.7,
-      "capacity_mw": 469.464
+      "capacity_mw": 470.2018
     },
     "business": {
-      "icps": 8107,
-      "average_capacity_kw": 90.1,
-      "capacity_mw": 730.5078000000001
+      "icps": 8126,
+      "average_capacity_kw": 90.0,
+      "capacity_mw": 731.1045
     },
     "all": {
-      "icps": 90162,
+      "icps": 90259,
       "average_capacity_kw": 13.3,
-      "capacity_mw": 1199.9718
+      "capacity_mw": 1201.3063
     },
-    "regional_residential_capacity_mw_sum": 468.8632,
-    "regional_residential_icps_sum": 82009
+    "regional_residential_capacity_mw_sum": 469.601,
+    "regional_residential_icps_sum": 82087
   },
   "model_use": {
     "behind_meter_starting_population": "Residential solar ICPs are the primary BTM population. Business solar is kept separate because the category includes large installations.",
