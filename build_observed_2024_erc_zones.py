@@ -177,11 +177,11 @@ def price_dot_areas(series: pd.Series) -> tuple[np.ndarray, float, float]:
 
     Matplotlib scatter ``s`` is marker area in points squared.  At 180 dpi a
     0.4-point diameter is about one rendered pixel, so the minimum area is
-    0.16 pt².  A 6.5-point maximum diameter is about 16 rendered pixels, around
-    2–3 times the apparent width of the 2.3-point hydro line.  Prices are first
-    robustly clipped to their P5–P95 range, then marker AREA is mapped linearly
-    across that range.  Radius therefore follows the intended square-root
-    relationship rather than scaling directly with price.
+    0.16 pt².  A 13-point maximum diameter doubles the previous maximum dot
+    diameter.  Prices are first robustly clipped to their P5–P95 range, then
+    marker AREA is mapped linearly across that range.  Radius therefore follows
+    the intended square-root relationship rather than scaling directly with
+    price.
     """
     vals = pd.to_numeric(series, errors="coerce").to_numpy(dtype=float)
     finite = vals[np.isfinite(vals)]
@@ -196,7 +196,7 @@ def price_dot_areas(series: pd.Series) -> tuple[np.ndarray, float, float]:
     clipped = np.clip(np.nan_to_num(vals, nan=lo), lo, hi)
     stress = (clipped - lo) / (hi - lo)
     min_area = 0.16
-    max_area = 6.5 ** 2
+    max_area = 13.0 ** 2
     areas = min_area + stress * (max_area - min_area)
     return areas, lo, hi
 
@@ -207,12 +207,12 @@ def draw_base(ax, risk_ax, df: pd.DataFrame) -> None:
     alert = df["alert_gwh"].to_numpy(dtype=float)
     watch = df["watch_gwh"].to_numpy(dtype=float)
 
+    # Keep the Emergency field as the strongest risk context, but remove the
+    # Watch/Alert fills so those thresholds read as curves rather than zones.
     risk_ax.fill_between(x, 0, emergency, color="#d73027", alpha=0.10, linewidth=0, zorder=0)
-    risk_ax.fill_between(x, emergency, alert, color="#f46d43", alpha=0.10, linewidth=0, zorder=0)
-    risk_ax.fill_between(x, alert, watch, color="#fdae61", alpha=0.11, linewidth=0, zorder=0)
     risk_ax.plot(x, emergency, color="#b2182b", linewidth=0.8, alpha=0.72, zorder=1)
-    risk_ax.plot(x, alert, color="#ef8a62", linewidth=0.8, alpha=0.72, zorder=1)
-    risk_ax.plot(x, watch, color="#f6b44b", linewidth=0.8, alpha=0.78, zorder=1)
+    risk_ax.plot(x, alert, color="#ef8a62", linewidth=2.4, alpha=0.90, zorder=1)
+    risk_ax.plot(x, watch, color="#f6b44b", linewidth=2.4, alpha=0.95, zorder=1)
 
     scale_candidates = [float(np.nanmax(watch))]
     for col in ["nominal_full_gwh", "controlled_storage_gwh"]:
@@ -269,14 +269,16 @@ def add_top_ribbon(ax, df: pd.DataFrame, score: np.ndarray) -> None:
 
 
 def add_price_dots(ax, df: pd.DataFrame) -> tuple[float, float]:
-    """Annotate the observed hydro line with translucent, area-scaled price dots."""
+    """Annotate the observed hydro line with offset, area-scaled price dots."""
     areas, floor, cap = price_dot_areas(df["price_p95_nzd_mwh"])
+    y0, y1 = ax.get_ylim()
+    dot_offset = 0.015 * (y1 - y0)
     ax.scatter(
         df["date"],
-        df["represented_storage_mm3"],
+        df["represented_storage_mm3"] + dot_offset,
         s=areas,
         color="#a50026",
-        alpha=0.24,
+        alpha=0.42,
         edgecolors="none",
         linewidths=0,
         zorder=7,
@@ -295,7 +297,7 @@ def finish(
     if mode == "top":
         title_suffix = "top price-stress ribbon"
     else:
-        title_suffix = "area-scaled price dots on observed storage"
+        title_suffix = "area-scaled price dots above observed storage"
     ax.set_title(
         f"2024 hydro storage and WAEERC risk zones, with {title_suffix}",
         loc="left", fontsize=14.5, pad=12,
@@ -303,14 +305,14 @@ def finish(
 
     handles, labels = ax.get_legend_handles_labels()
     handles.extend([
-        Patch(facecolor="#fdae61", alpha=0.24, label="Watch zone (right axis)"),
-        Patch(facecolor="#f46d43", alpha=0.22, label="Alert zone (right axis)"),
+        Patch(facecolor="#f6b44b", alpha=0.95, label="Watch curve (right axis)"),
+        Patch(facecolor="#ef8a62", alpha=0.90, label="Alert curve (right axis)"),
         Patch(facecolor="#d73027", alpha=0.24, label="Emergency zone (right axis)"),
-        Patch(facecolor="#a50026", alpha=0.45, label="Daily P95 wholesale price stress"),
+        Patch(facecolor="#a50026", alpha=0.55, label="Daily P95 wholesale price stress"),
     ])
     labels.extend([
-        "Watch zone (right axis)",
-        "Alert zone (right axis)",
+        "Watch curve (right axis)",
+        "Alert curve (right axis)",
         "Emergency zone (right axis)",
         "Daily P95 wholesale price stress",
     ])
@@ -325,7 +327,7 @@ def finish(
         cap_text = f"${price_cap:,.0f}/MWh" if price_cap is not None else "price P95"
         note = (
             "Dot area is directly proportional to daily P95 wholesale price stress after robust P5–P95 clipping "
-            f"({floor_text}–{cap_text}); translucent overlap makes sustained stress more vivid."
+            f"({floor_text}–{cap_text}); dots are offset slightly above the storage line."
         )
     ax.text(0.01, 0.022, note, transform=ax.transAxes, fontsize=8.6, va="bottom")
     fig.text(
