@@ -38,6 +38,18 @@
         "average_capacity_kw": 13.309,
         "new_installations": 1482,
         "average_new_install_capacity_kw": 118.795
+      },
+      "solar_battery_attachment": {
+        "month_end": "2026-07-31",
+        "all_solar_icps": 90328,
+        "solar_only_icps": 69537,
+        "solar_plus_battery_icps_derived": 20791,
+        "battery_attachment_share_of_solar_pct": 23.01723,
+        "all_new_solar_installations": 1482,
+        "new_solar_only_installations": 632,
+        "new_solar_plus_battery_installations_derived": 850,
+        "battery_attachment_share_of_new_solar_pct": 57.35493,
+        "category_reliability": "post_2023_11_registry_categories"
       }
     }
   },
@@ -61,9 +73,9 @@
     "regional_residential_icps_sum": 82143
   },
   "model_use": {
-    "behind_meter_starting_population": "Residential solar ICPs are the primary BTM population. Business solar is kept separate because the category includes large installations.",
-    "battery_export_assumption": "Zero by default except explicit VPP/export scenarios.",
-    "gross_generation_method": "Apply regional observed/representative solar yield (kWh per installed kW) to regional residential installed capacity.",
-    "self_consumption_method": "Split gross PV among direct load, battery charging, and residual export using explicit assumptions/sensitivity ranges."
+    "distributed_solar_scope": "Future distributed-solar scenarios use <25 kW ICP adoption plus a separate 25 kW to <1 MW capacity component; >=1 MW is treated as utility-scale.",
+    "battery_attachment_observation": "Solar+Batteries ICP counts and new-install shares are derived as solar_all minus the Solar-only GUEHMT category. Treat pre-November-2023 category history cautiously because the registry categories changed and recategorisation is not reliably backdated.",
+    "battery_capacity_caution": "The GUEHMT generation-capacity field is not battery energy capacity. Do not interpret the capacity difference between solar_all and Solar-only as battery MW or MWh.",
+    "gross_generation_method": "Apply regional observed/representative solar yield (kWh per installed kW) to distributed installed capacity."
   }
 }
