@@ -84,7 +84,7 @@ jobs:
         run: python update_distributed_generation.py
 
       - name: Normalize Distributed Generation Data
-        if: steps.ea_dg.outputs.distributed_generation_changed == 'true' || hashFiles('data/distributed_generation/model/national_solar_all_monthly.csv') == ''
+        if: steps.ea_dg.outputs.distributed_generation_changed == 'true' || hashFiles('data/distributed_generation/model/national_solar_all_monthly.csv') == '' || hashFiles('data/distributed_generation/model/national_solar_battery_attachment_monthly.csv') == ''
         run: python normalize_distributed_generation.py
 
       - name: Classify Current Solar Installations by Size
@@ -94,6 +94,10 @@ jobs:
       - name: Build Distributed Solar Adoption Scenarios
         if: steps.ea_dg.outputs.solar_model_inputs_changed == 'true' || hashFiles('data/distributed_generation/model/distributed_solar_adoption_scenarios.json') == ''
         run: python build_distributed_solar_scenarios.py
+
+      - name: Build Distributed Battery Attachment Scenarios
+        if: steps.ea_dg.outputs.battery_model_inputs_changed == 'true' || steps.ea_dg.outputs.solar_model_inputs_changed == 'true' || hashFiles('data/distributed_generation/model/distributed_battery_attachment_scenarios.json') == ''
+        run: python build_distributed_battery_scenarios.py
 
       # Derived data that adds information not already published upstream.
       - name: Diagnose Solar Generation Yield Candidates
