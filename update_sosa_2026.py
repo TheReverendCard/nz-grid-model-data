@@ -1,19 +1,19 @@
 from __future__ import annotations
 
 import csv
-import io
 import json
 import re
 import zipfile
 from pathlib import Path
-from urllib.parse import quote
 
 import requests
 
 OUT_DIR = Path("data/sosa/2026")
 RAW_XLSX = OUT_DIR / "2026_sosa_final_supplementary_data.xlsx"
 WINTER_CSV = OUT_DIR / "medium_demand_winter_energy.csv"
+PEAK_CSV = OUT_DIR / "medium_demand_winter_peak.csv"
 WEM_CSV = OUT_DIR / "reference_nzwem.csv"
+NIWCM_CSV = OUT_DIR / "reference_niwcm.csv"
 META_JSON = OUT_DIR / "sources.json"
 
 SOURCE_URL = (
@@ -106,11 +106,23 @@ def read_sheet(z: zipfile.ZipFile, path: str, strings: list[str]) -> list[dict[s
     return rows
 
 
+def write_csv(path: Path, rows: list[dict[str, object]]) -> None:
+    if not rows:
+        raise RuntimeError(f"No rows produced for {path}")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(rows[0].keys()))
+        writer.writeheader()
+        writer.writerows(rows)
+    print(f"Wrote {path} ({len(rows)} rows)")
+
+
 def normalize_workbook() -> None:
     with zipfile.ZipFile(RAW_XLSX) as z:
         strings = shared_strings(z)
         paths = sheet_paths(z)
         winter = read_sheet(z, paths["Winter energy demand"], strings)
+        peak = read_sheet(z, paths["Winter peak demand (H100)"], strings)
         results = read_sheet(z, paths["Results data"], strings)
 
     winter_rows = []
@@ -122,8 +134,6 @@ def normalize_workbook() -> None:
             continue
         solar_battery_gwh = float(row.get("E", 0.0)) + float(row.get("K", 0.0))
         demand_excl_dr_gwh = float(row.get("I", 0.0)) + float(row.get("O", 0.0))
-        # Matches the example NZ energy-margin workbook formula. Keep both the
-        # published demand and this effective-demand reconstruction for auditing.
         effective_demand_gwh = min(0.98 * demand_excl_dr_gwh, demand_excl_dr_gwh - 335.0)
         winter_rows.append(
             {
@@ -133,20 +143,34 @@ def normalize_workbook() -> None:
                 "effective_nzwem_demand_gwh": round(effective_demand_gwh, 6),
             }
         )
+    write_csv(WINTER_CSV, winter_rows)
 
-    WINTER_CSV.parent.mkdir(parents=True, exist_ok=True)
-    with WINTER_CSV.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(winter_rows[0].keys()))
-        writer.writeheader()
-        writer.writerows(winter_rows)
+    peak_rows = []
+    for row in peak:
+        if row.get("B") != "Medium Demand" or row.get("C") != "NI-WCM":
+            continue
+        year = int(float(row["A"]))
+        if not 2026 <= year <= 2035:
+            continue
+        peak_rows.append(
+            {
+                "year": year,
+                "si_solar_battery_peak_contribution_mw": round(float(row.get("E", 0.0)), 6),
+                "ni_solar_battery_peak_contribution_mw": round(float(row.get("K", 0.0)), 6),
+                "nz_solar_battery_peak_contribution_mw": round(float(row.get("E", 0.0)) + float(row.get("K", 0.0)), 6),
+                "si_peak_demand_excl_demand_response_mw": round(float(row.get("I", 0.0)), 6),
+                "ni_peak_demand_excl_demand_response_mw": round(float(row.get("O", 0.0)), 6),
+            }
+        )
+    write_csv(PEAK_CSV, peak_rows)
 
     wem_rows = []
-    wanted = {
+    wem_wanted = {
         "Medium Demand Growth+Ref Gas Supply": "reference",
         "Medium Demand Growth+Ref Gas Supply+Low Wind & Solar": "low_wind_solar",
     }
     for row in results:
-        if row.get("B") != "NZWEM_PERC" or row.get("C") not in wanted:
+        if row.get("B") != "NZWEM_PERC" or row.get("C") not in wem_wanted:
             continue
         year = int(float(row["A"]))
         if not 2026 <= year <= 2035:
@@ -154,20 +178,35 @@ def normalize_workbook() -> None:
         wem_rows.append(
             {
                 "year": year,
-                "sensitivity": wanted[str(row["C"])],
+                "sensitivity": wem_wanted[str(row["C"])],
                 "stage1_existing_committed_pct": float(row["D"]),
                 "stage2_plus_consented_likely_pct": float(row["E"]),
                 "stage3_plus_likely_consent_2y_pct": float(row["F"]),
             }
         )
+    write_csv(WEM_CSV, wem_rows)
 
-    with WEM_CSV.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(wem_rows[0].keys()))
-        writer.writeheader()
-        writer.writerows(wem_rows)
-
-    print(f"Wrote {WINTER_CSV} ({len(winter_rows)} rows)")
-    print(f"Wrote {WEM_CSV} ({len(wem_rows)} rows)")
+    niwcm_rows = []
+    niwcm_wanted = {
+        "Medium Demand Growth+Ref Gas Supply": "reference",
+        "Medium Demand Growth+Ref Gas Supply+Constrained Operational Capacity+Low Wind & Solar": "constrained_operational_capacity_low_wind_solar",
+    }
+    for row in results:
+        if row.get("B") != "NIWCM" or row.get("C") not in niwcm_wanted:
+            continue
+        year = int(float(row["A"]))
+        if not 2026 <= year <= 2035:
+            continue
+        niwcm_rows.append(
+            {
+                "year": year,
+                "sensitivity": niwcm_wanted[str(row["C"])],
+                "stage1_existing_committed_mw": float(row["D"]),
+                "stage2_plus_consented_likely_mw": float(row["E"]),
+                "stage3_plus_likely_consent_2y_mw": float(row["F"]),
+            }
+        )
+    write_csv(NIWCM_CSV, niwcm_rows)
 
 
 def main() -> None:
@@ -181,7 +220,8 @@ def main() -> None:
                 "etag": headers["etag"],
                 "last_modified": headers["last_modified"],
                 "winter_energy_period": "April through September",
-                "normalized_files": [str(WINTER_CSV), str(WEM_CSV)],
+                "winter_peak_method": "H100 winter peak demand; medium-demand solar+battery contribution normalized separately for North and South Islands.",
+                "normalized_files": [str(WINTER_CSV), str(PEAK_CSV), str(WEM_CSV), str(NIWCM_CSV)],
             },
             indent=2,
         )
