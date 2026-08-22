@@ -63,9 +63,11 @@ def main() -> None:
     anchor_share = min(ATTACHMENT_SATURATION - 0.001, max(0.001, float(np.median(recent_shares))))
     rate = fit_attachment_rate(obs_rows, latest_date, anchor_share)
 
-    observed_battery_icps = float(latest_obs["solar_plus_battery_icps_derived"])
+    observed_battery_icps = float(latest_obs["solar_plus_battery_icps"])
     observed_all_solar_icps = float(latest_obs["all_solar_icps"])
     observed_stock_share = observed_battery_icps / observed_all_solar_icps if observed_all_solar_icps else 0.0
+    observed_registered_capacity_mw = float(latest_obs["solar_plus_battery_registered_capacity_mw"])
+    observed_avg_registered_kw = float(latest_obs["solar_plus_battery_average_registered_kw"])
 
     first = solar_rows[0]
     output_rows: list[dict[str, object]] = []
@@ -100,6 +102,7 @@ def main() -> None:
                 cumulative_battery[scenario] += new_solar * attachment
             cumulative_battery[scenario] = min(cumulative_battery[scenario], solar_icps)
             without_battery = max(0.0, solar_icps - cumulative_battery[scenario])
+            observed_power_proxy_mw = cumulative_battery[scenario] * observed_avg_registered_kw / 1000.0
 
             row[f"{scenario}_small_solar_icps"] = round(solar_icps, 1)
             row[f"{scenario}_new_small_solar_icps"] = round(new_solar, 1)
@@ -108,6 +111,9 @@ def main() -> None:
             row[f"{scenario}_battery_stock_share_pct"] = round(
                 cumulative_battery[scenario] / solar_icps * 100.0, 5
             ) if solar_icps else 0.0
+            row[f"{scenario}_registered_connection_power_proxy_mw"] = round(observed_power_proxy_mw, 3)
+            for duration_name, hours in BATTERY_DURATION_HOURS.items():
+                row[f"{scenario}_{duration_name}_energy_proxy_mwh"] = round(observed_power_proxy_mw * hours, 3)
             previous_solar[scenario] = solar_icps
 
         output_rows.append(row)
@@ -128,22 +134,25 @@ def main() -> None:
         "source_latest_month": latest_obs["month_end"],
         "scope": "Battery attachment to the <25 kW distributed-solar ICP population.",
         "observed_anchor": {
-            "derived_solar_plus_battery_icps_all_solar": int(observed_battery_icps),
+            "explicit_solar_plus_battery_icps": int(observed_battery_icps),
             "all_solar_icps": int(observed_all_solar_icps),
             "observed_stock_attachment_pct": round(observed_stock_share * 100.0, 5),
+            "explicit_solar_plus_battery_registered_capacity_mw": observed_registered_capacity_mw,
+            "explicit_average_registered_connection_kw": observed_avg_registered_kw,
             "new_install_attachment_anchor_pct": round(anchor_share * 100.0, 5),
             "anchor_method": f"Median of latest {ANCHOR_MONTHS} monthly observed new-install attachment shares.",
         },
         "capacity_assumptions": {
             "battery_duration_hours": BATTERY_DURATION_HOURS,
-            "duration_policy": "Conservative provisional durations: 1.0 h low, 1.5 h central, 2.0 h high. Replace these assumptions with observed EA/industry fleet data whenever defensible measured values become available.",
-            "priority": "Observed EA battery power/capacity data override industry-derived or assumed values where the registry meaning is sufficiently clear.",
+            "duration_policy": "Conservative provisional durations: 1.0 h low, 1.5 h central, 2.0 h high. Replace these assumptions with observed EA fleet storage data whenever defensible aggregated battery kWh become available.",
+            "power_proxy": "Use the explicit EA Solar (with battery) average registered connection capacity per ICP as a conservative observed connection-power proxy. It is not battery-only nameplate power; it is the lesser of summed generation capability or inverter/injection capacity.",
+            "priority": "Observed EA battery power/storage data override industry-derived or assumed values where the registry meaning is sufficiently clear.",
         },
         "method": {
-            "observations": "Solar+Batteries counts are derived from EA GUEHMT as solar_all minus Solar-only. Only post-November-2023 new-install observations are used for the attachment fit.",
+            "observations": "Primary Solar+Batteries counts and registered connection-capacity data use the explicit EA GUEHMT Solar (with battery) category. Only post-November-2023 new-install observations are used for the attachment fit.",
             "new_install_curve": "Logistic attachment curve fitted to observed new-install battery attachment, anchored to the latest six-month median and capped at 95%.",
             "stock": "Projected battery-equipped solar ICPs accumulate from the observed starting stock plus the fitted share of each month's new <25 kW solar installations.",
-            "battery_power_energy": "Battery counts are modelled here. Battery power should use observed EA registry data where defensible; otherwise a separately documented conservative power assumption is required. Energy capacity equals power times the duration sensitivity above.",
+            "energy_capacity": "Provisional MWh equals the observed connection-power proxy multiplied by 1.0/1.5/2.0 hours. This is deliberately conservative and should be replaced by aggregated registry battery kWh when publicly available.",
         },
         "fit": {
             "attachment_saturation_pct": ATTACHMENT_SATURATION * 100.0,
@@ -157,8 +166,8 @@ def main() -> None:
     print(f"Wrote {OUT_JSON}")
     print(
         f"Observed battery stock: {observed_battery_icps:,.0f}/{observed_all_solar_icps:,.0f} solar ICPs "
-        f"({observed_stock_share * 100:.1f}%); new-install anchor={anchor_share * 100:.1f}%; "
-        f"95% saturation fit rate={rate:.3f}/yr"
+        f"({observed_stock_share * 100:.1f}%); registered connection-power proxy={observed_registered_capacity_mw:.1f} MW "
+        f"({observed_avg_registered_kw:.2f} kW/ICP); new-install anchor={anchor_share * 100:.1f}%."
     )
     print(f"Battery duration sensitivities (hours): {BATTERY_DURATION_HOURS}")
 
