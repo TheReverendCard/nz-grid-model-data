@@ -24,9 +24,12 @@ SEASONALITY = Path("data/model/hydro_solar_seasonality.json")
 OUT_CSV = Path("data/model/hydro_trough_counterfactual_2024.csv")
 OUT_PNG = Path("data/visuals/hydro_trough_counterfactual_2024.png")
 
+# The scenario names encode the long-run saturation assumptions used by the
+# diffusion model. Actual modeled adoption at end-2035 is lower: 8.48% and
+# 13.92% of ICPs respectively. Use the actual adoption rate in public labels.
 SCENARIOS = {
-    "low_10pct": "2035 10% distributed-solar counterfactual",
-    "high_30pct": "2035 30% distributed-solar counterfactual",
+    "low_10pct": "2035 low adoption case (8.5% of ICPs)",
+    "high_30pct": "2035 high adoption case (13.9% of ICPs)",
 }
 
 
@@ -254,6 +257,7 @@ def render(df: pd.DataFrame) -> None:
         0.008,
         "Storage source: Electricity Authority HMD major-reservoir volumes converted to an energy-equivalent state using verified downstream cascade MWh/Mm3 route factors. "
         "Incremental solar is the project's 2035 distributed-solar generation above SOSA's embedded domestic solar+battery winter contribution, spread through Apr-Sep using the observed monthly solar shape. "
+        "Low/high adoption cases come from 10%/30% long-run small-solar saturation assumptions; modeled small-solar adoption reaches about 8.5%/13.9% of ICPs by end-2035. "
         "The 75% hydro-preservation factor is an explicit sensitivity, not a JADE/vSPD dispatch result; the remainder can represent thermal displacement, transfers or other system responses. The October annotations show retained-storage advantage only, not a modelled change in spring refill rate. Operational storage limits and spill are not modelled.",
         fontsize=7.7,
         wrap=True,
