@@ -142,6 +142,9 @@ jobs:
       - name: Build SOSA Distributed Margin Comparison
         run: python build_sosa_distributed_comparison.py
 
+      - name: Build Hydro Winter Energy Equivalence View
+        run: python build_hydro_energy_equivalence.py
+
       # Experimental visualisation. Keep this non-blocking so an EMI report-format
       # change cannot prevent the production refresh or derived-data commit.
       - name: Render Observed 2024 WAEERC Risk Zones
