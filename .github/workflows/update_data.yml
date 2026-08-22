@@ -145,6 +145,9 @@ jobs:
       - name: Build Hydro Winter Energy Equivalence View
         run: python build_hydro_energy_equivalence.py
 
+      - name: Build Hydro Trough Counterfactual
+        run: python build_hydro_trough_counterfactual.py
+
       # Experimental visualisation. Keep this non-blocking so an EMI report-format
       # change cannot prevent the production refresh or derived-data commit.
       - name: Render Observed 2024 WAEERC Risk Zones
