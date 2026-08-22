@@ -1,11 +1,6 @@
 name: Daily NZ Grid Data Refresh
 
 on:
-  push:
-    branches:
-      - agent/test-ea-azure-updater
-    paths-ignore:
-      - 'data/**'
   schedule:
     - cron: '0 14 * * *'
   workflow_dispatch:
