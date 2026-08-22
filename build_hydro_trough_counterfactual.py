@@ -151,24 +151,6 @@ def apply_counterfactual(daily: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
-def recovery_lead_days(df: pd.DataFrame, scenario: str, target_date: pd.Timestamp) -> int | None:
-    target_row = df.loc[df["date"] == target_date]
-    if target_row.empty:
-        return None
-    target = float(target_row.iloc[0]["national_energy_equivalent_gwh"])
-    window = df[
-        (df["date"] >= pd.Timestamp(f"{YEAR}-08-01"))
-        & (df["date"] <= target_date)
-    ]
-    reached = window[
-        window[f"{scenario}_counterfactual_storage_gwh"] >= target
-    ]
-    if reached.empty:
-        return None
-    first_date = pd.Timestamp(reached.iloc[0]["date"])
-    return int((target_date - first_date).days)
-
-
 def render(df: pd.DataFrame) -> None:
     OUT_PNG.parent.mkdir(parents=True, exist_ok=True)
     view = df[
@@ -176,7 +158,7 @@ def render(df: pd.DataFrame) -> None:
         & (df["date"] <= pd.Timestamp(f"{YEAR}-10-31"))
     ].copy()
 
-    fig, ax = plt.subplots(figsize=(12.8, 7.4))
+    fig, ax = plt.subplots(figsize=(12.5, 7.4))
     ax.fill_between(
         view["date"], view["p05_gwh"], view["p95_gwh"],
         alpha=0.14, label=f"Historical P5-P95 ({HISTORY_START}-{HISTORY_END})"
@@ -186,10 +168,6 @@ def render(df: pd.DataFrame) -> None:
         alpha=0.28, label="Historical P25-P75"
     )
 
-    # Official 2024 System Operator risk thresholds are included only as a visual
-    # reference. They use controlled-storage GWh, while the main storage series is
-    # HMD-derived energy-equivalent storage, so they must not be read as a precise
-    # like-for-like threshold crossing test.
     if view["watch_gwh"].notna().any():
         ax.plot(
             view["date"], view["watch_gwh"], linewidth=1.5, linestyle="--",
@@ -216,43 +194,26 @@ def render(df: pd.DataFrame) -> None:
             label=f"{label} ({PRESERVATION_FRACTION:.0%} preservation sensitivity)",
         )
 
+    # The right-edge labels report only the retained-storage advantage. They do
+    # not imply a faster physical refill rate after September; this sensitivity
+    # leaves the observed post-winter storage shape unchanged apart from the
+    # accumulated hydro that was not released during Apr-Sep.
     october_date = pd.Timestamp(f"{YEAR}-10-31")
     october = df.loc[df["date"] == october_date].iloc[0]
     actual_oct = float(october["national_energy_equivalent_gwh"])
-    actual_min = float(
-        df[df["date"].dt.month.isin(WINTER_MONTHS)]["national_energy_equivalent_gwh"].min()
-    )
-
-    summary_lines = ["Resilience gain by 31 Oct"]
-    for scenario, short in [
-        ("low_10pct", "10% case"),
-        ("high_30pct", "30% case"),
-    ]:
-        advantage = float(october[f"{scenario}_counterfactual_storage_gwh"]) - actual_oct
-        winter_min = float(
-            df[df["date"].dt.month.isin(WINTER_MONTHS)][
-                f"{scenario}_counterfactual_storage_gwh"
-            ].min()
+    for scenario, offset_y in [("low_10pct", -8), ("high_30pct", 8)]:
+        value = float(october[f"{scenario}_counterfactual_storage_gwh"])
+        advantage = value - actual_oct
+        ax.annotate(
+            f"+{advantage:.0f} GWh retained by 31 Oct",
+            xy=(october_date, value),
+            xytext=(-8, offset_y),
+            textcoords="offset points",
+            ha="right",
+            va="center",
+            fontsize=9,
+            fontweight="bold",
         )
-        min_gain = winter_min - actual_min
-        lead = recovery_lead_days(df, scenario, october_date)
-        lead_text = f"{lead} d earlier to actual 31 Oct level" if lead is not None else "no earlier recovery crossing"
-        summary_lines.append(
-            f"{short}: +{advantage:.0f} GWh stored; winter minimum +{min_gain:.0f} GWh; {lead_text}"
-        )
-
-    ax.text(
-        1.015,
-        0.43,
-        "\n".join(summary_lines),
-        transform=ax.transAxes,
-        ha="left",
-        va="center",
-        fontsize=8.7,
-        linespacing=1.45,
-        bbox={"boxstyle": "round,pad=0.5", "facecolor": "white", "alpha": 0.9, "edgecolor": "0.75"},
-        clip_on=False,
-    )
 
     ax.set_xlim(view["date"].min(), view["date"].max())
     ax.set_ylim(0, Y_MAX_GWH)
@@ -293,11 +254,11 @@ def render(df: pd.DataFrame) -> None:
         0.008,
         "Storage source: Electricity Authority HMD major-reservoir volumes converted to an energy-equivalent state using verified downstream cascade MWh/Mm3 route factors. "
         "Incremental solar is the project's 2035 distributed-solar generation above SOSA's embedded domestic solar+battery winter contribution, spread through Apr-Sep using the observed monthly solar shape. "
-        "The 75% hydro-preservation factor is an explicit sensitivity, not a JADE/vSPD dispatch result; the remainder can represent thermal displacement, transfers or other system responses. The October recovery lead means the first date the counterfactual reaches the storage level actually observed on 31 October. Operational storage limits and spill are not modelled.",
+        "The 75% hydro-preservation factor is an explicit sensitivity, not a JADE/vSPD dispatch result; the remainder can represent thermal displacement, transfers or other system responses. The October annotations show retained-storage advantage only, not a modelled change in spring refill rate. Operational storage limits and spill are not modelled.",
         fontsize=7.7,
         wrap=True,
     )
-    fig.tight_layout(rect=(0, 0.095, 0.82, 1))
+    fig.tight_layout(rect=(0, 0.095, 1, 1))
     fig.savefig(OUT_PNG, dpi=180)
     plt.close(fig)
 
@@ -319,10 +280,9 @@ def main() -> None:
     for scenario in SCENARIOS:
         minimum = winter[f"{scenario}_counterfactual_storage_gwh"].min()
         advantage = float(october[f"{scenario}_counterfactual_storage_gwh"]) - actual_oct
-        lead = recovery_lead_days(result, scenario, october_date)
         print(
             f"{scenario}: winter minimum {minimum:.1f} GWh; "
-            f"31 Oct advantage {advantage:.1f} GWh; recovery lead {lead} days"
+            f"31 Oct retained-storage advantage {advantage:.1f} GWh"
         )
 
 
