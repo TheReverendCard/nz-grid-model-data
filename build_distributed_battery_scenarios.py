@@ -16,6 +16,7 @@ OUT_JSON = Path("data/distributed_generation/model/distributed_battery_attachmen
 ATTACHMENT_SATURATION = 0.95
 OBS_START = "2023-11-01"
 ANCHOR_MONTHS = 6
+BATTERY_DURATION_HOURS = {"low": 1.0, "central": 1.5, "high": 2.0}
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
@@ -36,9 +37,6 @@ def fit_attachment_rate(obs_rows: list[dict[str, str]], latest_date: datetime, a
     dates = [datetime.strptime(r["month_end"], "%Y-%m-%d") for r in usable]
     shares = np.array([float(r["battery_attachment_share_of_new_solar_pct"]) / 100.0 for r in usable])
     t = np.array([((d.year - latest_date.year) * 12 + (d.month - latest_date.month)) / 12.0 for d in dates])
-
-    # New-install shares are much cleaner than total-stock differences but still noisy
-    # month to month. Clip only impossible/registry-artifact values and fit the trend.
     shares = np.clip(shares, 0.001, ATTACHMENT_SATURATION - 0.001)
 
     def objective(rate: float) -> float:
@@ -69,9 +67,6 @@ def main() -> None:
     observed_all_solar_icps = float(latest_obs["all_solar_icps"])
     observed_stock_share = observed_battery_icps / observed_all_solar_icps if observed_all_solar_icps else 0.0
 
-    # Solar scenario count is the <25 kW population. Battery-equipped solar ICPs are
-    # overwhelmingly expected to sit in this group; cap the observed starting stock
-    # to the modelled small-system population if registry categories disagree.
     first = solar_rows[0]
     output_rows: list[dict[str, object]] = []
     scenario_names = ("low_10pct", "high_30pct")
@@ -139,11 +134,16 @@ def main() -> None:
             "new_install_attachment_anchor_pct": round(anchor_share * 100.0, 5),
             "anchor_method": f"Median of latest {ANCHOR_MONTHS} monthly observed new-install attachment shares.",
         },
+        "capacity_assumptions": {
+            "battery_duration_hours": BATTERY_DURATION_HOURS,
+            "duration_policy": "Conservative provisional durations: 1.0 h low, 1.5 h central, 2.0 h high. Replace these assumptions with observed EA/industry fleet data whenever defensible measured values become available.",
+            "priority": "Observed EA battery power/capacity data override industry-derived or assumed values where the registry meaning is sufficiently clear.",
+        },
         "method": {
             "observations": "Solar+Batteries counts are derived from EA GUEHMT as solar_all minus Solar-only. Only post-November-2023 new-install observations are used for the attachment fit.",
             "new_install_curve": "Logistic attachment curve fitted to observed new-install battery attachment, anchored to the latest six-month median and capped at 95%.",
             "stock": "Projected battery-equipped solar ICPs accumulate from the observed starting stock plus the fitted share of each month's new <25 kW solar installations.",
-            "battery_power_energy": "Not estimated here. EA generation-capacity fields do not provide battery energy capacity; battery kW/MWh require a separate defensible source or assumption.",
+            "battery_power_energy": "Battery counts are modelled here. Battery power should use observed EA registry data where defensible; otherwise a separately documented conservative power assumption is required. Energy capacity equals power times the duration sensitivity above.",
         },
         "fit": {
             "attachment_saturation_pct": ATTACHMENT_SATURATION * 100.0,
@@ -160,6 +160,7 @@ def main() -> None:
         f"({observed_stock_share * 100:.1f}%); new-install anchor={anchor_share * 100:.1f}%; "
         f"95% saturation fit rate={rate:.3f}/yr"
     )
+    print(f"Battery duration sensitivities (hours): {BATTERY_DURATION_HOURS}")
 
 
 if __name__ == "__main__":
