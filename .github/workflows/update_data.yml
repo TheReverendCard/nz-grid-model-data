@@ -99,6 +99,9 @@ jobs:
         if: steps.ea_dg.outputs.battery_model_inputs_changed == 'true' || steps.ea_dg.outputs.solar_model_inputs_changed == 'true' || hashFiles('data/distributed_generation/model/distributed_battery_attachment_scenarios.json') == ''
         run: python build_distributed_battery_scenarios.py
 
+      - name: Fetch and Normalize Transpower 2026 SOSA
+        run: python update_sosa_2026.py
+
       # Derived data that adds information not already published upstream.
       - name: Diagnose Solar Generation Yield Candidates
         run: python diagnose_solar_yield.py
@@ -126,6 +129,9 @@ jobs:
 
       - name: Compare Hydro Inflow and Solar Seasonality
         run: python build_hydro_solar_seasonality.py
+
+      - name: Compare Distributed Solar with SOSA Winter Energy
+        run: python build_distributed_solar_winter_energy.py
 
       # Experimental visualisation. Keep this non-blocking so an EMI report-format
       # change cannot prevent the production refresh or derived-data commit.
