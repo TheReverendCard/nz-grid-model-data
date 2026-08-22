@@ -204,12 +204,64 @@ def capacity_chart(rows: list[dict[str, object]]) -> None:
     plt.close(fig)
 
 
+def stress_test_2035_chart(rows: list[dict[str, object]]) -> None:
+    selected = [
+        r for r in rows
+        if r["metric"] == "ni_winter_capacity_margin"
+        and int(r["year"]) == 2035
+        and r["sensitivity"] == CAPACITY_SENSITIVITY
+    ]
+    stages = list(STAGES)
+    scenarios = list(SCENARIOS)
+    x = list(range(len(stages)))
+    width = 0.24
+
+    fig, ax = plt.subplots(figsize=(10.5, 6))
+    for offset_index, scenario in enumerate(scenarios):
+        offset = (offset_index - 1) * width
+        values = [
+            float(next(r["margin"] for r in selected if r["stage"] == stage and r["scenario"] == scenario))
+            for stage in stages
+        ]
+        bars = ax.bar([v + offset for v in x], values, width=width, label=SCENARIOS[scenario])
+        for bar, value in zip(bars, values):
+            va = "bottom" if value >= 0 else "top"
+            dy = 12 if value >= 0 else -12
+            ax.annotate(
+                f"{value:.0f}",
+                (bar.get_x() + bar.get_width() / 2, value),
+                xytext=(0, dy),
+                textcoords="offset points",
+                ha="center",
+                va=va,
+                fontsize=9,
+            )
+
+    ax.axhline(0, linewidth=1.4)
+    ax.set_xticks(x)
+    ax.set_xticklabels(["Stage 1\nexisting + committed", "Stage 2\n+ consented likely", "Stage 3\n+ likely consent <2y"])
+    ax.set_ylabel("North Island winter capacity margin (MW)")
+    ax.set_title("2035 NI capacity stress test: how much pipeline is enough?")
+    ax.grid(axis="y", alpha=0.25)
+    ax.legend(frameon=False)
+    fig.text(
+        0.01,
+        0.01,
+        "Transpower SOSA constrained-operational-capacity + low-wind/solar sensitivity. Negative values indicate a capacity deficit. Distributed cases are delta adjustments to SOSA, not standalone dispatch-model reruns.",
+        fontsize=8,
+    )
+    fig.tight_layout(rect=(0, 0.05, 1, 1))
+    fig.savefig(OUT_DIR / "sosa_2035_ni_capacity_stress_test.png", dpi=180)
+    plt.close(fig)
+
+
 def main() -> None:
     rows = build_rows()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     write_rows(rows)
     energy_chart(rows)
     capacity_chart(rows)
+    stress_test_2035_chart(rows)
     print(f"Wrote {OUT_CSV} ({len(rows)} rows)")
     print(f"Wrote comparison charts to {OUT_DIR}")
 
