@@ -43,12 +43,17 @@
         "month_end": "2026-07-31",
         "all_solar_icps": 90328,
         "solar_only_icps": 69537,
-        "solar_plus_battery_icps_derived": 20791,
+        "solar_plus_battery_icps": 20791,
+        "solar_plus_battery_icps_subtraction_check": 20791,
         "battery_attachment_share_of_solar_pct": 23.01723,
         "all_new_solar_installations": 1482,
         "new_solar_only_installations": 632,
-        "new_solar_plus_battery_installations_derived": 850,
+        "new_solar_plus_battery_installations": 850,
+        "new_solar_plus_battery_installations_subtraction_check": 850,
         "battery_attachment_share_of_new_solar_pct": 57.35493,
+        "solar_plus_battery_registered_capacity_mw": 170.424,
+        "solar_plus_battery_average_registered_kw": 8.197,
+        "solar_plus_battery_average_new_registered_kw": 10.985,
         "category_reliability": "post_2023_11_registry_categories"
       }
     }
@@ -74,8 +79,9 @@
   },
   "model_use": {
     "distributed_solar_scope": "Future distributed-solar scenarios use <25 kW ICP adoption plus a separate 25 kW to <1 MW capacity component; >=1 MW is treated as utility-scale.",
-    "battery_attachment_observation": "Solar+Batteries ICP counts and new-install shares are derived as solar_all minus the Solar-only GUEHMT category. Treat pre-November-2023 category history cautiously because the registry categories changed and recategorisation is not reliably backdated.",
-    "battery_capacity_caution": "The GUEHMT generation-capacity field is not battery energy capacity. Do not interpret the capacity difference between solar_all and Solar-only as battery MW or MWh.",
+    "battery_attachment_observation": "Primary battery counts and connection-capacity figures use the explicit EA Solar (with battery) GUEHMT series. solar_all minus Solar-only is retained only as an audit cross-check. Treat pre-November-2023 category history cautiously because registry recategorisation is not reliably backdated.",
+    "battery_power_interpretation": "Solar-with-battery registered generation capacity is the lesser of summed generating capacity or inverter/injection capacity. It is useful as an observed connection-power ceiling, especially for peak-support modelling, but is not battery-only power and is not storage energy capacity.",
+    "battery_energy_duration": "Until public aggregated registry kWh data become available, model battery energy conservatively with 1.0 h low, 1.5 h central, and 2.0 h high duration assumptions. Replace these where defensible observed EA battery storage data are available.",
     "gross_generation_method": "Apply regional observed/representative solar yield (kWh per installed kW) to distributed installed capacity."
   }
 }

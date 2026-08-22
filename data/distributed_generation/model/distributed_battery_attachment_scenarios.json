@@ -2,9 +2,11 @@
   "source_latest_month": "2026-07-31",
   "scope": "Battery attachment to the <25 kW distributed-solar ICP population.",
   "observed_anchor": {
-    "derived_solar_plus_battery_icps_all_solar": 20791,
+    "explicit_solar_plus_battery_icps": 20791,
     "all_solar_icps": 90328,
     "observed_stock_attachment_pct": 23.01723,
+    "explicit_solar_plus_battery_registered_capacity_mw": 170.424,
+    "explicit_average_registered_connection_kw": 8.197,
     "new_install_attachment_anchor_pct": 53.35421,
     "anchor_method": "Median of latest 6 monthly observed new-install attachment shares."
   },
@@ -14,14 +16,15 @@
       "central": 1.5,
       "high": 2.0
     },
-    "duration_policy": "Conservative provisional durations: 1.0 h low, 1.5 h central, 2.0 h high. Replace these assumptions with observed EA/industry fleet data whenever defensible measured values become available.",
-    "priority": "Observed EA battery power/capacity data override industry-derived or assumed values where the registry meaning is sufficiently clear."
+    "duration_policy": "Conservative provisional durations: 1.0 h low, 1.5 h central, 2.0 h high. Replace these assumptions with observed EA fleet storage data whenever defensible aggregated battery kWh become available.",
+    "power_proxy": "Use the explicit EA Solar (with battery) average registered connection capacity per ICP as a conservative observed connection-power proxy. It is not battery-only nameplate power; it is the lesser of summed generation capability or inverter/injection capacity.",
+    "priority": "Observed EA battery power/storage data override industry-derived or assumed values where the registry meaning is sufficiently clear."
   },
   "method": {
-    "observations": "Solar+Batteries counts are derived from EA GUEHMT as solar_all minus Solar-only. Only post-November-2023 new-install observations are used for the attachment fit.",
+    "observations": "Primary Solar+Batteries counts and registered connection-capacity data use the explicit EA GUEHMT Solar (with battery) category. Only post-November-2023 new-install observations are used for the attachment fit.",
     "new_install_curve": "Logistic attachment curve fitted to observed new-install battery attachment, anchored to the latest six-month median and capped at 95%.",
     "stock": "Projected battery-equipped solar ICPs accumulate from the observed starting stock plus the fitted share of each month's new <25 kW solar installations.",
-    "battery_power_energy": "Battery counts are modelled here. Battery power should use observed EA registry data where defensible; otherwise a separately documented conservative power assumption is required. Energy capacity equals power times the duration sensitivity above."
+    "energy_capacity": "Provisional MWh equals the observed connection-power proxy multiplied by 1.0/1.5/2.0 hours. This is deliberately conservative and should be replaced by aggregated registry battery kWh when publicly available."
   },
   "fit": {
     "attachment_saturation_pct": 95.0,
@@ -36,11 +39,19 @@
       "low_10pct_solar_plus_battery_icps": 24232.4,
       "low_10pct_solar_without_battery_icps": 70935.8,
       "low_10pct_battery_stock_share_pct": 25.46271,
+      "low_10pct_registered_connection_power_proxy_mw": 198.633,
+      "low_10pct_low_energy_proxy_mwh": 198.633,
+      "low_10pct_central_energy_proxy_mwh": 297.95,
+      "low_10pct_high_energy_proxy_mwh": 397.266,
       "high_30pct_small_solar_icps": 96026.5,
       "high_30pct_new_small_solar_icps": 1418.1,
       "high_30pct_solar_plus_battery_icps": 24721.5,
       "high_30pct_solar_without_battery_icps": 71305.0,
-      "high_30pct_battery_stock_share_pct": 25.74449
+      "high_30pct_battery_stock_share_pct": 25.74449,
+      "high_30pct_registered_connection_power_proxy_mw": 202.642,
+      "high_30pct_low_energy_proxy_mwh": 202.642,
+      "high_30pct_central_energy_proxy_mwh": 303.964,
+      "high_30pct_high_energy_proxy_mwh": 405.285
     },
     "2027": {
       "month_end": "2027-12-31",
@@ -50,11 +61,19 @@
       "low_10pct_solar_plus_battery_icps": 34263.5,
       "low_10pct_solar_without_battery_icps": 76090.0,
       "low_10pct_battery_stock_share_pct": 31.04884,
+      "low_10pct_registered_connection_power_proxy_mw": 280.858,
+      "low_10pct_low_energy_proxy_mwh": 280.858,
+      "low_10pct_central_energy_proxy_mwh": 421.287,
+      "low_10pct_high_energy_proxy_mwh": 561.715,
       "high_30pct_small_solar_icps": 114510.7,
       "high_30pct_new_small_solar_icps": 1647.0,
       "high_30pct_solar_plus_battery_icps": 36949.3,
       "high_30pct_solar_without_battery_icps": 77561.4,
-      "high_30pct_battery_stock_share_pct": 32.26713
+      "high_30pct_battery_stock_share_pct": 32.26713,
+      "high_30pct_registered_connection_power_proxy_mw": 302.874,
+      "high_30pct_low_energy_proxy_mwh": 302.874,
+      "high_30pct_central_energy_proxy_mwh": 454.31,
+      "high_30pct_high_energy_proxy_mwh": 605.747
     },
     "2028": {
       "month_end": "2028-12-31",
@@ -64,11 +83,19 @@
       "low_10pct_solar_plus_battery_icps": 46392.8,
       "low_10pct_solar_without_battery_icps": 79794.7,
       "low_10pct_battery_stock_share_pct": 36.765,
+      "low_10pct_registered_connection_power_proxy_mw": 380.282,
+      "low_10pct_low_energy_proxy_mwh": 380.282,
+      "low_10pct_central_energy_proxy_mwh": 570.423,
+      "low_10pct_high_energy_proxy_mwh": 760.564,
       "high_30pct_small_solar_icps": 135869.3,
       "high_30pct_new_small_solar_icps": 1894.9,
       "high_30pct_solar_plus_battery_icps": 53328.2,
       "high_30pct_solar_without_battery_icps": 82541.1,
-      "high_30pct_battery_stock_share_pct": 39.24961
+      "high_30pct_battery_stock_share_pct": 39.24961,
+      "high_30pct_registered_connection_power_proxy_mw": 437.131,
+      "high_30pct_low_energy_proxy_mwh": 437.131,
+      "high_30pct_central_energy_proxy_mwh": 655.697,
+      "high_30pct_high_energy_proxy_mwh": 874.262
     },
     "2029": {
       "month_end": "2029-12-31",
@@ -78,11 +105,19 @@
       "low_10pct_solar_plus_battery_icps": 59904.8,
       "low_10pct_solar_without_battery_icps": 82376.2,
       "low_10pct_battery_stock_share_pct": 42.10317,
+      "low_10pct_registered_connection_power_proxy_mw": 491.04,
+      "low_10pct_low_energy_proxy_mwh": 491.04,
+      "low_10pct_central_energy_proxy_mwh": 736.56,
+      "low_10pct_high_energy_proxy_mwh": 982.08,
       "high_30pct_small_solar_icps": 160301.5,
       "high_30pct_new_small_solar_icps": 2157.1,
       "high_30pct_solar_plus_battery_icps": 73856.1,
       "high_30pct_solar_without_battery_icps": 86445.4,
-      "high_30pct_battery_stock_share_pct": 46.07327
+      "high_30pct_battery_stock_share_pct": 46.07327,
+      "high_30pct_registered_connection_power_proxy_mw": 605.399,
+      "high_30pct_low_energy_proxy_mwh": 605.399,
+      "high_30pct_central_energy_proxy_mwh": 908.098,
+      "high_30pct_high_energy_proxy_mwh": 1210.798
     },
     "2030": {
       "month_end": "2030-12-31",
@@ -92,11 +127,19 @@
       "low_10pct_solar_plus_battery_icps": 74045.2,
       "low_10pct_solar_without_battery_icps": 84191.2,
       "low_10pct_battery_stock_share_pct": 46.79403,
+      "low_10pct_registered_connection_power_proxy_mw": 606.948,
+      "low_10pct_low_energy_proxy_mwh": 606.948,
+      "low_10pct_central_energy_proxy_mwh": 910.423,
+      "low_10pct_high_energy_proxy_mwh": 1213.897,
       "high_30pct_small_solar_icps": 187935.4,
       "high_30pct_new_small_solar_icps": 2426.6,
       "high_30pct_solar_plus_battery_icps": 98357.8,
       "high_30pct_solar_without_battery_icps": 89577.6,
-      "high_30pct_battery_stock_share_pct": 52.33596
+      "high_30pct_battery_stock_share_pct": 52.33596,
+      "high_30pct_registered_connection_power_proxy_mw": 806.239,
+      "high_30pct_low_energy_proxy_mwh": 806.239,
+      "high_30pct_central_energy_proxy_mwh": 1209.358,
+      "high_30pct_high_energy_proxy_mwh": 1612.478
     },
     "2031": {
       "month_end": "2031-12-31",
@@ -106,11 +149,19 @@
       "low_10pct_solar_plus_battery_icps": 88170.3,
       "low_10pct_solar_without_battery_icps": 85519.4,
       "low_10pct_battery_stock_share_pct": 50.76312,
+      "low_10pct_registered_connection_power_proxy_mw": 722.732,
+      "low_10pct_low_energy_proxy_mwh": 722.732,
+      "low_10pct_central_energy_proxy_mwh": 1084.098,
+      "low_10pct_high_energy_proxy_mwh": 1445.464,
       "high_30pct_small_solar_icps": 218800.7,
       "high_30pct_new_small_solar_icps": 2694.2,
       "high_30pct_solar_plus_battery_icps": 126578.1,
       "high_30pct_solar_without_battery_icps": 92222.6,
-      "high_30pct_battery_stock_share_pct": 57.85086
+      "high_30pct_battery_stock_share_pct": 57.85086,
+      "high_30pct_registered_connection_power_proxy_mw": 1037.561,
+      "high_30pct_low_energy_proxy_mwh": 1037.561,
+      "high_30pct_central_energy_proxy_mwh": 1556.341,
+      "high_30pct_high_energy_proxy_mwh": 2075.121
     },
     "2032": {
       "month_end": "2032-12-31",
@@ -120,11 +171,19 @@
       "low_10pct_solar_plus_battery_icps": 101799.7,
       "low_10pct_solar_without_battery_icps": 86545.0,
       "low_10pct_battery_stock_share_pct": 54.04967,
+      "low_10pct_registered_connection_power_proxy_mw": 834.452,
+      "low_10pct_low_energy_proxy_mwh": 834.452,
+      "low_10pct_central_energy_proxy_mwh": 1251.678,
+      "low_10pct_high_energy_proxy_mwh": 1668.904,
       "high_30pct_small_solar_icps": 252805.7,
       "high_30pct_new_small_solar_icps": 2949.0,
       "high_30pct_solar_plus_battery_icps": 158208.3,
       "high_30pct_solar_without_battery_icps": 94597.4,
-      "high_30pct_battery_stock_share_pct": 62.58098
+      "high_30pct_battery_stock_share_pct": 62.58098,
+      "high_30pct_registered_connection_power_proxy_mw": 1296.833,
+      "high_30pct_low_energy_proxy_mwh": 1296.833,
+      "high_30pct_central_energy_proxy_mwh": 1945.25,
+      "high_30pct_high_energy_proxy_mwh": 2593.667
     },
     "2033": {
       "month_end": "2033-12-31",
@@ -134,11 +193,19 @@
       "low_10pct_solar_plus_battery_icps": 114613.7,
       "low_10pct_solar_without_battery_icps": 87377.8,
       "low_10pct_battery_stock_share_pct": 56.74187,
+      "low_10pct_registered_connection_power_proxy_mw": 939.489,
+      "low_10pct_low_energy_proxy_mwh": 939.489,
+      "low_10pct_central_energy_proxy_mwh": 1409.233,
+      "low_10pct_high_energy_proxy_mwh": 1878.978,
       "high_30pct_small_solar_icps": 289720.0,
       "high_30pct_new_small_solar_icps": 3179.1,
       "high_30pct_solar_plus_battery_icps": 192873.1,
       "high_30pct_solar_without_battery_icps": 96846.9,
-      "high_30pct_battery_stock_share_pct": 66.57225
+      "high_30pct_battery_stock_share_pct": 66.57225,
+      "high_30pct_registered_connection_power_proxy_mw": 1580.981,
+      "high_30pct_low_energy_proxy_mwh": 1580.981,
+      "high_30pct_central_energy_proxy_mwh": 2371.471,
+      "high_30pct_high_energy_proxy_mwh": 3161.962
     },
     "2034": {
       "month_end": "2034-12-31",
@@ -148,11 +215,19 @@
       "low_10pct_solar_plus_battery_icps": 126431.3,
       "low_10pct_solar_without_battery_icps": 88079.4,
       "low_10pct_battery_stock_share_pct": 58.93937,
+      "low_10pct_registered_connection_power_proxy_mw": 1036.357,
+      "low_10pct_low_energy_proxy_mwh": 1036.357,
+      "low_10pct_central_energy_proxy_mwh": 1554.535,
+      "low_10pct_high_energy_proxy_mwh": 2072.714,
       "high_30pct_small_solar_icps": 329169.6,
       "high_30pct_new_small_solar_icps": 3372.7,
       "high_30pct_solar_plus_battery_icps": 230113.4,
       "high_30pct_solar_without_battery_icps": 99056.2,
-      "high_30pct_battery_stock_share_pct": 69.90724
+      "high_30pct_battery_stock_share_pct": 69.90724,
+      "high_30pct_registered_connection_power_proxy_mw": 1886.239,
+      "high_30pct_low_energy_proxy_mwh": 1886.239,
+      "high_30pct_central_energy_proxy_mwh": 2829.359,
+      "high_30pct_high_energy_proxy_mwh": 3772.479
     },
     "2035": {
       "month_end": "2035-12-31",
@@ -162,11 +237,19 @@
       "low_10pct_solar_plus_battery_icps": 137179.8,
       "low_10pct_solar_without_battery_icps": 88684.7,
       "low_10pct_battery_stock_share_pct": 60.73542,
+      "low_10pct_registered_connection_power_proxy_mw": 1124.462,
+      "low_10pct_low_energy_proxy_mwh": 1124.462,
+      "low_10pct_central_energy_proxy_mwh": 1686.694,
+      "low_10pct_high_energy_proxy_mwh": 2248.925,
       "high_30pct_small_solar_icps": 370646.8,
       "high_30pct_new_small_solar_icps": 3519.4,
       "high_30pct_solar_plus_battery_icps": 269380.3,
       "high_30pct_solar_without_battery_icps": 101266.5,
-      "high_30pct_battery_stock_share_pct": 72.67844
+      "high_30pct_battery_stock_share_pct": 72.67844,
+      "high_30pct_registered_connection_power_proxy_mw": 2208.11,
+      "high_30pct_low_energy_proxy_mwh": 2208.11,
+      "high_30pct_central_energy_proxy_mwh": 3312.166,
+      "high_30pct_high_energy_proxy_mwh": 4416.221
     },
     "2036": {
       "month_end": "2036-12-31",
@@ -176,11 +259,19 @@
       "low_10pct_solar_plus_battery_icps": 146865.9,
       "low_10pct_solar_without_battery_icps": 89214.0,
       "low_10pct_battery_stock_share_pct": 62.21025,
+      "low_10pct_registered_connection_power_proxy_mw": 1203.86,
+      "low_10pct_low_energy_proxy_mwh": 1203.86,
+      "low_10pct_central_energy_proxy_mwh": 1805.79,
+      "low_10pct_high_energy_proxy_mwh": 2407.719,
       "high_30pct_small_solar_icps": 413535.7,
       "high_30pct_new_small_solar_icps": 3611.6,
       "high_30pct_solar_plus_battery_icps": 310047.6,
       "high_30pct_solar_without_battery_icps": 103488.1,
-      "high_30pct_battery_stock_share_pct": 74.97482
+      "high_30pct_battery_stock_share_pct": 74.97482,
+      "high_30pct_registered_connection_power_proxy_mw": 2541.46,
+      "high_30pct_low_energy_proxy_mwh": 2541.46,
+      "high_30pct_central_energy_proxy_mwh": 3812.191,
+      "high_30pct_high_energy_proxy_mwh": 5082.921
     },
     "2037": {
       "month_end": "2037-12-31",
@@ -190,11 +281,19 @@
       "low_10pct_solar_plus_battery_icps": 155549.4,
       "low_10pct_solar_without_battery_icps": 89680.6,
       "low_10pct_battery_stock_share_pct": 63.43002,
+      "low_10pct_registered_connection_power_proxy_mw": 1275.039,
+      "low_10pct_low_energy_proxy_mwh": 1275.039,
+      "low_10pct_central_energy_proxy_mwh": 1912.558,
+      "low_10pct_high_energy_proxy_mwh": 2550.077,
       "high_30pct_small_solar_icps": 457152.1,
       "high_30pct_new_small_solar_icps": 3645.3,
       "high_30pct_solar_plus_battery_icps": 351440.3,
       "high_30pct_solar_without_battery_icps": 105711.8,
-      "high_30pct_battery_stock_share_pct": 76.87602
+      "high_30pct_battery_stock_share_pct": 76.87602,
+      "high_30pct_registered_connection_power_proxy_mw": 2880.756,
+      "high_30pct_low_energy_proxy_mwh": 2880.756,
+      "high_30pct_central_energy_proxy_mwh": 4321.135,
+      "high_30pct_high_energy_proxy_mwh": 5761.513
     },
     "2038": {
       "month_end": "2038-12-31",
@@ -204,11 +303,19 @@
       "low_10pct_solar_plus_battery_icps": 163321.2,
       "low_10pct_solar_without_battery_icps": 90094.3,
       "low_10pct_battery_stock_share_pct": 64.44801,
+      "low_10pct_registered_connection_power_proxy_mw": 1338.744,
+      "low_10pct_low_energy_proxy_mwh": 1338.744,
+      "low_10pct_central_energy_proxy_mwh": 2008.116,
+      "low_10pct_high_energy_proxy_mwh": 2677.488,
       "high_30pct_small_solar_icps": 500791.3,
       "high_30pct_new_small_solar_icps": 3620.6,
       "high_30pct_solar_plus_battery_icps": 392874.1,
       "high_30pct_solar_without_battery_icps": 107917.2,
-      "high_30pct_battery_stock_share_pct": 78.45067
+      "high_30pct_battery_stock_share_pct": 78.45067,
+      "high_30pct_registered_connection_power_proxy_mw": 3220.389,
+      "high_30pct_low_energy_proxy_mwh": 3220.389,
+      "high_30pct_central_energy_proxy_mwh": 4830.584,
+      "high_30pct_high_energy_proxy_mwh": 6440.779
     },
     "2039": {
       "month_end": "2039-12-31",
@@ -218,11 +325,19 @@
       "low_10pct_solar_plus_battery_icps": 170287.0,
       "low_10pct_solar_without_battery_icps": 90463.1,
       "low_10pct_battery_stock_share_pct": 65.30657,
+      "low_10pct_registered_connection_power_proxy_mw": 1395.842,
+      "low_10pct_low_energy_proxy_mwh": 1395.842,
+      "low_10pct_central_energy_proxy_mwh": 2093.763,
+      "low_10pct_high_energy_proxy_mwh": 2791.684,
       "high_30pct_small_solar_icps": 543778.8,
       "high_30pct_new_small_solar_icps": 3542.1,
       "high_30pct_solar_plus_battery_icps": 433699.7,
       "high_30pct_solar_without_battery_icps": 110079.1,
-      "high_30pct_battery_stock_share_pct": 79.75663
+      "high_30pct_battery_stock_share_pct": 79.75663,
+      "high_30pct_registered_connection_power_proxy_mw": 3555.036,
+      "high_30pct_low_energy_proxy_mwh": 3555.036,
+      "high_30pct_central_energy_proxy_mwh": 5332.554,
+      "high_30pct_high_energy_proxy_mwh": 7110.072
     },
     "2040": {
       "month_end": "2040-12-31",
@@ -232,11 +347,19 @@
       "low_10pct_solar_plus_battery_icps": 176555.0,
       "low_10pct_solar_without_battery_icps": 90794.2,
       "low_10pct_battery_stock_share_pct": 66.03911,
+      "low_10pct_registered_connection_power_proxy_mw": 1447.222,
+      "low_10pct_low_energy_proxy_mwh": 1447.222,
+      "low_10pct_central_energy_proxy_mwh": 2170.832,
+      "low_10pct_high_energy_proxy_mwh": 2894.443,
       "high_30pct_small_solar_icps": 585513.8,
       "high_30pct_new_small_solar_icps": 3417.3,
       "high_30pct_solar_plus_battery_icps": 473341.2,
       "high_30pct_solar_without_battery_icps": 112172.6,
-      "high_30pct_battery_stock_share_pct": 80.84203
+      "high_30pct_battery_stock_share_pct": 80.84203,
+      "high_30pct_registered_connection_power_proxy_mw": 3879.978,
+      "high_30pct_low_energy_proxy_mwh": 3879.978,
+      "high_30pct_central_energy_proxy_mwh": 5819.967,
+      "high_30pct_high_energy_proxy_mwh": 7759.956
     },
     "2041": {
       "month_end": "2041-12-31",
@@ -246,11 +369,19 @@
       "low_10pct_solar_plus_battery_icps": 182229.4,
       "low_10pct_solar_without_battery_icps": 91093.4,
       "low_10pct_battery_stock_share_pct": 66.67188,
+      "low_10pct_registered_connection_power_proxy_mw": 1493.735,
+      "low_10pct_low_energy_proxy_mwh": 1493.735,
+      "low_10pct_central_energy_proxy_mwh": 2240.602,
+      "low_10pct_high_energy_proxy_mwh": 2987.469,
       "high_30pct_small_solar_icps": 625502.1,
       "high_30pct_new_small_solar_icps": 3255.8,
       "high_30pct_solar_plus_battery_icps": 511326.6,
       "high_30pct_solar_without_battery_icps": 114175.5,
-      "high_30pct_battery_stock_share_pct": 81.74659
+      "high_30pct_battery_stock_share_pct": 81.74659,
+      "high_30pct_registered_connection_power_proxy_mw": 4191.344,
+      "high_30pct_low_energy_proxy_mwh": 4191.344,
+      "high_30pct_central_energy_proxy_mwh": 6287.016,
+      "high_30pct_high_energy_proxy_mwh": 8382.689
     },
     "2042": {
       "month_end": "2042-12-31",
@@ -260,11 +391,19 @@
       "low_10pct_solar_plus_battery_icps": 187405.4,
       "low_10pct_solar_without_battery_icps": 91366.1,
       "low_10pct_battery_stock_share_pct": 67.22547,
+      "low_10pct_registered_connection_power_proxy_mw": 1536.162,
+      "low_10pct_low_energy_proxy_mwh": 1536.162,
+      "low_10pct_central_energy_proxy_mwh": 2304.244,
+      "low_10pct_high_energy_proxy_mwh": 3072.325,
       "high_30pct_small_solar_icps": 663374.9,
       "high_30pct_new_small_solar_icps": 3068.6,
       "high_30pct_solar_plus_battery_icps": 547304.0,
       "high_30pct_solar_without_battery_icps": 116070.9,
-      "high_30pct_battery_stock_share_pct": 82.50297
+      "high_30pct_battery_stock_share_pct": 82.50297,
+      "high_30pct_registered_connection_power_proxy_mw": 4486.251,
+      "high_30pct_low_energy_proxy_mwh": 4486.251,
+      "high_30pct_central_energy_proxy_mwh": 6729.376,
+      "high_30pct_high_energy_proxy_mwh": 8972.501
     },
     "2043": {
       "month_end": "2043-12-31",
@@ -274,11 +413,19 @@
       "low_10pct_solar_plus_battery_icps": 192167.3,
       "low_10pct_solar_without_battery_icps": 91616.8,
       "low_10pct_battery_stock_share_pct": 67.71601,
+      "low_10pct_registered_connection_power_proxy_mw": 1575.195,
+      "low_10pct_low_energy_proxy_mwh": 1575.195,
+      "low_10pct_central_energy_proxy_mwh": 2362.793,
+      "low_10pct_high_energy_proxy_mwh": 3150.39,
       "high_30pct_small_solar_icps": 698892.2,
       "high_30pct_new_small_solar_icps": 2866.2,
       "high_30pct_solar_plus_battery_icps": 581044.5,
       "high_30pct_solar_without_battery_icps": 117847.7,
-      "high_30pct_battery_stock_share_pct": 83.13793
+      "high_30pct_battery_stock_share_pct": 83.13793,
+      "high_30pct_registered_connection_power_proxy_mw": 4762.822,
+      "high_30pct_low_energy_proxy_mwh": 4762.822,
+      "high_30pct_central_energy_proxy_mwh": 7144.232,
+      "high_30pct_high_energy_proxy_mwh": 9525.643
     },
     "2044": {
       "month_end": "2044-12-31",
@@ -288,11 +435,19 @@
       "low_10pct_solar_plus_battery_icps": 196587.8,
       "low_10pct_solar_without_battery_icps": 91849.5,
       "low_10pct_battery_stock_share_pct": 68.15615,
+      "low_10pct_registered_connection_power_proxy_mw": 1611.43,
+      "low_10pct_low_energy_proxy_mwh": 1611.43,
+      "low_10pct_central_energy_proxy_mwh": 2417.145,
+      "low_10pct_high_energy_proxy_mwh": 3222.86,
       "high_30pct_small_solar_icps": 731934.7,
       "high_30pct_new_small_solar_icps": 2658.1,
       "high_30pct_solar_plus_battery_icps": 612434.4,
       "high_30pct_solar_without_battery_icps": 119500.3,
-      "high_30pct_battery_stock_share_pct": 83.67336
+      "high_30pct_battery_stock_share_pct": 83.67336,
+      "high_30pct_registered_connection_power_proxy_mw": 5020.125,
+      "high_30pct_low_energy_proxy_mwh": 5020.125,
+      "high_30pct_central_energy_proxy_mwh": 7530.187,
+      "high_30pct_high_energy_proxy_mwh": 10040.249
     },
     "2045": {
       "month_end": "2045-12-31",
@@ -302,11 +457,19 @@
       "low_10pct_solar_plus_battery_icps": 200728.8,
       "low_10pct_solar_without_battery_icps": 92067.5,
       "low_10pct_battery_stock_share_pct": 68.55577,
+      "low_10pct_registered_connection_power_proxy_mw": 1645.374,
+      "low_10pct_low_energy_proxy_mwh": 1645.374,
+      "low_10pct_central_energy_proxy_mwh": 2468.061,
+      "low_10pct_high_energy_proxy_mwh": 3290.747,
       "high_30pct_small_solar_icps": 762486.9,
       "high_30pct_new_small_solar_icps": 2452.1,
       "high_30pct_solar_plus_battery_icps": 641458.7,
       "high_30pct_solar_without_battery_icps": 121028.2,
-      "high_30pct_battery_stock_share_pct": 84.12718
+      "high_30pct_battery_stock_share_pct": 84.12718,
+      "high_30pct_registered_connection_power_proxy_mw": 5258.037,
+      "high_30pct_low_energy_proxy_mwh": 5258.037,
+      "high_30pct_central_energy_proxy_mwh": 7887.056,
+      "high_30pct_high_energy_proxy_mwh": 10516.075
     },
     "2046": {
       "month_end": "2046-12-31",
@@ -316,11 +479,19 @@
       "low_10pct_solar_plus_battery_icps": 204642.2,
       "low_10pct_solar_without_battery_icps": 92273.5,
       "low_10pct_battery_stock_share_pct": 68.92265,
+      "low_10pct_registered_connection_power_proxy_mw": 1677.452,
+      "low_10pct_low_energy_proxy_mwh": 1677.452,
+      "low_10pct_central_energy_proxy_mwh": 2516.178,
+      "low_10pct_high_energy_proxy_mwh": 3354.904,
       "high_30pct_small_solar_icps": 790616.6,
       "high_30pct_new_small_solar_icps": 2254.4,
       "high_30pct_solar_plus_battery_icps": 668181.8,
       "high_30pct_solar_without_battery_icps": 122434.8,
-      "high_30pct_battery_stock_share_pct": 84.51402
+      "high_30pct_battery_stock_share_pct": 84.51402,
+      "high_30pct_registered_connection_power_proxy_mw": 5477.086,
+      "high_30pct_low_energy_proxy_mwh": 5477.086,
+      "high_30pct_central_energy_proxy_mwh": 8215.63,
+      "high_30pct_high_energy_proxy_mwh": 10954.173
     },
     "2047": {
       "month_end": "2047-12-31",
@@ -330,11 +501,19 @@
       "low_10pct_solar_plus_battery_icps": 208371.0,
       "low_10pct_solar_without_battery_icps": 92469.8,
       "low_10pct_battery_stock_share_pct": 69.26289,
+      "low_10pct_registered_connection_power_proxy_mw": 1708.017,
+      "low_10pct_low_energy_proxy_mwh": 1708.017,
+      "low_10pct_central_energy_proxy_mwh": 2562.026,
+      "low_10pct_high_energy_proxy_mwh": 3416.034,
       "high_30pct_small_solar_icps": 816452.0,
       "high_30pct_new_small_solar_icps": 2069.3,
       "high_30pct_solar_plus_battery_icps": 692725.4,
       "high_30pct_solar_without_battery_icps": 123726.6,
-      "high_30pct_battery_stock_share_pct": 84.84582
+      "high_30pct_battery_stock_share_pct": 84.84582,
+      "high_30pct_registered_connection_power_proxy_mw": 5678.27,
+      "high_30pct_low_energy_proxy_mwh": 5678.27,
+      "high_30pct_central_energy_proxy_mwh": 8517.405,
+      "high_30pct_high_energy_proxy_mwh": 11356.54
     },
     "2048": {
       "month_end": "2048-12-31",
@@ -344,11 +523,19 @@
       "low_10pct_solar_plus_battery_icps": 211950.7,
       "low_10pct_solar_without_battery_icps": 92658.2,
       "low_10pct_battery_stock_share_pct": 69.58126,
+      "low_10pct_registered_connection_power_proxy_mw": 1737.36,
+      "low_10pct_low_energy_proxy_mwh": 1737.36,
+      "low_10pct_central_energy_proxy_mwh": 2606.04,
+      "low_10pct_high_energy_proxy_mwh": 3474.72,
       "high_30pct_small_solar_icps": 840161.6,
       "high_30pct_new_small_solar_icps": 1899.2,
       "high_30pct_solar_plus_battery_icps": 715249.5,
       "high_30pct_solar_without_battery_icps": 124912.1,
-      "high_30pct_battery_stock_share_pct": 85.13237
+      "high_30pct_battery_stock_share_pct": 85.13237,
+      "high_30pct_registered_connection_power_proxy_mw": 5862.9,
+      "high_30pct_low_energy_proxy_mwh": 5862.9,
+      "high_30pct_central_energy_proxy_mwh": 8794.35,
+      "high_30pct_high_energy_proxy_mwh": 11725.8
     },
     "2049": {
       "month_end": "2049-12-31",
@@ -358,11 +545,19 @@
       "low_10pct_solar_plus_battery_icps": 215410.0,
       "low_10pct_solar_without_battery_icps": 92840.3,
       "low_10pct_battery_stock_share_pct": 69.88153,
+      "low_10pct_registered_connection_power_proxy_mw": 1765.716,
+      "low_10pct_low_energy_proxy_mwh": 1765.716,
+      "low_10pct_central_energy_proxy_mwh": 2648.574,
+      "low_10pct_high_energy_proxy_mwh": 3531.432,
       "high_30pct_small_solar_icps": 861936.8,
       "high_30pct_new_small_solar_icps": 1745.6,
       "high_30pct_solar_plus_battery_icps": 735935.9,
       "high_30pct_solar_without_battery_icps": 126000.9,
-      "high_30pct_battery_stock_share_pct": 85.38166
+      "high_30pct_battery_stock_share_pct": 85.38166,
+      "high_30pct_registered_connection_power_proxy_mw": 6032.467,
+      "high_30pct_low_energy_proxy_mwh": 6032.467,
+      "high_30pct_central_energy_proxy_mwh": 9048.7,
+      "high_30pct_high_energy_proxy_mwh": 12064.933
     },
     "2050": {
       "month_end": "2050-12-31",
@@ -372,11 +567,19 @@
       "low_10pct_solar_plus_battery_icps": 218772.6,
       "low_10pct_solar_without_battery_icps": 93017.2,
       "low_10pct_battery_stock_share_pct": 70.16668,
+      "low_10pct_registered_connection_power_proxy_mw": 1793.279,
+      "low_10pct_low_energy_proxy_mwh": 1793.279,
+      "low_10pct_central_energy_proxy_mwh": 2689.918,
+      "low_10pct_high_energy_proxy_mwh": 3586.557,
       "high_30pct_small_solar_icps": 881977.3,
       "high_30pct_new_small_solar_icps": 1608.6,
       "high_30pct_solar_plus_battery_icps": 754974.4,
       "high_30pct_solar_without_battery_icps": 127002.9,
-      "high_30pct_battery_stock_share_pct": 85.60021
+      "high_30pct_battery_stock_share_pct": 85.60021,
+      "high_30pct_registered_connection_power_proxy_mw": 6188.525,
+      "high_30pct_low_energy_proxy_mwh": 6188.525,
+      "high_30pct_central_energy_proxy_mwh": 9282.788,
+      "high_30pct_high_energy_proxy_mwh": 12377.05
     }
   }
 }
