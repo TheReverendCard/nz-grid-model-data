@@ -80,15 +80,19 @@ jobs:
         run: python validate_baseline.py
 
       - name: Fetch EA Distributed Generation Data
+        id: ea_dg
         run: python update_distributed_generation.py
 
       - name: Normalize Distributed Generation Data
+        if: steps.ea_dg.outputs.distributed_generation_changed == 'true' || hashFiles('data/distributed_generation/model/national_solar_all_monthly.csv') == ''
         run: python normalize_distributed_generation.py
 
       - name: Classify Current Solar Installations by Size
+        if: steps.ea_dg.outputs.solar_model_inputs_changed == 'true' || hashFiles('data/distributed_generation/model/solar_size_buckets_current.json') == ''
         run: python build_solar_size_buckets.py
 
       - name: Build Distributed Solar Adoption Scenarios
+        if: steps.ea_dg.outputs.solar_model_inputs_changed == 'true' || hashFiles('data/distributed_generation/model/distributed_solar_adoption_scenarios.json') == ''
         run: python build_distributed_solar_scenarios.py
 
       # Derived data that adds information not already published upstream.
