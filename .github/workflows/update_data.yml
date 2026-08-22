@@ -139,6 +139,9 @@ jobs:
       - name: Compare Distributed Batteries with SOSA NI Capacity
         run: python build_distributed_battery_sosa_ni_capacity.py
 
+      - name: Build SOSA Distributed Margin Comparison
+        run: python build_sosa_distributed_comparison.py
+
       # Experimental visualisation. Keep this non-blocking so an EMI report-format
       # change cannot prevent the production refresh or derived-data commit.
       - name: Render Observed 2024 WAEERC Risk Zones
