@@ -9,6 +9,7 @@ STREET = Path("data/distributed_generation/solar_installations_by_street.csv")
 MONTHLY = Path("data/distributed_generation/model/national_solar_all_monthly.csv")
 OUT_CSV = Path("data/distributed_generation/model/solar_size_buckets_current.csv")
 OUT_JSON = Path("data/distributed_generation/model/solar_size_buckets_current.json")
+HISTORY_CSV = Path("data/distributed_generation/model/solar_size_bucket_history.csv")
 
 BUCKETS = (
     ("lt_25_kw", 0.0, 25.0),
@@ -36,11 +37,53 @@ def latest_national() -> dict[str, str]:
 
 def parse_count(value: str) -> tuple[float | None, bool]:
     value = (value or "").strip()
-    if not value:
-        return None, True
-    if value.lower() == "3 or less":
+    if not value or value.lower() == "3 or less":
         return None, True
     return float(value), False
+
+
+def weighted_average_kw(values: dict[str, float]) -> float:
+    return values["capacity_kw"] / values["icps"] if values["icps"] else 0.0
+
+
+def append_history(source_month: str, ordered: list[dict[str, object]], model_groups: dict[str, dict[str, float]]) -> None:
+    rows: list[dict[str, object]] = []
+    if HISTORY_CSV.exists():
+        with HISTORY_CSV.open("r", encoding="utf-8", newline="") as handle:
+            rows = list(csv.DictReader(handle))
+        rows = [row for row in rows if row.get("source_month") != source_month]
+
+    for row in ordered:
+        rows.append(
+            {
+                "source_month": source_month,
+                "group": row["bucket"],
+                "estimated_icps": row["estimated_icps"],
+                "capacity_mw": row["capacity_mw"],
+                "average_system_kw": row["average_system_kw"],
+            }
+        )
+    for name, values in model_groups.items():
+        rows.append(
+            {
+                "source_month": source_month,
+                "group": name,
+                "estimated_icps": values["estimated_icps"],
+                "capacity_mw": values["capacity_mw"],
+                "average_system_kw": values["average_system_kw"],
+            }
+        )
+
+    rows.sort(key=lambda row: (str(row["source_month"]), str(row["group"])))
+    HISTORY_CSV.parent.mkdir(parents=True, exist_ok=True)
+    with HISTORY_CSV.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=["source_month", "group", "estimated_icps", "capacity_mw", "average_system_kw"],
+        )
+        writer.writeheader()
+        writer.writerows(rows)
+    print(f"Wrote {HISTORY_CSV} ({len(rows)} rows)")
 
 
 def main() -> None:
@@ -76,11 +119,6 @@ def main() -> None:
 
     residual_count = max(0.0, national_icps - exact_count_total)
     suppressed_count_each = residual_count / suppressed_rows if suppressed_rows else 0.0
-
-    # Reconcile privacy-suppressed street groups to the national monthly totals.
-    # The street file gives an average kW for suppressed rows but not a count or
-    # summed capacity.  Assign the observed residual ICP count evenly across those
-    # rows, then use their average kW as a weight for the remaining national capacity.
     for row in rows:
         if row["suppressed"]:
             row["count"] = suppressed_count_each
@@ -89,12 +127,13 @@ def main() -> None:
     missing_rows = [r for r in rows if r["capacity_kw"] is None]
     residual_capacity_kw = max(0.0, national_capacity_kw - known_capacity_kw)
     missing_weight = sum(float(r["avg_kw"]) * float(r["count"]) for r in missing_rows)
-
     for row in missing_rows:
         weight = float(row["avg_kw"]) * float(row["count"])
         row["capacity_kw"] = residual_capacity_kw * weight / missing_weight if missing_weight else 0.0
 
-    totals: dict[str, dict[str, float]] = defaultdict(lambda: {"icps": 0.0, "capacity_kw": 0.0, "res_icps": 0.0, "bus_icps": 0.0})
+    totals: dict[str, dict[str, float]] = defaultdict(
+        lambda: {"icps": 0.0, "capacity_kw": 0.0, "res_icps": 0.0, "bus_icps": 0.0}
+    )
     for row in rows:
         bucket = str(row["bucket"])
         count = float(row["count"])
@@ -114,6 +153,7 @@ def main() -> None:
                 "estimated_icps": round(values["icps"], 1),
                 "share_of_solar_icps_pct": round(values["icps"] / national_icps * 100.0, 4) if national_icps else 0.0,
                 "capacity_mw": round(values["capacity_kw"] / 1000.0, 6),
+                "average_system_kw": round(weighted_average_kw(values), 4),
                 "share_of_solar_capacity_pct": round(values["capacity_kw"] / national_capacity_kw * 100.0, 4) if national_capacity_kw else 0.0,
                 "estimated_residential_icps": round(values["res_icps"], 1),
                 "estimated_business_icps": round(values["bus_icps"], 1),
@@ -121,9 +161,28 @@ def main() -> None:
         )
 
     small = totals["lt_25_kw"]
-    larger_distributed_icps = sum(totals[name]["icps"] for name in ("25_to_lt_100_kw", "100_to_lt_250_kw", "250_to_lt_1000_kw"))
-    larger_distributed_kw = sum(totals[name]["capacity_kw"] for name in ("25_to_lt_100_kw", "100_to_lt_250_kw", "250_to_lt_1000_kw"))
+    larger_names = ("25_to_lt_100_kw", "100_to_lt_250_kw", "250_to_lt_1000_kw")
+    larger_distributed_icps = sum(totals[name]["icps"] for name in larger_names)
+    larger_distributed_kw = sum(totals[name]["capacity_kw"] for name in larger_names)
     utility = totals["gte_1000_kw"]
+
+    model_groups = {
+        "small_lt_25_kw": {
+            "estimated_icps": round(small["icps"], 1),
+            "capacity_mw": round(small["capacity_kw"] / 1000.0, 6),
+            "average_system_kw": round(weighted_average_kw(small), 4),
+        },
+        "larger_distributed_25_kw_to_lt_1_mw": {
+            "estimated_icps": round(larger_distributed_icps, 1),
+            "capacity_mw": round(larger_distributed_kw / 1000.0, 6),
+            "average_system_kw": round(larger_distributed_kw / larger_distributed_icps, 4) if larger_distributed_icps else 0.0,
+        },
+        "utility_gte_1_mw": {
+            "estimated_icps": round(utility["icps"], 1),
+            "capacity_mw": round(utility["capacity_kw"] / 1000.0, 6),
+            "average_system_kw": round(weighted_average_kw(utility), 4),
+        },
+    }
 
     summary = {
         "source_latest_month": latest["month_end"],
@@ -138,22 +197,10 @@ def main() -> None:
             "utility_scale": ">=1 MW; exclude from distributed-adoption model and treat with project pipeline.",
             "privacy_suppression": f"{suppressed_rows} rows report '3 or less'. Their combined ICP count is reconciled to the national monthly total and distributed evenly; missing capacity is reconciled to the national capacity total in proportion to reported average kW times estimated count.",
             "edge_case_note": "Because the source is street-level aggregated data, a group average can occasionally place individual installations on the other side of a threshold. This is acceptable for the working national model.",
+            "history": "Each source-month snapshot is appended to solar_size_bucket_history.csv. Once enough snapshots exist, true month-to-month and year-over-year growth can replace provisional historical proxies.",
         },
         "buckets": ordered,
-        "model_groups": {
-            "small_lt_25_kw": {
-                "estimated_icps": round(small["icps"], 1),
-                "capacity_mw": round(small["capacity_kw"] / 1000.0, 6),
-            },
-            "larger_distributed_25_kw_to_lt_1_mw": {
-                "estimated_icps": round(larger_distributed_icps, 1),
-                "capacity_mw": round(larger_distributed_kw / 1000.0, 6),
-            },
-            "utility_gte_1_mw": {
-                "estimated_icps": round(utility["icps"], 1),
-                "capacity_mw": round(utility["capacity_kw"] / 1000.0, 6),
-            },
-        },
+        "model_groups": model_groups,
     }
 
     OUT_CSV.parent.mkdir(parents=True, exist_ok=True)
@@ -162,12 +209,16 @@ def main() -> None:
         writer.writeheader()
         writer.writerows(ordered)
     OUT_JSON.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
+    append_history(str(latest["month_end"]), ordered, model_groups)
 
     print(f"Wrote {OUT_CSV}")
     print(f"Wrote {OUT_JSON}")
     print(f"Source month: {latest['month_end']}; observed {int(national_icps):,} solar ICPs, {national_capacity_kw / 1000:.1f} MW")
     for row in ordered:
-        print(f"{row['bucket']}: {row['estimated_icps']:,.1f} ICPs, {row['capacity_mw']:,.1f} MW")
+        print(
+            f"{row['bucket']}: {row['estimated_icps']:,.1f} ICPs, "
+            f"{row['capacity_mw']:,.1f} MW, average {row['average_system_kw']:.1f} kW"
+        )
 
 
 if __name__ == "__main__":
