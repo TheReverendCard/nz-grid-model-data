@@ -9,12 +9,17 @@ from pathlib import Path
 DATA_DIR = Path("data/distributed_generation")
 MODEL_DIR = DATA_DIR / "model"
 ALL_TREND = DATA_DIR / "installed_dg_trends_solar_all.csv"
+SOLAR_ONLY_TREND = DATA_DIR / "installed_dg_trends_solar_only.csv"
 RES_TREND = DATA_DIR / "installed_dg_trends_solar_residential.csv"
 REGION = DATA_DIR / "solar_installations_by_region.csv"
 OUT_ALL_TREND = MODEL_DIR / "national_solar_all_monthly.csv"
+OUT_SOLAR_ONLY_TREND = MODEL_DIR / "national_solar_only_monthly.csv"
+OUT_BATTERY_ATTACHMENT = MODEL_DIR / "national_solar_battery_attachment_monthly.csv"
 OUT_RES_TREND = MODEL_DIR / "national_residential_solar_monthly.csv"
 OUT_REGIONS = MODEL_DIR / "current_residential_solar_by_region.csv"
 OUT_SUMMARY = MODEL_DIR / "distributed_solar_summary.json"
+
+BATTERY_CATEGORY_RELIABLE_FROM = "2023-11-01"
 
 
 def read_guehmt(path: Path) -> list[dict[str, str]]:
@@ -49,6 +54,48 @@ def normalize_trend(path: Path, output: Path) -> list[dict[str, object]]:
         writer.writeheader()
         writer.writerows(rows)
     print(f"Wrote {output} ({len(rows)} rows)")
+    return rows
+
+
+def derive_battery_attachment(
+    all_rows: list[dict[str, object]], solar_only_rows: list[dict[str, object]]
+) -> list[dict[str, object]]:
+    solar_only_by_month = {str(row["month_end"]): row for row in solar_only_rows}
+    rows: list[dict[str, object]] = []
+    for all_row in all_rows:
+        month = str(all_row["month_end"])
+        solar_only = solar_only_by_month.get(month)
+        if solar_only is None:
+            continue
+
+        all_count = int(all_row["icp_count"])
+        only_count = int(solar_only["icp_count"])
+        attached_count = max(0, all_count - only_count)
+        all_new = int(all_row["new_installations"])
+        only_new = int(solar_only["new_installations"])
+        attached_new = max(0, all_new - only_new)
+
+        rows.append(
+            {
+                "month_end": month,
+                "all_solar_icps": all_count,
+                "solar_only_icps": only_count,
+                "solar_plus_battery_icps_derived": attached_count,
+                "battery_attachment_share_of_solar_pct": round(attached_count / all_count * 100.0, 5) if all_count else 0.0,
+                "all_new_solar_installations": all_new,
+                "new_solar_only_installations": only_new,
+                "new_solar_plus_battery_installations_derived": attached_new,
+                "battery_attachment_share_of_new_solar_pct": round(attached_new / all_new * 100.0, 5) if all_new else 0.0,
+                "category_reliability": "post_2023_11_registry_categories" if month >= BATTERY_CATEGORY_RELIABLE_FROM else "legacy_category_caution",
+            }
+        )
+
+    OUT_BATTERY_ATTACHMENT.parent.mkdir(parents=True, exist_ok=True)
+    with OUT_BATTERY_ATTACHMENT.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(rows[0].keys()))
+        writer.writeheader()
+        writer.writerows(rows)
+    print(f"Wrote {OUT_BATTERY_ATTACHMENT} ({len(rows)} rows)")
     return rows
 
 
@@ -91,6 +138,8 @@ def latest_on_or_before(rows: list[dict[str, object]], date: str) -> dict[str, o
 
 def main() -> None:
     all_rows = normalize_trend(ALL_TREND, OUT_ALL_TREND)
+    solar_only_rows = normalize_trend(SOLAR_ONLY_TREND, OUT_SOLAR_ONLY_TREND)
+    battery_rows = derive_battery_attachment(all_rows, solar_only_rows)
     res_rows = normalize_trend(RES_TREND, OUT_RES_TREND)
     regional_rows, national_snapshot = normalize_regions()
 
@@ -98,6 +147,7 @@ def main() -> None:
     all_2024 = latest_on_or_before(all_rows, "2024-12-31")
     latest_res = res_rows[-1]
     latest_all = all_rows[-1]
+    latest_battery = battery_rows[-1] if battery_rows else None
 
     summary = {
         "historical": {
@@ -108,6 +158,7 @@ def main() -> None:
             "latest_trend": {
                 "residential_solar": latest_res,
                 "all_solar": latest_all,
+                "solar_battery_attachment": latest_battery,
             },
         },
         "current_registry_snapshot": {
@@ -118,14 +169,21 @@ def main() -> None:
             "regional_residential_icps_sum": sum(int(r["residential_solar_icps"]) for r in regional_rows),
         },
         "model_use": {
-            "behind_meter_starting_population": "Residential solar ICPs are the primary BTM population. Business solar is kept separate because the category includes large installations.",
-            "battery_export_assumption": "Zero by default except explicit VPP/export scenarios.",
-            "gross_generation_method": "Apply regional observed/representative solar yield (kWh per installed kW) to regional residential installed capacity.",
-            "self_consumption_method": "Split gross PV among direct load, battery charging, and residual export using explicit assumptions/sensitivity ranges.",
+            "distributed_solar_scope": "Future distributed-solar scenarios use <25 kW ICP adoption plus a separate 25 kW to <1 MW capacity component; >=1 MW is treated as utility-scale.",
+            "battery_attachment_observation": "Solar+Batteries ICP counts and new-install shares are derived as solar_all minus the Solar-only GUEHMT category. Treat pre-November-2023 category history cautiously because the registry categories changed and recategorisation is not reliably backdated.",
+            "battery_capacity_caution": "The GUEHMT generation-capacity field is not battery energy capacity. Do not interpret the capacity difference between solar_all and Solar-only as battery MW or MWh.",
+            "gross_generation_method": "Apply regional observed/representative solar yield (kWh per installed kW) to distributed installed capacity.",
         },
     }
     OUT_SUMMARY.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {OUT_SUMMARY}")
+    if latest_battery:
+        print(
+            "Latest derived solar+battery attachment: "
+            f"{latest_battery['solar_plus_battery_icps_derived']:,} ICPs, "
+            f"{latest_battery['battery_attachment_share_of_solar_pct']:.1f}% of solar ICPs; "
+            f"{latest_battery['battery_attachment_share_of_new_solar_pct']:.1f}% of new solar installs."
+        )
 
 
 if __name__ == "__main__":
