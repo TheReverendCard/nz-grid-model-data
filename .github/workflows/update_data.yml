@@ -88,6 +88,9 @@ jobs:
       - name: Classify Current Solar Installations by Size
         run: python build_solar_size_buckets.py
 
+      - name: Build Distributed Solar Adoption Scenarios
+        run: python build_distributed_solar_scenarios.py
+
       # Derived data that adds information not already published upstream.
       - name: Diagnose Solar Generation Yield Candidates
         run: python diagnose_solar_yield.py
