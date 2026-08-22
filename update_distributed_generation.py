@@ -20,6 +20,7 @@ DG_TRENDS_BASE_PARAMS = {
 }
 DG_TRENDS_PATH = DATA_DIR / "installed_dg_trends_solar_all.csv"
 DG_SOLAR_ONLY_TRENDS_PATH = DATA_DIR / "installed_dg_trends_solar_only.csv"
+DG_SOLAR_BATTERY_TRENDS_PATH = DATA_DIR / "installed_dg_trends_solar_with_battery.csv"
 DG_RESIDENTIAL_TRENDS_PATH = DATA_DIR / "installed_dg_trends_solar_residential.csv"
 
 SOLAR_REGION_URL = (
@@ -110,6 +111,12 @@ def main() -> None:
     validate_guehmt(solar_only_content, "Solar-only")
     solar_only_changed = write_if_changed(DG_SOLAR_ONLY_TRENDS_PATH, solar_only_content)
 
+    solar_battery_params = dict(DG_TRENDS_BASE_PARAMS)
+    solar_battery_params["FuelType"] = "solarplusbattery"
+    solar_battery_content, solar_battery_headers = fetch(DG_TRENDS_URL, params=solar_battery_params)
+    validate_guehmt(solar_battery_content, "Solar-with-battery")
+    solar_battery_changed = write_if_changed(DG_SOLAR_BATTERY_TRENDS_PATH, solar_battery_content)
+
     residential_params = dict(DG_TRENDS_BASE_PARAMS)
     residential_params["MarketSegment"] = "Res"
     residential_content, residential_headers = fetch(DG_TRENDS_URL, params=residential_params)
@@ -136,10 +143,16 @@ def main() -> None:
                 trends_headers,
             ),
             "installed_distributed_generation_trends_solar_only": metadata_record(
-                "Installed distributed generation trends (GUEHMT), national Solar fuel type excluding the Solar+Batteries category",
+                "Installed distributed generation trends (GUEHMT), national Solar (without battery)",
                 DG_SOLAR_ONLY_TRENDS_PATH,
                 solar_only_content,
                 solar_only_headers,
+            ),
+            "installed_distributed_generation_trends_solar_with_battery": metadata_record(
+                "Installed distributed generation trends (GUEHMT), national Solar (with battery), explicit EA fuel type solarplusbattery",
+                DG_SOLAR_BATTERY_TRENDS_PATH,
+                solar_battery_content,
+                solar_battery_headers,
             ),
             "installed_distributed_generation_trends_solar_residential": metadata_record(
                 "Installed distributed generation trends (GUEHMT), national solar including solar+battery categories, residential ICPs",
@@ -165,10 +178,11 @@ def main() -> None:
     metadata_changed = write_if_changed(META_PATH, encoded)
 
     solar_model_inputs_changed = trends_changed or street_changed
-    battery_model_inputs_changed = trends_changed or solar_only_changed
+    battery_model_inputs_changed = trends_changed or solar_only_changed or solar_battery_changed
     distributed_generation_changed = (
         trends_changed
         or solar_only_changed
+        or solar_battery_changed
         or residential_changed
         or region_changed
         or street_changed
