@@ -25,8 +25,8 @@ OUT_CSV = Path("data/model/hydro_trough_counterfactual_2024.csv")
 OUT_PNG = Path("data/visuals/hydro_trough_counterfactual_2024.png")
 
 SCENARIOS = {
-    "low_10pct": "10% distributed-solar case",
-    "high_30pct": "30% distributed-solar case",
+    "low_10pct": "2035 10% distributed-solar counterfactual",
+    "high_30pct": "2035 30% distributed-solar counterfactual",
 }
 
 
@@ -151,14 +151,32 @@ def apply_counterfactual(daily: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
+def recovery_lead_days(df: pd.DataFrame, scenario: str, target_date: pd.Timestamp) -> int | None:
+    target_row = df.loc[df["date"] == target_date]
+    if target_row.empty:
+        return None
+    target = float(target_row.iloc[0]["national_energy_equivalent_gwh"])
+    window = df[
+        (df["date"] >= pd.Timestamp(f"{YEAR}-08-01"))
+        & (df["date"] <= target_date)
+    ]
+    reached = window[
+        window[f"{scenario}_counterfactual_storage_gwh"] >= target
+    ]
+    if reached.empty:
+        return None
+    first_date = pd.Timestamp(reached.iloc[0]["date"])
+    return int((target_date - first_date).days)
+
+
 def render(df: pd.DataFrame) -> None:
     OUT_PNG.parent.mkdir(parents=True, exist_ok=True)
     view = df[
         (df["date"] >= pd.Timestamp(f"{YEAR}-03-01"))
-        & (df["date"] <= pd.Timestamp(f"{YEAR}-09-30"))
+        & (df["date"] <= pd.Timestamp(f"{YEAR}-10-31"))
     ].copy()
 
-    fig, ax = plt.subplots(figsize=(12, 7.4))
+    fig, ax = plt.subplots(figsize=(12.8, 7.4))
     ax.fill_between(
         view["date"], view["p05_gwh"], view["p95_gwh"],
         alpha=0.14, label=f"Historical P5-P95 ({HISTORY_START}-{HISTORY_END})"
@@ -190,34 +208,50 @@ def render(df: pd.DataFrame) -> None:
         view["date"], view["national_energy_equivalent_gwh"],
         linewidth=3.0, label="2024 observed hydro storage, energy-equivalent"
     )
-
-    # Counterfactuals are direct-labelled rather than added to the legend.
-    for scenario in SCENARIOS:
+    for scenario, label in SCENARIOS.items():
         ax.plot(
             view["date"],
             view[f"{scenario}_counterfactual_storage_gwh"],
             linewidth=2.5,
+            label=f"{label} ({PRESERVATION_FRACTION:.0%} preservation sensitivity)",
         )
 
-    label_date = pd.Timestamp(f"{YEAR}-09-20")
-    label_row = df.loc[df["date"] == label_date].iloc[0]
-    ax.annotate(
-        "2024 actual",
-        (label_date, label_row["national_energy_equivalent_gwh"]),
-        xytext=(-82, -14), textcoords="offset points", fontsize=9,
-        ha="right",
+    october_date = pd.Timestamp(f"{YEAR}-10-31")
+    october = df.loc[df["date"] == october_date].iloc[0]
+    actual_oct = float(october["national_energy_equivalent_gwh"])
+    actual_min = float(
+        df[df["date"].dt.month.isin(WINTER_MONTHS)]["national_energy_equivalent_gwh"].min()
     )
-    ax.annotate(
-        "10% distributed solar\n75% preservation sensitivity",
-        (label_date, label_row["low_10pct_counterfactual_storage_gwh"]),
-        xytext=(-92, -2), textcoords="offset points", fontsize=9,
-        ha="right", va="center",
-    )
-    ax.annotate(
-        "30% distributed solar\n75% preservation sensitivity",
-        (label_date, label_row["high_30pct_counterfactual_storage_gwh"]),
-        xytext=(-92, 12), textcoords="offset points", fontsize=9,
-        ha="right", va="center",
+
+    summary_lines = ["Resilience gain by 31 Oct"]
+    for scenario, short in [
+        ("low_10pct", "10% case"),
+        ("high_30pct", "30% case"),
+    ]:
+        advantage = float(october[f"{scenario}_counterfactual_storage_gwh"]) - actual_oct
+        winter_min = float(
+            df[df["date"].dt.month.isin(WINTER_MONTHS)][
+                f"{scenario}_counterfactual_storage_gwh"
+            ].min()
+        )
+        min_gain = winter_min - actual_min
+        lead = recovery_lead_days(df, scenario, october_date)
+        lead_text = f"{lead} d earlier to actual 31 Oct level" if lead is not None else "no earlier recovery crossing"
+        summary_lines.append(
+            f"{short}: +{advantage:.0f} GWh stored; winter minimum +{min_gain:.0f} GWh; {lead_text}"
+        )
+
+    ax.text(
+        1.015,
+        0.43,
+        "\n".join(summary_lines),
+        transform=ax.transAxes,
+        ha="left",
+        va="center",
+        fontsize=8.7,
+        linespacing=1.45,
+        bbox={"boxstyle": "round,pad=0.5", "facecolor": "white", "alpha": 0.9, "edgecolor": "0.75"},
+        clip_on=False,
     )
 
     ax.set_xlim(view["date"].min(), view["date"].max())
@@ -238,10 +272,10 @@ def render(df: pd.DataFrame) -> None:
         fontsize=9,
     )
     ax.grid(axis="y", alpha=0.22)
-    month_starts = pd.date_range(f"{YEAR}-03-01", f"{YEAR}-09-01", freq="MS")
+    month_starts = pd.date_range(f"{YEAR}-03-01", f"{YEAR}-10-01", freq="MS")
     ax.set_xticks(month_starts)
     ax.set_xticklabels([month_abbr[d.month] for d in month_starts])
-    ax.legend(frameon=False, loc="upper left", bbox_to_anchor=(0.0, 0.91), fontsize=8.1)
+    ax.legend(frameon=False, loc="upper left", bbox_to_anchor=(0.0, 0.91), fontsize=7.9)
 
     ax.text(
         0.50,
@@ -259,11 +293,11 @@ def render(df: pd.DataFrame) -> None:
         0.008,
         "Storage source: Electricity Authority HMD major-reservoir volumes converted to an energy-equivalent state using verified downstream cascade MWh/Mm3 route factors. "
         "Incremental solar is the project's 2035 distributed-solar generation above SOSA's embedded domestic solar+battery winter contribution, spread through Apr-Sep using the observed monthly solar shape. "
-        "The 75% hydro-preservation factor is an explicit sensitivity, not a JADE/vSPD dispatch result; the remainder can represent thermal displacement, transfers or other system responses. Operational storage limits and spill are not modelled, so interpret the counterfactual primarily as a change in drawdown slope and trough depth.",
+        "The 75% hydro-preservation factor is an explicit sensitivity, not a JADE/vSPD dispatch result; the remainder can represent thermal displacement, transfers or other system responses. The October recovery lead means the first date the counterfactual reaches the storage level actually observed on 31 October. Operational storage limits and spill are not modelled.",
         fontsize=7.7,
         wrap=True,
     )
-    fig.tight_layout(rect=(0, 0.095, 1, 1))
+    fig.tight_layout(rect=(0, 0.095, 0.82, 1))
     fig.savefig(OUT_PNG, dpi=180)
     plt.close(fig)
 
@@ -277,13 +311,18 @@ def main() -> None:
 
     winter = result[result["date"].dt.month.isin(WINTER_MONTHS)]
     actual_min = winter["national_energy_equivalent_gwh"].min()
+    october_date = pd.Timestamp(f"{YEAR}-10-31")
+    october = result.loc[result["date"] == october_date].iloc[0]
+    actual_oct = float(october["national_energy_equivalent_gwh"])
     print(f"Wrote {OUT_CSV} and {OUT_PNG}")
     print(f"2024 Apr-Sep minimum observed energy-equivalent storage: {actual_min:.1f} GWh")
     for scenario in SCENARIOS:
         minimum = winter[f"{scenario}_counterfactual_storage_gwh"].min()
+        advantage = float(october[f"{scenario}_counterfactual_storage_gwh"]) - actual_oct
+        lead = recovery_lead_days(result, scenario, october_date)
         print(
-            f"{scenario} counterfactual minimum at "
-            f"{PRESERVATION_FRACTION:.0%} preservation: {minimum:.1f} GWh"
+            f"{scenario}: winter minimum {minimum:.1f} GWh; "
+            f"31 Oct advantage {advantage:.1f} GWh; recovery lead {lead} days"
         )
 
 
