@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 from pathlib import Path
 
 import requests
@@ -85,13 +86,22 @@ def metadata_record(description: str, path: Path, content: bytes, headers: dict[
     }
 
 
+def write_github_outputs(values: dict[str, bool]) -> None:
+    output_path = os.environ.get("GITHUB_OUTPUT")
+    if not output_path:
+        return
+    with Path(output_path).open("a", encoding="utf-8") as handle:
+        for name, value in values.items():
+            handle.write(f"{name}={'true' if value else 'false'}\n")
+
+
 def main() -> None:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     META_PATH.parent.mkdir(parents=True, exist_ok=True)
 
     trends_content, trends_headers = fetch(DG_TRENDS_URL, params=DG_TRENDS_BASE_PARAMS)
     validate_guehmt(trends_content, "All-ICP solar")
-    write_if_changed(DG_TRENDS_PATH, trends_content)
+    trends_changed = write_if_changed(DG_TRENDS_PATH, trends_content)
 
     residential_params = dict(DG_TRENDS_BASE_PARAMS)
     residential_params["MarketSegment"] = "Res"
@@ -99,15 +109,15 @@ def main() -> None:
     validate_guehmt(residential_content, "Residential solar")
     if b"Residential" not in residential_content[:2048] and b"Res" not in residential_content[:2048]:
         print("Warning: residential GUEHMT response header did not explicitly echo the market segment")
-    write_if_changed(DG_RESIDENTIAL_TRENDS_PATH, residential_content)
+    residential_changed = write_if_changed(DG_RESIDENTIAL_TRENDS_PATH, residential_content)
 
     region_content, region_headers = fetch(SOLAR_REGION_URL)
     validate_csv(region_content, "SolarInstallationsByRegion")
-    write_if_changed(SOLAR_REGION_PATH, region_content)
+    region_changed = write_if_changed(SOLAR_REGION_PATH, region_content)
 
     street_content, street_headers = fetch(SOLAR_STREET_URL)
     validate_csv(street_content, "SolarInstallationsByStreet")
-    write_if_changed(SOLAR_STREET_PATH, street_content)
+    street_changed = write_if_changed(SOLAR_STREET_PATH, street_content)
 
     metadata = {
         "source": "New Zealand Electricity Authority EMI",
@@ -139,7 +149,23 @@ def main() -> None:
         },
     }
     encoded = (json.dumps(metadata, indent=2, sort_keys=True) + "\n").encode("utf-8")
-    write_if_changed(META_PATH, encoded)
+    metadata_changed = write_if_changed(META_PATH, encoded)
+
+    solar_model_inputs_changed = trends_changed or street_changed
+    distributed_generation_changed = (
+        trends_changed or residential_changed or region_changed or street_changed or metadata_changed
+    )
+    write_github_outputs(
+        {
+            "solar_model_inputs_changed": solar_model_inputs_changed,
+            "distributed_generation_changed": distributed_generation_changed,
+        }
+    )
+    print(
+        "Change signals: "
+        f"solar_model_inputs_changed={solar_model_inputs_changed}, "
+        f"distributed_generation_changed={distributed_generation_changed}"
+    )
     print("Distributed generation update completed successfully.")
 
 
