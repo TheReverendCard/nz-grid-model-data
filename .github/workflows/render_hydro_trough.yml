@@ -1,0 +1,46 @@
+name: Render Hydro Trough Visual
+
+on:
+  push:
+    branches:
+      - agent/test-ea-azure-updater
+    paths:
+      - 'build_hydro_trough_counterfactual.py'
+      - '.github/workflows/render_hydro_trough.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hydro-trough-visual-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4.2.2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5.3.0
+        with:
+          python-version: '3.12'
+
+      - name: Install Visual Dependencies
+        run: pip install matplotlib pandas numpy
+
+      - name: Render Hydro Trough Counterfactual
+        run: python build_hydro_trough_counterfactual.py
+
+      - name: Commit Updated Hydro Visual
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add data/model/hydro_trough_counterfactual_2024.csv data/visuals/hydro_trough_counterfactual_2024.png
+          git diff --cached --quiet && echo "No hydro visual changes to commit" && exit 0
+          git commit -m "Render hydro trough visual"
+          git pull --rebase -X theirs origin "${GITHUB_REF_NAME}"
+          git push origin HEAD:"${GITHUB_REF_NAME}"
