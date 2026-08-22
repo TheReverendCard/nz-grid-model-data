@@ -1,8 +1,8 @@
 {
   "source_latest_month": "2026-07-31",
-  "source_fingerprint": "4a2424fcc28bc38f8404377400cd427c58f1ed9465508457cdd7a74408fa9153",
+  "source_fingerprint": "9bc56060d27138929f695cf2c1804f0e76da6894e50f777e217ba32134a7679a",
   "source_hashes": {
-    "solar_all_monthly_source_sha256": "22131c824ea929854bc32a987d5643a8bb48fc182d8bcff48227834be0bcf254",
+    "solar_all_monthly_source_sha256": "0db75631b5f0b3c373e295dced3915ac4c49cd8ec4a0ddb36ab0df3bd84d00d1",
     "solar_street_source_sha256": "ebec8da37010dc5bc776552c482703e9d139b8c46abfb7eed366d31dd5916780"
   },
   "scope": "Non-utility distributed solar below 1 MW. The <25 kW population drives the ICP-adoption curve; 25 kW to <1 MW is modelled independently as observed capacity growth.",
@@ -29,7 +29,7 @@
     "total_icps": "Future all-ICP denominator uses the linear growth slope fitted over the latest five years, anchored to the latest observed denominator.",
     "small_capacity_first_pass": "Projected <25 kW capacity uses the current measured fleet-average kW per small solar ICP. System-size evolution is kept separate from adoption.",
     "larger_distributed": "25 kW to <1 MW capacity grows independently. Prefer true size-bucket capacity CAGR once at least one year of monthly snapshots exists; until then use the median 2-, 3-, and 5-year CAGR of non-residential solar ICP counts as a provisional proxy.",
-    "larger_distributed_visual_note": "25 kW-<1 MW projection growth = 31.5%/yr (provisional_median_2_3_5y_nonresidential_solar_icp_cagr).",
+    "larger_distributed_visual_note": "25 kW-<1 MW projection uses the selected provisional growth rate through 2035, then holds capacity flat until new observed size-bucket history supports a revised trajectory.",
     "utility_exclusion": "Solar groups averaging >=1 MW are excluded here and belong in the utility/project pipeline.",
     "refresh_gate": "The adoption fit is regenerated only when the latest EA month or the all-solar/street source hashes change."
   },
@@ -52,7 +52,9 @@
       "3y": 0.31490993656156263,
       "5y": 0.27835937130192767
     },
-    "note": "Used only until true 25 kW-<1 MW size-bucket history spans at least one year. Connection counts are used instead of MW to reduce distortion from isolated utility-scale additions."
+    "note": "Used only until true 25 kW-<1 MW size-bucket history spans at least one year. Connection counts are used instead of MW to reduce distortion from isolated utility-scale additions.",
+    "growth_end_year": 2035,
+    "post_growth_end_policy": "hold_capacity_flat"
   },
   "total_icp_growth_per_year": 31302.386,
   "year_end": {
@@ -189,197 +191,197 @@
     "2036": {
       "month_end": "2036-12-31",
       "projected_total_icps": 2695916.1,
-      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 3157.694,
+      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 2401.452,
       "low_10pct_adoption_pct": 8.75695,
       "low_10pct_small_solar_icps": 236079.9,
       "low_10pct_small_capacity_mw": 1981.243,
-      "low_10pct_distributed_sub_1mw_capacity_mw": 5138.937,
+      "low_10pct_distributed_sub_1mw_capacity_mw": 4382.695,
       "high_30pct_adoption_pct": 15.33934,
       "high_30pct_small_solar_icps": 413535.7,
       "high_30pct_small_capacity_mw": 3470.498,
-      "high_30pct_distributed_sub_1mw_capacity_mw": 6628.191
+      "high_30pct_distributed_sub_1mw_capacity_mw": 5871.95
     },
     "2037": {
       "month_end": "2037-12-31",
       "projected_total_icps": 2727218.4,
-      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 4152.083,
+      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 2401.452,
       "low_10pct_adoption_pct": 8.99195,
       "low_10pct_small_solar_icps": 245230.0,
       "low_10pct_small_capacity_mw": 2058.033,
-      "low_10pct_distributed_sub_1mw_capacity_mw": 6210.116,
+      "low_10pct_distributed_sub_1mw_capacity_mw": 4459.485,
       "high_30pct_adoption_pct": 16.76258,
       "high_30pct_small_solar_icps": 457152.1,
       "high_30pct_small_capacity_mw": 3836.537,
-      "high_30pct_distributed_sub_1mw_capacity_mw": 7988.62
+      "high_30pct_distributed_sub_1mw_capacity_mw": 6237.989
     },
     "2038": {
       "month_end": "2038-12-31",
       "projected_total_icps": 2758520.8,
-      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 5459.615,
+      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 2401.452,
       "low_10pct_adoption_pct": 9.18665,
       "low_10pct_small_solar_icps": 253415.5,
       "low_10pct_small_capacity_mw": 2126.728,
-      "low_10pct_distributed_sub_1mw_capacity_mw": 7586.343,
+      "low_10pct_distributed_sub_1mw_capacity_mw": 4528.18,
       "high_30pct_adoption_pct": 18.15434,
       "high_30pct_small_solar_icps": 500791.3,
       "high_30pct_small_capacity_mw": 4202.769,
-      "high_30pct_distributed_sub_1mw_capacity_mw": 9662.384
+      "high_30pct_distributed_sub_1mw_capacity_mw": 6604.221
     },
     "2039": {
       "month_end": "2039-12-31",
       "projected_total_icps": 2789823.2,
-      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 7178.902,
+      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 2401.452,
       "low_10pct_adoption_pct": 9.34647,
       "low_10pct_small_solar_icps": 260750.1,
       "low_10pct_small_capacity_mw": 2188.282,
-      "low_10pct_distributed_sub_1mw_capacity_mw": 9367.183,
+      "low_10pct_distributed_sub_1mw_capacity_mw": 4589.734,
       "high_30pct_adoption_pct": 19.49152,
       "high_30pct_small_solar_icps": 543778.8,
       "high_30pct_small_capacity_mw": 4563.531,
-      "high_30pct_distributed_sub_1mw_capacity_mw": 11742.433
+      "high_30pct_distributed_sub_1mw_capacity_mw": 6964.983
     },
     "2040": {
       "month_end": "2040-12-31",
       "projected_total_icps": 2821125.6,
-      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 9439.609,
+      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 2401.452,
       "low_10pct_adoption_pct": 9.47668,
       "low_10pct_small_solar_icps": 267349.2,
       "low_10pct_small_capacity_mw": 2243.663,
-      "low_10pct_distributed_sub_1mw_capacity_mw": 11683.272,
+      "low_10pct_distributed_sub_1mw_capacity_mw": 4645.115,
       "high_30pct_adoption_pct": 20.75461,
       "high_30pct_small_solar_icps": 585513.8,
       "high_30pct_small_capacity_mw": 4913.781,
-      "high_30pct_distributed_sub_1mw_capacity_mw": 14353.391
+      "high_30pct_distributed_sub_1mw_capacity_mw": 7315.233
     },
     "2041": {
       "month_end": "2041-12-31",
       "projected_total_icps": 2852428.0,
-      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 12412.236,
+      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 2401.452,
       "low_10pct_adoption_pct": 9.58211,
       "low_10pct_small_solar_icps": 273322.8,
       "low_10pct_small_capacity_mw": 2293.795,
-      "low_10pct_distributed_sub_1mw_capacity_mw": 14706.031,
+      "low_10pct_distributed_sub_1mw_capacity_mw": 4695.247,
       "high_30pct_adoption_pct": 21.92876,
       "high_30pct_small_solar_icps": 625502.1,
       "high_30pct_small_capacity_mw": 5249.374,
-      "high_30pct_distributed_sub_1mw_capacity_mw": 17661.61
+      "high_30pct_distributed_sub_1mw_capacity_mw": 7650.826
     },
     "2042": {
       "month_end": "2042-12-31",
       "projected_total_icps": 2883730.4,
-      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 16320.973,
+      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 2401.452,
       "low_10pct_adoption_pct": 9.66704,
       "low_10pct_small_solar_icps": 278771.5,
       "low_10pct_small_capacity_mw": 2339.522,
-      "low_10pct_distributed_sub_1mw_capacity_mw": 18660.494,
+      "low_10pct_distributed_sub_1mw_capacity_mw": 4740.974,
       "high_30pct_adoption_pct": 23.00405,
       "high_30pct_small_solar_icps": 663374.9,
       "high_30pct_small_capacity_mw": 5567.212,
-      "high_30pct_distributed_sub_1mw_capacity_mw": 21888.185
+      "high_30pct_distributed_sub_1mw_capacity_mw": 7968.664
     },
     "2043": {
       "month_end": "2043-12-31",
       "projected_total_icps": 2915032.8,
-      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 21460.609,
+      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 2401.452,
       "low_10pct_adoption_pct": 9.73519,
       "low_10pct_small_solar_icps": 283784.1,
       "low_10pct_small_capacity_mw": 2381.588,
-      "low_10pct_distributed_sub_1mw_capacity_mw": 23842.198,
+      "low_10pct_distributed_sub_1mw_capacity_mw": 4783.04,
       "high_30pct_adoption_pct": 23.97545,
       "high_30pct_small_solar_icps": 698892.2,
       "high_30pct_small_capacity_mw": 5865.282,
-      "high_30pct_distributed_sub_1mw_capacity_mw": 27325.892
+      "high_30pct_distributed_sub_1mw_capacity_mw": 8266.734
     },
     "2044": {
       "month_end": "2044-12-31",
       "projected_total_icps": 2946335.2,
-      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 28218.768,
+      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 2401.452,
       "low_10pct_adoption_pct": 9.7897,
       "low_10pct_small_solar_icps": 288437.3,
       "low_10pct_small_capacity_mw": 2420.639,
-      "low_10pct_distributed_sub_1mw_capacity_mw": 30639.408,
+      "low_10pct_distributed_sub_1mw_capacity_mw": 4822.091,
       "high_30pct_adoption_pct": 24.84221,
       "high_30pct_small_solar_icps": 731934.7,
       "high_30pct_small_capacity_mw": 6142.583,
-      "high_30pct_distributed_sub_1mw_capacity_mw": 34361.351
+      "high_30pct_distributed_sub_1mw_capacity_mw": 8544.035
     },
     "2045": {
       "month_end": "2045-12-31",
       "projected_total_icps": 2977637.5,
-      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 37105.139,
+      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 2401.452,
       "low_10pct_adoption_pct": 9.83317,
       "low_10pct_small_solar_icps": 292796.3,
       "low_10pct_small_capacity_mw": 2457.221,
-      "low_10pct_distributed_sub_1mw_capacity_mw": 39562.36,
+      "low_10pct_distributed_sub_1mw_capacity_mw": 4858.673,
       "high_30pct_adoption_pct": 25.60711,
       "high_30pct_small_solar_icps": 762486.9,
       "high_30pct_small_capacity_mw": 6398.986,
-      "high_30pct_distributed_sub_1mw_capacity_mw": 43504.125
+      "high_30pct_distributed_sub_1mw_capacity_mw": 8800.438
     },
     "2046": {
       "month_end": "2046-12-31",
       "projected_total_icps": 3008939.9,
-      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 48789.916,
+      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 2401.452,
       "low_10pct_adoption_pct": 9.86778,
       "low_10pct_small_solar_icps": 296915.7,
       "low_10pct_small_capacity_mw": 2491.793,
-      "low_10pct_distributed_sub_1mw_capacity_mw": 51281.708,
+      "low_10pct_distributed_sub_1mw_capacity_mw": 4893.245,
       "high_30pct_adoption_pct": 26.27559,
       "high_30pct_small_solar_icps": 790616.6,
       "high_30pct_small_capacity_mw": 6635.057,
-      "high_30pct_distributed_sub_1mw_capacity_mw": 55424.973
+      "high_30pct_distributed_sub_1mw_capacity_mw": 9036.509
     },
     "2047": {
       "month_end": "2047-12-31",
       "projected_total_icps": 3040242.3,
-      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 64154.345,
+      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 2401.452,
       "low_10pct_adoption_pct": 9.89529,
       "low_10pct_small_solar_icps": 300840.8,
       "low_10pct_small_capacity_mw": 2524.733,
-      "low_10pct_distributed_sub_1mw_capacity_mw": 66679.078,
+      "low_10pct_distributed_sub_1mw_capacity_mw": 4926.185,
       "high_30pct_adoption_pct": 26.85483,
       "high_30pct_small_solar_icps": 816452.0,
       "high_30pct_small_capacity_mw": 6851.874,
-      "high_30pct_distributed_sub_1mw_capacity_mw": 71006.219
+      "high_30pct_distributed_sub_1mw_capacity_mw": 9253.326
     },
     "2048": {
       "month_end": "2048-12-31",
       "projected_total_icps": 3071544.7,
-      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 84357.186,
+      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 2401.452,
       "low_10pct_adoption_pct": 9.91712,
       "low_10pct_small_solar_icps": 304608.9,
       "low_10pct_small_capacity_mw": 2556.356,
-      "low_10pct_distributed_sub_1mw_capacity_mw": 86913.541,
+      "low_10pct_distributed_sub_1mw_capacity_mw": 4957.808,
       "high_30pct_adoption_pct": 27.35307,
       "high_30pct_small_solar_icps": 840161.6,
       "high_30pct_small_capacity_mw": 7050.852,
-      "high_30pct_distributed_sub_1mw_capacity_mw": 91408.037
+      "high_30pct_distributed_sub_1mw_capacity_mw": 9452.304
     },
     "2049": {
       "month_end": "2049-12-31",
       "projected_total_icps": 3102847.1,
-      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 110922.102,
+      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 2401.452,
       "low_10pct_adoption_pct": 9.93443,
       "low_10pct_small_solar_icps": 308250.3,
       "low_10pct_small_capacity_mw": 2586.915,
-      "low_10pct_distributed_sub_1mw_capacity_mw": 113509.017,
+      "low_10pct_distributed_sub_1mw_capacity_mw": 4988.367,
       "high_30pct_adoption_pct": 27.7789,
       "high_30pct_small_solar_icps": 861936.8,
       "high_30pct_small_capacity_mw": 7233.594,
-      "high_30pct_distributed_sub_1mw_capacity_mw": 118155.696
+      "high_30pct_distributed_sub_1mw_capacity_mw": 9635.046
     },
     "2050": {
       "month_end": "2050-12-31",
       "projected_total_icps": 3134149.5,
-      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 145852.574,
+      "larger_distributed_25kw_to_lt_1mw_capacity_mw": 2401.452,
       "low_10pct_adoption_pct": 9.94815,
       "low_10pct_small_solar_icps": 311789.8,
       "low_10pct_small_capacity_mw": 2616.62,
-      "low_10pct_distributed_sub_1mw_capacity_mw": 148469.194,
+      "low_10pct_distributed_sub_1mw_capacity_mw": 5018.072,
       "high_30pct_adoption_pct": 28.14088,
       "high_30pct_small_solar_icps": 881977.3,
       "high_30pct_small_capacity_mw": 7401.78,
-      "high_30pct_distributed_sub_1mw_capacity_mw": 153254.354
+      "high_30pct_distributed_sub_1mw_capacity_mw": 9803.232
     }
   }
 }
