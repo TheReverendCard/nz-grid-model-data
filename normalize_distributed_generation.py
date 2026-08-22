@@ -33,6 +33,21 @@ def read_guehmt(path: Path) -> list[dict[str, str]]:
     return list(csv.DictReader(io.StringIO("\n".join(lines[header_index:]))))
 
 
+def numeric(value: str | None, default: float = 0.0) -> float:
+    """Parse EMI numeric cells, treating blank cells as zero/default.
+
+    GUEHMT leaves average-capacity fields blank in months with no installations,
+    rather than emitting a numeric zero.
+    """
+    if value is None or not str(value).strip():
+        return default
+    return float(value)
+
+
+def integer(value: str | None, default: int = 0) -> int:
+    return int(numeric(value, float(default)))
+
+
 def normalize_trend(path: Path, output: Path) -> list[dict[str, object]]:
     rows = []
     for row in read_guehmt(path):
@@ -42,12 +57,12 @@ def normalize_trend(path: Path, output: Path) -> list[dict[str, object]]:
         rows.append(
             {
                 "month_end": date,
-                "icp_count": int(float(row["ICP count"])),
-                "icp_uptake_rate_pct": float(row["ICP uptake rate (%)"]),
-                "installed_capacity_mw": float(row["Total capacity installed (MW)"]),
-                "average_capacity_kw": float(row["Avg. capacity installed (kW)"]),
-                "new_installations": int(float(row["ICP count - new installations"])),
-                "average_new_install_capacity_kw": float(row["Avg. capacity - new installations (kW)"]),
+                "icp_count": integer(row.get("ICP count")),
+                "icp_uptake_rate_pct": numeric(row.get("ICP uptake rate (%)")),
+                "installed_capacity_mw": numeric(row.get("Total capacity installed (MW)")),
+                "average_capacity_kw": numeric(row.get("Avg. capacity installed (kW)")),
+                "new_installations": integer(row.get("ICP count - new installations")),
+                "average_new_install_capacity_kw": numeric(row.get("Avg. capacity - new installations (kW)")),
             }
         )
     output.parent.mkdir(parents=True, exist_ok=True)
