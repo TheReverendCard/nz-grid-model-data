@@ -8,11 +8,20 @@
     "new_install_attachment_anchor_pct": 53.35421,
     "anchor_method": "Median of latest 6 monthly observed new-install attachment shares."
   },
+  "capacity_assumptions": {
+    "battery_duration_hours": {
+      "low": 1.0,
+      "central": 1.5,
+      "high": 2.0
+    },
+    "duration_policy": "Conservative provisional durations: 1.0 h low, 1.5 h central, 2.0 h high. Replace these assumptions with observed EA/industry fleet data whenever defensible measured values become available.",
+    "priority": "Observed EA battery power/capacity data override industry-derived or assumed values where the registry meaning is sufficiently clear."
+  },
   "method": {
     "observations": "Solar+Batteries counts are derived from EA GUEHMT as solar_all minus Solar-only. Only post-November-2023 new-install observations are used for the attachment fit.",
     "new_install_curve": "Logistic attachment curve fitted to observed new-install battery attachment, anchored to the latest six-month median and capped at 95%.",
     "stock": "Projected battery-equipped solar ICPs accumulate from the observed starting stock plus the fitted share of each month's new <25 kW solar installations.",
-    "battery_power_energy": "Not estimated here. EA generation-capacity fields do not provide battery energy capacity; battery kW/MWh require a separate defensible source or assumption."
+    "battery_power_energy": "Battery counts are modelled here. Battery power should use observed EA registry data where defensible; otherwise a separately documented conservative power assumption is required. Energy capacity equals power times the duration sensitivity above."
   },
   "fit": {
     "attachment_saturation_pct": 95.0,

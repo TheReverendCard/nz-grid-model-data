@@ -1,31 +1,31 @@
 {
   "datasets": {
     "installed_distributed_generation_trends_solar_all": {
-      "content_length": "5258",
+      "content_length": "5263",
       "description": "Installed distributed generation trends (GUEHMT), national solar including solar+battery categories, all ICPs",
       "etag": "",
       "last_modified": "",
       "local_file": "data/distributed_generation/installed_dg_trends_solar_all.csv",
       "request_url": "https://www.emi.ea.govt.nz/Retail/Download/DataReport/CSV/GUEHMT?DateFrom=20130901&FuelType=solar_all&Show=CapacityAvg&_rsdr=ALL&_si=v%7C4",
-      "sha256": "d74c58bc2162859a5322993e334d2bdd02cb3ff4701ca35c248e1bd38c8b71c6"
+      "sha256": "4a67213169144db27d76c45e7ea8aa581fc4b8bc9f3c09538817a89aa349369e"
     },
     "installed_distributed_generation_trends_solar_only": {
-      "content_length": "5162",
+      "content_length": "5160",
       "description": "Installed distributed generation trends (GUEHMT), national Solar fuel type excluding the Solar+Batteries category",
       "etag": "",
       "last_modified": "",
       "local_file": "data/distributed_generation/installed_dg_trends_solar_only.csv",
       "request_url": "https://www.emi.ea.govt.nz/Retail/Download/DataReport/CSV/GUEHMT?DateFrom=20130901&FuelType=solar&Show=CapacityAvg&_rsdr=ALL&_si=v%7C4",
-      "sha256": "863bef45a01a18cbefe594efa4a31b5c4c787ddc2c0a85690c5660cbdd24dba4"
+      "sha256": "eec5df3d0d8ab7d3cf2be7fe1eb9f227bc73358057cd3b38929e585acb7f20d5"
     },
     "installed_distributed_generation_trends_solar_residential": {
-      "content_length": "5159",
+      "content_length": "5157",
       "description": "Installed distributed generation trends (GUEHMT), national solar including solar+battery categories, residential ICPs",
       "etag": "",
       "last_modified": "",
       "local_file": "data/distributed_generation/installed_dg_trends_solar_residential.csv",
       "request_url": "https://www.emi.ea.govt.nz/Retail/Download/DataReport/CSV/GUEHMT?DateFrom=20130901&FuelType=solar_all&Show=CapacityAvg&_rsdr=ALL&_si=v%7C4&MarketSegment=Res",
-      "sha256": "b73d9fe3f7e3d984a87169d0e499b62efd04bae0cc3e03c1b00cf58532ae8737"
+      "sha256": "f9af78354541d8cd9e456c4c0431adffeec384932de1118a875de13183201bfe"
     },
     "solar_installations_by_region": {
       "content_length": "11122",

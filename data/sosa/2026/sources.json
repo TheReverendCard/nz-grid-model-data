@@ -4,8 +4,11 @@
   "etag": "\"394143185ace4db3a525f316e50e3bca\"",
   "last_modified": "Mon, 29 Jun 2026 20:37:43 GMT",
   "winter_energy_period": "April through September",
+  "winter_peak_method": "H100 winter peak demand; medium-demand solar+battery contribution normalized separately for North and South Islands.",
   "normalized_files": [
     "data/sosa/2026/medium_demand_winter_energy.csv",
-    "data/sosa/2026/reference_nzwem.csv"
+    "data/sosa/2026/medium_demand_winter_peak.csv",
+    "data/sosa/2026/reference_nzwem.csv",
+    "data/sosa/2026/reference_niwcm.csv"
   ]
 }
