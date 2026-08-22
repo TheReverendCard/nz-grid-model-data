@@ -95,6 +95,9 @@ jobs:
         if: steps.ea_dg.outputs.solar_model_inputs_changed == 'true' || hashFiles('data/distributed_generation/model/distributed_solar_adoption_scenarios.json') == ''
         run: python build_distributed_solar_scenarios.py
 
+      - name: Apply Larger Distributed Solar Growth Guardrail
+        run: python cap_larger_distributed_solar_growth.py
+
       - name: Build Distributed Battery Attachment Scenarios
         if: steps.ea_dg.outputs.battery_model_inputs_changed == 'true' || steps.ea_dg.outputs.solar_model_inputs_changed == 'true' || hashFiles('data/distributed_generation/model/distributed_battery_attachment_scenarios.json') == ''
         run: python build_distributed_battery_scenarios.py
