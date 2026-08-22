@@ -26,6 +26,12 @@ SOLAR_REGION_URL = (
 )
 SOLAR_REGION_PATH = DATA_DIR / "solar_installations_by_region.csv"
 
+SOLAR_STREET_URL = (
+    "https://emidatasets.blob.core.windows.net/publicdata/"
+    "Datasets/Retail/SolarInstallations/SolarInstallationsByStreet.csv"
+)
+SOLAR_STREET_PATH = DATA_DIR / "solar_installations_by_street.csv"
+
 
 def sha256_bytes(content: bytes) -> str:
     return hashlib.sha256(content).hexdigest()
@@ -49,6 +55,12 @@ def validate_guehmt(content: bytes, label: str) -> None:
     sample = content[:4096]
     if b"Month end" not in sample and b"Month End" not in sample:
         raise RuntimeError(f"{label} GUEHMT download does not look like the expected CSV report")
+
+
+def validate_csv(content: bytes, label: str) -> None:
+    sample = content[:4096]
+    if b"," not in sample or b"\n" not in sample:
+        raise RuntimeError(f"{label} download does not look like CSV")
 
 
 def write_if_changed(path: Path, content: bytes) -> bool:
@@ -90,9 +102,12 @@ def main() -> None:
     write_if_changed(DG_RESIDENTIAL_TRENDS_PATH, residential_content)
 
     region_content, region_headers = fetch(SOLAR_REGION_URL)
-    if b"," not in region_content[:4096]:
-        raise RuntimeError("SolarInstallationsByRegion download does not look like CSV")
+    validate_csv(region_content, "SolarInstallationsByRegion")
     write_if_changed(SOLAR_REGION_PATH, region_content)
+
+    street_content, street_headers = fetch(SOLAR_STREET_URL)
+    validate_csv(street_content, "SolarInstallationsByStreet")
+    write_if_changed(SOLAR_STREET_PATH, street_content)
 
     metadata = {
         "source": "New Zealand Electricity Authority EMI",
@@ -114,6 +129,12 @@ def main() -> None:
                 SOLAR_REGION_PATH,
                 region_content,
                 region_headers,
+            ),
+            "solar_installations_by_street": metadata_record(
+                "Current street-level solar installation counts/capacity and market segment from the Electricity Registry",
+                SOLAR_STREET_PATH,
+                street_content,
+                street_headers,
             ),
         },
     }
