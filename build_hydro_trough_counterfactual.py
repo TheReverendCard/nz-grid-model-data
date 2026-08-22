@@ -3,31 +3,25 @@ from __future__ import annotations
 import csv
 import json
 from calendar import month_abbr, monthrange
-from io import StringIO
 from pathlib import Path
 
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
-import requests
 
 YEAR = 2024
 SCENARIO_YEAR = 2035
 PRESERVATION_FRACTION = 0.75
 WINTER_MONTHS = (4, 5, 6, 7, 8, 9)
+HISTORY_START = 1980
+HISTORY_END = 2023
 
+STORAGE = Path("data/model/hydro_storage_energy_daily.csv")
 DIST_WINTER = Path("data/model/distributed_solar_sosa_winter_energy.csv")
 SEASONALITY = Path("data/model/hydro_solar_seasonality.json")
 OUT_CSV = Path("data/model/hydro_trough_counterfactual_2024.csv")
 OUT_PNG = Path("data/visuals/hydro_trough_counterfactual_2024.png")
-ERC_CSV_URL = "https://www.emi.ea.govt.nz/All/Download/DataReport/CSV/RM3RAS"
 
-SERIES_MAP = {
-    "Watch status curve": "watch_gwh",
-    "Alert status curve": "alert_gwh",
-    "Emergency status curve": "emergency_gwh",
-    "Controlled storage": "controlled_storage_gwh",
-    "Nominal full": "nominal_full_gwh",
-}
 SCENARIOS = {
     "low_10pct": "2035 10% distributed-solar case",
     "high_30pct": "2035 30% distributed-solar case",
@@ -39,81 +33,69 @@ def read_csv(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(handle))
 
 
-def parse_erc_csv(content: bytes) -> pd.DataFrame:
-    text = content.decode("utf-8-sig", errors="replace")
-    lines = text.splitlines()
-    header_index = None
-    for i, line in enumerate(lines):
-        normalized = line.lower().replace('"', "").replace(" ", "")
-        if "riskdate" in normalized and "dateofpublication" in normalized and "series" in normalized and "value" in normalized:
-            header_index = i
-            break
-    if header_index is None:
-        raise RuntimeError("Could not locate EMI electricity-risk-curve CSV header")
-    return pd.read_csv(StringIO("\n".join(lines[header_index:])), low_memory=False)
+def storage_context() -> pd.DataFrame:
+    df = pd.read_csv(STORAGE, low_memory=False)
+    df["date"] = pd.to_datetime(df["date"], errors="coerce")
+    df["national_energy_equivalent_gwh"] = pd.to_numeric(
+        df["national_energy_equivalent_gwh"], errors="coerce"
+    )
+    df = df.dropna(subset=["date", "national_energy_equivalent_gwh"]).copy()
 
+    hist = df[
+        (df["date"].dt.year >= HISTORY_START)
+        & (df["date"].dt.year <= HISTORY_END)
+    ].copy()
+    hist["year"] = hist["date"].dt.year
+    complete_years = (
+        hist.groupby("year")["date"].nunique().loc[lambda s: s >= 350].index
+    )
+    hist = hist[hist["year"].isin(complete_years)].copy()
+    if len(complete_years) < 10:
+        raise RuntimeError("Insufficient complete hydro-storage history")
 
-def fetch_controlled_storage() -> pd.DataFrame:
-    params = {
-        "DateFrom": f"{YEAR}0101",
-        "DateTo": f"{YEAR}1231",
-        "RegionCode": "NZ",
-        "Show": "RMSB",
-        "_si": "v|4",
-    }
-    response = requests.get(ERC_CSV_URL, params=params, timeout=180)
-    response.raise_for_status()
-    raw = parse_erc_csv(response.content)
+    hist["month_day"] = hist["date"].dt.strftime("%m-%d")
+    bands = (
+        hist.groupby("month_day")["national_energy_equivalent_gwh"]
+        .agg(
+            p05_gwh=lambda x: float(np.quantile(x, 0.05)),
+            p25_gwh=lambda x: float(np.quantile(x, 0.25)),
+            median_gwh="median",
+            p75_gwh=lambda x: float(np.quantile(x, 0.75)),
+            p95_gwh=lambda x: float(np.quantile(x, 0.95)),
+        )
+        .reset_index()
+    )
 
-    normalized = {c.strip().lower().replace(" ", "").replace("_", ""): c for c in raw.columns}
-
-    def find_col(*needles: str) -> str:
-        for norm, original in normalized.items():
-            if all(needle.replace(" ", "").lower() in norm for needle in needles):
-                return original
-        raise RuntimeError(f"Missing ERC column {needles}; columns={list(raw.columns)}")
-
-    risk_date = find_col("risk", "date")
-    publication = find_col("dateofpublication")
-    series = find_col("series")
-    value = next((c for c in raw.columns if "value" in c.lower() and "gwh" in c.lower()), None) or find_col("value")
-
-    data = raw[[risk_date, publication, series, value]].copy()
-    data.columns = ["date", "publication_date", "series", "value_gwh"]
-    data["date"] = pd.to_datetime(data["date"], dayfirst=True, errors="coerce")
-    data["publication_date"] = pd.to_datetime(data["publication_date"], dayfirst=True, errors="coerce")
-    data["value_gwh"] = pd.to_numeric(data["value_gwh"], errors="coerce")
-    data = data[data["series"].astype(str).str.strip().isin(SERIES_MAP)].dropna(subset=["date", "value_gwh"])
-    data = data[data["date"].dt.year == YEAR]
-    eligible = data[data["publication_date"] <= data["date"]].copy()
-    if eligible.empty:
-        eligible = data.copy()
-    eligible = eligible.sort_values(["date", "series", "publication_date"]).groupby(["date", "series"], as_index=False).tail(1)
-
-    daily = eligible.pivot(index="date", columns="series", values="value_gwh").reset_index().rename(columns=SERIES_MAP)
-    required = ["controlled_storage_gwh", "nominal_full_gwh", "watch_gwh", "alert_gwh", "emergency_gwh"]
-    missing = [c for c in required if c not in daily]
-    if missing:
-        raise RuntimeError(f"EMI risk-curve report is missing required series: {missing}")
-
-    daily = daily.set_index("date").reindex(pd.date_range(f"{YEAR}-01-01", f"{YEAR}-12-31", freq="D"))
-    daily[required] = daily[required].interpolate(limit_direction="both")
-    daily.index.name = "date"
-    return daily.reset_index()
+    observed = df[df["date"].dt.year == YEAR].copy()
+    if len(observed) < 350:
+        raise RuntimeError(f"Only {len(observed)} complete {YEAR} storage days")
+    observed["month_day"] = observed["date"].dt.strftime("%m-%d")
+    return observed.merge(bands, on="month_day", how="left")
 
 
 def scenario_winter_energy() -> dict[str, float]:
     rows = [r for r in read_csv(DIST_WINTER) if int(r["year"]) == SCENARIO_YEAR]
-    found = {r["scenario"]: float(r["difference_gwh"]) for r in rows if r["scenario"] in SCENARIOS}
+    found = {
+        r["scenario"]: float(r["difference_gwh"])
+        for r in rows
+        if r["scenario"] in SCENARIOS
+    }
     missing = [scenario for scenario in SCENARIOS if scenario not in found]
     if missing:
-        raise RuntimeError(f"Missing {SCENARIO_YEAR} distributed-solar winter cases: {missing}")
+        raise RuntimeError(
+            f"Missing {SCENARIO_YEAR} distributed-solar winter cases: {missing}"
+        )
     return found
 
 
 def winter_daily_weights() -> dict[pd.Timestamp, float]:
     seasonality = json.loads(SEASONALITY.read_text(encoding="utf-8"))
-    index = {int(k): float(v) for k, v in seasonality["solar_method"]["monthly_index_vs_annual_mean_daily"].items()}
+    index = {
+        int(k): float(v)
+        for k, v in seasonality["solar_method"][
+            "monthly_index_vs_annual_mean_daily"
+        ].items()
+    }
     denominator = sum(index[m] * monthrange(YEAR, m)[1] for m in WINTER_MONTHS)
     weights: dict[pd.Timestamp, float] = {}
     for month in WINTER_MONTHS:
@@ -131,111 +113,125 @@ def apply_counterfactual(daily: pd.DataFrame) -> pd.DataFrame:
     out = daily.copy()
 
     for scenario, total_gwh in winter_gwh.items():
-        daily_generation = []
-        cumulative_preserved = []
-        counterfactual = []
+        generation_daily: list[float] = []
+        preserved_daily: list[float] = []
+        counterfactual_daily: list[float] = []
         bank = 0.0
         for row in out.itertuples(index=False):
             generation = total_gwh * weights.get(pd.Timestamp(row.date), 0.0)
             bank += generation * PRESERVATION_FRACTION
-            full = float(row.nominal_full_gwh)
-            actual = float(row.controlled_storage_gwh)
-            adjusted = min(full, actual + bank)
-            # Any amount above nominal full cannot remain stored in this simple sensitivity.
-            bank = max(0.0, adjusted - actual)
-            daily_generation.append(generation)
-            cumulative_preserved.append(bank)
-            counterfactual.append(adjusted)
-        out[f"{scenario}_incremental_solar_gwh_day"] = daily_generation
-        out[f"{scenario}_preserved_hydro_gwh"] = cumulative_preserved
-        out[f"{scenario}_counterfactual_storage_gwh"] = counterfactual
+            actual = float(row.national_energy_equivalent_gwh)
+            generation_daily.append(generation)
+            preserved_daily.append(bank)
+            counterfactual_daily.append(actual + bank)
+
+        out[f"{scenario}_incremental_solar_gwh_day"] = generation_daily
+        out[f"{scenario}_preserved_hydro_gwh"] = preserved_daily
+        out[f"{scenario}_counterfactual_storage_gwh"] = counterfactual_daily
 
     return out
 
 
 def render(df: pd.DataFrame) -> None:
     OUT_PNG.parent.mkdir(parents=True, exist_ok=True)
-    view = df[(df["date"] >= pd.Timestamp(f"{YEAR}-03-01")) & (df["date"] <= pd.Timestamp(f"{YEAR}-10-31"))].copy()
-    fig, ax = plt.subplots(figsize=(12, 7))
+    view = df[
+        (df["date"] >= pd.Timestamp(f"{YEAR}-03-01"))
+        & (df["date"] <= pd.Timestamp(f"{YEAR}-09-30"))
+    ].copy()
 
-    ax.plot(view["date"], view["nominal_full_gwh"], linewidth=1.1, linestyle=":", label="Nominal full controlled storage")
-    ax.plot(view["date"], view["watch_gwh"], linewidth=1.5, linestyle="--", label="Watch curve")
-    ax.plot(view["date"], view["alert_gwh"], linewidth=1.5, linestyle="--", label="Alert curve")
-    ax.plot(view["date"], view["emergency_gwh"], linewidth=1.2, linestyle="--", label="Emergency curve")
-    ax.plot(view["date"], view["controlled_storage_gwh"], linewidth=3.0, label="2024 actual controlled storage")
+    fig, ax = plt.subplots(figsize=(12, 7))
+    ax.fill_between(
+        view["date"], view["p05_gwh"], view["p95_gwh"],
+        alpha=0.14, label=f"Historical P5-P95 ({HISTORY_START}-{HISTORY_END})"
+    )
+    ax.fill_between(
+        view["date"], view["p25_gwh"], view["p75_gwh"],
+        alpha=0.28, label="Historical P25-P75"
+    )
+    ax.plot(
+        view["date"], view["national_energy_equivalent_gwh"],
+        linewidth=3.0, label="2024 observed hydro storage, energy-equivalent"
+    )
 
     for scenario, label in SCENARIOS.items():
-        column = f"{scenario}_counterfactual_storage_gwh"
         ax.plot(
             view["date"],
-            view[column],
-            linewidth=2.4,
+            view[f"{scenario}_counterfactual_storage_gwh"],
+            linewidth=2.5,
             label=f"{label}, {PRESERVATION_FRACTION:.0%} preservation sensitivity",
         )
 
-    # Direct labels at the end of September so the lines remain understandable without the legend.
     label_date = pd.Timestamp(f"{YEAR}-09-30")
     end = df.loc[df["date"] == label_date].iloc[0]
     ax.annotate(
         "2024 actual",
-        (label_date, end["controlled_storage_gwh"]),
-        xytext=(8, -12), textcoords="offset points", fontsize=9,
+        (label_date, end["national_energy_equivalent_gwh"]),
+        xytext=(-92, -14), textcoords="offset points", fontsize=9,
     )
-    for scenario, short in [("low_10pct", "10% distributed solar"), ("high_30pct", "30% distributed solar")]:
+    for scenario, short, offset in [
+        ("low_10pct", "10% distributed solar", 4),
+        ("high_30pct", "30% distributed solar", 10),
+    ]:
         ax.annotate(
             short,
             (label_date, end[f"{scenario}_counterfactual_storage_gwh"]),
-            xytext=(8, 6), textcoords="offset points", fontsize=9,
+            xytext=(-112, offset), textcoords="offset points", fontsize=9,
         )
 
     ax.set_xlim(view["date"].min(), view["date"].max())
     ax.set_ylim(bottom=0)
-    ax.set_ylabel("NZ System Operator controlled storage (GWh)")
+    ax.set_ylabel("Major-reservoir stored-energy equivalent (GWh)")
     ax.set_xlabel("2024 month")
-    ax.set_title("How additional distributed solar could have softened the 2024 hydro drawdown", loc="left", fontsize=15, pad=12)
+    ax.set_title(
+        "How additional distributed solar could have softened the 2024 hydro drawdown",
+        loc="left", fontsize=15, pad=12,
+    )
     ax.text(
         0.01,
         0.965,
-        f"Illustrative counterfactual: apply the {SCENARIO_YEAR} solar increment to 2024, with {PRESERVATION_FRACTION:.0%} of each extra winter GWh initially preserving hydro.",
+        f"Illustrative sensitivity: apply the {SCENARIO_YEAR} solar increment to 2024; "
+        f"{PRESERVATION_FRACTION:.0%} of each extra Apr-Sep GWh is treated as hydro initially not released.",
         transform=ax.transAxes,
         va="top",
         fontsize=9,
     )
     ax.grid(axis="y", alpha=0.22)
-    month_starts = pd.date_range(f"{YEAR}-03-01", f"{YEAR}-10-01", freq="MS")
+    month_starts = pd.date_range(f"{YEAR}-03-01", f"{YEAR}-09-01", freq="MS")
     ax.set_xticks(month_starts)
     ax.set_xticklabels([month_abbr[d.month] for d in month_starts])
-    ax.legend(frameon=False, loc="upper right", fontsize=8.4)
+    ax.legend(frameon=False, loc="upper right", fontsize=8.3)
 
     fig.text(
         0.01,
         0.01,
-        "Source storage/risk curves: Electricity Authority EMI historical Electricity Risk Curves, NZ controlled-storage GWh. "
-        "Incremental solar: project distributed-solar scenarios above SOSA's embedded domestic solar+battery winter contribution. "
-        "Solar is spread through Apr-Sep using the project's observed monthly solar shape. This is a transparent sensitivity, not a JADE/vSPD dispatch rerun: "
-        "extra generation can also displace thermal, alter transfers, or be constrained, so hydro preservation is not assumed one-for-one. Counterfactual storage is capped at nominal full.",
-        fontsize=8,
+        "Storage source: Electricity Authority HMD major-reservoir volumes converted to an energy-equivalent state using verified downstream cascade MWh/Mm3 route factors. "
+        "This is not the System Operator controlled-storage series and is not an assured-dispatchable-energy measure. Incremental solar is the project's 2035 distributed-solar generation above SOSA's embedded domestic solar+battery winter contribution, spread through Apr-Sep using the observed monthly solar shape. "
+        "The 75% hydro-preservation factor is an explicit sensitivity, not a JADE/vSPD dispatch result; the remainder can represent thermal displacement, transfers or other system responses. Operational storage limits and spill are not modelled, so interpret the counterfactual primarily as a change in drawdown slope and trough depth.",
+        fontsize=7.8,
         wrap=True,
     )
-    fig.tight_layout(rect=(0, 0.08, 1, 1))
+    fig.tight_layout(rect=(0, 0.095, 1, 1))
     fig.savefig(OUT_PNG, dpi=180)
     plt.close(fig)
 
 
 def main() -> None:
-    daily = fetch_controlled_storage()
+    daily = storage_context()
     result = apply_counterfactual(daily)
     OUT_CSV.parent.mkdir(parents=True, exist_ok=True)
     result.to_csv(OUT_CSV, index=False)
     render(result)
 
     winter = result[result["date"].dt.month.isin(WINTER_MONTHS)]
-    actual_min = winter["controlled_storage_gwh"].min()
+    actual_min = winter["national_energy_equivalent_gwh"].min()
     print(f"Wrote {OUT_CSV} and {OUT_PNG}")
-    print(f"2024 Apr-Sep minimum actual controlled storage: {actual_min:.1f} GWh")
+    print(f"2024 Apr-Sep minimum observed energy-equivalent storage: {actual_min:.1f} GWh")
     for scenario in SCENARIOS:
         minimum = winter[f"{scenario}_counterfactual_storage_gwh"].min()
-        print(f"{scenario} counterfactual minimum at {PRESERVATION_FRACTION:.0%} preservation: {minimum:.1f} GWh")
+        print(
+            f"{scenario} counterfactual minimum at "
+            f"{PRESERVATION_FRACTION:.0%} preservation: {minimum:.1f} GWh"
+        )
 
 
 if __name__ == "__main__":
