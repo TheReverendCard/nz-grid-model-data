@@ -19,6 +19,7 @@ DG_TRENDS_BASE_PARAMS = {
     "_si": "v|4",
 }
 DG_TRENDS_PATH = DATA_DIR / "installed_dg_trends_solar_all.csv"
+DG_SOLAR_ONLY_TRENDS_PATH = DATA_DIR / "installed_dg_trends_solar_only.csv"
 DG_RESIDENTIAL_TRENDS_PATH = DATA_DIR / "installed_dg_trends_solar_residential.csv"
 
 SOLAR_REGION_URL = (
@@ -100,13 +101,19 @@ def main() -> None:
     META_PATH.parent.mkdir(parents=True, exist_ok=True)
 
     trends_content, trends_headers = fetch(DG_TRENDS_URL, params=DG_TRENDS_BASE_PARAMS)
-    validate_guehmt(trends_content, "All-ICP solar")
+    validate_guehmt(trends_content, "All-solar")
     trends_changed = write_if_changed(DG_TRENDS_PATH, trends_content)
+
+    solar_only_params = dict(DG_TRENDS_BASE_PARAMS)
+    solar_only_params["FuelType"] = "solar"
+    solar_only_content, solar_only_headers = fetch(DG_TRENDS_URL, params=solar_only_params)
+    validate_guehmt(solar_only_content, "Solar-only")
+    solar_only_changed = write_if_changed(DG_SOLAR_ONLY_TRENDS_PATH, solar_only_content)
 
     residential_params = dict(DG_TRENDS_BASE_PARAMS)
     residential_params["MarketSegment"] = "Res"
     residential_content, residential_headers = fetch(DG_TRENDS_URL, params=residential_params)
-    validate_guehmt(residential_content, "Residential solar")
+    validate_guehmt(residential_content, "Residential all-solar")
     if b"Residential" not in residential_content[:2048] and b"Res" not in residential_content[:2048]:
         print("Warning: residential GUEHMT response header did not explicitly echo the market segment")
     residential_changed = write_if_changed(DG_RESIDENTIAL_TRENDS_PATH, residential_content)
@@ -123,13 +130,19 @@ def main() -> None:
         "source": "New Zealand Electricity Authority EMI",
         "datasets": {
             "installed_distributed_generation_trends_solar_all": metadata_record(
-                "Installed distributed generation trends (GUEHMT), national Solar (All), all ICPs",
+                "Installed distributed generation trends (GUEHMT), national solar including solar+battery categories, all ICPs",
                 DG_TRENDS_PATH,
                 trends_content,
                 trends_headers,
             ),
+            "installed_distributed_generation_trends_solar_only": metadata_record(
+                "Installed distributed generation trends (GUEHMT), national Solar fuel type excluding the Solar+Batteries category",
+                DG_SOLAR_ONLY_TRENDS_PATH,
+                solar_only_content,
+                solar_only_headers,
+            ),
             "installed_distributed_generation_trends_solar_residential": metadata_record(
-                "Installed distributed generation trends (GUEHMT), national Solar (All), residential ICPs",
+                "Installed distributed generation trends (GUEHMT), national solar including solar+battery categories, residential ICPs",
                 DG_RESIDENTIAL_TRENDS_PATH,
                 residential_content,
                 residential_headers,
@@ -152,18 +165,26 @@ def main() -> None:
     metadata_changed = write_if_changed(META_PATH, encoded)
 
     solar_model_inputs_changed = trends_changed or street_changed
+    battery_model_inputs_changed = trends_changed or solar_only_changed
     distributed_generation_changed = (
-        trends_changed or residential_changed or region_changed or street_changed or metadata_changed
+        trends_changed
+        or solar_only_changed
+        or residential_changed
+        or region_changed
+        or street_changed
+        or metadata_changed
     )
     write_github_outputs(
         {
             "solar_model_inputs_changed": solar_model_inputs_changed,
+            "battery_model_inputs_changed": battery_model_inputs_changed,
             "distributed_generation_changed": distributed_generation_changed,
         }
     )
     print(
         "Change signals: "
         f"solar_model_inputs_changed={solar_model_inputs_changed}, "
+        f"battery_model_inputs_changed={battery_model_inputs_changed}, "
         f"distributed_generation_changed={distributed_generation_changed}"
     )
     print("Distributed generation update completed successfully.")
