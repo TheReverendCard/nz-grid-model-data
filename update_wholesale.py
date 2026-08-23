@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import quote
@@ -93,6 +94,25 @@ def fast_scan_years(dataset: dict) -> list[str]:
     if known_months:
         years.add(max(known_months)[:4])
     return sorted(years)
+
+
+def workflow_requests_full_scan() -> bool:
+    event_name = os.environ.get("GITHUB_EVENT_NAME", "")
+    if event_name == "schedule" and datetime.now(timezone.utc).weekday() == 6:
+        return True
+    if event_name != "workflow_dispatch":
+        return False
+
+    event_path = os.environ.get("GITHUB_EVENT_PATH", "")
+    if not event_path:
+        return False
+    try:
+        payload = json.loads(Path(event_path).read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return False
+    inputs = payload.get("inputs", {}) if isinstance(payload, dict) else {}
+    value = inputs.get("force_rebuild", False) if isinstance(inputs, dict) else False
+    return str(value).lower() == "true"
 
 
 def download_if_changed(blob: dict[str, str], output: Path, previous_etag: str | None) -> bool:
@@ -193,6 +213,7 @@ def main() -> None:
         help="List the complete wholesale source directories instead of only the current/latest known year prefixes.",
     )
     args = parser.parse_args()
+    full_scan = args.full_scan or workflow_requests_full_scan()
 
     previous = load_previous_metadata()
     metadata = {
@@ -207,7 +228,7 @@ def main() -> None:
             key,
             config,
             previous,
-            full_scan=args.full_scan,
+            full_scan=full_scan,
         )
         metadata["datasets"][key] = dataset_metadata
         changed |= dataset_changed
@@ -219,7 +240,7 @@ def main() -> None:
         changed = True
         print(f"Wrote {METADATA_PATH}")
 
-    mode = "full" if args.full_scan else "fast"
+    mode = "full" if full_scan else "fast"
     print(
         f"Wholesale update completed; mode={mode}; changed={changed}; "
         f"checked_at_utc={datetime.now(timezone.utc).isoformat()}"
