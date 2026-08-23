@@ -37,9 +37,10 @@ jobs:
         shell: bash
         run: |
           mkdir -p patches
-          git diff --binary -- data/metadata/jade_manifest.json data/metadata/jade_latest.json > patches/jade.patch
+          git add -A -- data/metadata/jade_manifest.json data/metadata/jade_latest.json
+          git diff --cached --binary -- data/metadata/jade_manifest.json data/metadata/jade_latest.json > patches/jade.patch
           if [ -s patches/jade.patch ]; then echo "changed=true" >> "$GITHUB_OUTPUT"; else echo "changed=false" >> "$GITHUB_OUTPUT"; fi
-          if git diff --quiet -- data/metadata/jade_latest.json; then echo "substantive_changed=false" >> "$GITHUB_OUTPUT"; else echo "substantive_changed=true" >> "$GITHUB_OUTPUT"; fi
+          if git diff --cached --quiet -- data/metadata/jade_latest.json; then echo "substantive_changed=false" >> "$GITHUB_OUTPUT"; else echo "substantive_changed=true" >> "$GITHUB_OUTPUT"; fi
       - uses: actions/upload-artifact@v4
         with:
           name: jade-source-patch
@@ -65,9 +66,10 @@ jobs:
         shell: bash
         run: |
           mkdir -p patches
-          git diff --binary -- data/sosa/2026 > patches/sosa.patch
+          git add -A -- data/sosa/2026
+          git diff --cached --binary -- data/sosa/2026 > patches/sosa.patch
           if [ -s patches/sosa.patch ]; then echo "changed=true" >> "$GITHUB_OUTPUT"; else echo "changed=false" >> "$GITHUB_OUTPUT"; fi
-          if git diff --quiet -- data/sosa/2026/2026_sosa_final_supplementary_data.xlsx data/sosa/2026/medium_demand_winter_energy.csv data/sosa/2026/medium_demand_winter_peak.csv data/sosa/2026/reference_nzwem.csv data/sosa/2026/reference_niwcm.csv; then
+          if git diff --cached --quiet -- data/sosa/2026/2026_sosa_final_supplementary_data.xlsx data/sosa/2026/medium_demand_winter_energy.csv data/sosa/2026/medium_demand_winter_peak.csv data/sosa/2026/reference_nzwem.csv data/sosa/2026/reference_niwcm.csv; then
             echo "substantive_changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "substantive_changed=true" >> "$GITHUB_OUTPUT"
@@ -97,9 +99,10 @@ jobs:
         shell: bash
         run: |
           mkdir -p patches
-          git diff --binary -- data/mbie/edgs2024/edgs_2024_assumptions.xlsx data/mbie/edgs2024/edgs_2024_results.xlsx data/mbie/edgs2024/sources.json > patches/mbie.patch
+          git add -A -- data/mbie/edgs2024/edgs_2024_assumptions.xlsx data/mbie/edgs2024/edgs_2024_results.xlsx data/mbie/edgs2024/sources.json
+          git diff --cached --binary -- data/mbie/edgs2024/edgs_2024_assumptions.xlsx data/mbie/edgs2024/edgs_2024_results.xlsx data/mbie/edgs2024/sources.json > patches/mbie.patch
           if [ -s patches/mbie.patch ]; then echo "changed=true" >> "$GITHUB_OUTPUT"; else echo "changed=false" >> "$GITHUB_OUTPUT"; fi
-          if git diff --quiet -- data/mbie/edgs2024/edgs_2024_assumptions.xlsx data/mbie/edgs2024/edgs_2024_results.xlsx; then echo "substantive_changed=false" >> "$GITHUB_OUTPUT"; else echo "substantive_changed=true" >> "$GITHUB_OUTPUT"; fi
+          if git diff --cached --quiet -- data/mbie/edgs2024/edgs_2024_assumptions.xlsx data/mbie/edgs2024/edgs_2024_results.xlsx; then echo "substantive_changed=false" >> "$GITHUB_OUTPUT"; else echo "substantive_changed=true" >> "$GITHUB_OUTPUT"; fi
       - uses: actions/upload-artifact@v4
         with:
           name: mbie-source-patch
