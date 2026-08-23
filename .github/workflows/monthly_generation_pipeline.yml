@@ -10,6 +10,7 @@ on:
       - '.github/workflows/monthly_generation_pipeline.yml'
       - 'check_ea_generation_pipeline.py'
       - 'build_distributed_solar_20pct.py'
+      - 'build_generation_pipeline_status_metrics.py'
       - 'build_generation_pipeline_monthly_chart.py'
       - 'data/pipeline/ea_generation_investment_pipeline_current.csv'
 
@@ -53,6 +54,9 @@ jobs:
           mkdir -p data/pipeline/history
           cp data/pipeline/ea_generation_investment_pipeline_current.csv "data/pipeline/history/ea_generation_investment_pipeline_${snapshot_month}.csv"
 
+      - name: Build empirical pipeline status history
+        run: python build_generation_pipeline_status_metrics.py
+
       - name: Build 20 percent household solar scenario
         run: python build_distributed_solar_20pct.py
 
@@ -64,11 +68,15 @@ jobs:
         run: |
           python - <<'PY'
           import csv
+          import json
           import struct
           from pathlib import Path
 
           png = Path('data/visuals/generation_pipeline_monthly_latest.png')
           csv_path = Path('data/visuals/generation_pipeline_monthly_plot_data.csv')
+          status_meta_path = Path('data/metadata/ea_generation_pipeline_status_metrics.json')
+          status_history_path = Path('data/pipeline/ea_generation_pipeline_status_history.csv')
+          status_transitions_path = Path('data/pipeline/ea_generation_pipeline_status_transitions.csv')
 
           if not png.exists():
               raise RuntimeError(f'Missing rendered PNG: {png}')
@@ -111,8 +119,32 @@ jobs:
                   f"{rows[0]['year'] if rows else 'none'} to {rows[-1]['year'] if rows else 'none'}"
               )
 
+          if not status_meta_path.exists():
+              raise RuntimeError(f'Missing status metrics JSON: {status_meta_path}')
+          status_meta = json.loads(status_meta_path.read_text(encoding='utf-8'))
+          if int(status_meta.get('snapshot_count', 0)) < 1:
+              raise RuntimeError('Status tracker contains no monthly snapshots')
+          if not status_history_path.exists():
+              raise RuntimeError(f'Missing status history CSV: {status_history_path}')
+          if not status_transitions_path.exists():
+              raise RuntimeError(f'Missing status transition CSV: {status_transitions_path}')
+
+          plot_manifest = json.loads(
+              Path('data/visuals/generation_pipeline_monthly_manifest.json').read_text(encoding='utf-8')
+          )
+          if status_meta.get('latest_snapshot_month') != plot_manifest.get('snapshot_month'):
+              raise RuntimeError(
+                  'Status tracker latest month does not match rendered pipeline snapshot: '
+                  f"{status_meta.get('latest_snapshot_month')} vs {plot_manifest.get('snapshot_month')}"
+              )
+
           print(f'Validated {png}: {width}x{height}, {len(data):,} bytes')
           print(f'Validated {csv_path}: {len(rows)} annual rows, {len(fields)} columns')
+          print(
+              'Validated empirical status tracker: '
+              f"{status_meta['snapshot_count']} snapshot(s), mode="
+              f"{status_meta['empirical_conversion']['mode']}"
+          )
           PY
 
       - name: Report source freshness
@@ -123,9 +155,13 @@ jobs:
           from pathlib import Path
 
           meta = json.loads(Path('data/metadata/ea_generation_pipeline_source.json').read_text())
+          status_meta = json.loads(
+              Path('data/metadata/ea_generation_pipeline_status_metrics.json').read_text()
+          )
           snap = meta['retained_snapshot']
           tp = meta.get('transpower_connection_pipeline_cross_check', {})
           check = meta.get('dashboard_check', {})
+          empirical = status_meta.get('empirical_conversion', {})
 
           print('## Monthly generation pipeline source check')
           print()
@@ -145,6 +181,20 @@ jobs:
           else:
               print(f"- EA dashboard fingerprint changed since prior successful check: {changed}")
           print(f"- Transpower connection-pipeline last modified: {tp.get('last_modified', 'unknown')}")
+          print()
+          print('### Empirical EA status tracking')
+          print()
+          print(
+              f"- Archive: {status_meta['snapshot_count']} snapshot(s), "
+              f"{status_meta['first_snapshot_month']} to {status_meta['latest_snapshot_month']}"
+          )
+          print(f"- Tracking mode: {empirical.get('mode', 'unknown')}")
+          if empirical.get('display_ready'):
+              print(f"- Exact conversion measure ready: {empirical.get('display_label')}")
+          elif empirical.get('annotation_ready'):
+              print(f"- Aggregate status-flow annotation ready: {empirical.get('annotation_label')}")
+          else:
+              print('- Conversion measure not mature enough to display yet; monthly history will continue accumulating.')
           print()
           print(
               'Transpower is used as a freshness/cross-check stream only; '
@@ -166,6 +216,7 @@ jobs:
           git add data/pipeline \
                   data/metadata/ea_generation_pipeline_source.json \
                   data/metadata/connection_pipeline_source.json \
+                  data/metadata/ea_generation_pipeline_status_metrics.json \
                   data/distributed_generation/model/distributed_solar_adoption_20pct.* \
                   data/visuals/generation_pipeline_monthly_latest.png \
                   data/visuals/generation_pipeline_monthly_plot_data.csv \
