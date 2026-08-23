@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       force_rebuild:
-        description: 'Rebuild all derived outputs even if upstream data is unchanged'
+        description: 'Rebuild daily-scope derived outputs even if upstream data is unchanged'
         required: false
         default: false
         type: boolean
@@ -15,277 +15,294 @@ permissions:
   contents: write
 
 concurrency:
-  group: nz-grid-model-data-${{ github.ref }}
-  cancel-in-progress: true
+  group: nz-grid-refresh-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
-  update-data:
+  check-hmd:
     runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.detect.outputs.changed }}
+      substantive_changed: ${{ steps.detect.outputs.substantive_changed }}
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-python@v5.3.0
+        with:
+          python-version: '3.12'
+      - run: pip install requests
+      - name: Check EA HMD Data
+        run: python update_data.py
+      - name: Capture HMD Changes
+        id: detect
+        shell: bash
+        run: |
+          mkdir -p patches
+          git diff --binary -- data/hydro data/metadata/hmd_manifest.json data/metadata/hmd_index_sources.json data/metadata/hmd_model_series_sources.json data/metadata/hmd_infrastructure_source.json > patches/hmd.patch
+          if [ -s patches/hmd.patch ]; then echo "changed=true" >> "$GITHUB_OUTPUT"; else echo "changed=false" >> "$GITHUB_OUTPUT"; fi
+          if git diff --quiet -- data/hydro; then echo "substantive_changed=false" >> "$GITHUB_OUTPUT"; else echo "substantive_changed=true" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hmd-source-patch
+          path: patches/hmd.patch
+          if-no-files-found: error
+          retention-days: 1
 
+  check-wholesale:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.detect.outputs.changed }}
+      substantive_changed: ${{ steps.detect.outputs.substantive_changed }}
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-python@v5.3.0
+        with:
+          python-version: '3.12'
+      - run: pip install requests
+      - name: Check EA Wholesale Baseline Data
+        run: python update_wholesale.py
+      - name: Capture Wholesale Changes
+        id: detect
+        shell: bash
+        run: |
+          mkdir -p patches
+          git diff --binary -- data/wholesale/raw data/metadata/wholesale_sources.json > patches/wholesale.patch
+          if [ -s patches/wholesale.patch ]; then echo "changed=true" >> "$GITHUB_OUTPUT"; else echo "changed=false" >> "$GITHUB_OUTPUT"; fi
+          if git diff --quiet -- data/wholesale/raw; then echo "substantive_changed=false" >> "$GITHUB_OUTPUT"; else echo "substantive_changed=true" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wholesale-source-patch
+          path: patches/wholesale.patch
+          if-no-files-found: error
+          retention-days: 1
+
+  check-reconciliation:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.detect.outputs.changed }}
+      substantive_changed: ${{ steps.detect.outputs.substantive_changed }}
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-python@v5.3.0
+        with:
+          python-version: '3.12'
+      - run: pip install requests
+      - name: Check Reconciled Demand and Injection
+        run: python update_reconciliation.py
+      - name: Capture Reconciliation Changes
+        id: detect
+        shell: bash
+        run: |
+          mkdir -p patches
+          git diff --binary -- data/wholesale/model/reconciliation_monthly data/wholesale/model/reconciliation_injection_poc_monthly data/wholesale/model/reconciled_daily.csv data/wholesale/model/reconciled_injection_by_poc_2024.csv data/metadata/reconciliation_sources.json > patches/reconciliation.patch
+          if [ -s patches/reconciliation.patch ]; then echo "changed=true" >> "$GITHUB_OUTPUT"; else echo "changed=false" >> "$GITHUB_OUTPUT"; fi
+          if git diff --quiet -- data/wholesale/model/reconciliation_monthly data/wholesale/model/reconciliation_injection_poc_monthly data/wholesale/model/reconciled_daily.csv data/wholesale/model/reconciled_injection_by_poc_2024.csv; then
+            echo "substantive_changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "substantive_changed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reconciliation-source-patch
+          path: patches/reconciliation.patch
+          if-no-files-found: error
+          retention-days: 1
+
+  check-distributed-generation:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.detect.outputs.changed }}
+      substantive_changed: ${{ steps.dg.outputs.distributed_generation_changed }}
+      solar_model_inputs_changed: ${{ steps.dg.outputs.solar_model_inputs_changed }}
+      battery_model_inputs_changed: ${{ steps.dg.outputs.battery_model_inputs_changed }}
+      metadata_changed: ${{ steps.dg.outputs.metadata_changed }}
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-python@v5.3.0
+        with:
+          python-version: '3.12'
+      - run: pip install requests
+      - name: Check EA Distributed Generation Data
+        id: dg
+        run: python update_distributed_generation.py
+      - name: Capture Distributed Generation Changes
+        id: detect
+        shell: bash
+        run: |
+          mkdir -p patches
+          git diff --binary -- data/distributed_generation data/metadata/distributed_generation_sources.json > patches/distributed-generation.patch
+          if [ -s patches/distributed-generation.patch ]; then echo "changed=true" >> "$GITHUB_OUTPUT"; else echo "changed=false" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: distributed-generation-source-patch
+          path: patches/distributed-generation.patch
+          if-no-files-found: error
+          retention-days: 1
+
+  rebuild-daily-dependents:
+    needs: [check-hmd, check-wholesale, check-reconciliation, check-distributed-generation]
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4.2.2
 
+      - name: Download Source Patches
+        uses: actions/download-artifact@v4
+        with:
+          pattern: '*-source-patch'
+          path: patches
+          merge-multiple: true
+
+      - name: Apply Source Patches
+        shell: bash
+        run: |
+          shopt -s nullglob
+          for patch in patches/*.patch; do
+            if [ -s "$patch" ]; then
+              echo "Applying $patch"
+              git apply --binary "$patch"
+            fi
+          done
+
       - name: Set up Python
+        if: inputs.force_rebuild == true || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-reconciliation.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.substantive_changed == 'true'
         uses: actions/setup-python@v5.3.0
         with:
           python-version: '3.12'
 
-      - name: Install Dependencies
+      - name: Install Model Dependencies
+        if: inputs.force_rebuild == true || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-reconciliation.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.substantive_changed == 'true'
         run: pip install requests openpyxl matplotlib scipy pandas beautifulsoup4
 
-      # ----------------------------------------------------------------------
-      # Upstream checks. These should be cheap no-ops when the source version
-      # has not changed. Each check is followed by a git-diff gate so downstream
-      # processing only runs when versioned source inputs actually changed.
-      # ----------------------------------------------------------------------
-
-      - name: Check EA HMD Data
-        run: python update_data.py
-
-      - name: Detect HMD Changes
-        id: hmd
-        shell: bash
-        run: |
-          if git diff --quiet -- data/hydro data/metadata/hmd_manifest.json data/metadata/hmd_index_sources.json data/metadata/hmd_model_series_sources.json data/metadata/hmd_infrastructure_source.json; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Check EA JADE Published Inputs and Outputs
-        run: python update_jade_manifest.py
-
-      - name: Detect JADE Changes
-        id: jade
-        shell: bash
-        run: |
-          if git diff --quiet -- data/metadata/jade_manifest.json data/metadata/jade_latest.json; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Check EA Wholesale Baseline Data
-        run: python update_wholesale.py
-
-      - name: Detect Wholesale Changes
-        id: wholesale
-        shell: bash
-        run: |
-          if git diff --quiet -- data/wholesale/raw data/metadata/wholesale_sources.json; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Check Reconciled Demand and Injection
-        run: python update_reconciliation.py
-
-      - name: Detect Reconciliation Changes
-        id: reconciliation
-        shell: bash
-        run: |
-          if git diff --quiet -- data/wholesale/model/reconciliation_monthly data/wholesale/model/reconciliation_injection_poc_monthly data/wholesale/model/reconciled_daily.csv data/wholesale/model/reconciled_injection_by_poc_2024.csv data/metadata/reconciliation_sources.json; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Check EA Distributed Generation Data
-        id: ea_dg
-        run: python update_distributed_generation.py
-
-      - name: Check and Normalize Transpower 2026 SOSA
-        run: python update_sosa_2026.py
-
-      - name: Detect SOSA Changes
-        id: sosa
-        shell: bash
-        run: |
-          if git diff --quiet -- data/sosa/2026; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Check MBIE EDGS 2024 Workbooks
-        run: python update_mbie_edgs.py
-
-      - name: Detect MBIE EDGS Changes
-        id: mbie
-        shell: bash
-        run: |
-          if git diff --quiet -- data/mbie/edgs2024; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          fi
-
-      # ----------------------------------------------------------------------
-      # Derived JADE analysis. Rebuild only when the published JADE manifest/run
-      # changes, when manually forced, or when a required output is absent.
-      # ----------------------------------------------------------------------
-
-      - name: Inspect Latest JADE Output Schemas
-        if: inputs.force_rebuild == true || steps.jade.outputs.changed == 'true' || hashFiles('data/jade/model/jade_latest_output_schemas.json') == ''
-        run: python inspect_jade_latest_outputs.py
-
-      - name: Inspect Published JADE Run Configuration
-        if: inputs.force_rebuild == true || steps.jade.outputs.changed == 'true' || hashFiles('data/jade/model/jade_run_configuration.json') == ''
-        run: python inspect_jade_run_configuration.py
-
-      - name: Build JADE Weekly Security Visual Data
-        if: inputs.force_rebuild == true || steps.jade.outputs.changed == 'true' || hashFiles('data/jade/model/weekly_security.csv') == ''
-        run: python build_jade_weekly_security.py
-
-      - name: Build JADE Weekly Thermal Dispatch Data
-        if: inputs.force_rebuild == true || steps.jade.outputs.changed == 'true' || hashFiles('data/jade/model/weekly_thermal_dispatch.csv') == ''
-        run: python build_jade_thermal_dispatch.py
-
-      - name: Build JADE Thermal Valley Analysis
-        if: inputs.force_rebuild == true || steps.jade.outputs.changed == 'true' || hashFiles('data/jade/model/thermal_valley_summary.json') == ''
-        run: python build_jade_thermal_valley.py
-
-      - name: Render JADE Seasonal Security Charts
-        if: inputs.force_rebuild == true || steps.jade.outputs.changed == 'true' || hashFiles('data/visuals/jade_seasonal_security.png') == ''
-        run: python build_jade_security_charts.py
-
-      # ----------------------------------------------------------------------
-      # Hydro and wholesale normalization.
-      # ----------------------------------------------------------------------
-
       - name: Normalize Hydro Data
-        if: inputs.force_rebuild == true || steps.hmd.outputs.changed == 'true' || hashFiles('data/hydro/model/storage_daily.csv') == ''
+        if: inputs.force_rebuild == true || needs.check-hmd.outputs.substantive_changed == 'true'
         run: python normalize_hydro.py
 
       - name: Build Hydro Storage Energy Equivalent
-        if: inputs.force_rebuild == true || steps.hmd.outputs.changed == 'true' || hashFiles('data/model/hydro_storage_energy_daily.csv') == ''
+        if: inputs.force_rebuild == true || needs.check-hmd.outputs.substantive_changed == 'true'
         run: python build_hydro_storage_energy.py
 
       - name: Normalize Wholesale Baseline Data
-        if: inputs.force_rebuild == true || steps.wholesale.outputs.changed == 'true' || hashFiles('data/wholesale/model/generation_daily.csv') == ''
+        if: inputs.force_rebuild == true || needs.check-wholesale.outputs.substantive_changed == 'true'
         run: python normalize_wholesale.py
 
       - name: Diagnose Generation POC Coverage
-        if: inputs.force_rebuild == true || steps.wholesale.outputs.changed == 'true' || steps.reconciliation.outputs.changed == 'true' || hashFiles('data/model/generation_poc_diagnostic.json') == ''
+        if: inputs.force_rebuild == true || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-reconciliation.outputs.substantive_changed == 'true'
         run: python diagnose_generation_poc.py
 
       - name: Validate Wholesale Baseline
-        if: inputs.force_rebuild == true || steps.wholesale.outputs.changed == 'true' || steps.reconciliation.outputs.changed == 'true' || hashFiles('data/model/baseline_validation.json') == ''
+        if: inputs.force_rebuild == true || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-reconciliation.outputs.substantive_changed == 'true'
         run: python validate_baseline.py
 
-      # ----------------------------------------------------------------------
-      # Distributed generation. The updater already exposes finer-grained flags.
-      # ----------------------------------------------------------------------
-
       - name: Normalize Distributed Generation Data
-        if: inputs.force_rebuild == true || steps.ea_dg.outputs.distributed_generation_changed == 'true' || hashFiles('data/distributed_generation/model/national_solar_all_monthly.csv') == '' || hashFiles('data/distributed_generation/model/national_solar_battery_attachment_monthly.csv') == ''
+        if: inputs.force_rebuild == true || needs.check-distributed-generation.outputs.substantive_changed == 'true'
         run: python normalize_distributed_generation.py
 
       - name: Classify Current Solar Installations by Size
-        if: inputs.force_rebuild == true || steps.ea_dg.outputs.solar_model_inputs_changed == 'true' || hashFiles('data/distributed_generation/model/solar_size_buckets_current.json') == ''
+        if: inputs.force_rebuild == true || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true'
         run: python build_solar_size_buckets.py
 
       - name: Build Distributed Solar Adoption Scenarios
-        if: inputs.force_rebuild == true || steps.ea_dg.outputs.solar_model_inputs_changed == 'true' || hashFiles('data/distributed_generation/model/distributed_solar_adoption_scenarios.json') == ''
+        if: inputs.force_rebuild == true || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true'
         run: python build_distributed_solar_scenarios.py
 
       - name: Apply Larger Distributed Solar Growth Guardrail
-        if: inputs.force_rebuild == true || steps.ea_dg.outputs.solar_model_inputs_changed == 'true' || hashFiles('data/distributed_generation/model/distributed_solar_adoption_scenarios.csv') == ''
+        if: inputs.force_rebuild == true || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true'
         run: python cap_larger_distributed_solar_growth.py
 
       - name: Build Distributed Battery Attachment Scenarios
-        if: inputs.force_rebuild == true || steps.ea_dg.outputs.battery_model_inputs_changed == 'true' || steps.ea_dg.outputs.solar_model_inputs_changed == 'true' || hashFiles('data/distributed_generation/model/distributed_battery_attachment_scenarios.json') == ''
+        if: inputs.force_rebuild == true || needs.check-distributed-generation.outputs.battery_model_inputs_changed == 'true' || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true'
         run: python build_distributed_battery_scenarios.py
 
-      # ----------------------------------------------------------------------
-      # Calibrated baseline and future-demand chain.
-      # ----------------------------------------------------------------------
-
       - name: Diagnose Solar Generation Yield Candidates
-        if: inputs.force_rebuild == true || steps.wholesale.outputs.changed == 'true' || hashFiles('data/model/solar_yield_diagnostic.json') == ''
+        if: inputs.force_rebuild == true || needs.check-wholesale.outputs.substantive_changed == 'true'
         run: python diagnose_solar_yield.py
 
       - name: Estimate 2024 Behind-Meter Solar
-        if: inputs.force_rebuild == true || steps.wholesale.outputs.changed == 'true' || steps.ea_dg.outputs.distributed_generation_changed == 'true' || hashFiles('data/model/behind_meter_solar_2024.json') == ''
+        if: inputs.force_rebuild == true || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.substantive_changed == 'true'
         run: python estimate_btm_solar_2024.py
 
       - name: Build Calibrated 2024 Baseline
-        if: inputs.force_rebuild == true || steps.wholesale.outputs.changed == 'true' || steps.reconciliation.outputs.changed == 'true' || steps.ea_dg.outputs.distributed_generation_changed == 'true' || hashFiles('data/model/baseline_2024.json') == ''
+        if: inputs.force_rebuild == true || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-reconciliation.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.substantive_changed == 'true'
         run: python build_baseline_2024.py
 
-      - name: Inspect MBIE EDGS Workbook Structure
-        if: inputs.force_rebuild == true || steps.mbie.outputs.changed == 'true' || hashFiles('data/mbie/edgs2024/inspection.json') == ''
-        run: python inspect_mbie_edgs.py
-
-      - name: Normalize MBIE EDGS Demand Scenarios
-        if: inputs.force_rebuild == true || steps.mbie.outputs.changed == 'true' || hashFiles('data/mbie/edgs2024/demand_scenarios.csv') == ''
-        run: python normalize_mbie_edgs.py
-
       - name: Build Calibrated Future Demand Scenarios
-        if: inputs.force_rebuild == true || steps.mbie.outputs.changed == 'true' || steps.wholesale.outputs.changed == 'true' || steps.reconciliation.outputs.changed == 'true' || steps.ea_dg.outputs.distributed_generation_changed == 'true' || hashFiles('data/model/future_demand_scenarios.csv') == ''
+        if: inputs.force_rebuild == true || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-reconciliation.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.substantive_changed == 'true'
         run: python build_future_demand_scenarios.py
 
       - name: Build 2030 Replay Inputs
-        if: inputs.force_rebuild == true || steps.mbie.outputs.changed == 'true' || steps.wholesale.outputs.changed == 'true' || steps.reconciliation.outputs.changed == 'true' || steps.ea_dg.outputs.distributed_generation_changed == 'true' || steps.hmd.outputs.changed == 'true' || hashFiles('data/model/replay_2030_inputs.json') == ''
+        if: inputs.force_rebuild == true || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-reconciliation.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.substantive_changed == 'true'
         run: python build_replay_inputs.py
 
-      # ----------------------------------------------------------------------
-      # Cross-source scenario comparisons and public visuals.
-      # ----------------------------------------------------------------------
-
       - name: Compare Hydro Inflow and Solar Seasonality
-        if: inputs.force_rebuild == true || steps.hmd.outputs.changed == 'true' || steps.wholesale.outputs.changed == 'true' || hashFiles('data/model/hydro_solar_seasonality.json') == ''
+        if: inputs.force_rebuild == true || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true'
         run: python build_hydro_solar_seasonality.py
 
       - name: Compare Distributed Solar with SOSA Winter Energy
-        if: inputs.force_rebuild == true || steps.ea_dg.outputs.solar_model_inputs_changed == 'true' || steps.sosa.outputs.changed == 'true' || steps.hmd.outputs.changed == 'true' || steps.wholesale.outputs.changed == 'true' || hashFiles('data/model/distributed_solar_sosa_winter_energy.csv') == ''
+        if: inputs.force_rebuild == true || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true' || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true'
         run: python build_distributed_solar_winter_energy.py
 
       - name: Compare Distributed Batteries with SOSA NI Capacity
-        if: inputs.force_rebuild == true || steps.ea_dg.outputs.battery_model_inputs_changed == 'true' || steps.ea_dg.outputs.solar_model_inputs_changed == 'true' || steps.sosa.outputs.changed == 'true' || hashFiles('data/model/distributed_battery_sosa_ni_capacity.csv') == ''
+        if: inputs.force_rebuild == true || needs.check-distributed-generation.outputs.battery_model_inputs_changed == 'true' || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true'
         run: python build_distributed_battery_sosa_ni_capacity.py
 
       - name: Build SOSA Distributed Margin Comparison
-        if: inputs.force_rebuild == true || steps.ea_dg.outputs.battery_model_inputs_changed == 'true' || steps.ea_dg.outputs.solar_model_inputs_changed == 'true' || steps.sosa.outputs.changed == 'true' || steps.hmd.outputs.changed == 'true' || steps.wholesale.outputs.changed == 'true' || hashFiles('data/model/sosa_distributed_margin_comparison.csv') == ''
+        if: inputs.force_rebuild == true || needs.check-distributed-generation.outputs.battery_model_inputs_changed == 'true' || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true' || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true'
         run: python build_sosa_distributed_comparison.py
 
       - name: Build Hydro Winter Energy Equivalence View
-        if: inputs.force_rebuild == true || steps.ea_dg.outputs.solar_model_inputs_changed == 'true' || steps.sosa.outputs.changed == 'true' || steps.hmd.outputs.changed == 'true' || steps.wholesale.outputs.changed == 'true' || hashFiles('data/model/sosa_2035_hydro_energy_equivalence.csv') == ''
+        if: inputs.force_rebuild == true || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true' || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true'
         run: python build_hydro_energy_equivalence.py
 
       - name: Render Observed 2024 Hydro Price Stripes
-        if: inputs.force_rebuild == true || steps.hmd.outputs.changed == 'true' || steps.wholesale.outputs.changed == 'true' || hashFiles('data/model/observed_2024_hydro_stress_daily.csv') == ''
+        if: inputs.force_rebuild == true || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true'
         run: python build_observed_2024_hydro_price_stripes.py
 
       - name: Build Hydro Trough Counterfactual
-        if: inputs.force_rebuild == true || steps.hmd.outputs.changed == 'true' || steps.wholesale.outputs.changed == 'true' || steps.ea_dg.outputs.solar_model_inputs_changed == 'true' || steps.sosa.outputs.changed == 'true' || hashFiles('data/visuals/hydro_trough_counterfactual_2024.png') == ''
+        if: inputs.force_rebuild == true || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true'
         run: python build_hydro_trough_counterfactual.py
 
       - name: Render Observed 2024 WAEERC Risk Zones
-        if: inputs.force_rebuild == true || steps.hmd.outputs.changed == 'true' || steps.wholesale.outputs.changed == 'true' || hashFiles('data/visuals/observed_2024_hydro_bands_price_p95_erc_zones_top_ribbon.png') == ''
+        if: inputs.force_rebuild == true || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true'
         continue-on-error: true
         run: python build_observed_2024_erc_zones.py
 
-      - name: Report Dependency Decisions
+      - name: Audit Run Decisions
+        if: always()
         shell: bash
         run: |
-          echo "HMD changed: ${{ steps.hmd.outputs.changed }}"
-          echo "JADE changed: ${{ steps.jade.outputs.changed }}"
-          echo "Wholesale changed: ${{ steps.wholesale.outputs.changed }}"
-          echo "Reconciliation changed: ${{ steps.reconciliation.outputs.changed }}"
-          echo "Distributed generation changed: ${{ steps.ea_dg.outputs.distributed_generation_changed }}"
-          echo "SOSA changed: ${{ steps.sosa.outputs.changed }}"
-          echo "MBIE EDGS changed: ${{ steps.mbie.outputs.changed }}"
-          echo "Force rebuild: ${{ inputs.force_rebuild }}"
+          {
+            echo "## Daily refresh summary"
+            echo ""
+            echo "| Source | Versioned change | Substantive model-input change |"
+            echo "|---|---:|---:|"
+            echo "| HMD | ${{ needs.check-hmd.outputs.changed }} | ${{ needs.check-hmd.outputs.substantive_changed }} |"
+            echo "| Wholesale | ${{ needs.check-wholesale.outputs.changed }} | ${{ needs.check-wholesale.outputs.substantive_changed }} |"
+            echo "| Reconciliation | ${{ needs.check-reconciliation.outputs.changed }} | ${{ needs.check-reconciliation.outputs.substantive_changed }} |"
+            echo "| Distributed generation | ${{ needs.check-distributed-generation.outputs.changed }} | ${{ needs.check-distributed-generation.outputs.substantive_changed }} |"
+            echo ""
+            echo "Solar model inputs changed: ${{ needs.check-distributed-generation.outputs.solar_model_inputs_changed }}"
+            echo ""
+            echo "Battery model inputs changed: ${{ needs.check-distributed-generation.outputs.battery_model_inputs_changed }}"
+            echo ""
+            echo "Force rebuild: ${{ inputs.force_rebuild }}"
+            echo ""
+            echo "### Files changed before commit"
+            git status --short data/ || true
+          } | tee -a "$GITHUB_STEP_SUMMARY"
 
-      - name: Commit and Push Derived Changes
+      - name: Commit and Push Changes
+        shell: bash
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data/
-          git diff --cached --quiet && echo "No data changes to commit" && exit 0
-          git commit -m "Automated NZ grid data refresh"
+          if git diff --cached --quiet; then
+            echo "No data changes to commit" | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "### Files committed" >> "$GITHUB_STEP_SUMMARY"
+          git diff --cached --name-only | sed 's/^/- /' >> "$GITHUB_STEP_SUMMARY"
+          git commit -m "Automated NZ grid daily refresh"
           git pull --rebase -X theirs origin "${GITHUB_REF_NAME}"
           git push origin HEAD:"${GITHUB_REF_NAME}"
