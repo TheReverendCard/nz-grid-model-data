@@ -1,38 +1,176 @@
 from __future__ import annotations
-import csv,hashlib,json,re
+
+import csv
+import hashlib
+import json
+import re
 from pathlib import Path
+
 import requests
 from openpyxl import load_workbook
-URL='https://static.transpower.co.nz/public/uncontrolled_docs/Generation%20and%20energy%20storage%20connection%20pipeline.xlsx';D=Path('data/pipeline');RAW=D/'generation_and_energy_storage_connection_pipeline.xlsx';OUT=D/'transpower_generation_storage_pipeline.csv';META=Path('data/metadata/connection_pipeline_source.json')
-def clean(v):return re.sub(r'[^a-z0-9]+','_',str(v or '').strip().lower()).strip('_')
-def num(v):
- if v is None or v=='':return ''
- m=re.search(r'-?\d+(?:\.\d+)?',str(v).replace(',',''));return float(m.group()) if m else ''
-def find(h,*n):
- for i,x in enumerate(h):
-  if any(y in clean(x) for y in n):return i
- return None
-def main():
- r=requests.get(URL,timeout=120);r.raise_for_status()
- if not r.content.startswith(b'PK'):raise RuntimeError('Transpower pipeline response is not XLSX')
- D.mkdir(parents=True,exist_ok=True);RAW.write_bytes(r.content);wb=load_workbook(RAW,data_only=True,read_only=True);best=None
- for ws in wb.worksheets:
-  for ri,row in enumerate(ws.iter_rows(min_row=1,max_row=min(ws.max_row,30),values_only=True),1):
-   vals=[str(v or '') for v in row];j=' '.join(vals).lower()
-   if len([v for v in vals if v.strip()])>=4 and ('project' in j or 'connection' in j) and ('mw' in j or 'capacity' in j):best=(ws,ri,list(row));break
-  if best:break
- if not best:raise RuntimeError('Could not identify pipeline header row')
- ws,hr,rh=best;headers=[];seen={}
- for i,h in enumerate(rh):
-  b=clean(h) or f'column_{i+1}';seen[b]=seen.get(b,0)+1;headers.append(b if seen[b]==1 else f'{b}_{seen[b]}')
- p=find(headers,'project_name','project');tech=find(headers,'technology','generation_type','fuel_type','resource_type','subtype');cap=find(headers,'capacity_mw','maximum_capacity','capacity','mw');stage=find(headers,'stage','status');region=find(headers,'region');loc=find(headers,'location','point_of_connection','poc');cust=find(headers,'customer','developer','proponent');date=find(headers,'need_date','commission','connection_date');out=[]
- for rr in ws.iter_rows(min_row=hr+1,values_only=True):
-  vals=list(rr)+[None]*max(0,len(headers)-len(rr))
-  if not any(v not in (None,'') for v in vals):continue
-  rec={'project_name':vals[p] if p is not None else '','technology':vals[tech] if tech is not None else '','capacity_mw':num(vals[cap]) if cap is not None else '','stage':vals[stage] if stage is not None else '','region':vals[region] if region is not None else '','location':vals[loc] if loc is not None else '','customer_or_developer':vals[cust] if cust is not None else '','expected_connection_or_need_date':vals[date] if date is not None else ''}
-  for h,v in zip(headers,vals):rec['raw_'+h]=v if v is not None else ''
-  out.append(rec)
- with OUT.open('w',encoding='utf-8',newline='') as f:w=csv.DictWriter(f,fieldnames=list(out[0]));w.writeheader();w.writerows(out)
- META.parent.mkdir(parents=True,exist_ok=True);META.write_text(json.dumps({'source':'Transpower','source_url':URL,'sha256':hashlib.sha256(r.content).hexdigest(),'etag':r.headers.get('ETag',''),'last_modified':r.headers.get('Last-Modified',''),'worksheet':ws.title,'header_row':hr,'rows':len(out)},indent=2,default=str)+'\n')
- print('Wrote',OUT,len(out),'rows')
-if __name__=='__main__':main()
+
+URL = "https://static.transpower.co.nz/public/uncontrolled_docs/Generation%20and%20energy%20storage%20connection%20pipeline.xlsx"
+DATA_DIR = Path("data/pipeline")
+RAW = DATA_DIR / "generation_and_energy_storage_connection_pipeline.xlsx"
+OUT = DATA_DIR / "transpower_generation_storage_pipeline.csv"
+META = Path("data/metadata/connection_pipeline_source.json")
+
+
+def load_previous() -> dict[str, object]:
+    if not META.exists():
+        return {}
+    try:
+        return json.loads(META.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
+def clean(value: object) -> str:
+    return re.sub(r"[^a-z0-9]+", "_", str(value or "").strip().lower()).strip("_")
+
+
+def num(value: object):
+    if value is None or value == "":
+        return ""
+    match = re.search(r"-?\d+(?:\.\d+)?", str(value).replace(",", ""))
+    return float(match.group()) if match else ""
+
+
+def find(headers: list[str], *needles: str) -> int | None:
+    for index, header in enumerate(headers):
+        if any(needle in clean(header) for needle in needles):
+            return index
+    return None
+
+
+def download() -> tuple[dict[str, str], bool]:
+    previous = load_previous()
+    headers: dict[str, str] = {}
+    if RAW.exists():
+        etag = str(previous.get("etag") or "")
+        last_modified = str(previous.get("last_modified") or "")
+        if etag:
+            headers["If-None-Match"] = etag
+        if last_modified:
+            headers["If-Modified-Since"] = last_modified
+
+    response = requests.get(URL, headers=headers, timeout=120)
+    if response.status_code == 304 and RAW.exists():
+        print(f"Unchanged {RAW} (HTTP 304)")
+        return {
+            "source_url": str(previous.get("source_url") or URL),
+            "etag": str(previous.get("etag") or ""),
+            "last_modified": str(previous.get("last_modified") or ""),
+        }, False
+
+    response.raise_for_status()
+    if not response.content.startswith(b"PK"):
+        raise RuntimeError("Transpower pipeline response is not XLSX")
+
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    changed = not RAW.exists() or RAW.read_bytes() != response.content
+    if changed:
+        RAW.write_bytes(response.content)
+        print(f"Wrote {RAW} ({len(response.content):,} bytes)")
+    else:
+        print(f"Unchanged {RAW} (byte-identical response)")
+    return {
+        "source_url": response.url,
+        "etag": response.headers.get("ETag", ""),
+        "last_modified": response.headers.get("Last-Modified", ""),
+    }, changed
+
+
+def normalize(source: dict[str, str]) -> None:
+    workbook = load_workbook(RAW, data_only=True, read_only=True)
+    best = None
+    for worksheet in workbook.worksheets:
+        for row_index, row in enumerate(
+            worksheet.iter_rows(min_row=1, max_row=min(worksheet.max_row, 30), values_only=True),
+            1,
+        ):
+            values = [str(value or "") for value in row]
+            joined = " ".join(values).lower()
+            if (
+                len([value for value in values if value.strip()]) >= 4
+                and ("project" in joined or "connection" in joined)
+                and ("mw" in joined or "capacity" in joined)
+            ):
+                best = (worksheet, row_index, list(row))
+                break
+        if best:
+            break
+    if not best:
+        workbook.close()
+        raise RuntimeError("Could not identify pipeline header row")
+
+    worksheet, header_row, raw_headers = best
+    headers: list[str] = []
+    seen: dict[str, int] = {}
+    for index, header in enumerate(raw_headers):
+        base = clean(header) or f"column_{index + 1}"
+        seen[base] = seen.get(base, 0) + 1
+        headers.append(base if seen[base] == 1 else f"{base}_{seen[base]}")
+
+    project = find(headers, "project_name", "project")
+    technology = find(headers, "technology", "generation_type", "fuel_type", "resource_type", "subtype")
+    capacity = find(headers, "capacity_mw", "maximum_capacity", "capacity", "mw")
+    stage = find(headers, "stage", "status")
+    region = find(headers, "region")
+    location = find(headers, "location", "point_of_connection", "poc")
+    customer = find(headers, "customer", "developer", "proponent")
+    expected_date = find(headers, "need_date", "commission", "connection_date")
+
+    rows: list[dict[str, object]] = []
+    for raw_row in worksheet.iter_rows(min_row=header_row + 1, values_only=True):
+        values = list(raw_row) + [None] * max(0, len(headers) - len(raw_row))
+        if not any(value not in (None, "") for value in values):
+            continue
+        record: dict[str, object] = {
+            "project_name": values[project] if project is not None else "",
+            "technology": values[technology] if technology is not None else "",
+            "capacity_mw": num(values[capacity]) if capacity is not None else "",
+            "stage": values[stage] if stage is not None else "",
+            "region": values[region] if region is not None else "",
+            "location": values[location] if location is not None else "",
+            "customer_or_developer": values[customer] if customer is not None else "",
+            "expected_connection_or_need_date": values[expected_date] if expected_date is not None else "",
+        }
+        for header, value in zip(headers, values):
+            record["raw_" + header] = value if value is not None else ""
+        rows.append(record)
+
+    workbook.close()
+    if not rows:
+        raise RuntimeError("Transpower pipeline normalization produced no rows")
+
+    with OUT.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+        writer.writeheader()
+        writer.writerows(rows)
+
+    payload = {
+        "source": "Transpower",
+        "source_url": source["source_url"],
+        "sha256": hashlib.sha256(RAW.read_bytes()).hexdigest(),
+        "etag": source["etag"],
+        "last_modified": source["last_modified"],
+        "worksheet": worksheet.title,
+        "header_row": header_row,
+        "rows": len(rows),
+    }
+    META.parent.mkdir(parents=True, exist_ok=True)
+    META.write_text(json.dumps(payload, indent=2, default=str) + "\n", encoding="utf-8")
+    print(f"Wrote {OUT} ({len(rows)} rows)")
+
+
+def main() -> None:
+    source, changed = download()
+    if not changed and OUT.exists() and META.exists():
+        print("Transpower connection pipeline unchanged; skipped workbook normalization")
+        return
+    normalize(source)
+
+
+if __name__ == "__main__":
+    main()
