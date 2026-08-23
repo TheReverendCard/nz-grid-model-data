@@ -59,7 +59,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install requests
-      - name: Check EA Wholesale Baseline Data
+      - name: Check EA Wholesale Generation and Grid Export Data
         run: python update_wholesale.py
       - name: Capture Wholesale Changes
         id: detect
@@ -142,8 +142,35 @@ jobs:
           if-no-files-found: error
           retention-days: 1
 
+  check-prices:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.detect.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-python@v5.3.0
+        with:
+          python-version: '3.12'
+      - run: pip install requests
+      - name: Check EA Final Energy Prices
+        run: python update_prices.py
+      - name: Capture Price Changes
+        id: detect
+        shell: bash
+        run: |
+          mkdir -p patches
+          git add -A -- data/prices data/public/wholesale_prices_daily.csv data/metadata/price_sources.json
+          git diff --cached --binary -- data/prices data/public/wholesale_prices_daily.csv data/metadata/price_sources.json > patches/prices.patch
+          if [ -s patches/prices.patch ]; then echo "changed=true" >> "$GITHUB_OUTPUT"; else echo "changed=false" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: prices-source-patch
+          path: patches/prices.patch
+          if-no-files-found: error
+          retention-days: 1
+
   rebuild-daily-dependents:
-    needs: [check-hmd, check-wholesale, check-reconciliation, check-distributed-generation]
+    needs: [check-hmd, check-wholesale, check-reconciliation, check-distributed-generation, check-prices]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -168,7 +195,7 @@ jobs:
           done
 
       - name: Set up Python
-        if: inputs.force_rebuild == true || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-reconciliation.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.substantive_changed == 'true'
+        if: inputs.force_rebuild == true || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-reconciliation.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.substantive_changed == 'true' || needs.check-prices.outputs.changed == 'true'
         uses: actions/setup-python@v5.3.0
         with:
           python-version: '3.12'
@@ -185,7 +212,7 @@ jobs:
         if: inputs.force_rebuild == true || needs.check-hmd.outputs.substantive_changed == 'true'
         run: python build_hydro_storage_energy.py
 
-      - name: Normalize Wholesale Baseline Data
+      - name: Normalize Wholesale Data
         if: inputs.force_rebuild == true || needs.check-wholesale.outputs.substantive_changed == 'true'
         run: python normalize_wholesale.py
 
@@ -270,6 +297,10 @@ jobs:
         continue-on-error: true
         run: python build_observed_2024_erc_zones.py
 
+      - name: Build Public Observed Data Views
+        if: inputs.force_rebuild == true || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.substantive_changed == 'true' || needs.check-prices.outputs.changed == 'true'
+        run: python build_public_views.py
+
       - name: Audit Run Decisions
         if: always()
         shell: bash
@@ -283,6 +314,7 @@ jobs:
             echo "| Wholesale | ${{ needs.check-wholesale.outputs.changed }} | ${{ needs.check-wholesale.outputs.substantive_changed }} |"
             echo "| Reconciliation | ${{ needs.check-reconciliation.outputs.changed }} | ${{ needs.check-reconciliation.outputs.substantive_changed }} |"
             echo "| Distributed generation | ${{ needs.check-distributed-generation.outputs.changed }} | ${{ needs.check-distributed-generation.outputs.substantive_changed }} |"
+            echo "| Wholesale prices | ${{ needs.check-prices.outputs.changed }} | public-view only |"
             echo ""
             echo "Solar model inputs changed: ${{ needs.check-distributed-generation.outputs.solar_model_inputs_changed }}"
             echo ""
