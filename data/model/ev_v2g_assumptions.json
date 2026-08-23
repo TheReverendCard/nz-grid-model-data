@@ -1,0 +1,68 @@
+{
+  "resource": "electric_vehicle_vehicle_to_grid_vpp",
+  "status": "provisional_future_resource",
+  "as_of_date": "2026-08-23",
+  "purpose": "Preserve assumptions for modelling EVs as a future distributed virtual power plant resource. This is not current dispatchable capacity.",
+  "fleet": {
+    "light_bev_count": 101700,
+    "light_phev_count_estimate": 51500,
+    "total_plugin_light_vehicles_estimate": 153200,
+    "notes": "BEV count based on the Ministry of Transport weekly EV fleet report around 2026-08-16. PHEV count is an approximate current estimate and should be replaced by a direct observed series when available."
+  },
+  "base_case_assumptions": {
+    "dedicated_home_charger_or_participation_share": 0.25,
+    "dispatch_power_per_participating_vehicle_kw": 5.0,
+    "rationale": "25% is a deliberately conservative participation/infrastructure assumption. 5 kW derates a typical 7 kW residential charger to allow for practical limits and aggregation losses.",
+    "estimated_participating_vehicles": 38300,
+    "estimated_dispatch_capacity_mw": 191.5
+  },
+  "evidence_based_charger_case": {
+    "approximate_effective_share": 0.33,
+    "estimated_dispatch_capacity_mw": 252.8,
+    "notes": "EECA 2025 EV charging research reported 75% of BEV users and 55% of PHEV users typically charging at home; among home chargers, dedicated charger use was approximately 47% for BEVs and 51% for PHEVs. Applied to the present fleet mix, this implies roughly one-third of plug-in vehicles may already use dedicated home charging. Dedicated charging does not imply V2G capability."
+  },
+  "fleet_ceiling": {
+    "participation_share": 1.0,
+    "dispatch_power_per_vehicle_kw": 5.0,
+    "estimated_dispatch_capacity_mw": 766.0,
+    "notes": "Pure theoretical ceiling if every current plug-in light vehicle were connected, available, bidirectional and dispatchable at 5 kW."
+  },
+  "energy_sensitivity": {
+    "base_case_participating_vehicles": 38300,
+    "usable_energy_per_vehicle_kwh": {
+      "low": 10,
+      "central": 20
+    },
+    "aggregate_energy_mwh": {
+      "low": 383,
+      "central": 766
+    },
+    "full_power_duration_hours": {
+      "low": 2.0,
+      "central": 4.0
+    }
+  },
+  "important_constraints": [
+    "Most current residential EV chargers are not necessarily bidirectional.",
+    "Many vehicles in the present fleet do not support V2G.",
+    "Vehicles must be plugged in and opted into aggregation at the relevant dispatch time.",
+    "Driver mobility needs impose state-of-charge and availability constraints.",
+    "Distribution-network export limits and local congestion may reduce usable aggregate power.",
+    "This resource should therefore be modelled as a scenario or flexible-capacity option, not as present firm generation."
+  ],
+  "future_model_formula": "dispatch_capacity_mw = plugin_vehicle_fleet * participation_share * dispatch_kw_per_vehicle / 1000",
+  "recommended_future_inputs": [
+    "Observed BEV and PHEV fleet counts by month",
+    "Share of fleet with dedicated home charging",
+    "Share of fleet that is V2G-capable",
+    "Share plugged in during each modelled interval",
+    "Aggregator participation/opt-in rate",
+    "Average allowable export power per vehicle",
+    "Average usable V2G energy per vehicle",
+    "Distribution-network constraints by region or GXP where available"
+  ],
+  "source_notes": [
+    "New Zealand Ministry of Transport weekly electric vehicle fleet reporting",
+    "EECA EV Charging Research 2025"
+  ]
+}
