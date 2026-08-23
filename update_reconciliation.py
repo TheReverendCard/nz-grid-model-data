@@ -62,6 +62,25 @@ def load_metadata() -> dict[str, object]:
     return json.loads(METADATA.read_text(encoding="utf-8"))
 
 
+def metadata_payload(months: dict[str, dict[str, str]]) -> dict[str, object]:
+    return {
+        "source": "New Zealand Electricity Authority reconciled injection and offtake (GR-010)",
+        "selection_rule": "Latest revision timestamp available for each settlement month",
+        "coverage": "2024-01-01 to 2024-12-31",
+        "months": months,
+    }
+
+
+def write_metadata_if_changed(payload: dict[str, object]) -> bool:
+    text = json.dumps(payload, indent=2) + "\n"
+    METADATA.parent.mkdir(parents=True, exist_ok=True)
+    if METADATA.exists() and METADATA.read_text(encoding="utf-8") == text:
+        return False
+    METADATA.write_text(text, encoding="utf-8")
+    print(f"Wrote {METADATA}")
+    return True
+
+
 def process_month(month: str, blob: dict[str, str]) -> tuple[list[dict[str, object]], list[dict[str, object]]]:
     url = f"{CONTAINER}/{blob['name']}"
     print(f"Downloading and aggregating {month}: {blob['name']}")
@@ -148,7 +167,37 @@ def main() -> None:
 
     metadata = load_metadata()
     previous = metadata.get("months", {}) if isinstance(metadata.get("months"), dict) else {}
-    new_months = {}
+    new_months = {
+        month: {
+            "blob_name": blob["name"],
+            "source_url": f"{CONTAINER}/{blob['name']}",
+            "etag": blob["etag"],
+            "last_modified": blob["last_modified"],
+            "content_length": blob["content_length"],
+        }
+        for month, blob in selected.items()
+    }
+
+    months_changed = False
+    for month, blob in selected.items():
+        daily_path = MONTHLY_DIR / f"{month}.csv"
+        poc_path = POC_MONTHLY_DIR / f"{month}.csv"
+        old = previous.get(month, {}) if isinstance(previous, dict) else {}
+        unchanged = (
+            daily_path.exists() and poc_path.exists() and isinstance(old, dict)
+            and old.get("etag") == blob["etag"] and old.get("blob_name") == blob["name"]
+        )
+        if not unchanged:
+            months_changed = True
+            break
+
+    payload = metadata_payload(new_months)
+    if not months_changed and OUTPUT.exists() and POC_OUTPUT.exists():
+        metadata_changed = write_metadata_if_changed(payload)
+        print("All reconciliation month revisions unchanged; skipped monthly reads and annual aggregation")
+        print(f"Reconciliation check completed; metadata_changed={metadata_changed}")
+        return
+
     all_daily_rows: list[dict[str, object]] = []
     annual_poc: defaultdict[tuple[str, str, str], float] = defaultdict(float)
 
@@ -175,14 +224,6 @@ def main() -> None:
             key = (str(row["point_of_connection"]), str(row["network"]), str(row["island"]))
             annual_poc[key] += float(row["reconciled_injection_mwh"])
 
-        new_months[month] = {
-            "blob_name": blob["name"],
-            "source_url": f"{CONTAINER}/{blob['name']}",
-            "etag": blob["etag"],
-            "last_modified": blob["last_modified"],
-            "content_length": blob["content_length"],
-        }
-
     all_daily_rows.sort(key=lambda row: str(row["date"]))
     dates = [str(row["date"]) for row in all_daily_rows]
     if len(dates) != 366 or len(set(dates)) != 366:
@@ -197,13 +238,7 @@ def main() -> None:
 
     write_daily_csv(OUTPUT, all_daily_rows)
     write_poc_csv(POC_OUTPUT, annual_poc_rows)
-    METADATA.parent.mkdir(parents=True, exist_ok=True)
-    METADATA.write_text(json.dumps({
-        "source": "New Zealand Electricity Authority reconciled injection and offtake (GR-010)",
-        "selection_rule": "Latest revision timestamp available for each settlement month",
-        "coverage": "2024-01-01 to 2024-12-31",
-        "months": new_months,
-    }, indent=2) + "\n", encoding="utf-8")
+    write_metadata_if_changed(payload)
     print(f"Wrote {OUTPUT} ({len(all_daily_rows)} days)")
     print(f"Wrote {POC_OUTPUT} ({len(annual_poc_rows)} POCs)")
     print("Reconciliation aggregation completed successfully.")
