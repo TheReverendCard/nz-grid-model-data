@@ -22,7 +22,7 @@ on:
         default: NI
   push:
     branches:
-      - agent/test-ea-azure-updater
+      - main
     paths:
       - '.github/workflows/jade_impulse_response.yml'
 
