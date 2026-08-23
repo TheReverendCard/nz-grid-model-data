@@ -110,8 +110,35 @@ jobs:
           if-no-files-found: error
           retention-days: 1
 
+  check-connection-pipeline:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.detect.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-python@v5.3.0
+        with:
+          python-version: '3.12'
+      - run: pip install requests openpyxl
+      - name: Check Transpower Connection Pipeline
+        run: python update_connection_pipeline.py
+      - name: Capture Connection Pipeline Changes
+        id: detect
+        shell: bash
+        run: |
+          mkdir -p patches
+          git add -A -- data/pipeline data/metadata/connection_pipeline_source.json
+          git diff --cached --binary -- data/pipeline data/metadata/connection_pipeline_source.json > patches/connection-pipeline.patch
+          if [ -s patches/connection-pipeline.patch ]; then echo "changed=true" >> "$GITHUB_OUTPUT"; else echo "changed=false" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: connection-pipeline-source-patch
+          path: patches/connection-pipeline.patch
+          if-no-files-found: error
+          retention-days: 1
+
   rebuild-reference-dependents:
-    needs: [check-jade, check-sosa, check-mbie]
+    needs: [check-jade, check-sosa, check-mbie, check-connection-pipeline]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -217,6 +244,7 @@ jobs:
             echo "| JADE | ${{ needs.check-jade.outputs.changed }} | ${{ needs.check-jade.outputs.substantive_changed }} |"
             echo "| Transpower SOSA | ${{ needs.check-sosa.outputs.changed }} | ${{ needs.check-sosa.outputs.substantive_changed }} |"
             echo "| MBIE EDGS | ${{ needs.check-mbie.outputs.changed }} | ${{ needs.check-mbie.outputs.substantive_changed }} |"
+            echo "| Transpower connection pipeline | ${{ needs.check-connection-pipeline.outputs.changed }} | reference/public data only |"
             echo ""
             echo "Force rebuild: ${{ inputs.force_rebuild }}"
             echo ""
