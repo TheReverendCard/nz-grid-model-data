@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-08-23T21:37:20.513354+00:00",
+  "source": "Monthly retained Electricity Authority Generation Investment Pipeline snapshots",
+  "first_snapshot_month": "2026-08",
+  "latest_snapshot_month": "2026-08",
+  "snapshot_count": 1,
+  "observation_span_months": 0,
+  "stable_project_id_column": null,
+  "current": {
+    "by_status_mw": {
+      "Other / early-stage": 40987.0,
+      "Actively pursued": 2929.0,
+      "Committed": 1862.0
+    },
+    "by_technology_mw": {
+      "BESS": 6905.0,
+      "Gas": 360.0,
+      "Geothermal": 396.0,
+      "Hydro": 120.0,
+      "Offshore wind": 8340.0,
+      "Onshore wind": 10771.0,
+      "Pumped hydro": 40.0,
+      "Utility solar": 18846.0
+    },
+    "known_date_mw": 33783.0,
+    "unknown_date_mw": 11995.0,
+    "committed_as_pct_of_other_capacity": 4.542904,
+    "committed_as_pct_of_lower_confidence_capacity": 4.239913
+  },
+  "empirical_conversion": {
+    "mode": "aggregate_net_flow_proxy",
+    "matched_to_committed_proxy_mw": 0,
+    "lower_confidence_exposure_mw_intervals": 0,
+    "promotion_proxy_pct_per_snapshot_interval": 0.0,
+    "intervals_with_detected_promotion": 0,
+    "annotation_ready": false,
+    "annotation_pct": null,
+    "annotation_label": null,
+    "projection_ready": false,
+    "not_ready_reasons": [
+      "need at least 12 snapshots",
+      "need at least 11 months of history",
+      "need at least 100 MW of conservatively matched net promotion",
+      "need promotion signals in at least two snapshot intervals"
+    ],
+    "caveat": "Current EA snapshots are aggregated rather than project-identified. This proxy only matches net lower-confidence capacity exits with simultaneous net committed gains within the same technology; it is conservative but cannot prove that the same projects changed status."
+  },
+  "display_policy": {
+    "exact_project_conversion": "When stable project identifiers are available, show the capacity-weighted share of projects first observed as Other / early-stage that are later observed as Committed, after minimum history/sample thresholds are met.",
+    "aggregate_fallback": "With aggregate-only snapshots, calculate and retain a conservative net status-flow proxy. It may be annotated after at least 12 monthly snapshots, but it must not be presented as an eventual project completion probability or used as a 'likely pipeline' layer."
+  }
+}
