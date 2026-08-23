@@ -1,0 +1,88 @@
+name: Monthly Generation Pipeline Chart
+
+on:
+  schedule:
+    - cron: '0 15 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: monthly-generation-pipeline-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  refresh-and-render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5.3.0
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install requests openpyxl pandas numpy scipy matplotlib
+
+      - name: Check latest Transpower connection pipeline
+        run: python update_connection_pipeline.py
+
+      - name: Check EA generation investment pipeline source
+        run: python check_ea_generation_pipeline.py
+
+      - name: Refresh current EA snapshot archive copy
+        shell: bash
+        run: |
+          snapshot_month=$(python - <<'PY'
+          import csv
+          with open('data/pipeline/ea_generation_investment_pipeline_current.csv', newline='', encoding='utf-8') as f:
+              print(next(csv.DictReader(f))['snapshot_month'])
+          PY
+          )
+          mkdir -p data/pipeline/history
+          cp data/pipeline/ea_generation_investment_pipeline_current.csv "data/pipeline/history/ea_generation_investment_pipeline_${snapshot_month}.csv"
+
+      - name: Build 20 percent household solar scenario
+        run: python build_distributed_solar_20pct.py
+
+      - name: Render monthly generation pipeline chart
+        run: python build_generation_pipeline_monthly_chart.py
+
+      - name: Report source freshness
+        shell: bash
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          from pathlib import Path
+          meta = json.loads(Path('data/metadata/ea_generation_pipeline_source.json').read_text())
+          snap = meta['retained_snapshot']
+          tp = meta.get('transpower_connection_pipeline_cross_check', {})
+          print('## Monthly generation pipeline source check')
+          print()
+          print(f"- EA dashboard checked: {meta['checked_at_utc']}")
+          print(f"- Retained EA status snapshot: {snap['snapshot_month']} captured {snap['captured_date']}")
+          print(f"- EA dashboard fingerprint changed since prior check: {meta['dashboard_changed_since_previous_check']}")
+          print(f"- Transpower connection-pipeline last modified: {tp.get('last_modified', 'unknown')}")
+          print()
+          print('Transpower is used as a freshness/cross-check stream only; its connection stages are not substituted for EA investment-pipeline statuses.')
+          if meta['dashboard_changed_since_previous_check']:
+              print()
+              print('**Review recommended:** the EA dashboard fingerprint changed. Refresh the retained EA status snapshot if the underlying pipeline table changed.')
+          PY
+
+      - name: Commit monthly snapshot and chart
+        shell: bash
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/pipeline data/metadata/ea_generation_pipeline_source.json data/metadata/connection_pipeline_source.json data/distributed_generation/model/distributed_solar_adoption_20pct.* data/visuals/generation_pipeline_monthly_latest.png data/visuals/generation_pipeline_monthly_plot_data.csv data/visuals/archive/generation_pipeline_*.png data/visuals/archive/generation_pipeline_*.csv
+          if git diff --cached --quiet; then
+            echo 'No monthly generation-pipeline changes to commit'
+            exit 0
+          fi
+          git commit -m 'Automated monthly generation pipeline chart refresh'
+          git pull --rebase -X theirs origin "${GITHUB_REF_NAME}"
+          git push origin HEAD:"${GITHUB_REF_NAME}"
