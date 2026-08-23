@@ -20,7 +20,6 @@ HOUSEHOLD_SOLAR = Path("data/distributed_generation/model/distributed_solar_adop
 VISUAL_DIR = Path("data/visuals")
 ARCHIVE_DIR = VISUAL_DIR / "archive"
 LATEST_PNG = VISUAL_DIR / "generation_pipeline_monthly_latest.png"
-LATEST_SVG = VISUAL_DIR / "generation_pipeline_monthly_latest.svg"
 LATEST_CSV = VISUAL_DIR / "generation_pipeline_monthly_plot_data.csv"
 LATEST_META = VISUAL_DIR / "generation_pipeline_monthly_manifest.json"
 
@@ -87,7 +86,6 @@ def pipeline_profiles(rows: list[dict[str, str]]):
         year = int(float(year_text))
         if START_YEAR <= year <= END_YEAR:
             known[(status, tech)][year - START_YEAR] += mw
-        # Projects before START_YEAR are treated as already represented by the baseline.
 
     profiles = {
         key: generation_profile(annual, CAPACITY_FACTORS[key[1]])
@@ -130,34 +128,26 @@ def demand_lines() -> dict[str, np.ndarray]:
     return result
 
 
-def archive_previous_latest(current_snapshot_month: str) -> str | None:
-    """Archive the prior latest render only when advancing to a new snapshot month."""
-    if not (LATEST_META.exists() and LATEST_PNG.exists()):
-        return None
-    try:
-        previous = json.loads(LATEST_META.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
-        return None
-
-    previous_month = str(previous.get("snapshot_month") or "").strip()
-    if not previous_month or previous_month == current_snapshot_month:
-        return None
-
-    ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(LATEST_PNG, ARCHIVE_DIR / f"generation_pipeline_{previous_month}.png")
-    if LATEST_SVG.exists():
-        shutil.copy2(LATEST_SVG, ARCHIVE_DIR / f"generation_pipeline_{previous_month}.svg")
-    if LATEST_CSV.exists():
-        shutil.copy2(LATEST_CSV, ARCHIVE_DIR / f"generation_pipeline_{previous_month}.csv")
-    return previous_month
-
-
 def main() -> None:
     rows, snapshot_month, captured_date = read_pipeline()
-    archived_month = archive_previous_latest(snapshot_month)
     profiles, unknown = pipeline_profiles(rows)
     household = household_solar_twh()
     demand = demand_lines()
+
+    old_manifest = {}
+    if LATEST_META.exists():
+        try:
+            old_manifest = json.loads(LATEST_META.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            old_manifest = {}
+
+    prior_month = old_manifest.get("snapshot_month")
+    ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
+    if prior_month and prior_month != snapshot_month:
+        if LATEST_PNG.exists():
+            shutil.copy2(LATEST_PNG, ARCHIVE_DIR / f"generation_pipeline_{prior_month}.png")
+        if LATEST_CSV.exists():
+            shutil.copy2(LATEST_CSV, ARCHIVE_DIR / f"generation_pipeline_{prior_month}.csv")
 
     fig, ax = plt.subplots(figsize=(11, 11))
     bottom = np.full(len(YEARS), BASELINE_TWH, dtype=float)
@@ -246,9 +236,7 @@ def main() -> None:
     fig.text(0.06, 0.038, sources, fontsize=7.4, ha="left", va="top", wrap=True)
 
     VISUAL_DIR.mkdir(parents=True, exist_ok=True)
-    ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
     fig.savefig(LATEST_PNG, dpi=180, bbox_inches="tight")
-    fig.savefig(LATEST_SVG, format="svg", bbox_inches="tight")
     plt.close(fig)
 
     plot = pd.DataFrame({
@@ -269,29 +257,19 @@ def main() -> None:
         plot[f"unknown_date_{tech.lower().replace(' ', '_')}_twh"] = unknown[tech]
     plot.to_csv(LATEST_CSV, index=False)
 
-    LATEST_META.write_text(
-        json.dumps(
-            {
-                "snapshot_month": snapshot_month,
-                "captured_date": captured_date,
-                "latest_png": str(LATEST_PNG),
-                "latest_svg": str(LATEST_SVG),
-                "latest_csv": str(LATEST_CSV),
-                "archived_previous_month": archived_month,
-            },
-            indent=2,
-        ) + "\n",
-        encoding="utf-8",
-    )
+    manifest = {
+        "snapshot_month": snapshot_month,
+        "captured_date": captured_date,
+        "latest_png": str(LATEST_PNG),
+        "latest_csv": str(LATEST_CSV),
+        "archived_previous_month": prior_month if prior_month and prior_month != snapshot_month else None,
+    }
+    LATEST_META.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
 
     print(f"Wrote {LATEST_PNG}")
-    print(f"Wrote {LATEST_SVG}")
     print(f"Wrote {LATEST_CSV}")
-    print(f"Wrote {LATEST_META}")
-    if archived_month:
-        print(f"Archived prior monthly render: {archived_month}")
-    else:
-        print("No prior monthly render needed archiving")
+    if manifest["archived_previous_month"]:
+        print(f"Archived previous month: {manifest['archived_previous_month']}")
 
 
 if __name__ == "__main__":
