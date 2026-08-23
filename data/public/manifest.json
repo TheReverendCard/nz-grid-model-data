@@ -8,5 +8,12 @@
     "data/public/solar_installations_monthly.csv",
     "data/public/wholesale_prices_daily.csv"
   ],
-  "note": "Observed/public-data derivatives only; model scenarios are excluded."
+  "note": "Observed/public-data derivatives only. Scenario-model outputs live outside data/public.",
+  "builders": {
+    "generation_and_renewable_share": "data/wholesale/model/generation_daily.csv",
+    "demand": "data/wholesale/model/demand_daily.csv",
+    "hydro_storage": "data/hydro/model/storage_daily.csv",
+    "solar": "data/distributed_generation/model national monthly tables",
+    "wholesale_prices": "update_prices.py"
+  }
 }
