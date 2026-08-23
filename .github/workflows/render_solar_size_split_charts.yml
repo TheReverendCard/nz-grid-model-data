@@ -44,13 +44,7 @@ jobs:
             exit 0
           fi
 
-          last_week="$(python - <<'PY'
-import json
-from pathlib import Path
-p = Path('data/metadata/solar_size_split_chart_state.json')
-print(json.loads(p.read_text()).get('last_render_iso_week', ''))
-PY
-)"
+          last_week="$(python -c "import json; from pathlib import Path; p=Path('data/metadata/solar_size_split_chart_state.json'); print(json.loads(p.read_text()).get('last_render_iso_week', ''))")"
 
           if [ "$last_week" = "$current_week" ]; then
             echo "due=false" >> "$GITHUB_OUTPUT"
