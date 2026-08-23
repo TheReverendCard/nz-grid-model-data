@@ -42,7 +42,7 @@ jobs:
         run: python normalize_hydro.py
       - name: Build Hydro Storage Energy Equivalent
         run: python build_hydro_storage_energy.py
-      - name: Normalize Wholesale Baseline Data
+      - name: Normalize Wholesale Data
         run: python normalize_wholesale.py
       - name: Diagnose Generation POC Coverage
         run: python diagnose_generation_poc.py
@@ -59,6 +59,9 @@ jobs:
         run: python cap_larger_distributed_solar_growth.py
       - name: Build Distributed Battery Attachment Scenarios
         run: python build_distributed_battery_scenarios.py
+
+      - name: Build Public Observed Data Views
+        run: python build_public_views.py
 
       - name: Diagnose Solar Generation Yield Candidates
         run: python diagnose_solar_yield.py
