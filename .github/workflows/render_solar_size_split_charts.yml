@@ -9,7 +9,7 @@ on:
         default: false
         type: boolean
   schedule:
-    - cron: '30 15 * * 0'
+    - cron: '30 14 * * 1'
   workflow_run:
     workflows: ['Daily NZ Grid Data Refresh']
     types: [completed]
