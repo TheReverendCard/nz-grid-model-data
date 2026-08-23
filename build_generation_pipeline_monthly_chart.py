@@ -15,6 +15,7 @@ from matplotlib.patches import Patch
 
 PIPELINE = Path("data/pipeline/ea_generation_investment_pipeline_current.csv")
 EA_META = Path("data/metadata/ea_generation_pipeline_source.json")
+STATUS_METRICS = Path("data/metadata/ea_generation_pipeline_status_metrics.json")
 DEMAND = Path("data/mbie/edgs2024/model/total_electricity_demand.csv")
 HOUSEHOLD_SOLAR = Path("data/distributed_generation/model/distributed_solar_adoption_20pct.csv")
 VISUAL_DIR = Path("data/visuals")
@@ -69,7 +70,8 @@ def generation_profile(annual_mw: np.ndarray, cf: float) -> np.ndarray:
 def pipeline_profiles(rows: list[dict[str, str]]):
     known: dict[tuple[str, str], np.ndarray] = {
         (status, tech): np.zeros(len(YEARS), dtype=float)
-        for status in STATUS_ORDER for tech in TECHS
+        for status in STATUS_ORDER
+        for tech in TECHS
     }
     unknown_totals = defaultdict(float)
 
@@ -95,7 +97,11 @@ def pipeline_profiles(rows: list[dict[str, str]]):
     unknown_profiles = {}
     for tech in TECHS:
         total = unknown_totals[tech]
-        annual = np.full(len(YEARS), total / len(YEARS), dtype=float) if total else np.zeros(len(YEARS))
+        annual = (
+            np.full(len(YEARS), total / len(YEARS), dtype=float)
+            if total
+            else np.zeros(len(YEARS))
+        )
         unknown_profiles[tech] = generation_profile(annual, CAPACITY_FACTORS[tech])
     return profiles, unknown_profiles
 
@@ -110,7 +116,10 @@ def household_solar_twh() -> np.ndarray:
         if year_rows.empty:
             output.append(output[-1] if output else 0.0)
             continue
-        incremental_mw = np.maximum(year_rows["small_capacity_mw"].to_numpy(dtype=float) - anchor_mw, 0.0)
+        incremental_mw = np.maximum(
+            year_rows["small_capacity_mw"].to_numpy(dtype=float) - anchor_mw,
+            0.0,
+        )
         avg_incremental_mw = float(np.mean(incremental_mw))
         output.append(avg_incremental_mw * SOLAR_YIELD_GWH_PER_MW_YEAR / 1000.0)
     return np.array(output)
@@ -120,12 +129,56 @@ def demand_lines() -> dict[str, np.ndarray]:
     df = pd.read_csv(DEMAND)
     result = {}
     for scenario in ["Constraint", "Reference", "Innovation"]:
-        rows = df[(df["Scenario"] == scenario) & (df["TimePeriod"].between(START_YEAR, END_YEAR))]
+        rows = df[
+            (df["Scenario"] == scenario)
+            & (df["TimePeriod"].between(START_YEAR, END_YEAR))
+        ]
         rows = rows.sort_values("TimePeriod")
         if len(rows) != len(YEARS):
-            raise RuntimeError(f"Expected {len(YEARS)} annual {scenario} demand rows, found {len(rows)}")
+            raise RuntimeError(
+                f"Expected {len(YEARS)} annual {scenario} demand rows, found {len(rows)}"
+            )
         result[scenario] = rows["Value"].to_numpy(dtype=float)
     return result
+
+
+def status_tracking_note() -> str:
+    if not STATUS_METRICS.exists():
+        return "Status transition tracker is not yet available."
+    try:
+        summary = json.loads(STATUS_METRICS.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return "Status transition tracker could not be read."
+
+    empirical = summary.get("empirical_conversion", {})
+    count = int(summary.get("snapshot_count", 0) or 0)
+    first = summary.get("first_snapshot_month", "unknown")
+    latest = summary.get("latest_snapshot_month", "unknown")
+    mode = empirical.get("mode")
+
+    if mode == "exact_project_identity" and empirical.get("display_ready"):
+        return (
+            f"Observed EA status history ({first}–{latest}, {count} monthly snapshots): "
+            f"{empirical.get('display_label')}. This is a historical conversion measure, not a "
+            "guarantee that the same share of today's early-stage pipeline will proceed."
+        )
+
+    if mode == "aggregate_net_flow_proxy" and empirical.get("annotation_ready"):
+        return (
+            f"Observed EA status history ({first}–{latest}, {count} monthly snapshots): "
+            f"{empirical.get('annotation_label')}. Current snapshots are aggregate-only, so this is "
+            "a conservative status-flow proxy rather than an eventual project-completion probability."
+        )
+
+    if count <= 1:
+        return (
+            "Status conversion tracker: 1 monthly EA snapshot retained so far; no empirical conversion "
+            "rate is shown yet."
+        )
+    return (
+        f"Status conversion tracker: {count} monthly EA snapshots retained ({first}–{latest}); "
+        "the observation window/sample is not mature enough to display a conversion figure yet."
+    )
 
 
 def main() -> None:
@@ -145,15 +198,28 @@ def main() -> None:
     ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
     if prior_month and prior_month != snapshot_month:
         if LATEST_PNG.exists():
-            shutil.copy2(LATEST_PNG, ARCHIVE_DIR / f"generation_pipeline_{prior_month}.png")
+            shutil.copy2(
+                LATEST_PNG,
+                ARCHIVE_DIR / f"generation_pipeline_{prior_month}.png",
+            )
         if LATEST_CSV.exists():
-            shutil.copy2(LATEST_CSV, ARCHIVE_DIR / f"generation_pipeline_{prior_month}.csv")
+            shutil.copy2(
+                LATEST_CSV,
+                ARCHIVE_DIR / f"generation_pipeline_{prior_month}.csv",
+            )
 
     fig, ax = plt.subplots(figsize=(11, 11))
     bottom = np.full(len(YEARS), BASELINE_TWH, dtype=float)
     ax.bar(YEARS, bottom, color=COLORS["baseline"], alpha=0.72, zorder=1)
 
-    ax.bar(YEARS, household, bottom=bottom, color=COLORS["household"], alpha=0.95, zorder=2)
+    ax.bar(
+        YEARS,
+        household,
+        bottom=bottom,
+        color=COLORS["household"],
+        alpha=0.95,
+        zorder=2,
+    )
     bottom += household
 
     style = {
@@ -168,9 +234,15 @@ def main() -> None:
                 continue
             kwargs = style[status]
             ax.bar(
-                YEARS, vals, bottom=bottom, color=COLORS[tech], alpha=kwargs["alpha"],
-                hatch=kwargs["hatch"], edgecolor=COLORS[tech] if kwargs["hatch"] else None,
-                linewidth=0.35 if kwargs["hatch"] else 0.2, zorder=1,
+                YEARS,
+                vals,
+                bottom=bottom,
+                color=COLORS[tech],
+                alpha=kwargs["alpha"],
+                hatch=kwargs["hatch"],
+                edgecolor=COLORS[tech] if kwargs["hatch"] else None,
+                linewidth=0.35 if kwargs["hatch"] else 0.2,
+                zorder=1,
             )
             bottom += vals
 
@@ -179,14 +251,45 @@ def main() -> None:
         if not np.any(vals > 0):
             continue
         ax.bar(
-            YEARS, vals, bottom=bottom, color=COLORS[tech], alpha=0.09,
-            hatch="///", edgecolor=COLORS[tech], linewidth=0.35, zorder=1,
+            YEARS,
+            vals,
+            bottom=bottom,
+            color=COLORS[tech],
+            alpha=0.09,
+            hatch="///",
+            edgecolor=COLORS[tech],
+            linewidth=0.35,
+            zorder=1,
         )
         bottom += vals
 
-    ax.plot(YEARS, demand["Constraint"], color="#555555", linestyle="--", marker="o", linewidth=1.8, zorder=5)
-    ax.plot(YEARS, demand["Reference"], color="#111111", linestyle="-", marker="o", linewidth=2.4, zorder=5)
-    ax.plot(YEARS, demand["Innovation"], color="#777777", linestyle=":", marker="o", linewidth=2.0, zorder=5)
+    ax.plot(
+        YEARS,
+        demand["Constraint"],
+        color="#555555",
+        linestyle="--",
+        marker="o",
+        linewidth=1.8,
+        zorder=5,
+    )
+    ax.plot(
+        YEARS,
+        demand["Reference"],
+        color="#111111",
+        linestyle="-",
+        marker="o",
+        linewidth=2.4,
+        zorder=5,
+    )
+    ax.plot(
+        YEARS,
+        demand["Innovation"],
+        color="#777777",
+        linestyle=":",
+        marker="o",
+        linewidth=2.0,
+        zorder=5,
+    )
 
     ymax = max(160.0, math.ceil(float(bottom.max()) / 20.0) * 20.0 + 20.0)
     ax.set_ylim(0, ymax)
@@ -198,8 +301,15 @@ def main() -> None:
     ax.grid(axis="y", alpha=0.20, zorder=0)
 
     handles = [
-        Patch(facecolor=COLORS["baseline"], alpha=0.72, label="2026 energy benchmark"),
-        Patch(facecolor=COLORS["household"], label="Projected household solar (20% ICP ceiling)"),
+        Patch(
+            facecolor=COLORS["baseline"],
+            alpha=0.72,
+            label="2026 energy benchmark",
+        ),
+        Patch(
+            facecolor=COLORS["household"],
+            label="Projected household solar (20% ICP ceiling)",
+        ),
         Patch(facecolor=COLORS["Geothermal"], label="Geothermal"),
         Patch(facecolor=COLORS["Hydro"], label="Hydro"),
         Patch(facecolor=COLORS["Onshore wind"], label="Onshore wind"),
@@ -208,18 +318,63 @@ def main() -> None:
         Patch(facecolor=COLORS["Gas"], label="Gas"),
         Patch(facecolor="#777777", alpha=1.0, label="Committed"),
         Patch(facecolor="#777777", alpha=0.48, label="Actively pursued"),
-        Patch(facecolor="#777777", alpha=0.18, hatch="\\\\", edgecolor="#666666", label="Other / early-stage"),
-        Patch(facecolor="#aaaaaa", alpha=0.09, hatch="///", edgecolor="#777777", label="Unknown date, evenly allocated"),
-        Line2D([0], [0], color="#555555", linewidth=1.8, linestyle="--", marker="o", label="MBIE Constraint"),
-        Line2D([0], [0], color="#111111", linewidth=2.4, linestyle="-", marker="o", label="MBIE Reference"),
-        Line2D([0], [0], color="#777777", linewidth=2.0, linestyle=":", marker="o", label="MBIE Innovation"),
+        Patch(
+            facecolor="#777777",
+            alpha=0.18,
+            hatch="\\\\",
+            edgecolor="#666666",
+            label="Other / early-stage",
+        ),
+        Patch(
+            facecolor="#aaaaaa",
+            alpha=0.09,
+            hatch="///",
+            edgecolor="#777777",
+            label="Unknown date, evenly allocated",
+        ),
+        Line2D(
+            [0],
+            [0],
+            color="#555555",
+            linewidth=1.8,
+            linestyle="--",
+            marker="o",
+            label="MBIE Constraint",
+        ),
+        Line2D(
+            [0],
+            [0],
+            color="#111111",
+            linewidth=2.4,
+            linestyle="-",
+            marker="o",
+            label="MBIE Reference",
+        ),
+        Line2D(
+            [0],
+            [0],
+            color="#777777",
+            linewidth=2.0,
+            linestyle=":",
+            marker="o",
+            label="MBIE Innovation",
+        ),
     ]
-    ax.legend(handles=handles, title="Demand / generation", loc="upper left", fontsize=8.0, title_fontsize=9, frameon=True)
+    ax.legend(
+        handles=handles,
+        title="Demand / generation",
+        loc="upper left",
+        fontsize=8.0,
+        title_fontsize=9,
+        frameon=True,
+    )
 
     checked = "not yet checked"
     if EA_META.exists():
         try:
-            checked = json.loads(EA_META.read_text(encoding="utf-8")).get("checked_at_utc", checked)
+            checked = json.loads(EA_META.read_text(encoding="utf-8")).get(
+                "checked_at_utc", checked
+            )
         except (OSError, json.JSONDecodeError):
             pass
 
@@ -232,26 +387,38 @@ def main() -> None:
         "MBIE Electricity Demand and Generation Scenarios 2024; Electricity Authority distributed-generation data. Household solar is a 20% ICP-saturation scenario, not an EA forecast."
     )
     disclaimer = (
-        "Interpretation: the full stacked pipeline is an upper envelope, not a forecast. The Electricity Authority says it does not expect all projects in the pipeline to be built; some early-stage projects may not proceed as their viability is assessed. This chart assigns no probability of completion to Other / early-stage or unknown-date projects."
+        "Interpretation: the full stacked pipeline is an upper envelope, not a forecast. The Electricity Authority says it does not expect all projects in the pipeline to be built; some early-stage projects may not proceed as their viability is assessed. "
+        + status_tracking_note()
     )
-    fig.subplots_adjust(bottom=0.22)
-    fig.text(0.06, 0.105, method, fontsize=7.4, ha="left", va="top", wrap=True)
-    fig.text(0.06, 0.068, sources, fontsize=7.4, ha="left", va="top", wrap=True)
-    fig.text(0.06, 0.030, disclaimer, fontsize=7.4, fontweight="bold", ha="left", va="top", wrap=True)
+    fig.subplots_adjust(bottom=0.24)
+    fig.text(0.06, 0.115, method, fontsize=7.4, ha="left", va="top", wrap=True)
+    fig.text(0.06, 0.074, sources, fontsize=7.4, ha="left", va="top", wrap=True)
+    fig.text(
+        0.06,
+        0.032,
+        disclaimer,
+        fontsize=7.4,
+        fontweight="bold",
+        ha="left",
+        va="top",
+        wrap=True,
+    )
 
     VISUAL_DIR.mkdir(parents=True, exist_ok=True)
     fig.savefig(LATEST_PNG, dpi=180, bbox_inches="tight")
     plt.close(fig)
 
-    plot = pd.DataFrame({
-        "year": YEARS,
-        "baseline_twh": BASELINE_TWH,
-        "household_solar_twh": household,
-        "mbie_constraint_twh": demand["Constraint"],
-        "mbie_reference_twh": demand["Reference"],
-        "mbie_innovation_twh": demand["Innovation"],
-        "full_pipeline_top_twh": bottom,
-    })
+    plot = pd.DataFrame(
+        {
+            "year": YEARS,
+            "baseline_twh": BASELINE_TWH,
+            "household_solar_twh": household,
+            "mbie_constraint_twh": demand["Constraint"],
+            "mbie_reference_twh": demand["Reference"],
+            "mbie_innovation_twh": demand["Innovation"],
+            "full_pipeline_top_twh": bottom,
+        }
+    )
     for status in STATUS_ORDER:
         key_status = status.lower().replace(" / ", "_").replace(" ", "_")
         for tech in TECHS:
@@ -266,9 +433,15 @@ def main() -> None:
         "captured_date": captured_date,
         "latest_png": str(LATEST_PNG),
         "latest_csv": str(LATEST_CSV),
-        "archived_previous_month": prior_month if prior_month and prior_month != snapshot_month else None,
+        "status_metrics": str(STATUS_METRICS),
+        "archived_previous_month": (
+            prior_month if prior_month and prior_month != snapshot_month else None
+        ),
     }
-    LATEST_META.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    LATEST_META.write_text(
+        json.dumps(manifest, indent=2) + "\n",
+        encoding="utf-8",
+    )
 
     print(f"Wrote {LATEST_PNG}")
     print(f"Wrote {LATEST_CSV}")
