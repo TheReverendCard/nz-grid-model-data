@@ -11,18 +11,19 @@ import xml.etree.ElementTree as ET
 import requests
 
 CONTAINER = "https://emidatasets.blob.core.windows.net/publicdata"
-START_YYYYMM = "202401"
 
 DATASETS = {
     "generation": {
         "prefix": "Datasets/Wholesale/Generation/Generation_MD/",
         "suffix": "_Generation_MD.csv",
         "output_dir": Path("data/wholesale/raw/generation"),
+        "start_yyyymm": "199708",
     },
     "grid_export": {
         "prefix": "Datasets/Wholesale/Metered_data/Grid_export/",
         "suffix": "_Grid_export.csv",
         "output_dir": Path("data/wholesale/raw/grid_export"),
+        "start_yyyymm": "202401",
     },
 }
 
@@ -146,11 +147,12 @@ def scan_dataset(key: str, config: dict, previous: dict, *, full_scan: bool) -> 
     old_dataset = previous_dataset(previous, key)
     old_files = previous_files(old_dataset)
     old_by_blob = {str(item.get("blob_name", "")): item for item in old_files}
+    start_yyyymm = str(config["start_yyyymm"])
 
     if full_scan:
         scan_prefixes = [config["prefix"]]
         scanned_years: set[str] | None = None
-        print(f"{key}: full historical source listing")
+        print(f"{key}: full historical source listing from {start_yyyymm}")
     else:
         years = fast_scan_years(old_dataset)
         scan_prefixes = [config["prefix"] + year for year in years]
@@ -161,7 +163,7 @@ def scan_dataset(key: str, config: dict, previous: dict, *, full_scan: bool) -> 
     for prefix in scan_prefixes:
         for blob in list_blobs(prefix):
             yyyymm = yyyymm_from_name(blob["name"])
-            if yyyymm is None or yyyymm < START_YYYYMM:
+            if yyyymm is None or yyyymm < start_yyyymm:
                 continue
             if not blob["name"].endswith(config["suffix"]):
                 continue
@@ -199,7 +201,7 @@ def scan_dataset(key: str, config: dict, previous: dict, *, full_scan: bool) -> 
     files = [records_by_blob[name] for name in sorted(records_by_blob)]
     return {
         "prefix": config["prefix"],
-        "start_yyyymm": START_YYYYMM,
+        "start_yyyymm": start_yyyymm,
         "file_count": len(files),
         "files": files,
     }, changed
@@ -218,7 +220,7 @@ def main() -> None:
     previous = load_previous_metadata()
     metadata = {
         "source": "New Zealand Electricity Authority Azure Blob Storage",
-        "purpose": "Historical generation and grid-demand inputs for NZ electricity model",
+        "purpose": "Historical generation for public evidence plus 2024+ grid-demand inputs for NZ electricity modelling",
         "datasets": {},
     }
 
