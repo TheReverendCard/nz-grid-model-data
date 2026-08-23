@@ -1,0 +1,12 @@
+{
+  "source_latest_month": "2026-07-31",
+  "scope": "Projected small distributed solar below 25 kW, used as the household-solar component in generation-pipeline visualisations.",
+  "saturation_pct": 20.0,
+  "fitted_logistic_rate": 0.20043456711134164,
+  "current_small_solar_uptake_pct": 3.7614196015627597,
+  "current_small_capacity_mw": 751.576534,
+  "current_small_average_kw": 8.431407795144946,
+  "estimated_current_total_icps": 2369852.5940303206,
+  "projected_total_icp_growth_per_year": 31302.704910461678,
+  "method": "Same fixed-saturation logistic method as build_distributed_solar_scenarios.py, fitted to the same EA observed history but using a 20% small-solar ICP saturation ceiling."
+}

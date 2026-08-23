@@ -1,0 +1,40 @@
+{
+  "checked_at_utc": "2026-08-23T21:15:15.630689+00:00",
+  "source": "Electricity Authority Generation Investment Pipeline",
+  "dashboard_url": "https://www.ea.govt.nz/data-and-insights/charts-and-dashboards/generation-investment-pipeline/",
+  "dashboard_check": {
+    "ok": true,
+    "requested_url": "https://www.ea.govt.nz/data-and-insights/charts-and-dashboards/generation-investment-pipeline/",
+    "http_status": 200,
+    "resolved_url": "https://www.ea.govt.nz/data-and-insights/charts-and-dashboards/generation-investment-pipeline/",
+    "error": ""
+  },
+  "ea_dashboard_page_sha256": "e12dd7929579699ae227d2a183564226781dd29fb8c3231b2ea8e0c78a5f9ad9",
+  "dashboard_changed_since_previous_check": false,
+  "sigma_embed": {
+    "detected": true,
+    "urls": [
+      "https://app.sigmacomputing.com/embed/9-6gbXQr7P2lqnkiWdBw4Ajh/tag/Production?:responsive_height=true&:menu_position=none&:show_footer=false"
+    ],
+    "http_status": 200,
+    "sha256": "1262825fcf0f568c702d8c45a6e97e665d376ddb01e16cf6a46a4027a8b1c9b1",
+    "content_type": "text/html"
+  },
+  "retained_snapshot": {
+    "path": "data/pipeline/ea_generation_investment_pipeline_current.csv",
+    "snapshot_month": "2026-08",
+    "captured_date": "2026-08-24",
+    "sha256": "d19c807c11d6f26b23b899c55493a1fd94b18f82a88abd5701ef41ad168ac795",
+    "rows": 62
+  },
+  "transpower_connection_pipeline_cross_check": {
+    "metadata_available": true,
+    "source_url": "https://static.transpower.co.nz/public/uncontrolled_docs/Generation%20and%20energy%20storage%20connection%20pipeline.xlsx",
+    "last_modified": "Mon, 10 Aug 2026 00:12:05 GMT",
+    "sha256": "e1bdbe1833c3b1ab05bd287195aa309f817939a36be9e06533d6a2737e31ca0e",
+    "rows": 145,
+    "note": "Freshness cross-check only. Transpower connection stages are not substituted for EA investment-pipeline statuses."
+  },
+  "status_policy": "Use EA Committed / Actively pursued / Other definitions for chart status. Do not infer those statuses from Transpower connection stages.",
+  "freshness_policy": "The monthly workflow attempts to check the EA dashboard endpoint and independently updates the Transpower connection pipeline before rendering. If the EA dashboard cannot be reached from the GitHub Actions runner, that check is recorded as failed but the retained EA status snapshot remains usable for the chart. A successful EA fingerprint change requires review/refresh of the retained EA status snapshot rather than silently substituting Transpower stages."
+}
