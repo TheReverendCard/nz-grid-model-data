@@ -1,12 +1,14 @@
 from __future__ import annotations
 
 import argparse
+import calendar
 import csv
 import json
 import math
 import shutil
 from datetime import date, datetime
 from pathlib import Path
+from statistics import median
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -22,6 +24,10 @@ STATE = Path("data/metadata/solar_size_split_chart_state.json")
 OUT_CAPACITY = OUT_DIR / "distributed_solar_size_split_capacity.png"
 OUT_INSTALLS = OUT_DIR / "distributed_solar_size_split_installs.png"
 OUT_DATA = OUT_DIR / "distributed_solar_size_split_plot_data.csv"
+
+HISTORY_MONTHS = 36
+FORECAST_MONTHS = 60
+BAR_WIDTH = 0.24
 
 GROUPS = (
     "small_lt_25_kw",
@@ -52,6 +58,17 @@ def month_delta(d: date, reference: date) -> float:
     return ((d.year - reference.year) * 12 + d.month - reference.month) / 12.0
 
 
+def month_index(d: date) -> int:
+    return d.year * 12 + d.month
+
+
+def shift_month_end(d: date, months: int) -> date:
+    value = d.year * 12 + (d.month - 1) + months
+    year, month0 = divmod(value, 12)
+    month = month0 + 1
+    return date(year, month, calendar.monthrange(year, month)[1])
+
+
 def fit_mid_rate(meta: dict) -> float:
     latest = datetime.strptime(meta["source_latest_month"], "%Y-%m-%d").date()
     current_share = float(meta["current"]["small_solar_uptake_pct"]) / 100.0
@@ -66,6 +83,9 @@ def fit_mid_rate(meta: dict) -> float:
         uptake = float(row["icp_uptake_rate_pct"]) / 100.0
         xs.append(month_delta(d, latest))
         ys.append(uptake * small_share_of_solar)
+
+    if len(ys) < 2:
+        raise RuntimeError("Not enough EA uptake history to fit the independent 20% solar curve")
 
     x = np.array(xs, dtype=float)
     y = np.array(ys, dtype=float)
@@ -90,7 +110,7 @@ def weekly_due(force: bool) -> bool:
     return state.get("last_render_iso_week") != f"{now.year}-W{now.week:02d}"
 
 
-def history_points() -> list[dict[str, object]]:
+def complete_observed_snapshots() -> dict[str, dict[str, dict[str, float]]]:
     grouped: dict[str, dict[str, dict[str, float]]] = {}
     for row in read_csv(HISTORY):
         group = row["group"]
@@ -100,84 +120,373 @@ def history_points() -> list[dict[str, object]]:
             "icps": float(row["estimated_icps"]),
             "mw": float(row["capacity_mw"]),
         }
+    complete = {
+        month: values
+        for month, values in grouped.items()
+        if all(group in values for group in GROUPS)
+    }
+    if not complete:
+        raise RuntimeError("No complete three-group snapshots in solar_size_bucket_history.csv")
+    return dict(sorted(complete.items()))
+
+
+def estimate_lumpy_utility_history(
+    monthly_rows: list[dict[str, str]],
+    start: date,
+    anchor: date,
+    anchor_utility_mw: float,
+) -> tuple[dict[str, float], dict[str, object]]:
+    dated = [
+        (datetime.strptime(row["month_end"], "%Y-%m-%d").date(), row)
+        for row in monthly_rows
+    ]
+    excess_by_month: dict[str, float] = {}
+
+    for i, (d, row) in enumerate(dated):
+        if d <= start or d > anchor or i == 0:
+            continue
+        previous_d, previous = dated[i - 1]
+        if month_index(d) - month_index(previous_d) != 1:
+            continue
+
+        total_delta_mw = float(row["installed_capacity_mw"]) - float(previous["installed_capacity_mw"])
+        if total_delta_mw <= 0:
+            excess_by_month[d.isoformat()] = 0.0
+            continue
+
+        window = dated[max(0, i - 11) : i + 1]
+        typical_new_sizes = [
+            float(item["average_new_install_capacity_kw"])
+            for _, item in window
+            if float(item.get("average_new_install_capacity_kw") or 0.0) > 0
+        ]
+        typical_new_kw = median(typical_new_sizes) if typical_new_sizes else 0.0
+        expected_distributed_delta_mw = float(row["new_installations"]) * typical_new_kw / 1000.0
+        excess_by_month[d.isoformat()] = max(0.0, total_delta_mw - expected_distributed_delta_mw)
+
+    raw_excess = sum(excess_by_month.values())
+    if raw_excess > anchor_utility_mw and raw_excess > 0:
+        scale = anchor_utility_mw / raw_excess
+        opening_utility_mw = 0.0
+    else:
+        scale = 1.0
+        opening_utility_mw = max(0.0, anchor_utility_mw - raw_excess)
+
+    utility = opening_utility_mw
+    values: dict[str, float] = {}
+    for d, _ in dated:
+        if d < start or d > anchor:
+            continue
+        if d > start:
+            utility += excess_by_month.get(d.isoformat(), 0.0) * scale
+        values[d.isoformat()] = utility
+
+    values[anchor.isoformat()] = anchor_utility_mw
+    return values, {
+        "method": (
+            "Utility-scale historical MW is reconstructed as a lumpy residual. Monthly national "
+            "capacity additions above a rolling 12-month median new-system size baseline are treated "
+            "as candidate utility additions, then scaled/offset so the series lands exactly on the "
+            "first explicit EA street-level >=1 MW observation."
+        ),
+        "opening_utility_mw": opening_utility_mw,
+        "raw_detected_excess_mw": raw_excess,
+        "excess_scale": scale,
+    }
+
+
+def make_point(
+    *,
+    month: str,
+    kind: str,
+    provenance: str,
+    small_icps: float,
+    larger_icps: float,
+    utility_icps: float,
+    small_mw: float,
+    larger_mw: float,
+    utility_mw: float,
+    official_total_icps: float | None = None,
+    official_total_mw: float | None = None,
+) -> dict[str, object]:
+    total_icps = small_icps + larger_icps + utility_icps
+    total_mw = small_mw + larger_mw + utility_mw
+    return {
+        "month": month,
+        "kind": kind,
+        "provenance": provenance,
+        "small_icps": small_icps,
+        "larger_icps": larger_icps,
+        "utility_icps": utility_icps,
+        "small_mw": small_mw,
+        "larger_mw": larger_mw,
+        "utility_mw": utility_mw,
+        "total_solar_icps": total_icps,
+        "total_solar_mw": total_mw,
+        "official_total_icps": official_total_icps,
+        "official_total_mw": official_total_mw,
+        "reconciliation_error_icps": (
+            total_icps - official_total_icps if official_total_icps is not None else None
+        ),
+        "reconciliation_error_mw": (
+            total_mw - official_total_mw if official_total_mw is not None else None
+        ),
+    }
+
+
+def history_points() -> tuple[list[dict[str, object]], dict[str, object]]:
+    snapshots = complete_observed_snapshots()
+    observed_months = list(snapshots)
+    first_observed = datetime.strptime(observed_months[0], "%Y-%m-%d").date()
+    latest_observed = datetime.strptime(observed_months[-1], "%Y-%m-%d").date()
+    chart_start = shift_month_end(latest_observed, -HISTORY_MONTHS)
+
+    monthly_rows = read_csv(MONTHLY)
+    monthly_by_month = {row["month_end"]: row for row in monthly_rows}
+    if first_observed.isoformat() not in monthly_by_month:
+        raise RuntimeError(f"No national EA monthly total for first size-split month {first_observed}")
+
+    anchor = snapshots[first_observed.isoformat()]
+    anchor_total = monthly_by_month[first_observed.isoformat()]
+    anchor_small_share = anchor[GROUPS[0]]["icps"] / float(anchor_total["icp_count"])
+
+    scenario_meta = json.loads(SCENARIO_JSON.read_text(encoding="utf-8"))
+    larger_rate = float(
+        scenario_meta.get("larger_distributed_growth", {}).get("selected_rate_pct_per_year", 0.0)
+    ) / 100.0
+
+    utility_history, utility_notes = estimate_lumpy_utility_history(
+        monthly_rows,
+        chart_start,
+        first_observed,
+        anchor[GROUPS[2]]["mw"],
+    )
 
     points: list[dict[str, object]] = []
-    for month in sorted(grouped):
-        if not all(group in grouped[month] for group in GROUPS):
+    for row in monthly_rows:
+        d = datetime.strptime(row["month_end"], "%Y-%m-%d").date()
+        if d < chart_start or d > latest_observed:
             continue
-        values = grouped[month]
-        points.append(
-            {
-                "month": month,
-                "kind": "observed",
-                "small_icps": values[GROUPS[0]]["icps"],
-                "larger_icps": values[GROUPS[1]]["icps"],
-                "utility_icps": values[GROUPS[2]]["icps"],
-                "small_mw": values[GROUPS[0]]["mw"],
-                "larger_mw": values[GROUPS[1]]["mw"],
-                "utility_mw": values[GROUPS[2]]["mw"],
-            }
+
+        official_icps = float(row["icp_count"])
+        official_mw = float(row["installed_capacity_mw"])
+        snapshot = snapshots.get(row["month_end"])
+
+        if snapshot is not None:
+            point = make_point(
+                month=row["month_end"],
+                kind="observed",
+                provenance="Observed size buckets from EA street-level Registry data",
+                small_icps=snapshot[GROUPS[0]]["icps"],
+                larger_icps=snapshot[GROUPS[1]]["icps"],
+                utility_icps=snapshot[GROUPS[2]]["icps"],
+                small_mw=snapshot[GROUPS[0]]["mw"],
+                larger_mw=snapshot[GROUPS[1]]["mw"],
+                utility_mw=snapshot[GROUPS[2]]["mw"],
+                official_total_icps=official_icps,
+                official_total_mw=official_mw,
+            )
+            points.append(point)
+            continue
+
+        if d >= first_observed:
+            # Never label a post-cutoff month as observed unless a retained street-level
+            # snapshot actually exists for that month.
+            continue
+
+        t = month_delta(d, first_observed)
+        growth_factor = math.exp(math.log1p(max(larger_rate, -0.999999)) * t)
+
+        small_icps = official_icps * anchor_small_share
+        residual_icps = max(0.0, official_icps - small_icps)
+        larger_icps = min(anchor[GROUPS[1]]["icps"] * growth_factor, residual_icps)
+        utility_icps = residual_icps - larger_icps
+
+        larger_mw = min(anchor[GROUPS[1]]["mw"] * growth_factor, official_mw)
+        utility_mw = min(
+            max(0.0, utility_history.get(row["month_end"], 0.0)),
+            max(0.0, official_mw - larger_mw),
         )
+        small_mw = official_mw - larger_mw - utility_mw
+
+        point = make_point(
+            month=row["month_end"],
+            kind="modeled_history",
+            provenance=(
+                "Modeled historical split constrained to official EA national monthly solar totals"
+            ),
+            small_icps=small_icps,
+            larger_icps=larger_icps,
+            utility_icps=utility_icps,
+            small_mw=small_mw,
+            larger_mw=larger_mw,
+            utility_mw=utility_mw,
+            official_total_icps=official_icps,
+            official_total_mw=official_mw,
+        )
+        points.append(point)
+
     if not points:
-        raise RuntimeError("No complete three-group snapshots in solar_size_bucket_history.csv")
-    return points
+        raise RuntimeError("No solar history points in the requested chart window")
+
+    return points, {
+        "history_months": HISTORY_MONTHS,
+        "chart_history_start": chart_start.isoformat(),
+        "explicit_split_start_month": first_observed.isoformat(),
+        "latest_observed_split_month": latest_observed.isoformat(),
+        "historical_small_count_method": (
+            "Before the explicit street-level split, <25 kW ICPs use the existing distributed-solar "
+            "history proxy: official EA all-solar ICP totals multiplied by the <25 kW share measured "
+            "at the first explicit size-split snapshot."
+        ),
+        "historical_larger_method": (
+            "Before the explicit split, 25 kW-<1 MW ICPs and MW are back-cast from the first observed "
+            "snapshot using the existing provisional larger-distributed growth rate; each month is "
+            "capped by the official national total."
+        ),
+        "historical_reconciliation": (
+            "Modeled pre-cutoff category estimates are residual-reconciled so their ICP and MW sums "
+            "equal the official EA national monthly totals exactly."
+        ),
+        "larger_distributed_growth_rate_pct_per_year": larger_rate * 100.0,
+        "utility_history": utility_notes,
+    }
 
 
-def future_points(observed: list[dict[str, object]]) -> tuple[list[dict[str, object]], dict[str, object]]:
+def future_points(
+    history: list[dict[str, object]],
+) -> tuple[list[dict[str, object]], dict[str, object]]:
     meta = json.loads(SCENARIO_JSON.read_text(encoding="utf-8"))
     rows = read_csv(SCENARIO_CSV)
-    latest = datetime.strptime(meta["source_latest_month"], "%Y-%m-%d").date()
-    end_index = latest.year * 12 + latest.month + 12
+
+    latest_observed = datetime.strptime(str(history[-1]["month"]), "%Y-%m-%d").date()
+    scenario_latest = datetime.strptime(meta["source_latest_month"], "%Y-%m-%d").date()
+    if scenario_latest != latest_observed:
+        raise RuntimeError(
+            "Solar adoption scenario and retained size-bucket history are out of sync: "
+            f"scenario={scenario_latest}, size_split={latest_observed}"
+        )
+
+    end_index = month_index(latest_observed) + FORECAST_MONTHS
     current_share = float(meta["current"]["small_solar_uptake_pct"]) / 100.0
     small_avg_kw = float(meta["current"]["small_fleet_average_kw"])
     larger_avg_kw = float(meta["current"]["larger_distributed_average_kw"])
     mid_rate = fit_mid_rate(meta)
 
-    utility_icps = float(observed[-1]["utility_icps"])
-    utility_mw = float(observed[-1]["utility_mw"])
+    utility_icps = float(history[-1]["utility_icps"])
+    utility_mw = float(history[-1]["utility_mw"])
 
     future: list[dict[str, object]] = []
     for row in rows:
         d = datetime.strptime(row["month_end"], "%Y-%m-%d").date()
-        index = d.year * 12 + d.month
-        if d <= latest or index > end_index:
+        if d <= latest_observed or month_index(d) > end_index:
             continue
 
-        t = month_delta(d, latest)
-        total_icps = float(row["projected_total_icps"])
+        t = month_delta(d, latest_observed)
+        total_grid_icps = float(row["projected_total_icps"])
+
+        low_small_icps = float(row["low_10pct_small_solar_icps"])
+        high_small_icps = float(row["high_30pct_small_solar_icps"])
         mid_share = logistic(t, 0.20, current_share, mid_rate)
-        mid_small_icps = total_icps * mid_share
+        mid_small_icps = total_grid_icps * mid_share
+
+        low_small_mw = float(row["low_10pct_small_capacity_mw"])
+        high_small_mw = float(row["high_30pct_small_capacity_mw"])
         mid_small_mw = mid_small_icps * small_avg_kw / 1000.0
+
         larger_mw = float(row["larger_distributed_25kw_to_lt_1mw_capacity_mw"])
         larger_icps = larger_mw * 1000.0 / larger_avg_kw if larger_avg_kw else 0.0
 
-        future.append(
+        point = make_point(
+            month=row["month_end"],
+            kind="model_future",
+            provenance="Modeled future projection",
+            small_icps=mid_small_icps,
+            larger_icps=larger_icps,
+            utility_icps=utility_icps,
+            small_mw=mid_small_mw,
+            larger_mw=larger_mw,
+            utility_mw=utility_mw,
+        )
+        point.update(
             {
-                "month": row["month_end"],
-                "kind": "model",
-                "small_icps": mid_small_icps,
-                "larger_icps": larger_icps,
-                "utility_icps": utility_icps,
-                "small_mw": mid_small_mw,
-                "larger_mw": larger_mw,
-                "utility_mw": utility_mw,
-                "low_total_icps": float(row["low_10pct_small_solar_icps"]) + larger_icps + utility_icps,
-                "mid_total_icps": mid_small_icps + larger_icps + utility_icps,
-                "high_total_icps": float(row["high_30pct_small_solar_icps"]) + larger_icps + utility_icps,
-                "low_total_mw": float(row["low_10pct_small_capacity_mw"]) + larger_mw + utility_mw,
-                "mid_total_mw": mid_small_mw + larger_mw + utility_mw,
-                "high_total_mw": float(row["high_30pct_small_capacity_mw"]) + larger_mw + utility_mw,
+                "low_10pct_small_icps": low_small_icps,
+                "mid_20pct_small_icps": mid_small_icps,
+                "high_30pct_small_icps": high_small_icps,
+                "low_10pct_small_mw": low_small_mw,
+                "mid_20pct_small_mw": mid_small_mw,
+                "high_30pct_small_mw": high_small_mw,
+                "low_10pct_total_icps": low_small_icps + larger_icps + utility_icps,
+                "mid_20pct_total_icps": mid_small_icps + larger_icps + utility_icps,
+                "high_30pct_total_icps": high_small_icps + larger_icps + utility_icps,
+                "low_10pct_total_mw": low_small_mw + larger_mw + utility_mw,
+                "mid_20pct_total_mw": mid_small_mw + larger_mw + utility_mw,
+                "high_30pct_total_mw": high_small_mw + larger_mw + utility_mw,
             }
+        )
+        future.append(point)
+
+    if len(future) < FORECAST_MONTHS:
+        raise RuntimeError(
+            f"Expected {FORECAST_MONTHS} future monthly rows, found {len(future)}"
+        )
+
+    larger_method = meta.get("method", {}).get("larger_distributed_visual_note")
+    if not larger_method:
+        larger_method = (
+            "Use the existing provisional 25 kW-<1 MW capacity trajectory and its existing guardrail."
         )
 
     return future, {
+        "forecast_months": FORECAST_MONTHS,
         "mid_20pct_growth_rate_per_year": mid_rate,
-        "utility_future_policy": "Hold the latest observed >=1 MW bucket flat until project-timed utility additions are explicitly modelled.",
+        "small_future_policy": (
+            "10% and 30% use the existing independently fitted fixed-saturation distributed-solar "
+            "scenarios. The 20% midpoint is independently fitted through the latest measured small-"
+            "system penetration; it is not the arithmetic average of the 10% and 30% curves."
+        ),
+        "larger_distributed_future_policy": larger_method,
+        "utility_future_policy": (
+            "Hold the latest observed >=1 MW bucket flat until project-timed utility additions are "
+            "explicitly modelled in this chart builder."
+        ),
     }
 
 
 def save_plot_data(points: list[dict[str, object]]) -> None:
-    fields = sorted({key for point in points for key in point})
+    preferred = [
+        "month",
+        "kind",
+        "provenance",
+        "small_icps",
+        "larger_icps",
+        "utility_icps",
+        "total_solar_icps",
+        "small_mw",
+        "larger_mw",
+        "utility_mw",
+        "total_solar_mw",
+        "official_total_icps",
+        "official_total_mw",
+        "reconciliation_error_icps",
+        "reconciliation_error_mw",
+        "low_10pct_small_icps",
+        "mid_20pct_small_icps",
+        "high_30pct_small_icps",
+        "low_10pct_total_icps",
+        "mid_20pct_total_icps",
+        "high_30pct_total_icps",
+        "low_10pct_small_mw",
+        "mid_20pct_small_mw",
+        "high_30pct_small_mw",
+        "low_10pct_total_mw",
+        "mid_20pct_total_mw",
+        "high_30pct_total_mw",
+    ]
+    present = {key for point in points for key in point}
+    fields = [key for key in preferred if key in present]
+    fields.extend(sorted(present - set(fields)))
+
     OUT_DATA.parent.mkdir(parents=True, exist_ok=True)
     with OUT_DATA.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fields)
@@ -185,40 +494,92 @@ def save_plot_data(points: list[dict[str, object]]) -> None:
         writer.writerows(points)
 
 
-def render(points: list[dict[str, object]], metric: str, out_path: Path) -> None:
+def render(
+    points: list[dict[str, object]],
+    metric: str,
+    out_path: Path,
+    explicit_start_month: str,
+) -> None:
     months = [datetime.strptime(str(point["month"]), "%Y-%m-%d").date() for point in points]
     x = np.arange(len(points))
     small = np.array([float(point[f"small_{metric}"]) for point in points])
     larger = np.array([float(point[f"larger_{metric}"]) for point in points])
     utility = np.array([float(point[f"utility_{metric}"]) for point in points])
 
-    fig, ax = plt.subplots(figsize=(14, 7.5))
-    ax.bar(x, small, label=LABELS[GROUPS[0]], width=0.82)
-    ax.bar(x, larger, bottom=small, label=LABELS[GROUPS[1]], width=0.82)
-    ax.bar(x, utility, bottom=small + larger, label=LABELS[GROUPS[2]], width=0.82)
+    fig, ax = plt.subplots(figsize=(16, 7.5))
+    ax.bar(x, small, label=LABELS[GROUPS[0]], width=BAR_WIDTH)
+    ax.bar(x, larger, bottom=small, label=LABELS[GROUPS[1]], width=BAR_WIDTH)
+    ax.bar(x, utility, bottom=small + larger, label=LABELS[GROUPS[2]], width=BAR_WIDTH)
 
-    ax.plot(x, small, linewidth=1.4, marker=".")
-    ax.plot(x, small + larger, linewidth=1.4, marker=".")
-    ax.plot(x, small + larger + utility, linewidth=1.8, marker=".")
+    # Keep continuous cumulative boundaries so gradual distributed growth and lumpy
+    # utility-scale changes are both visible across the narrow monthly bars.
+    ax.plot(x, small, linewidth=1.15)
+    ax.plot(x, small + larger, linewidth=1.15)
+    ax.plot(x, small + larger + utility, linewidth=1.55)
 
-    model_idx = [i for i, point in enumerate(points) if point["kind"] == "model"]
-    if model_idx:
-        low_key = f"low_total_{metric}"
-        mid_key = f"mid_total_{metric}"
-        high_key = f"high_total_{metric}"
-        model_x = np.array(model_idx)
-        low = np.array([float(points[i][low_key]) for i in model_idx])
-        mid = np.array([float(points[i][mid_key]) for i in model_idx])
-        high = np.array([float(points[i][high_key]) for i in model_idx])
-        ax.fill_between(model_x, low, high, alpha=0.12, label="10–30% small-system saturation range")
-        ax.plot(model_x, low, linestyle="--", linewidth=1.2, label="10% saturation")
-        ax.plot(model_x, mid, linewidth=2.2, label="20% saturation")
-        ax.plot(model_x, high, linestyle="--", linewidth=1.2, label="30% saturation")
-        boundary = model_idx[0] - 0.5
-        ax.axvline(boundary, linewidth=1.0, linestyle=":")
-        ax.text(boundary + 0.2, ax.get_ylim()[1] * 0.96, "model →", va="top")
+    future_idx = [i for i, point in enumerate(points) if point["kind"] == "model_future"]
+    if future_idx:
+        low_key = f"low_10pct_small_{metric}"
+        mid_key = f"mid_20pct_small_{metric}"
+        high_key = f"high_30pct_small_{metric}"
+        future_x = np.array(future_idx)
+        low = np.array([float(points[i][low_key]) for i in future_idx])
+        mid = np.array([float(points[i][mid_key]) for i in future_idx])
+        high = np.array([float(points[i][high_key]) for i in future_idx])
 
-    tick_step = max(1, len(points) // 12)
+        ax.fill_between(
+            future_x,
+            low,
+            high,
+            alpha=0.10,
+            label="<25 kW 10–30% saturation range",
+        )
+        ax.plot(
+            future_x,
+            low,
+            linestyle="--",
+            linewidth=1.2,
+            label="<25 kW: 10% saturation",
+        )
+        ax.plot(
+            future_x,
+            mid,
+            linewidth=2.0,
+            label="<25 kW: 20% independently fitted",
+        )
+        ax.plot(
+            future_x,
+            high,
+            linestyle="--",
+            linewidth=1.2,
+            label="<25 kW: 30% saturation",
+        )
+
+        future_boundary = future_idx[0] - 0.5
+        ax.axvline(future_boundary, linewidth=1.0, linestyle=":")
+        ax.text(
+            future_boundary + 0.25,
+            0.97,
+            "future model →",
+            transform=ax.get_xaxis_transform(),
+            va="top",
+            fontsize=9,
+        )
+
+    observed_idx = [i for i, point in enumerate(points) if point["kind"] == "observed"]
+    if observed_idx:
+        observed_boundary = observed_idx[0] - 0.5
+        ax.axvline(observed_boundary, linewidth=1.0, linestyle=":")
+        ax.text(
+            observed_boundary + 0.25,
+            0.90,
+            "EA street-level split →",
+            transform=ax.get_xaxis_transform(),
+            va="top",
+            fontsize=9,
+        )
+
+    tick_step = 6
     ticks = list(range(0, len(points), tick_step))
     if len(points) - 1 not in ticks:
         ticks.append(len(points) - 1)
@@ -231,11 +592,20 @@ def render(points: list[dict[str, object]], metric: str, out_path: Path) -> None
         ax.set_ylabel("Installed solar capacity (MW)")
         title_metric = "capacity"
     else:
-        ax.set_ylabel("Solar installations (estimated ICPs)")
+        ax.set_ylabel("Solar installations / ICPs")
         title_metric = "installation count"
 
-    ax.set_title(f"New Zealand solar by installation size: observed + next 12 months ({title_metric})")
-    ax.legend(ncol=2, fontsize=9)
+    explicit_label = datetime.strptime(explicit_start_month, "%Y-%m-%d").strftime("%b %Y")
+    fig.suptitle(
+        f"New Zealand solar by installation size: {title_metric}",
+        fontsize=15,
+    )
+    ax.set_title(
+        f"{HISTORY_MONTHS // 12}-year history + {FORECAST_MONTHS // 12}-year outlook; "
+        f"pre-{explicit_label} size split modeled, EA Registry size split observed from {explicit_label}",
+        fontsize=10,
+    )
+    ax.legend(ncol=2, fontsize=8)
     ax.grid(axis="y", alpha=0.2)
     fig.tight_layout()
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -255,20 +625,27 @@ def archive_outputs(source_month: str) -> Path:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--force", action="store_true", help="Render even if this ISO week is already complete")
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Render even if this ISO week is already complete",
+    )
     args = parser.parse_args()
 
     if not weekly_due(args.force):
         print("Solar size-split charts already rendered this ISO week; skipping.")
         return
 
-    observed = history_points()
-    future, model_notes = future_points(observed)
-    points = observed + future
+    history, history_notes = history_points()
+    future, future_notes = future_points(history)
+    points = history + future
+
     save_plot_data(points)
-    render(points, "mw", OUT_CAPACITY)
-    render(points, "icps", OUT_INSTALLS)
-    source_month = str(observed[-1]["month"])
+    explicit_start = str(history_notes["explicit_split_start_month"])
+    render(points, "mw", OUT_CAPACITY, explicit_start)
+    render(points, "icps", OUT_INSTALLS, explicit_start)
+
+    source_month = str(history_notes["latest_observed_split_month"])
     archive_dir = archive_outputs(source_month)
 
     now = date.today().isocalendar()
@@ -277,13 +654,19 @@ def main() -> None:
         "last_render_iso_week": f"{now.year}-W{now.week:02d}",
         "source_month": source_month,
         "archive_month": source_month[:7],
-        "forecast_months": 12,
-        "model_notes": model_notes,
+        "history_months": HISTORY_MONTHS,
+        "forecast_months": FORECAST_MONTHS,
+        "explicit_split_start_month": explicit_start,
+        "model_notes": {
+            "history": history_notes,
+            "future": future_notes,
+        },
         "outputs": [str(OUT_CAPACITY), str(OUT_INSTALLS), str(OUT_DATA)],
         "archive_dir": str(archive_dir),
     }
     STATE.parent.mkdir(parents=True, exist_ok=True)
     STATE.write_text(json.dumps(state, indent=2) + "\n", encoding="utf-8")
+
     print(f"Wrote {OUT_CAPACITY}")
     print(f"Wrote {OUT_INSTALLS}")
     print(f"Wrote {OUT_DATA}")

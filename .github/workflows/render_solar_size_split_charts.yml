@@ -5,6 +5,8 @@ on:
   schedule:
     - cron: '30 14 * * 1'
   push:
+    branches:
+      - main
     paths:
       - 'build_solar_size_split_charts.py'
       - 'SOLAR_SIZE_SPLIT_VISUALS.md'
@@ -24,24 +26,62 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4.2.2
 
+      - name: Check Render Cadence
+        id: cadence
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          event = os.environ.get("GITHUB_EVENT_NAME", "")
+          render = True
+          reason = f"{event} runs render immediately"
+
+          if event == "schedule":
+              state_path = Path("data/metadata/solar_size_split_chart_state.json")
+              if state_path.exists():
+                  state = json.loads(state_path.read_text(encoding="utf-8"))
+                  iso = datetime.now(timezone.utc).date().isocalendar()
+                  current_week = f"{iso.year}-W{iso.week:02d}"
+                  if state.get("last_render_iso_week") == current_week:
+                      render = False
+                      reason = f"scheduled render already completed in {current_week}"
+                  else:
+                      reason = f"scheduled render is due in {current_week}"
+              else:
+                  reason = "no prior render state exists"
+
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as handle:
+              handle.write(f"render={'true' if render else 'false'}\n")
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as handle:
+              handle.write(f"Solar size-split cadence: {reason}.\n")
+          PY
+
       - name: Set up Python
+        if: steps.cadence.outputs.render == 'true'
         uses: actions/setup-python@v5.3.0
         with:
           python-version: '3.12'
 
       - name: Install Chart Dependencies
+        if: steps.cadence.outputs.render == 'true'
         run: pip install matplotlib scipy numpy
 
       - name: Render Solar Size-Split Charts
+        if: steps.cadence.outputs.render == 'true'
         shell: bash
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            python build_solar_size_split_charts.py --force
-          else
+          if [ "${{ github.event_name }}" = "schedule" ]; then
             python build_solar_size_split_charts.py
+          else
+            python build_solar_size_split_charts.py --force
           fi
 
       - name: Commit Charts and Monthly Archive
+        if: steps.cadence.outputs.render == 'true'
         shell: bash
         run: |
           git config --global user.name 'github-actions[bot]'
@@ -52,7 +92,7 @@ jobs:
                   data/visuals/archive/distributed_solar_size_split/ \
                   data/metadata/solar_size_split_chart_state.json
           if git diff --cached --quiet; then
-            echo "No chart changes to commit." >> "$GITHUB_STEP_SUMMARY"
+            echo "Render completed; no chart changes to commit." >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
           git commit -m "Render weekly solar size-split charts"
