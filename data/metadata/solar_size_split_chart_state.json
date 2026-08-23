@@ -6,6 +6,8 @@
   "history_months": 36,
   "forecast_months": 60,
   "explicit_split_start_month": "2026-07-31",
+  "current_small_solar_uptake_pct": 3.76142,
+  "current_all_solar_uptake_pct": 3.8126,
   "model_notes": {
     "history": {
       "history_months": 36,
@@ -25,10 +27,146 @@
     },
     "future": {
       "forecast_months": 60,
+      "current_small_solar_uptake_pct": 3.76142,
+      "current_all_solar_uptake_pct": 3.8126,
       "mid_20pct_growth_rate_per_year": 0.2004345968101855,
       "small_future_policy": "10% and 30% use the existing independently fitted fixed-saturation distributed-solar scenarios. The 20% midpoint is independently fitted through the latest measured small-system penetration; it is not the arithmetic average of the 10% and 30% curves.",
       "larger_distributed_future_policy": "25 kW-<1 MW projection uses the selected provisional growth rate through 2035, then holds capacity flat until new observed size-bucket history supports a revised trajectory.",
-      "utility_future_policy": "Hold the latest observed >=1 MW bucket flat until project-timed utility additions are explicitly modelled in this chart builder."
+      "utility_future_policy": "Hold the latest observed >=1 MW capacity as a solid baseline, then add dated Solar projects in Transpower Delivery/Commissioning as a hatched provisional layer at their published estimated timing month. Undated/earlier-stage projects are not assigned arbitrary dates. Future utility ICPs remain flat because the pipeline does not provide a reliable future ICP count.",
+      "utility_pipeline": {
+        "source": "data/pipeline/transpower_generation_storage_pipeline.csv",
+        "included_stages": [
+          "Commissioning",
+          "Delivery"
+        ],
+        "timing_field_policy": "Use the normalized expected connection/need date where populated, otherwise the raw Transpower estimated scope-completion/livening date. The plotted month is provisional timing, not a guaranteed commercial-operation date.",
+        "timed_projects_in_horizon": 15,
+        "timed_capacity_mw_in_horizon": 2382.0,
+        "undated_or_earlier_stage_solar_projects_not_timed": 43,
+        "undated_or_earlier_stage_capacity_mw_not_timed": 8468.0
+      },
+      "utility_pipeline_projects": [
+        {
+          "project_id": "00037567",
+          "project_name": "Edgecumbe Solar Farm (Genesis Energy)",
+          "capacity_mw": 115.0,
+          "stage": "Delivery",
+          "timing_month": "2026-08-31",
+          "region": "Bay of Plenty"
+        },
+        {
+          "project_id": "00037570",
+          "project_name": "Ruak\u0101k\u0101 (Stage 2) TOPS",
+          "capacity_mw": 130.0,
+          "stage": "Commissioning",
+          "timing_month": "2026-08-31",
+          "region": "Northland"
+        },
+        {
+          "project_id": "00037566",
+          "project_name": "Te Rahui Solar Farm (Stage 1)",
+          "capacity_mw": 200.0,
+          "stage": "Delivery",
+          "timing_month": "2026-11-30",
+          "region": "Hawkes Bay"
+        },
+        {
+          "project_id": "38476",
+          "project_name": "Te Rahui Solar Farm (Stage 2)",
+          "capacity_mw": 200.0,
+          "stage": "Delivery",
+          "timing_month": "2026-11-30",
+          "region": "Hawkes Bay"
+        },
+        {
+          "project_id": "00037591",
+          "project_name": "Marton Solar Farm (Harmony)",
+          "capacity_mw": 50.0,
+          "stage": "Delivery",
+          "timing_month": "2027-10-31",
+          "region": "Central North Island"
+        },
+        {
+          "project_id": "00037589",
+          "project_name": "Masterton Solar Farm (Harmony)",
+          "capacity_mw": 100.0,
+          "stage": "Delivery",
+          "timing_month": "2027-10-31",
+          "region": "Wellington"
+        },
+        {
+          "project_id": "00037571",
+          "project_name": "Masterton Solar Farm (NZCE)",
+          "capacity_mw": 91.0,
+          "stage": "Delivery",
+          "timing_month": "2027-11-30",
+          "region": "Wellington"
+        },
+        {
+          "project_id": "00037573",
+          "project_name": "The Point Solar Farm",
+          "capacity_mw": 300.0,
+          "stage": "Delivery",
+          "timing_month": "2027-11-30",
+          "region": "South-Canterbury"
+        },
+        {
+          "project_id": "37580",
+          "project_name": "Glorit Solar Farm GIP",
+          "capacity_mw": 200.0,
+          "stage": "Delivery",
+          "timing_month": "2028-01-31",
+          "region": "Northland"
+        },
+        {
+          "project_id": "00037575",
+          "project_name": "Greytown Solar Farm",
+          "capacity_mw": 158.0,
+          "stage": "Delivery",
+          "timing_month": "2028-05-31",
+          "region": "Wellington"
+        },
+        {
+          "project_id": "00037603",
+          "project_name": "Waipawa Solar Farm (Helios)",
+          "capacity_mw": 100.0,
+          "stage": "Delivery",
+          "timing_month": "2028-05-31",
+          "region": "Hawkes Bay"
+        },
+        {
+          "project_id": "00037584",
+          "project_name": "Waipawa Solar Farm (Kahahakuri)",
+          "capacity_mw": 100.0,
+          "stage": "Delivery",
+          "timing_month": "2028-07-31",
+          "region": "Wellington"
+        },
+        {
+          "project_id": "00037601",
+          "project_name": "Karioi Solar Farm (Tangiwai Solar + BESS)",
+          "capacity_mw": 110.0,
+          "stage": "Delivery",
+          "timing_month": "2028-12-31",
+          "region": "Central North Island"
+        },
+        {
+          "project_id": "00037579",
+          "project_name": "Rangiriri Solar Farm (Genesis Energy)",
+          "capacity_mw": 214.0,
+          "stage": "Delivery",
+          "timing_month": "2029-07-31",
+          "region": "Waikato"
+        },
+        {
+          "project_id": "00037578",
+          "project_name": "Waerenga Solar Farm",
+          "capacity_mw": 314.0,
+          "stage": "Delivery",
+          "timing_month": "2029-10-31",
+          "region": "Waikato"
+        }
+      ]
     }
   },
   "outputs": [
