@@ -1,0 +1,100 @@
+{
+  "generated_at_utc": "2026-08-23T23:45:48.484998+00:00",
+  "outputs": {
+    "png": "data/visuals/ev_feed_in_vs_small_solar_capacity.png",
+    "plot_data_csv": "data/visuals/ev_feed_in_vs_small_solar_plot_data.csv",
+    "manifest_json": "data/visuals/ev_feed_in_vs_small_solar_manifest.json"
+  },
+  "source_files": [
+    "data/distributed_generation/model/distributed_solar_adoption_20pct.csv",
+    "data/transport/ev_fleet_anchor.csv"
+  ],
+  "solar": {
+    "source_file": "data/distributed_generation/model/distributed_solar_adoption_20pct.csv",
+    "scope": "Small distributed solar below 25 kW",
+    "central_case_saturation_pct": 20,
+    "capacity_basis": "Total projected installed small-solar nameplate capacity at each year end"
+  },
+  "ev_fleet": {
+    "current_anchor_date": "2026-08-16",
+    "current_zero_emission_light_vehicles": 101701,
+    "current_anchor_source_name": "Ministry of Transport weekly electric vehicle report",
+    "current_anchor_source_url": "https://mot-analytics.gitlab.io/insights-and-analytics/vehicle-fleet-measures/fleet-reporting/weekly-electric-vehicle-report/Website/Weekly_EV_report_website.html",
+    "current_anchor_definition": "Light vehicles in the report's Zero (0 g/km) fleet band; used as the conservative V2G-relevant current EV stock proxy.",
+    "eeca_ccc_2030_ev": 550000,
+    "eeca_ccc_2035_share_of_light_fleet": 0.38,
+    "mot_2035_share_of_light_fleet": 0.3,
+    "assumed_total_light_fleet_2035": 4500000,
+    "eeca_ccc_2035_ev": 1710000,
+    "mot_2035_ev": 1350000,
+    "path_method": {
+      "form": "K / (1 + exp(-rate * (year - midpoint)))",
+      "saturation_vehicles": 2333735.7047640225,
+      "rate_per_year": 0.43701375945846055,
+      "midpoint_year": 2033.689502453813,
+      "anchors": {
+        "2026-08-16": 101701,
+        "2030-12-31": 550000,
+        "2035-12-31": 1710000
+      },
+      "mot_path_method": "Uses the EECA/CCC logistic curve's normalized progress from the current anchor to 2035, scaled between the same current EV stock and the MoT 30% of 4.5 million 2035 target. This preserves S-curve timing and avoids straight-line front-loading."
+    }
+  },
+  "export_assumptions": {
+    "current_like": {
+      "export_kw_per_participating_ev": 5.0,
+      "dedicated_charger_share": 0.47,
+      "participation_share_of_charger_owners": 0.5,
+      "effective_kw_per_ev": 1.1749999999999998
+    },
+    "future_ready": {
+      "export_kw_per_participating_ev": 7.0,
+      "dedicated_charger_share": 0.7,
+      "participation_share_of_charger_owners": 0.5,
+      "effective_kw_per_ev": 2.4499999999999997
+    }
+  },
+  "crossover_years_vs_small_solar_20pct": {
+    "eeca_current": null,
+    "eeca_future": 2031,
+    "mot_current": null,
+    "mot_future": 2033
+  },
+  "summary": {
+    "eeca_current": {
+      "2030_mw": 646.25,
+      "2035_mw": 2009.25,
+      "crosses_central_solar_by_2030": false,
+      "crosses_central_solar_by_2035": false,
+      "first_crossover_year": null
+    },
+    "eeca_future": {
+      "2030_mw": 1347.5,
+      "2035_mw": 4189.5,
+      "crosses_central_solar_by_2030": false,
+      "crosses_central_solar_by_2035": true,
+      "first_crossover_year": 2031
+    },
+    "mot_current": {
+      "2030_mw": 528.343,
+      "2035_mw": 1586.25,
+      "crosses_central_solar_by_2030": false,
+      "crosses_central_solar_by_2035": false,
+      "first_crossover_year": null
+    },
+    "mot_future": {
+      "2030_mw": 1101.65,
+      "2035_mw": 3307.5,
+      "crosses_central_solar_by_2030": false,
+      "crosses_central_solar_by_2035": true,
+      "first_crossover_year": 2033
+    }
+  },
+  "methodology_notes": [
+    "This is a power-capacity comparison, not an energy comparison.",
+    "EV export capacity is potentially dispatchable around peak periods but depends on vehicles being plugged in, bidirectional hardware and standards, available state of charge, network permissions and customer participation.",
+    "Solar capacity is nameplate capacity and is primarily a daytime resource; equal MW does not imply equal system value or equal annual energy.",
+    "The EECA/CCC path is a three-anchor logistic fit. The MoT path uses the same normalized adoption timing and a lower 2035 target to avoid front-loaded straight-line interpolation.",
+    "Fleet policy anchors are scenarios, not precise forecasts."
+  ]
+}
