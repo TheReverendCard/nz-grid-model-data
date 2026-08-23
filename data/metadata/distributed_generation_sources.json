@@ -1,7 +1,7 @@
 {
   "datasets": {
     "installed_distributed_generation_trends_solar_all": {
-      "content_length": "5255",
+      "content_length": "14494",
       "description": "Installed distributed generation trends (GUEHMT), national solar including solar+battery categories, all ICPs",
       "etag": "",
       "last_modified": "",
@@ -10,7 +10,7 @@
       "sha256": "b259837f66a59999a1ddf1d402c1a2c0371e330b5ed1b5f43a6be379614d601a"
     },
     "installed_distributed_generation_trends_solar_only": {
-      "content_length": "5178",
+      "content_length": "13555",
       "description": "Installed distributed generation trends (GUEHMT), national Solar (without battery)",
       "etag": "",
       "last_modified": "",
@@ -19,7 +19,7 @@
       "sha256": "269dffa7008fbe5e7557ca7a3a4b2c77cce3a23dd82cd8a8609748d43d46caf3"
     },
     "installed_distributed_generation_trends_solar_residential": {
-      "content_length": "5160",
+      "content_length": "14434",
       "description": "Installed distributed generation trends (GUEHMT), national solar including solar+battery categories, residential ICPs",
       "etag": "",
       "last_modified": "",
@@ -28,7 +28,7 @@
       "sha256": "42b6a69136de9a6c6fb602882c1fea0860fcdec4f0db88e4ad0ae63459f27ed6"
     },
     "installed_distributed_generation_trends_solar_with_battery": {
-      "content_length": "3383",
+      "content_length": "14316",
       "description": "Installed distributed generation trends (GUEHMT), national Solar (with battery), explicit EA fuel type solarplusbattery",
       "etag": "",
       "last_modified": "",
