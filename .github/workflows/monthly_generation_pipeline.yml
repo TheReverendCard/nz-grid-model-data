@@ -12,6 +12,7 @@ on:
       - 'build_distributed_solar_20pct.py'
       - 'build_generation_pipeline_status_metrics.py'
       - 'build_generation_pipeline_monthly_chart.py'
+      - 'build_generation_pipeline_capacity_chart.py'
       - 'data/pipeline/ea_generation_investment_pipeline_current.csv'
 
 permissions:
@@ -60,8 +61,10 @@ jobs:
       - name: Build 20 percent household solar scenario
         run: python build_distributed_solar_20pct.py
 
-      - name: Render monthly generation pipeline chart
-        run: python build_generation_pipeline_monthly_chart.py
+      - name: Render monthly generation pipeline charts
+        run: |
+          python build_generation_pipeline_monthly_chart.py
+          python build_generation_pipeline_capacity_chart.py
 
       - name: Validate rendered outputs
         shell: bash
@@ -72,34 +75,41 @@ jobs:
           import struct
           from pathlib import Path
 
-          png = Path('data/visuals/generation_pipeline_monthly_latest.png')
-          csv_path = Path('data/visuals/generation_pipeline_monthly_plot_data.csv')
+          def validate_png(path: Path) -> tuple[int, int, int]:
+              if not path.exists():
+                  raise RuntimeError(f'Missing rendered PNG: {path}')
+              data = path.read_bytes()
+              if data[:8] != b'\x89PNG\r\n\x1a\n':
+                  raise RuntimeError(f'Rendered output is not a valid PNG: {path}')
+              if len(data) < 50_000:
+                  raise RuntimeError(
+                      f'Rendered PNG is unexpectedly small ({len(data):,} bytes): {path}'
+                  )
+              width, height = struct.unpack('>II', data[16:24])
+              if width < 1200 or height < 1200:
+                  raise RuntimeError(
+                      f'Rendered PNG dimensions are unexpectedly small ({width}x{height}): {path}'
+                  )
+              return width, height, len(data)
+
+          energy_png = Path('data/visuals/generation_pipeline_monthly_latest.png')
+          energy_csv = Path('data/visuals/generation_pipeline_monthly_plot_data.csv')
+          capacity_png = Path('data/visuals/generation_pipeline_capacity_monthly_latest.png')
+          capacity_csv = Path('data/visuals/generation_pipeline_capacity_monthly_plot_data.csv')
+          capacity_manifest_path = Path('data/visuals/generation_pipeline_capacity_monthly_manifest.json')
           status_meta_path = Path('data/metadata/ea_generation_pipeline_status_metrics.json')
           status_history_path = Path('data/pipeline/ea_generation_pipeline_status_history.csv')
           status_transitions_path = Path('data/pipeline/ea_generation_pipeline_status_transitions.csv')
 
-          if not png.exists():
-              raise RuntimeError(f'Missing rendered PNG: {png}')
-          data = png.read_bytes()
-          if data[:8] != b'\x89PNG\r\n\x1a\n':
-              raise RuntimeError('Rendered generation-pipeline output is not a valid PNG')
-          if len(data) < 50_000:
-              raise RuntimeError(
-                  f'Rendered PNG is unexpectedly small ({len(data):,} bytes); refusing to publish a likely broken image'
-              )
-          width, height = struct.unpack('>II', data[16:24])
-          if width < 1200 or height < 1200:
-              raise RuntimeError(
-                  f'Rendered PNG dimensions are unexpectedly small ({width}x{height}); refusing to publish'
-              )
+          energy_dims = validate_png(energy_png)
+          capacity_dims = validate_png(capacity_png)
 
-          if not csv_path.exists():
-              raise RuntimeError(f'Missing plot-data CSV: {csv_path}')
-          with csv_path.open(newline='', encoding='utf-8') as handle:
+          if not energy_csv.exists():
+              raise RuntimeError(f'Missing plot-data CSV: {energy_csv}')
+          with energy_csv.open(newline='', encoding='utf-8') as handle:
               reader = csv.DictReader(handle)
               rows = list(reader)
               fields = set(reader.fieldnames or [])
-
           required = {
               'year',
               'baseline_twh',
@@ -111,12 +121,41 @@ jobs:
           missing = sorted(required - fields)
           if missing:
               raise RuntimeError(
-                  'Plot-data CSV does not match the current renderer; missing columns: ' + ', '.join(missing)
+                  'Energy plot-data CSV does not match the current renderer; missing columns: '
+                  + ', '.join(missing)
               )
           if len(rows) != 15 or rows[0]['year'] != '2026' or rows[-1]['year'] != '2040':
               raise RuntimeError(
-                  f'Unexpected plot-data horizon: {len(rows)} rows, '
+                  f'Unexpected energy plot-data horizon: {len(rows)} rows, '
                   f"{rows[0]['year'] if rows else 'none'} to {rows[-1]['year'] if rows else 'none'}"
+              )
+
+          if not capacity_csv.exists():
+              raise RuntimeError(f'Missing capacity plot-data CSV: {capacity_csv}')
+          with capacity_csv.open(newline='', encoding='utf-8') as handle:
+              cap_reader = csv.DictReader(handle)
+              cap_rows = list(cap_reader)
+              cap_fields = set(cap_reader.fieldnames or [])
+          cap_required = {
+              'year',
+              'household_solar_incremental_mw',
+              'generation_pipeline_total_mw',
+              'generation_plus_household_total_mw',
+              'storage_power_total_mw',
+              'combined_generation_and_storage_power_mw',
+              'committed_utility_solar_known_date_mw',
+              'other_early-stage_bess_unknown_date_mw',
+          }
+          cap_missing = sorted(cap_required - cap_fields)
+          if cap_missing:
+              raise RuntimeError(
+                  'Capacity plot-data CSV does not match the current renderer; missing columns: '
+                  + ', '.join(cap_missing)
+              )
+          if len(cap_rows) != 15 or cap_rows[0]['year'] != '2026' or cap_rows[-1]['year'] != '2040':
+              raise RuntimeError(
+                  f'Unexpected capacity plot-data horizon: {len(cap_rows)} rows, '
+                  f"{cap_rows[0]['year'] if cap_rows else 'none'} to {cap_rows[-1]['year'] if cap_rows else 'none'}"
               )
 
           if not status_meta_path.exists():
@@ -129,17 +168,32 @@ jobs:
           if not status_transitions_path.exists():
               raise RuntimeError(f'Missing status transition CSV: {status_transitions_path}')
 
-          plot_manifest = json.loads(
+          energy_manifest = json.loads(
               Path('data/visuals/generation_pipeline_monthly_manifest.json').read_text(encoding='utf-8')
           )
-          if status_meta.get('latest_snapshot_month') != plot_manifest.get('snapshot_month'):
+          capacity_manifest = json.loads(capacity_manifest_path.read_text(encoding='utf-8'))
+          latest_month = status_meta.get('latest_snapshot_month')
+          if latest_month != energy_manifest.get('snapshot_month'):
               raise RuntimeError(
-                  'Status tracker latest month does not match rendered pipeline snapshot: '
-                  f"{status_meta.get('latest_snapshot_month')} vs {plot_manifest.get('snapshot_month')}"
+                  'Status tracker latest month does not match energy render: '
+                  f"{latest_month} vs {energy_manifest.get('snapshot_month')}"
+              )
+          if latest_month != capacity_manifest.get('snapshot_month'):
+              raise RuntimeError(
+                  'Status tracker latest month does not match capacity render: '
+                  f"{latest_month} vs {capacity_manifest.get('snapshot_month')}"
               )
 
-          print(f'Validated {png}: {width}x{height}, {len(data):,} bytes')
-          print(f'Validated {csv_path}: {len(rows)} annual rows, {len(fields)} columns')
+          print(
+              f'Validated {energy_png}: {energy_dims[0]}x{energy_dims[1]}, '
+              f'{energy_dims[2]:,} bytes'
+          )
+          print(
+              f'Validated {capacity_png}: {capacity_dims[0]}x{capacity_dims[1]}, '
+              f'{capacity_dims[2]:,} bytes'
+          )
+          print(f'Validated energy CSV: {len(rows)} annual rows, {len(fields)} columns')
+          print(f'Validated capacity CSV: {len(cap_rows)} annual rows, {len(cap_fields)} columns')
           print(
               'Validated empirical status tracker: '
               f"{status_meta['snapshot_count']} snapshot(s), mode="
@@ -157,6 +211,9 @@ jobs:
           meta = json.loads(Path('data/metadata/ea_generation_pipeline_source.json').read_text())
           status_meta = json.loads(
               Path('data/metadata/ea_generation_pipeline_status_metrics.json').read_text()
+          )
+          capacity_manifest = json.loads(
+              Path('data/visuals/generation_pipeline_capacity_monthly_manifest.json').read_text()
           )
           snap = meta['retained_snapshot']
           tp = meta.get('transpower_connection_pipeline_cross_check', {})
@@ -181,6 +238,10 @@ jobs:
           else:
               print(f"- EA dashboard fingerprint changed since prior successful check: {changed}")
           print(f"- Transpower connection-pipeline last modified: {tp.get('last_modified', 'unknown')}")
+          print(
+              f"- Capacity chart includes {capacity_manifest.get('past_due_pipeline_mw_included_from_start_year', 0):,.0f} MW "
+              'with stated commissioning dates before the display start year, because those rows remain in the current EA pipeline snapshot.'
+          )
           print()
           print('### Empirical EA status tracking')
           print()
@@ -208,7 +269,7 @@ jobs:
               )
           PY
 
-      - name: Commit monthly snapshot and chart
+      - name: Commit monthly snapshot and charts
         shell: bash
         run: |
           git config --global user.name 'github-actions[bot]'
@@ -220,9 +281,10 @@ jobs:
                   data/distributed_generation/model/distributed_solar_adoption_20pct.* \
                   data/visuals/generation_pipeline_monthly_latest.png \
                   data/visuals/generation_pipeline_monthly_plot_data.csv \
-                  data/visuals/generation_pipeline_monthly_manifest.json
-          # The first retained month has no generation_pipeline_*.png/.csv archive
-          # files yet. Staging the directory avoids an unmatched-glob pathspec error.
+                  data/visuals/generation_pipeline_monthly_manifest.json \
+                  data/visuals/generation_pipeline_capacity_monthly_latest.png \
+                  data/visuals/generation_pipeline_capacity_monthly_plot_data.csv \
+                  data/visuals/generation_pipeline_capacity_monthly_manifest.json
           git add -A data/visuals/archive/
           if git diff --cached --quiet; then
             echo 'No monthly generation-pipeline changes to commit'
