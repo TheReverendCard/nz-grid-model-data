@@ -1,0 +1,126 @@
+name: Manual Full NZ Grid Rebuild
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nz-grid-refresh-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  full-rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4.2.2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5.3.0
+        with:
+          python-version: '3.12'
+
+      - name: Install Model Dependencies
+        run: pip install requests openpyxl matplotlib scipy pandas beautifulsoup4
+
+      - name: Inspect Latest JADE Output Schemas
+        run: python inspect_jade_latest_outputs.py
+      - name: Inspect Published JADE Run Configuration
+        run: python inspect_jade_run_configuration.py
+      - name: Build JADE Weekly Security Visual Data
+        run: python build_jade_weekly_security.py
+      - name: Build JADE Weekly Thermal Dispatch Data
+        run: python build_jade_thermal_dispatch.py
+      - name: Build JADE Thermal Valley Analysis
+        run: python build_jade_thermal_valley.py
+      - name: Render JADE Seasonal Security Charts
+        run: python build_jade_security_charts.py
+
+      - name: Normalize Hydro Data
+        run: python normalize_hydro.py
+      - name: Build Hydro Storage Energy Equivalent
+        run: python build_hydro_storage_energy.py
+      - name: Normalize Wholesale Baseline Data
+        run: python normalize_wholesale.py
+      - name: Diagnose Generation POC Coverage
+        run: python diagnose_generation_poc.py
+      - name: Validate Wholesale Baseline
+        run: python validate_baseline.py
+
+      - name: Normalize Distributed Generation Data
+        run: python normalize_distributed_generation.py
+      - name: Classify Current Solar Installations by Size
+        run: python build_solar_size_buckets.py
+      - name: Build Distributed Solar Adoption Scenarios
+        run: python build_distributed_solar_scenarios.py
+      - name: Apply Larger Distributed Solar Growth Guardrail
+        run: python cap_larger_distributed_solar_growth.py
+      - name: Build Distributed Battery Attachment Scenarios
+        run: python build_distributed_battery_scenarios.py
+
+      - name: Diagnose Solar Generation Yield Candidates
+        run: python diagnose_solar_yield.py
+      - name: Estimate 2024 Behind-Meter Solar
+        run: python estimate_btm_solar_2024.py
+      - name: Build Calibrated 2024 Baseline
+        run: python build_baseline_2024.py
+
+      - name: Inspect MBIE EDGS Workbook Structure
+        run: python inspect_mbie_edgs.py
+      - name: Normalize MBIE EDGS Demand Scenarios
+        run: python normalize_mbie_edgs.py
+      - name: Build Calibrated Future Demand Scenarios
+        run: python build_future_demand_scenarios.py
+      - name: Build 2030 Replay Inputs
+        run: python build_replay_inputs.py
+
+      - name: Compare Hydro Inflow and Solar Seasonality
+        run: python build_hydro_solar_seasonality.py
+      - name: Compare Distributed Solar with SOSA Winter Energy
+        run: python build_distributed_solar_winter_energy.py
+      - name: Compare Distributed Batteries with SOSA NI Capacity
+        run: python build_distributed_battery_sosa_ni_capacity.py
+      - name: Build SOSA Distributed Margin Comparison
+        run: python build_sosa_distributed_comparison.py
+      - name: Build Hydro Winter Energy Equivalence View
+        run: python build_hydro_energy_equivalence.py
+      - name: Render Observed 2024 Hydro Price Stripes
+        run: python build_observed_2024_hydro_price_stripes.py
+      - name: Build Hydro Trough Counterfactual
+        run: python build_hydro_trough_counterfactual.py
+      - name: Render Observed 2024 WAEERC Risk Zones
+        continue-on-error: true
+        run: python build_observed_2024_erc_zones.py
+
+      - name: Audit Full Rebuild
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo "## Full rebuild summary"
+            echo ""
+            echo "This workflow intentionally performs no upstream source fetches."
+            echo "It rebuilds the current refresh scope from the checked-in source and normalized inputs."
+            echo ""
+            echo "### Files changed before commit"
+            git status --short data/ || true
+          } | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit and Push Rebuilt Outputs
+        shell: bash
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No rebuilt outputs changed" | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "### Files committed" >> "$GITHUB_STEP_SUMMARY"
+          git diff --cached --name-only | sed 's/^/- /' >> "$GITHUB_STEP_SUMMARY"
+          git commit -m "Manual full NZ grid model rebuild"
+          git pull --rebase -X theirs origin "${GITHUB_REF_NAME}"
+          git push origin HEAD:"${GITHUB_REF_NAME}"
