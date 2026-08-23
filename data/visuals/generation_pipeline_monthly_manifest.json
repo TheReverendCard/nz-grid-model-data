@@ -1,9 +1,10 @@
 {
   "snapshot_month": "2026-08",
   "captured_date": "2026-08-24",
-  "latest_png": "data/visuals/generation_pipeline_monthly_latest.png",
+  "latest_png": null,
   "latest_svg": "data/visuals/generation_pipeline_monthly_latest.svg",
   "latest_csv": "data/visuals/generation_pipeline_monthly_plot_data.csv",
   "archived_previous_month": null,
-  "note": "August 2026 is the first retained monthly EA investment-pipeline snapshot, so there is no earlier monthly render to archive. Future runs archive the prior latest render when the snapshot month advances."
+  "bootstrap": true,
+  "note": "August 2026 is the first retained monthly EA investment-pipeline snapshot, so there is no earlier monthly render to archive. The current SVG and plot-data CSV were bootstrapped into data/visuals because workflow_dispatch is not exposed through the connected GitHub tool. Future scheduled or GitHub-UI manual runs render both PNG and SVG and archive the prior latest render when the snapshot month advances."
 }
