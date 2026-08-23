@@ -139,3 +139,5 @@ The EV curves therefore represent **potential aggregate export power under parti
 The visual render is maintained separately from transport-source acquisition. A future source updater should ideally fetch a documented Ministry of Transport or NZTA machine-readable fleet series, validate its fleet definition, update `data/transport/ev_fleet_anchor.csv`, and then allow the normal render workflow to rebuild the chart.
 
 EVDB remains useful for checking whether the resulting BEV / plug-in trend is plausible, but is intentionally not an automated dependency.
+
+Methodology reviewed against the current repo inputs on 24 August 2026.
