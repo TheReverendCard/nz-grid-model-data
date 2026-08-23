@@ -1,0 +1,17 @@
+{
+  "last_render_date": "2026-08-23",
+  "last_render_iso_week": "2026-W34",
+  "source_month": "2026-07-31",
+  "archive_month": "2026-07",
+  "forecast_months": 12,
+  "model_notes": {
+    "mid_20pct_growth_rate_per_year": 0.2004345968101855,
+    "utility_future_policy": "Hold the latest observed >=1 MW bucket flat until project-timed utility additions are explicitly modelled."
+  },
+  "outputs": [
+    "data/visuals/distributed_solar_size_split_capacity.png",
+    "data/visuals/distributed_solar_size_split_installs.png",
+    "data/visuals/distributed_solar_size_split_plot_data.csv"
+  ],
+  "archive_dir": "data/visuals/archive/distributed_solar_size_split/2026-07"
+}
