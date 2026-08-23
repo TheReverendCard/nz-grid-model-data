@@ -1,0 +1,54 @@
+name: Render SOSA Comparison Visuals
+
+on:
+  push:
+    branches:
+      - agent/test-ea-azure-updater
+    paths:
+      - 'build_sosa_distributed_comparison.py'
+      - '.github/workflows/render_sosa_comparisons.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sosa-comparison-visuals-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4.2.2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5.3.0
+        with:
+          python-version: '3.12'
+
+      - name: Install Visual Dependencies
+        run: pip install matplotlib
+
+      - name: Render SOSA Distributed Comparisons
+        run: python build_sosa_distributed_comparison.py
+
+      - name: Commit Updated SOSA Visuals
+        shell: bash
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/model/sosa_distributed_margin_comparison.csv \
+            data/visuals/sosa_stage2_winter_energy_margin_comparison.png \
+            data/visuals/sosa_stage2_ni_capacity_margin_comparison.png \
+            data/visuals/sosa_2035_ni_capacity_stress_test.png
+          if git diff --cached --quiet; then
+            echo "No SOSA comparison changes to commit" | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          echo "## SOSA render files" >> "$GITHUB_STEP_SUMMARY"
+          git diff --cached --name-only | sed 's/^/- /' >> "$GITHUB_STEP_SUMMARY"
+          git commit -m "Render SOSA comparison visuals"
+          git pull --rebase -X theirs origin "${GITHUB_REF_NAME}"
+          git push origin HEAD:"${GITHUB_REF_NAME}"
