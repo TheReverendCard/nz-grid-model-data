@@ -21,6 +21,7 @@ VISUAL_DIR = Path("data/visuals")
 ARCHIVE_DIR = VISUAL_DIR / "archive"
 LATEST_PNG = VISUAL_DIR / "generation_pipeline_monthly_latest.png"
 LATEST_CSV = VISUAL_DIR / "generation_pipeline_monthly_plot_data.csv"
+LATEST_META = VISUAL_DIR / "generation_pipeline_monthly_manifest.json"
 
 START_YEAR = 2026
 END_YEAR = 2040
@@ -118,9 +119,8 @@ def household_solar_twh() -> np.ndarray:
 
 def demand_lines() -> dict[str, np.ndarray]:
     df = pd.read_csv(DEMAND)
-    wanted = ["Constraint", "Reference", "Innovation"]
     result = {}
-    for scenario in wanted:
+    for scenario in ["Constraint", "Reference", "Innovation"]:
         rows = df[(df["Scenario"] == scenario) & (df["TimePeriod"].between(START_YEAR, END_YEAR))]
         rows = rows.sort_values("TimePeriod")
         if len(rows) != len(YEARS):
@@ -129,8 +129,30 @@ def demand_lines() -> dict[str, np.ndarray]:
     return result
 
 
+def archive_previous_latest(current_snapshot_month: str) -> str | None:
+    """Archive the prior latest render only when advancing to a new snapshot month."""
+    if not (LATEST_META.exists() and LATEST_PNG.exists()):
+        return None
+    try:
+        previous = json.loads(LATEST_META.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+
+    previous_month = str(previous.get("snapshot_month") or "").strip()
+    if not previous_month or previous_month == current_snapshot_month:
+        return None
+
+    ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
+    archive_png = ARCHIVE_DIR / f"generation_pipeline_{previous_month}.png"
+    shutil.copy2(LATEST_PNG, archive_png)
+    if LATEST_CSV.exists():
+        shutil.copy2(LATEST_CSV, ARCHIVE_DIR / f"generation_pipeline_{previous_month}.csv")
+    return previous_month
+
+
 def main() -> None:
     rows, snapshot_month, captured_date = read_pipeline()
+    archived_month = archive_previous_latest(snapshot_month)
     profiles, unknown = pipeline_profiles(rows)
     household = household_solar_twh()
     demand = demand_lines()
@@ -224,8 +246,6 @@ def main() -> None:
     VISUAL_DIR.mkdir(parents=True, exist_ok=True)
     ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
     fig.savefig(LATEST_PNG, dpi=180, bbox_inches="tight")
-    archive_png = ARCHIVE_DIR / f"generation_pipeline_{snapshot_month}.png"
-    shutil.copy2(LATEST_PNG, archive_png)
 
     plot = pd.DataFrame({
         "year": YEARS,
@@ -244,13 +264,28 @@ def main() -> None:
     for tech in TECHS:
         plot[f"unknown_date_{tech.lower().replace(' ', '_')}_twh"] = unknown[tech]
     plot.to_csv(LATEST_CSV, index=False)
-    archive_csv = ARCHIVE_DIR / f"generation_pipeline_{snapshot_month}.csv"
-    shutil.copy2(LATEST_CSV, archive_csv)
+
+    LATEST_META.write_text(
+        json.dumps(
+            {
+                "snapshot_month": snapshot_month,
+                "captured_date": captured_date,
+                "latest_png": str(LATEST_PNG),
+                "latest_csv": str(LATEST_CSV),
+                "archived_previous_month": archived_month,
+            },
+            indent=2,
+        ) + "\n",
+        encoding="utf-8",
+    )
 
     print(f"Wrote {LATEST_PNG}")
-    print(f"Archived {archive_png}")
     print(f"Wrote {LATEST_CSV}")
-    print(f"Archived {archive_csv}")
+    print(f"Wrote {LATEST_META}")
+    if archived_month:
+        print(f"Archived prior monthly render: {archived_month}")
+    else:
+        print("No prior monthly render needed archiving")
 
 
 if __name__ == "__main__":
