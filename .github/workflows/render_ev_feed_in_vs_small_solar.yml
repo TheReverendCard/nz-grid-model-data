@@ -1,0 +1,86 @@
+name: Render EV Feed-in vs Small Solar
+
+on:
+  workflow_dispatch:
+    inputs:
+      force_render:
+        description: Force the visual to render
+        required: false
+        default: true
+        type: boolean
+  schedule:
+    - cron: '45 15 * * 1'
+  push:
+    branches:
+      - main
+    paths:
+      - 'build_ev_feed_in_vs_small_solar.py'
+      - 'EV_FEED_IN_VS_SMALL_SOLAR.md'
+      - 'data/transport/ev_fleet_anchor.csv'
+      - 'data/distributed_generation/model/distributed_solar_adoption_20pct.csv'
+      - '.github/workflows/render_ev_feed_in_vs_small_solar.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ev-feed-in-vs-small-solar-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4.2.2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5.3.0
+        with:
+          python-version: '3.12'
+
+      - name: Install Chart Dependencies
+        run: pip install matplotlib scipy numpy pandas
+
+      - name: Render EV Feed-in vs Small Solar
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            python build_ev_feed_in_vs_small_solar.py --force
+          else
+            python build_ev_feed_in_vs_small_solar.py
+          fi
+
+      - name: Verify Render Outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          outputs=(
+            data/visuals/ev_feed_in_vs_small_solar_capacity.png
+            data/visuals/ev_feed_in_vs_small_solar_plot_data.csv
+            data/visuals/ev_feed_in_vs_small_solar_manifest.json
+          )
+          for output in "${outputs[@]}"; do
+            if [ ! -s "$output" ]; then
+              echo "Expected render output missing or empty: $output" >&2
+              exit 1
+            fi
+          done
+          echo "Verified all EV feed-in comparison outputs." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit Rendered Outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/visuals/ev_feed_in_vs_small_solar_capacity.png \
+                  data/visuals/ev_feed_in_vs_small_solar_plot_data.csv \
+                  data/visuals/ev_feed_in_vs_small_solar_manifest.json
+          if git diff --cached --quiet; then
+            echo "Render completed; no output changes to commit." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          git commit -m "Render EV feed-in versus small solar chart"
+          git pull --rebase -X theirs origin "${GITHUB_REF_NAME}"
+          git push origin HEAD:"${GITHUB_REF_NAME}"
