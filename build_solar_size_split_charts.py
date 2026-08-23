@@ -628,13 +628,33 @@ def render(
 
         future_boundary = future_idx[0] - 0.5
         ax.axvline(future_boundary, linewidth=1.0, linestyle=":")
-        ax.text(future_boundary + 0.25, 0.97, "future model →", transform=ax.get_xaxis_transform(), va="top", fontsize=9)
+        ax.annotate(
+            "Future model",
+            xy=(future_boundary, 0.02),
+            xycoords=("data", "axes fraction"),
+            xytext=(10, 20),
+            textcoords="offset points",
+            ha="left",
+            va="bottom",
+            fontsize=9,
+            arrowprops={"arrowstyle": "-|>", "linewidth": 0.8},
+        )
 
     observed_idx = [i for i, point in enumerate(points) if point["kind"] == "observed"]
     if observed_idx:
         observed_boundary = observed_idx[0] - 0.5
         ax.axvline(observed_boundary, linewidth=1.0, linestyle=":")
-        ax.text(observed_boundary + 0.25, 0.90, "EA street-level split →", transform=ax.get_xaxis_transform(), va="top", fontsize=9)
+        ax.annotate(
+            "EA street-level split",
+            xy=(observed_boundary, 0.02),
+            xycoords=("data", "axes fraction"),
+            xytext=(-10, 48),
+            textcoords="offset points",
+            ha="right",
+            va="bottom",
+            fontsize=9,
+            arrowprops={"arrowstyle": "-|>", "linewidth": 0.8},
+        )
 
         current_idx = observed_idx[-1]
         current_month = months[current_idx].strftime("%b %Y")
