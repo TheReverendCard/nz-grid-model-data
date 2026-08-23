@@ -7,6 +7,11 @@ on:
   push:
     paths:
       - '.github/monthly_generation_pipeline_trigger.txt'
+      - '.github/workflows/monthly_generation_pipeline.yml'
+      - 'check_ea_generation_pipeline.py'
+      - 'build_distributed_solar_20pct.py'
+      - 'build_generation_pipeline_monthly_chart.py'
+      - 'data/pipeline/ea_generation_investment_pipeline_current.csv'
 
 permissions:
   contents: write
@@ -54,26 +59,103 @@ jobs:
       - name: Render monthly generation pipeline chart
         run: python build_generation_pipeline_monthly_chart.py
 
+      - name: Validate rendered outputs
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv
+          import struct
+          from pathlib import Path
+
+          png = Path('data/visuals/generation_pipeline_monthly_latest.png')
+          csv_path = Path('data/visuals/generation_pipeline_monthly_plot_data.csv')
+
+          if not png.exists():
+              raise RuntimeError(f'Missing rendered PNG: {png}')
+          data = png.read_bytes()
+          if data[:8] != b'\x89PNG\r\n\x1a\n':
+              raise RuntimeError('Rendered generation-pipeline output is not a valid PNG')
+          if len(data) < 50_000:
+              raise RuntimeError(
+                  f'Rendered PNG is unexpectedly small ({len(data):,} bytes); refusing to publish a likely broken image'
+              )
+          width, height = struct.unpack('>II', data[16:24])
+          if width < 1200 or height < 1200:
+              raise RuntimeError(
+                  f'Rendered PNG dimensions are unexpectedly small ({width}x{height}); refusing to publish'
+              )
+
+          if not csv_path.exists():
+              raise RuntimeError(f'Missing plot-data CSV: {csv_path}')
+          with csv_path.open(newline='', encoding='utf-8') as handle:
+              reader = csv.DictReader(handle)
+              rows = list(reader)
+              fields = set(reader.fieldnames or [])
+
+          required = {
+              'year',
+              'baseline_twh',
+              'full_pipeline_top_twh',
+              'committed_utility_solar_twh',
+              'actively_pursued_utility_solar_twh',
+              'unknown_date_utility_solar_twh',
+          }
+          missing = sorted(required - fields)
+          if missing:
+              raise RuntimeError(
+                  'Plot-data CSV does not match the current renderer; missing columns: ' + ', '.join(missing)
+              )
+          if len(rows) != 15 or rows[0]['year'] != '2026' or rows[-1]['year'] != '2040':
+              raise RuntimeError(
+                  f'Unexpected plot-data horizon: {len(rows)} rows, '
+                  f"{rows[0]['year'] if rows else 'none'} to {rows[-1]['year'] if rows else 'none'}"
+              )
+
+          print(f'Validated {png}: {width}x{height}, {len(data):,} bytes')
+          print(f'Validated {csv_path}: {len(rows)} annual rows, {len(fields)} columns')
+          PY
+
       - name: Report source freshness
         shell: bash
         run: |
           python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
           import json
           from pathlib import Path
+
           meta = json.loads(Path('data/metadata/ea_generation_pipeline_source.json').read_text())
           snap = meta['retained_snapshot']
           tp = meta.get('transpower_connection_pipeline_cross_check', {})
+          check = meta.get('dashboard_check', {})
+
           print('## Monthly generation pipeline source check')
           print()
-          print(f"- EA dashboard checked: {meta['checked_at_utc']}")
+          if check.get('ok'):
+              print(
+                  f"- EA dashboard checked successfully: {meta['checked_at_utc']} "
+                  f"(HTTP {check.get('http_status', 'unknown')})"
+              )
+          else:
+              print(f"- EA dashboard check failed from this runner: {meta['checked_at_utc']}")
+              print(f"- EA check error: {check.get('error', 'unknown')}")
+              print('- Render continued from the explicitly retained EA status snapshot; no fresh EA status was inferred.')
           print(f"- Retained EA status snapshot: {snap['snapshot_month']} captured {snap['captured_date']}")
-          print(f"- EA dashboard fingerprint changed since prior check: {meta['dashboard_changed_since_previous_check']}")
+          changed = meta.get('dashboard_changed_since_previous_check')
+          if changed is None:
+              print('- EA dashboard fingerprint change: unknown because the dashboard check failed')
+          else:
+              print(f"- EA dashboard fingerprint changed since prior successful check: {changed}")
           print(f"- Transpower connection-pipeline last modified: {tp.get('last_modified', 'unknown')}")
           print()
-          print('Transpower is used as a freshness/cross-check stream only; its connection stages are not substituted for EA investment-pipeline statuses.')
-          if meta['dashboard_changed_since_previous_check']:
+          print(
+              'Transpower is used as a freshness/cross-check stream only; '
+              'its connection stages are not substituted for EA investment-pipeline statuses.'
+          )
+          if changed:
               print()
-              print('**Review recommended:** the EA dashboard fingerprint changed. Refresh the retained EA status snapshot if the underlying pipeline table changed.')
+              print(
+                  '**Review recommended:** the EA dashboard fingerprint changed. '
+                  'Refresh the retained EA status snapshot if the underlying pipeline table changed.'
+              )
           PY
 
       - name: Commit monthly snapshot and chart
@@ -81,7 +163,16 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/pipeline data/metadata/ea_generation_pipeline_source.json data/metadata/connection_pipeline_source.json data/distributed_generation/model/distributed_solar_adoption_20pct.* data/visuals/generation_pipeline_monthly_latest.png data/visuals/generation_pipeline_monthly_plot_data.csv data/visuals/generation_pipeline_monthly_manifest.json data/visuals/archive/generation_pipeline_*.png data/visuals/archive/generation_pipeline_*.csv
+          git add data/pipeline \
+                  data/metadata/ea_generation_pipeline_source.json \
+                  data/metadata/connection_pipeline_source.json \
+                  data/distributed_generation/model/distributed_solar_adoption_20pct.* \
+                  data/visuals/generation_pipeline_monthly_latest.png \
+                  data/visuals/generation_pipeline_monthly_plot_data.csv \
+                  data/visuals/generation_pipeline_monthly_manifest.json
+          # The first retained month has no generation_pipeline_*.png/.csv archive
+          # files yet. Staging the directory avoids an unmatched-glob pathspec error.
+          git add -A data/visuals/archive/
           if git diff --cached --quiet; then
             echo 'No monthly generation-pipeline changes to commit'
             exit 0
