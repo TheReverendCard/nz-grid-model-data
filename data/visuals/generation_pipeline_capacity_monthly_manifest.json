@@ -1,0 +1,22 @@
+{
+  "snapshot_month": "2026-08",
+  "captured_date": "2026-08-24",
+  "latest_png": "data/visuals/generation_pipeline_capacity_monthly_latest.png",
+  "latest_csv": "data/visuals/generation_pipeline_capacity_monthly_plot_data.csv",
+  "status_metrics": "data/metadata/ea_generation_pipeline_status_metrics.json",
+  "generation_technologies": [
+    "Geothermal",
+    "Hydro",
+    "Onshore wind",
+    "Offshore wind",
+    "Utility solar",
+    "Gas"
+  ],
+  "storage_power_technologies": [
+    "BESS",
+    "Pumped hydro"
+  ],
+  "past_due_pipeline_mw_included_from_start_year": 4255.0,
+  "unknown_date_policy": "Evenly allocated across 2026-2040 for display only",
+  "archived_previous_month": null
+}
