@@ -101,8 +101,8 @@ jobs:
           {
             echo "## Full rebuild summary"
             echo ""
-            echo "This workflow intentionally performs no upstream source fetches."
-            echo "It rebuilds the current refresh scope from the checked-in source and normalized inputs."
+            echo "This workflow skips source discovery/update jobs and rebuilds the current model/output scope from the checked-in source state."
+            echo "JADE analysis steps may still read authoritative upstream files referenced by checked-in JADE metadata; those raw files are not committed."
             echo ""
             echo "### Files changed before commit"
             git status --short data/ || true
