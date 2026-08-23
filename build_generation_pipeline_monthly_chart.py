@@ -231,9 +231,13 @@ def main() -> None:
         f"Sources: Electricity Authority Generation Investment Pipeline snapshot {snapshot_month} (captured {captured_date}; source checked {checked}); "
         "MBIE Electricity Demand and Generation Scenarios 2024; Electricity Authority distributed-generation data. Household solar is a 20% ICP-saturation scenario, not an EA forecast."
     )
-    fig.subplots_adjust(bottom=0.18)
-    fig.text(0.06, 0.075, method, fontsize=7.4, ha="left", va="top", wrap=True)
-    fig.text(0.06, 0.038, sources, fontsize=7.4, ha="left", va="top", wrap=True)
+    disclaimer = (
+        "Interpretation: the full stacked pipeline is an upper envelope, not a forecast. The Electricity Authority says it does not expect all projects in the pipeline to be built; some early-stage projects may not proceed as their viability is assessed. This chart assigns no probability of completion to Other / early-stage or unknown-date projects."
+    )
+    fig.subplots_adjust(bottom=0.22)
+    fig.text(0.06, 0.105, method, fontsize=7.4, ha="left", va="top", wrap=True)
+    fig.text(0.06, 0.068, sources, fontsize=7.4, ha="left", va="top", wrap=True)
+    fig.text(0.06, 0.030, disclaimer, fontsize=7.4, fontweight="bold", ha="left", va="top", wrap=True)
 
     VISUAL_DIR.mkdir(parents=True, exist_ok=True)
     fig.savefig(LATEST_PNG, dpi=180, bbox_inches="tight")
