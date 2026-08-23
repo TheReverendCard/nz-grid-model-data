@@ -3,7 +3,7 @@ name: Render Hydro Trough Visual
 on:
   push:
     branches:
-      - agent/test-ea-azure-updater
+      - main
     paths:
       - 'build_hydro_trough_counterfactual.py'
       - '.github/workflows/render_hydro_trough.yml'
