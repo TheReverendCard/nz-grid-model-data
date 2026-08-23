@@ -20,6 +20,7 @@ HOUSEHOLD_SOLAR = Path("data/distributed_generation/model/distributed_solar_adop
 VISUAL_DIR = Path("data/visuals")
 ARCHIVE_DIR = VISUAL_DIR / "archive"
 LATEST_PNG = VISUAL_DIR / "generation_pipeline_monthly_latest.png"
+LATEST_SVG = VISUAL_DIR / "generation_pipeline_monthly_latest.svg"
 LATEST_CSV = VISUAL_DIR / "generation_pipeline_monthly_plot_data.csv"
 LATEST_META = VISUAL_DIR / "generation_pipeline_monthly_manifest.json"
 
@@ -143,8 +144,9 @@ def archive_previous_latest(current_snapshot_month: str) -> str | None:
         return None
 
     ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
-    archive_png = ARCHIVE_DIR / f"generation_pipeline_{previous_month}.png"
-    shutil.copy2(LATEST_PNG, archive_png)
+    shutil.copy2(LATEST_PNG, ARCHIVE_DIR / f"generation_pipeline_{previous_month}.png")
+    if LATEST_SVG.exists():
+        shutil.copy2(LATEST_SVG, ARCHIVE_DIR / f"generation_pipeline_{previous_month}.svg")
     if LATEST_CSV.exists():
         shutil.copy2(LATEST_CSV, ARCHIVE_DIR / f"generation_pipeline_{previous_month}.csv")
     return previous_month
@@ -246,6 +248,8 @@ def main() -> None:
     VISUAL_DIR.mkdir(parents=True, exist_ok=True)
     ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
     fig.savefig(LATEST_PNG, dpi=180, bbox_inches="tight")
+    fig.savefig(LATEST_SVG, format="svg", bbox_inches="tight")
+    plt.close(fig)
 
     plot = pd.DataFrame({
         "year": YEARS,
@@ -271,6 +275,7 @@ def main() -> None:
                 "snapshot_month": snapshot_month,
                 "captured_date": captured_date,
                 "latest_png": str(LATEST_PNG),
+                "latest_svg": str(LATEST_SVG),
                 "latest_csv": str(LATEST_CSV),
                 "archived_previous_month": archived_month,
             },
@@ -280,6 +285,7 @@ def main() -> None:
     )
 
     print(f"Wrote {LATEST_PNG}")
+    print(f"Wrote {LATEST_SVG}")
     print(f"Wrote {LATEST_CSV}")
     print(f"Wrote {LATEST_META}")
     if archived_month:
