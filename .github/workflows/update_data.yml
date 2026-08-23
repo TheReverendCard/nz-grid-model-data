@@ -37,9 +37,10 @@ jobs:
         shell: bash
         run: |
           mkdir -p patches
-          git diff --binary -- data/hydro data/metadata/hmd_manifest.json data/metadata/hmd_index_sources.json data/metadata/hmd_model_series_sources.json data/metadata/hmd_infrastructure_source.json > patches/hmd.patch
+          git add -A -- data/hydro data/metadata/hmd_manifest.json data/metadata/hmd_index_sources.json data/metadata/hmd_model_series_sources.json data/metadata/hmd_infrastructure_source.json
+          git diff --cached --binary -- data/hydro data/metadata/hmd_manifest.json data/metadata/hmd_index_sources.json data/metadata/hmd_model_series_sources.json data/metadata/hmd_infrastructure_source.json > patches/hmd.patch
           if [ -s patches/hmd.patch ]; then echo "changed=true" >> "$GITHUB_OUTPUT"; else echo "changed=false" >> "$GITHUB_OUTPUT"; fi
-          if git diff --quiet -- data/hydro; then echo "substantive_changed=false" >> "$GITHUB_OUTPUT"; else echo "substantive_changed=true" >> "$GITHUB_OUTPUT"; fi
+          if git diff --cached --quiet -- data/hydro; then echo "substantive_changed=false" >> "$GITHUB_OUTPUT"; else echo "substantive_changed=true" >> "$GITHUB_OUTPUT"; fi
       - uses: actions/upload-artifact@v4
         with:
           name: hmd-source-patch
@@ -65,9 +66,10 @@ jobs:
         shell: bash
         run: |
           mkdir -p patches
-          git diff --binary -- data/wholesale/raw data/metadata/wholesale_sources.json > patches/wholesale.patch
+          git add -A -- data/wholesale/raw data/metadata/wholesale_sources.json
+          git diff --cached --binary -- data/wholesale/raw data/metadata/wholesale_sources.json > patches/wholesale.patch
           if [ -s patches/wholesale.patch ]; then echo "changed=true" >> "$GITHUB_OUTPUT"; else echo "changed=false" >> "$GITHUB_OUTPUT"; fi
-          if git diff --quiet -- data/wholesale/raw; then echo "substantive_changed=false" >> "$GITHUB_OUTPUT"; else echo "substantive_changed=true" >> "$GITHUB_OUTPUT"; fi
+          if git diff --cached --quiet -- data/wholesale/raw; then echo "substantive_changed=false" >> "$GITHUB_OUTPUT"; else echo "substantive_changed=true" >> "$GITHUB_OUTPUT"; fi
       - uses: actions/upload-artifact@v4
         with:
           name: wholesale-source-patch
@@ -93,9 +95,10 @@ jobs:
         shell: bash
         run: |
           mkdir -p patches
-          git diff --binary -- data/wholesale/model/reconciliation_monthly data/wholesale/model/reconciliation_injection_poc_monthly data/wholesale/model/reconciled_daily.csv data/wholesale/model/reconciled_injection_by_poc_2024.csv data/metadata/reconciliation_sources.json > patches/reconciliation.patch
+          git add -A -- data/wholesale/model/reconciliation_monthly data/wholesale/model/reconciliation_injection_poc_monthly data/wholesale/model/reconciled_daily.csv data/wholesale/model/reconciled_injection_by_poc_2024.csv data/metadata/reconciliation_sources.json
+          git diff --cached --binary -- data/wholesale/model/reconciliation_monthly data/wholesale/model/reconciliation_injection_poc_monthly data/wholesale/model/reconciled_daily.csv data/wholesale/model/reconciled_injection_by_poc_2024.csv data/metadata/reconciliation_sources.json > patches/reconciliation.patch
           if [ -s patches/reconciliation.patch ]; then echo "changed=true" >> "$GITHUB_OUTPUT"; else echo "changed=false" >> "$GITHUB_OUTPUT"; fi
-          if git diff --quiet -- data/wholesale/model/reconciliation_monthly data/wholesale/model/reconciliation_injection_poc_monthly data/wholesale/model/reconciled_daily.csv data/wholesale/model/reconciled_injection_by_poc_2024.csv; then
+          if git diff --cached --quiet -- data/wholesale/model/reconciliation_monthly data/wholesale/model/reconciliation_injection_poc_monthly data/wholesale/model/reconciled_daily.csv data/wholesale/model/reconciled_injection_by_poc_2024.csv; then
             echo "substantive_changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "substantive_changed=true" >> "$GITHUB_OUTPUT"
@@ -129,7 +132,8 @@ jobs:
         shell: bash
         run: |
           mkdir -p patches
-          git diff --binary -- data/distributed_generation data/metadata/distributed_generation_sources.json > patches/distributed-generation.patch
+          git add -A -- data/distributed_generation data/metadata/distributed_generation_sources.json
+          git diff --cached --binary -- data/distributed_generation data/metadata/distributed_generation_sources.json > patches/distributed-generation.patch
           if [ -s patches/distributed-generation.patch ]; then echo "changed=true" >> "$GITHUB_OUTPUT"; else echo "changed=false" >> "$GITHUB_OUTPUT"; fi
       - uses: actions/upload-artifact@v4
         with:
