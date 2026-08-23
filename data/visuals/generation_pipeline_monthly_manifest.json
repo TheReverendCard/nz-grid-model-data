@@ -4,5 +4,5 @@
   "latest_png": "data/visuals/generation_pipeline_monthly_latest.png",
   "latest_csv": "data/visuals/generation_pipeline_monthly_plot_data.csv",
   "archived_previous_month": null,
-  "note": "August 2026 is the first retained monthly EA investment-pipeline snapshot. Future runs archive the prior latest PNG and CSV when the snapshot month advances."
+  "note": "August 2026 is the first retained monthly EA investment-pipeline snapshot. Future runs archive the prior latest PNG and CSV when the snapshot month advances. Monthly rendering is PNG-only via Matplotlib."
 }
