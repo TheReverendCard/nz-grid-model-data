@@ -1,10 +1,10 @@
 {
   "source": "New Zealand Electricity Authority Azure Blob Storage",
-  "purpose": "Historical generation and grid-demand inputs for NZ electricity model",
+  "purpose": "Historical generation for public evidence plus 2024+ grid-demand inputs for NZ electricity modelling",
   "datasets": {
     "generation": {
       "prefix": "Datasets/Wholesale/Generation/Generation_MD/",
-      "start_yyyymm": "202401",
+      "start_yyyymm": "199708",
       "file_count": 31,
       "files": [
         {
