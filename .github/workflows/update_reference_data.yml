@@ -1,0 +1,239 @@
+name: Weekly NZ Grid Reference Data Refresh
+
+on:
+  schedule:
+    - cron: '0 15 * * 0'
+  workflow_dispatch:
+    inputs:
+      force_rebuild:
+        description: 'Rebuild reference-dependent outputs even if upstream data is unchanged'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nz-grid-refresh-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  check-jade:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.detect.outputs.changed }}
+      substantive_changed: ${{ steps.detect.outputs.substantive_changed }}
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-python@v5.3.0
+        with:
+          python-version: '3.12'
+      - run: pip install requests
+      - name: Check EA JADE Published Inputs and Outputs
+        run: python update_jade_manifest.py
+      - name: Capture JADE Changes
+        id: detect
+        shell: bash
+        run: |
+          mkdir -p patches
+          git diff --binary -- data/metadata/jade_manifest.json data/metadata/jade_latest.json > patches/jade.patch
+          if [ -s patches/jade.patch ]; then echo "changed=true" >> "$GITHUB_OUTPUT"; else echo "changed=false" >> "$GITHUB_OUTPUT"; fi
+          if git diff --quiet -- data/metadata/jade_latest.json; then echo "substantive_changed=false" >> "$GITHUB_OUTPUT"; else echo "substantive_changed=true" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: jade-source-patch
+          path: patches/jade.patch
+          if-no-files-found: error
+          retention-days: 1
+
+  check-sosa:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.detect.outputs.changed }}
+      substantive_changed: ${{ steps.detect.outputs.substantive_changed }}
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-python@v5.3.0
+        with:
+          python-version: '3.12'
+      - run: pip install requests
+      - name: Check and Normalize Transpower 2026 SOSA
+        run: python update_sosa_2026.py
+      - name: Capture SOSA Changes
+        id: detect
+        shell: bash
+        run: |
+          mkdir -p patches
+          git diff --binary -- data/sosa/2026 > patches/sosa.patch
+          if [ -s patches/sosa.patch ]; then echo "changed=true" >> "$GITHUB_OUTPUT"; else echo "changed=false" >> "$GITHUB_OUTPUT"; fi
+          if git diff --quiet -- data/sosa/2026/2026_sosa_final_supplementary_data.xlsx data/sosa/2026/medium_demand_winter_energy.csv data/sosa/2026/medium_demand_winter_peak.csv data/sosa/2026/reference_nzwem.csv data/sosa/2026/reference_niwcm.csv; then
+            echo "substantive_changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "substantive_changed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sosa-source-patch
+          path: patches/sosa.patch
+          if-no-files-found: error
+          retention-days: 1
+
+  check-mbie:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.detect.outputs.changed }}
+      substantive_changed: ${{ steps.detect.outputs.substantive_changed }}
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-python@v5.3.0
+        with:
+          python-version: '3.12'
+      - run: pip install requests
+      - name: Check MBIE EDGS 2024 Workbooks
+        run: python update_mbie_edgs.py
+      - name: Capture MBIE EDGS Changes
+        id: detect
+        shell: bash
+        run: |
+          mkdir -p patches
+          git diff --binary -- data/mbie/edgs2024/edgs_2024_assumptions.xlsx data/mbie/edgs2024/edgs_2024_results.xlsx data/mbie/edgs2024/sources.json > patches/mbie.patch
+          if [ -s patches/mbie.patch ]; then echo "changed=true" >> "$GITHUB_OUTPUT"; else echo "changed=false" >> "$GITHUB_OUTPUT"; fi
+          if git diff --quiet -- data/mbie/edgs2024/edgs_2024_assumptions.xlsx data/mbie/edgs2024/edgs_2024_results.xlsx; then echo "substantive_changed=false" >> "$GITHUB_OUTPUT"; else echo "substantive_changed=true" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mbie-source-patch
+          path: patches/mbie.patch
+          if-no-files-found: error
+          retention-days: 1
+
+  rebuild-reference-dependents:
+    needs: [check-jade, check-sosa, check-mbie]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4.2.2
+
+      - name: Download Source Patches
+        uses: actions/download-artifact@v4
+        with:
+          pattern: '*-source-patch'
+          path: patches
+          merge-multiple: true
+
+      - name: Apply Source Patches
+        shell: bash
+        run: |
+          shopt -s nullglob
+          for patch in patches/*.patch; do
+            if [ -s "$patch" ]; then
+              echo "Applying $patch"
+              git apply --binary "$patch"
+            fi
+          done
+
+      - name: Set up Python
+        if: inputs.force_rebuild == true || needs.check-jade.outputs.substantive_changed == 'true' || needs.check-sosa.outputs.substantive_changed == 'true' || needs.check-mbie.outputs.substantive_changed == 'true'
+        uses: actions/setup-python@v5.3.0
+        with:
+          python-version: '3.12'
+
+      - name: Install Model Dependencies
+        if: inputs.force_rebuild == true || needs.check-jade.outputs.substantive_changed == 'true' || needs.check-sosa.outputs.substantive_changed == 'true' || needs.check-mbie.outputs.substantive_changed == 'true'
+        run: pip install requests openpyxl matplotlib scipy pandas beautifulsoup4
+
+      - name: Inspect Latest JADE Output Schemas
+        if: inputs.force_rebuild == true || needs.check-jade.outputs.substantive_changed == 'true'
+        run: python inspect_jade_latest_outputs.py
+
+      - name: Inspect Published JADE Run Configuration
+        if: inputs.force_rebuild == true || needs.check-jade.outputs.substantive_changed == 'true'
+        run: python inspect_jade_run_configuration.py
+
+      - name: Build JADE Weekly Security Visual Data
+        if: inputs.force_rebuild == true || needs.check-jade.outputs.substantive_changed == 'true'
+        run: python build_jade_weekly_security.py
+
+      - name: Build JADE Weekly Thermal Dispatch Data
+        if: inputs.force_rebuild == true || needs.check-jade.outputs.substantive_changed == 'true'
+        run: python build_jade_thermal_dispatch.py
+
+      - name: Build JADE Thermal Valley Analysis
+        if: inputs.force_rebuild == true || needs.check-jade.outputs.substantive_changed == 'true'
+        run: python build_jade_thermal_valley.py
+
+      - name: Render JADE Seasonal Security Charts
+        if: inputs.force_rebuild == true || needs.check-jade.outputs.substantive_changed == 'true'
+        run: python build_jade_security_charts.py
+
+      - name: Inspect MBIE EDGS Workbook Structure
+        if: inputs.force_rebuild == true || needs.check-mbie.outputs.substantive_changed == 'true'
+        run: python inspect_mbie_edgs.py
+
+      - name: Normalize MBIE EDGS Demand Scenarios
+        if: inputs.force_rebuild == true || needs.check-mbie.outputs.substantive_changed == 'true'
+        run: python normalize_mbie_edgs.py
+
+      - name: Build Calibrated Future Demand Scenarios
+        if: inputs.force_rebuild == true || needs.check-mbie.outputs.substantive_changed == 'true'
+        run: python build_future_demand_scenarios.py
+
+      - name: Build 2030 Replay Inputs
+        if: inputs.force_rebuild == true || needs.check-mbie.outputs.substantive_changed == 'true'
+        run: python build_replay_inputs.py
+
+      - name: Compare Distributed Solar with SOSA Winter Energy
+        if: inputs.force_rebuild == true || needs.check-sosa.outputs.substantive_changed == 'true'
+        run: python build_distributed_solar_winter_energy.py
+
+      - name: Compare Distributed Batteries with SOSA NI Capacity
+        if: inputs.force_rebuild == true || needs.check-sosa.outputs.substantive_changed == 'true'
+        run: python build_distributed_battery_sosa_ni_capacity.py
+
+      - name: Build SOSA Distributed Margin Comparison
+        if: inputs.force_rebuild == true || needs.check-sosa.outputs.substantive_changed == 'true'
+        run: python build_sosa_distributed_comparison.py
+
+      - name: Build Hydro Winter Energy Equivalence View
+        if: inputs.force_rebuild == true || needs.check-sosa.outputs.substantive_changed == 'true'
+        run: python build_hydro_energy_equivalence.py
+
+      - name: Build Hydro Trough Counterfactual
+        if: inputs.force_rebuild == true || needs.check-sosa.outputs.substantive_changed == 'true'
+        run: python build_hydro_trough_counterfactual.py
+
+      - name: Audit Run Decisions
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo "## Weekly reference refresh summary"
+            echo ""
+            echo "| Source | Versioned change | Substantive model-input change |"
+            echo "|---|---:|---:|"
+            echo "| JADE | ${{ needs.check-jade.outputs.changed }} | ${{ needs.check-jade.outputs.substantive_changed }} |"
+            echo "| Transpower SOSA | ${{ needs.check-sosa.outputs.changed }} | ${{ needs.check-sosa.outputs.substantive_changed }} |"
+            echo "| MBIE EDGS | ${{ needs.check-mbie.outputs.changed }} | ${{ needs.check-mbie.outputs.substantive_changed }} |"
+            echo ""
+            echo "Force rebuild: ${{ inputs.force_rebuild }}"
+            echo ""
+            echo "### Files changed before commit"
+            git status --short data/ || true
+          } | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit and Push Changes
+        shell: bash
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No data changes to commit" | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "### Files committed" >> "$GITHUB_STEP_SUMMARY"
+          git diff --cached --name-only | sed 's/^/- /' >> "$GITHUB_STEP_SUMMARY"
+          git commit -m "Automated NZ grid weekly reference refresh"
+          git pull --rebase -X theirs origin "${GITHUB_REF_NAME}"
+          git push origin HEAD:"${GITHUB_REF_NAME}"
