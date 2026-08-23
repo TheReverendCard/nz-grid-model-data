@@ -5,8 +5,2227 @@
     "generation": {
       "prefix": "Datasets/Wholesale/Generation/Generation_MD/",
       "start_yyyymm": "199708",
-      "file_count": 31,
+      "file_count": 348,
       "files": [
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199708_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199708_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:04 GMT",
+          "source_content_length": "406762",
+          "source_etag": "0x8D6325E48507017"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199709_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199709_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:04 GMT",
+          "source_content_length": "385184",
+          "source_etag": "0x8D6325E4867F3F5"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199710_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199710_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:05 GMT",
+          "source_content_length": "397923",
+          "source_etag": "0x8D6325E48E8FB0B"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199711_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199711_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:05 GMT",
+          "source_content_length": "394785",
+          "source_etag": "0x8D6325E48F4BCF6"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199712_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199712_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:05 GMT",
+          "source_content_length": "403079",
+          "source_etag": "0x8D6325E48F951AE"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199801_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199801_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:05 GMT",
+          "source_content_length": "415063",
+          "source_etag": "0x8D6325E48FE3490"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199802_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199802_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:05 GMT",
+          "source_content_length": "376692",
+          "source_etag": "0x8D6325E491AE979"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199803_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199803_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:06 GMT",
+          "source_content_length": "419061",
+          "source_etag": "0x8D6325E4995ADE3"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199804_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199804_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:06 GMT",
+          "source_content_length": "398440",
+          "source_etag": "0x8D6325E49A344E7"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199805_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199805_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:06 GMT",
+          "source_content_length": "425345",
+          "source_etag": "0x8D6325E49A8EB3C"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199806_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199806_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:06 GMT",
+          "source_content_length": "410286",
+          "source_etag": "0x8D6325E49ACE393"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199807_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199807_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:06 GMT",
+          "source_content_length": "424677",
+          "source_etag": "0x8D6325E49CB94AD"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199808_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199808_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:07 GMT",
+          "source_content_length": "434086",
+          "source_etag": "0x8D6325E4A434B45"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199809_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199809_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:07 GMT",
+          "source_content_length": "427362",
+          "source_etag": "0x8D6325E4A4FF7BA"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199810_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199810_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:07 GMT",
+          "source_content_length": "447610",
+          "source_etag": "0x8D6325E4A5501B7"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199811_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199811_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:07 GMT",
+          "source_content_length": "428958",
+          "source_etag": "0x8D6325E4A616003"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199812_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199812_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:07 GMT",
+          "source_content_length": "446923",
+          "source_etag": "0x8D6325E4A76C09E"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199901_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199901_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:08 GMT",
+          "source_content_length": "457832",
+          "source_etag": "0x8D6325E4B0C16AF"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199902_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199902_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:08 GMT",
+          "source_content_length": "413263",
+          "source_etag": "0x8D6325E4B011837"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199903_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199903_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:08 GMT",
+          "source_content_length": "461038",
+          "source_etag": "0x8D6325E4B064943"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199904_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199904_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:08 GMT",
+          "source_content_length": "466868",
+          "source_etag": "0x8D6325E4B0FE7EF"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199905_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199905_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:08 GMT",
+          "source_content_length": "480508",
+          "source_etag": "0x8D6325E4B2436E9"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199906_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199906_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:09 GMT",
+          "source_content_length": "466892",
+          "source_etag": "0x8D6325E4BACB969"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199907_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199907_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:09 GMT",
+          "source_content_length": "485303",
+          "source_etag": "0x8D6325E4BB25FBE"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199908_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199908_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:09 GMT",
+          "source_content_length": "492085",
+          "source_etag": "0x8D6325E4BB769B3"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199909_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199909_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:09 GMT",
+          "source_content_length": "479148",
+          "source_etag": "0x8D6325E4BBC2582"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199910_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199910_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:09 GMT",
+          "source_content_length": "495670",
+          "source_etag": "0x8D6325E4BD297BE"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199911_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199911_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:10 GMT",
+          "source_content_length": "479944",
+          "source_etag": "0x8D6325E4C5EC477"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199912_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/199912_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:10 GMT",
+          "source_content_length": "491940",
+          "source_etag": "0x8D6325E4C655561"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200001_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200001_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:11 GMT",
+          "source_content_length": "485417",
+          "source_etag": "0x8D6325E4C7A8EE9"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200002_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200002_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:11 GMT",
+          "source_content_length": "459164",
+          "source_etag": "0x8D6325E4C7D4E89"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200003_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200003_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:11 GMT",
+          "source_content_length": "488600",
+          "source_etag": "0x8D6325E4C84C9F6"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200004_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200004_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:12 GMT",
+          "source_content_length": "480622",
+          "source_etag": "0x8D6325E4D0F6FCF"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200005_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200005_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:12 GMT",
+          "source_content_length": "500625",
+          "source_etag": "0x8D6325E4D092D22"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200006_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200006_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:12 GMT",
+          "source_content_length": "485025",
+          "source_etag": "0x8D6325E4D2237E6"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200007_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200007_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:12 GMT",
+          "source_content_length": "504495",
+          "source_etag": "0x8D6325E4D285381"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200008_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200008_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:12 GMT",
+          "source_content_length": "507792",
+          "source_etag": "0x8D6325E4D2FA7D3"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200009_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200009_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:13 GMT",
+          "source_content_length": "481797",
+          "source_etag": "0x8D6325E4DB9FF68"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200010_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200010_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:13 GMT",
+          "source_content_length": "509161",
+          "source_etag": "0x8D6325E4DBEBB33"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200011_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200011_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:13 GMT",
+          "source_content_length": "485167",
+          "source_etag": "0x8D6325E4DD0E6EA"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200012_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200012_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:13 GMT",
+          "source_content_length": "499456",
+          "source_etag": "0x8D6325E4DD5C9CC"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200101_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200101_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:13 GMT",
+          "source_content_length": "502129",
+          "source_etag": "0x8D6325E4DDC81C6"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200102_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200102_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:14 GMT",
+          "source_content_length": "445175",
+          "source_etag": "0x8D6325E4E6AD1AE"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200103_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200103_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:14 GMT",
+          "source_content_length": "497013",
+          "source_etag": "0x8D6325E4E724D18"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200104_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200104_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:14 GMT",
+          "source_content_length": "477900",
+          "source_etag": "0x8D6325E4E7E5D39"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200105_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200105_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:14 GMT",
+          "source_content_length": "504297",
+          "source_etag": "0x8D6325E4E853C42"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200106_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200106_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:14 GMT",
+          "source_content_length": "487766",
+          "source_etag": "0x8D6325E4E8D05DA"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200107_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200107_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:15 GMT",
+          "source_content_length": "503521",
+          "source_etag": "0x8D6325E4F1DEE4E"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200108_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200108_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:15 GMT",
+          "source_content_length": "507075",
+          "source_etag": "0x8D6325E4F189627"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200109_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200109_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:15 GMT",
+          "source_content_length": "477337",
+          "source_etag": "0x8D6325E4F328B7B"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200110_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200110_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:15 GMT",
+          "source_content_length": "492518",
+          "source_etag": "0x8D6325E4F343974"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200111_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200111_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:15 GMT",
+          "source_content_length": "480554",
+          "source_etag": "0x8D6325E4F37956F"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200112_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200112_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:16 GMT",
+          "source_content_length": "491454",
+          "source_etag": "0x8D6325E4FCCC469"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200201_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200201_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:16 GMT",
+          "source_content_length": "488999",
+          "source_etag": "0x8D6325E4FD2B8EC"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200202_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200202_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:16 GMT",
+          "source_content_length": "442815",
+          "source_etag": "0x8D6325E4FE07702"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200203_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200203_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:16 GMT",
+          "source_content_length": "489429",
+          "source_etag": "0x8D6325E4FE50BBA"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200204_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200204_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:16 GMT",
+          "source_content_length": "478954",
+          "source_etag": "0x8D6325E4FE9C785"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200205_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200205_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:17 GMT",
+          "source_content_length": "496977",
+          "source_etag": "0x8D6325E507B9A88"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200206_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200206_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:17 GMT",
+          "source_content_length": "480659",
+          "source_etag": "0x8D6325E5081DD34"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200207_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200207_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:17 GMT",
+          "source_content_length": "497193",
+          "source_etag": "0x8D6325E50962C2E"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200208_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200208_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:17 GMT",
+          "source_content_length": "505290",
+          "source_etag": "0x8D6325E50914948"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200209_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200209_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:18 GMT",
+          "source_content_length": "487048",
+          "source_etag": "0x8D6325E509E6B0B"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200210_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200210_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:18 GMT",
+          "source_content_length": "497441",
+          "source_etag": "0x8D6325E51308C3C"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200211_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200211_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:18 GMT",
+          "source_content_length": "479961",
+          "source_etag": "0x8D6325E512B0CF6"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200212_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200212_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:19 GMT",
+          "source_content_length": "491459",
+          "source_etag": "0x8D6325E5146892F"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200301_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200301_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:19 GMT",
+          "source_content_length": "492480",
+          "source_etag": "0x8D6325E514094A8"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200302_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200302_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:19 GMT",
+          "source_content_length": "443142",
+          "source_etag": "0x8D6325E514EC80C"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200303_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200303_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:20 GMT",
+          "source_content_length": "487377",
+          "source_etag": "0x8D6325E51EC35F0"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200304_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200304_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:20 GMT",
+          "source_content_length": "467045",
+          "source_etag": "0x8D6325E51F07C68"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200305_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200305_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:20 GMT",
+          "source_content_length": "483356",
+          "source_etag": "0x8D6325E5227C301"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200306_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200306_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:20 GMT",
+          "source_content_length": "472698",
+          "source_etag": "0x8D6325E521485A8"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200307_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200307_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:20 GMT",
+          "source_content_length": "497905",
+          "source_etag": "0x8D6325E520F2D82"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200308_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200308_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:21 GMT",
+          "source_content_length": "498520",
+          "source_etag": "0x8D6325E52ADD411"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200309_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200309_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:21 GMT",
+          "source_content_length": "486109",
+          "source_etag": "0x8D6325E529BA85E"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200310_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200310_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:21 GMT",
+          "source_content_length": "491508",
+          "source_etag": "0x8D6325E52E51AAE"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200311_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200311_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:21 GMT",
+          "source_content_length": "472928",
+          "source_etag": "0x8D6325E52BE9FF8"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200312_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200312_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:21 GMT",
+          "source_content_length": "493287",
+          "source_etag": "0x8D6325E52C382DA"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200401_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200401_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:22 GMT",
+          "source_content_length": "495521",
+          "source_etag": "0x8D6325E53798630"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200402_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200402_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:22 GMT",
+          "source_content_length": "467435",
+          "source_etag": "0x8D6325E535E7F44"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200403_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200403_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:22 GMT",
+          "source_content_length": "502933",
+          "source_etag": "0x8D6325E5369CBEA"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200404_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200404_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:23 GMT",
+          "source_content_length": "487973",
+          "source_etag": "0x8D6325E5399E547"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200405_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200405_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:23 GMT",
+          "source_content_length": "504578",
+          "source_etag": "0x8D6325E539F1657"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200406_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200406_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:23 GMT",
+          "source_content_length": "499609",
+          "source_etag": "0x8D6325E53F90665"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200407_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200407_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:23 GMT",
+          "source_content_length": "516706",
+          "source_etag": "0x8D6325E54069D6D"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200408_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200408_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:23 GMT",
+          "source_content_length": "535293",
+          "source_etag": "0x8D6325E5416F40B"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200409_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200409_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:23 GMT",
+          "source_content_length": "509997",
+          "source_etag": "0x8D6325E541CE88A"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200410_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200410_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:23 GMT",
+          "source_content_length": "523107",
+          "source_etag": "0x8D6325E542240B0"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200411_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200411_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:24 GMT",
+          "source_content_length": "503962",
+          "source_etag": "0x8D6325E549FEBCC"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200412_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200412_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:24 GMT",
+          "source_content_length": "527635",
+          "source_etag": "0x8D6325E54B80C06"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200501_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200501_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:25 GMT",
+          "source_content_length": "522184",
+          "source_etag": "0x8D6325E54C702DA"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200502_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200502_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:24 GMT",
+          "source_content_length": "474114",
+          "source_etag": "0x8D6325E54C26E2A"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200503_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200503_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:25 GMT",
+          "source_content_length": "524765",
+          "source_etag": "0x8D6325E54CD6C9D"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200504_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200504_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:25 GMT",
+          "source_content_length": "504063",
+          "source_etag": "0x8D6325E554D3B00"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200505_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200505_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:26 GMT",
+          "source_content_length": "522618",
+          "source_etag": "0x8D6325E5561D828"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200506_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200506_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:26 GMT",
+          "source_content_length": "514954",
+          "source_etag": "0x8D6325E5571E0A1"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200507_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200507_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:26 GMT",
+          "source_content_length": "533243",
+          "source_etag": "0x8D6325E5576EA95"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200508_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200508_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:26 GMT",
+          "source_content_length": "534282",
+          "source_etag": "0x8D6325E5586F30A"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200509_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200509_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:27 GMT",
+          "source_content_length": "500661",
+          "source_etag": "0x8D6325E55FA14F3"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200510_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200510_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:27 GMT",
+          "source_content_length": "523893",
+          "source_etag": "0x8D6325E5610FC71"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200511_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200511_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:27 GMT",
+          "source_content_length": "507694",
+          "source_etag": "0x8D6325E562439C9"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200512_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200512_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:27 GMT",
+          "source_content_length": "523628",
+          "source_etag": "0x8D6325E562B6705"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200601_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200601_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:27 GMT",
+          "source_content_length": "524983",
+          "source_etag": "0x8D6325E56329440"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200602_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200602_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:28 GMT",
+          "source_content_length": "477136",
+          "source_etag": "0x8D6325E56B3E981"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200603_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200603_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:28 GMT",
+          "source_content_length": "529226",
+          "source_etag": "0x8D6325E56C1325B"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200604_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200604_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:28 GMT",
+          "source_content_length": "508535",
+          "source_etag": "0x8D6325E56CC57EE"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200605_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200605_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:28 GMT",
+          "source_content_length": "524750",
+          "source_etag": "0x8D6325E56D113B8"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200606_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200606_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:28 GMT",
+          "source_content_length": "516550",
+          "source_etag": "0x8D6325E56E429FA"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200607_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200607_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:29 GMT",
+          "source_content_length": "530122",
+          "source_etag": "0x8D6325E575FD8EA"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200608_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200608_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:29 GMT",
+          "source_content_length": "536849",
+          "source_etag": "0x8D6325E57718F58"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200609_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200609_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:29 GMT",
+          "source_content_length": "502352",
+          "source_etag": "0x8D6325E577D2A34"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200610_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200610_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:29 GMT",
+          "source_content_length": "524603",
+          "source_etag": "0x8D6325E5777F928"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200611_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200611_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:29 GMT",
+          "source_content_length": "513592",
+          "source_etag": "0x8D6325E578D80D2"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200612_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200612_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:30 GMT",
+          "source_content_length": "521963",
+          "source_etag": "0x8D6325E580908AF"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200701_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200701_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:30 GMT",
+          "source_content_length": "517448",
+          "source_etag": "0x8D6325E581E4234"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200702_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200702_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:30 GMT",
+          "source_content_length": "473827",
+          "source_etag": "0x8D6325E582484E9"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200703_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200703_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:30 GMT",
+          "source_content_length": "535224",
+          "source_etag": "0x8D6325E582B63F2"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200704_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200704_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:30 GMT",
+          "source_content_length": "516474",
+          "source_etag": "0x8D6325E5839BE6D"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200705_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200705_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:31 GMT",
+          "source_content_length": "538992",
+          "source_etag": "0x8D6325E58B7426E"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200706_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200706_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:31 GMT",
+          "source_content_length": "521110",
+          "source_etag": "0x8D6325E58CCA305"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200707_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200707_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:31 GMT",
+          "source_content_length": "541042",
+          "source_etag": "0x8D6325E58D9C4C7"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200708_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200708_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:31 GMT",
+          "source_content_length": "542138",
+          "source_etag": "0x8D6325E58E909C9"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200709_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200709_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:31 GMT",
+          "source_content_length": "505619",
+          "source_etag": "0x8D6325E58E9A625"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200710_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200710_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:32 GMT",
+          "source_content_length": "533182",
+          "source_etag": "0x8D6325E5965F171"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200711_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200711_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:32 GMT",
+          "source_content_length": "511252",
+          "source_etag": "0x8D6325E597BA03B"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200712_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200712_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:32 GMT",
+          "source_content_length": "520440",
+          "source_etag": "0x8D6325E5981BBD5"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200801_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200801_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:33 GMT",
+          "source_content_length": "526004",
+          "source_etag": "0x8D6325E598A6FF7"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200802_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200802_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:33 GMT",
+          "source_content_length": "491592",
+          "source_etag": "0x8D6325E599658FD"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200803_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200803_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:33 GMT",
+          "source_content_length": "515897",
+          "source_etag": "0x8D6325E5A1711E6"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200804_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200804_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:34 GMT",
+          "source_content_length": "484318",
+          "source_etag": "0x8D6325E5A4A8742"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200805_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200805_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:34 GMT",
+          "source_content_length": "520688",
+          "source_etag": "0x8D6325E5A41D31C"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200806_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200806_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:34 GMT",
+          "source_content_length": "502243",
+          "source_etag": "0x8D6325E5A3BDE99"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200807_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200807_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:34 GMT",
+          "source_content_length": "540524",
+          "source_etag": "0x8D6325E5A50F102"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200808_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200808_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:35 GMT",
+          "source_content_length": "550833",
+          "source_etag": "0x8D6325E5AC4FD71"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200809_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200809_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:35 GMT",
+          "source_content_length": "512711",
+          "source_etag": "0x8D6325E5AFBCECE"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200810_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200810_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:35 GMT",
+          "source_content_length": "530448",
+          "source_etag": "0x8D6325E5AEE10AF"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200811_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200811_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:35 GMT",
+          "source_content_length": "512779",
+          "source_etag": "0x8D6325E5AF62874"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200812_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200812_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:35 GMT",
+          "source_content_length": "523616",
+          "source_etag": "0x8D6325E5B02117F"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200901_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200901_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:36 GMT",
+          "source_content_length": "796708",
+          "source_etag": "0x8D6325E5B724CAA"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200902_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200902_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:36 GMT",
+          "source_content_length": "710694",
+          "source_etag": "0x8D6325E5B9AC382"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200903_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200903_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:36 GMT",
+          "source_content_length": "812416",
+          "source_etag": "0x8D6325E5BB15CDA"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200904_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200904_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:36 GMT",
+          "source_content_length": "799213",
+          "source_etag": "0x8D6325E5BA6FABB"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200905_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200905_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:36 GMT",
+          "source_content_length": "869351",
+          "source_etag": "0x8D6325E5BBB22AA"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200906_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200906_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:37 GMT",
+          "source_content_length": "794376",
+          "source_etag": "0x8D6325E5C2457A8"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200907_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200907_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:37 GMT",
+          "source_content_length": "833347",
+          "source_etag": "0x8D6325E5C55A9BE"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200908_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200908_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:37 GMT",
+          "source_content_length": "821899",
+          "source_etag": "0x8D6325E5C4A3606"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200909_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200909_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:37 GMT",
+          "source_content_length": "793863",
+          "source_etag": "0x8D6325E5C600BDE"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200910_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200910_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:37 GMT",
+          "source_content_length": "831186",
+          "source_etag": "0x8D6325E5C69F8B8"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200911_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200911_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:38 GMT",
+          "source_content_length": "798331",
+          "source_etag": "0x8D6325E5CD79B5B"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/200912_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/200912_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:38 GMT",
+          "source_content_length": "818178",
+          "source_etag": "0x8D6325E5CF69AA7"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201001_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201001_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:38 GMT",
+          "source_content_length": "799109",
+          "source_etag": "0x8D6325E5D006066"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201002_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201002_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:38 GMT",
+          "source_content_length": "746511",
+          "source_etag": "0x8D6325E5D0AC28E"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201003_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201003_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:38 GMT",
+          "source_content_length": "818517",
+          "source_etag": "0x8D6325E5D15C105"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201004_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201004_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:39 GMT",
+          "source_content_length": "796008",
+          "source_etag": "0x8D6325E5D89A65E"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201005_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201005_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:39 GMT",
+          "source_content_length": "838084",
+          "source_etag": "0x8D6325E5DA32668"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201006_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201006_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:39 GMT",
+          "source_content_length": "837768",
+          "source_etag": "0x8D6325E5DAFF9F8"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201007_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201007_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:40 GMT",
+          "source_content_length": "855872",
+          "source_etag": "0x8D6325E5DB9E6D7"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201008_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201008_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:40 GMT",
+          "source_content_length": "854897",
+          "source_etag": "0x8D6325E5DC6934C"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201009_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201009_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:40 GMT",
+          "source_content_length": "808987",
+          "source_etag": "0x8D6325E5E3595C2"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201010_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201010_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:41 GMT",
+          "source_content_length": "847119",
+          "source_etag": "0x8D6325E5E65AF20"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201011_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201011_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:40 GMT",
+          "source_content_length": "814331",
+          "source_etag": "0x8D6325E5E4D8EEA"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201012_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201012_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:41 GMT",
+          "source_content_length": "850133",
+          "source_etag": "0x8D6325E5E5BE969"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201101_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201101_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:41 GMT",
+          "source_content_length": "850243",
+          "source_etag": "0x8D6325E5E6FEA28"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201102_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201102_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:41 GMT",
+          "source_content_length": "772677",
+          "source_etag": "0x8D6325E5EE136F9"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201103_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201103_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:42 GMT",
+          "source_content_length": "873275",
+          "source_etag": "0x8D6325E5F07B1AA"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201104_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201104_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:42 GMT",
+          "source_content_length": "848078",
+          "source_etag": "0x8D6325E5EFC16CE"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201105_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201105_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:42 GMT",
+          "source_content_length": "896244",
+          "source_etag": "0x8D6325E5F12FE58"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201106_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201106_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:42 GMT",
+          "source_content_length": "857610",
+          "source_etag": "0x8D6325E5F28FB4B"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201107_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201107_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:43 GMT",
+          "source_content_length": "909238",
+          "source_etag": "0x8D6325E5F96C50A"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201108_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201108_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:43 GMT",
+          "source_content_length": "892834",
+          "source_etag": "0x8D6325E5FD511C7"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201109_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201109_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:43 GMT",
+          "source_content_length": "854823",
+          "source_etag": "0x8D6325E5FE05E7E"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201110_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201110_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:43 GMT",
+          "source_content_length": "877839",
+          "source_etag": "0x8D6325E600663D8"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201111_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201111_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:43 GMT",
+          "source_content_length": "843205",
+          "source_etag": "0x8D6325E5FF2FF6D"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201112_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201112_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:44 GMT",
+          "source_content_length": "862730",
+          "source_etag": "0x8D6325E605E57BB"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201201_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201201_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:44 GMT",
+          "source_content_length": "867656",
+          "source_etag": "0x8D6325E6090E289"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201202_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201202_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:44 GMT",
+          "source_content_length": "813054",
+          "source_etag": "0x8D6325E6080DA14"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201203_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201203_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:44 GMT",
+          "source_content_length": "857454",
+          "source_etag": "0x8D6325E6099E4D9"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201204_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201204_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:44 GMT",
+          "source_content_length": "835173",
+          "source_etag": "0x8D6325E60A4BC3E"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201205_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201205_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:45 GMT",
+          "source_content_length": "892708",
+          "source_etag": "0x8D6325E60FDE8D4"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201206_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201206_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:45 GMT",
+          "source_content_length": "857356",
+          "source_etag": "0x8D6325E6146BEC8"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201207_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201207_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:45 GMT",
+          "source_content_length": "901283",
+          "source_etag": "0x8D6325E612FFE61"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201208_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201208_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:46 GMT",
+          "source_content_length": "894535",
+          "source_etag": "0x8D6325E615BF84C"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201209_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201209_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:46 GMT",
+          "source_content_length": "854676",
+          "source_etag": "0x8D6325E6160B41B"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201210_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201210_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:46 GMT",
+          "source_content_length": "891049",
+          "source_etag": "0x8D6325E61BA55F6"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201211_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201211_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:47 GMT",
+          "source_content_length": "850828",
+          "source_etag": "0x8D6325E61E78899"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201212_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201212_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:47 GMT",
+          "source_content_length": "874459",
+          "source_etag": "0x8D6325E61F93F0B"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201301_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201301_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:47 GMT",
+          "source_content_length": "860125",
+          "source_etag": "0x8D6325E6205281A"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201302_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201302_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:47 GMT",
+          "source_content_length": "769856",
+          "source_etag": "0x8D6325E62244E70"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201303_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201303_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:47 GMT",
+          "source_content_length": "854659",
+          "source_etag": "0x8D6325E625AD196"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201304_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201304_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:48 GMT",
+          "source_content_length": "863589",
+          "source_etag": "0x8D6325E62901C07"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201305_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201305_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:48 GMT",
+          "source_content_length": "892128",
+          "source_etag": "0x8D6325E629B1A83"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201306_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201306_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:48 GMT",
+          "source_content_length": "854863",
+          "source_etag": "0x8D6325E62AA1152"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201307_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201307_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:48 GMT",
+          "source_content_length": "903374",
+          "source_etag": "0x8D6325E62B49A88"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201308_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201308_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:48 GMT",
+          "source_content_length": "892884",
+          "source_etag": "0x8D6325E6304016C"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201309_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201309_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:49 GMT",
+          "source_content_length": "856115",
+          "source_etag": "0x8D6325E63542BD2"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201310_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201310_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:49 GMT",
+          "source_content_length": "890773",
+          "source_etag": "0x8D6325E63497B80"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201311_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201311_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:49 GMT",
+          "source_content_length": "847124",
+          "source_etag": "0x8D6325E6370E0CB"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201312_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201312_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:49 GMT",
+          "source_content_length": "883506",
+          "source_etag": "0x8D6325E637C548C"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201401_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201401_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:50 GMT",
+          "source_content_length": "843568",
+          "source_etag": "0x8D6325E63D13AA1"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201402_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201402_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:50 GMT",
+          "source_content_length": "793253",
+          "source_etag": "0x8D6325E64121FE2"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201403_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201403_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:50 GMT",
+          "source_content_length": "868231",
+          "source_etag": "0x8D6325E63EE3DB9"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201404_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201404_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:50 GMT",
+          "source_content_length": "839322",
+          "source_etag": "0x8D6325E643034A8"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201405_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201405_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:50 GMT",
+          "source_content_length": "865442",
+          "source_etag": "0x8D6325E64091D92"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201406_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201406_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:51 GMT",
+          "source_content_length": "851510",
+          "source_etag": "0x8D6325E64758785"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201407_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201407_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:51 GMT",
+          "source_content_length": "903279",
+          "source_etag": "0x8D6325E649B17A4"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201408_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201408_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:51 GMT",
+          "source_content_length": "906615",
+          "source_etag": "0x8D6325E64A6B27B"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201409_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201409_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:51 GMT",
+          "source_content_length": "870696",
+          "source_etag": "0x8D6325E64B2C29D"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201410_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201410_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:51 GMT",
+          "source_content_length": "890141",
+          "source_etag": "0x8D6325E64C7D50A"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201411_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201411_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:52 GMT",
+          "source_content_length": "693105",
+          "source_etag": "0x8D6325E650B04AD"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201412_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201412_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:52 GMT",
+          "source_content_length": "721523",
+          "source_etag": "0x8D6325E654A8A1F"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201501_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201501_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:52 GMT",
+          "source_content_length": "714438",
+          "source_etag": "0x8D6325E655428CB"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201502_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201502_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:52 GMT",
+          "source_content_length": "636351",
+          "source_etag": "0x8D6325E65665482"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201503_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201503_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:52 GMT",
+          "source_content_length": "698124",
+          "source_etag": "0x8D6325E655CB5D6"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201504_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201504_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:53 GMT",
+          "source_content_length": "693642",
+          "source_etag": "0x8D6325E65B93E67"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201505_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201505_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:53 GMT",
+          "source_content_length": "705878",
+          "source_etag": "0x8D6325E65FA71DF"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201506_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201506_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:53 GMT",
+          "source_content_length": "686640",
+          "source_etag": "0x8D6325E66039B42"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201507_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201507_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:54 GMT",
+          "source_content_length": "723722",
+          "source_etag": "0x8D6325E661AF804"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201508_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201508_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:54 GMT",
+          "source_content_length": "728719",
+          "source_etag": "0x8D6325E6611A78A"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201509_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201509_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:54 GMT",
+          "source_content_length": "697113",
+          "source_etag": "0x8D6325E66675113"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201510_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201510_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:55 GMT",
+          "source_content_length": "711176",
+          "source_etag": "0x8D6325E66B6B7E6"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201511_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201511_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:55 GMT",
+          "source_content_length": "686988",
+          "source_etag": "0x8D6325E66AD1931"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201512_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201512_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:55 GMT",
+          "source_content_length": "708690",
+          "source_etag": "0x8D6325E66C783CD"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201601_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201601_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:55 GMT",
+          "source_content_length": "712836",
+          "source_etag": "0x8D6325E66BF931A"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201602_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201602_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:55 GMT",
+          "source_content_length": "657405",
+          "source_etag": "0x8D6325E671080D4"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201603_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201603_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:56 GMT",
+          "source_content_length": "686559",
+          "source_etag": "0x8D6325E6757F6F4"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201604_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201604_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:56 GMT",
+          "source_content_length": "661430",
+          "source_etag": "0x8D6325E675FE7A3"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201605_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201605_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:56 GMT",
+          "source_content_length": "686066",
+          "source_etag": "0x8D6325E6770B38F"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201606_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201606_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:56 GMT",
+          "source_content_length": "676210",
+          "source_etag": "0x8D6325E6768C2E0"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201607_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201607_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:56 GMT",
+          "source_content_length": "712274",
+          "source_etag": "0x8D6325E67C12C03"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201608_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201608_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:57 GMT",
+          "source_content_length": "891342",
+          "source_etag": "0x8D6325E6811F2A6"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201609_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201609_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:57 GMT",
+          "source_content_length": "872502",
+          "source_etag": "0x8D6325E681EED4D"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201610_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201610_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:57 GMT",
+          "source_content_length": "865516",
+          "source_etag": "0x8D6325E6833FFBA"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201611_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201611_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:57 GMT",
+          "source_content_length": "837121",
+          "source_etag": "0x8D6325E6829767F"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201612_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201612_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:57 GMT",
+          "source_content_length": "860671",
+          "source_etag": "0x8D6325E686CA623"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201701_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201701_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:58 GMT",
+          "source_content_length": "868522",
+          "source_etag": "0x8D6325E68C2EC03"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201702_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201702_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:58 GMT",
+          "source_content_length": "777200",
+          "source_etag": "0x8D6325E68CC156A"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201703_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201703_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:58 GMT",
+          "source_content_length": "864053",
+          "source_etag": "0x8D6325E68DAE526"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201704_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201704_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:58 GMT",
+          "source_content_length": "830893",
+          "source_etag": "0x8D6325E68EC2653"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201705_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201705_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:59 GMT",
+          "source_content_length": "863603",
+          "source_etag": "0x8D6325E691C189E"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201706_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201706_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:59 GMT",
+          "source_content_length": "858630",
+          "source_etag": "0x8D6325E696E6622"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201707_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201707_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:59 GMT",
+          "source_content_length": "906336",
+          "source_etag": "0x8D6325E6979B2CC"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201708_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201708_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:59 GMT",
+          "source_content_length": "899630",
+          "source_etag": "0x8D6325E69941D60"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201709_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201709_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:23:59 GMT",
+          "source_content_length": "860875",
+          "source_etag": "0x8D6325E698B1B10"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201710_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201710_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:24:00 GMT",
+          "source_content_length": "874144",
+          "source_etag": "0x8D6325E69CCC3C8"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201711_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201711_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:24:00 GMT",
+          "source_content_length": "855229",
+          "source_etag": "0x8D6325E6A1AA3B5"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201712_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201712_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:24:00 GMT",
+          "source_content_length": "874636",
+          "source_etag": "0x8D6325E6A24DEBD"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201801_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201801_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:24:01 GMT",
+          "source_content_length": "870475",
+          "source_etag": "0x8D6325E6A4033DC"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201802_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201802_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:24:00 GMT",
+          "source_content_length": "803618",
+          "source_etag": "0x8D6325E6A33FCA8"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201803_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201803_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:24:01 GMT",
+          "source_content_length": "877663",
+          "source_etag": "0x8D6325E6A7A612B"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201804_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201804_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:24:01 GMT",
+          "source_content_length": "856305",
+          "source_etag": "0x8D6325E6ACE5CB1"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201805_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201805_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:24:02 GMT",
+          "source_content_length": "873214",
+          "source_etag": "0x8D6325E6AD93416"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201806_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201806_Generation_MD.csv",
+          "source_last_modified": "Mon, 15 Oct 2018 05:24:02 GMT",
+          "source_content_length": "855373",
+          "source_etag": "0x8D6325E6AE54433"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201807_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201807_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Feb 2019 23:00:24 GMT",
+          "source_content_length": "894851",
+          "source_etag": "0x8D68D500B05E50B"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201808_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201808_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Feb 2019 23:01:34 GMT",
+          "source_content_length": "894767",
+          "source_etag": "0x8D68D503505EBCB"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201809_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201809_Generation_MD.csv",
+          "source_last_modified": "Thu, 18 Oct 2018 10:22:07 GMT",
+          "source_content_length": "856213",
+          "source_etag": "0x8D634E38EDB3409"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201810_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201810_Generation_MD.csv",
+          "source_last_modified": "Wed, 21 Nov 2018 10:22:08 GMT",
+          "source_content_length": "886811",
+          "source_etag": "0x8D64F9B310A52E7"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201811_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201811_Generation_MD.csv",
+          "source_last_modified": "Tue, 18 Dec 2018 10:22:12 GMT",
+          "source_content_length": "853473",
+          "source_etag": "0x8D664D2AD125DB8"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201812_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201812_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Feb 2019 23:01:06 GMT",
+          "source_content_length": "881177",
+          "source_etag": "0x8D68D502457C529"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201901_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201901_Generation_MD.csv",
+          "source_last_modified": "Fri, 15 Feb 2019 10:22:16 GMT",
+          "source_content_length": "880388",
+          "source_etag": "0x8D6932F75BEBAC1"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201902_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201902_Generation_MD.csv",
+          "source_last_modified": "Tue, 26 Mar 2019 10:22:13 GMT",
+          "source_content_length": "790127",
+          "source_etag": "0x8D6B1D4EA2F266F"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201903_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201903_Generation_MD.csv",
+          "source_last_modified": "Thu, 18 Apr 2019 11:22:35 GMT",
+          "source_content_length": "864807",
+          "source_etag": "0x8D6C3F0282970C2"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201904_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201904_Generation_MD.csv",
+          "source_last_modified": "Thu, 16 May 2019 05:23:58 GMT",
+          "source_content_length": "838592",
+          "source_etag": "0x8D6D9BEB2FB2D42"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201905_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201905_Generation_MD.csv",
+          "source_last_modified": "Thu, 13 Jun 2019 00:05:08 GMT",
+          "source_content_length": "860179",
+          "source_etag": "0x8D6EF92CC1AEA01"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201906_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201906_Generation_MD.csv",
+          "source_last_modified": "Wed, 10 Jul 2019 04:35:09 GMT",
+          "source_content_length": "830907",
+          "source_etag": "0x8D704EFFD894568"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201907_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201907_Generation_MD.csv",
+          "source_last_modified": "Wed, 14 Aug 2019 00:20:11 GMT",
+          "source_content_length": "868364",
+          "source_etag": "0x8D7204D2C094EC6"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201908_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201908_Generation_MD.csv",
+          "source_last_modified": "Mon, 16 Sep 2019 05:05:18 GMT",
+          "source_content_length": "903317",
+          "source_etag": "0x8D73A63781DEC68"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201909_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201909_Generation_MD.csv",
+          "source_last_modified": "Tue, 15 Oct 2019 04:37:19 GMT",
+          "source_content_length": "868612",
+          "source_etag": "0x8D751295D384676"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201910_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201910_Generation_MD.csv",
+          "source_last_modified": "Sun, 17 Nov 2019 23:50:15 GMT",
+          "source_content_length": "902089",
+          "source_etag": "0x8D76BB8E4F423B9"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201911_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201911_Generation_MD.csv",
+          "source_last_modified": "Wed, 11 Dec 2019 23:50:27 GMT",
+          "source_content_length": "853061",
+          "source_etag": "0x8D77E94E5D01486"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/201912_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/201912_Generation_MD.csv",
+          "source_last_modified": "Thu, 16 Jan 2020 23:20:26 GMT",
+          "source_content_length": "847053",
+          "source_etag": "0x8D79ADAAB4AD22C"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202001_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202001_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:10:13 GMT",
+          "source_content_length": "693936",
+          "source_etag": "0x8DBF6C9A5DF3533"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202002_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202002_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:09:09 GMT",
+          "source_content_length": "645544",
+          "source_etag": "0x8DBF6C97F9F737A"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202003_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202003_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:09:42 GMT",
+          "source_content_length": "686056",
+          "source_etag": "0x8DBF6C99359822F"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202004_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202004_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:09:45 GMT",
+          "source_content_length": "655645",
+          "source_etag": "0x8DBF6C99539BBA2"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202005_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202005_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:09:32 GMT",
+          "source_content_length": "697796",
+          "source_etag": "0x8DBF6C98DBD901D"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202006_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202006_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:10:36 GMT",
+          "source_content_length": "682450",
+          "source_etag": "0x8DBF6C9B3E38B8F"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202007_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202007_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:09:51 GMT",
+          "source_content_length": "730268",
+          "source_etag": "0x8DBF6C998FB18C6"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202008_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202008_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:09:28 GMT",
+          "source_content_length": "723835",
+          "source_etag": "0x8DBF6C98B24A910"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202009_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202009_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:09:00 GMT",
+          "source_content_length": "677160",
+          "source_etag": "0x8DBF6C97A300920"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202010_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202010_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:10:23 GMT",
+          "source_content_length": "718017",
+          "source_etag": "0x8DBF6C9ABBFEE34"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202011_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202011_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:08:53 GMT",
+          "source_content_length": "687683",
+          "source_etag": "0x8DBF6C97638AFD5"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202012_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202012_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:09:38 GMT",
+          "source_content_length": "715772",
+          "source_etag": "0x8DBF6C991321100"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202101_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202101_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:09:19 GMT",
+          "source_content_length": "712081",
+          "source_etag": "0x8DBF6C98585AA37"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202102_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202102_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:08:46 GMT",
+          "source_content_length": "648994",
+          "source_etag": "0x8DBF6C971EE1289"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202103_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202103_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:09:48 GMT",
+          "source_content_length": "702977",
+          "source_etag": "0x8DBF6C99727D5D5"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202104_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202104_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:10:29 GMT",
+          "source_content_length": "679976",
+          "source_etag": "0x8DBF6C9AF8BD0F2"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202105_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202105_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:10:33 GMT",
+          "source_content_length": "707325",
+          "source_etag": "0x8DBF6C9B1A00AFA"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202106_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202106_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:08:13 GMT",
+          "source_content_length": "695369",
+          "source_etag": "0x8DBF6C95E7C2602"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202107_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202107_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:08:50 GMT",
+          "source_content_length": "735365",
+          "source_etag": "0x8DBF6C97434EE0C"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202108_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202108_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:08:34 GMT",
+          "source_content_length": "742138",
+          "source_etag": "0x8DBF6C96AB7E680"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202109_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202109_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:10:16 GMT",
+          "source_content_length": "709099",
+          "source_etag": "0x8DBF6C9A7E0AD60"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202110_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202110_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:09:58 GMT",
+          "source_content_length": "705759",
+          "source_etag": "0x8DBF6C99D050CEB"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202111_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202111_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:08:06 GMT",
+          "source_content_length": "681345",
+          "source_etag": "0x8DBF6C95A5363A8"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202112_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202112_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:08:37 GMT",
+          "source_content_length": "704358",
+          "source_etag": "0x8DBF6C96CC0147D"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202201_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202201_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:10:19 GMT",
+          "source_content_length": "704794",
+          "source_etag": "0x8DBF6C9A989D944"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202202_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202202_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:08:09 GMT",
+          "source_content_length": "638185",
+          "source_etag": "0x8DBF6C95C1B0F9F"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202203_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202203_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:09:05 GMT",
+          "source_content_length": "709405",
+          "source_etag": "0x8DBF6C97D9A5259"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202204_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202204_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:10:04 GMT",
+          "source_content_length": "689081",
+          "source_etag": "0x8DBF6C9A0723BD6"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202205_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202205_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:07:59 GMT",
+          "source_content_length": "716096",
+          "source_etag": "0x8DBF6C9562DD533"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202206_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202206_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:10:26 GMT",
+          "source_content_length": "697409",
+          "source_etag": "0x8DBF6C9AD7B3FE8"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202207_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202207_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:08:30 GMT",
+          "source_content_length": "724036",
+          "source_etag": "0x8DBF6C968B22934"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202208_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202208_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:09:25 GMT",
+          "source_content_length": "720884",
+          "source_etag": "0x8DBF6C988FE972E"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202209_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202209_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:09:21 GMT",
+          "source_content_length": "691813",
+          "source_etag": "0x8DBF6C986FF419E"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202210_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202210_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:09:54 GMT",
+          "source_content_length": "715676",
+          "source_etag": "0x8DBF6C99A8639D0"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202211_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202211_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:08:16 GMT",
+          "source_content_length": "673312",
+          "source_etag": "0x8DBF6C960252ADE"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202212_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202212_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:10:06 GMT",
+          "source_content_length": "690070",
+          "source_etag": "0x8DBF6C9A1E89F42"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202301_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202301_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:07:56 GMT",
+          "source_content_length": "702559",
+          "source_etag": "0x8DBF6C9541F8DA5"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202302_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202302_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:08:40 GMT",
+          "source_content_length": "642801",
+          "source_etag": "0x8DBF6C96E64D434"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202303_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202303_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:09:35 GMT",
+          "source_content_length": "719104",
+          "source_etag": "0x8DBF6C98F4074FC"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202304_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202304_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:08:27 GMT",
+          "source_content_length": "687223",
+          "source_etag": "0x8DBF6C966E65F33"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202305_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202305_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:09:12 GMT",
+          "source_content_length": "712320",
+          "source_etag": "0x8DBF6C98141E9AF"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202306_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202306_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:08:02 GMT",
+          "source_content_length": "699565",
+          "source_etag": "0x8DBF6C958020269"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202307_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202307_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:10:01 GMT",
+          "source_content_length": "730366",
+          "source_etag": "0x8DBF6C99E955D41"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202308_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202308_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:09:15 GMT",
+          "source_content_length": "725794",
+          "source_etag": "0x8DBF6C9831F3D54"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202309_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202309_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:08:42 GMT",
+          "source_content_length": "698394",
+          "source_etag": "0x8DBF6C96FDE6BA3"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202310_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202310_Generation_MD.csv",
+          "source_last_modified": "Thu, 07 Dec 2023 02:10:09 GMT",
+          "source_content_length": "723923",
+          "source_etag": "0x8DBF6C9A3A29196"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202311_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202311_Generation_MD.csv",
+          "source_last_modified": "Mon, 11 Dec 2023 19:07:24 GMT",
+          "source_content_length": "693473",
+          "source_etag": "0x8DBFA7C68CEC91F"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202312_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202312_Generation_MD.csv",
+          "source_last_modified": "Thu, 11 Jan 2024 19:09:12 GMT",
+          "source_content_length": "721104",
+          "source_etag": "0x8DC12D8CC462E62"
+        },
         {
           "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202401_Generation_MD.csv",
           "local_file": "data/wholesale/raw/generation/202401_Generation_MD.csv",
