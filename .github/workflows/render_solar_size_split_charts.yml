@@ -11,6 +11,7 @@ on:
       - 'build_solar_size_split_charts.py'
       - 'SOLAR_SIZE_SPLIT_VISUALS.md'
       - '.github/workflows/render_solar_size_split_charts.yml'
+      - 'data/pipeline/transpower_generation_storage_pipeline.csv'
 
 permissions:
   contents: write

@@ -18,6 +18,7 @@ HISTORY = Path("data/distributed_generation/model/solar_size_bucket_history.csv"
 MONTHLY = Path("data/distributed_generation/model/national_solar_all_monthly.csv")
 SCENARIO_CSV = Path("data/distributed_generation/model/distributed_solar_adoption_scenarios.csv")
 SCENARIO_JSON = Path("data/distributed_generation/model/distributed_solar_adoption_scenarios.json")
+PIPELINE = Path("data/pipeline/transpower_generation_storage_pipeline.csv")
 OUT_DIR = Path("data/visuals")
 ARCHIVE_ROOT = OUT_DIR / "archive" / "distributed_solar_size_split"
 STATE = Path("data/metadata/solar_size_split_chart_state.json")
@@ -28,6 +29,7 @@ OUT_DATA = OUT_DIR / "distributed_solar_size_split_plot_data.csv"
 HISTORY_MONTHS = 36
 FORECAST_MONTHS = 60
 BAR_WIDTH = 0.24
+PIPELINE_STAGES = {"Delivery", "Commissioning"}
 
 GROUPS = (
     "small_lt_25_kw",
@@ -286,12 +288,13 @@ def history_points() -> tuple[list[dict[str, object]], dict[str, object]]:
                 official_total_icps=official_icps,
                 official_total_mw=official_mw,
             )
+            point["utility_observed_baseline_mw"] = snapshot[GROUPS[2]]["mw"]
+            point["utility_pipeline_provisional_mw"] = 0.0
+            point["utility_pipeline_project_count"] = 0
             points.append(point)
             continue
 
         if d >= first_observed:
-            # Never label a post-cutoff month as observed unless a retained street-level
-            # snapshot actually exists for that month.
             continue
 
         t = month_delta(d, first_observed)
@@ -312,9 +315,7 @@ def history_points() -> tuple[list[dict[str, object]], dict[str, object]]:
         point = make_point(
             month=row["month_end"],
             kind="modeled_history",
-            provenance=(
-                "Modeled historical split constrained to official EA national monthly solar totals"
-            ),
+            provenance="Modeled historical split constrained to official EA national monthly solar totals",
             small_icps=small_icps,
             larger_icps=larger_icps,
             utility_icps=utility_icps,
@@ -324,6 +325,9 @@ def history_points() -> tuple[list[dict[str, object]], dict[str, object]]:
             official_total_icps=official_icps,
             official_total_mw=official_mw,
         )
+        point["utility_observed_baseline_mw"] = utility_mw
+        point["utility_pipeline_provisional_mw"] = 0.0
+        point["utility_pipeline_project_count"] = 0
         points.append(point)
 
     if not points:
@@ -353,9 +357,79 @@ def history_points() -> tuple[list[dict[str, object]], dict[str, object]]:
     }
 
 
-def future_points(
-    history: list[dict[str, object]],
-) -> tuple[list[dict[str, object]], dict[str, object]]:
+def parse_pipeline_date(row: dict[str, str]) -> date | None:
+    for key in ("expected_connection_or_need_date", "raw_estimated_connection_livening_date"):
+        value = (row.get(key) or "").strip()
+        if not value or value.upper() == "TBC":
+            continue
+        for fmt in ("%Y-%m-%d %H:%M:%S", "%Y-%m-%d"):
+            try:
+                parsed = datetime.strptime(value, fmt).date()
+                return date(parsed.year, parsed.month, calendar.monthrange(parsed.year, parsed.month)[1])
+            except ValueError:
+                pass
+    return None
+
+
+def pipeline_solar_projects(start: date, end: date) -> tuple[list[dict[str, object]], dict[str, object]]:
+    rows = read_csv(PIPELINE)
+    projects: list[dict[str, object]] = []
+    seen: set[str] = set()
+    untimed_count = 0
+    untimed_mw = 0.0
+
+    for row in rows:
+        if (row.get("technology") or "").strip().lower() != "solar":
+            continue
+        try:
+            capacity_mw = float((row.get("capacity_mw") or "0").strip())
+        except ValueError:
+            continue
+        if capacity_mw < 1.0:
+            continue
+
+        stage = (row.get("stage") or "").strip()
+        timing = parse_pipeline_date(row)
+        project_id = (row.get("raw_project_id") or row.get("project_name") or "").strip()
+        if not project_id or project_id in seen:
+            continue
+        seen.add(project_id)
+
+        if stage not in PIPELINE_STAGES or timing is None:
+            untimed_count += 1
+            untimed_mw += capacity_mw
+            continue
+        if timing <= start or timing > end:
+            continue
+
+        projects.append(
+            {
+                "project_id": project_id,
+                "project_name": (row.get("raw_project_name") or row.get("project_name") or project_id).strip(),
+                "capacity_mw": capacity_mw,
+                "stage": stage,
+                "timing_month": timing.isoformat(),
+                "region": (row.get("region") or "").strip(),
+            }
+        )
+
+    projects.sort(key=lambda project: (str(project["timing_month"]), str(project["project_name"])))
+    return projects, {
+        "source": str(PIPELINE),
+        "included_stages": sorted(PIPELINE_STAGES),
+        "timing_field_policy": (
+            "Use the normalized expected connection/need date where populated, otherwise the raw "
+            "Transpower estimated scope-completion/livening date. The plotted month is provisional "
+            "timing, not a guaranteed commercial-operation date."
+        ),
+        "timed_projects_in_horizon": len(projects),
+        "timed_capacity_mw_in_horizon": sum(float(project["capacity_mw"]) for project in projects),
+        "undated_or_earlier_stage_solar_projects_not_timed": untimed_count,
+        "undated_or_earlier_stage_capacity_mw_not_timed": untimed_mw,
+    }
+
+
+def future_points(history: list[dict[str, object]]) -> tuple[list[dict[str, object]], dict[str, object]]:
     meta = json.loads(SCENARIO_JSON.read_text(encoding="utf-8"))
     rows = read_csv(SCENARIO_CSV)
 
@@ -367,14 +441,18 @@ def future_points(
             f"scenario={scenario_latest}, size_split={latest_observed}"
         )
 
-    end_index = month_index(latest_observed) + FORECAST_MONTHS
+    forecast_end = shift_month_end(latest_observed, FORECAST_MONTHS)
+    end_index = month_index(forecast_end)
+    pipeline_projects, pipeline_notes = pipeline_solar_projects(latest_observed, forecast_end)
+
     current_share = float(meta["current"]["small_solar_uptake_pct"]) / 100.0
+    all_solar_uptake_pct = float(meta["current"]["all_solar_uptake_pct"])
     small_avg_kw = float(meta["current"]["small_fleet_average_kw"])
     larger_avg_kw = float(meta["current"]["larger_distributed_average_kw"])
     mid_rate = fit_mid_rate(meta)
 
     utility_icps = float(history[-1]["utility_icps"])
-    utility_mw = float(history[-1]["utility_mw"])
+    utility_observed_mw = float(history[-1]["utility_mw"])
 
     future: list[dict[str, object]] = []
     for row in rows:
@@ -397,19 +475,31 @@ def future_points(
         larger_mw = float(row["larger_distributed_25kw_to_lt_1mw_capacity_mw"])
         larger_icps = larger_mw * 1000.0 / larger_avg_kw if larger_avg_kw else 0.0
 
+        due_projects = [project for project in pipeline_projects if str(project["timing_month"]) <= d.isoformat()]
+        due_this_month = [project for project in pipeline_projects if str(project["timing_month"]) == d.isoformat()]
+        pipeline_mw = sum(float(project["capacity_mw"]) for project in due_projects)
+        utility_total_mw = utility_observed_mw + pipeline_mw
+
         point = make_point(
             month=row["month_end"],
             kind="model_future",
-            provenance="Modeled future projection",
+            provenance="Modeled future distributed solar plus provisional dated Transpower utility-solar pipeline",
             small_icps=mid_small_icps,
             larger_icps=larger_icps,
             utility_icps=utility_icps,
             small_mw=mid_small_mw,
             larger_mw=larger_mw,
-            utility_mw=utility_mw,
+            utility_mw=utility_total_mw,
         )
         point.update(
             {
+                "utility_observed_baseline_mw": utility_observed_mw,
+                "utility_pipeline_provisional_mw": pipeline_mw,
+                "utility_pipeline_project_count": len(due_projects),
+                "utility_pipeline_projects_due_this_month": "; ".join(
+                    f"{project['project_name']} ({float(project['capacity_mw']):g} MW)"
+                    for project in due_this_month
+                ),
                 "low_10pct_small_icps": low_small_icps,
                 "mid_20pct_small_icps": mid_small_icps,
                 "high_30pct_small_icps": high_small_icps,
@@ -419,26 +509,24 @@ def future_points(
                 "low_10pct_total_icps": low_small_icps + larger_icps + utility_icps,
                 "mid_20pct_total_icps": mid_small_icps + larger_icps + utility_icps,
                 "high_30pct_total_icps": high_small_icps + larger_icps + utility_icps,
-                "low_10pct_total_mw": low_small_mw + larger_mw + utility_mw,
-                "mid_20pct_total_mw": mid_small_mw + larger_mw + utility_mw,
-                "high_30pct_total_mw": high_small_mw + larger_mw + utility_mw,
+                "low_10pct_total_mw": low_small_mw + larger_mw + utility_total_mw,
+                "mid_20pct_total_mw": mid_small_mw + larger_mw + utility_total_mw,
+                "high_30pct_total_mw": high_small_mw + larger_mw + utility_total_mw,
             }
         )
         future.append(point)
 
     if len(future) < FORECAST_MONTHS:
-        raise RuntimeError(
-            f"Expected {FORECAST_MONTHS} future monthly rows, found {len(future)}"
-        )
+        raise RuntimeError(f"Expected {FORECAST_MONTHS} future monthly rows, found {len(future)}")
 
-    larger_method = meta.get("method", {}).get("larger_distributed_visual_note")
-    if not larger_method:
-        larger_method = (
-            "Use the existing provisional 25 kW-<1 MW capacity trajectory and its existing guardrail."
-        )
+    larger_method = meta.get("method", {}).get("larger_distributed_visual_note") or (
+        "Use the existing provisional 25 kW-<1 MW capacity trajectory and its existing guardrail."
+    )
 
     return future, {
         "forecast_months": FORECAST_MONTHS,
+        "current_small_solar_uptake_pct": current_share * 100.0,
+        "current_all_solar_uptake_pct": all_solar_uptake_pct,
         "mid_20pct_growth_rate_per_year": mid_rate,
         "small_future_policy": (
             "10% and 30% use the existing independently fitted fixed-saturation distributed-solar "
@@ -447,40 +535,27 @@ def future_points(
         ),
         "larger_distributed_future_policy": larger_method,
         "utility_future_policy": (
-            "Hold the latest observed >=1 MW bucket flat until project-timed utility additions are "
-            "explicitly modelled in this chart builder."
+            "Hold the latest observed >=1 MW capacity as a solid baseline, then add dated Solar projects "
+            "in Transpower Delivery/Commissioning as a hatched provisional layer at their published "
+            "estimated timing month. Undated/earlier-stage projects are not assigned arbitrary dates. "
+            "Future utility ICPs remain flat because the pipeline does not provide a reliable future ICP count."
         ),
+        "utility_pipeline": pipeline_notes,
+        "utility_pipeline_projects": pipeline_projects,
     }
 
 
 def save_plot_data(points: list[dict[str, object]]) -> None:
     preferred = [
-        "month",
-        "kind",
-        "provenance",
-        "small_icps",
-        "larger_icps",
-        "utility_icps",
-        "total_solar_icps",
-        "small_mw",
-        "larger_mw",
-        "utility_mw",
-        "total_solar_mw",
-        "official_total_icps",
-        "official_total_mw",
-        "reconciliation_error_icps",
-        "reconciliation_error_mw",
-        "low_10pct_small_icps",
-        "mid_20pct_small_icps",
-        "high_30pct_small_icps",
-        "low_10pct_total_icps",
-        "mid_20pct_total_icps",
-        "high_30pct_total_icps",
-        "low_10pct_small_mw",
-        "mid_20pct_small_mw",
-        "high_30pct_small_mw",
-        "low_10pct_total_mw",
-        "mid_20pct_total_mw",
+        "month", "kind", "provenance", "small_icps", "larger_icps", "utility_icps",
+        "total_solar_icps", "small_mw", "larger_mw", "utility_observed_baseline_mw",
+        "utility_pipeline_provisional_mw", "utility_mw", "total_solar_mw",
+        "utility_pipeline_project_count", "utility_pipeline_projects_due_this_month",
+        "official_total_icps", "official_total_mw", "reconciliation_error_icps",
+        "reconciliation_error_mw", "low_10pct_small_icps", "mid_20pct_small_icps",
+        "high_30pct_small_icps", "low_10pct_total_icps", "mid_20pct_total_icps",
+        "high_30pct_total_icps", "low_10pct_small_mw", "mid_20pct_small_mw",
+        "high_30pct_small_mw", "low_10pct_total_mw", "mid_20pct_total_mw",
         "high_30pct_total_mw",
     ]
     present = {key for point in points for key in point}
@@ -499,6 +574,8 @@ def render(
     metric: str,
     out_path: Path,
     explicit_start_month: str,
+    current_small_uptake_pct: float,
+    current_all_solar_uptake_pct: float,
 ) -> None:
     months = [datetime.strptime(str(point["month"]), "%Y-%m-%d").date() for point in points]
     x = np.arange(len(points))
@@ -506,13 +583,30 @@ def render(
     larger = np.array([float(point[f"larger_{metric}"]) for point in points])
     utility = np.array([float(point[f"utility_{metric}"]) for point in points])
 
+    if metric == "mw":
+        pipeline = np.array([float(point.get("utility_pipeline_provisional_mw") or 0.0) for point in points])
+        utility_solid = utility - pipeline
+    else:
+        pipeline = np.zeros(len(points), dtype=float)
+        utility_solid = utility
+
     fig, ax = plt.subplots(figsize=(16, 7.5))
     ax.bar(x, small, label=LABELS[GROUPS[0]], width=BAR_WIDTH)
     ax.bar(x, larger, bottom=small, label=LABELS[GROUPS[1]], width=BAR_WIDTH)
-    ax.bar(x, utility, bottom=small + larger, label=LABELS[GROUPS[2]], width=BAR_WIDTH)
+    ax.bar(x, utility_solid, bottom=small + larger, label=LABELS[GROUPS[2]], width=BAR_WIDTH)
 
-    # Keep continuous cumulative boundaries so gradual distributed growth and lumpy
-    # utility-scale changes are both visible across the narrow monthly bars.
+    if metric == "mw" and np.any(pipeline > 0):
+        ax.bar(
+            x,
+            pipeline,
+            bottom=small + larger + utility_solid,
+            width=BAR_WIDTH,
+            fill=False,
+            hatch="////",
+            linewidth=0.8,
+            label="≥1 MW Transpower pipeline (provisional timing)",
+        )
+
     ax.plot(x, small, linewidth=1.15)
     ax.plot(x, small + larger, linewidth=1.15)
     ax.plot(x, small + larger + utility, linewidth=1.55)
@@ -527,56 +621,33 @@ def render(
         mid = np.array([float(points[i][mid_key]) for i in future_idx])
         high = np.array([float(points[i][high_key]) for i in future_idx])
 
-        ax.fill_between(
-            future_x,
-            low,
-            high,
-            alpha=0.10,
-            label="<25 kW 10–30% saturation range",
-        )
-        ax.plot(
-            future_x,
-            low,
-            linestyle="--",
-            linewidth=1.2,
-            label="<25 kW: 10% saturation",
-        )
-        ax.plot(
-            future_x,
-            mid,
-            linewidth=2.0,
-            label="<25 kW: 20% independently fitted",
-        )
-        ax.plot(
-            future_x,
-            high,
-            linestyle="--",
-            linewidth=1.2,
-            label="<25 kW: 30% saturation",
-        )
+        ax.fill_between(future_x, low, high, alpha=0.10, label="<25 kW 10–30% saturation range")
+        ax.plot(future_x, low, linestyle="--", linewidth=1.2, label="<25 kW: 10% saturation")
+        ax.plot(future_x, mid, linewidth=2.0, label="<25 kW: 20% independently fitted")
+        ax.plot(future_x, high, linestyle="--", linewidth=1.2, label="<25 kW: 30% saturation")
 
         future_boundary = future_idx[0] - 0.5
         ax.axvline(future_boundary, linewidth=1.0, linestyle=":")
-        ax.text(
-            future_boundary + 0.25,
-            0.97,
-            "future model →",
-            transform=ax.get_xaxis_transform(),
-            va="top",
-            fontsize=9,
-        )
+        ax.text(future_boundary + 0.25, 0.97, "future model →", transform=ax.get_xaxis_transform(), va="top", fontsize=9)
 
     observed_idx = [i for i, point in enumerate(points) if point["kind"] == "observed"]
     if observed_idx:
         observed_boundary = observed_idx[0] - 0.5
         ax.axvline(observed_boundary, linewidth=1.0, linestyle=":")
-        ax.text(
-            observed_boundary + 0.25,
-            0.90,
-            "EA street-level split →",
-            transform=ax.get_xaxis_transform(),
-            va="top",
-            fontsize=9,
+        ax.text(observed_boundary + 0.25, 0.90, "EA street-level split →", transform=ax.get_xaxis_transform(), va="top", fontsize=9)
+
+        current_idx = observed_idx[-1]
+        current_month = months[current_idx].strftime("%b %Y")
+        ax.scatter([current_idx], [small[current_idx]], s=34, zorder=8)
+        ax.annotate(
+            f"{current_month}: <25 kW = {current_small_uptake_pct:.3f}% of ICPs\nall solar = {current_all_solar_uptake_pct:.3f}%",
+            xy=(current_idx, small[current_idx]),
+            xytext=(-12, 20),
+            textcoords="offset points",
+            ha="right",
+            va="bottom",
+            fontsize=8.5,
+            arrowprops={"arrowstyle": "-", "linewidth": 0.8},
         )
 
     tick_step = 6
@@ -591,15 +662,23 @@ def render(
     if metric == "mw":
         ax.set_ylabel("Installed solar capacity (MW)")
         title_metric = "capacity"
+        if np.any(pipeline > 0):
+            ax.text(
+                0.995, 0.015,
+                "Hatched utility MW = dated Transpower Delivery/Commissioning pipeline; timing is provisional",
+                transform=ax.transAxes, ha="right", va="bottom", fontsize=8,
+            )
     else:
         ax.set_ylabel("Solar installations / ICPs")
         title_metric = "installation count"
+        ax.text(
+            0.995, 0.015,
+            "Future utility ICPs held flat: Transpower pipeline supplies MW/projects, not reliable future ICP counts",
+            transform=ax.transAxes, ha="right", va="bottom", fontsize=8,
+        )
 
     explicit_label = datetime.strptime(explicit_start_month, "%Y-%m-%d").strftime("%b %Y")
-    fig.suptitle(
-        f"New Zealand solar by installation size: {title_metric}",
-        fontsize=15,
-    )
+    fig.suptitle(f"New Zealand solar by installation size: {title_metric}", fontsize=15)
     ax.set_title(
         f"{HISTORY_MONTHS // 12}-year history + {FORECAST_MONTHS // 12}-year outlook; "
         f"pre-{explicit_label} size split modeled, EA Registry size split observed from {explicit_label}",
@@ -625,11 +704,7 @@ def archive_outputs(source_month: str) -> Path:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--force",
-        action="store_true",
-        help="Render even if this ISO week is already complete",
-    )
+    parser.add_argument("--force", action="store_true", help="Render even if this ISO week is already complete")
     args = parser.parse_args()
 
     if not weekly_due(args.force):
@@ -642,8 +717,10 @@ def main() -> None:
 
     save_plot_data(points)
     explicit_start = str(history_notes["explicit_split_start_month"])
-    render(points, "mw", OUT_CAPACITY, explicit_start)
-    render(points, "icps", OUT_INSTALLS, explicit_start)
+    current_small_uptake_pct = float(future_notes["current_small_solar_uptake_pct"])
+    current_all_solar_uptake_pct = float(future_notes["current_all_solar_uptake_pct"])
+    render(points, "mw", OUT_CAPACITY, explicit_start, current_small_uptake_pct, current_all_solar_uptake_pct)
+    render(points, "icps", OUT_INSTALLS, explicit_start, current_small_uptake_pct, current_all_solar_uptake_pct)
 
     source_month = str(history_notes["latest_observed_split_month"])
     archive_dir = archive_outputs(source_month)
@@ -657,10 +734,9 @@ def main() -> None:
         "history_months": HISTORY_MONTHS,
         "forecast_months": FORECAST_MONTHS,
         "explicit_split_start_month": explicit_start,
-        "model_notes": {
-            "history": history_notes,
-            "future": future_notes,
-        },
+        "current_small_solar_uptake_pct": current_small_uptake_pct,
+        "current_all_solar_uptake_pct": current_all_solar_uptake_pct,
+        "model_notes": {"history": history_notes, "future": future_notes},
         "outputs": [str(OUT_CAPACITY), str(OUT_INSTALLS), str(OUT_DATA)],
         "archive_dir": str(archive_dir),
     }

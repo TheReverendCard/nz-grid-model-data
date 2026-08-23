@@ -17,13 +17,19 @@ The charts are intentionally designed to tell the distributed/home-solar story w
 
 The y-axis always starts at zero.
 
+## Current penetration marker
+
+The latest explicit size-split month is marked with a dot on the `<25 kW` boundary. The annotation prints the current measured small-system penetration as a percentage of all ICPs and also reports the current all-solar ICP penetration for context.
+
+These values come from `data/distributed_generation/model/distributed_solar_adoption_scenarios.json`, so the marker is tied to the same measured penetration used to anchor the forward household S-curves rather than being an independently typed chart label.
+
 ## Three provenance periods
 
 The plot-data CSV records a `kind` and `provenance` for every point. The chart therefore distinguishes three different kinds of evidence rather than presenting the entire series as observed:
 
 1. **Modeled historical split** — months before the repository began retaining explicit three-way size snapshots;
 2. **Observed size split** — retained Electricity Authority street-level Registry snapshots; and
-3. **Modeled future** — the forward distributed-solar scenarios.
+3. **Modeled future** — the forward distributed-solar scenarios plus explicitly identified provisional utility-pipeline capacity.
 
 The first retained explicit three-way snapshot is currently **July 2026**. That date is stored in the render state as `explicit_split_start_month` and is derived from `data/distributed_generation/model/solar_size_bucket_history.csv`, rather than hard-coded into the plotting logic.
 
@@ -89,11 +95,31 @@ The 25 kW to <1 MW category continues to use the existing provisional larger-dis
 
 That trajectory remains subject to the existing guardrail applied by `cap_larger_distributed_solar_growth.py`: the selected provisional growth path is used through 2035 and capacity is held flat thereafter until genuine size-bucket history supports a revised trajectory. The current five-year chart horizon remains inside that guardrail, but the renderer deliberately consumes the already-guardrailed scenario series rather than recreating a separate assumption.
 
-### >=1 MW future
+### >=1 MW future and Transpower pipeline
 
 The `>=1 MW` category is **not** extrapolated with a generic growth rate.
 
-Until a project-timed future utility-solar series is explicitly incorporated into this chart builder, both the latest observed utility MW total and estimated utility ICP count are held flat through the five-year projection. This makes the absence of a utility-project forecast explicit rather than manufacturing smooth utility growth that real projects will not follow.
+The latest observed utility-scale MW total is held as a solid baseline. On top of that baseline, the capacity chart reads `data/pipeline/transpower_generation_storage_pipeline.csv` and adds Solar projects that:
+
+- are at least 1 MW;
+- are in Transpower **Delivery** or **Commissioning** stages;
+- have a parseable published estimated timing date; and
+- fall inside the chart's five-year horizon.
+
+The pipeline-added portion of the utility stack is drawn with **hatching**. This is deliberate: the source date is an estimated Transpower connection/scope-completion or livening date, not a guaranteed commercial-operation date. The renderer places the project at the published month so the expected capacity is visible on the timeline, while the hatch visually marks the timing and realization as provisional.
+
+Undated Investigation, Solution Proposal, and other earlier-stage projects are not assigned arbitrary dates and therefore are not forced into the five-year stack. Their omission from the timed projection is recorded in the render metadata.
+
+The installation-count chart does **not** invent future utility ICPs. Transpower provides project and MW information, not a reliable forecast of how many ICPs each future utility project will register. Future utility ICPs are therefore held flat, while the exact plot-data CSV records cumulative `utility_pipeline_project_count` and the names/capacities of projects entering in each month.
+
+The plot-data CSV separates:
+
+- `utility_observed_baseline_mw`
+- `utility_pipeline_provisional_mw`
+- `utility_pipeline_project_count`
+- `utility_pipeline_projects_due_this_month`
+
+This keeps the observed utility fleet and provisional project pipeline auditable rather than blending them into an unexplained smooth forecast.
 
 ## Rendering cadence
 
@@ -106,12 +132,13 @@ It is intentionally separate from the daily data refresh so matplotlib/scipy/num
 The workflow behavior is:
 
 - **manual dispatch:** always renders and calls the renderer with `--force`;
-- **pushes to the chart renderer/docs/workflow on `main`:** render immediately with `--force`; and
+- **pushes to the chart renderer/docs/workflow on `main`:** render immediately with `--force`;
+- **changes to the normalized Transpower connection-pipeline CSV on `main`:** render immediately with `--force`; and
 - **scheduled run:** checks the weekly state before installing plotting dependencies and renders only when the current ISO week has not already been completed.
 
 The renderer keeps its own weekly-state check as a second safety layer. This combination avoids the earlier failure mode where a manual workflow could finish successfully without actually producing charts, while also avoiding expensive plotting dependency setup for a scheduled weekly run that is genuinely not due.
 
-Scheduled rendering is currently once per week. Manual and relevant code-change renders may occur additionally when explicitly requested.
+Scheduled rendering is currently once per week. Manual, pipeline-change, and relevant code-change renders may occur additionally when explicitly triggered.
 
 ## Monthly model archive
 
@@ -125,8 +152,8 @@ Each source month retains:
 - `distributed_solar_size_split_installs.png`
 - `distributed_solar_size_split_plot_data.csv`
 
-The CSV is the exact data used to draw that archived pair of figures, including provenance, official historical totals, reconciliation fields, the independently fitted 20% trajectory, and the 10%/30% scenario bounds.
+The CSV is the exact data used to draw that archived pair of figures, including provenance, official historical totals, reconciliation fields, the independently fitted 20% trajectory, the 10%/30% scenario bounds, current penetration values in render state, and the provisional Transpower utility-pipeline fields.
 
 Re-renders within the same EA source month replace that month's copy. When a new EA source month arrives, a new archive directory is created.
 
-This archive is intended to show how the interpretation and forward model evolve over time: changes in observed size buckets, utility-scale step additions, fitted household adoption, revisions in EA data, and later changes to modelling assumptions can all be compared against the chart that was current for each source month.
+This archive is intended to show how the interpretation and forward model evolve over time: changes in observed size buckets, utility-scale step additions, pipeline expectations, fitted household adoption, revisions in EA data, and later changes to modelling assumptions can all be compared against the chart that was current for each source month.
