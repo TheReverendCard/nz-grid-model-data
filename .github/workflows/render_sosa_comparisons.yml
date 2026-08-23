@@ -3,7 +3,7 @@ name: Render SOSA Comparison Visuals
 on:
   push:
     branches:
-      - agent/test-ea-azure-updater
+      - main
     paths:
       - 'build_sosa_distributed_comparison.py'
       - '.github/workflows/render_sosa_comparisons.yml'
