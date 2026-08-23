@@ -3,10 +3,33 @@
   "last_render_iso_week": "2026-W34",
   "source_month": "2026-07-31",
   "archive_month": "2026-07",
-  "forecast_months": 12,
+  "history_months": 36,
+  "forecast_months": 60,
+  "explicit_split_start_month": "2026-07-31",
   "model_notes": {
-    "mid_20pct_growth_rate_per_year": 0.2004345968101855,
-    "utility_future_policy": "Hold the latest observed >=1 MW bucket flat until project-timed utility additions are explicitly modelled."
+    "history": {
+      "history_months": 36,
+      "chart_history_start": "2023-07-31",
+      "explicit_split_start_month": "2026-07-31",
+      "latest_observed_split_month": "2026-07-31",
+      "historical_small_count_method": "Before the explicit street-level split, <25 kW ICPs use the existing distributed-solar history proxy: official EA all-solar ICP totals multiplied by the <25 kW share measured at the first explicit size-split snapshot.",
+      "historical_larger_method": "Before the explicit split, 25 kW-<1 MW ICPs and MW are back-cast from the first observed snapshot using the existing provisional larger-distributed growth rate; each month is capped by the official national total.",
+      "historical_reconciliation": "Modeled pre-cutoff category estimates are residual-reconciled so their ICP and MW sums equal the official EA national monthly totals exactly.",
+      "larger_distributed_growth_rate_pct_per_year": 31.512529999999998,
+      "utility_history": {
+        "method": "Utility-scale historical MW is reconstructed as a lumpy residual. Monthly national capacity additions above a rolling 12-month median new-system size baseline are treated as candidate utility additions, then scaled/offset so the series lands exactly on the first explicit EA street-level >=1 MW observation.",
+        "opening_utility_mw": 0.0,
+        "raw_detected_excess_mw": 452.3441715000001,
+        "excess_scale": 0.6050506986581122
+      }
+    },
+    "future": {
+      "forecast_months": 60,
+      "mid_20pct_growth_rate_per_year": 0.2004345968101855,
+      "small_future_policy": "10% and 30% use the existing independently fitted fixed-saturation distributed-solar scenarios. The 20% midpoint is independently fitted through the latest measured small-system penetration; it is not the arithmetic average of the 10% and 30% curves.",
+      "larger_distributed_future_policy": "25 kW-<1 MW projection uses the selected provisional growth rate through 2035, then holds capacity flat until new observed size-bucket history supports a revised trajectory.",
+      "utility_future_policy": "Hold the latest observed >=1 MW bucket flat until project-timed utility additions are explicitly modelled in this chart builder."
+    }
   },
   "outputs": [
     "data/visuals/distributed_solar_size_split_capacity.png",
