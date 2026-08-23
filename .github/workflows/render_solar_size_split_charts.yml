@@ -1,0 +1,60 @@
+name: Render Solar Size-Split Charts
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 14 * * 1'
+  push:
+    paths:
+      - 'build_solar_size_split_charts.py'
+      - 'SOLAR_SIZE_SPLIT_VISUALS.md'
+      - '.github/workflows/render_solar_size_split_charts.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: solar-size-split-charts-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4.2.2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5.3.0
+        with:
+          python-version: '3.12'
+
+      - name: Install Chart Dependencies
+        run: pip install matplotlib scipy numpy
+
+      - name: Render Solar Size-Split Charts
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            python build_solar_size_split_charts.py --force
+          else
+            python build_solar_size_split_charts.py
+          fi
+
+      - name: Commit Charts and Monthly Archive
+        shell: bash
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/visuals/distributed_solar_size_split_capacity.png \
+                  data/visuals/distributed_solar_size_split_installs.png \
+                  data/visuals/distributed_solar_size_split_plot_data.csv \
+                  data/visuals/archive/distributed_solar_size_split/ \
+                  data/metadata/solar_size_split_chart_state.json
+          if git diff --cached --quiet; then
+            echo "No chart changes to commit." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          git commit -m "Render weekly solar size-split charts"
+          git pull --rebase -X theirs origin "${GITHUB_REF_NAME}"
+          git push origin HEAD:"${GITHUB_REF_NAME}"
