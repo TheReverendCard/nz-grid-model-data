@@ -284,14 +284,13 @@ def fetch_infrastructure(blobs: list[dict[str, str]]) -> None:
 
 
 def main() -> None:
-    print("Discovering EA HMD dataset layout...")
-    blobs = list_blobs(HMD_ROOT)
-    print(f"Found {len(blobs)} blobs under {HMD_ROOT}")
-    write_hmd_manifest(blobs)
-    fetch_file_indexes(blobs)
-    fetch_model_hydro_series(blobs)
-    fetch_infrastructure(blobs)
-    print("EA HMD discovery/update completed successfully.")
+    # The public workflow still invokes update_data.py. Route that stable entry
+    # point through the targeted source checker, which performs shallow topology
+    # discovery on routine runs and full recursive discovery when requested or
+    # when a new HMD component version appears.
+    from update_hmd_sources import main as optimized_source_main
+
+    optimized_source_main()
 
 
 if __name__ == "__main__":
