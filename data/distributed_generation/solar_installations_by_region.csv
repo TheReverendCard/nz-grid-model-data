@@ -1,13 +1,13 @@
 RegionType,RegionCode,Region,MarketSegment,ICPs,GenerationCapacityKilowattsAvg,GenerationCapacityKilowattsSum
-NZ,NZ,New Zealand,Res,82210,5.7,470916.7
+NZ,NZ,New Zealand,Res,82211,5.7,470922.6
 NZ,NZ,New Zealand,Bus,8143,90.7,738383.7
-NZ,NZ,New Zealand,All,90353,13.4,1209300.4
+NZ,NZ,New Zealand,All,90354,13.4,1209306.3
 ISLAND,NI,North Island,Res,55790,5.7,317556.6
 ISLAND,NI,North Island,Bus,5764,72.0,415206.6
 ISLAND,NI,North Island,All,61554,11.9,732763.2
-ISLAND,SI,South Island,Res,26420,5.8,153360.2
+ISLAND,SI,South Island,Res,26421,5.8,153366.0
 ISLAND,SI,South Island,Bus,2379,135.8,323177.1
-ISLAND,SI,South Island,All,28799,16.5,476537.3
+ISLAND,SI,South Island,All,28800,16.5,476543.1
 REG_COUNCIL,1,Northland,Res,5699,5.5,31274.3
 REG_COUNCIL,1,Northland,Bus,722,140.7,101608.8
 REG_COUNCIL,1,Northland,All,6421,20.7,132883.2
@@ -41,9 +41,9 @@ REG_COUNCIL,16,Tasman,All,2371,9.0,21350.8
 REG_COUNCIL,17,Nelson,Res,1681,5.5,9247.4
 REG_COUNCIL,17,Nelson,Bus,129,37.6,4852.0
 REG_COUNCIL,17,Nelson,All,1810,7.8,14099.4
-REG_COUNCIL,18,Marlborough,Res,1589,5.4,8607.2
+REG_COUNCIL,18,Marlborough,Res,1590,5.4,8613.0
 REG_COUNCIL,18,Marlborough,Bus,152,188.6,28669.8
-REG_COUNCIL,18,Marlborough,All,1741,21.4,37276.9
+REG_COUNCIL,18,Marlborough,All,1742,21.4,37282.8
 REG_COUNCIL,12,West Coast,Res,311,6.7,2077.8
 REG_COUNCIL,12,West Coast,Bus,38,17.0,647.0
 REG_COUNCIL,12,West Coast,All,349,7.8,2724.8
@@ -128,9 +128,9 @@ NWK_REPORTING_REGION,23,Wellington (Wellington Electricity),All,4480,6.3,28428.6
 NWK_REPORTING_REGION,25,Tasman (Network Tasman),Res,3843,6.0,23212.3
 NWK_REPORTING_REGION,25,Tasman (Network Tasman),Bus,344,36.3,12503.0
 NWK_REPORTING_REGION,25,Tasman (Network Tasman),All,4187,8.5,35715.3
-NWK_REPORTING_REGION,26,Marlborough (Marlborough Lines),Res,1587,5.4,8598.8
+NWK_REPORTING_REGION,26,Marlborough (Marlborough Lines),Res,1588,5.4,8604.7
 NWK_REPORTING_REGION,26,Marlborough (Marlborough Lines),Bus,153,187.4,28676.8
-NWK_REPORTING_REGION,26,Marlborough (Marlborough Lines),All,1740,21.4,37275.6
+NWK_REPORTING_REGION,26,Marlborough (Marlborough Lines),All,1741,21.4,37281.4
 NWK_REPORTING_REGION,27,Buller (Buller Electricity),Res,68,5.9,401.6
 NWK_REPORTING_REGION,27,Buller (Buller Electricity),Bus,13,20.2,263.0
 NWK_REPORTING_REGION,27,Buller (Buller Electricity),All,81,8.2,664.6
