@@ -5676,7 +5676,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 137300,Green Bay North,GOLF ROAD,Res,3 or less,8.0,
 137300,Green Bay North,LA ROSA STREET,Res,6,4.8,28.9
 137300,Green Bay North,LANTANA ROAD,Res,3 or less,6.0,
-137300,Green Bay North,TAUPO STREET,Res,3 or less,5.0,
+137300,Green Bay North,TAUPO STREET,Res,3 or less,5.5,
 137300,Green Bay North,THUJA STREET,Res,4,3.5,14.2
 137400,Parnell East,AWATEA ROAD,Res,3 or less,5.0,
 137400,Parnell East,BRIGHTON ROAD,Res,3 or less,6.1,
@@ -22298,6 +22298,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 245400,Naenae Central,SEDDON STREET,Res,4,4.9,19.6
 245400,Naenae Central,SLADDEN STREET,Res,3 or less,5.0,
 245400,Naenae Central,WADDINGTON DRIVE,Res,3 or less,3.0,
+245400,Naenae Central,WHEATLEY STREET,Res,3 or less,18.0,
 245500,Waterloo West,BROOK STREET,Res,3 or less,10.0,
 245500,Waterloo West,CAMBRIDGE TERRACE,Res,3 or less,5.0,
 245500,Waterloo West,COLLINGWOOD STREET,Res,3 or less,8.0,
@@ -26818,7 +26819,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 315100,Swannanoa-Eyreton,MOFFATTS ROAD,Res,3 or less,18.0,
 315100,Swannanoa-Eyreton,NORTH EYRE ROAD,Res,3 or less,7.0,
 315100,Swannanoa-Eyreton,PEACOCK PLACE,Res,3 or less,5.0,
-315100,Swannanoa-Eyreton,SOUTH EYRE ROAD,Res,8,6.6,52.9
+315100,Swannanoa-Eyreton,SOUTH EYRE ROAD,Res,10,6.3,62.9
 315100,Swannanoa-Eyreton,TRAM ROAD,Res,3 or less,10.0,
 315100,Swannanoa-Eyreton,TWO CHAIN ROAD,Res,4,7.5,30.0
 315100,Swannanoa-Eyreton,WEST DENBIE LANE,Res,5,9.0,45.0
@@ -33673,6 +33674,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 353300,Mornington,ELGIN ROAD,Res,3 or less,1.5,
 353300,Mornington,GALLOWAY STREET,Res,3 or less,3.3,
 353300,Mornington,GLEN ROAD,Res,3 or less,5.8,
+353300,Mornington,MCCREA STREET,Res,3 or less,5.0,
 353300,Mornington,MCGEORGE AVENUE,Res,3 or less,10.0,
 353300,Mornington,NEIDPATH ROAD,Res,3 or less,3.3,
 353300,Mornington,PARKHILL AVENUE,Res,3 or less,3.0,
@@ -33699,6 +33701,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 353600,Ravensbourne-St Leonards,FERN ROAD,Res,3 or less,11.8,
 353600,Ravensbourne-St Leonards,HARRIER ROAD,Res,3 or less,5.0,
 353600,Ravensbourne-St Leonards,HAWK LANE,Res,3 or less,5.0,
+353600,Ravensbourne-St Leonards,HINAU STREET,Res,3 or less,10.0,
 353600,Ravensbourne-St Leonards,HUIA STREET,Res,3 or less,5.0,
 353600,Ravensbourne-St Leonards,KAKA ROAD,Res,3 or less,4.0,
 353600,Ravensbourne-St Leonards,KAURI STREET,Res,3 or less,10.0,
@@ -33766,7 +33769,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 354500,Corstorphine,CORSTORPHINE ROAD,Res,3 or less,4.4,
 354500,Corstorphine,HILLHEAD ROAD,Res,3 or less,4.9,
 354500,Corstorphine,LOCK STREET,Res,3 or less,3.7,
-354500,Corstorphine,MIDDLETON ROAD,Res,3 or less,3.0,
+354500,Corstorphine,MIDDLETON ROAD,Res,3 or less,3.1,
 354500,Corstorphine,SAINT CLAIR CLOSE,Res,3 or less,5.0,
 354500,Corstorphine,SUMMERTIME AVENUE,Res,3 or less,5.0,
 354500,Corstorphine,WESTGATE,Res,3 or less,2.2,
@@ -33796,7 +33799,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 354900,Waverley,COOLOCK CRESCENT,Res,3 or less,6.0,
 354900,Waverley,DUNROBIN STREET,Res,3 or less,5.9,
 354900,Waverley,GLENGYLE STREET,Res,3 or less,5.0,
-354900,Waverley,IRVINE ROAD,Res,3 or less,5.0,
+354900,Waverley,IRVINE ROAD,Res,3 or less,5.3,
 354900,Waverley,KENILWORTH STREET,Res,3 or less,3.0,
 354900,Waverley,LARNACH ROAD,Res,3 or less,5.0,
 354900,Waverley,PORTOBELLO ROAD,Res,8,5.4,43.4
@@ -34932,6 +34935,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 106400,Otangarei,KEYTE STREET,Bus,3 or less,5.0,
 106500,Tikipunga South,BOUNDARY ROAD,Bus,3 or less,8.6,
 106500,Tikipunga South,EILEEN STEPHENS PLACE,Bus,3 or less,6.0,
+106600,Kensington (Whangarei District),DEVERON STREET,Bus,3 or less,4.9,
 106600,Kensington (Whangarei District),KAMO ROAD,Bus,3 or less,20.0,
 106600,Kensington (Whangarei District),KENSINGTON AVENUE,Bus,3 or less,5.0,
 106600,Kensington (Whangarei District),PARK AVENUE,Bus,3 or less,5.0,
@@ -35702,7 +35706,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 137000,Sandringham Central,SANDRINGHAM ROAD,Bus,3 or less,60.0,
 137200,Blockhouse Bay North,BLOCKHOUSE BAY ROAD,Bus,3 or less,5.0,
 137200,Blockhouse Bay North,MARLOWE ROAD,Bus,3 or less,5.5,
-137300,Green Bay North,TAUPO STREET,Bus,3 or less,5.5,
+137300,Green Bay North,TAUPO STREET,Bus,3 or less,5.0,
 137400,Parnell East,LOGAN TERRACE,Bus,3 or less,5.0,
 137400,Parnell East,ST STEPHENS AVENUE,Bus,3 or less,15.0,
 137500,Laingholm,LAINGHOLM DRIVE,Bus,3 or less,10.0,
@@ -38746,7 +38750,6 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 245000,Petone Esplanade,QUEEN STREET,Bus,3 or less,60.0,
 245200,Avalon East,OXFORD TERRACE,Bus,3 or less,5.0,
 245400,Naenae Central,CAMBRIDGE TERRACE,Bus,3 or less,4.6,
-245400,Naenae Central,WHEATLEY STREET,Bus,3 or less,18.0,
 245500,Waterloo West,HARDY STREET,Bus,3 or less,22.5,
 245500,Waterloo West,KNIGHTS ROAD,Bus,3 or less,18.5,
 245500,Waterloo West,TRAFALGAR STREET,Bus,3 or less,10.0,
@@ -39501,7 +39504,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 315000,Southbrook,FLAXTON ROAD,Bus,3 or less,3.0,
 315000,Southbrook,KINGSFORD SMITH DRIVE,Bus,3 or less,17.5,
 315000,Southbrook,LINESIDE ROAD,Bus,3 or less,35.8,
-315100,Swannanoa-Eyreton,SOUTH EYRE ROAD,Bus,6,8.8,53.0
+315100,Swannanoa-Eyreton,SOUTH EYRE ROAD,Bus,4,10.8,43.0
 315200,Tuahiwi,TUAHIWI ROAD,Bus,3 or less,9.5,
 315300,Woodend,MAIN NORTH ROAD,Bus,3 or less,11.5,
 315400,Pegasus,HAKATERE ROAD,Bus,3 or less,5.0,
@@ -76789,6 +76792,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 353300,Mornington,ELGIN ROAD,All,3 or less,1.5,
 353300,Mornington,GALLOWAY STREET,All,3 or less,3.3,
 353300,Mornington,GLEN ROAD,All,3 or less,5.8,
+353300,Mornington,MCCREA STREET,All,3 or less,5.0,
 353300,Mornington,MCGEORGE AVENUE,All,3 or less,10.0,
 353300,Mornington,NEIDPATH ROAD,All,3 or less,3.3,
 353300,Mornington,PARKHILL AVENUE,All,3 or less,3.0,
@@ -76817,6 +76821,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 353600,Ravensbourne-St Leonards,FERN ROAD,All,3 or less,11.8,
 353600,Ravensbourne-St Leonards,HARRIER ROAD,All,3 or less,5.0,
 353600,Ravensbourne-St Leonards,HAWK LANE,All,3 or less,5.0,
+353600,Ravensbourne-St Leonards,HINAU STREET,All,3 or less,10.0,
 353600,Ravensbourne-St Leonards,HUIA STREET,All,3 or less,5.0,
 353600,Ravensbourne-St Leonards,KAKA ROAD,All,3 or less,4.0,
 353600,Ravensbourne-St Leonards,KAURI STREET,All,3 or less,10.0,
@@ -76890,7 +76895,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 354500,Corstorphine,CORSTORPHINE ROAD,All,3 or less,4.4,
 354500,Corstorphine,HILLHEAD ROAD,All,3 or less,4.9,
 354500,Corstorphine,LOCK STREET,All,3 or less,3.7,
-354500,Corstorphine,MIDDLETON ROAD,All,3 or less,3.0,
+354500,Corstorphine,MIDDLETON ROAD,All,3 or less,3.1,
 354500,Corstorphine,SAINT CLAIR CLOSE,All,3 or less,5.0,
 354500,Corstorphine,SUMMERTIME AVENUE,All,3 or less,5.0,
 354500,Corstorphine,WESTGATE,All,3 or less,2.2,
@@ -76922,7 +76927,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 354900,Waverley,DUNROBIN STREET,All,3 or less,5.9,
 354900,Waverley,EASTBANK STREET,All,3 or less,6.4,
 354900,Waverley,GLENGYLE STREET,All,3 or less,5.0,
-354900,Waverley,IRVINE ROAD,All,3 or less,8.3,
+354900,Waverley,IRVINE ROAD,All,4,7.8,31.0
 354900,Waverley,KENILWORTH STREET,All,3 or less,3.0,
 354900,Waverley,LARNACH ROAD,All,3 or less,5.0,
 354900,Waverley,PORTOBELLO ROAD,All,8,5.4,43.4
