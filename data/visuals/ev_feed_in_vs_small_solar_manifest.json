@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-08-24T16:08:53.986935+00:00",
+  "generated_at_utc": "2026-08-31T21:04:54.380889+00:00",
   "outputs": {
     "png": "data/visuals/ev_feed_in_vs_small_solar_capacity.png",
     "plot_data_csv": "data/visuals/ev_feed_in_vs_small_solar_plot_data.csv",
@@ -30,7 +30,7 @@
     "path_method": {
       "form": "K / (1 + exp(-rate * (year - midpoint)))",
       "saturation_vehicles": 2333735.7047640225,
-      "rate_per_year": 0.43701375945846055,
+      "rate_per_year": 0.43701375945846044,
       "midpoint_year": 2033.689502453813,
       "anchors": {
         "2026-08-16": 101701,
