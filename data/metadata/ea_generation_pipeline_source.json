@@ -1,5 +1,5 @@
 {
-  "checked_at_utc": "2026-08-23T21:59:49.005388+00:00",
+  "checked_at_utc": "2026-09-01T18:05:40.711055+00:00",
   "source": "Electricity Authority Generation Investment Pipeline",
   "dashboard_url": "https://www.ea.govt.nz/data-and-insights/charts-and-dashboards/generation-investment-pipeline/",
   "dashboard_check": {
@@ -9,15 +9,15 @@
     "resolved_url": "https://www.ea.govt.nz/data-and-insights/charts-and-dashboards/generation-investment-pipeline/",
     "error": ""
   },
-  "ea_dashboard_page_sha256": "e12dd7929579699ae227d2a183564226781dd29fb8c3231b2ea8e0c78a5f9ad9",
-  "dashboard_changed_since_previous_check": false,
+  "ea_dashboard_page_sha256": "a8e15800a8e15fe7b5328b154100d0f31159edbf311bbd12294ecf4bddb5f443",
+  "dashboard_changed_since_previous_check": true,
   "sigma_embed": {
     "detected": true,
     "urls": [
       "https://app.sigmacomputing.com/embed/9-6gbXQr7P2lqnkiWdBw4Ajh/tag/Production?:responsive_height=true&:menu_position=none&:show_footer=false"
     ],
     "http_status": 200,
-    "sha256": "1262825fcf0f568c702d8c45a6e97e665d376ddb01e16cf6a46a4027a8b1c9b1",
+    "sha256": "06947bdf09f5f558dbf4e03979a4113bea0e2ee5efc37e4fefc299e434065e60",
     "content_type": "text/html"
   },
   "retained_snapshot": {
@@ -30,8 +30,8 @@
   "transpower_connection_pipeline_cross_check": {
     "metadata_available": true,
     "source_url": "https://static.transpower.co.nz/public/uncontrolled_docs/Generation%20and%20energy%20storage%20connection%20pipeline.xlsx",
-    "last_modified": "Mon, 10 Aug 2026 00:12:05 GMT",
-    "sha256": "e1bdbe1833c3b1ab05bd287195aa309f817939a36be9e06533d6a2737e31ca0e",
+    "last_modified": "Wed, 26 Aug 2026 03:29:28 GMT",
+    "sha256": "ffae3a75bf47bce570b54f38ae27843ad39f27c89e6d86bca6c8c5d8e7f5b719",
     "rows": 145,
     "note": "Freshness cross-check only. Transpower connection stages are not substituted for EA investment-pipeline statuses."
   },
