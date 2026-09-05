@@ -23,59 +23,59 @@
     "latest_trend": {
       "residential_solar": {
         "month_end": "2026-07-31",
-        "icp_count": 82358,
-        "icp_uptake_rate_pct": 4.07304,
-        "installed_capacity_mw": 472.456,
-        "average_capacity_kw": 5.737,
-        "new_installations": 1408,
-        "average_new_install_capacity_kw": 9.144
+        "icp_count": 82390,
+        "icp_uptake_rate_pct": 4.0746,
+        "installed_capacity_mw": 472.889,
+        "average_capacity_kw": 5.74,
+        "new_installations": 1421,
+        "average_new_install_capacity_kw": 9.203
       },
       "all_solar": {
         "month_end": "2026-07-31",
-        "icp_count": 90515,
-        "icp_uptake_rate_pct": 3.81933,
-        "installed_capacity_mw": 1215.865,
-        "average_capacity_kw": 13.433,
-        "new_installations": 1561,
-        "average_new_install_capacity_kw": 113.429
+        "icp_count": 90552,
+        "icp_uptake_rate_pct": 3.82087,
+        "installed_capacity_mw": 1216.712,
+        "average_capacity_kw": 13.437,
+        "new_installations": 1579,
+        "average_new_install_capacity_kw": 112.526
       },
       "solar_battery_attachment": {
         "month_end": "2026-07-31",
-        "all_solar_icps": 90515,
-        "solar_only_icps": 69502,
-        "solar_plus_battery_icps": 21013,
-        "solar_plus_battery_icps_subtraction_check": 21013,
-        "battery_attachment_share_of_solar_pct": 23.21494,
-        "all_new_solar_installations": 1561,
-        "new_solar_only_installations": 668,
-        "new_solar_plus_battery_installations": 893,
-        "new_solar_plus_battery_installations_subtraction_check": 893,
-        "battery_attachment_share_of_new_solar_pct": 57.20692,
-        "solar_plus_battery_registered_capacity_mw": 172.023,
-        "solar_plus_battery_average_registered_kw": 8.186,
-        "solar_plus_battery_average_new_registered_kw": 10.918,
+        "all_solar_icps": 90552,
+        "solar_only_icps": 69521,
+        "solar_plus_battery_icps": 21031,
+        "solar_plus_battery_icps_subtraction_check": 21031,
+        "battery_attachment_share_of_solar_pct": 23.22533,
+        "all_new_solar_installations": 1579,
+        "new_solar_only_installations": 678,
+        "new_solar_plus_battery_installations": 901,
+        "new_solar_plus_battery_installations_subtraction_check": 901,
+        "battery_attachment_share_of_new_solar_pct": 57.06143,
+        "solar_plus_battery_registered_capacity_mw": 172.187,
+        "solar_plus_battery_average_registered_kw": 8.187,
+        "solar_plus_battery_average_new_registered_kw": 10.888,
         "category_reliability": "post_2023_11_registry_categories"
       }
     }
   },
   "current_registry_snapshot": {
     "residential": {
-      "icps": 83293,
+      "icps": 83350,
       "average_capacity_kw": 5.8,
-      "capacity_mw": 480.90290000000005
+      "capacity_mw": 481.5295
     },
     "business": {
-      "icps": 8244,
+      "icps": 8251,
       "average_capacity_kw": 90.7,
-      "capacity_mw": 747.7023
+      "capacity_mw": 748.2773000000001
     },
     "all": {
-      "icps": 91537,
+      "icps": 91601,
       "average_capacity_kw": 13.4,
-      "capacity_mw": 1228.6052
+      "capacity_mw": 1229.8068999999998
     },
-    "regional_residential_capacity_mw_sum": 480.3426,
-    "regional_residential_icps_sum": 83246
+    "regional_residential_capacity_mw_sum": 480.9692,
+    "regional_residential_icps_sum": 83303
   },
   "model_use": {
     "distributed_solar_scope": "Future distributed-solar scenarios use <25 kW ICP adoption plus a separate 25 kW to <1 MW capacity component; >=1 MW is treated as utility-scale.",
