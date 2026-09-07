@@ -658,7 +658,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 103500,Kaikohe,TOTARA PLACE,Res,3 or less,4.0,
 103500,Kaikohe,TUHUNA ROAD,Res,3 or less,3.7,
 103500,Kaikohe,TUI STREET,Res,3 or less,1.7,
-103500,Kaikohe,WIHONGI STREET,Res,3 or less,5.0,
+103500,Kaikohe,WIHONGI STREET,Res,3 or less,4.2,
 103500,Kaikohe,WILLIAMS AVENUE,Res,3 or less,2.6,
 103600,Pakaraka,HAUTAPU ROAD,Res,3 or less,6.3,
 103600,Pakaraka,HUPARA ROAD,Res,3 or less,6.4,
@@ -4892,7 +4892,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 128900,Glendene North,GLEN MARINE PARADE,Res,3 or less,3.0,
 128900,Glendene North,GLENDENE AVENUE,Res,3 or less,2.6,
 128900,Glendene North,GREAT NORTH ROAD,Res,3 or less,7.3,
-128900,Glendene North,HEPBURN ROAD,Res,7,5.8,40.6
+128900,Glendene North,HEPBURN ROAD,Res,6,5.9,35.6
 128900,Glendene North,JENELIN ROAD,Res,3 or less,5.0,
 128900,Glendene North,JUNEAU PLACE,Res,3 or less,4.6,
 128900,Glendene North,KIRBY STREET,Res,3 or less,7.3,
@@ -5295,7 +5295,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 132100,Grey Lynn West,WILTON STREET,Res,3 or less,8.5,
 132200,Mount Albert North,BRAEMAR TERRACE,Res,3 or less,4.5,
 132200,Mount Albert North,BURNSIDE AVENUE,Res,3 or less,2.0,
-132200,Mount Albert North,CARRINGTON ROAD,Res,3 or less,4.0,
+132200,Mount Albert North,CARRINGTON ROAD,Res,3 or less,5.0,
 132200,Mount Albert North,CHALLINOR CRESCENT,Res,3 or less,5.8,
 132200,Mount Albert North,CHATHAM AVENUE,Res,3 or less,5.0,
 132200,Mount Albert North,COUNSEL TERRACE,Res,3 or less,2.0,
@@ -9533,7 +9533,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 167100,Whitianga South,SOUTH HIGHWAY,Res,5,8.0,39.9
 167100,Whitianga South,TOPPING PLACE,Res,3 or less,4.2,
 167100,Whitianga South,TUDOR GROVE,Res,3 or less,5.0,
-167100,Whitianga South,VICTORIA STREET,Res,12,5.0,60.0
+167100,Whitianga South,VICTORIA STREET,Res,13,5.0,65.0
 167100,Whitianga South,WAITOTARA WAY,Res,3 or less,7.1,
 167100,Whitianga South,WHITBY AVENUE,Res,3 or less,2.5,
 167100,Whitianga South,WHITE STREET,Res,3 or less,4.6,
@@ -10684,7 +10684,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 172600,Horotiu,KERNOTT ROAD,Res,3 or less,25.0,
 172600,Horotiu,LAW CRESCENT,Res,3 or less,5.0,
 172600,Horotiu,PARK ROAD,Res,3 or less,2.0,
-172700,Horsham Downs,BOYD ROAD,Res,9,9.9,89.0
+172700,Horsham Downs,BOYD ROAD,Res,8,6.1,49.0
 172700,Horsham Downs,CLOVERFIELD LANE,Res,3 or less,13.0,
 172700,Horsham Downs,GORDONTON ROAD,Res,3 or less,5.0,
 172700,Horsham Downs,HEREFORD DRIVE,Res,3 or less,5.5,
@@ -12677,7 +12677,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 184600,Rotoorangi,KIMBERLEY ROAD,Res,3 or less,5.0,
 184600,Rotoorangi,LONG ROAD,Res,3 or less,2.1,
 184600,Rotoorangi,PARKLANDS ROAD,Res,3 or less,5.9,
-184600,Rotoorangi,PUAHUE ROAD,Res,3 or less,23.0,
+184600,Rotoorangi,PUAHUE ROAD,Res,3 or less,6.0,
 184600,Rotoorangi,THORNCOMBE ROAD,Res,3 or less,5.2,
 184600,Rotoorangi,TIKI ROAD,Res,3 or less,15.0,
 184700,Tokanui,CRUICKSHANK ROAD,Res,3 or less,10.3,
@@ -16539,7 +16539,6 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 209100,Flaxmere Park,PLYMOUTH ROAD,Res,3 or less,4.0,
 209100,Flaxmere Park,PORTSMOUTH ROAD,Res,3 or less,5.0,
 209100,Flaxmere Park,STONEHAVEN STREET,Res,3 or less,9.3,
-209100,Flaxmere Park,SWANSEA ROAD,Res,3 or less,20.0,
 209100,Flaxmere Park,TENBY TERRACE,Res,6,4.2,25.2
 209100,Flaxmere Park,WALTON WAY,Res,3 or less,4.7,
 209100,Flaxmere Park,WHITBY CRESCENT,Res,3 or less,6.0,
@@ -35634,6 +35633,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 128800,Hauraki,SYDNEY STREET,Bus,3 or less,8.0,
 128900,Glendene North,BARRYS ROAD,Bus,3 or less,10.0,
 128900,Glendene North,GREAT NORTH ROAD,Bus,3 or less,3.0,
+128900,Glendene North,HEPBURN ROAD,Bus,3 or less,5.0,
 128900,Glendene North,TE ATATU ROAD,Bus,3 or less,11.0,
 129200,Point Chevalier West,BOSCAWEN STREET,Bus,3 or less,10.0,
 129200,Point Chevalier West,SHAFTESBURY AVENUE,Bus,3 or less,30.0,
@@ -35705,7 +35705,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 132100,Grey Lynn West,RICHMOND ROAD,Bus,3 or less,5.0,
 132100,Grey Lynn West,WARNOCK STREET,Bus,3 or less,10.0,
 132200,Mount Albert North,ASQUITH AVENUE,Bus,3 or less,20.0,
-132200,Mount Albert North,CARRINGTON ROAD,Bus,3 or less,28.1,
+132200,Mount Albert North,CARRINGTON ROAD,Bus,3 or less,15.5,
 132200,Mount Albert North,LINWOOD AVENUE,Bus,3 or less,8.2,
 132200,Mount Albert North,MARTIN AVENUE,Bus,3 or less,7.0,
 132200,Mount Albert North,PARKDALE ROAD,Bus,3 or less,6.0,
@@ -36260,6 +36260,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 162000,Takanini West,BEACH ROAD,Bus,3 or less,16.5,
 162000,Takanini West,HANSEN PLACE,Bus,3 or less,4.6,
 162100,Takanini South,KAURI HEART AVENUE,Bus,3 or less,3.7,
+162100,Takanini South,PAPAKURA-CLEVEDON ROAD,Bus,3 or less,4900.0,
 162200,Takanini Central,INLET ROAD,Bus,3 or less,50.0,
 162300,Ardmore,HARVARD LANE,Bus,3 or less,100.0,
 162300,Ardmore,HUNUA ROAD,Bus,3 or less,110.0,
@@ -36403,7 +36404,6 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 167100,Whitianga South,MERMAID PLACE,Bus,3 or less,8.2,
 167100,Whitianga South,RACECOURSE ROAD,Bus,3 or less,3.0,
 167100,Whitianga South,SOUTH HIGHWAY EAST,Bus,3 or less,121.7,
-167100,Whitianga South,VICTORIA STREET,Bus,3 or less,5.0,
 167200,Thames Coast,TAPU CREEK FARMS,Bus,3 or less,16.0,
 167300,Cooks Beach-Ferry Landing,CAPTAIN COOK ROAD,Bus,3 or less,21.4,
 167300,Cooks Beach-Ferry Landing,HAWK HILL CRESCENT,Bus,3 or less,2.8,
@@ -36627,6 +36627,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 172400,Te Kowhai,SAVANNA COURT,Bus,3 or less,10.0,
 172400,Te Kowhai,TE KOWHAI ROAD,Bus,3 or less,20.0,
 172600,Horotiu,INNOVATION WAY,Bus,3 or less,20.0,
+172700,Horsham Downs,BOYD ROAD,Bus,3 or less,40.0,
 172700,Horsham Downs,HORSHAM DOWNS ROAD,Bus,3 or less,20.0,
 172700,Horsham Downs,HURRELL ROAD,Bus,3 or less,30.0,
 172700,Horsham Downs,KAY ROAD,Bus,3 or less,12.0,
@@ -37019,7 +37020,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 184600,Rotoorangi,JUDGE ROAD,Bus,3 or less,5.0,
 184600,Rotoorangi,KAIRANGI ROAD,Bus,3 or less,29.9,
 184600,Rotoorangi,NORWEGIAN ROAD,Bus,3 or less,25.0,
-184600,Rotoorangi,PUAHUE ROAD,Bus,3 or less,10.4,
+184600,Rotoorangi,PUAHUE ROAD,Bus,4,17.8,71.3
 184700,Tokanui,CRUICKSHANK ROAD,Bus,3 or less,20.0,
 184700,Tokanui,TE MAWHAI ROAD,Bus,3 or less,7.8,
 184800,Kihikihi Central,LESLIE STREET,Bus,3 or less,10.0,
@@ -37796,7 +37797,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 209000,Lochain Park,FLAXMERE AVENUE,Bus,3 or less,5.0,
 209100,Flaxmere Park,FOLKESTONE DRIVE,Bus,3 or less,4.4,
 209100,Flaxmere Park,HENDERSON ROAD,Bus,3 or less,40.0,
-209100,Flaxmere Park,SWANSEA ROAD,Bus,3 or less,54.2,
+209100,Flaxmere Park,SWANSEA ROAD,Bus,4,45.6,182.6
 209100,Flaxmere Park,WALTON WAY,Bus,3 or less,19.0,
 209200,Flaxmere South,BRISTOL CRESCENT,Bus,3 or less,8.0,
 209200,Flaxmere South,PETERHEAD AVENUE,Bus,3 or less,50.0,
@@ -41510,7 +41511,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 103500,Kaikohe,TOTARA PLACE,All,3 or less,4.0,
 103500,Kaikohe,TUHUNA ROAD,All,3 or less,3.7,
 103500,Kaikohe,TUI STREET,All,3 or less,1.7,
-103500,Kaikohe,WIHONGI STREET,All,3 or less,5.0,
+103500,Kaikohe,WIHONGI STREET,All,3 or less,4.2,
 103500,Kaikohe,WILLIAMS AVENUE,All,3 or less,2.6,
 103600,Pakaraka,HAUTAPU ROAD,All,3 or less,6.3,
 103600,Pakaraka,HUPARA ROAD,All,4,7.2,28.7
@@ -50026,6 +50027,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 162100,Takanini South,MCGINTY STREET,All,3 or less,4.8,
 162100,Takanini South,MILL ROAD,All,3 or less,10.0,
 162100,Takanini South,MOKOPAPA STREET,All,3 or less,4.6,
+162100,Takanini South,PAPAKURA-CLEVEDON ROAD,All,3 or less,4900.0,
 162100,Takanini South,PEAT WAY,All,3 or less,4.6,
 162100,Takanini South,PHAR LAP CRESCENT,All,3 or less,4.6,
 162100,Takanini South,PIPIPI CRESCENT,All,3 or less,2.0,
