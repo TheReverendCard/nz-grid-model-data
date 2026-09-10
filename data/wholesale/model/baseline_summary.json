@@ -1,5 +1,81 @@
 {
   "years": {
+    "2020": {
+      "generation_md_mwh": 40621052.983,
+      "grid_export_mwh": 0.0,
+      "generation_md_minus_grid_export_mwh": 40621052.983,
+      "generation_md_to_grid_export_ratio": null,
+      "generation_grid_export_overlap_days": 0,
+      "mean_daily_generation_minus_grid_export_mwh": null,
+      "min_daily_generation_minus_grid_export_mwh": null,
+      "max_daily_generation_minus_grid_export_mwh": null,
+      "generation_by_fuel_mwh": {
+        "Coal": 1733876.542,
+        "Diesel": 4425.125,
+        "Gas": 5545008.376,
+        "Geo": 7553641.878,
+        "Hydro": 23404141.077,
+        "Wind": 2139077.129,
+        "Wood": 240882.856
+      }
+    },
+    "2021": {
+      "generation_md_mwh": 40978074.933,
+      "grid_export_mwh": 0.0,
+      "generation_md_minus_grid_export_mwh": 40978074.933,
+      "generation_md_to_grid_export_ratio": null,
+      "generation_grid_export_overlap_days": 0,
+      "mean_daily_generation_minus_grid_export_mwh": null,
+      "min_daily_generation_minus_grid_export_mwh": null,
+      "max_daily_generation_minus_grid_export_mwh": null,
+      "generation_by_fuel_mwh": {
+        "Coal": 2541277.635,
+        "Diesel": 17945.692,
+        "Gas": 4789915.472,
+        "Geo": 7562845.473,
+        "Hydro": 23340134.069,
+        "Wind": 2483397.445,
+        "Wood": 242559.147
+      }
+    },
+    "2022": {
+      "generation_md_mwh": 40668868.132,
+      "grid_export_mwh": 0.0,
+      "generation_md_minus_grid_export_mwh": 40668868.132,
+      "generation_md_to_grid_export_ratio": null,
+      "generation_grid_export_overlap_days": 0,
+      "mean_daily_generation_minus_grid_export_mwh": null,
+      "min_daily_generation_minus_grid_export_mwh": null,
+      "max_daily_generation_minus_grid_export_mwh": null,
+      "generation_by_fuel_mwh": {
+        "Coal": 955209.631,
+        "Diesel": 3348.411,
+        "Gas": 4231828.354,
+        "Geo": 7425470.376,
+        "Hydro": 25138164.348,
+        "Wind": 2694846.015,
+        "Wood": 220000.997
+      }
+    },
+    "2023": {
+      "generation_md_mwh": 40597274.942,
+      "grid_export_mwh": 0.0,
+      "generation_md_minus_grid_export_mwh": 40597274.942,
+      "generation_md_to_grid_export_ratio": null,
+      "generation_grid_export_overlap_days": 0,
+      "mean_daily_generation_minus_grid_export_mwh": null,
+      "min_daily_generation_minus_grid_export_mwh": null,
+      "max_daily_generation_minus_grid_export_mwh": null,
+      "generation_by_fuel_mwh": {
+        "Coal": 1563780.814,
+        "Diesel": 877.654,
+        "Gas": 3239232.305,
+        "Geo": 7143100.701,
+        "Hydro": 25371584.303,
+        "Wind": 3073678.934,
+        "Wood": 205020.231
+      }
+    },
     "2024": {
       "generation_md_mwh": 41238265.065,
       "grid_export_mwh": 37852741.154,
@@ -58,28 +134,28 @@
       }
     },
     "2026": {
-      "generation_md_mwh": 23903263.628,
-      "grid_export_mwh": 22088425.34,
-      "generation_md_minus_grid_export_mwh": 1814838.288,
-      "generation_md_to_grid_export_ratio": 1.082162,
-      "generation_grid_export_overlap_days": 212,
-      "mean_daily_generation_minus_grid_export_mwh": 8560.558,
+      "generation_md_mwh": 27835698.57,
+      "grid_export_mwh": 25671933.988,
+      "generation_md_minus_grid_export_mwh": 2163764.582,
+      "generation_md_to_grid_export_ratio": 1.084285,
+      "generation_grid_export_overlap_days": 243,
+      "mean_daily_generation_minus_grid_export_mwh": 8904.381,
       "min_daily_generation_minus_grid_export_mwh": 5836.2,
-      "max_daily_generation_minus_grid_export_mwh": 13286.039,
+      "max_daily_generation_minus_grid_export_mwh": 14357.785,
       "generation_by_fuel_mwh": {
-        "Coal": 345347.984,
-        "Diesel": 96.812,
-        "ELE": 30444.439,
-        "GEO": 521744.462,
-        "Gas": 1121246.342,
-        "Geo": 5407042.952,
-        "HYD": 34378.206,
-        "Hydro": 14103608.244,
-        "SOL": 45730.804,
-        "Solar": 104175.758,
-        "WIN": 81313.015,
-        "Wind": 2037116.145,
-        "Wood": 71018.465
+        "Coal": 416415.087,
+        "Diesel": 182.776,
+        "ELE": 36935.816,
+        "GEO": 610963.339,
+        "Gas": 1196179.287,
+        "Geo": 6227295.874,
+        "HYD": 59258.247,
+        "Hydro": 16507129.546,
+        "SOL": 61941.665,
+        "Solar": 118382.147,
+        "WIN": 127311.91,
+        "Wind": 2386520.934,
+        "Wood": 87181.942
       }
     }
   }

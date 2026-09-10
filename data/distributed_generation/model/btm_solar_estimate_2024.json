@@ -3,8 +3,8 @@
   "method": "Monthly installed residential solar capacity, linearly averaged between month-end observations, multiplied by scenario-specific annual PV yield.",
   "capacity": {
     "year_start_mw": 249.936,
-    "year_end_mw": 321.359,
-    "capacity_weighted_annual_average_mw": 285.436064,
+    "year_end_mw": 321.357,
+    "capacity_weighted_annual_average_mw": 285.43598,
     "monthly": [
       {
         "month": "2024-01",
@@ -86,8 +86,8 @@
       {
         "month": "2024-12",
         "start_capacity_mw": 316.05,
-        "end_capacity_mw": 321.359,
-        "average_capacity_mw": 318.7045,
+        "end_capacity_mw": 321.357,
+        "average_capacity_mw": 318.7035,
         "days": 31
       }
     ]
@@ -96,23 +96,23 @@
     "low": {
       "specific_yield_kwh_per_kwp_year": 1000.0,
       "retained_behind_meter_fraction": 0.4,
-      "gross_residential_pv_generation_mwh": 285436.064,
-      "retained_behind_meter_pv_mwh": 114174.426,
-      "estimated_grid_export_mwh": 171261.639
+      "gross_residential_pv_generation_mwh": 285435.98,
+      "retained_behind_meter_pv_mwh": 114174.392,
+      "estimated_grid_export_mwh": 171261.588
     },
     "central": {
       "specific_yield_kwh_per_kwp_year": 1150.0,
       "retained_behind_meter_fraction": 0.5,
-      "gross_residential_pv_generation_mwh": 328251.474,
-      "retained_behind_meter_pv_mwh": 164125.737,
-      "estimated_grid_export_mwh": 164125.737
+      "gross_residential_pv_generation_mwh": 328251.376,
+      "retained_behind_meter_pv_mwh": 164125.688,
+      "estimated_grid_export_mwh": 164125.688
     },
     "high": {
       "specific_yield_kwh_per_kwp_year": 1250.0,
       "retained_behind_meter_fraction": 0.6,
-      "gross_residential_pv_generation_mwh": 356795.08,
-      "retained_behind_meter_pv_mwh": 214077.048,
-      "estimated_grid_export_mwh": 142718.032
+      "gross_residential_pv_generation_mwh": 356794.974,
+      "retained_behind_meter_pv_mwh": 214076.985,
+      "estimated_grid_export_mwh": 142717.99
     }
   },
   "accounting": {
