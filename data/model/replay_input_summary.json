@@ -3,11 +3,11 @@
   "demand_shape_year": 2024,
   "demand_method": "Scale the observed 2024 reconciled daily demand shape to each calibrated EDGS annual underlying-demand target. This is a first replay scaffold; future BTM PV and load-shape changes will be represented separately.",
   "annual_demand_check_mwh": {
-    "Constraint": 45537487.076,
-    "Environmental": 51265550.613,
-    "Growth": 49600623.171,
-    "Innovation": 53146979.532,
-    "Reference": 47570065.0
+    "Constraint": 45537483.474,
+    "Environmental": 51265546.558,
+    "Growth": 49600619.247,
+    "Innovation": 53146975.328,
+    "Reference": 47570061.237
   },
   "hydro": {
     "headwater_inflow_source": "data/hydro/model/inflows_daily.csv",
