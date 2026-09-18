@@ -20,7 +20,8 @@ OUT_JSON = Path("data/distributed_generation/model/distributed_solar_adoption_sc
 
 SATURATION = {"low_10pct": 0.10, "high_30pct": 0.30}
 END_YEAR = 2050
-FIT_START_YEAR = 2018
+FIT_WINDOW_MONTHS = 12
+FIT_METHOD_VERSION = "recent_12m_linear_recency_1_to_2_v1"
 LARGER_GROUP = "larger_distributed_25_kw_to_lt_1_mw"
 
 
@@ -39,7 +40,7 @@ def source_fingerprint(latest_month: str) -> tuple[str, dict[str, str]]:
         "solar_all_monthly_source_sha256": datasets["installed_distributed_generation_trends_solar_all"]["sha256"],
         "solar_street_source_sha256": datasets["solar_installations_by_street"]["sha256"],
     }
-    payload = json.dumps({"latest_month": latest_month, **hashes}, sort_keys=True).encode("utf-8")
+    payload = json.dumps({"latest_month": latest_month, "fit_method_version": FIT_METHOD_VERSION, **hashes}, sort_keys=True).encode("utf-8")
     return hashlib.sha256(payload).hexdigest(), hashes
 
 
@@ -56,7 +57,7 @@ def logistic_from_anchor(t_years: float | np.ndarray, saturation: float, current
 def fit_rate(history_t: np.ndarray, history_share: np.ndarray, saturation: float, current_share: float) -> float:
     def objective(rate: float) -> float:
         predicted = logistic_from_anchor(history_t, saturation, current_share, rate)
-        weights = np.linspace(0.5, 1.0, len(history_share))
+        weights = np.linspace(1.0, 2.0, len(history_share))
         return float(np.average((predicted - history_share) ** 2, weights=weights))
 
     result = minimize_scalar(objective, bounds=(0.01, 1.0), method="bounded")
@@ -206,11 +207,24 @@ def main() -> None:
     current_small_share = all_uptake_latest * small_share_of_solar_icps
     current_small_avg_kw = small_capacity_mw * 1000.0 / small_icps
 
+    trailing_6m = monthly[-6:]
+    prior_6m = monthly[-12:-6]
+    trailing_6m_avg_installs = float(np.mean([float(row["new_installations"]) for row in trailing_6m]))
+    prior_6m_avg_installs = float(np.mean([float(row["new_installations"]) for row in prior_6m]))
+    trailing_6m_vs_prior_pct = (
+        (trailing_6m_avg_installs / prior_6m_avg_installs - 1.0) * 100.0
+        if prior_6m_avg_installs > 0
+        else 0.0
+    )
+    fit_window_start = monthly[-(FIT_WINDOW_MONTHS + 1)]["month_end"]
+    uptake_12m_ago_pct = float(monthly[-(FIT_WINDOW_MONTHS + 1)]["icp_uptake_rate_pct"])
+
     history_dates = []
     history_shares = []
     for row in monthly:
         d = datetime.strptime(row["month_end"], "%Y-%m-%d").date()
-        if d.year < FIT_START_YEAR:
+        months_back = (latest_date.year - d.year) * 12 + (latest_date.month - d.month)
+        if months_back < 0 or months_back > FIT_WINDOW_MONTHS:
             continue
         history_dates.append(d)
         history_shares.append(float(row["icp_uptake_rate_pct"]) / 100.0 * small_share_of_solar_icps)
@@ -269,6 +283,7 @@ def main() -> None:
             "small_solar_icps_estimated": round(small_icps, 1),
             "small_share_of_all_solar_icps_pct": round(small_share_of_solar_icps * 100.0, 4),
             "all_solar_uptake_pct": round(all_uptake_latest * 100.0, 5),
+            "latest_month_new_installations": int(float(latest["new_installations"])),
             "small_solar_uptake_pct": round(current_small_share * 100.0, 5),
             "estimated_total_icps": round(latest_total_icps, 1),
             "small_capacity_mw": round(small_capacity_mw, 6),
@@ -278,8 +293,11 @@ def main() -> None:
             "distributed_sub_1mw_capacity_mw": round(small_capacity_mw + larger_capacity_mw, 6),
         },
         "method": {
-            "history_proxy": f"EA all-solar ICP uptake from {FIT_START_YEAR} onward is scaled by the current measured <25 kW share of solar ICPs.",
-            "small_curve": "Fixed-saturation logistic curve. Growth rate is fitted to recent history while each scenario is forced exactly through the latest measured <25 kW penetration.",
+            "history_proxy": "EA all-solar ICP uptake over the latest 12-month span is scaled by the current measured <25 kW share of solar ICPs.",
+            "small_curve": "Fixed-saturation logistic curve. Growth rate is fitted to the latest 12-month span of ICP penetration with linear recency weights from 1.0x (oldest) to 2.0x (latest), while each scenario is forced exactly through the latest measured <25 kW penetration.",
+            "fit_window_months": FIT_WINDOW_MONTHS,
+            "fit_weighting": "linear_recency_1_to_2",
+            "fit_method_version": FIT_METHOD_VERSION,
             "saturation": {name: value * 100.0 for name, value in SATURATION.items()},
             "total_icps": "Future all-ICP denominator uses the linear growth slope fitted over the latest five years, anchored to the latest observed denominator.",
             "small_capacity_first_pass": "Projected <25 kW capacity uses the current measured fleet-average kW per small solar ICP. System-size evolution is kept separate from adoption.",
@@ -287,6 +305,16 @@ def main() -> None:
             "larger_distributed_visual_note": f"25 kW-<1 MW projection growth = {larger_growth_rate * 100.0:.1f}%/yr ({larger_growth_meta['method']}).",
             "utility_exclusion": "Solar groups averaging >=1 MW are excluded here and belong in the utility/project pipeline.",
             "refresh_gate": "The adoption fit is regenerated only when the latest EA month or the all-solar/street source hashes change.",
+        },
+        "recent_installation_momentum": {
+            "latest_month": latest["month_end"],
+            "latest_month_new_installations": int(float(latest["new_installations"])),
+            "trailing_6m_average_new_installations": round(trailing_6m_avg_installs, 3),
+            "prior_6m_average_new_installations": round(prior_6m_avg_installs, 3),
+            "trailing_6m_vs_prior_6m_pct": round(trailing_6m_vs_prior_pct, 3),
+            "fit_window_start": fit_window_start,
+            "uptake_pct_12m_ago": round(uptake_12m_ago_pct, 5),
+            "uptake_pct_latest": round(all_uptake_latest * 100.0, 5),
         },
         "fit": {
             name: {"saturation_pct": SATURATION[name] * 100.0, "growth_rate_per_year": round(rate, 8)}
@@ -304,6 +332,7 @@ def main() -> None:
     print(f"Wrote {OUT_CSV} ({len(rows)} monthly rows)")
     print(f"Wrote {OUT_JSON}")
     print(f"Current <25 kW penetration: {current_small_share * 100:.3f}%")
+    print(f"Latest month installs: {int(float(latest['new_installations']))}; trailing 6m avg: {trailing_6m_avg_installs:.1f}; prior 6m avg: {prior_6m_avg_installs:.1f}")
     print(
         f"25 kW-<1 MW: current {larger_capacity_mw:.1f} MW at {larger_avg_kw:.1f} kW average; "
         f"growth {larger_growth_rate * 100:.1f}%/yr via {larger_growth_meta['method']}"
