@@ -3,6 +3,13 @@ name: Daily NZ Grid Data Refresh
 on:
   schedule:
     - cron: '0 14 * * *'
+  push:
+    branches:
+      - main
+    paths:
+      - 'build_distributed_solar_scenarios.py'
+      - 'update_distributed_generation.py'
+      - '.github/workflows/update_data.yml'
   workflow_dispatch:
     inputs:
       force_rebuild:
@@ -195,110 +202,110 @@ jobs:
           done
 
       - name: Set up Python
-        if: inputs.force_rebuild == true || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-reconciliation.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.substantive_changed == 'true' || needs.check-prices.outputs.changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-reconciliation.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.substantive_changed == 'true' || needs.check-prices.outputs.changed == 'true'
         uses: actions/setup-python@v5.3.0
         with:
           python-version: '3.12'
 
       - name: Install Model Dependencies
-        if: inputs.force_rebuild == true || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-reconciliation.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.substantive_changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-reconciliation.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.substantive_changed == 'true'
         run: pip install requests openpyxl matplotlib scipy pandas beautifulsoup4
 
       - name: Normalize Hydro Data
-        if: inputs.force_rebuild == true || needs.check-hmd.outputs.substantive_changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-hmd.outputs.substantive_changed == 'true'
         run: python normalize_hydro.py
 
       - name: Build Hydro Storage Energy Equivalent
-        if: inputs.force_rebuild == true || needs.check-hmd.outputs.substantive_changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-hmd.outputs.substantive_changed == 'true'
         run: python build_hydro_storage_energy.py
 
       - name: Normalize Wholesale Data
-        if: inputs.force_rebuild == true || needs.check-wholesale.outputs.substantive_changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-wholesale.outputs.substantive_changed == 'true'
         run: python normalize_wholesale.py
 
       - name: Diagnose Generation POC Coverage
-        if: inputs.force_rebuild == true || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-reconciliation.outputs.substantive_changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-reconciliation.outputs.substantive_changed == 'true'
         run: python diagnose_generation_poc.py
 
       - name: Validate Wholesale Baseline
-        if: inputs.force_rebuild == true || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-reconciliation.outputs.substantive_changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-reconciliation.outputs.substantive_changed == 'true'
         run: python validate_baseline.py
 
       - name: Normalize Distributed Generation Data
-        if: inputs.force_rebuild == true || needs.check-distributed-generation.outputs.substantive_changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-distributed-generation.outputs.substantive_changed == 'true'
         run: python normalize_distributed_generation.py
 
       - name: Classify Current Solar Installations by Size
-        if: inputs.force_rebuild == true || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true'
         run: python build_solar_size_buckets.py
 
       - name: Build Distributed Solar Adoption Scenarios
-        if: inputs.force_rebuild == true || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true'
         run: python build_distributed_solar_scenarios.py
 
       - name: Apply Larger Distributed Solar Growth Guardrail
-        if: inputs.force_rebuild == true || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true'
         run: python cap_larger_distributed_solar_growth.py
 
       - name: Build Distributed Battery Attachment Scenarios
-        if: inputs.force_rebuild == true || needs.check-distributed-generation.outputs.battery_model_inputs_changed == 'true' || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-distributed-generation.outputs.battery_model_inputs_changed == 'true' || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true'
         run: python build_distributed_battery_scenarios.py
 
       - name: Diagnose Solar Generation Yield Candidates
-        if: inputs.force_rebuild == true || needs.check-wholesale.outputs.substantive_changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-wholesale.outputs.substantive_changed == 'true'
         run: python diagnose_solar_yield.py
 
       - name: Estimate 2024 Behind-Meter Solar
-        if: inputs.force_rebuild == true || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.substantive_changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.substantive_changed == 'true'
         run: python estimate_btm_solar_2024.py
 
       - name: Build Calibrated 2024 Baseline
-        if: inputs.force_rebuild == true || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-reconciliation.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.substantive_changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-reconciliation.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.substantive_changed == 'true'
         run: python build_baseline_2024.py
 
       - name: Build Calibrated Future Demand Scenarios
-        if: inputs.force_rebuild == true || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-reconciliation.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.substantive_changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-reconciliation.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.substantive_changed == 'true'
         run: python build_future_demand_scenarios.py
 
       - name: Build 2030 Replay Inputs
-        if: inputs.force_rebuild == true || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-reconciliation.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.substantive_changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-reconciliation.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.substantive_changed == 'true'
         run: python build_replay_inputs.py
 
       - name: Compare Hydro Inflow and Solar Seasonality
-        if: inputs.force_rebuild == true || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true'
         run: python build_hydro_solar_seasonality.py
 
       - name: Compare Distributed Solar with SOSA Winter Energy
-        if: inputs.force_rebuild == true || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true' || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true' || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true'
         run: python build_distributed_solar_winter_energy.py
 
       - name: Compare Distributed Batteries with SOSA NI Capacity
-        if: inputs.force_rebuild == true || needs.check-distributed-generation.outputs.battery_model_inputs_changed == 'true' || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-distributed-generation.outputs.battery_model_inputs_changed == 'true' || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true'
         run: python build_distributed_battery_sosa_ni_capacity.py
 
       - name: Build SOSA Distributed Margin Comparison
-        if: inputs.force_rebuild == true || needs.check-distributed-generation.outputs.battery_model_inputs_changed == 'true' || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true' || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-distributed-generation.outputs.battery_model_inputs_changed == 'true' || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true' || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true'
         run: python build_sosa_distributed_comparison.py
 
       - name: Build Hydro Winter Energy Equivalence View
-        if: inputs.force_rebuild == true || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true' || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true' || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true'
         run: python build_hydro_energy_equivalence.py
 
       - name: Render Observed 2024 Hydro Price Stripes
-        if: inputs.force_rebuild == true || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true'
         run: python build_observed_2024_hydro_price_stripes.py
 
       - name: Build Hydro Trough Counterfactual
-        if: inputs.force_rebuild == true || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true'
         run: python build_hydro_trough_counterfactual.py
 
       - name: Render Observed 2024 WAEERC Risk Zones
-        if: inputs.force_rebuild == true || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true'
         continue-on-error: true
         run: python build_observed_2024_erc_zones.py
 
       - name: Build Public Observed Data Views
-        if: inputs.force_rebuild == true || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.substantive_changed == 'true' || needs.check-prices.outputs.changed == 'true'
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-hmd.outputs.substantive_changed == 'true' || needs.check-wholesale.outputs.substantive_changed == 'true' || needs.check-distributed-generation.outputs.substantive_changed == 'true' || needs.check-prices.outputs.changed == 'true'
         run: python build_public_views.py
 
       - name: Audit Run Decisions
