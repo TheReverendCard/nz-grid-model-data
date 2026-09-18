@@ -12,6 +12,8 @@ on:
       - 'SOLAR_SIZE_SPLIT_VISUALS.md'
       - '.github/workflows/render_solar_size_split_charts.yml'
       - 'data/pipeline/transpower_generation_storage_pipeline.csv'
+      - 'data/distributed_generation/model/distributed_solar_adoption_scenarios.csv'
+      - 'data/distributed_generation/model/distributed_solar_adoption_scenarios.json'
 
 permissions:
   contents: write
