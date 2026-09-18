@@ -80,7 +80,8 @@ def fit_mid_rate(meta: dict) -> float:
     ys: list[float] = []
     for row in read_csv(MONTHLY):
         d = datetime.strptime(row["month_end"], "%Y-%m-%d").date()
-        if d.year < 2018 or d > latest:
+        months_back = (latest.year - d.year) * 12 + (latest.month - d.month)
+        if months_back < 0 or months_back > 12:
             continue
         uptake = float(row["icp_uptake_rate_pct"]) / 100.0
         xs.append(month_delta(d, latest))
@@ -91,7 +92,7 @@ def fit_mid_rate(meta: dict) -> float:
 
     x = np.array(xs, dtype=float)
     y = np.array(ys, dtype=float)
-    weights = np.linspace(0.5, 1.0, len(y))
+    weights = np.linspace(1.0, 2.0, len(y))
 
     def objective(rate: float) -> float:
         a = 0.20 / current_share - 1.0
@@ -447,6 +448,7 @@ def future_points(history: list[dict[str, object]]) -> tuple[list[dict[str, obje
 
     current_share = float(meta["current"]["small_solar_uptake_pct"]) / 100.0
     all_solar_uptake_pct = float(meta["current"]["all_solar_uptake_pct"])
+    latest_month_new_installations = int(meta["current"]["latest_month_new_installations"])
     small_avg_kw = float(meta["current"]["small_fleet_average_kw"])
     larger_avg_kw = float(meta["current"]["larger_distributed_average_kw"])
     mid_rate = fit_mid_rate(meta)
@@ -527,6 +529,7 @@ def future_points(history: list[dict[str, object]]) -> tuple[list[dict[str, obje
         "forecast_months": FORECAST_MONTHS,
         "current_small_solar_uptake_pct": current_share * 100.0,
         "current_all_solar_uptake_pct": all_solar_uptake_pct,
+        "latest_month_new_installations": latest_month_new_installations,
         "mid_20pct_growth_rate_per_year": mid_rate,
         "small_future_policy": (
             "10% and 30% use the existing independently fitted fixed-saturation distributed-solar "
@@ -576,6 +579,7 @@ def render(
     explicit_start_month: str,
     current_small_uptake_pct: float,
     current_all_solar_uptake_pct: float,
+    latest_month_new_installations: int,
 ) -> None:
     months = [datetime.strptime(str(point["month"]), "%Y-%m-%d").date() for point in points]
     x = np.arange(len(points))
@@ -591,12 +595,18 @@ def render(
         utility_solid = utility
 
     fig, ax = plt.subplots(figsize=(16, 7.5))
-    ax.bar(x, small, label=LABELS[GROUPS[0]], width=BAR_WIDTH)
-    ax.bar(x, larger, bottom=small, label=LABELS[GROUPS[1]], width=BAR_WIDTH)
-    ax.bar(x, utility_solid, bottom=small + larger, label=LABELS[GROUPS[2]], width=BAR_WIDTH)
+    small_bars = ax.bar(x, small, label=LABELS[GROUPS[0]], width=BAR_WIDTH)
+    larger_bars = ax.bar(x, larger, bottom=small, label=LABELS[GROUPS[1]], width=BAR_WIDTH)
+    utility_bars = ax.bar(x, utility_solid, bottom=small + larger, label=LABELS[GROUPS[2]], width=BAR_WIDTH)
+
+    future_mask = [point["kind"] == "model_future" for point in points]
+    for bars in (small_bars, larger_bars, utility_bars):
+        for i, patch in enumerate(bars.patches):
+            if future_mask[i]:
+                patch.set_alpha(0.8)
 
     if metric == "mw" and np.any(pipeline > 0):
-        ax.bar(
+        pipeline_bars = ax.bar(
             x,
             pipeline,
             bottom=small + larger + utility_solid,
@@ -606,12 +616,27 @@ def render(
             linewidth=0.8,
             label="≥1 MW Transpower pipeline (provisional timing)",
         )
-
-    ax.plot(x, small, linewidth=1.15)
-    ax.plot(x, small + larger, linewidth=1.15)
-    ax.plot(x, small + larger + utility, linewidth=1.55)
+        for i, patch in enumerate(pipeline_bars.patches):
+            if future_mask[i]:
+                patch.set_alpha(0.8)
 
     future_idx = [i for i, point in enumerate(points) if point["kind"] == "model_future"]
+    if future_idx:
+        first_future = future_idx[0]
+        observed_line_x = x[: first_future + 1]
+        ax.plot(observed_line_x, small[: first_future + 1], linewidth=1.15)
+        ax.plot(observed_line_x, (small + larger)[: first_future + 1], linewidth=1.15)
+        ax.plot(observed_line_x, (small + larger + utility)[: first_future + 1], linewidth=1.55)
+
+        future_line_x = x[first_future - 1 :]
+        ax.plot(future_line_x, small[first_future - 1 :], linewidth=1.15, alpha=0.8)
+        ax.plot(future_line_x, (small + larger)[first_future - 1 :], linewidth=1.15, alpha=0.8)
+        ax.plot(future_line_x, (small + larger + utility)[first_future - 1 :], linewidth=1.55, alpha=0.8)
+    else:
+        ax.plot(x, small, linewidth=1.15)
+        ax.plot(x, small + larger, linewidth=1.15)
+        ax.plot(x, small + larger + utility, linewidth=1.55)
+
     if future_idx:
         low_key = f"low_10pct_small_{metric}"
         mid_key = f"mid_20pct_small_{metric}"
@@ -621,10 +646,10 @@ def render(
         mid = np.array([float(points[i][mid_key]) for i in future_idx])
         high = np.array([float(points[i][high_key]) for i in future_idx])
 
-        ax.fill_between(future_x, low, high, alpha=0.10, label="<25 kW 10–30% saturation range")
-        ax.plot(future_x, low, linestyle="--", linewidth=1.2, label="<25 kW: 10% saturation")
-        ax.plot(future_x, mid, linewidth=2.0, label="<25 kW: 20% independently fitted")
-        ax.plot(future_x, high, linestyle="--", linewidth=1.2, label="<25 kW: 30% saturation")
+        ax.fill_between(future_x, low, high, alpha=0.08, label="<25 kW 10–30% saturation range")
+        ax.plot(future_x, low, linestyle="--", linewidth=1.2, alpha=0.8, label="<25 kW: 10% saturation")
+        ax.plot(future_x, mid, linewidth=2.0, alpha=0.8, label="<25 kW: 20% independently fitted")
+        ax.plot(future_x, high, linestyle="--", linewidth=1.2, alpha=0.8, label="<25 kW: 30% saturation")
 
         future_boundary = future_idx[0] - 0.5
         ax.axvline(future_boundary, linewidth=1.0, linestyle=":")
@@ -638,7 +663,7 @@ def render(
         current_month = months[current_idx].strftime("%b %Y")
         ax.scatter([current_idx], [small[current_idx]], s=34, zorder=8)
         ax.annotate(
-            f"{current_month}: <25 kW = {current_small_uptake_pct:.3f}% of ICPs\nall solar = {current_all_solar_uptake_pct:.3f}%",
+            f"{current_month}: <25 kW = {current_small_uptake_pct:.3f}% of ICPs\nall solar = {current_all_solar_uptake_pct:.3f}% · {latest_month_new_installations:,} installs this month",
             xy=(current_idx, small[current_idx]),
             xytext=(-12, 20),
             textcoords="offset points",
@@ -717,8 +742,15 @@ def main() -> None:
     explicit_start = str(history_notes["explicit_split_start_month"])
     current_small_uptake_pct = float(future_notes["current_small_solar_uptake_pct"])
     current_all_solar_uptake_pct = float(future_notes["current_all_solar_uptake_pct"])
-    render(points, "mw", OUT_CAPACITY, explicit_start, current_small_uptake_pct, current_all_solar_uptake_pct)
-    render(points, "icps", OUT_INSTALLS, explicit_start, current_small_uptake_pct, current_all_solar_uptake_pct)
+    latest_month_new_installations = int(future_notes["latest_month_new_installations"])
+    render(
+        points, "mw", OUT_CAPACITY, explicit_start,
+        current_small_uptake_pct, current_all_solar_uptake_pct, latest_month_new_installations,
+    )
+    render(
+        points, "icps", OUT_INSTALLS, explicit_start,
+        current_small_uptake_pct, current_all_solar_uptake_pct, latest_month_new_installations,
+    )
 
     source_month = str(history_notes["latest_observed_split_month"])
     archive_dir = archive_outputs(source_month)
@@ -734,6 +766,7 @@ def main() -> None:
         "explicit_split_start_month": explicit_start,
         "current_small_solar_uptake_pct": current_small_uptake_pct,
         "current_all_solar_uptake_pct": current_all_solar_uptake_pct,
+        "latest_month_new_installations": latest_month_new_installations,
         "model_notes": {"history": history_notes, "future": future_notes},
         "outputs": [str(OUT_CAPACITY), str(OUT_INSTALLS), str(OUT_DATA)],
         "archive_dir": str(archive_dir),
