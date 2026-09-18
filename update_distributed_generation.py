@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import time
 from pathlib import Path
 
 import requests
@@ -74,7 +75,40 @@ def fetch(
         if last_modified:
             headers["If-Modified-Since"] = last_modified
 
-    response = requests.get(url, params=params, headers=headers, timeout=120)
+    response: requests.Response | None = None
+    retryable_statuses = {408, 429, 500, 502, 503, 504}
+    max_attempts = 3
+
+    for attempt in range(1, max_attempts + 1):
+        try:
+            response = requests.get(url, params=params, headers=headers, timeout=120)
+        except (requests.Timeout, requests.ConnectionError) as exc:
+            if attempt == max_attempts:
+                raise
+            delay = 5 * (2 ** (attempt - 1))
+            print(
+                f"Fetch attempt {attempt}/{max_attempts} failed for {url}: {exc}. "
+                f"Retrying in {delay}s."
+            )
+            time.sleep(delay)
+            continue
+
+        if response.status_code in retryable_statuses and attempt < max_attempts:
+            delay = 5 * (2 ** (attempt - 1))
+            retry_after = response.headers.get("Retry-After", "")
+            if retry_after.isdigit():
+                delay = max(delay, int(retry_after))
+            print(
+                f"Fetch attempt {attempt}/{max_attempts} returned HTTP "
+                f"{response.status_code} for {response.url}. Retrying in {delay}s."
+            )
+            response.close()
+            time.sleep(delay)
+            continue
+        break
+
+    if response is None:
+        raise RuntimeError(f"No response received from {url}")
     if response.status_code == 304 and existing_path is not None and existing_path.exists():
         content = existing_path.read_bytes()
         print(f"Unchanged {existing_path} (HTTP 304)")
