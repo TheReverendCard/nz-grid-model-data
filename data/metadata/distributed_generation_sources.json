@@ -7,7 +7,7 @@
       "last_modified": "",
       "local_file": "data/distributed_generation/installed_dg_trends_solar_all.csv",
       "request_url": "https://www.emi.ea.govt.nz/Retail/Download/DataReport/CSV/GUEHMT?DateFrom=20130901&FuelType=solar_all&Show=CapacityAvg&_rsdr=ALL&_si=v%7C4",
-      "sha256": "59bda5fafca5958629bce9235e1a6ca76f6e274323e8a8fa1976ce5eb932596e"
+      "sha256": "883c829c3930671ed28e63d6fcc26841ca9bad42b431731a49faf41b48f1a59e"
     },
     "installed_distributed_generation_trends_solar_only": {
       "content_length": "13642",
@@ -16,7 +16,7 @@
       "last_modified": "",
       "local_file": "data/distributed_generation/installed_dg_trends_solar_only.csv",
       "request_url": "https://www.emi.ea.govt.nz/Retail/Download/DataReport/CSV/GUEHMT?DateFrom=20130901&FuelType=solar&Show=CapacityAvg&_rsdr=ALL&_si=v%7C4",
-      "sha256": "a22f01fa474fed58fe8cf4b701a9f3b8a048769f5e6d66ffc9f075b8e271dcde"
+      "sha256": "1ac6e34a2d96eacc5046fe9fada4146321fd83e489cb491dfe0f14def18cb303"
     },
     "installed_distributed_generation_trends_solar_residential": {
       "content_length": "14526",
@@ -25,7 +25,7 @@
       "last_modified": "",
       "local_file": "data/distributed_generation/installed_dg_trends_solar_residential.csv",
       "request_url": "https://www.emi.ea.govt.nz/Retail/Download/DataReport/CSV/GUEHMT?DateFrom=20130901&FuelType=solar_all&Show=CapacityAvg&_rsdr=ALL&_si=v%7C4&MarketSegment=Res",
-      "sha256": "9ad2e4ce04800ba7b890986cd18e58c71f8013e640000db0f06bd216267b435c"
+      "sha256": "9813ad6d77f4c9eedbec1ca98a339eea89bb61bb7be52f241d55f9871b9de176"
     },
     "installed_distributed_generation_trends_solar_with_battery": {
       "content_length": "14415",
@@ -34,25 +34,25 @@
       "last_modified": "",
       "local_file": "data/distributed_generation/installed_dg_trends_solar_with_battery.csv",
       "request_url": "https://www.emi.ea.govt.nz/Retail/Download/DataReport/CSV/GUEHMT?DateFrom=20130901&FuelType=solarplusbattery&Show=CapacityAvg&_rsdr=ALL&_si=v%7C4",
-      "sha256": "c4f98e9d639f5fd032c4090b5abb9df165773a8c08bf443d125ebf82feb27190"
+      "sha256": "89d9623d16ad4b48e2a8ce54980770d9a8dc3604155a6ca711d078cabf1d51cc"
     },
     "solar_installations_by_region": {
       "content_length": "11124",
       "description": "Current solar installation counts/capacity by region and market segment from the Electricity Registry",
-      "etag": "0x8DF1A775039A654",
-      "last_modified": "Thu, 24 Sep 2026 20:06:25 GMT",
+      "etag": "0x8DF1B40B1ECBF46",
+      "last_modified": "Fri, 25 Sep 2026 20:07:58 GMT",
       "local_file": "data/distributed_generation/solar_installations_by_region.csv",
       "request_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Retail/SolarInstallations/SolarInstallationsByRegion.csv",
-      "sha256": "e50e8ece3e63e46939a3d0d965589db79ce0b86a2d89609925ca34729164dc5c"
+      "sha256": "a96667e2b64a3232c5293bac5cc53645c2fd7ddbb052b122e4a1cf69004ba00b"
     },
     "solar_installations_by_street": {
-      "content_length": "4247550",
+      "content_length": "4250534",
       "description": "Current street-level solar installation counts/capacity and market segment from the Electricity Registry",
-      "etag": "0x8DF1A7752B966A8",
-      "last_modified": "Thu, 24 Sep 2026 20:06:30 GMT",
+      "etag": "0x8DF1B40B4990328",
+      "last_modified": "Fri, 25 Sep 2026 20:08:03 GMT",
       "local_file": "data/distributed_generation/solar_installations_by_street.csv",
       "request_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Retail/SolarInstallations/SolarInstallationsByStreet.csv",
-      "sha256": "b8d0e62a96a9c73bf06cf52cce556bf2e444f3633b49ef7de2e26ff1029cd6b7"
+      "sha256": "5c1ba07117f715371b035d7b504d8b606126f224e92486394ba7f6751f467667"
     }
   },
   "source": "New Zealand Electricity Authority EMI"
