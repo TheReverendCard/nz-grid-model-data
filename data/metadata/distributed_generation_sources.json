@@ -39,20 +39,20 @@
     "solar_installations_by_region": {
       "content_length": "11124",
       "description": "Current solar installation counts/capacity by region and market segment from the Electricity Registry",
-      "etag": "0x8DF1B40B1ECBF46",
-      "last_modified": "Fri, 25 Sep 2026 20:07:58 GMT",
+      "etag": "0x8DF1C0166AF502E",
+      "last_modified": "Sat, 26 Sep 2026 19:07:25 GMT",
       "local_file": "data/distributed_generation/solar_installations_by_region.csv",
       "request_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Retail/SolarInstallations/SolarInstallationsByRegion.csv",
-      "sha256": "a96667e2b64a3232c5293bac5cc53645c2fd7ddbb052b122e4a1cf69004ba00b"
+      "sha256": "07cfb1e899bba703128df497784946be3f586910438c41e3e0abfc9226bb4215"
     },
     "solar_installations_by_street": {
-      "content_length": "4250534",
+      "content_length": "4250805",
       "description": "Current street-level solar installation counts/capacity and market segment from the Electricity Registry",
-      "etag": "0x8DF1B40B4990328",
-      "last_modified": "Fri, 25 Sep 2026 20:08:03 GMT",
+      "etag": "0x8DF1C016A3E3F8E",
+      "last_modified": "Sat, 26 Sep 2026 19:07:31 GMT",
       "local_file": "data/distributed_generation/solar_installations_by_street.csv",
       "request_url": "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Retail/SolarInstallations/SolarInstallationsByStreet.csv",
-      "sha256": "5c1ba07117f715371b035d7b504d8b606126f224e92486394ba7f6751f467667"
+      "sha256": "59d97251d315f3eef3a84ed98b436ef09265e61c4ea43dcd465e97d8a7f560cb"
     }
   },
   "source": "New Zealand Electricity Authority EMI"
