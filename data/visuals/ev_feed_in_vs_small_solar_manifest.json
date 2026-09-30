@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-30T20:20:12.655785+00:00",
+  "generated_at_utc": "2026-09-30T20:21:04.688925+00:00",
   "outputs": {
     "png": "data/visuals/ev_feed_in_vs_small_solar_capacity.png",
     "plot_data_csv": "data/visuals/ev_feed_in_vs_small_solar_plot_data.csv",
@@ -30,7 +30,7 @@
     "path_method": {
       "form": "K / (1 + exp(-rate * (year - midpoint)))",
       "saturation_vehicles": 2333735.7047640225,
-      "rate_per_year": 0.43701375945846055,
+      "rate_per_year": 0.43701375945846044,
       "midpoint_year": 2033.689502453813,
       "anchors": {
         "2026-08-16": 101701,
@@ -64,24 +64,24 @@
     "eeca_current": null,
     "eeca_future": {
       "plot_x": 2030.656603156466,
-      "capacity_mw": 1675.7419793518613,
+      "capacity_mw": 1675.7419793518611,
       "calendar_year": 2031,
       "between_year_ends": [
         2030,
         2031
       ],
-      "fraction_between_year_ends": 0.6566031564658679
+      "fraction_between_year_ends": 0.6566031564658668
     },
     "mot_current": null,
     "mot_future": {
       "plot_x": 2032.1961738892853,
-      "capacity_mw": 2036.1633680970453,
+      "capacity_mw": 2036.1633680970451,
       "calendar_year": 2033,
       "between_year_ends": [
         2032,
         2033
       ],
-      "fraction_between_year_ends": 0.19617388928531512
+      "fraction_between_year_ends": 0.19617388928531473
     }
   },
   "summary": {
@@ -101,7 +101,7 @@
       "crosses_central_solar_by_2035": true,
       "first_crossover_year": 2031,
       "interpolated_crossover_plot_x": 2030.656603156466,
-      "interpolated_crossover_capacity_mw": 1675.7419793518613
+      "interpolated_crossover_capacity_mw": 1675.7419793518611
     },
     "mot_current": {
       "2030_mw": 528.343,
@@ -119,7 +119,7 @@
       "crosses_central_solar_by_2035": true,
       "first_crossover_year": 2033,
       "interpolated_crossover_plot_x": 2032.1961738892853,
-      "interpolated_crossover_capacity_mw": 2036.1633680970453
+      "interpolated_crossover_capacity_mw": 2036.1633680970451
     }
   },
   "methodology_notes": [
