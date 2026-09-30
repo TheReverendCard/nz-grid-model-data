@@ -42,10 +42,18 @@ jobs:
       - name: Install Chart Dependencies
         run: pip install matplotlib scipy numpy pandas
 
+      - name: Remove Stale Render Outputs
+        shell: bash
+        run: |
+          rm -f \
+            data/visuals/ev_feed_in_vs_small_solar_capacity.png \
+            data/visuals/ev_feed_in_vs_small_solar_plot_data.csv \
+            data/visuals/ev_feed_in_vs_small_solar_manifest.json
+
       - name: Render EV Feed-in vs Small Solar
         shell: bash
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.force_render }}" = "true" ]; then
             python build_ev_feed_in_vs_small_solar.py --force
           else
             python build_ev_feed_in_vs_small_solar.py
@@ -66,7 +74,81 @@ jobs:
               exit 1
             fi
           done
-          echo "Verified all EV feed-in comparison outputs." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Validate Crossover Rendering Data
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          import numpy as np
+          import pandas as pd
+
+          csv_path = Path("data/visuals/ev_feed_in_vs_small_solar_plot_data.csv")
+          manifest_path = Path("data/visuals/ev_feed_in_vs_small_solar_manifest.json")
+
+          data = pd.read_csv(csv_path)
+          manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+
+          pairs = {
+              "eeca": ("ev_feedin_eeca_current_mw", "ev_feedin_eeca_future_mw"),
+              "mot": ("ev_feedin_mot_current_mw", "ev_feedin_mot_future_mw"),
+          }
+          for name, (current_col, future_col) in pairs.items():
+              if not np.all(data[future_col].to_numpy() > data[current_col].to_numpy()):
+                  raise SystemExit(f"{name} 7 kW/future-ready series is not above the 5 kW/current-like series")
+
+          years = data["year"].to_numpy(dtype=float)
+          solar = data["small_solar_20pct_mw"].to_numpy(dtype=float)
+          series_columns = {
+              "eeca_current": "ev_feedin_eeca_current_mw",
+              "eeca_future": "ev_feedin_eeca_future_mw",
+              "mot_current": "ev_feedin_mot_current_mw",
+              "mot_future": "ev_feedin_mot_future_mw",
+          }
+          points = manifest.get("crossover_points_vs_small_solar_20pct")
+          years_manifest = manifest.get("crossover_years_vs_small_solar_20pct")
+          if not isinstance(points, dict) or not isinstance(years_manifest, dict):
+              raise SystemExit("Manifest is missing interpolated crossover metadata")
+
+          for key, column in series_columns.items():
+              ev = data[column].to_numpy(dtype=float)
+              difference = ev - solar
+              crossed = np.flatnonzero(difference >= 0)
+              point = points.get(key)
+
+              if not len(crossed):
+                  if point is not None or years_manifest.get(key) is not None:
+                      raise SystemExit(f"{key}: manifest reports a crossover that does not exist in plot data")
+                  continue
+
+              upper_idx = int(crossed[0])
+              if upper_idx == 0:
+                  expected_x = float(years[0])
+                  expected_y = float(solar[0])
+                  expected_year = int(years[0])
+              else:
+                  lower_idx = upper_idx - 1
+                  lower_diff = float(difference[lower_idx])
+                  upper_diff = float(difference[upper_idx])
+                  fraction = -lower_diff / (upper_diff - lower_diff)
+                  expected_x = float(years[lower_idx] + fraction * (years[upper_idx] - years[lower_idx]))
+                  expected_y = float(solar[lower_idx] + fraction * (solar[upper_idx] - solar[lower_idx]))
+                  expected_year = int(years[upper_idx])
+
+              if point is None:
+                  raise SystemExit(f"{key}: expected interpolated crossover metadata is missing")
+              if not np.isclose(float(point["plot_x"]), expected_x, atol=1e-5, rtol=0.0):
+                  raise SystemExit(f"{key}: crossover x-coordinate is inconsistent with plotted lines")
+              if not np.isclose(float(point["capacity_mw"]), expected_y, atol=1e-3, rtol=0.0):
+                  raise SystemExit(f"{key}: crossover capacity is inconsistent with plotted lines")
+              if int(point["calendar_year"]) != expected_year or years_manifest.get(key) != expected_year:
+                  raise SystemExit(f"{key}: crossover year metadata is inconsistent")
+
+          print("Verified EV line ordering and interpolated crossover points.")
+          PY
+          echo "Verified all EV feed-in comparison outputs and crossover metadata." >> "$GITHUB_STEP_SUMMARY"
 
       - name: Commit Rendered Outputs
         shell: bash
@@ -82,5 +164,5 @@ jobs:
             exit 0
           fi
           git commit -m "Render EV feed-in versus small solar chart"
-          git pull --rebase -X theirs origin "${GITHUB_REF_NAME}"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
           git push origin HEAD:"${GITHUB_REF_NAME}"
