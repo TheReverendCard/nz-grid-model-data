@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-28T21:23:25.334883+00:00",
+  "generated_at_utc": "2026-09-30T20:20:12.655785+00:00",
   "outputs": {
     "png": "data/visuals/ev_feed_in_vs_small_solar_capacity.png",
     "plot_data_csv": "data/visuals/ev_feed_in_vs_small_solar_plot_data.csv",
@@ -30,7 +30,7 @@
     "path_method": {
       "form": "K / (1 + exp(-rate * (year - midpoint)))",
       "saturation_vehicles": 2333735.7047640225,
-      "rate_per_year": 0.43701375945846044,
+      "rate_per_year": 0.43701375945846055,
       "midpoint_year": 2033.689502453813,
       "anchors": {
         "2026-08-16": 101701,
@@ -60,40 +60,73 @@
     "mot_current": null,
     "mot_future": 2033
   },
+  "crossover_points_vs_small_solar_20pct": {
+    "eeca_current": null,
+    "eeca_future": {
+      "plot_x": 2030.656603156466,
+      "capacity_mw": 1675.7419793518613,
+      "calendar_year": 2031,
+      "between_year_ends": [
+        2030,
+        2031
+      ],
+      "fraction_between_year_ends": 0.6566031564658679
+    },
+    "mot_current": null,
+    "mot_future": {
+      "plot_x": 2032.1961738892853,
+      "capacity_mw": 2036.1633680970453,
+      "calendar_year": 2033,
+      "between_year_ends": [
+        2032,
+        2033
+      ],
+      "fraction_between_year_ends": 0.19617388928531512
+    }
+  },
   "summary": {
     "eeca_current": {
       "2030_mw": 646.25,
       "2035_mw": 2009.25,
       "crosses_central_solar_by_2030": false,
       "crosses_central_solar_by_2035": false,
-      "first_crossover_year": null
+      "first_crossover_year": null,
+      "interpolated_crossover_plot_x": null,
+      "interpolated_crossover_capacity_mw": null
     },
     "eeca_future": {
       "2030_mw": 1347.5,
       "2035_mw": 4189.5,
       "crosses_central_solar_by_2030": false,
       "crosses_central_solar_by_2035": true,
-      "first_crossover_year": 2031
+      "first_crossover_year": 2031,
+      "interpolated_crossover_plot_x": 2030.656603156466,
+      "interpolated_crossover_capacity_mw": 1675.7419793518613
     },
     "mot_current": {
       "2030_mw": 528.343,
       "2035_mw": 1586.25,
       "crosses_central_solar_by_2030": false,
       "crosses_central_solar_by_2035": false,
-      "first_crossover_year": null
+      "first_crossover_year": null,
+      "interpolated_crossover_plot_x": null,
+      "interpolated_crossover_capacity_mw": null
     },
     "mot_future": {
       "2030_mw": 1101.65,
       "2035_mw": 3307.5,
       "crosses_central_solar_by_2030": false,
       "crosses_central_solar_by_2035": true,
-      "first_crossover_year": 2033
+      "first_crossover_year": 2033,
+      "interpolated_crossover_plot_x": 2032.1961738892853,
+      "interpolated_crossover_capacity_mw": 2036.1633680970453
     }
   },
   "methodology_notes": [
     "This is a power-capacity comparison, not an energy comparison.",
     "EV export capacity is potentially dispatchable around peak periods but depends on vehicles being plugged in, bidirectional hardware and standards, available state of charge, network permissions and customer participation.",
     "Solar capacity is nameplate capacity and is primarily a daytime resource; equal MW does not imply equal system value or equal annual energy.",
+    "Crossover markers are linearly interpolated between annual year-end samples so each marker lies on the plotted EV and solar lines at their intersection.",
     "The EECA/CCC path is a three-anchor logistic fit. The MoT path uses the same normalized adoption timing and a lower 2035 target to avoid front-loaded straight-line interpolation.",
     "Fleet policy anchors are scenarios, not precise forecasts."
   ]
