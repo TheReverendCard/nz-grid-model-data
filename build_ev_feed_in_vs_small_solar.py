@@ -42,6 +42,13 @@ COLORS = {
     "mot": "#6f5aa8",
 }
 
+SERIES_COLUMNS = {
+    "eeca_current": "ev_feedin_eeca_current_mw",
+    "eeca_future": "ev_feedin_eeca_future_mw",
+    "mot_current": "ev_feedin_mot_current_mw",
+    "mot_future": "ev_feedin_mot_future_mw",
+}
+
 
 def decimal_year(d: date) -> float:
     start = date(d.year, 1, 1)
@@ -152,9 +159,60 @@ def build_ev_paths(anchor_date: date, current_ev: int) -> tuple[np.ndarray, np.n
     return eeca, mot, fit_meta
 
 
-def first_crossover_year(ev_mw: np.ndarray, solar_mw: np.ndarray) -> int | None:
-    crossed = np.where(ev_mw >= solar_mw)[0]
-    return int(YEARS[crossed[0]]) if len(crossed) else None
+def find_crossover(ev_mw: np.ndarray, solar_mw: np.ndarray) -> dict[str, object] | None:
+    """Return the first plotted EV/solar intersection using linear interpolation.
+
+    YEARS are year-end samples.  Matplotlib connects those samples with straight
+    segments, so the crossover marker must be interpolated on the same segments
+    rather than placed on the first later annual EV point that exceeds solar.
+    """
+    difference = ev_mw - solar_mw
+    crossed = np.where(difference >= 0)[0]
+    if not len(crossed):
+        return None
+
+    upper_idx = int(crossed[0])
+    if upper_idx == 0:
+        return {
+            "plot_x": float(YEARS[0]),
+            "capacity_mw": float(solar_mw[0]),
+            "calendar_year": int(YEARS[0]),
+            "between_year_ends": [int(YEARS[0]), int(YEARS[0])],
+            "fraction_between_year_ends": 0.0,
+        }
+
+    lower_idx = upper_idx - 1
+    lower_diff = float(difference[lower_idx])
+    upper_diff = float(difference[upper_idx])
+    denominator = upper_diff - lower_diff
+    if denominator <= 0:
+        raise RuntimeError(
+            f"Invalid crossover segment: difference failed to rise through zero ({lower_diff=}, {upper_diff=})"
+        )
+
+    fraction = float(np.clip(-lower_diff / denominator, 0.0, 1.0))
+    plot_x = float(YEARS[lower_idx] + fraction * (YEARS[upper_idx] - YEARS[lower_idx]))
+    capacity_mw = float(
+        solar_mw[lower_idx] + fraction * (solar_mw[upper_idx] - solar_mw[lower_idx])
+    )
+
+    # Independent interpolation of the EV line.  This should equal the solar
+    # interpolation above at the plotted intersection.
+    ev_capacity_mw = float(
+        ev_mw[lower_idx] + fraction * (ev_mw[upper_idx] - ev_mw[lower_idx])
+    )
+    if not np.isclose(ev_capacity_mw, capacity_mw, rtol=0.0, atol=1e-6):
+        raise RuntimeError(
+            f"Crossover interpolation mismatch: EV={ev_capacity_mw:.6f} MW, solar={capacity_mw:.6f} MW"
+        )
+
+    return {
+        "plot_x": plot_x,
+        "capacity_mw": capacity_mw,
+        "calendar_year": int(YEARS[upper_idx]),
+        "between_year_ends": [int(YEARS[lower_idx]), int(YEARS[upper_idx])],
+        "fraction_between_year_ends": fraction,
+    }
 
 
 def main() -> None:
@@ -172,7 +230,18 @@ def main() -> None:
         "mot_current": mot_count * CURRENT_EFFECTIVE_KW / 1000.0,
         "mot_future": mot_count * FUTURE_EFFECTIVE_KW / 1000.0,
     }
-    crossover = {key: first_crossover_year(values, solar) for key, values in series.items()}
+
+    for fleet_path in ("eeca", "mot"):
+        current_values = series[f"{fleet_path}_current"]
+        future_values = series[f"{fleet_path}_future"]
+        if not np.all(future_values > current_values):
+            raise RuntimeError(f"Future-ready {fleet_path} series must remain above the current-like series")
+
+    crossover_points = {key: find_crossover(values, solar) for key, values in series.items()}
+    crossover_years = {
+        key: (point["calendar_year"] if point is not None else None)
+        for key, point in crossover_points.items()
+    }
 
     plot = pd.DataFrame(
         {
@@ -192,25 +261,88 @@ def main() -> None:
     )
 
     fig, ax = plt.subplots(figsize=(12, 8.5))
-    ax.plot(YEARS, solar, color=COLORS["solar"], linewidth=3.3, label="Small distributed solar (<25 kW), 20% saturation case", zorder=4)
-    ax.plot(YEARS, series["eeca_current"], color=COLORS["eeca"], linewidth=2.0, linestyle="--", label="EECA / CCC EV path, current-like export")
-    ax.plot(YEARS, series["eeca_future"], color=COLORS["eeca"], linewidth=2.8, linestyle="-", label="EECA / CCC EV path, future-ready export")
-    ax.plot(YEARS, series["mot_current"], color=COLORS["mot"], linewidth=2.0, linestyle="--", label="MoT EV path, current-like export")
-    ax.plot(YEARS, series["mot_future"], color=COLORS["mot"], linewidth=2.8, linestyle="-", label="MoT EV path, future-ready export")
+    ax.plot(
+        YEARS,
+        solar,
+        color=COLORS["solar"],
+        linewidth=3.3,
+        label="Small distributed solar (<25 kW), 20% saturation case",
+        zorder=4,
+    )
+    ax.plot(
+        YEARS,
+        series["eeca_current"],
+        color=COLORS["eeca"],
+        linewidth=1.8,
+        linestyle="--",
+        alpha=0.72,
+        label="EECA / CCC EV path, 5 kW export, 47% chargers, 50% participation",
+    )
+    ax.plot(
+        YEARS,
+        series["eeca_future"],
+        color=COLORS["eeca"],
+        linewidth=3.0,
+        linestyle="-",
+        label="EECA / CCC EV path, 7 kW export, 70% chargers, 50% participation",
+    )
+    ax.plot(
+        YEARS,
+        series["mot_current"],
+        color=COLORS["mot"],
+        linewidth=1.8,
+        linestyle="--",
+        alpha=0.72,
+        label="MoT EV path, 5 kW export, 47% chargers, 50% participation",
+    )
+    ax.plot(
+        YEARS,
+        series["mot_future"],
+        color=COLORS["mot"],
+        linewidth=3.0,
+        linestyle="-",
+        label="MoT EV path, 7 kW export, 70% chargers, 50% participation",
+    )
 
-    for key, year in crossover.items():
-        if year is None:
+    annotation_offsets = {
+        "eeca_current": (8, 14),
+        "eeca_future": (8, 14),
+        "mot_current": (8, -30),
+        "mot_future": (8, -30),
+    }
+    for key, point in crossover_points.items():
+        if point is None:
             continue
-        idx = int(year - START_YEAR)
-        ax.scatter([year], [series[key][idx]], s=45, edgecolor="white", linewidth=0.7, zorder=6)
+        x = float(point["plot_x"])
+        y = float(point["capacity_mw"])
+        color = COLORS["eeca"] if key.startswith("eeca") else COLORS["mot"]
+        ax.scatter(
+            [x],
+            [y],
+            s=62,
+            color=color,
+            edgecolor="white",
+            linewidth=1.1,
+            zorder=8,
+        )
+        dx, dy = annotation_offsets[key]
         ax.annotate(
-            f"crosses {year}",
-            xy=(year, series[key][idx]),
-            xytext=(6, 9 if key.startswith("eeca") else -16),
+            f"crosses during {point['calendar_year']}",
+            xy=(x, y),
+            xytext=(dx, dy),
             textcoords="offset points",
-            fontsize=8,
+            fontsize=8.5,
+            fontweight="semibold",
+            color=color,
             ha="left",
-            va="bottom" if key.startswith("eeca") else "top",
+            va="bottom" if dy >= 0 else "top",
+            arrowprops={
+                "arrowstyle": "-",
+                "color": color,
+                "linewidth": 0.8,
+                "shrinkA": 2,
+                "shrinkB": 4,
+            },
         )
 
     ymax = max(float(solar.max()), *(float(v.max()) for v in series.values()))
@@ -218,20 +350,20 @@ def main() -> None:
     ax.set_ylim(0, ymax)
     ax.set_xlim(START_YEAR - 0.15, END_YEAR + 0.15)
     ax.set_xticks(YEARS)
-    ax.set_xlabel("Year")
+    ax.set_xlabel("Year-end capacity")
     ax.set_ylabel("Capacity (MW)")
     ax.set_title("Potential EV peak feed-in capacity vs small distributed solar")
     ax.grid(axis="y", alpha=0.20)
-    ax.legend(loc="upper left", fontsize=8.5, frameon=True)
+    ax.legend(loc="upper left", fontsize=8.3, frameon=True)
 
     note = (
         "Capacity comparison, not energy: EV feed-in could be a peak-period / evening resource, while solar is primarily daytime generation. "
-        "EV export depends on charger adoption, bidirectional capability, standards and customer participation. "
+        "Crossover markers are linearly interpolated at the actual plotted intersection between annual year-end points. "
         "EECA/CCC and MoT fleet paths are scenario anchors, not precise forecasts."
     )
     assumptions = (
-        f"Export assumptions: current-like = {CURRENT_EXPORT_KW:.0f} kW × {CURRENT_CHARGER_SHARE:.0%} charger adoption × {CURRENT_PARTICIPATION:.0%} participation = {CURRENT_EFFECTIVE_KW:.3f} kW/EV; "
-        f"future-ready = {FUTURE_EXPORT_KW:.0f} kW × {FUTURE_CHARGER_SHARE:.0%} × {FUTURE_PARTICIPATION:.0%} = {FUTURE_EFFECTIVE_KW:.2f} kW/EV."
+        f"Export assumptions: 5 kW case = {CURRENT_EXPORT_KW:.0f} kW × {CURRENT_CHARGER_SHARE:.0%} charger adoption × {CURRENT_PARTICIPATION:.0%} participation = {CURRENT_EFFECTIVE_KW:.3f} kW/EV; "
+        f"7 kW case = {FUTURE_EXPORT_KW:.0f} kW × {FUTURE_CHARGER_SHARE:.0%} × {FUTURE_PARTICIPATION:.0%} = {FUTURE_EFFECTIVE_KW:.2f} kW/EV."
     )
     fig.subplots_adjust(bottom=0.21)
     fig.text(0.06, 0.085, note, fontsize=8, ha="left", va="top", wrap=True)
@@ -243,20 +375,22 @@ def main() -> None:
     plot.to_csv(OUT_CSV, index=False)
 
     summary = {}
-    for key, column in {
-        "eeca_current": "ev_feedin_eeca_current_mw",
-        "eeca_future": "ev_feedin_eeca_future_mw",
-        "mot_current": "ev_feedin_mot_current_mw",
-        "mot_future": "ev_feedin_mot_future_mw",
-    }.items():
-        row_2030 = plot.loc[plot["year"] == 2030].iloc[0]
-        row_2035 = plot.loc[plot["year"] == 2035].iloc[0]
+    row_2030 = plot.loc[plot["year"] == 2030].iloc[0]
+    row_2035 = plot.loc[plot["year"] == 2035].iloc[0]
+    for key, column in SERIES_COLUMNS.items():
+        crossover_year = crossover_years[key]
         summary[key] = {
             "2030_mw": float(row_2030[column]),
             "2035_mw": float(row_2035[column]),
-            "crosses_central_solar_by_2030": crossover[key] is not None and crossover[key] <= 2030,
-            "crosses_central_solar_by_2035": crossover[key] is not None and crossover[key] <= 2035,
-            "first_crossover_year": crossover[key],
+            "crosses_central_solar_by_2030": crossover_year is not None and crossover_year <= 2030,
+            "crosses_central_solar_by_2035": crossover_year is not None and crossover_year <= 2035,
+            "first_crossover_year": crossover_year,
+            "interpolated_crossover_plot_x": (
+                float(crossover_points[key]["plot_x"]) if crossover_points[key] is not None else None
+            ),
+            "interpolated_crossover_capacity_mw": (
+                float(crossover_points[key]["capacity_mw"]) if crossover_points[key] is not None else None
+            ),
         }
 
     manifest = {
@@ -301,12 +435,14 @@ def main() -> None:
                 "effective_kw_per_ev": FUTURE_EFFECTIVE_KW,
             },
         },
-        "crossover_years_vs_small_solar_20pct": crossover,
+        "crossover_years_vs_small_solar_20pct": crossover_years,
+        "crossover_points_vs_small_solar_20pct": crossover_points,
         "summary": summary,
         "methodology_notes": [
             "This is a power-capacity comparison, not an energy comparison.",
             "EV export capacity is potentially dispatchable around peak periods but depends on vehicles being plugged in, bidirectional hardware and standards, available state of charge, network permissions and customer participation.",
             "Solar capacity is nameplate capacity and is primarily a daytime resource; equal MW does not imply equal system value or equal annual energy.",
+            "Crossover markers are linearly interpolated between annual year-end samples so each marker lies on the plotted EV and solar lines at their intersection.",
             "The EECA/CCC path is a three-anchor logistic fit. The MoT path uses the same normalized adoption timing and a lower 2035 target to avoid front-loaded straight-line interpolation.",
             "Fleet policy anchors are scenarios, not precise forecasts.",
         ],
@@ -316,7 +452,8 @@ def main() -> None:
     print(f"Wrote {OUT_PNG}")
     print(f"Wrote {OUT_CSV}")
     print(f"Wrote {OUT_JSON}")
-    print(f"Crossovers: {crossover}")
+    print(f"Crossover years: {crossover_years}")
+    print(f"Crossover points: {crossover_points}")
 
 
 if __name__ == "__main__":
