@@ -1,5 +1,5 @@
 {
-  "checked_at_utc": "2026-09-01T18:05:40.711055+00:00",
+  "checked_at_utc": "2026-10-01T20:06:00.555326+00:00",
   "source": "Electricity Authority Generation Investment Pipeline",
   "dashboard_url": "https://www.ea.govt.nz/data-and-insights/charts-and-dashboards/generation-investment-pipeline/",
   "dashboard_check": {
@@ -9,7 +9,7 @@
     "resolved_url": "https://www.ea.govt.nz/data-and-insights/charts-and-dashboards/generation-investment-pipeline/",
     "error": ""
   },
-  "ea_dashboard_page_sha256": "a8e15800a8e15fe7b5328b154100d0f31159edbf311bbd12294ecf4bddb5f443",
+  "ea_dashboard_page_sha256": "44d7725b59ead73200cc8ded154724d1c12fc1ccf6904fc0a73f6750bccbf037",
   "dashboard_changed_since_previous_check": true,
   "sigma_embed": {
     "detected": true,
@@ -17,7 +17,7 @@
       "https://app.sigmacomputing.com/embed/9-6gbXQr7P2lqnkiWdBw4Ajh/tag/Production?:responsive_height=true&:menu_position=none&:show_footer=false"
     ],
     "http_status": 200,
-    "sha256": "06947bdf09f5f558dbf4e03979a4113bea0e2ee5efc37e4fefc299e434065e60",
+    "sha256": "4f5c9e8ff5fed502ffe71311e0346525a0d23a423c5a4a38048869b0d364a8a2",
     "content_type": "text/html"
   },
   "retained_snapshot": {
@@ -30,9 +30,9 @@
   "transpower_connection_pipeline_cross_check": {
     "metadata_available": true,
     "source_url": "https://static.transpower.co.nz/public/uncontrolled_docs/Generation%20and%20energy%20storage%20connection%20pipeline.xlsx",
-    "last_modified": "Wed, 26 Aug 2026 03:29:28 GMT",
-    "sha256": "ffae3a75bf47bce570b54f38ae27843ad39f27c89e6d86bca6c8c5d8e7f5b719",
-    "rows": 145,
+    "last_modified": "Tue, 08 Sep 2026 02:42:02 GMT",
+    "sha256": "d46b7fc2ba021ad1fc32be80111bad0ef9635dee365b392aaea3d768acf5ae9f",
+    "rows": 148,
     "note": "Freshness cross-check only. Transpower connection stages are not substituted for EA investment-pipeline statuses."
   },
   "status_policy": "Use EA Committed / Actively pursued / Other definitions for chart status. Do not infer those statuses from Transpower connection stages.",
