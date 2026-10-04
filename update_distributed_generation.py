@@ -81,9 +81,31 @@ def fetch(
 
     for attempt in range(1, max_attempts + 1):
         try:
-            response = requests.get(url, params=params, headers=headers, timeout=120)
+            # Keep a transient EMI outage from holding a daily source check open
+            # for six minutes. Three 60-second read attempts are ample for this
+            # lightweight CSV endpoint; after that we can safely retain the last
+            # validated local copy when one exists.
+            response = requests.get(
+                url,
+                params=params,
+                headers=headers,
+                timeout=(15, 60),
+            )
         except (requests.Timeout, requests.ConnectionError) as exc:
             if attempt == max_attempts:
+                if existing_path is not None and existing_path.exists():
+                    content = existing_path.read_bytes()
+                    print(
+                        f"WARNING: fetch failed after {max_attempts} attempts for {url}: {exc}. "
+                        f"Using last validated local copy {existing_path}; no source change will be inferred."
+                    )
+                    return content, {
+                        "url": str(previous.get("request_url") or url),
+                        "etag": str(previous.get("etag") or ""),
+                        "last_modified": str(previous.get("last_modified") or ""),
+                        "content_type": str(previous.get("content_type") or ""),
+                        "content_length": str(len(content)),
+                    }, True
                 raise
             delay = 5 * (2 ** (attempt - 1))
             print(
@@ -199,19 +221,34 @@ def main() -> None:
     META_PATH.parent.mkdir(parents=True, exist_ok=True)
     previous_meta = load_previous_metadata()
 
-    trends_content, trends_headers, _ = fetch(DG_TRENDS_URL, params=DG_TRENDS_BASE_PARAMS)
+    trends_content, trends_headers, _ = fetch(
+        DG_TRENDS_URL,
+        params=DG_TRENDS_BASE_PARAMS,
+        previous=previous_dataset(previous_meta, "installed_distributed_generation_trends_solar_all"),
+        existing_path=DG_TRENDS_PATH,
+    )
     validate_guehmt(trends_content, "All-solar")
     trends_changed = write_if_changed(DG_TRENDS_PATH, trends_content, semantic_guehmt=True)
 
     solar_only_params = dict(DG_TRENDS_BASE_PARAMS)
     solar_only_params["FuelType"] = "solar"
-    solar_only_content, solar_only_headers, _ = fetch(DG_TRENDS_URL, params=solar_only_params)
+    solar_only_content, solar_only_headers, _ = fetch(
+        DG_TRENDS_URL,
+        params=solar_only_params,
+        previous=previous_dataset(previous_meta, "installed_distributed_generation_trends_solar_only"),
+        existing_path=DG_SOLAR_ONLY_TRENDS_PATH,
+    )
     validate_guehmt(solar_only_content, "Solar-only")
     solar_only_changed = write_if_changed(DG_SOLAR_ONLY_TRENDS_PATH, solar_only_content, semantic_guehmt=True)
 
     solar_battery_params = dict(DG_TRENDS_BASE_PARAMS)
     solar_battery_params["FuelType"] = "solarplusbattery"
-    solar_battery_content, solar_battery_headers, _ = fetch(DG_TRENDS_URL, params=solar_battery_params)
+    solar_battery_content, solar_battery_headers, _ = fetch(
+        DG_TRENDS_URL,
+        params=solar_battery_params,
+        previous=previous_dataset(previous_meta, "installed_distributed_generation_trends_solar_with_battery"),
+        existing_path=DG_SOLAR_BATTERY_TRENDS_PATH,
+    )
     validate_guehmt(solar_battery_content, "Solar-with-battery")
     solar_battery_changed = write_if_changed(
         DG_SOLAR_BATTERY_TRENDS_PATH,
@@ -221,7 +258,12 @@ def main() -> None:
 
     residential_params = dict(DG_TRENDS_BASE_PARAMS)
     residential_params["MarketSegment"] = "Res"
-    residential_content, residential_headers, _ = fetch(DG_TRENDS_URL, params=residential_params)
+    residential_content, residential_headers, _ = fetch(
+        DG_TRENDS_URL,
+        params=residential_params,
+        previous=previous_dataset(previous_meta, "installed_distributed_generation_trends_solar_residential"),
+        existing_path=DG_RESIDENTIAL_TRENDS_PATH,
+    )
     validate_guehmt(residential_content, "Residential all-solar")
     if b"Residential" not in residential_content[:2048] and b"Res" not in residential_content[:2048]:
         print("Warning: residential GUEHMT response header did not explicitly echo the market segment")
