@@ -1,0 +1,53 @@
+{
+  "snapshot_month": "2026-08",
+  "captured_date": "2026-08-24",
+  "base_year": 2025,
+  "observed_2025_consumption_twh": 40.583,
+  "observed_2025_generation_twh": 44.14,
+  "delivery_ratio": 0.9155409627466797,
+  "delivery_ratio_basis": {
+    "2024": {
+      "consumption_twh": 40.002,
+      "generation_twh": 43.879
+    },
+    "2025": {
+      "consumption_twh": 40.583,
+      "generation_twh": 44.14
+    }
+  },
+  "capacity_factors": {
+    "Geothermal": 0.7966,
+    "Hydro": 0.5,
+    "Onshore wind": 0.3583,
+    "Offshore wind": 0.45,
+    "Utility solar": 0.1523,
+    "Gas": 0.15
+  },
+  "capacity_factor_basis": {
+    "Utility solar": "MBIE 2024-25 generation divided by average start/end-year installed capacity; pooled two-year factor.",
+    "Onshore wind": "MBIE 2024-25 generation divided by average start/end-year installed capacity; pooled two-year factor.",
+    "Geothermal": "MBIE 2024-25 generation divided by average start/end-year installed capacity; pooled two-year factor.",
+    "Hydro": "50% annual-energy approximation, close to recent NZ hydro fleet utilisation; hydro energy remains hydrology constrained.",
+    "Offshore wind": "45% conservative planning assumption because New Zealand has no operating offshore-wind fleet.",
+    "Gas": "15% illustrative utilisation for prospective thermal capacity, not an energy availability assumption."
+  },
+  "estimated_2025_small_solar_capacity_mw": 550.5035576014571,
+  "project_specific_generation_note": "The retained EA pipeline snapshot is aggregated by status, technology and commissioning year and does not expose project identity or published annual MWh. If a future source provides published_annual_generation_gwh or annual_generation_gwh, this renderer automatically prefers that value over the technology capacity-factor fallback.",
+  "pipeline_conversion": {
+    "explicit_generation_rows": 0,
+    "modelled_capacity_rows": 50,
+    "past_due_mw_bucketed_into_2026": 3688.0
+  },
+  "outputs": {
+    "total_png": "data/visuals/generation_pipeline_consumption_equivalent_latest.png",
+    "total_csv": "data/visuals/generation_pipeline_consumption_equivalent_plot_data.csv",
+    "growth_png": "data/visuals/generation_pipeline_consumption_growth_latest.png",
+    "growth_csv": "data/visuals/generation_pipeline_consumption_growth_plot_data.csv"
+  },
+  "sources": [
+    "MBIE Energy in New Zealand 2026 electricity and renewables tables",
+    "MBIE Electricity Demand and Generation Scenarios 2024",
+    "Electricity Authority Generation Investment Pipeline",
+    "Electricity Authority distributed-generation data"
+  ]
+}
