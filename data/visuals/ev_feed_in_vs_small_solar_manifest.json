@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-30T20:21:04.688925+00:00",
+  "generated_at_utc": "2026-10-05T22:10:39.883683+00:00",
   "outputs": {
     "png": "data/visuals/ev_feed_in_vs_small_solar_capacity.png",
     "plot_data_csv": "data/visuals/ev_feed_in_vs_small_solar_plot_data.csv",
@@ -63,25 +63,25 @@
   "crossover_points_vs_small_solar_20pct": {
     "eeca_current": null,
     "eeca_future": {
-      "plot_x": 2030.656603156466,
-      "capacity_mw": 1675.7419793518611,
+      "plot_x": 2030.9899213103445,
+      "capacity_mw": 1842.3708015035506,
       "calendar_year": 2031,
       "between_year_ends": [
         2030,
         2031
       ],
-      "fraction_between_year_ends": 0.6566031564658668
+      "fraction_between_year_ends": 0.9899213103443956
     },
     "mot_current": null,
     "mot_future": {
-      "plot_x": 2032.1961738892853,
-      "capacity_mw": 2036.1633680970451,
+      "plot_x": 2032.7164403186812,
+      "capacity_mw": 2286.974678719946,
       "calendar_year": 2033,
       "between_year_ends": [
         2032,
         2033
       ],
-      "fraction_between_year_ends": 0.19617388928531473
+      "fraction_between_year_ends": 0.7164403186811122
     }
   },
   "summary": {
@@ -100,8 +100,8 @@
       "crosses_central_solar_by_2030": false,
       "crosses_central_solar_by_2035": true,
       "first_crossover_year": 2031,
-      "interpolated_crossover_plot_x": 2030.656603156466,
-      "interpolated_crossover_capacity_mw": 1675.7419793518611
+      "interpolated_crossover_plot_x": 2030.9899213103445,
+      "interpolated_crossover_capacity_mw": 1842.3708015035506
     },
     "mot_current": {
       "2030_mw": 528.343,
@@ -118,8 +118,8 @@
       "crosses_central_solar_by_2030": false,
       "crosses_central_solar_by_2035": true,
       "first_crossover_year": 2033,
-      "interpolated_crossover_plot_x": 2032.1961738892853,
-      "interpolated_crossover_capacity_mw": 2036.1633680970451
+      "interpolated_crossover_plot_x": 2032.7164403186812,
+      "interpolated_crossover_capacity_mw": 2286.974678719946
     }
   },
   "methodology_notes": [
