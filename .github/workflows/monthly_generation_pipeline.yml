@@ -13,6 +13,7 @@ on:
       - 'build_generation_pipeline_status_metrics.py'
       - 'build_generation_pipeline_monthly_chart.py'
       - 'build_generation_pipeline_capacity_chart.py'
+      - 'build_generation_pipeline_consumption_charts.py'
       - 'data/pipeline/ea_generation_investment_pipeline_current.csv'
 
 permissions:
@@ -65,6 +66,7 @@ jobs:
         run: |
           python build_generation_pipeline_monthly_chart.py
           python build_generation_pipeline_capacity_chart.py
+          python build_generation_pipeline_consumption_charts.py
 
       - name: Validate rendered outputs
         shell: bash
@@ -97,12 +99,17 @@ jobs:
           capacity_png = Path('data/visuals/generation_pipeline_capacity_monthly_latest.png')
           capacity_csv = Path('data/visuals/generation_pipeline_capacity_monthly_plot_data.csv')
           capacity_manifest_path = Path('data/visuals/generation_pipeline_capacity_monthly_manifest.json')
+          consumption_total_png = Path('data/visuals/generation_pipeline_consumption_equivalent_latest.png')
+          consumption_growth_png = Path('data/visuals/generation_pipeline_consumption_growth_latest.png')
+          consumption_manifest_path = Path('data/visuals/generation_pipeline_consumption_manifest.json')
           status_meta_path = Path('data/metadata/ea_generation_pipeline_status_metrics.json')
           status_history_path = Path('data/pipeline/ea_generation_pipeline_status_history.csv')
           status_transitions_path = Path('data/pipeline/ea_generation_pipeline_status_transitions.csv')
 
           energy_dims = validate_png(energy_png)
           capacity_dims = validate_png(capacity_png)
+          consumption_total_dims = validate_png(consumption_total_png)
+          consumption_growth_dims = validate_png(consumption_growth_png)
 
           if not energy_csv.exists():
               raise RuntimeError(f'Missing plot-data CSV: {energy_csv}')
@@ -172,6 +179,7 @@ jobs:
               Path('data/visuals/generation_pipeline_monthly_manifest.json').read_text(encoding='utf-8')
           )
           capacity_manifest = json.loads(capacity_manifest_path.read_text(encoding='utf-8'))
+          consumption_manifest = json.loads(consumption_manifest_path.read_text(encoding='utf-8'))
           latest_month = status_meta.get('latest_snapshot_month')
           if latest_month != energy_manifest.get('snapshot_month'):
               raise RuntimeError(
@@ -183,6 +191,11 @@ jobs:
                   'Status tracker latest month does not match capacity render: '
                   f"{latest_month} vs {capacity_manifest.get('snapshot_month')}"
               )
+          if latest_month != consumption_manifest.get('snapshot_month'):
+              raise RuntimeError(
+                  'Status tracker latest month does not match consumption-equivalent renders: '
+                  f"{latest_month} vs {consumption_manifest.get('snapshot_month')}"
+              )
 
           print(
               f'Validated {energy_png}: {energy_dims[0]}x{energy_dims[1]}, '
@@ -191,6 +204,14 @@ jobs:
           print(
               f'Validated {capacity_png}: {capacity_dims[0]}x{capacity_dims[1]}, '
               f'{capacity_dims[2]:,} bytes'
+          )
+          print(
+              f'Validated {consumption_total_png}: {consumption_total_dims[0]}x{consumption_total_dims[1]}, '
+              f'{consumption_total_dims[2]:,} bytes'
+          )
+          print(
+              f'Validated {consumption_growth_png}: {consumption_growth_dims[0]}x{consumption_growth_dims[1]}, '
+              f'{consumption_growth_dims[2]:,} bytes'
           )
           print(f'Validated energy CSV: {len(rows)} annual rows, {len(fields)} columns')
           print(f'Validated capacity CSV: {len(cap_rows)} annual rows, {len(cap_fields)} columns')
@@ -284,7 +305,12 @@ jobs:
                   data/visuals/generation_pipeline_monthly_manifest.json \
                   data/visuals/generation_pipeline_capacity_monthly_latest.png \
                   data/visuals/generation_pipeline_capacity_monthly_plot_data.csv \
-                  data/visuals/generation_pipeline_capacity_monthly_manifest.json
+                  data/visuals/generation_pipeline_capacity_monthly_manifest.json \
+                  data/visuals/generation_pipeline_consumption_equivalent_latest.png \
+                  data/visuals/generation_pipeline_consumption_equivalent_plot_data.csv \
+                  data/visuals/generation_pipeline_consumption_growth_latest.png \
+                  data/visuals/generation_pipeline_consumption_growth_plot_data.csv \
+                  data/visuals/generation_pipeline_consumption_manifest.json
           git add -A data/visuals/archive/
           if git diff --cached --quiet; then
             echo 'No monthly generation-pipeline changes to commit'
