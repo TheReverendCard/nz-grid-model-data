@@ -1,163 +1,163 @@
 metric,sensitivity,year,stage,stage_label,scenario,scenario_label,margin,unit,delta_from_sosa
 nz_winter_energy_margin,reference,2027,stage1,Stage 1: existing + committed,sosa_baseline,SOSA baseline,16.0207,pct,0.0
-nz_winter_energy_margin,reference,2027,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,17.0307,pct,1.01
-nz_winter_energy_margin,reference,2027,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,17.0452,pct,1.0245
+nz_winter_energy_margin,reference,2027,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,17.0325,pct,1.0118
+nz_winter_energy_margin,reference,2027,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,17.047,pct,1.0263
 nz_winter_energy_margin,reference,2027,stage2,"Stage 2: + consented, likely",sosa_baseline,SOSA baseline,17.7993,pct,0.0
-nz_winter_energy_margin,reference,2027,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,18.8093,pct,1.01
-nz_winter_energy_margin,reference,2027,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,18.8237,pct,1.0244
+nz_winter_energy_margin,reference,2027,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,18.8111,pct,1.0118
+nz_winter_energy_margin,reference,2027,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,18.8256,pct,1.0263
 nz_winter_energy_margin,reference,2027,stage3,Stage 3: + likely consent within 2y,sosa_baseline,SOSA baseline,18.1068,pct,0.0
-nz_winter_energy_margin,reference,2027,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,19.1167,pct,1.0099
-nz_winter_energy_margin,reference,2027,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,19.1312,pct,1.0244
+nz_winter_energy_margin,reference,2027,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,19.1186,pct,1.0118
+nz_winter_energy_margin,reference,2027,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,19.1331,pct,1.0263
 nz_winter_energy_margin,reference,2028,stage1,Stage 1: existing + committed,sosa_baseline,SOSA baseline,14.0147,pct,0.0
-nz_winter_energy_margin,reference,2028,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,15.1004,pct,1.0857
-nz_winter_energy_margin,reference,2028,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,15.1584,pct,1.1437
+nz_winter_energy_margin,reference,2028,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,15.1026,pct,1.0879
+nz_winter_energy_margin,reference,2028,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,15.1608,pct,1.1461
 nz_winter_energy_margin,reference,2028,stage2,"Stage 2: + consented, likely",sosa_baseline,SOSA baseline,21.7194,pct,0.0
-nz_winter_energy_margin,reference,2028,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,22.8051,pct,1.0857
-nz_winter_energy_margin,reference,2028,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,22.8632,pct,1.1438
+nz_winter_energy_margin,reference,2028,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,22.8073,pct,1.0879
+nz_winter_energy_margin,reference,2028,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,22.8656,pct,1.1462
 nz_winter_energy_margin,reference,2028,stage3,Stage 3: + likely consent within 2y,sosa_baseline,SOSA baseline,25.9928,pct,0.0
-nz_winter_energy_margin,reference,2028,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,27.0784,pct,1.0856
-nz_winter_energy_margin,reference,2028,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,27.1365,pct,1.1437
+nz_winter_energy_margin,reference,2028,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,27.0806,pct,1.0878
+nz_winter_energy_margin,reference,2028,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,27.1389,pct,1.1461
 nz_winter_energy_margin,reference,2029,stage1,Stage 1: existing + committed,sosa_baseline,SOSA baseline,8.6712,pct,0.0
-nz_winter_energy_margin,reference,2029,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,9.8439,pct,1.1727
-nz_winter_energy_margin,reference,2029,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,9.9805,pct,1.3093
+nz_winter_energy_margin,reference,2029,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,9.8465,pct,1.1753
+nz_winter_energy_margin,reference,2029,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,9.9835,pct,1.3123
 nz_winter_energy_margin,reference,2029,stage2,"Stage 2: + consented, likely",sosa_baseline,SOSA baseline,19.253,pct,0.0
-nz_winter_energy_margin,reference,2029,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,20.4256,pct,1.1726
-nz_winter_energy_margin,reference,2029,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,20.5623,pct,1.3093
+nz_winter_energy_margin,reference,2029,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,20.4282,pct,1.1752
+nz_winter_energy_margin,reference,2029,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,20.5653,pct,1.3123
 nz_winter_energy_margin,reference,2029,stage3,Stage 3: + likely consent within 2y,sosa_baseline,SOSA baseline,27.6252,pct,0.0
-nz_winter_energy_margin,reference,2029,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,28.7978,pct,1.1726
-nz_winter_energy_margin,reference,2029,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,28.9345,pct,1.3093
+nz_winter_energy_margin,reference,2029,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,28.8004,pct,1.1752
+nz_winter_energy_margin,reference,2029,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,28.9375,pct,1.3123
 nz_winter_energy_margin,reference,2030,stage1,Stage 1: existing + committed,sosa_baseline,SOSA baseline,5.3404,pct,0.0
-nz_winter_energy_margin,reference,2030,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,6.692,pct,1.3516
-nz_winter_energy_margin,reference,2030,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,6.9503,pct,1.6099
+nz_winter_energy_margin,reference,2030,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,6.695,pct,1.3546
+nz_winter_energy_margin,reference,2030,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,6.9541,pct,1.6137
 nz_winter_energy_margin,reference,2030,stage2,"Stage 2: + consented, likely",sosa_baseline,SOSA baseline,17.6407,pct,0.0
-nz_winter_energy_margin,reference,2030,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,18.9923,pct,1.3516
-nz_winter_energy_margin,reference,2030,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,19.2506,pct,1.6099
+nz_winter_energy_margin,reference,2030,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,18.9953,pct,1.3546
+nz_winter_energy_margin,reference,2030,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,19.2544,pct,1.6137
 nz_winter_energy_margin,reference,2030,stage3,Stage 3: + likely consent within 2y,sosa_baseline,SOSA baseline,31.1322,pct,0.0
-nz_winter_energy_margin,reference,2030,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,32.4838,pct,1.3516
-nz_winter_energy_margin,reference,2030,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,32.7421,pct,1.6099
+nz_winter_energy_margin,reference,2030,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,32.4868,pct,1.3546
+nz_winter_energy_margin,reference,2030,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,32.7459,pct,1.6137
 nz_winter_energy_margin,reference,2031,stage1,Stage 1: existing + committed,sosa_baseline,SOSA baseline,1.7246,pct,0.0
-nz_winter_energy_margin,reference,2031,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,3.3094,pct,1.5848
-nz_winter_energy_margin,reference,2031,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,3.7359,pct,2.0113
+nz_winter_energy_margin,reference,2031,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,3.3127,pct,1.5881
+nz_winter_energy_margin,reference,2031,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,3.7405,pct,2.0159
 nz_winter_energy_margin,reference,2031,stage2,"Stage 2: + consented, likely",sosa_baseline,SOSA baseline,13.7009,pct,0.0
-nz_winter_energy_margin,reference,2031,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,15.2858,pct,1.5849
-nz_winter_energy_margin,reference,2031,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,15.7123,pct,2.0114
+nz_winter_energy_margin,reference,2031,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,15.2891,pct,1.5882
+nz_winter_energy_margin,reference,2031,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,15.7169,pct,2.016
 nz_winter_energy_margin,reference,2031,stage3,Stage 3: + likely consent within 2y,sosa_baseline,SOSA baseline,32.2727,pct,0.0
-nz_winter_energy_margin,reference,2031,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,33.8575,pct,1.5848
-nz_winter_energy_margin,reference,2031,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,34.284,pct,2.0113
+nz_winter_energy_margin,reference,2031,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,33.8608,pct,1.5881
+nz_winter_energy_margin,reference,2031,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,34.2886,pct,2.0159
 nz_winter_energy_margin,reference,2032,stage1,Stage 1: existing + committed,sosa_baseline,SOSA baseline,-0.431,pct,0.0
-nz_winter_energy_margin,reference,2032,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,1.4192,pct,1.8502
-nz_winter_energy_margin,reference,2032,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,2.0658,pct,2.4968
+nz_winter_energy_margin,reference,2032,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,1.4228,pct,1.8538
+nz_winter_energy_margin,reference,2032,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,2.0714,pct,2.5024
 nz_winter_energy_margin,reference,2032,stage2,"Stage 2: + consented, likely",sosa_baseline,SOSA baseline,11.6291,pct,0.0
-nz_winter_energy_margin,reference,2032,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,13.4793,pct,1.8502
-nz_winter_energy_margin,reference,2032,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,14.1259,pct,2.4968
+nz_winter_energy_margin,reference,2032,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,13.4829,pct,1.8538
+nz_winter_energy_margin,reference,2032,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,14.1315,pct,2.5024
 nz_winter_energy_margin,reference,2032,stage3,Stage 3: + likely consent within 2y,sosa_baseline,SOSA baseline,30.7112,pct,0.0
-nz_winter_energy_margin,reference,2032,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,32.5614,pct,1.8502
-nz_winter_energy_margin,reference,2032,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,33.208,pct,2.4968
+nz_winter_energy_margin,reference,2032,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,32.565,pct,1.8538
+nz_winter_energy_margin,reference,2032,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,33.2136,pct,2.5024
 nz_winter_energy_margin,reference,2033,stage1,Stage 1: existing + committed,sosa_baseline,SOSA baseline,-2.7719,pct,0.0
-nz_winter_energy_margin,reference,2033,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,-0.6016,pct,2.1703
-nz_winter_energy_margin,reference,2033,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,0.3088,pct,3.0807
+nz_winter_energy_margin,reference,2033,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,-0.5976,pct,2.1743
+nz_winter_energy_margin,reference,2033,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,0.3156,pct,3.0875
 nz_winter_energy_margin,reference,2033,stage2,"Stage 2: + consented, likely",sosa_baseline,SOSA baseline,8.9878,pct,0.0
-nz_winter_energy_margin,reference,2033,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,11.1581,pct,2.1703
-nz_winter_energy_margin,reference,2033,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,12.0685,pct,3.0807
+nz_winter_energy_margin,reference,2033,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,11.1621,pct,2.1743
+nz_winter_energy_margin,reference,2033,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,12.0753,pct,3.0875
 nz_winter_energy_margin,reference,2033,stage3,Stage 3: + likely consent within 2y,sosa_baseline,SOSA baseline,29.1949,pct,0.0
-nz_winter_energy_margin,reference,2033,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,31.3652,pct,2.1703
-nz_winter_energy_margin,reference,2033,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,32.2756,pct,3.0807
+nz_winter_energy_margin,reference,2033,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,31.3692,pct,2.1743
+nz_winter_energy_margin,reference,2033,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,32.2823,pct,3.0874
 nz_winter_energy_margin,reference,2034,stage1,Stage 1: existing + committed,sosa_baseline,SOSA baseline,-4.5979,pct,0.0
-nz_winter_energy_margin,reference,2034,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,-2.0369,pct,2.561
-nz_winter_energy_margin,reference,2034,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,-0.8235,pct,3.7744
+nz_winter_energy_margin,reference,2034,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,-2.0324,pct,2.5655
+nz_winter_energy_margin,reference,2034,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,-0.8154,pct,3.7825
 nz_winter_energy_margin,reference,2034,stage2,"Stage 2: + consented, likely",sosa_baseline,SOSA baseline,7.2764,pct,0.0
-nz_winter_energy_margin,reference,2034,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,9.8373,pct,2.5609
-nz_winter_energy_margin,reference,2034,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,11.0508,pct,3.7744
+nz_winter_energy_margin,reference,2034,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,9.8418,pct,2.5654
+nz_winter_energy_margin,reference,2034,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,11.0588,pct,3.7824
 nz_winter_energy_margin,reference,2034,stage3,Stage 3: + likely consent within 2y,sosa_baseline,SOSA baseline,27.0143,pct,0.0
-nz_winter_energy_margin,reference,2034,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,29.5752,pct,2.5609
-nz_winter_energy_margin,reference,2034,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,30.7887,pct,3.7744
+nz_winter_energy_margin,reference,2034,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,29.5798,pct,2.5655
+nz_winter_energy_margin,reference,2034,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,30.7968,pct,3.7825
 nz_winter_energy_margin,reference,2035,stage1,Stage 1: existing + committed,sosa_baseline,SOSA baseline,-6.478,pct,0.0
-nz_winter_energy_margin,reference,2035,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,-3.4115,pct,3.0665
-nz_winter_energy_margin,reference,2035,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,-1.8656,pct,4.6124
+nz_winter_energy_margin,reference,2035,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,-3.4064,pct,3.0716
+nz_winter_energy_margin,reference,2035,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,-1.8562,pct,4.6218
 nz_winter_energy_margin,reference,2035,stage2,"Stage 2: + consented, likely",sosa_baseline,SOSA baseline,5.2157,pct,0.0
-nz_winter_energy_margin,reference,2035,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,8.2821,pct,3.0664
-nz_winter_energy_margin,reference,2035,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,9.828,pct,4.6123
+nz_winter_energy_margin,reference,2035,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,8.2872,pct,3.0715
+nz_winter_energy_margin,reference,2035,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,9.8375,pct,4.6218
 nz_winter_energy_margin,reference,2035,stage3,Stage 3: + likely consent within 2y,sosa_baseline,SOSA baseline,24.5117,pct,0.0
-nz_winter_energy_margin,reference,2035,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,27.5781,pct,3.0664
-nz_winter_energy_margin,reference,2035,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,29.124,pct,4.6123
+nz_winter_energy_margin,reference,2035,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,27.5833,pct,3.0716
+nz_winter_energy_margin,reference,2035,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,29.1335,pct,4.6218
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2027,stage1,Stage 1: existing + committed,sosa_baseline,SOSA baseline,454.684,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2027,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,546.788,MW,92.104
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2027,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,551.495,MW,96.811
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2027,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,546.851,MW,92.167
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2027,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,551.566,MW,96.882
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2027,stage2,"Stage 2: + consented, likely",sosa_baseline,SOSA baseline,458.651,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2027,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,550.755,MW,92.104
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2027,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,555.462,MW,96.811
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2027,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,550.818,MW,92.167
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2027,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,555.534,MW,96.883
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2027,stage3,Stage 3: + likely consent within 2y,sosa_baseline,SOSA baseline,458.651,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2027,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,550.755,MW,92.104
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2027,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,555.462,MW,96.811
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2027,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,550.818,MW,92.167
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2027,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,555.534,MW,96.883
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2028,stage1,Stage 1: existing + committed,sosa_baseline,SOSA baseline,435.826,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2028,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,567.086,MW,131.26
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2028,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,582.889,MW,147.063
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2028,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,567.179,MW,131.353
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2028,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,583.011,MW,147.185
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2028,stage2,"Stage 2: + consented, likely",sosa_baseline,SOSA baseline,929.74,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2028,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,1061.0,MW,131.26
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2028,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,1076.803,MW,147.063
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2028,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,1061.094,MW,131.354
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2028,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,1076.926,MW,147.186
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2028,stage3,Stage 3: + likely consent within 2y,sosa_baseline,SOSA baseline,937.527,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2028,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,1068.787,MW,131.26
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2028,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,1084.59,MW,147.063
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2028,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,1068.88,MW,131.353
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2028,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,1084.712,MW,147.185
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2029,stage1,Stage 1: existing + committed,sosa_baseline,SOSA baseline,170.084,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2029,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,342.419,MW,172.335
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2029,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,379.49,MW,209.406
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2029,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,342.544,MW,172.46
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2029,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,379.687,MW,209.603
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2029,stage2,"Stage 2: + consented, likely",sosa_baseline,SOSA baseline,819.763,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2029,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,992.098,MW,172.335
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2029,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,1029.168,MW,209.405
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2029,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,992.222,MW,172.459
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2029,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,1029.366,MW,209.603
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2029,stage3,Stage 3: + likely consent within 2y,sosa_baseline,SOSA baseline,976.272,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2029,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,1148.607,MW,172.335
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2029,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,1185.677,MW,209.405
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2029,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,1148.731,MW,172.459
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2029,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,1185.875,MW,209.603
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2030,stage1,Stage 1: existing + committed,sosa_baseline,SOSA baseline,-87.289,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2030,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,128.323,MW,215.612
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2030,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,199.342,MW,286.631
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2030,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,128.476,MW,215.765
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2030,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,199.638,MW,286.927
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2030,stage2,"Stage 2: + consented, likely",sosa_baseline,SOSA baseline,649.691,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2030,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,865.302,MW,215.611
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2030,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,936.321,MW,286.63
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2030,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,865.455,MW,215.764
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2030,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,936.617,MW,286.926
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2030,stage3,Stage 3: + likely consent within 2y,sosa_baseline,SOSA baseline,862.306,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2030,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,1077.918,MW,215.612
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2030,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,1148.937,MW,286.631
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2030,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,1078.071,MW,215.765
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2030,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,1149.233,MW,286.927
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2031,stage1,Stage 1: existing + committed,sosa_baseline,SOSA baseline,-267.403,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2031,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,-9.42,MW,257.983
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2031,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,110.098,MW,377.501
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2031,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,-9.244,MW,258.159
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2031,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,110.516,MW,377.919
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2031,stage2,"Stage 2: + consented, likely",sosa_baseline,SOSA baseline,480.925,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2031,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,738.909,MW,257.984
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2031,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,858.427,MW,377.502
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2031,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,739.084,MW,258.159
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2031,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,858.844,MW,377.919
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2031,stage3,Stage 3: + likely consent within 2y,sosa_baseline,SOSA baseline,752.146,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2031,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,1010.13,MW,257.984
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2031,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,1129.648,MW,377.502
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2031,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,1010.305,MW,258.159
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2031,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,1130.065,MW,377.919
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2032,stage1,Stage 1: existing + committed,sosa_baseline,SOSA baseline,-433.361,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2032,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,-136.931,MW,296.43
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2032,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,46.742,MW,480.103
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2032,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,-136.743,MW,296.618
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2032,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,47.299,MW,480.66
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2032,stage2,"Stage 2: + consented, likely",sosa_baseline,SOSA baseline,319.527,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2032,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,615.957,MW,296.43
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2032,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,799.63,MW,480.103
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2032,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,616.145,MW,296.618
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2032,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,800.187,MW,480.66
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2032,stage3,Stage 3: + likely consent within 2y,sosa_baseline,SOSA baseline,612.628,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2032,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,909.058,MW,296.43
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2032,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,1092.731,MW,480.103
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2032,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,909.247,MW,296.619
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2032,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,1093.289,MW,480.661
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2033,stage1,Stage 1: existing + committed,sosa_baseline,SOSA baseline,-622.764,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2033,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,-289.502,MW,333.262
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2033,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,-25.79,MW,596.974
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2033,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,-289.308,MW,333.456
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2033,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,-25.078,MW,597.686
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2033,stage2,"Stage 2: + consented, likely",sosa_baseline,SOSA baseline,130.357,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2033,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,463.619,MW,333.262
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2033,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,727.33,MW,596.973
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2033,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,463.813,MW,333.456
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2033,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,728.043,MW,597.686
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2033,stage3,Stage 3: + likely consent within 2y,sosa_baseline,SOSA baseline,435.446,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2033,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,768.709,MW,333.263
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2033,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,1032.42,MW,596.974
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2033,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,768.903,MW,333.457
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2033,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,1033.133,MW,597.687
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2034,stage1,Stage 1: existing + committed,sosa_baseline,SOSA baseline,-792.765,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2034,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,-429.838,MW,362.927
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2034,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,-72.965,MW,719.8
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2034,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,-429.647,MW,363.118
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2034,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,-72.096,MW,720.669
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2034,stage2,"Stage 2: + consented, likely",sosa_baseline,SOSA baseline,4.824,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2034,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,367.751,MW,362.927
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2034,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,724.624,MW,719.8
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2034,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,367.942,MW,363.118
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2034,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,725.493,MW,720.669
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2034,stage3,Stage 3: + likely consent within 2y,sosa_baseline,SOSA baseline,387.219,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2034,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,750.145,MW,362.926
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2034,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,1107.019,MW,719.8
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2034,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,750.336,MW,363.117
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2034,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,1107.888,MW,720.669
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2035,stage1,Stage 1: existing + committed,sosa_baseline,SOSA baseline,-944.417,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2035,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,-558.535,MW,385.882
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2035,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,-100.337,MW,844.08
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2035,stage1,Stage 1: existing + committed,low_10pct,10% distributed-solar case,-558.353,MW,386.064
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2035,stage1,Stage 1: existing + committed,high_30pct,30% distributed-solar case,-99.323,MW,845.094
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2035,stage2,"Stage 2: + consented, likely",sosa_baseline,SOSA baseline,-136.72,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2035,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,249.163,MW,385.883
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2035,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,707.361,MW,844.081
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2035,stage2,"Stage 2: + consented, likely",low_10pct,10% distributed-solar case,249.344,MW,386.064
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2035,stage2,"Stage 2: + consented, likely",high_30pct,30% distributed-solar case,708.375,MW,845.095
 ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2035,stage3,Stage 3: + likely consent within 2y,sosa_baseline,SOSA baseline,245.319,MW,0.0
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2035,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,631.202,MW,385.883
-ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2035,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,1089.4,MW,844.081
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2035,stage3,Stage 3: + likely consent within 2y,low_10pct,10% distributed-solar case,631.383,MW,386.064
+ni_winter_capacity_margin,constrained_operational_capacity_low_wind_solar,2035,stage3,Stage 3: + likely consent within 2y,high_30pct,30% distributed-solar case,1090.414,MW,845.095
