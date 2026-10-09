@@ -2446,16 +2446,16 @@
         {
           "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202608_Generation_MD.csv",
           "local_file": "data/wholesale/raw/generation/202608_Generation_MD.csv",
-          "source_last_modified": "Wed, 09 Sep 2026 20:11:16 GMT",
+          "source_last_modified": "Fri, 09 Oct 2026 19:18:18 GMT",
           "source_content_length": "868545",
-          "source_etag": "0x8DF0EAE812F9BC5"
+          "source_etag": "0x8DF263A13899234"
         }
       ]
     },
     "grid_export": {
       "prefix": "Datasets/Wholesale/Metered_data/Grid_export/",
       "start_yyyymm": "202401",
-      "file_count": 32,
+      "file_count": 33,
       "files": [
         {
           "blob_name": "Datasets/Wholesale/Metered_data/Grid_export/202401_Grid_export.csv",
@@ -2680,6 +2680,13 @@
           "source_last_modified": "Wed, 09 Sep 2026 20:08:37 GMT",
           "source_content_length": "3713379",
           "source_etag": "0x8DF0EAE229B94F1"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Metered_data/Grid_export/202609_Grid_export.csv",
+          "local_file": "data/wholesale/raw/grid_export/202609_Grid_export.csv",
+          "source_last_modified": "Fri, 09 Oct 2026 19:15:18 GMT",
+          "source_content_length": "3592549",
+          "source_etag": "0x8DF2639A84E4AD3"
         }
       ]
     }
