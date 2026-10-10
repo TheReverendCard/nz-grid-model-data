@@ -7,7 +7,7 @@
       "last_modified": "",
       "local_file": "data/distributed_generation/installed_dg_trends_solar_all.csv",
       "request_url": "https://www.emi.ea.govt.nz/Retail/Download/DataReport/CSV/GUEHMT?DateFrom=20130901&FuelType=solar_all&Show=CapacityAvg&_rsdr=ALL&_si=v%7C4",
-      "sha256": "57994fbc1b049f58005cd654a838d58524a886bbc5751c2cd5ef27d742df334e"
+      "sha256": "7b5a83756eabcc246504ff5598e9188d46d2162e362ad05b87ee9be1ad7846ca"
     },
     "installed_distributed_generation_trends_solar_only": {
       "content_length": "13642",
@@ -16,7 +16,7 @@
       "last_modified": "",
       "local_file": "data/distributed_generation/installed_dg_trends_solar_only.csv",
       "request_url": "https://www.emi.ea.govt.nz/Retail/Download/DataReport/CSV/GUEHMT?DateFrom=20130901&FuelType=solar&Show=CapacityAvg&_rsdr=ALL&_si=v%7C4",
-      "sha256": "a9f36662e810e6a8fa9ed500ccfd38a65d7201569a4cb294b4de5ab44a5f1b62"
+      "sha256": "35b03d9670c36eb7c3f621093e395446614151578ac6c2f087787ceedbec3d87"
     },
     "installed_distributed_generation_trends_solar_residential": {
       "content_length": "14526",
@@ -25,7 +25,7 @@
       "last_modified": "",
       "local_file": "data/distributed_generation/installed_dg_trends_solar_residential.csv",
       "request_url": "https://www.emi.ea.govt.nz/Retail/Download/DataReport/CSV/GUEHMT?DateFrom=20130901&FuelType=solar_all&Show=CapacityAvg&_rsdr=ALL&_si=v%7C4&MarketSegment=Res",
-      "sha256": "fe7ae94675b57f7579f2c3d0faaa13dc79853e1520848f8b068928eadc1ce68b"
+      "sha256": "41960461a73768b550fc272ed9001ff1654fb2bea0c9764b8aee486a5f1646e8"
     },
     "installed_distributed_generation_trends_solar_with_battery": {
       "content_length": "14415",
@@ -34,7 +34,7 @@
       "last_modified": "",
       "local_file": "data/distributed_generation/installed_dg_trends_solar_with_battery.csv",
       "request_url": "https://www.emi.ea.govt.nz/Retail/Download/DataReport/CSV/GUEHMT?DateFrom=20130901&FuelType=solarplusbattery&Show=CapacityAvg&_rsdr=ALL&_si=v%7C4",
-      "sha256": "3ddc6e77c6c313a3f7a6a492138dab606e4e41fabdb767dc46fe3822115e7a6b"
+      "sha256": "aed9d42a4725636f27ab950af36460b4931a5b256831906f3a8b0bcad9fdc5c8"
     },
     "solar_installations_by_region": {
       "content_length": "11270",
