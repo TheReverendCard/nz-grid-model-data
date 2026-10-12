@@ -1,13 +1,13 @@
 RegionType,RegionCode,Region,MarketSegment,ICPs,GenerationCapacityKilowattsAvg,GenerationCapacityKilowattsSum
-NZ,NZ,New Zealand,Res,85455,5.9,501417.1
+NZ,NZ,New Zealand,Res,85455,5.9,501419.5
 NZ,NZ,New Zealand,Bus,8441,89.8,757936.8
-NZ,NZ,New Zealand,All,93896,13.4,1259353.8
-ISLAND,NI,North Island,Res,57810,5.8,337029.2
+NZ,NZ,New Zealand,All,93896,13.4,1259356.3
+ISLAND,NI,North Island,Res,57810,5.8,337032.6
 ISLAND,NI,North Island,Bus,5954,71.8,427663.9
-ISLAND,NI,North Island,All,63764,12.0,764693.1
-ISLAND,SI,South Island,Res,27645,5.9,164387.9
+ISLAND,NI,North Island,All,63764,12.0,764696.6
+ISLAND,SI,South Island,Res,27645,5.9,164386.9
 ISLAND,SI,South Island,Bus,2487,132.8,330272.9
-ISLAND,SI,South Island,All,30132,16.4,494660.7
+ISLAND,SI,South Island,All,30132,16.4,494659.7
 REG_COUNCIL,1,Northland,Res,5895,5.6,33004.6
 REG_COUNCIL,1,Northland,Bus,735,138.7,101931.1
 REG_COUNCIL,1,Northland,All,6630,20.4,134935.7
@@ -29,9 +29,9 @@ REG_COUNCIL,6,Hawke's Bay,All,5041,8.1,40729.1
 REG_COUNCIL,7,Taranaki,Res,2589,6.6,17184.2
 REG_COUNCIL,7,Taranaki,Bus,375,51.9,19472.8
 REG_COUNCIL,7,Taranaki,All,2964,12.4,36657.0
-REG_COUNCIL,8,Manawatu-Wanganui,Res,4079,6.1,24937.5
+REG_COUNCIL,8,Manawatu-Wanganui,Res,4079,6.1,24940.9
 REG_COUNCIL,8,Manawatu-Wanganui,Bus,420,26.0,10922.6
-REG_COUNCIL,8,Manawatu-Wanganui,All,4499,8.0,35860.1
+REG_COUNCIL,8,Manawatu-Wanganui,All,4499,8.0,35863.5
 REG_COUNCIL,9,Wellington,Res,7841,5.8,45148.6
 REG_COUNCIL,9,Wellington,Bus,416,35.1,14619.1
 REG_COUNCIL,9,Wellington,All,8257,7.2,59767.7
@@ -53,9 +53,9 @@ REG_COUNCIL,13,Canterbury,All,16238,21.8,353591.5
 REG_COUNCIL,14,Otago,Res,5743,6.0,34561.7
 REG_COUNCIL,14,Otago,Bus,513,24.6,12606.9
 REG_COUNCIL,14,Otago,All,6256,7.5,47168.6
-REG_COUNCIL,15,Southland,Res,957,5.9,5648.8
+REG_COUNCIL,15,Southland,Res,957,5.9,5647.8
 REG_COUNCIL,15,Southland,Bus,119,18.3,2179.7
-REG_COUNCIL,15,Southland,All,1076,7.3,7828.4
+REG_COUNCIL,15,Southland,All,1076,7.3,7827.4
 NWK_REPORTING_REGION,1,Bay of Islands (Top Energy),Res,2470,5.5,13529.7
 NWK_REPORTING_REGION,1,Bay of Islands (Top Energy),Bus,332,219.4,72832.5
 NWK_REPORTING_REGION,1,Bay of Islands (Top Energy),All,2802,30.8,86362.3
@@ -119,9 +119,9 @@ NWK_REPORTING_REGION,20,Whanganui (Powerco),All,1259,7.2,9102.1
 NWK_REPORTING_REGION,21,Manawatū (Powerco),Res,2045,6.4,13012.3
 NWK_REPORTING_REGION,21,Manawatū (Powerco),Bus,220,28.5,6272.0
 NWK_REPORTING_REGION,21,Manawatū (Powerco),All,2265,8.5,19284.3
-NWK_REPORTING_REGION,22,Kāpiti and Horowhenua (Electra),Res,2415,5.8,14048.1
+NWK_REPORTING_REGION,22,Kāpiti and Horowhenua (Electra),Res,2415,5.8,14051.5
 NWK_REPORTING_REGION,22,Kāpiti and Horowhenua (Electra),Bus,120,20.8,2490.4
-NWK_REPORTING_REGION,22,Kāpiti and Horowhenua (Electra),All,2535,6.5,16538.5
+NWK_REPORTING_REGION,22,Kāpiti and Horowhenua (Electra),All,2535,6.5,16542.0
 NWK_REPORTING_REGION,23,Wellington (Wellington Electricity),Res,4460,5.5,24312.2
 NWK_REPORTING_REGION,23,Wellington (Wellington Electricity),Bus,193,29.1,5616.4
 NWK_REPORTING_REGION,23,Wellington (Wellington Electricity),All,4653,6.4,29928.6
@@ -172,6 +172,6 @@ NWK_REPORTING_REGION,37,Dunedin (Aurora Energy),All,1134,5.6,6315.6
 NWK_REPORTING_REGION,38,Southland (The Power Company),Res,795,6.1,4884.1
 NWK_REPORTING_REGION,38,Southland (The Power Company),Bus,96,15.9,1527.0
 NWK_REPORTING_REGION,38,Southland (The Power Company),All,891,7.2,6411.1
-NWK_REPORTING_REGION,39,Invercargill (Electricity Invercargill),Res,196,4.9,967.3
+NWK_REPORTING_REGION,39,Invercargill (Electricity Invercargill),Res,196,4.9,966.3
 NWK_REPORTING_REGION,39,Invercargill (Electricity Invercargill),Bus,24,21.5,515.0
-NWK_REPORTING_REGION,39,Invercargill (Electricity Invercargill),All,220,6.7,1482.3
+NWK_REPORTING_REGION,39,Invercargill (Electricity Invercargill),All,220,6.7,1481.3
