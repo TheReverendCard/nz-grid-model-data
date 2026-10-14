@@ -247,6 +247,14 @@ jobs:
         if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true'
         run: python cap_larger_distributed_solar_growth.py
 
+      - name: Render Solar Size-Split Charts
+        id: render-solar-size-split
+        if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true' || hashFiles('data/visuals/distributed_solar_size_split_capacity.png', 'data/visuals/distributed_solar_size_split_installs.png', 'data/visuals/distributed_solar_size_split_plot_data.csv') == ''
+        shell: bash
+        run: |
+          python build_solar_size_split_charts.py --force
+          echo "rendered=true" >> "$GITHUB_OUTPUT"
+
       - name: Build Distributed Battery Attachment Scenarios
         if: (inputs.force_rebuild == true || github.event_name == 'push') || needs.check-distributed-generation.outputs.battery_model_inputs_changed == 'true' || needs.check-distributed-generation.outputs.solar_model_inputs_changed == 'true'
         run: python build_distributed_battery_scenarios.py
@@ -324,6 +332,8 @@ jobs:
             echo "| Wholesale prices | ${{ needs.check-prices.outputs.changed }} | public-view only |"
             echo ""
             echo "Solar model inputs changed: ${{ needs.check-distributed-generation.outputs.solar_model_inputs_changed }}"
+            echo ""
+            echo "Solar size-split charts rendered in this run: ${{ steps.render-solar-size-split.outputs.rendered || 'false' }}"
             echo ""
             echo "Battery model inputs changed: ${{ needs.check-distributed-generation.outputs.battery_model_inputs_changed }}"
             echo ""
