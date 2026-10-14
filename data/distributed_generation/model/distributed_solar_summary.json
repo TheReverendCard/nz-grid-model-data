@@ -60,22 +60,22 @@
   },
   "current_registry_snapshot": {
     "residential": {
-      "icps": 85485,
+      "icps": 85536,
       "average_capacity_kw": 5.9,
-      "capacity_mw": 501.6882
+      "capacity_mw": 502.1532
     },
     "business": {
-      "icps": 8443,
-      "average_capacity_kw": 89.8,
-      "capacity_mw": 757.9503000000001
+      "icps": 8446,
+      "average_capacity_kw": 90.9,
+      "capacity_mw": 767.9126
     },
     "all": {
-      "icps": 93928,
-      "average_capacity_kw": 13.4,
-      "capacity_mw": 1259.6385
+      "icps": 93982,
+      "average_capacity_kw": 13.5,
+      "capacity_mw": 1270.0656999999999
     },
-    "regional_residential_capacity_mw_sum": 501.1092,
-    "regional_residential_icps_sum": 85436
+    "regional_residential_capacity_mw_sum": 501.5741,
+    "regional_residential_icps_sum": 85487
   },
   "model_use": {
     "distributed_solar_scope": "Future distributed-solar scenarios use <25 kW ICP adoption plus a separate 25 kW to <1 MW capacity component; >=1 MW is treated as utility-scale.",
