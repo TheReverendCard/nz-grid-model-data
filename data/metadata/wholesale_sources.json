@@ -5,7 +5,7 @@
     "generation": {
       "prefix": "Datasets/Wholesale/Generation/Generation_MD/",
       "start_yyyymm": "199708",
-      "file_count": 349,
+      "file_count": 350,
       "files": [
         {
           "blob_name": "Datasets/Wholesale/Generation/Generation_MD/199708_Generation_MD.csv",
@@ -2449,6 +2449,13 @@
           "source_last_modified": "Fri, 09 Oct 2026 19:18:18 GMT",
           "source_content_length": "868545",
           "source_etag": "0x8DF263A13899234"
+        },
+        {
+          "blob_name": "Datasets/Wholesale/Generation/Generation_MD/202609_Generation_MD.csv",
+          "local_file": "data/wholesale/raw/generation/202609_Generation_MD.csv",
+          "source_last_modified": "Thu, 15 Oct 2026 21:10:41 GMT",
+          "source_content_length": "818481",
+          "source_etag": "0x8DF2B00C537B6F7"
         }
       ]
     },
