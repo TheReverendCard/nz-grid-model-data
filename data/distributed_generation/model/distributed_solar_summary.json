@@ -24,7 +24,7 @@
       "residential_solar": {
         "month_end": "2026-09-30",
         "icp_count": 85988,
-        "icp_uptake_rate_pct": 4.23917,
+        "icp_uptake_rate_pct": 4.23915,
         "installed_capacity_mw": 506.394,
         "average_capacity_kw": 5.889,
         "new_installations": 1493,
@@ -60,22 +60,22 @@
   },
   "current_registry_snapshot": {
     "residential": {
-      "icps": 85916,
+      "icps": 85988,
       "average_capacity_kw": 5.9,
-      "capacity_mw": 505.7422
+      "capacity_mw": 506.394
     },
     "business": {
-      "icps": 8506,
+      "icps": 8511,
       "average_capacity_kw": 90.5,
-      "capacity_mw": 769.8528
+      "capacity_mw": 770.1334
     },
     "all": {
-      "icps": 94422,
+      "icps": 94499,
       "average_capacity_kw": 13.5,
-      "capacity_mw": 1275.5948999999998
+      "capacity_mw": 1276.5273
     },
-    "regional_residential_capacity_mw_sum": 505.1631,
-    "regional_residential_icps_sum": 85867
+    "regional_residential_capacity_mw_sum": 505.8149,
+    "regional_residential_icps_sum": 85939
   },
   "model_use": {
     "distributed_solar_scope": "Future distributed-solar scenarios use <25 kW ICP adoption plus a separate 25 kW to <1 MW capacity component; >=1 MW is treated as utility-scale.",

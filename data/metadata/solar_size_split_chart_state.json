@@ -1,12 +1,12 @@
 {
-  "last_render_date": "2026-10-16",
+  "last_render_date": "2026-10-17",
   "last_render_iso_week": "2026-W42",
   "source_month": "2026-09-30",
   "archive_month": "2026-09",
   "history_months": 36,
   "forecast_months": 60,
   "explicit_split_start_month": "2026-07-31",
-  "current_small_solar_uptake_pct": 3.9263899999999996,
+  "current_small_solar_uptake_pct": 3.92664,
   "current_all_solar_uptake_pct": 3.97931,
   "latest_month_new_installations": 1610,
   "model_notes": {
@@ -28,10 +28,10 @@
     },
     "future": {
       "forecast_months": 60,
-      "current_small_solar_uptake_pct": 3.9263899999999996,
+      "current_small_solar_uptake_pct": 3.92664,
       "current_all_solar_uptake_pct": 3.97931,
       "latest_month_new_installations": 1610,
-      "mid_20pct_growth_rate_per_year": 0.22674631652583033,
+      "mid_20pct_growth_rate_per_year": 0.22674921728648786,
       "small_future_policy": "10% and 30% use the existing independently fitted fixed-saturation distributed-solar scenarios. The 20% midpoint is independently fitted through the latest measured small-system penetration; it is not the arithmetic average of the 10% and 30% curves.",
       "larger_distributed_future_policy": "25 kW-<1 MW projection uses the selected provisional growth rate through 2035, then holds capacity flat until new observed size-bucket history supports a revised trajectory.",
       "utility_future_policy": "Hold the latest observed >=1 MW capacity as a solid baseline, then add dated Solar projects in Transpower Delivery/Commissioning as a hatched provisional layer at their published estimated timing month. Undated/earlier-stage projects are not assigned arbitrary dates. Future utility ICPs remain flat because the pipeline does not provide a reliable future ICP count.",
