@@ -2,7 +2,7 @@
   "source": "MBIE Electricity Demand and Generation Scenarios 2024, calibrated to observed/modelled 2024 national underlying electricity consumption",
   "baseline": {
     "year": 2024,
-    "calibrated_underlying_consumption_twh": 41.795495,
+    "calibrated_underlying_consumption_twh": 41.795494,
     "definition": "EA reconciled offtake plus central estimate of residential PV retained behind the meter."
   },
   "method": {
@@ -20,29 +20,29 @@
           "edgs_raw_twh": 40.477,
           "growth_factor_vs_edgs_2024": 1.0,
           "growth_pct_vs_2024": 0.0,
-          "calibrated_underlying_demand_twh": 41.795495,
-          "calibrated_underlying_demand_mwh": 41795494.886
+          "calibrated_underlying_demand_twh": 41.795494,
+          "calibrated_underlying_demand_mwh": 41795494.285
         },
         "2030": {
           "edgs_raw_twh": 44.101,
           "growth_factor_vs_edgs_2024": 1.08953233,
           "growth_pct_vs_2024": 8.9532,
-          "calibrated_underlying_demand_twh": 45.537543,
-          "calibrated_underlying_demand_mwh": 45537542.801
+          "calibrated_underlying_demand_twh": 45.537542,
+          "calibrated_underlying_demand_mwh": 45537542.146
         },
         "2040": {
           "edgs_raw_twh": 50.466,
           "growth_factor_vs_edgs_2024": 1.24678212,
           "growth_pct_vs_2024": 24.6782,
-          "calibrated_underlying_demand_twh": 52.109876,
-          "calibrated_underlying_demand_mwh": 52109875.853
+          "calibrated_underlying_demand_twh": 52.109875,
+          "calibrated_underlying_demand_mwh": 52109875.104
         },
         "2050": {
           "edgs_raw_twh": 53.593,
           "growth_factor_vs_edgs_2024": 1.32403587,
           "growth_pct_vs_2024": 32.4036,
-          "calibrated_underlying_demand_twh": 55.338735,
-          "calibrated_underlying_demand_mwh": 55338734.526
+          "calibrated_underlying_demand_twh": 55.338734,
+          "calibrated_underlying_demand_mwh": 55338733.731
         }
       },
       "sector_demand_twh": {
@@ -103,29 +103,29 @@
           "edgs_raw_twh": 41.08,
           "growth_factor_vs_edgs_2024": 1.0,
           "growth_pct_vs_2024": 0.0,
-          "calibrated_underlying_demand_twh": 41.795495,
-          "calibrated_underlying_demand_mwh": 41795494.886
+          "calibrated_underlying_demand_twh": 41.795494,
+          "calibrated_underlying_demand_mwh": 41795494.285
         },
         "2030": {
           "edgs_raw_twh": 50.388,
           "growth_factor_vs_edgs_2024": 1.22658228,
           "growth_pct_vs_2024": 22.6582,
           "calibrated_underlying_demand_twh": 51.265613,
-          "calibrated_underlying_demand_mwh": 51265613.348
+          "calibrated_underlying_demand_mwh": 51265612.61
         },
         "2040": {
           "edgs_raw_twh": 63.381,
           "growth_factor_vs_edgs_2024": 1.54286758,
           "growth_pct_vs_2024": 54.2868,
-          "calibrated_underlying_demand_twh": 64.484914,
-          "calibrated_underlying_demand_mwh": 64484913.86
+          "calibrated_underlying_demand_twh": 64.484913,
+          "calibrated_underlying_demand_mwh": 64484912.933
         },
         "2050": {
           "edgs_raw_twh": 68.604,
           "growth_factor_vs_edgs_2024": 1.67000974,
           "growth_pct_vs_2024": 67.001,
-          "calibrated_underlying_demand_twh": 69.798883,
-          "calibrated_underlying_demand_mwh": 69798883.426
+          "calibrated_underlying_demand_twh": 69.798882,
+          "calibrated_underlying_demand_mwh": 69798882.423
         }
       },
       "sector_demand_twh": {
@@ -186,29 +186,29 @@
           "edgs_raw_twh": 40.595,
           "growth_factor_vs_edgs_2024": 1.0,
           "growth_pct_vs_2024": 0.0,
-          "calibrated_underlying_demand_twh": 41.795495,
-          "calibrated_underlying_demand_mwh": 41795494.886
+          "calibrated_underlying_demand_twh": 41.795494,
+          "calibrated_underlying_demand_mwh": 41795494.285
         },
         "2030": {
           "edgs_raw_twh": 48.176,
           "growth_factor_vs_edgs_2024": 1.18674714,
           "growth_pct_vs_2024": 18.6747,
-          "calibrated_underlying_demand_twh": 49.600684,
-          "calibrated_underlying_demand_mwh": 49600683.868
+          "calibrated_underlying_demand_twh": 49.600683,
+          "calibrated_underlying_demand_mwh": 49600683.155
         },
         "2040": {
           "edgs_raw_twh": 62.233,
           "growth_factor_vs_edgs_2024": 1.53302131,
           "growth_pct_vs_2024": 53.3021,
-          "calibrated_underlying_demand_twh": 64.073384,
-          "calibrated_underlying_demand_mwh": 64073384.24
+          "calibrated_underlying_demand_twh": 64.073383,
+          "calibrated_underlying_demand_mwh": 64073383.319
         },
         "2050": {
           "edgs_raw_twh": 71.672,
           "growth_factor_vs_edgs_2024": 1.76553763,
           "growth_pct_vs_2024": 76.5538,
-          "calibrated_underlying_demand_twh": 73.791519,
-          "calibrated_underlying_demand_mwh": 73791518.893
+          "calibrated_underlying_demand_twh": 73.791518,
+          "calibrated_underlying_demand_mwh": 73791517.832
         }
       },
       "sector_demand_twh": {
@@ -269,29 +269,29 @@
           "edgs_raw_twh": 41.197,
           "growth_factor_vs_edgs_2024": 1.0,
           "growth_pct_vs_2024": 0.0,
-          "calibrated_underlying_demand_twh": 41.795495,
-          "calibrated_underlying_demand_mwh": 41795494.886
+          "calibrated_underlying_demand_twh": 41.795494,
+          "calibrated_underlying_demand_mwh": 41795494.285
         },
         "2030": {
           "edgs_raw_twh": 52.386,
           "growth_factor_vs_edgs_2024": 1.27159745,
           "growth_pct_vs_2024": 27.1597,
-          "calibrated_underlying_demand_twh": 53.147045,
-          "calibrated_underlying_demand_mwh": 53147044.569
+          "calibrated_underlying_demand_twh": 53.147044,
+          "calibrated_underlying_demand_mwh": 53147043.805
         },
         "2040": {
           "edgs_raw_twh": 66.434,
           "growth_factor_vs_edgs_2024": 1.61259315,
           "growth_pct_vs_2024": 61.2593,
-          "calibrated_underlying_demand_twh": 67.399129,
-          "calibrated_underlying_demand_mwh": 67399128.753
+          "calibrated_underlying_demand_twh": 67.399128,
+          "calibrated_underlying_demand_mwh": 67399127.784
         },
         "2050": {
           "edgs_raw_twh": 72.11,
           "growth_factor_vs_edgs_2024": 1.75037017,
           "growth_pct_vs_2024": 75.037,
-          "calibrated_underlying_demand_twh": 73.157588,
-          "calibrated_underlying_demand_mwh": 73157587.597
+          "calibrated_underlying_demand_twh": 73.157587,
+          "calibrated_underlying_demand_mwh": 73157586.545
         }
       },
       "sector_demand_twh": {
@@ -352,29 +352,29 @@
           "edgs_raw_twh": 40.575,
           "growth_factor_vs_edgs_2024": 1.0,
           "growth_pct_vs_2024": 0.0,
-          "calibrated_underlying_demand_twh": 41.795495,
-          "calibrated_underlying_demand_mwh": 41795494.886
+          "calibrated_underlying_demand_twh": 41.795494,
+          "calibrated_underlying_demand_mwh": 41795494.285
         },
         "2030": {
           "edgs_raw_twh": 46.181,
           "growth_factor_vs_edgs_2024": 1.13816389,
           "growth_pct_vs_2024": 13.8164,
           "calibrated_underlying_demand_twh": 47.570123,
-          "calibrated_underlying_demand_mwh": 47570123.212
+          "calibrated_underlying_demand_mwh": 47570122.528
         },
         "2040": {
           "edgs_raw_twh": 55.92,
           "growth_factor_vs_edgs_2024": 1.37818854,
           "growth_pct_vs_2024": 37.8189,
-          "calibrated_underlying_demand_twh": 57.602072,
-          "calibrated_underlying_demand_mwh": 57602072.065
+          "calibrated_underlying_demand_twh": 57.602071,
+          "calibrated_underlying_demand_mwh": 57602071.236
         },
         "2050": {
           "edgs_raw_twh": 62.056,
           "growth_factor_vs_edgs_2024": 1.52941466,
           "growth_pct_vs_2024": 52.9415,
-          "calibrated_underlying_demand_twh": 63.922643,
-          "calibrated_underlying_demand_mwh": 63922642.776
+          "calibrated_underlying_demand_twh": 63.922642,
+          "calibrated_underlying_demand_mwh": 63922641.857
         }
       },
       "sector_demand_twh": {
