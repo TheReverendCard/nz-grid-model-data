@@ -1,10 +1,10 @@
 RegionType,RegionCode,Region,MarketSegment,ICPs,GenerationCapacityKilowattsAvg,GenerationCapacityKilowattsSum
-NZ,NZ,New Zealand,Res,86035,5.9,506813.1
+NZ,NZ,New Zealand,Res,86035,5.9,506812.8
 NZ,NZ,New Zealand,Bus,8518,90.4,770255.7
-NZ,NZ,New Zealand,All,94553,13.5,1277068.9
-ISLAND,NI,North Island,Res,58329,5.9,341971.4
+NZ,NZ,New Zealand,All,94553,13.5,1277068.5
+ISLAND,NI,North Island,Res,58329,5.9,341971.0
 ISLAND,NI,North Island,Bus,6025,73.0,439543.6
-ISLAND,NI,North Island,All,64354,12.1,781515.0
+ISLAND,NI,North Island,All,64354,12.1,781514.6
 ISLAND,SI,South Island,Res,27706,5.9,164841.7
 ISLAND,SI,South Island,Bus,2493,132.7,330712.1
 ISLAND,SI,South Island,All,30199,16.4,495553.9
@@ -32,9 +32,9 @@ REG_COUNCIL,7,Taranaki,All,2988,12.3,36878.0
 REG_COUNCIL,8,Manawatu-Wanganui,Res,4095,6.1,25088.0
 REG_COUNCIL,8,Manawatu-Wanganui,Bus,423,25.9,10955.5
 REG_COUNCIL,8,Manawatu-Wanganui,All,4518,8.0,36043.5
-REG_COUNCIL,9,Wellington,Res,7863,5.8,45383.4
+REG_COUNCIL,9,Wellington,Res,7863,5.8,45383.0
 REG_COUNCIL,9,Wellington,Bus,421,35.0,14726.6
-REG_COUNCIL,9,Wellington,All,8284,7.3,60110.0
+REG_COUNCIL,9,Wellington,All,8284,7.3,60109.6
 REG_COUNCIL,16,Tasman,Res,2230,6.6,14665.0
 REG_COUNCIL,16,Tasman,Bus,214,35.7,7645.6
 REG_COUNCIL,16,Tasman,All,2444,9.1,22310.5
@@ -119,9 +119,9 @@ NWK_REPORTING_REGION,20,Whanganui (Powerco),All,1263,7.3,9162.1
 NWK_REPORTING_REGION,21,Manawatū (Powerco),Res,2052,6.4,13066.3
 NWK_REPORTING_REGION,21,Manawatū (Powerco),Bus,221,28.4,6282.0
 NWK_REPORTING_REGION,21,Manawatū (Powerco),All,2273,8.5,19348.4
-NWK_REPORTING_REGION,22,Kāpiti and Horowhenua (Electra),Res,2425,5.8,14145.0
+NWK_REPORTING_REGION,22,Kāpiti and Horowhenua (Electra),Res,2425,5.8,14144.6
 NWK_REPORTING_REGION,22,Kāpiti and Horowhenua (Electra),Bus,122,20.6,2510.8
-NWK_REPORTING_REGION,22,Kāpiti and Horowhenua (Electra),All,2547,6.5,16655.8
+NWK_REPORTING_REGION,22,Kāpiti and Horowhenua (Electra),All,2547,6.5,16655.5
 NWK_REPORTING_REGION,23,Wellington (Wellington Electricity),Res,4471,5.5,24423.2
 NWK_REPORTING_REGION,23,Wellington (Wellington Electricity),Bus,196,29.1,5706.4
 NWK_REPORTING_REGION,23,Wellington (Wellington Electricity),All,4667,6.5,30129.6
