@@ -1,5 +1,5 @@
 {
-  "last_render_date": "2026-10-20",
+  "last_render_date": "2026-10-21",
   "last_render_iso_week": "2026-W43",
   "source_month": "2026-09-30",
   "archive_month": "2026-09",
@@ -9,6 +9,8 @@
   "current_small_solar_uptake_pct": 3.93046,
   "current_all_solar_uptake_pct": 3.98309,
   "latest_month_new_installations": 1671,
+  "latest_month_battery_installations": 919,
+  "latest_month_battery_attachment_pct": 54.99700777977259,
   "model_notes": {
     "history": {
       "history_months": 36,
@@ -31,6 +33,8 @@
       "current_small_solar_uptake_pct": 3.93046,
       "current_all_solar_uptake_pct": 3.98309,
       "latest_month_new_installations": 1671,
+      "latest_month_battery_installations": 919,
+      "latest_month_battery_attachment_pct": 54.99700777977259,
       "mid_20pct_growth_rate_per_year": 0.2284414229529375,
       "small_future_policy": "10% and 30% use the existing independently fitted fixed-saturation distributed-solar scenarios. The 20% midpoint is independently fitted through the latest measured small-system penetration; it is not the arithmetic average of the 10% and 30% curves.",
       "larger_distributed_future_policy": "25 kW-<1 MW projection uses the selected provisional growth rate through 2035, then holds capacity flat until new observed size-bucket history supports a revised trajectory.",
