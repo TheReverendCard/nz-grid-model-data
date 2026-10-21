@@ -16,6 +16,7 @@ from scipy.optimize import minimize_scalar
 
 HISTORY = Path("data/distributed_generation/model/solar_size_bucket_history.csv")
 MONTHLY = Path("data/distributed_generation/model/national_solar_all_monthly.csv")
+BATTERY_MONTHLY = Path("data/distributed_generation/model/national_solar_with_battery_monthly.csv")
 SCENARIO_CSV = Path("data/distributed_generation/model/distributed_solar_adoption_scenarios.csv")
 SCENARIO_JSON = Path("data/distributed_generation/model/distributed_solar_adoption_scenarios.json")
 PIPELINE = Path("data/pipeline/transpower_generation_storage_pipeline.csv")
@@ -449,6 +450,16 @@ def future_points(history: list[dict[str, object]]) -> tuple[list[dict[str, obje
     current_share = float(meta["current"]["small_solar_uptake_pct"]) / 100.0
     all_solar_uptake_pct = float(meta["current"]["all_solar_uptake_pct"])
     latest_month_new_installations = int(meta["current"]["latest_month_new_installations"])
+    battery_rows = {row["month_end"]: row for row in read_csv(BATTERY_MONTHLY)}
+    battery_row = battery_rows.get(latest_observed.isoformat())
+    if battery_row is None:
+        raise RuntimeError(f"No EA solar-with-battery monthly row for {latest_observed}")
+    latest_month_battery_installations = int(float(battery_row["new_installations"]))
+    latest_month_battery_attachment_pct = (
+        100.0 * latest_month_battery_installations / latest_month_new_installations
+        if latest_month_new_installations
+        else 0.0
+    )
     small_avg_kw = float(meta["current"]["small_fleet_average_kw"])
     larger_avg_kw = float(meta["current"]["larger_distributed_average_kw"])
     mid_rate = fit_mid_rate(meta)
@@ -530,6 +541,8 @@ def future_points(history: list[dict[str, object]]) -> tuple[list[dict[str, obje
         "current_small_solar_uptake_pct": current_share * 100.0,
         "current_all_solar_uptake_pct": all_solar_uptake_pct,
         "latest_month_new_installations": latest_month_new_installations,
+        "latest_month_battery_installations": latest_month_battery_installations,
+        "latest_month_battery_attachment_pct": latest_month_battery_attachment_pct,
         "mid_20pct_growth_rate_per_year": mid_rate,
         "small_future_policy": (
             "10% and 30% use the existing independently fitted fixed-saturation distributed-solar "
@@ -580,6 +593,8 @@ def render(
     current_small_uptake_pct: float,
     current_all_solar_uptake_pct: float,
     latest_month_new_installations: int,
+    latest_month_battery_installations: int,
+    latest_month_battery_attachment_pct: float,
 ) -> None:
     months = [datetime.strptime(str(point["month"]), "%Y-%m-%d").date() for point in points]
     x = np.arange(len(points))
@@ -662,8 +677,17 @@ def render(
         current_idx = observed_idx[-1]
         current_month = months[current_idx].strftime("%b %Y")
         ax.scatter([current_idx], [small[current_idx]], s=34, zorder=8)
+        annotation = (
+            f"{current_month}: <25 kW = {current_small_uptake_pct:.3f}% of ICPs\n"
+            f"all solar = {current_all_solar_uptake_pct:.3f}% · {latest_month_new_installations:,} installs this month"
+        )
+        if metric == "icps":
+            annotation += (
+                f"\n{latest_month_battery_installations:,} included a battery "
+                f"({latest_month_battery_attachment_pct:.1f}% of this month's installs)"
+            )
         ax.annotate(
-            f"{current_month}: <25 kW = {current_small_uptake_pct:.3f}% of ICPs\nall solar = {current_all_solar_uptake_pct:.3f}% · {latest_month_new_installations:,} installs this month",
+            annotation,
             xy=(current_idx, small[current_idx]),
             xytext=(-12, 20),
             textcoords="offset points",
@@ -743,13 +767,17 @@ def main() -> None:
     current_small_uptake_pct = float(future_notes["current_small_solar_uptake_pct"])
     current_all_solar_uptake_pct = float(future_notes["current_all_solar_uptake_pct"])
     latest_month_new_installations = int(future_notes["latest_month_new_installations"])
+    latest_month_battery_installations = int(future_notes["latest_month_battery_installations"])
+    latest_month_battery_attachment_pct = float(future_notes["latest_month_battery_attachment_pct"])
     render(
         points, "mw", OUT_CAPACITY, explicit_start,
         current_small_uptake_pct, current_all_solar_uptake_pct, latest_month_new_installations,
+        latest_month_battery_installations, latest_month_battery_attachment_pct,
     )
     render(
         points, "icps", OUT_INSTALLS, explicit_start,
         current_small_uptake_pct, current_all_solar_uptake_pct, latest_month_new_installations,
+        latest_month_battery_installations, latest_month_battery_attachment_pct,
     )
 
     source_month = str(history_notes["latest_observed_split_month"])
@@ -767,6 +795,8 @@ def main() -> None:
         "current_small_solar_uptake_pct": current_small_uptake_pct,
         "current_all_solar_uptake_pct": current_all_solar_uptake_pct,
         "latest_month_new_installations": latest_month_new_installations,
+        "latest_month_battery_installations": latest_month_battery_installations,
+        "latest_month_battery_attachment_pct": latest_month_battery_attachment_pct,
         "model_notes": {"history": history_notes, "future": future_notes},
         "outputs": [str(OUT_CAPACITY), str(OUT_INSTALLS), str(OUT_DATA)],
         "archive_dir": str(archive_dir),
