@@ -216,7 +216,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 101200,Herekino-Takahue,OROWHANA ROAD,Res,3 or less,5.0,
 101200,Herekino-Takahue,STATE HIGHWAY 1,Res,3 or less,4.5,
 101200,Herekino-Takahue,TAKAHUE ROAD,Res,6,3.5,20.7
-101200,Herekino-Takahue,TAKAHUE SADDLE ROAD,Res,3 or less,6.0,
+101200,Herekino-Takahue,TAKAHUE SADDLE ROAD,Res,3 or less,8.0,
 101200,Herekino-Takahue,TE RORE ROAD,Res,3 or less,2.1,
 101200,Herekino-Takahue,WAIOTEHUE ROAD,Res,3 or less,5.5,
 101200,Herekino-Takahue,WHANGAPE ROAD,Res,3 or less,2.0,
@@ -370,7 +370,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 102200,Lake Manuwai-Kapiro,MANUWAI ROAD,Res,3 or less,5.0,
 102200,Lake Manuwai-Kapiro,MCCAUGHAN ROAD,Res,5,5.9,29.3
 102200,Lake Manuwai-Kapiro,MORRIS LANE,Res,3 or less,9.6,
-102200,Lake Manuwai-Kapiro,NESS ROAD,Res,8,6.0,48.3
+102200,Lake Manuwai-Kapiro,NESS ROAD,Res,9,6.5,58.3
 102200,Lake Manuwai-Kapiro,OAK TREE LANE,Res,3 or less,4.0,
 102200,Lake Manuwai-Kapiro,ONEKURA ROAD,Res,5,4.5,22.6
 102200,Lake Manuwai-Kapiro,ORANGEWOOD ROAD,Res,3 or less,8.3,
@@ -692,7 +692,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 103700,Haruru,RIVER PALMS LANE,Res,3 or less,7.5,
 103700,Haruru,RIVERGLEN DRIVE,Res,3 or less,5.7,
 103700,Haruru,SKIPPERS CLOSE,Res,3 or less,3.8,
-103700,Haruru,SPINNAKER POINT,Res,3 or less,3.2,
+103700,Haruru,SPINNAKER POINT,Res,4,4.9,19.7
 103700,Haruru,THE ANCHORAGE,Res,4,4.4,17.8
 103700,Haruru,THE ANCHORAGE EAST,Res,3 or less,4.8,
 103700,Haruru,WATERVIEW PLACE,Res,3 or less,3.5,
@@ -767,7 +767,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 104200,Russell Peninsula,DEEMING ROAD,Res,3 or less,5.3,
 104200,Russell Peninsula,GILBERT MAIR RISE,Res,3 or less,5.7,
 104200,Russell Peninsula,JAMES CLENDON PLACE,Res,3 or less,6.7,
-104200,Russell Peninsula,KAHA PLACE,Res,3 or less,9.3,
+104200,Russell Peninsula,KAHA PLACE,Res,4,9.5,38.0
 104200,Russell Peninsula,KAKAPU ROAD,Res,3 or less,5.0,
 104200,Russell Peninsula,KANUKA GROVE,Res,3 or less,9.0,
 104200,Russell Peninsula,LANE ROAD,Res,3 or less,5.0,
@@ -1767,7 +1767,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 109000,Waipu,BLUE MOON RISE,Res,3 or less,6.0,
 109000,Waipu,BRAEMAR LANE,Res,3 or less,5.0,
 109000,Waipu,BRETON DRIVE,Res,6,5.6,33.4
-109000,Waipu,BROOKS ROAD,Res,9,5.3,48.0
+109000,Waipu,BROOKS ROAD,Res,8,5.0,40.0
 109000,Waipu,BROOKVIEW HEIGHTS (PVT),Res,3 or less,7.4,
 109000,Waipu,CELTIC PLACE,Res,3 or less,3.5,
 109000,Waipu,COTTAGE HILL WAY (PVT),Res,3 or less,8.5,
@@ -2358,7 +2358,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 110900,Dome Valley-Matakana,GREEN ROAD,Res,4,5.6,22.2
 110900,Dome Valley-Matakana,KAIPARA FLATS ROAD,Res,3 or less,17.5,
 110900,Dome Valley-Matakana,KEWINI GROVE,Res,3 or less,6.0,
-110900,Dome Valley-Matakana,LALY HADDON PLACE,Res,4,5.3,21.0
+110900,Dome Valley-Matakana,LALY HADDON PLACE,Res,5,6.2,31.0
 110900,Dome Valley-Matakana,LYSNAR ROAD,Res,4,3.6,14.2
 110900,Dome Valley-Matakana,MARTIN ROAD,Res,3 or less,10.0,
 110900,Dome Valley-Matakana,MATAKANA ROAD,Res,5,12.2,61.1
@@ -2755,7 +2755,6 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 112700,Orewa North,GROVENOR DRIVE,Res,6,4.2,25.4
 112700,Orewa North,HARVEST AVENUE,Res,3 or less,6.4,
 112700,Orewa North,KAHU CLOSE,Res,3 or less,4.6,
-112700,Orewa North,KAWAU CLOSE,Res,3 or less,10.0,
 112700,Orewa North,MAIRE ROAD,Res,4,5.8,23.3
 112700,Orewa North,MANHATTAN RISE,Res,3 or less,5.0,
 112700,Orewa North,MARAEARIKI AVENUE,Res,3 or less,5.0,
@@ -3205,6 +3204,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 115100,Stanmore Bay East,WAITITIRO RISE,Res,4,4.0,16.0
 115100,Stanmore Bay East,WHANGAPARAOA ROAD,Res,3 or less,2.4,
 115200,Manly West,ARDERN AVENUE,Res,4,6.5,26.0
+115200,Manly West,GLENGARRY AVENUE,Res,3 or less,10.0,
 115200,Manly West,HOMESTEAD ROAD,Res,4,5.0,20.0
 115200,Manly West,HURDLOW PLACE,Res,3 or less,10.0,
 115200,Manly West,KENNETH HOPPER PLACE,Res,3 or less,4.2,
@@ -3256,7 +3256,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 115500,Coatesville,LYNTON MASTERS LANE,Res,3 or less,10.0,
 115500,Coatesville,MAHOENUI VALLEY ROAD,Res,6,14.4,86.4
 115500,Coatesville,MCGIVEN PLACE,Res,3 or less,6.8,
-115500,Coatesville,MILL FLAT ROAD,Res,4,8.5,34.0
+115500,Coatesville,MILL FLAT ROAD,Res,5,8.4,42.2
 115500,Coatesville,O'BRIEN ROAD,Res,6,6.1,36.8
 115500,Coatesville,OAK LANE,Res,3 or less,10.0,
 115500,Coatesville,POTTER ROAD,Res,3 or less,10.0,
@@ -3375,7 +3375,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 116100,Kumeu Rural East,MOONTIDE ROAD,Res,3 or less,4.5,
 116100,Kumeu Rural East,OLD NORTH ROAD,Res,3 or less,5.0,
 116100,Kumeu Rural East,OLD RAILWAY ROAD,Res,3 or less,5.0,
-116100,Kumeu Rural East,ORAHA ROAD,Res,10,7.4,74.0
+116100,Kumeu Rural East,ORAHA ROAD,Res,9,7.1,64.0
 116100,Kumeu Rural East,RESERVA CRESCENT,Res,3 or less,3.7,
 116100,Kumeu Rural East,RIVERHEAD ROAD,Res,3 or less,4.9,
 116100,Kumeu Rural East,STATE HIGHWAY 16,Res,3 or less,4.3,
@@ -3431,7 +3431,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 116500,Long Bay,COASTVIEW LANE,Res,3 or less,10.0,
 116500,Long Bay,GLENVAR RIDGE ROAD,Res,3 or less,7.0,
 116500,Long Bay,GLENVAR ROAD,Res,4,4.6,18.3
-116500,Long Bay,HANIKURA STREET,Res,3 or less,9.0,
+116500,Long Bay,HANIKURA STREET,Res,3 or less,8.0,
 116500,Long Bay,HEADLAND DRIVE,Res,5,5.0,25.1
 116500,Long Bay,HEADSAIL DRIVE,Res,7,8.1,57.0
 116500,Long Bay,HOPETEA STREET,Res,3 or less,10.0,
@@ -3672,7 +3672,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 118100,Albany South,AMHERST PLACE,Res,3 or less,3.9,
 118100,Albany South,BUSHLANDS PARK DRIVE,Res,5,4.7,23.6
 118100,Albany South,CLEMOWS LANE,Res,6,4.9,29.2
-118100,Albany South,COLUMBIA PLACE,Res,3 or less,3.7,
+118100,Albany South,COLUMBIA PLACE,Res,3 or less,6.8,
 118100,Albany South,DENIM PLACE,Res,3 or less,2.5,
 118100,Albany South,EMERALD WAY,Res,3 or less,4.6,
 118100,Albany South,KRISTIN LANE,Res,3 or less,3.8,
@@ -3728,6 +3728,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 118500,Pinehill,EAST COAST ROAD,Res,3 or less,4.3,
 118500,Pinehill,HAURAKI CRESCENT,Res,3 or less,3.3,
 118500,Pinehill,HUGH GREEN DRIVE,Res,3 or less,4.6,
+118500,Pinehill,KILKELLY AVENUE,Res,3 or less,10.0,
 118500,Pinehill,KILLYBEGS DRIVE,Res,3 or less,5.1,
 118500,Pinehill,MALIN PLACE,Res,3 or less,8.0,
 118500,Pinehill,MANU PLACE,Res,3 or less,4.6,
@@ -3867,7 +3868,6 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 119800,West Harbour West,ST MARGARET PLACE,Res,3 or less,3.8,
 119800,West Harbour West,TRUSCOTT PLACE,Res,3 or less,8.2,
 119800,West Harbour West,VAN DYKE PLACE,Res,3 or less,3.7,
-119800,West Harbour West,WEST HARBOUR DRIVE,Res,3 or less,10.0,
 119800,West Harbour West,WOODHOUSE PLACE,Res,3 or less,5.0,
 119900,Unsworth Heights West,ALBANY HIGHWAY,Res,3 or less,2.0,
 119900,Unsworth Heights West,BLACK TEAL CLOSE,Res,3 or less,4.1,
@@ -4076,6 +4076,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 121100,Swanson Rural,SCENIC DRIVE,Res,14,5.7,80.4
 121100,Swanson Rural,SCENIC DRIVE NORTH,Res,4,6.4,25.5
 121100,Swanson Rural,SEIBEL ROAD,Res,3 or less,5.0,
+121100,Swanson Rural,SIMPSON ROAD,Res,3 or less,15.0,
 121100,Swanson Rural,STURGES ROAD,Res,3 or less,5.0,
 121100,Swanson Rural,TRAM VALLEY ROAD,Res,4,6.2,24.6
 121100,Swanson Rural,WELSH HILLS ROAD,Res,3 or less,8.0,
@@ -4587,7 +4588,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 125300,Te Atatu Peninsula East,ONEMANA WAY,Res,3 or less,8.5,
 125300,Te Atatu Peninsula East,PIRITI DRIVE,Res,4,5.3,21.0
 125300,Te Atatu Peninsula East,PROVENCE ESPLANADE,Res,3 or less,2.0,
-125300,Te Atatu Peninsula East,SPINNAKER DRIVE,Res,5,5.5,27.6
+125300,Te Atatu Peninsula East,SPINNAKER DRIVE,Res,6,5.4,32.6
 125300,Te Atatu Peninsula East,ST JEROME AVENUE,Res,3 or less,6.5,
 125300,Te Atatu Peninsula East,TUSCANY WAY,Res,3 or less,5.0,
 125300,Te Atatu Peninsula East,VINOGRAD DRIVE,Res,3 or less,8.0,
@@ -4707,7 +4708,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 126200,Hillcrest East (Auckland),LYNDEN AVENUE,Res,4,4.9,19.5
 126200,Hillcrest East (Auckland),MOORE STREET,Res,3 or less,10.0,
 126200,Hillcrest East (Auckland),MOUNTBATTEN AVENUE,Res,3 or less,5.5,
-126200,Hillcrest East (Auckland),MUNSTEAD PLACE,Res,3 or less,2.0,
+126200,Hillcrest East (Auckland),MUNSTEAD PLACE,Res,3 or less,4.0,
 126200,Hillcrest East (Auckland),NICHOLSON PLACE,Res,3 or less,6.0,
 126200,Hillcrest East (Auckland),ORION PLACE,Res,3 or less,5.0,
 126200,Hillcrest East (Auckland),STANAWAY STREET,Res,3 or less,6.3,
@@ -4778,7 +4779,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 126800,Takapuna Central,BRETT AVENUE,Res,3 or less,10.0,
 126800,Takapuna Central,ERIC PRICE AVENUE,Res,3 or less,8.5,
 126800,Takapuna Central,GIBBONS ROAD,Res,3 or less,5.0,
-126800,Takapuna Central,HURSTMERE ROAD,Res,3 or less,3.4,
+126800,Takapuna Central,HURSTMERE ROAD,Res,4,3.8,15.3
 126800,Takapuna Central,KITCHENER ROAD,Res,3 or less,8.2,
 126800,Takapuna Central,MANURERE AVENUE,Res,4,12.8,51.0
 126800,Takapuna Central,MINNEHAHA AVENUE,Res,3 or less,6.2,
@@ -5138,7 +5139,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 129900,Point Chevalier East,KIWI ROAD,Res,7,4.4,30.9
 129900,Point Chevalier East,LYNCH STREET,Res,3 or less,6.1,
 129900,Point Chevalier East,MEOLA ROAD,Res,3 or less,6.2,
-129900,Point Chevalier East,MOA ROAD,Res,12,6.0,72.3
+129900,Point Chevalier East,MOA ROAD,Res,11,5.8,64.3
 129900,Point Chevalier East,NEWELL STREET,Res,6,5.1,30.5
 129900,Point Chevalier East,OLIVER STREET,Res,3 or less,5.4,
 129900,Point Chevalier East,POINT CHEVALIER ROAD,Res,3 or less,5.7,
@@ -5281,7 +5282,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 130900,Glen Eden Woodglen,WOODGLEN ROAD,Res,10,5.6,56.0
 130900,Glen Eden Woodglen,WOODVALE ROAD,Res,3 or less,2.5,
 131000,Kelston South,AOTEA ROAD,Res,3 or less,2.0,
-131000,Kelston South,ARCHIBALD ROAD,Res,5,5.6,28.0
+131000,Kelston South,ARCHIBALD ROAD,Res,4,5.0,20.0
 131000,Kelston South,BAMBOO GROVE,Res,3 or less,4.6,
 131000,Kelston South,BARBARY AVENUE,Res,3 or less,3.7,
 131000,Kelston South,GREAT NORTH ROAD,Res,3 or less,4.6,
@@ -5453,7 +5454,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 132500,Konini,GREENWOODS CLOSE,Res,3 or less,6.5,
 132500,Konini,KASHMIR ROAD,Res,3 or less,4.9,
 132500,Konini,KAURILANDS ROAD,Res,3 or less,5.8,
-132500,Konini,KONINI ROAD,Res,12,6.0,71.8
+132500,Konini,KONINI ROAD,Res,13,6.3,81.8
 132500,Konini,ONEDIN PLACE,Res,3 or less,5.0,
 132500,Konini,ORATIA DRIVE,Res,3 or less,5.0,
 132500,Konini,PAEWAI ROAD,Res,3 or less,4.8,
@@ -5515,7 +5516,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 133000,Devonport,KAPAI ROAD,Res,3 or less,5.0,
 133000,Devonport,MAYS STREET,Res,3 or less,4.8,
 133000,Devonport,MOZELEY AVENUE,Res,3 or less,5.3,
-133000,Devonport,PATUONE AVENUE,Res,3 or less,8.7,
+133000,Devonport,PATUONE AVENUE,Res,4,9.0,36.0
 133000,Devonport,RATTRAY STREET,Res,3 or less,6.5,
 133000,Devonport,ROSLYN TERRACE,Res,3 or less,4.6,
 133000,Devonport,SHOAL BAY ROAD,Res,3 or less,6.8,
@@ -5564,7 +5565,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 134200,Mount Albert Central,ALLENDALE ROAD,Res,3 or less,10.0,
 134200,Mount Albert Central,ASQUITH AVENUE,Res,11,4.1,44.6
 134200,Mount Albert Central,BALDWIN AVENUE,Res,3 or less,6.0,
-134200,Mount Albert Central,CAUGHEY PLACE,Res,3 or less,5.0,
+134200,Mount Albert Central,CAUGHEY PLACE,Res,3 or less,6.0,
 134200,Mount Albert Central,FOWLER AVENUE,Res,3 or less,4.0,
 134200,Mount Albert Central,KITENUI AVENUE,Res,3 or less,7.5,
 134200,Mount Albert Central,KNIGHT AVENUE,Res,3 or less,5.0,
@@ -5843,7 +5844,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 137500,Laingholm,WARNER PARK AVENUE,Res,3 or less,10.0,
 137500,Laingholm,WESTERN ROAD,Res,3 or less,3.7,
 137600,Sandringham West,EDEN VIEW ROAD,Res,3 or less,6.0,
-137600,Sandringham West,EUSTON ROAD,Res,6,5.0,30.0
+137600,Sandringham West,EUSTON ROAD,Res,5,4.8,24.0
 137600,Sandringham West,FOWLDS AVENUE,Res,3 or less,7.0,
 137600,Sandringham West,HAVERSTOCK ROAD,Res,3 or less,4.2,
 137600,Sandringham West,HAZELMERE ROAD,Res,3 or less,5.5,
@@ -5924,7 +5925,6 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 138400,Mount Eden West,HENLEY ROAD,Res,3 or less,10.0,
 138400,Mount Eden West,HERBERT ROAD,Res,3 or less,4.6,
 138400,Mount Eden West,KENYON AVENUE,Res,3 or less,6.3,
-138400,Mount Eden West,KINGSVIEW ROAD,Res,3 or less,10.0,
 138400,Mount Eden West,MEWBURN AVENUE,Res,3 or less,6.0,
 138400,Mount Eden West,MILTON ROAD,Res,3 or less,5.2,
 138400,Mount Eden West,MOUNT PLEASANT ROAD,Res,3 or less,10.0,
@@ -6009,7 +6009,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 139300,Maungawhau,MARSDEN AVENUE,Res,3 or less,7.7,
 139300,Maungawhau,MATIPO STREET,Res,3 or less,8.0,
 139300,Maungawhau,PLUNKET ROAD,Res,3 or less,6.0,
-139300,Maungawhau,RUAPEHU STREET,Res,3 or less,6.2,
+139300,Maungawhau,RUAPEHU STREET,Res,3 or less,6.8,
 139300,Maungawhau,THAMES STREET,Res,3 or less,5.0,
 139300,Maungawhau,WAIRIKI ROAD,Res,4,6.8,27.0
 139300,Maungawhau,WATLING STREET,Res,3 or less,6.0,
@@ -6044,7 +6044,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 139700,Mount Roskill North,AKARANA AVENUE,Res,3 or less,10.0,
 139700,Mount Roskill North,CAMBRAI AVENUE,Res,3 or less,13.5,
 139700,Mount Roskill North,CLEGHORN AVENUE,Res,3 or less,5.0,
-139700,Mount Roskill North,DOMINION ROAD,Res,3 or less,4.0,
+139700,Mount Roskill North,DOMINION ROAD,Res,3 or less,3.0,
 139700,Mount Roskill North,DUKE STREET,Res,3 or less,2.4,
 139700,Mount Roskill North,HAIG AVENUE,Res,3 or less,3.8,
 139700,Mount Roskill North,HAZEL AVENUE,Res,3 or less,4.0,
@@ -6115,7 +6115,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 140200,Epsom Central-North,ST ANDREWS ROAD,Res,3 or less,4.4,
 140200,Epsom Central-North,THE DRIVE,Res,3 or less,8.5,
 140200,Epsom Central-North,WILDING AVENUE,Res,3 or less,10.0,
-140200,Epsom Central-North,WOODHALL ROAD,Res,3 or less,5.0,
+140200,Epsom Central-North,WOODHALL ROAD,Res,3 or less,6.3,
 140300,Mount St John,BELVEDERE STREET,Res,3 or less,10.0,
 140300,Mount St John,CAMPBELL CRESCENT,Res,3 or less,8.5,
 140300,Mount St John,GREAT SOUTH ROAD,Res,3 or less,4.7,
@@ -6287,7 +6287,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 141800,Kohimarama,SOUTHERN CROSS ROAD,Res,3 or less,5.2,
 141800,Kohimarama,SPEIGHT ROAD,Res,3 or less,1.9,
 141800,Kohimarama,SPROTT ROAD,Res,4,4.9,19.5
-141900,Meadowbank West,APPLEYARD CRESCENT,Res,3 or less,7.0,
+141900,Meadowbank West,APPLEYARD CRESCENT,Res,3 or less,7.5,
 141900,Meadowbank West,BLACKETT CRESCENT,Res,3 or less,10.0,
 141900,Meadowbank West,BONNIE BRAE ROAD,Res,3 or less,10.0,
 141900,Meadowbank West,FANCOURT STREET,Res,6,6.4,38.6
@@ -7209,7 +7209,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 150600,Mellons Bay,BEACH ROAD,Res,6,5.0,30.1
 150600,Mellons Bay,BLEAKHOUSE ROAD,Res,3 or less,5.4,
 150600,Mellons Bay,BURFORD PLACE,Res,3 or less,6.5,
-150600,Mellons Bay,CHARLES DICKENS DRIVE,Res,3 or less,5.0,
+150600,Mellons Bay,CHARLES DICKENS DRIVE,Res,3 or less,7.5,
 150600,Mellons Bay,CHERITON ROAD,Res,3 or less,2.9,
 150600,Mellons Bay,COLMAR ROAD,Res,3 or less,2.8,
 150600,Mellons Bay,COPPERFIELD TERRACE,Res,3 or less,3.0,
@@ -7509,6 +7509,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 153400,Cockle Bay,COATES ROAD,Res,3 or less,5.0,
 153400,Cockle Bay,COCKLE BAY ROAD,Res,4,6.3,25.0
 153400,Cockle Bay,COOK STREET,Res,3 or less,3.0,
+153400,Cockle Bay,FENTON TERRACE,Res,3 or less,14.0,
 153400,Cockle Bay,FOUR TREES,Res,3 or less,4.4,
 153400,Cockle Bay,GRANGER ROAD,Res,4,7.4,29.7
 153400,Cockle Bay,HOLBROOK PLACE,Res,3 or less,4.6,
@@ -7848,7 +7849,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 156300,East Tamaki Heights,ROXBOROUGH PLACE,Res,4,8.3,33.0
 156300,East Tamaki Heights,SKYE ROAD,Res,3 or less,4.0,
 156400,Te Puru,ARTISTS AVENUE,Res,3 or less,5.1,
-156400,Te Puru,BEACHLANDS ROAD,Res,3 or less,4.4,
+156400,Te Puru,BEACHLANDS ROAD,Res,3 or less,4.9,
 156400,Te Puru,CADWIL DRIVE,Res,3 or less,5.5,
 156400,Te Puru,COLUMBIA CRESCENT,Res,3 or less,4.2,
 156400,Te Puru,CONSTELLATION AVENUE,Res,5,5.8,28.8
@@ -9187,7 +9188,6 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 164300,Drury,OPAHEKE ROAD,Res,3 or less,4.4,
 164300,Drury,PEARA LANE,Res,3 or less,6.2,
 164300,Drury,SELWYN DOWNS LANE,Res,3 or less,5.0,
-164300,Drury,WAKA AMA ROAD,Res,3 or less,5.0,
 164300,Drury,WOVEN PLACE,Res,3 or less,5.0,
 164300,Drury,YORK STREET,Res,3 or less,4.3,
 164400,Tamakae,BAY VIEW DRIVE,Res,3 or less,4.1,
@@ -9285,7 +9285,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 164800,Waiuku East,ROSSITER STREET,Res,3 or less,4.8,
 164800,Waiuku East,STONEHURST AVENUE,Res,3 or less,4.3,
 164800,Waiuku East,VICTORIA AVENUE,Res,3 or less,3.7,
-164800,Waiuku East,WAIUKU-OTAUA ROAD,Res,3 or less,9.0,
+164800,Waiuku East,WAIUKU-OTAUA ROAD,Res,3 or less,10.0,
 164900,Kendallvale,AWAROA STREAM DRIVE,Res,3 or less,1.4,
 164900,Kendallvale,CALDERWOOD CLOSE,Res,3 or less,5.5,
 164900,Kendallvale,COLOMBO ROAD,Res,4,6.0,24.0
@@ -9591,7 +9591,6 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 166400,Ararimu,STEEL ROAD,Res,3 or less,7.5,
 166400,Ararimu,TAWHERO ROAD,Res,3 or less,25.0,
 166400,Ararimu,TOTARA ROAD,Res,3 or less,5.0,
-166400,Ararimu,TURNER ROAD,Res,3 or less,15.0,
 166400,Ararimu,WILSON ROAD,Res,3 or less,6.0,
 166500,Colville,BOULDER BAY DRIVE,Res,3 or less,5.0,
 166500,Colville,COLVILLE ROAD,Res,5,6.2,31.0
@@ -9791,6 +9790,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 167300,Cooks Beach-Ferry Landing,PURANGI ROAD,Res,5,4.3,21.4
 167300,Cooks Beach-Ferry Landing,RIVERVIEW ROAD,Res,3 or less,6.0,
 167300,Cooks Beach-Ferry Landing,SCOTT DRIVE,Res,3 or less,5.2,
+167300,Cooks Beach-Ferry Landing,TAUNUI PLACE,Res,3 or less,6.0,
 167300,Cooks Beach-Ferry Landing,THE CROWS NEST,Res,3 or less,3.7,
 167300,Cooks Beach-Ferry Landing,TINIRAU PLACE,Res,3 or less,3.6,
 167400,Mercury Bay South,BOAT HARBOUR ROAD,Res,3 or less,9.6,
@@ -9881,7 +9881,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 167800,Thames South,PARAWAI ROAD,Res,7,6.0,41.8
 167800,Thames South,REGENT HEIGHTS,Res,3 or less,10.0,
 167800,Thames South,RESERVOIR ROAD,Res,4,4.0,16.0
-167800,Thames South,RICHMOND STREET,Res,3 or less,6.0,
+167800,Thames South,RICHMOND STREET,Res,3 or less,8.0,
 167800,Thames South,ROLLESTON STREET,Res,8,5.9,47.1
 167800,Thames South,THE BOOMS AVENUE,Res,3 or less,4.6,
 167800,Thames South,THE TERRACE,Res,3 or less,3.0,
@@ -9908,7 +9908,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 168100,Tairua,DIAMOND DRIVE,Res,3 or less,4.6,
 168100,Tairua,GALLAGHER DRIVE,Res,3 or less,6.0,
 168100,Tairua,HEMI PLACE,Res,3 or less,5.2,
-168100,Tairua,HORNSEA ROAD,Res,3 or less,10.0,
+168100,Tairua,HORNSEA ROAD,Res,3 or less,9.9,
 168100,Tairua,LAYCOCK ROAD,Res,3 or less,7.7,
 168100,Tairua,MAIN ROAD,Res,5,6.7,33.3
 168100,Tairua,MANAIA ROAD,Res,3 or less,5.0,
@@ -10025,6 +10025,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 168500,Whangamata,SYLVIA ROAD,Res,3 or less,5.9,
 168500,Whangamata,TAIRUA ROAD,Res,3 or less,4.6,
 168500,Whangamata,TAIRUA ROAD (SH25),Res,3 or less,4.6,
+168500,Whangamata,TANGAROA ROAD,Res,3 or less,10.0,
 168500,Whangamata,TE PAMAHUE DRIVE,Res,3 or less,10.0,
 168500,Whangamata,TE TUTU STREET,Res,3 or less,4.1,
 168500,Whangamata,THE DRIVE,Res,5,4.4,22.2
@@ -10075,6 +10076,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 169000,Hauraki Plains South,BURTON ROAD,Res,3 or less,4.6,
 169000,Hauraki Plains South,CAPTAIN COOK ROAD,Res,3 or less,1.6,
 169000,Hauraki Plains South,FERRY ROAD,Res,3 or less,8.0,
+169000,Hauraki Plains South,HAURAKI ROAD,Res,3 or less,10.0,
 169000,Hauraki Plains South,KAIHERE ROAD,Res,3 or less,8.0,
 169000,Hauraki Plains South,KAIKAHU ROAD,Res,3 or less,5.8,
 169000,Hauraki Plains South,KEREPEHI TOWN ROAD,Res,3 or less,4.5,
@@ -11225,7 +11227,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 173900,Morrinsville East,CEDAR WAY,Res,3 or less,3.1,
 173900,Morrinsville East,COBHAM DRIVE,Res,3 or less,5.0,
 173900,Morrinsville East,COOPER CRESCENT,Res,3 or less,4.3,
-173900,Morrinsville East,CORONATION ROAD,Res,6,4.3,26.0
+173900,Morrinsville East,CORONATION ROAD,Res,7,4.6,32.0
 173900,Morrinsville East,DAVID STREET,Res,3 or less,3.6,
 173900,Morrinsville East,DORNOCH LANE,Res,3 or less,7.5,
 173900,Morrinsville East,FAIRWAY DRIVE,Res,3 or less,5.5,
@@ -11442,7 +11444,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 175000,Matamata South,ARCHFORD STREET,Res,3 or less,7.0,
 175000,Matamata South,ASCOT PLACE,Res,3 or less,5.0,
 175000,Matamata South,ASHWORTH PLACE,Res,4,3.3,13.3
-175000,Matamata South,BATHAM DRIVE,Res,3 or less,6.0,
+175000,Matamata South,BATHAM DRIVE,Res,3 or less,8.6,
 175000,Matamata South,BEATTY ROAD,Res,3 or less,4.8,
 175000,Matamata South,BEDFORD CRESCENT,Res,3 or less,5.0,
 175000,Matamata South,BIRCHWOOD LANE,Res,3 or less,3.2,
@@ -11452,6 +11454,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 175000,Matamata South,COLLEGE STREET,Res,3 or less,6.0,
 175000,Matamata South,DAME CATH PLACE,Res,3 or less,4.6,
 175000,Matamata South,ELDONWOOD DRIVE,Res,3 or less,7.0,
+175000,Matamata South,ELIZABETH STREET,Res,3 or less,8.0,
 175000,Matamata South,FIELDHOUSE LANE,Res,3 or less,4.6,
 175000,Matamata South,FIRTH STREET,Res,3 or less,1.6,
 175000,Matamata South,FITZGERALD AVENUE,Res,3 or less,8.2,
@@ -12180,7 +12183,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 178500,Fairview Downs,POWELLS ROAD,Res,3 or less,5.3,
 178500,Fairview Downs,RADIATA STREET,Res,4,6.5,26.0
 178500,Fairview Downs,RALEIGH AVENUE,Res,7,5.4,38.0
-178500,Fairview Downs,RAYMOND STREET,Res,4,5.5,22.0
+178500,Fairview Downs,RAYMOND STREET,Res,3 or less,5.3,
 178500,Fairview Downs,RIVERTON PLACE,Res,3 or less,5.0,
 178500,Fairview Downs,TERENCE STREET,Res,3 or less,5.0,
 178500,Fairview Downs,THORPE STREET,Res,3 or less,4.5,
@@ -12334,7 +12337,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 180100,Melville North,MAHOE STREET,Res,3 or less,4.3,
 180100,Melville North,NORMANDY AVENUE,Res,3 or less,9.0,
 180100,Melville North,TAWA STREET,Res,4,5.8,23.0
-180200,Hamilton East,ALBERT STREET,Res,3 or less,6.3,
+180200,Hamilton East,ALBERT STREET,Res,4,7.3,29.0
 180200,Hamilton East,BROOKFIELD STREET,Res,5,7.4,37.2
 180200,Hamilton East,COTTER PLACE,Res,3 or less,5.0,
 180200,Hamilton East,DEY STREET,Res,5,1.6,8.0
@@ -12558,7 +12561,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 181800,Kaipaki,GREAT BURKE STREET,Res,3 or less,5.3,
 181800,Kaipaki,GREAT COLLINS STREET,Res,3 or less,5.0,
 181800,Kaipaki,GREAT SOUTH ROAD,Res,3 or less,8.2,
-181800,Kaipaki,KAIPAKI ROAD,Res,7,13.4,93.7
+181800,Kaipaki,KAIPAKI ROAD,Res,8,13.0,103.7
 181800,Kaipaki,KARL ROAD,Res,3 or less,4.8,
 181800,Kaipaki,MELLOW ROAD,Res,3 or less,6.0,
 181800,Kaipaki,MILL ROAD,Res,4,7.8,31.2
@@ -12884,7 +12887,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 184000,Te Awamutu Stadium,FAIRVIEW ROAD,Res,5,4.3,21.7
 184000,Te Awamutu Stadium,KACEY AVENUE,Res,3 or less,5.0,
 184000,Te Awamutu Stadium,MEDDING CRESCENT,Res,3 or less,4.0,
-184000,Te Awamutu Stadium,MOUNTAIN VIEW DRIVE,Res,3 or less,5.0,
+184000,Te Awamutu Stadium,MOUNTAIN VIEW DRIVE,Res,3 or less,7.5,
 184000,Te Awamutu Stadium,PUNIU ROAD,Res,4,8.3,33.3
 184000,Te Awamutu Stadium,RUTHERFORD STREET,Res,3 or less,3.0,
 184000,Te Awamutu Stadium,TE TOMO STREET,Res,3 or less,5.5,
@@ -13596,7 +13599,6 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 189300,Richmond Heights,PARK PLACE,Res,3 or less,8.0,
 189300,Richmond Heights,RAINBOW DRIVE,Res,3 or less,7.0,
 189300,Richmond Heights,RICHMOND AVENUE,Res,3 or less,6.0,
-189300,Richmond Heights,TAUHARA RIDGE DRIVE,Res,3 or less,10.0,
 189300,Richmond Heights,TOBIN PLACE,Res,3 or less,6.8,
 189300,Richmond Heights,VICTORIA STREET,Res,3 or less,8.0,
 189300,Richmond Heights,WARD PLACE,Res,3 or less,5.0,
@@ -13621,7 +13623,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 189400,Wharewaka,PUKA PLACE,Res,3 or less,5.0,
 189400,Wharewaka,PUKENAMU ROAD,Res,3 or less,6.0,
 189400,Wharewaka,PUNA RISE,Res,3 or less,5.2,
-189400,Wharewaka,RAUPO CRESCENT,Res,3 or less,5.8,
+189400,Wharewaka,RAUPO CRESCENT,Res,3 or less,4.5,
 189400,Wharewaka,REPO STREET,Res,3 or less,3.0,
 189400,Wharewaka,RUKU LANE,Res,3 or less,10.0,
 189400,Wharewaka,SADDLEBACK DRIVE,Res,3 or less,3.0,
@@ -13904,7 +13906,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 191000,Omokoroa,MCKENNA LANE,Res,3 or less,5.0,
 191000,Omokoroa,MYRTLE DRIVE,Res,3 or less,3.5,
 191000,Omokoroa,OLIVE CLOSE,Res,3 or less,8.5,
-191000,Omokoroa,OMOKOROA ROAD,Res,14,7.0,97.9
+191000,Omokoroa,OMOKOROA ROAD,Res,16,7.4,117.8
 191000,Omokoroa,OWEN PLACE,Res,3 or less,3.0,
 191000,Omokoroa,PARKLAND RISE,Res,4,5.5,21.9
 191000,Omokoroa,PIP WAY,Res,3 or less,6.0,
@@ -13944,7 +13946,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 191100,Omokoroa Rural,OSCAR WAY,Res,3 or less,5.0,
 191100,Omokoroa Rural,OYSTER PLACE,Res,4,6.8,27.0
 191100,Omokoroa Rural,PARORE DRIVE,Res,3 or less,5.0,
-191100,Omokoroa Rural,PLUMMERS POINT ROAD,Res,17,6.6,111.4
+191100,Omokoroa Rural,PLUMMERS POINT ROAD,Res,18,6.5,117.4
 191100,Omokoroa Rural,PROLE ROAD,Res,3 or less,5.7,
 191100,Omokoroa Rural,RIDGE DRIVE,Res,7,5.7,40.0
 191100,Omokoroa Rural,SENTINEL AVENUE,Res,3 or less,6.0,
@@ -13952,7 +13954,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 191100,Omokoroa Rural,STATE HIGHWAY 2,Res,3 or less,2.9,
 191100,Omokoroa Rural,TE KAKA PLACE,Res,3 or less,7.1,
 191100,Omokoroa Rural,TRAVERSE LANE,Res,3 or less,4.8,
-191200,Te Puna,ARMSTRONG ROAD,Res,7,14.3,100.4
+191200,Te Puna,ARMSTRONG ROAD,Res,8,15.1,120.4
 191200,Te Puna,BORELL ROAD,Res,3 or less,1.4,
 191200,Te Puna,CLARKE ROAD,Res,4,6.0,24.0
 191200,Te Puna,FAIRLIE GROVE,Res,3 or less,6.0,
@@ -14353,7 +14355,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 193200,Otumoetai North,HINEWA ROAD,Res,8,7.4,58.9
 193200,Otumoetai North,KARAKA ROAD,Res,3 or less,6.0,
 193200,Otumoetai North,KULIM AVENUE,Res,4,4.1,16.6
-193200,Otumoetai North,LAING PLACE,Res,3 or less,4.7,
+193200,Otumoetai North,LAING PLACE,Res,4,6.0,23.9
 193200,Otumoetai North,LEMON GROVE AVENUE,Res,3 or less,3.8,
 193200,Otumoetai North,LILAC PLACE,Res,3 or less,7.9,
 193200,Otumoetai North,MAUNGAWHARE PLACE,Res,3 or less,5.0,
@@ -14363,7 +14365,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 193200,Otumoetai North,OTUMOETAI ROAD,Res,3 or less,6.5,
 193200,Otumoetai North,PILLANS ROAD,Res,3 or less,5.3,
 193200,Otumoetai North,PINE AVENUE,Res,3 or less,2.0,
-193200,Otumoetai North,RUSHTON AVENUE,Res,4,4.2,16.8
+193200,Otumoetai North,RUSHTON AVENUE,Res,5,5.0,24.8
 193200,Otumoetai North,SEAVIEW ROAD,Res,3 or less,7.5,
 193200,Otumoetai North,SHELLEY STREET,Res,3 or less,3.5,
 193200,Otumoetai North,VALE STREET,Res,4,3.3,13.1
@@ -14585,6 +14587,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 194300,Omanu Beach,DEE STREET,Res,3 or less,8.2,
 194300,Omanu Beach,GOLF ROAD,Res,3 or less,5.5,
 194300,Omanu Beach,LINKS AVENUE,Res,3 or less,5.0,
+194300,Omanu Beach,LODGE AVENUE,Res,3 or less,10.0,
 194300,Omanu Beach,MACVILLE ROAD,Res,3 or less,4.9,
 194300,Omanu Beach,MAUNGANUI ROAD,Res,3 or less,5.0,
 194300,Omanu Beach,MOA STREET,Res,3 or less,6.3,
@@ -14593,7 +14596,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 194300,Omanu Beach,TWEED STREET,Res,3 or less,5.0,
 194300,Omanu Beach,ULSTER STREET,Res,4,6.7,26.9
 194300,Omanu Beach,VALLEY ROAD,Res,24,7.3,174.9
-194300,Omanu Beach,WAITUI GROVE,Res,4,7.1,28.6
+194300,Omanu Beach,WAITUI GROVE,Res,3 or less,6.2,
 194400,Tauranga Hospital,ANZAC ROAD,Res,3 or less,5.0,
 194400,Tauranga Hospital,ARDEN STREET,Res,3 or less,5.0,
 194400,Tauranga Hospital,CAMERON ROAD,Res,3 or less,4.1,
@@ -14703,7 +14706,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 195100,Pyes Pa West,CALDERA CRESCENT,Res,3 or less,6.6,
 195100,Pyes Pa West,CAREX CLOSE,Res,3 or less,8.0,
 195100,Pyes Pa West,CLOVER LANE,Res,3 or less,4.6,
-195100,Pyes Pa West,COWELL CRESCENT,Res,3 or less,4.0,
+195100,Pyes Pa West,COWELL CRESCENT,Res,3 or less,4.4,
 195100,Pyes Pa West,DELTA CLOSE,Res,3 or less,4.5,
 195100,Pyes Pa West,DOUBLE BAY ROAD,Res,5,6.9,34.6
 195100,Pyes Pa West,DOYLE LANE,Res,3 or less,7.3,
@@ -14797,7 +14800,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 195300,Yatton Park,HAMPTON TERRACE,Res,3 or less,4.8,
 195300,Yatton Park,HARRIER STREET,Res,3 or less,5.5,
 195300,Yatton Park,HENDERSON CRESCENT,Res,3 or less,5.0,
-195300,Yatton Park,LLOYD STREET,Res,3 or less,5.0,
+195300,Yatton Park,LLOYD STREET,Res,3 or less,7.5,
 195300,Yatton Park,MANSELS ROAD,Res,3 or less,5.1,
 195300,Yatton Park,MERIVALE ROAD,Res,3 or less,1.9,
 195400,Pyes Pa North,AMY PLACE,Res,3 or less,5.3,
@@ -14974,7 +14977,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 196200,Te Maunga South,GLOUCESTER ROAD,Res,6,5.0,30.2
 196200,Te Maunga South,GRENADA STREET,Res,3 or less,8.0,
 196200,Te Maunga South,GREVILLEA PLACE,Res,3 or less,8.5,
-196200,Te Maunga South,HALESIA PLACE,Res,3 or less,5.0,
+196200,Te Maunga South,HALESIA PLACE,Res,3 or less,7.5,
 196200,Te Maunga South,HAVEN GROVE,Res,3 or less,6.0,
 196200,Te Maunga South,HIBISCUS AVENUE,Res,8,4.4,35.5
 196200,Te Maunga South,HIRIA CRESCENT,Res,3 or less,5.7,
@@ -15320,7 +15323,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 197500,Motiti,EMERALD SHORES DRIVE,Res,3 or less,8.2,
 197500,Motiti,EMMA PLACE,Res,3 or less,5.0,
 197500,Motiti,EXCELSA PLACE,Res,3 or less,2.2,
-197500,Motiti,GIBSON PLACE,Res,5,5.6,28.2
+197500,Motiti,GIBSON PLACE,Res,4,6.0,24.2
 197500,Motiti,GOLDEN COURIE CLOSE,Res,4,10.3,41.3
 197500,Motiti,GOLDEN SANDS DRIVE,Res,3 or less,6.0,
 197500,Motiti,HOROKAKA PLACE,Res,3 or less,5.0,
@@ -15377,7 +15380,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 197600,Wairakei,KAIORA DRIVE,Res,3 or less,9.0,
 197600,Wairakei,KAPUKA STREET,Res,9,4.9,44.1
 197600,Wairakei,KOHEKOHE ROAD,Res,5,4.7,23.5
-197600,Wairakei,KOMATA CRESCENT,Res,7,3.4,23.6
+197600,Wairakei,KOMATA CRESCENT,Res,6,3.4,20.6
 197600,Wairakei,KOTIATE STREET,Res,3 or less,6.9,
 197600,Wairakei,KUAKUA CLOSE,Res,3 or less,8.1,
 197600,Wairakei,KURU PLACE,Res,3 or less,5.3,
@@ -16055,7 +16058,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 202600,Whakatane West,HENDERSON STREET,Res,9,5.4,48.5
 202600,Whakatane West,HINEMOA STREET,Res,4,4.7,18.9
 202600,Whakatane West,HOTENE STREET,Res,3 or less,5.3,
-202600,Whakatane West,JAMES STREET,Res,11,4.5,49.9
+202600,Whakatane West,JAMES STREET,Res,12,5.0,59.9
 202600,Whakatane West,JOHN LAUGHTON PLACE,Res,3 or less,5.0,
 202600,Whakatane West,LANDING ROAD,Res,3 or less,8.0,
 202600,Whakatane West,RATIMA PLACE,Res,3 or less,5.0,
@@ -16331,7 +16334,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 205000,Tokomaru,STATE HIGHWAY 35,Res,3 or less,4.0,
 205000,Tokomaru,TOA STREET,Res,3 or less,7.0,
 205000,Tokomaru,WAIAPU ROAD,Res,3 or less,6.0,
-205000,Tokomaru,WAIOTU ROAD,Res,3 or less,4.0,
+205000,Tokomaru,WAIOTU ROAD,Res,3 or less,5.0,
 205100,Hangaroa,BERRY ROAD,Res,3 or less,4.0,
 205100,Hangaroa,CAMPBELLS ROAD,Res,3 or less,3.3,
 205100,Hangaroa,HIHIROROA ROAD,Res,3 or less,5.0,
@@ -16710,7 +16713,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 208200,Maraekakaho,RAYS ROAD,Res,3 or less,10.7,
 208200,Maraekakaho,RIVERVIEW LANE,Res,3 or less,10.0,
 208200,Maraekakaho,SALISBURY ROAD,Res,3 or less,11.8,
-208200,Maraekakaho,STATE HIGHWAY 50,Res,8,6.1,48.5
+208200,Maraekakaho,STATE HIGHWAY 50,Res,7,5.8,40.5
 208200,Maraekakaho,TAIT ROAD,Res,3 or less,4.0,
 208200,Maraekakaho,TIKOKINO ROAD,Res,3 or less,30.0,
 208200,Maraekakaho,VALLEY ROAD,Res,3 or less,5.0,
@@ -17398,7 +17401,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 212200,Kahuranaki,HARPER ROAD,Res,6,6.2,37.0
 212200,Kahuranaki,KAHURANAKI ROAD,Res,15,9.3,139.3
 212200,Kahuranaki,KARAURIA RISE,Res,3 or less,1.9,
-212200,Kahuranaki,LIGHTNING RIDGE VIEW,Res,3 or less,7.3,
+212200,Kahuranaki,LIGHTNING RIDGE VIEW,Res,3 or less,7.0,
 212200,Kahuranaki,LOPEZ LANE,Res,3 or less,4.8,
 212200,Kahuranaki,MACKENZIE ROAD,Res,3 or less,3.3,
 212200,Kahuranaki,MARAETOTARA ROAD,Res,6,6.2,37.4
@@ -17756,7 +17759,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 214400,Greenmeadows South,GLOUCESTER STREET,Res,3 or less,3.8,
 214400,Greenmeadows South,GUPPY ROAD,Res,3 or less,4.5,
 214400,Greenmeadows South,HARRIS STREET,Res,3 or less,2.1,
-214400,Greenmeadows South,HASKELL PLACE,Res,3 or less,7.5,
+214400,Greenmeadows South,HASKELL PLACE,Res,3 or less,5.0,
 214400,Greenmeadows South,KENNEDY ROAD,Res,3 or less,5.0,
 214400,Greenmeadows South,LANNIE PLACE,Res,3 or less,5.0,
 214400,Greenmeadows South,MCKEEFRY AVENUE,Res,5,3.9,19.3
@@ -17776,7 +17779,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 214500,Nelson Park,MCDONALD STREET,Res,15,5.1,76.6
 214500,Nelson Park,NELSON CRESCENT,Res,3 or less,4.6,
 214500,Nelson Park,THISTLE STREET,Res,3 or less,6.0,
-214500,Nelson Park,VIGOR BROWN STREET,Res,7,8.1,56.8
+214500,Nelson Park,VIGOR BROWN STREET,Res,6,7.8,46.8
 214600,Bledisloe Park,BUCKSBURN PLACE,Res,3 or less,2.3,
 214600,Bledisloe Park,CHESTER PLACE,Res,3 or less,4.8,
 214600,Bledisloe Park,CHESTER STREET,Res,4,5.0,20.0
@@ -18326,7 +18329,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 217100,Marfell,OMATA ROAD,Res,3 or less,4.3,
 217100,Marfell,ORANGA STREET,Res,3 or less,4.0,
 217100,Marfell,WHAKAWHITI STREET,Res,3 or less,2.6,
-217200,Whalers Gate,BARRETT ROAD,Res,12,7.6,91.3
+217200,Whalers Gate,BARRETT ROAD,Res,11,7.8,85.3
 217200,Whalers Gate,BRONTE PLACE,Res,3 or less,7.5,
 217200,Whalers Gate,BYRON PLACE,Res,3 or less,12.6,
 217200,Whalers Gate,CYRUS STREET,Res,8,5.4,43.3
@@ -18397,7 +18400,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 217400,Westown,PEMBROKE STREET,Res,3 or less,5.0,
 217400,Westown,RUSKIN PLACE,Res,3 or less,5.0,
 217400,Westown,SANDERS AVENUE,Res,3 or less,4.8,
-217400,Westown,SEAVIEW ROAD,Res,4,5.5,22.0
+217400,Westown,SEAVIEW ROAD,Res,5,5.4,27.0
 217400,Westown,SEDDON STREET,Res,3 or less,6.0,
 217400,Westown,TRELAWNEY CRESCENT,Res,3 or less,3.6,
 217400,Westown,TUKAPA STREET,Res,7,5.1,35.9
@@ -18478,7 +18481,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 217800,Lower Vogeltown,BALLANCE STREET,Res,3 or less,5.7,
 217800,Lower Vogeltown,BLENHEIM PLACE,Res,3 or less,6.3,
 217800,Lower Vogeltown,BRIGHT WAY,Res,3 or less,8.0,
-217800,Lower Vogeltown,BROOKLANDS ROAD,Res,6,8.8,53.0
+217800,Lower Vogeltown,BROOKLANDS ROAD,Res,7,8.4,59.0
 217800,Lower Vogeltown,CAMDEN STREET,Res,3 or less,5.0,
 217800,Lower Vogeltown,CARRINGTON STREET,Res,5,7.1,35.3
 217800,Lower Vogeltown,DALE STREET,Res,3 or less,3.0,
@@ -18495,7 +18498,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 217800,Lower Vogeltown,SHORTLAND STREET,Res,3 or less,7.3,
 217800,Lower Vogeltown,SOMERSET STREET,Res,3 or less,5.3,
 217800,Lower Vogeltown,SYCAMORE GROVE,Res,4,7.2,29.0
-217800,Lower Vogeltown,VICTORIA ROAD,Res,4,5.7,22.7
+217800,Lower Vogeltown,VICTORIA ROAD,Res,5,5.8,29.1
 217900,Hurdon,ATUTAHI STREET,Res,3 or less,6.1,
 217900,Hurdon,CEDAR PLACE,Res,3 or less,9.9,
 217900,Hurdon,COWLING ROAD,Res,8,5.8,46.5
@@ -18756,7 +18759,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 219100,Mangorei,ALLAN ROAD,Res,3 or less,5.7,
 219100,Mangorei,ATKINSON ROAD,Res,3 or less,13.0,
 219100,Mangorei,BAKER ROAD,Res,3 or less,7.1,
-219100,Mangorei,BARRETT ROAD,Res,4,12.5,49.8
+219100,Mangorei,BARRETT ROAD,Res,3 or less,11.6,
 219100,Mangorei,CARRINGTON ROAD,Res,19,7.4,140.1
 219100,Mangorei,CARRINGTON STREET,Res,3 or less,8.0,
 219100,Mangorei,FRANKLEY ROAD,Res,5,8.3,41.6
@@ -19056,6 +19059,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 221000,Eltham,CONWAY ROAD,Res,3 or less,6.3,
 221000,Eltham,DERBY STREET,Res,3 or less,4.6,
 221000,Eltham,HIGH STREET,Res,5,5.3,26.4
+221000,Eltham,HILL STREET,Res,3 or less,22.5,
 221000,Eltham,JULIAN STREET,Res,3 or less,13.0,
 221000,Eltham,KEGWORTH STREET,Res,3 or less,3.7,
 221000,Eltham,LONDON STREET,Res,4,4.8,19.3
@@ -19203,7 +19207,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 221900,Hawera Central,MILMOE STREET,Res,3 or less,5.0,
 221900,Hawera Central,PRINCES STREET,Res,3 or less,6.0,
 221900,Hawera Central,SCHOOL LANE,Res,3 or less,5.0,
-221900,Hawera Central,SOUTH ROAD,Res,4,5.9,23.5
+221900,Hawera Central,SOUTH ROAD,Res,3 or less,4.5,
 221900,Hawera Central,SURREY STREET,Res,3 or less,3.0,
 221900,Hawera Central,VICTORIA STREET,Res,6,3.7,22.5
 221900,Hawera Central,VOGEL STREET,Res,5,5.3,26.5
@@ -19425,7 +19429,6 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 223800,Castlecliff East,MOSSTON ROAD,Res,6,7.4,44.3
 223800,Castlecliff East,POLSON STREET,Res,3 or less,3.7,
 223800,Castlecliff East,THATCHER STREET,Res,3 or less,7.0,
-223900,Springvale North,BUXTON ROAD,Res,3 or less,8.0,
 223900,Springvale North,CAVERSHAM ROAD,Res,3 or less,5.2,
 223900,Springvale North,CHESTER ROAD,Res,3 or less,5.0,
 223900,Springvale North,HEREFORD STREET,Res,3 or less,9.6,
@@ -19630,7 +19633,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 225600,Kaitoke-Fordell,NO 3 LINE,Res,4,6.8,27.2
 225600,Kaitoke-Fordell,RIVERBANK ROAD,Res,3 or less,6.2,
 225600,Kaitoke-Fordell,STATE HIGHWAY 3,Res,3 or less,5.5,
-225600,Kaitoke-Fordell,UNION LINE,Res,6,8.2,48.9
+225600,Kaitoke-Fordell,UNION LINE,Res,7,10.3,71.9
 225600,Kaitoke-Fordell,WAIKUPA ROAD,Res,4,10.7,42.7
 225600,Kaitoke-Fordell,WAKEFIELD STREET,Res,3 or less,4.6,
 225700,Whanganui Central,COLLEGE STREET,Res,3 or less,10.0,
@@ -19676,7 +19679,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 226000,Putiki,CRACROFT DRIVE,Res,7,8.0,55.7
 226000,Putiki,LANDGUARD ROAD,Res,3 or less,8.1,
 226000,Putiki,MARIONS WAY,Res,3 or less,20.0,
-226000,Putiki,MARYBANK ROAD,Res,4,10.0,39.9
+226000,Putiki,MARYBANK ROAD,Res,3 or less,8.3,
 226000,Putiki,NEPIA ROAD,Res,3 or less,5.0,
 226000,Putiki,ONETERE DRIVE,Res,3 or less,7.0,
 226000,Putiki,PUTIKI DRIVE,Res,3 or less,5.0,
@@ -19741,7 +19744,6 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 226500,Taihape,THRUSH STREET,Res,3 or less,5.0,
 226500,Taihape,WREN STREET,Res,3 or less,6.0,
 226600,Marton Rural,CALICO LINE,Res,3 or less,6.7,
-226600,Marton Rural,FERN FLATS ROAD,Res,3 or less,5.0,
 226600,Marton Rural,HENDERSONS LINE,Res,3 or less,5.0,
 226600,Marton Rural,KAKARIKI ROAD,Res,3 or less,7.9,
 226600,Marton Rural,KILKERN ROAD,Res,3 or less,10.0,
@@ -19751,7 +19753,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 226600,Marton Rural,PUKEPAPA ROAD,Res,3 or less,4.6,
 226600,Marton Rural,SNELLGROVE ROAD,Res,3 or less,3.5,
 226600,Marton Rural,STATE HIGHWAY 1,Res,3 or less,6.5,
-226600,Marton Rural,UNION LINE,Res,3 or less,4.6,
+226600,Marton Rural,UNION LINE,Res,3 or less,5.7,
 226600,Marton Rural,WAIMUTU ROAD,Res,3 or less,20.0,
 226700,Marton North,AHURU STREET,Res,3 or less,3.1,
 226700,Marton North,ARMAGH TERRACE,Res,4,4.5,17.9
@@ -19974,7 +19976,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 227700,Mount Taylor,HIGHFIELD ROAD,Res,3 or less,9.1,
 227700,Mount Taylor,MAEWA ROAD,Res,3 or less,1.5,
 227700,Mount Taylor,MALLARD AVENUE,Res,3 or less,10.0,
-227700,Mount Taylor,MOUNT TAYLOR DRIVE,Res,8,7.4,59.1
+227700,Mount Taylor,MOUNT TAYLOR DRIVE,Res,9,8.2,74.1
 227700,Mount Taylor,PARADISE AVENUE,Res,3 or less,3.0,
 227700,Mount Taylor,PHEASANT LANE,Res,3 or less,15.0,
 227700,Mount Taylor,QUAIL AVENUE,Res,3 or less,4.6,
@@ -20189,7 +20191,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 228800,Newbury,WALKERS ROAD,Res,3 or less,12.5,
 228800,Newbury,WAUGHS ROAD,Res,3 or less,9.1,
 228900,Palmerston North Airport,LEANDER PLACE,Res,3 or less,5.0,
-228900,Palmerston North Airport,MADISON AVENUE,Res,3 or less,6.6,
+228900,Palmerston North Airport,MADISON AVENUE,Res,3 or less,8.4,
 228900,Palmerston North Airport,THE CUTTING WAY,Res,3 or less,44.9,
 229000,Milson North,ABRAHAM CRESCENT,Res,3 or less,5.5,
 229000,Milson North,AIRPORT DRIVE,Res,3 or less,3.7,
@@ -20325,7 +20327,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 229900,Highbury East,MURPHY COURT,Res,3 or less,4.6,
 229900,Highbury East,PEMBROKE STREET,Res,3 or less,4.0,
 229900,Highbury East,RONBERG STREET,Res,3 or less,6.5,
-230000,Park West,AMBERLEY AVENUE,Res,5,3.6,18.0
+230000,Park West,AMBERLEY AVENUE,Res,6,4.0,24.0
 230000,Park West,ASHTON PLACE,Res,3 or less,3.7,
 230000,Park West,BATON PLACE,Res,3 or less,5.3,
 230000,Park West,BROOKSIDE CLOSE,Res,3 or less,3.7,
@@ -20541,6 +20543,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 231400,Milverton,FERGUSON STREET,Res,3 or less,3.8,
 231400,Milverton,FITZHERBERT AVENUE,Res,3 or less,21.0,
 231400,Milverton,KARAKA STREET,Res,3 or less,5.9,
+231400,Milverton,KENSINGTON MEWS,Res,3 or less,8.1,
 231400,Milverton,MARNE STREET,Res,3 or less,5.6,
 231400,Milverton,MILVERTON AVENUE,Res,3 or less,3.5,
 231400,Milverton,PHOENIX AVENUE,Res,3 or less,8.7,
@@ -20603,7 +20606,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 231800,Hokowhitu East,NEWCASTLE STREET,Res,3 or less,5.7,
 231800,Hokowhitu East,PAHIATUA STREET,Res,3 or less,10.4,
 231800,Hokowhitu East,RIDGEVIEW ROAD,Res,3 or less,8.7,
-231800,Hokowhitu East,RUAHINE STREET,Res,6,5.4,32.3
+231800,Hokowhitu East,RUAHINE STREET,Res,7,5.5,38.3
 231800,Hokowhitu East,SALISBURY AVENUE,Res,3 or less,6.4,
 231800,Hokowhitu East,ST ALBANS AVENUE,Res,3 or less,3.2,
 231800,Hokowhitu East,STEWART CRESCENT,Res,3 or less,3.7,
@@ -20672,7 +20675,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 232400,Aokautere,PAHIATUA AOKAUTERE ROAD,Res,3 or less,3.5,
 232400,Aokautere,PETERSENS ROAD,Res,3 or less,8.0,
 232400,Aokautere,PHEASANT LANE,Res,5,4.8,23.8
-232400,Aokautere,POLSON HILL DRIVE,Res,10,11.0,109.9
+232400,Aokautere,POLSON HILL DRIVE,Res,11,11.1,121.9
 232400,Aokautere,STACES ROAD,Res,3 or less,4.7,
 232400,Aokautere,THE BUSH TRACK,Res,3 or less,5.8,
 232400,Aokautere,TITIRANGI DRIVE,Res,3 or less,3.7,
@@ -20982,7 +20985,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 234400,Waitarere,PAEROA ROAD,Res,3 or less,5.7,
 234400,Waitarere,PARK AVENUE,Res,3 or less,5.6,
 234400,Waitarere,RANGITANE GROVE,Res,3 or less,14.2,
-234400,Waitarere,ROMA WAY,Res,3 or less,10.2,
+234400,Waitarere,ROMA WAY,Res,3 or less,8.1,
 234400,Waitarere,ROSLYN ROAD,Res,3 or less,7.3,
 234400,Waitarere,RUA AVENUE,Res,3 or less,8.4,
 234400,Waitarere,SORENSONS ROAD,Res,3 or less,3.6,
@@ -21433,7 +21436,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 237000,Paraparaumu Beach North,KAKAPO COURT,Res,3 or less,6.4,
 237000,Paraparaumu Beach North,KOTUKU DRIVE,Res,6,8.4,50.5
 237000,Paraparaumu Beach North,MAHANA ROAD,Res,3 or less,5.0,
-237000,Paraparaumu Beach North,MANLY STREET,Res,16,5.8,92.3
+237000,Paraparaumu Beach North,MANLY STREET,Res,15,5.6,84.7
 237000,Paraparaumu Beach North,MARTIN ROAD,Res,4,4.9,19.7
 237000,Paraparaumu Beach North,MATUKU PLACE,Res,3 or less,10.0,
 237000,Paraparaumu Beach North,MAZENGARB ROAD,Res,3 or less,5.0,
@@ -21540,7 +21543,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 237400,Otaihanga,KING ARTHUR DRIVE,Res,5,8.9,44.3
 237400,Otaihanga,MAKORA ROAD,Res,8,5.8,46.4
 237400,Otaihanga,MERLIN COURT,Res,3 or less,1.3,
-237400,Otaihanga,OTAIHANGA ROAD,Res,6,6.2,37.2
+237400,Otaihanga,OTAIHANGA ROAD,Res,5,5.6,28.0
 237400,Otaihanga,PITOITOI STREET,Res,3 or less,11.7,
 237400,Otaihanga,RATANUI ROAD,Res,3 or less,10.0,
 237400,Otaihanga,RURU ROAD,Res,3 or less,5.0,
@@ -21953,6 +21956,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 239400,Pauatahanui,MOONSHINE ROAD,Res,3 or less,7.6,
 239400,Pauatahanui,MULHERN ROAD,Res,3 or less,6.0,
 239400,Pauatahanui,MURPHYS ROAD,Res,5,8.8,44.1
+239400,Pauatahanui,OAKUM ROAD,Res,3 or less,10.0,
 239400,Pauatahanui,PAEKAKARIKI HILL ROAD,Res,7,6.7,46.6
 239400,Pauatahanui,PAREMATA HAYWARDS ROAD,Res,3 or less,8.0,
 239500,Onepoto,BRIAN PLACE,Res,3 or less,5.0,
@@ -22824,7 +22828,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 245900,Delaney,POPPY WATTS GROVE,Res,3 or less,3.9,
 245900,Delaney,RAUKAWA STREET,Res,3 or less,6.0,
 245900,Delaney,SHACKLETON GROVE,Res,3 or less,4.7,
-245900,Delaney,STOKES VALLEY ROAD,Res,5,5.3,26.6
+245900,Delaney,STOKES VALLEY ROAD,Res,6,5.8,34.6
 245900,Delaney,THOMSON GROVE,Res,3 or less,3.6,
 246000,Waiwhetu,ATIAWA CRESCENT,Res,3 or less,4.8,
 246000,Waiwhetu,AWAMUTU GROVE,Res,3 or less,6.0,
@@ -22933,7 +22937,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 246800,Pencarrow,COAST ROAD,Res,3 or less,5.9,
 246800,Pencarrow,MOORES VALLEY ROAD,Res,3 or less,3.4,
 246900,Wainuiomata West,BRIAN MORGAN TERRACE,Res,3 or less,4.6,
-246900,Wainuiomata West,GROVEDALE SQUARE,Res,3 or less,4.6,
+246900,Wainuiomata West,GROVEDALE SQUARE,Res,3 or less,5.7,
 246900,Wainuiomata West,HARRY MARTIN LANE,Res,3 or less,4.6,
 246900,Wainuiomata West,HILLVIEW RISE,Res,3 or less,6.0,
 246900,Wainuiomata West,KAIRANGA CRESCENT,Res,3 or less,4.4,
@@ -23520,7 +23524,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 250400,Karori South,WOODHOUSE AVENUE,Res,3 or less,3.3,
 250400,Karori South,WRIGHTS HILL ROAD,Res,3 or less,15.0,
 250500,Onslow,AMRITSAR STREET,Res,3 or less,11.5,
-250500,Onslow,HOMEBUSH ROAD,Res,3 or less,9.0,
+250500,Onslow,HOMEBUSH ROAD,Res,3 or less,3.5,
 250500,Onslow,LAKSHMI PLACE,Res,3 or less,3.0,
 250500,Onslow,LOHIA STREET,Res,4,4.7,18.8
 250500,Onslow,MANDALAY TERRACE,Res,3 or less,3.0,
@@ -23616,7 +23620,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 251500,Brooklyn North,ASHTON FITCHETT DRIVE,Res,7,4.0,27.9
 251500,Brooklyn North,DURHAM STREET,Res,3 or less,5.0,
 251500,Brooklyn North,HELEN STREET,Res,3 or less,7.5,
-251500,Brooklyn North,KAREPA STREET,Res,4,6.4,25.6
+251500,Brooklyn North,KAREPA STREET,Res,5,6.8,33.8
 251500,Brooklyn North,LAURA AVENUE,Res,3 or less,2.3,
 251500,Brooklyn North,MITCHELL STREET,Res,3 or less,5.0,
 251500,Brooklyn North,MONTEITH GROVE,Res,4,4.9,19.6
@@ -23651,7 +23655,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 252000,Mount Cook West,SALISBURY AVENUE,Res,3 or less,5.0,
 252000,Mount Cook West,THOMPSON GROVE,Res,3 or less,6.0,
 252000,Mount Cook West,WALLACE STREET,Res,3 or less,5.0,
-252000,Mount Cook West,WRIGHT STREET,Res,4,4.6,18.2
+252000,Mount Cook West,WRIGHT STREET,Res,5,5.6,28.2
 252100,Vivian East,FREDERICK STREET,Res,3 or less,10.0,
 252200,Brooklyn South,KOPIKO WAY,Res,3 or less,3.8,
 252200,Brooklyn South,MITCHELL STREET,Res,3 or less,5.5,
@@ -23910,6 +23914,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 254700,Houghton Bay,VIEW ROAD,Res,3 or less,5.0,
 254800,Miramar East,ASHLEIGH CRESCENT,Res,3 or less,1.4,
 254800,Miramar East,ATHENS STREET,Res,3 or less,6.0,
+254800,Miramar East,BARRETTS WAY,Res,3 or less,8.0,
 254800,Miramar East,DARLINGTON ROAD,Res,6,3.7,22.5
 254800,Miramar East,GREENVIEW WAY,Res,3 or less,8.0,
 254800,Miramar East,MADISON PLACE,Res,3 or less,8.0,
@@ -24294,7 +24299,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 257000,Kokotau,WOODLANDS ROAD,Res,3 or less,10.6,
 257100,Carterton South,ASHMORE PARK ROAD,Res,3 or less,6.0,
 257100,Carterton South,BROOKLYN ROAD,Res,9,5.3,47.8
-257100,Carterton South,CHARLES STREET,Res,3 or less,2.6,
+257100,Carterton South,CHARLES STREET,Res,4,4.3,17.3
 257100,Carterton South,CLIFTON AVENUE,Res,7,8.2,57.2
 257100,Carterton South,COSTLEY STREET,Res,11,5.8,64.1
 257100,Carterton South,DANSKE CLOSE,Res,3 or less,4.2,
@@ -24520,7 +24525,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 257900,Martinborough,FRENCH STREET,Res,3 or less,3.9,
 257900,Martinborough,GREENAWAY PLACE,Res,3 or less,15.0,
 257900,Martinborough,GREY STREET,Res,11,5.9,65.2
-257900,Martinborough,HAWKINS DRIVE,Res,4,3.8,15.3
+257900,Martinborough,HAWKINS DRIVE,Res,5,5.1,25.3
 257900,Martinborough,JELLICOE STREET,Res,4,6.3,25.0
 257900,Martinborough,KITCHENER STREET,Res,5,7.8,38.8
 257900,Martinborough,MALCOLM STREET,Res,3 or less,6.0,
@@ -24886,7 +24891,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 301600,Moutere Hills,MOUTERE HIGHWAY,Res,10,7.0,70.1
 301600,Moutere Hills,NILE ROAD,Res,3 or less,8.0,
 301600,Moutere Hills,NUTTALL ROAD,Res,3 or less,5.7,
-301600,Moutere Hills,OLD COACH ROAD,Res,21,9.1,191.4
+301600,Moutere Hills,OLD COACH ROAD,Res,22,8.9,195.4
 301600,Moutere Hills,PERMIN ROAD,Res,3 or less,3.0,
 301600,Moutere Hills,PETRA WAY,Res,9,9.8,88.4
 301600,Moutere Hills,PUKEKO LANE,Res,3 or less,6.7,
@@ -25058,7 +25063,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 302400,Richmond West (Tasman District),MALONE CRESCENT,Res,5,5.8,29.0
 302400,Richmond West (Tasman District),MCSHANE ROAD,Res,3 or less,9.8,
 302400,Richmond West (Tasman District),MIDLANE CRESCENT,Res,4,4.5,18.0
-302400,Richmond West (Tasman District),OAKDALE GROVE,Res,4,4.9,19.4
+302400,Richmond West (Tasman District),OAKDALE GROVE,Res,5,5.9,29.4
 302400,Richmond West (Tasman District),OAKLEY LANE,Res,4,6.2,24.6
 302400,Richmond West (Tasman District),RUBUS STREET,Res,4,5.8,23.3
 302400,Richmond West (Tasman District),SUMMERSFIELD BOULEVARD,Res,12,7.2,86.8
@@ -25192,7 +25197,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 303100,Wilkes Park,LEDGER CLOSE,Res,3 or less,5.0,
 303100,Wilkes Park,MIDDLEBANK DRIVE,Res,3 or less,8.3,
 303100,Wilkes Park,OLYMPUS WAY,Res,6,5.4,32.2
-303100,Wilkes Park,ROCHFORT DRIVE,Res,3 or less,5.4,
+303100,Wilkes Park,ROCHFORT DRIVE,Res,3 or less,4.1,
 303100,Wilkes Park,ROSEVALE PLACE,Res,3 or less,4.5,
 303100,Wilkes Park,SHEARER TERRACE,Res,4,7.1,28.2
 303100,Wilkes Park,SQUIRE WAY,Res,3 or less,4.0,
@@ -25345,7 +25350,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 304100,Tahunanui,OTTERSON STREET,Res,3 or less,1.5,
 304100,Tahunanui,PARKERS ROAD,Res,3 or less,3.3,
 304100,Tahunanui,PENTON WAY,Res,3 or less,5.0,
-304100,Tahunanui,RAWHITI STREET,Res,3 or less,7.3,
+304100,Tahunanui,RAWHITI STREET,Res,3 or less,6.9,
 304100,Tahunanui,ROTO STREET,Res,4,4.0,15.9
 304100,Tahunanui,RUI STREET,Res,3 or less,3.5,
 304200,Britannia,ALBERT ROAD,Res,3 or less,5.7,
@@ -25380,7 +25385,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 304300,Atawhai,DAVIES DRIVE,Res,9,5.8,52.5
 304300,Atawhai,DEVENISH PLACE,Res,4,4.9,19.5
 304300,Atawhai,DODSON VALLEY ROAD,Res,20,4.2,83.3
-304300,Atawhai,FARLEIGH STREET,Res,4,5.7,22.6
+304300,Atawhai,FARLEIGH STREET,Res,3 or less,4.9,
 304300,Atawhai,FRENCHAY DRIVE,Res,4,4.6,18.6
 304300,Atawhai,GIPPS STREET,Res,3 or less,4.0,
 304300,Atawhai,HAVENVIEW,Res,5,7.1,35.6
@@ -25818,7 +25823,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 306300,Marlborough Sounds West,KAREPA CRESCENT,Res,3 or less,8.0,
 306300,Marlborough Sounds West,KAVANAGH PLACE,Res,3 or less,7.7,
 306300,Marlborough Sounds West,LAWRENCE STREET,Res,3 or less,5.0,
-306300,Marlborough Sounds West,MAIN ROAD,Res,5,6.0,30.0
+306300,Marlborough Sounds West,MAIN ROAD,Res,4,5.5,22.0
 306300,Marlborough Sounds West,MATAI STREET,Res,3 or less,8.0,
 306300,Marlborough Sounds West,MCLEAN DRIVE,Res,3 or less,4.0,
 306300,Marlborough Sounds West,NICHOLSON STREET,Res,3 or less,5.1,
@@ -25909,7 +25914,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 306700,Waikawa (Marlborough District),MOANA VIEW ROAD,Res,7,5.4,38.1
 306700,Waikawa (Marlborough District),NAUTIQUE PLACE,Res,3 or less,5.0,
 306700,Waikawa (Marlborough District),PUKEKO PLACE,Res,3 or less,5.0,
-306700,Waikawa (Marlborough District),RIMU TERRACE,Res,3 or less,4.6,
+306700,Waikawa (Marlborough District),RIMU TERRACE,Res,3 or less,4.8,
 306700,Waikawa (Marlborough District),ROHE DRIVE,Res,3 or less,3.8,
 306700,Waikawa (Marlborough District),TUI DRIVE,Res,3 or less,6.3,
 306700,Waikawa (Marlborough District),WAIKAWA ROAD,Res,12,5.3,63.5
@@ -26926,7 +26931,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 313300,Starvation Hill-Cust,KENNEDYS HILL ROAD,Res,6,4.8,28.8
 313300,Starvation Hill-Cust,LESLIES ROAD,Res,3 or less,6.9,
 313300,Starvation Hill-Cust,LILLY ROAD,Res,4,12.3,49.0
-313300,Starvation Hill-Cust,MAIRAKI ROAD,Res,6,7.5,45.0
+313300,Starvation Hill-Cust,MAIRAKI ROAD,Res,7,7.9,55.0
 313300,Starvation Hill-Cust,MCINTOSHS ROAD,Res,3 or less,10.0,
 313300,Starvation Hill-Cust,MCJARROWS ROAD,Res,3 or less,4.4,
 313300,Starvation Hill-Cust,MT THOMAS ROAD,Res,11,10.1,110.9
@@ -27422,7 +27427,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 315300,Woodend,HEWITTS ROAD,Res,3 or less,4.3,
 315300,Woodend,HURIA LANE,Res,3 or less,5.5,
 315300,Woodend,JAMES DRIVE,Res,3 or less,4.9,
-315300,Woodend,JUDSONS ROAD,Res,3 or less,1.8,
+315300,Woodend,JUDSONS ROAD,Res,3 or less,3.7,
 315300,Woodend,LACY GATE PLACE,Res,3 or less,4.0,
 315300,Woodend,LITTLES LANE,Res,3 or less,3.3,
 315300,Woodend,MAIN NORTH ROAD,Res,7,3.6,25.0
@@ -27555,7 +27560,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 315600,Pegasus Bay,STALKERS ROAD,Res,3 or less,5.0,
 315600,Pegasus Bay,WOODEND BEACH ROAD,Res,3 or less,6.7,
 315700,Kaiapoi North West,BRACEBRIDGE STREET,Res,3 or less,9.0,
-315700,Kaiapoi North West,CAM ROAD,Res,3 or less,5.0,
+315700,Kaiapoi North West,CAM ROAD,Res,4,6.3,25.0
 315700,Kaiapoi North West,CHARLES STREET,Res,4,4.9,19.6
 315700,Kaiapoi North West,COUPS TERRACE,Res,3 or less,5.0,
 315700,Kaiapoi North West,CRIDLAND STREET EAST,Res,3 or less,5.0,
@@ -27840,7 +27845,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 317400,Northwood,CAROLINE WAY,Res,3 or less,7.0,
 317400,Northwood,CROMBIE GREEN,Res,3 or less,7.7,
 317400,Northwood,ENGLEFIELD ROAD,Res,3 or less,20.0,
-317400,Northwood,GLEN OAKS DRIVE,Res,3 or less,11.0,
+317400,Northwood,GLEN OAKS DRIVE,Res,3 or less,10.5,
 317400,Northwood,HATTON COURT,Res,5,6.8,33.8
 317400,Northwood,HENLEY GREEN,Res,3 or less,8.0,
 317400,Northwood,HUSSEY ROAD,Res,3 or less,10.0,
@@ -27996,7 +28001,6 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 318000,Bishopdale West,VAUXHALL STREET,Res,3 or less,3.0,
 318000,Bishopdale West,WAIRAKEI ROAD,Res,3 or less,4.0,
 318000,Bishopdale West,WILTON CRESCENT,Res,3 or less,5.0,
-318100,Templeton,BICKNOR STREET,Res,3 or less,6.0,
 318100,Templeton,BLOSSOM LADY LANE,Res,3 or less,6.7,
 318100,Templeton,COLCHESTER PLACE,Res,3 or less,5.0,
 318100,Templeton,GLOBE BAY DRIVE,Res,3 or less,5.5,
@@ -28485,7 +28489,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 321300,Prestons,TAIORE CRESCENT,Res,3 or less,4.0,
 321300,Prestons,TE AIKA STREET,Res,3 or less,10.0,
 321300,Prestons,TE KEREME STREET,Res,3 or less,5.0,
-321300,Prestons,TE KORARI STREET,Res,6,10.8,65.0
+321300,Prestons,TE KORARI STREET,Res,7,10.7,74.8
 321300,Prestons,TE RAU A KAKA STREET,Res,3 or less,6.2,
 321300,Prestons,TE RITO STREET,Res,15,4.7,71.1
 321300,Prestons,TE WHARIKI STREET,Res,3 or less,6.0,
@@ -28679,7 +28683,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 322600,Holmwood,CLIFFORD AVENUE,Res,5,5.9,29.4
 322600,Holmwood,DESMOND STREET,Res,3 or less,8.0,
 322600,Holmwood,FENDALL LANE,Res,3 or less,10.0,
-322600,Holmwood,FENDALTON ROAD,Res,3 or less,7.0,
+322600,Holmwood,FENDALTON ROAD,Res,3 or less,8.1,
 322600,Holmwood,FULTON AVENUE,Res,3 or less,5.0,
 322600,Holmwood,GARDEN ROAD,Res,3 or less,5.8,
 322600,Holmwood,GLANDOVEY ROAD,Res,3 or less,7.0,
@@ -29055,6 +29059,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 324800,St Albans East,SPRINGFIELD ROAD,Res,3 or less,5.0,
 325000,Hillmorton,BENJAMIN MOUNTFORD CLOSE,Res,3 or less,5.0,
 325000,Hillmorton,BIDWELL PLACE,Res,3 or less,5.0,
+325000,Hillmorton,CARDIGAN BAY PLACE,Res,3 or less,10.0,
 325000,Hillmorton,DAVE JAMIESON LANE,Res,3 or less,5.0,
 325000,Hillmorton,GRIGG PLACE,Res,3 or less,5.0,
 325000,Hillmorton,HALSWELL ROAD,Res,3 or less,3.5,
@@ -29622,7 +29627,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 329000,Kennedys Bush,COE STREET,Res,3 or less,5.0,
 329000,Kennedys Bush,COMER STREET,Res,3 or less,5.0,
 329000,Kennedys Bush,CORGWYN AVENUE,Res,3 or less,11.7,
-329000,Kennedys Bush,DRAY PLACE,Res,3 or less,7.5,
+329000,Kennedys Bush,DRAY PLACE,Res,3 or less,8.3,
 329000,Kennedys Bush,EARLY VALLEY ROAD,Res,3 or less,4.0,
 329000,Kennedys Bush,EASTMAN DRIVE,Res,6,6.0,36.0
 329000,Kennedys Bush,ECCLES PLACE,Res,3 or less,7.5,
@@ -29808,7 +29813,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 330000,Westmorland,BETTY ROBERTS LANE,Res,3 or less,8.0,
 330000,Westmorland,CALDBECK LANE,Res,3 or less,5.0,
 330000,Westmorland,CALDBERG CLOSE,Res,4,5.4,21.6
-330000,Westmorland,CAREX RISE,Res,9,9.5,85.2
+330000,Westmorland,CAREX RISE,Res,9,9.2,83.2
 330000,Westmorland,CARO LANE,Res,3 or less,8.3,
 330000,Westmorland,CASHMERE ROAD,Res,6,6.5,39.0
 330000,Westmorland,CHALONER LANE,Res,3 or less,6.3,
@@ -29858,7 +29863,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 330100,Woolston North,GOW PLACE,Res,3 or less,5.3,
 330100,Woolston North,HARGOOD STREET,Res,3 or less,4.3,
 330100,Woolston North,ISLAY PLACE,Res,3 or less,5.0,
-330100,Woolston North,MACKWORTH STREET,Res,7,4.0,28.0
+330100,Woolston North,MACKWORTH STREET,Res,8,4.1,33.0
 330100,Woolston North,MARCROFT STREET,Res,3 or less,2.2,
 330100,Woolston North,MATLOCK STREET,Res,3 or less,3.5,
 330100,Woolston North,PIONEER LANE,Res,3 or less,6.0,
@@ -30302,7 +30307,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 332500,Lyttelton,CROSSLAND TERRACE,Res,3 or less,8.0,
 332500,Lyttelton,CUNNINGHAM TERRACE,Res,3 or less,10.0,
 332500,Lyttelton,DALLEYS LANE,Res,3 or less,6.0,
-332500,Lyttelton,DAYS ROAD,Res,3 or less,7.5,
+332500,Lyttelton,DAYS ROAD,Res,3 or less,10.0,
 332500,Lyttelton,DUBLIN STREET,Res,3 or less,6.0,
 332500,Lyttelton,EXETER STREET,Res,3 or less,10.0,
 332500,Lyttelton,FOSTER TERRACE,Res,7,5.3,36.9
@@ -30980,7 +30985,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 335500,Rolleston South East,DYNES ROAD,Res,3 or less,5.7,
 335500,Rolleston South East,EAST MADDISONS ROAD,Res,3 or less,8.0,
 335500,Rolleston South East,EASTONFIELD DRIVE,Res,3 or less,5.0,
-335500,Rolleston South East,ED HILLARY DRIVE,Res,8,7.5,60.0
+335500,Rolleston South East,ED HILLARY DRIVE,Res,9,7.6,68.6
 335500,Rolleston South East,ELEONORA LANE,Res,3 or less,5.0,
 335500,Rolleston South East,EVERSHAM DRIVE,Res,4,2.3,9.0
 335500,Rolleston South East,EYAS DRIVE,Res,3 or less,9.6,
@@ -31036,6 +31041,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 335500,Rolleston South East,PALMER AVENUE,Res,3 or less,10.5,
 335500,Rolleston South East,PEREGRINE CRESCENT,Res,3 or less,5.5,
 335500,Rolleston South East,PHILIPPA DRIVE,Res,3 or less,6.0,
+335500,Rolleston South East,POWER PLACE,Res,3 or less,8.9,
 335500,Rolleston South East,RADCOT DRIVE,Res,3 or less,6.7,
 335500,Rolleston South East,RAPERE STREET,Res,3 or less,4.0,
 335500,Rolleston South East,RAPTOR STREET,Res,4,6.8,27.0
@@ -31048,7 +31054,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 335500,Rolleston South East,SANDHILL DRIVE,Res,3 or less,5.9,
 335500,Rolleston South East,SANDHURST DRIVE,Res,6,6.8,40.8
 335500,Rolleston South East,SECKLES LANE,Res,3 or less,9.0,
-335500,Rolleston South East,SELWYN ROAD,Res,5,5.9,29.5
+335500,Rolleston South East,SELWYN ROAD,Res,6,6.1,36.7
 335500,Rolleston South East,SHILLINGFORD BOULEVARD,Res,13,5.6,72.3
 335500,Rolleston South East,SILVERSTONE LOOP,Res,3 or less,8.3,
 335500,Rolleston South East,SOAR TERRACE,Res,3 or less,5.5,
@@ -31251,7 +31257,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 336000,Lincoln West,SOUTHFIELD DRIVE,Res,9,6.0,53.9
 336000,Lincoln West,TABOR PLACE,Res,3 or less,6.8,
 336000,Lincoln West,TAUHINU AVENUE,Res,9,5.4,48.8
-336000,Lincoln West,TE RAKI DRIVE,Res,12,7.1,85.6
+336000,Lincoln West,TE RAKI DRIVE,Res,13,7.3,94.6
 336000,Lincoln West,TE WAIKARE STREET,Res,4,7.3,29.0
 336000,Lincoln West,TRAINOR STREET,Res,4,7.4,29.5
 336000,Lincoln West,TURI PLACE,Res,3 or less,6.0,
@@ -31818,7 +31824,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 339200,Pleasant Point,MEADOWLINKS LANE,Res,3 or less,5.0,
 339200,Pleasant Point,RIMU STREET,Res,3 or less,5.0,
 339200,Pleasant Point,TE NGAWAI ROAD,Res,3 or less,10.0,
-339200,Pleasant Point,TENGAWAI ROAD,Res,5,5.9,29.4
+339200,Pleasant Point,TENGAWAI ROAD,Res,4,5.8,23.4
 339200,Pleasant Point,TOTARA STREET,Res,3 or less,10.0,
 339300,Temuka West,ALLNATT STREET,Res,3 or less,4.5,
 339300,Temuka West,ANDREWVILLE LANE,Res,3 or less,4.6,
@@ -32077,7 +32083,6 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 340700,Fraser Park,RAYMOND STREET,Res,3 or less,4.6,
 340700,Fraser Park,REGENT STREET,Res,3 or less,6.0,
 340700,Fraser Park,SHERRATT STREET,Res,3 or less,6.0,
-340700,Fraser Park,THOMAS STREET,Res,3 or less,5.0,
 340700,Fraser Park,WAI-ITI ROAD,Res,3 or less,3.4,
 340700,Fraser Park,WILSON STREET,Res,3 or less,5.0,
 340800,Seaview,ARTHUR STREET,Res,4,7.0,28.0
@@ -32315,7 +32320,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 342700,Waimate West,MILL ROAD,Res,3 or less,3.0,
 342700,Waimate West,MORTIMER STREET,Res,3 or less,5.0,
 342700,Waimate West,NAYLOR STREET,Res,3 or less,5.0,
-342700,Waimate West,OPIE STREET,Res,3 or less,7.5,
+342700,Waimate West,OPIE STREET,Res,3 or less,5.0,
 342800,Waimate East,AUGUSTINE STREET,Res,4,4.9,19.6
 342800,Waimate East,CAMERON STREET,Res,3 or less,2.0,
 342800,Waimate East,CARLISLE STREET,Res,3 or less,5.0,
@@ -32590,7 +32595,6 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 344700,Palmerston,GILLIGAN STREET,Res,3 or less,10.0,
 344700,Palmerston,HORSE RANGE ROAD,Res,3 or less,5.0,
 344700,Palmerston,MULL STREET,Res,3 or less,2.0,
-344700,Palmerston,RONALDSAY STREET,Res,3 or less,10.0,
 344700,Palmerston,RUNBRAKE STREET,Res,3 or less,5.0,
 344700,Palmerston,STOUR STREET,Res,3 or less,5.0,
 344700,Palmerston,TAIERI PEAK ROAD,Res,3 or less,6.0,
@@ -33076,7 +33080,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 346200,Outer Wakatipu,VISTA TERRACE,Res,3 or less,5.0,
 346400,Cardrona,ATKINS ROAD,Res,3 or less,8.8,
 346400,Cardrona,BALLANTYNE ROAD,Res,10,6.9,69.2
-346400,Cardrona,BLACK PEAK ROAD,Res,3 or less,4.4,
+346400,Cardrona,BLACK PEAK ROAD,Res,4,4.2,17.0
 346400,Cardrona,BUCHANAN RISE,Res,3 or less,5.0,
 346400,Cardrona,CARDRONA VALLEY ROAD,Res,5,6.2,31.1
 346400,Cardrona,FAULKS ROAD,Res,5,5.2,26.0
@@ -33977,12 +33981,12 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 349400,Taieri,SCHOOL ROAD SOUTH,Res,3 or less,4.7,
 349400,Taieri,SNOWDON STREET,Res,3 or less,2.3,
 349400,Taieri,TAIOMA ROAD,Res,3 or less,8.8,
-349400,Taieri,TARA HILLS DRIVE,Res,3 or less,10.0,
+349400,Taieri,TARA HILLS DRIVE,Res,3 or less,8.2,
 349400,Taieri,THREE MILE HILL ROAD,Res,3 or less,5.0,
 349400,Taieri,TIROHANGA ROAD,Res,12,6.2,74.0
 349400,Taieri,WAIRONGOA ROAD,Res,3 or less,5.0,
 349600,Mount Cargill,ALBERT ROAD,Res,3 or less,5.1,
-349600,Mount Cargill,ARAMOANA ROAD,Res,3 or less,8.6,
+349600,Mount Cargill,ARAMOANA ROAD,Res,3 or less,7.4,
 349600,Mount Cargill,BARTON STREET,Res,3 or less,6.3,
 349600,Mount Cargill,BEACH ROAD,Res,3 or less,4.0,
 349600,Mount Cargill,BLUESKIN ROAD,Res,16,6.7,106.8
@@ -34313,7 +34317,6 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 352000,North East Valley Knox,ISLINGTON STREET,Res,3 or less,4.5,
 352000,North East Valley Knox,MONTROSE STREET,Res,3 or less,4.6,
 352000,North East Valley Knox,NORTH ROAD,Res,3 or less,3.0,
-352000,North East Valley Knox,NORTHUMBERLAND STREET,Res,3 or less,5.0,
 352100,Belleknowes,BELLEKNOWES TERRACE,Res,3 or less,5.0,
 352100,Belleknowes,BETA STREET,Res,3 or less,10.0,
 352100,Belleknowes,BOUNTY LANE,Res,3 or less,4.1,
@@ -34446,7 +34449,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 353900,Otago Peninsula,HARINGTON POINT ROAD,Res,3 or less,10.0,
 353900,Otago Peninsula,HARWOOD STREET,Res,3 or less,8.8,
 353900,Otago Peninsula,HIGHCLIFF ROAD,Res,3 or less,4.0,
-353900,Otago Peninsula,HILTON ROAD,Res,3 or less,3.0,
+353900,Otago Peninsula,HILTON ROAD,Res,3 or less,4.0,
 353900,Otago Peninsula,HOOPERS INLET ROAD,Res,3 or less,8.0,
 353900,Otago Peninsula,KARETAI ROAD,Res,3 or less,5.0,
 353900,Otago Peninsula,MCTAGGART STREET,Res,3 or less,5.0,
@@ -34498,7 +34501,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 354800,St Clair,BEACH STREET,Res,3 or less,5.0,
 354800,St Clair,BEDFORD STREET,Res,5,4.2,21.1
 354800,St Clair,CLAYTON STREET,Res,4,5.0,20.0
-354800,St Clair,CLIFFS ROAD,Res,10,7.0,70.2
+354800,St Clair,CLIFFS ROAD,Res,10,7.3,73.4
 354800,St Clair,EARLS ROAD,Res,3 or less,5.0,
 354800,St Clair,HIGHGROVE,Res,4,4.5,18.0
 354800,St Clair,HOBSON STREET,Res,3 or less,5.0,
@@ -34551,7 +34554,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 355100,Broad Bay-Portobello,OXLEY CRESCENT,Res,3 or less,5.0,
 355100,Broad Bay-Portobello,PORTOBELLO ROAD,Res,3 or less,3.8,
 355100,Broad Bay-Portobello,SEATON ROAD,Res,4,3.7,14.6
-355100,Broad Bay-Portobello,TREETOP DRIVE,Res,3 or less,5.0,
+355100,Broad Bay-Portobello,TREETOP DRIVE,Res,3 or less,1.8,
 355100,Broad Bay-Portobello,WAIKANA STREET,Res,3 or less,1.5,
 355200,St Kilda South,CALDER STREET,Res,3 or less,4.0,
 355200,St Kilda South,COUNCIL STREET,Res,3 or less,5.0,
@@ -34681,7 +34684,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 356200,Bruce,SHEERNESS STREET,Res,3 or less,5.0,
 356200,Bruce,SPRINGFIELD ROAD,Res,3 or less,6.7,
 356200,Bruce,TABLE HILL ROAD,Res,3 or less,11.3,
-356200,Bruce,TITRI ROAD,Res,3 or less,4.6,
+356200,Bruce,TITRI ROAD,Res,3 or less,5.3,
 356200,Bruce,TOKO MOUTH DOMAIN ROAD,Res,3 or less,5.9,
 356200,Bruce,WAIHOLA HIGHWAY,Res,3 or less,5.0,
 356300,Catlins,AHURIRI FLAT ROAD,Res,3 or less,5.0,
@@ -34825,6 +34828,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 357600,Whitestone,WILLIAM STEPHEN ROAD,Res,4,5.2,20.9
 357700,Mossburn,ACTON DOWNS ROAD,Res,3 or less,5.0,
 357700,Mossburn,BLACKMORE ROAD,Res,3 or less,6.7,
+357700,Mossburn,FLYER VIEW LANE,Res,3 or less,10.0,
 357700,Mossburn,GARSTON ATHOL HIGHWAY,Res,3 or less,5.0,
 357700,Mossburn,HYTHE STREET,Res,3 or less,8.1,
 357700,Mossburn,MCMILLAN ROAD,Res,3 or less,6.0,
@@ -35789,6 +35793,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 108900,Bream Head,WHANGAREI HEADS SCHOOL ROAD,Bus,3 or less,2.2,
 109000,Waipu,BREAM TAIL ROAD,Bus,3 or less,10.0,
 109000,Waipu,BRETON DRIVE,Bus,3 or less,4.6,
+109000,Waipu,BROOKS ROAD,Bus,3 or less,8.0,
 109000,Waipu,COVE ROAD,Bus,6,14.2,84.9
 109000,Waipu,CULLEN ROAD,Bus,3 or less,5.0,
 109000,Waipu,FLAGSTAFF TERRACE (PVT),Bus,3 or less,5.0,
@@ -35978,6 +35983,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 112600,Waikoukou Valley,PEAK ROAD,Bus,3 or less,6.8,
 112600,Waikoukou Valley,ZANDERS ROAD,Bus,3 or less,30.0,
 112700,Orewa North,HARVEST AVENUE,Bus,3 or less,10.0,
+112700,Orewa North,KAWAU CLOSE,Bus,3 or less,10.0,
 112700,Orewa North,ROBERTA CRESCENT,Bus,3 or less,5.1,
 112800,Hatfields Beach,BEACHWOOD DRIVE,Bus,3 or less,5.0,
 112800,Hatfields Beach,HIBISCUS COAST HIGHWAY,Bus,3 or less,10.0,
@@ -36072,6 +36078,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 116000,Army Bay,PACIFIC PARADE,Bus,3 or less,8.0,
 116100,Kumeu Rural East, STATE HIGHWAY 16,Bus,3 or less,15.0,
 116100,Kumeu Rural East,OLD RAILWAY ROAD,Bus,3 or less,30.0,
+116100,Kumeu Rural East,ORAHA ROAD,Bus,3 or less,10.0,
 116200,Gulf Harbour South,DISCOVERY DRIVE,Bus,3 or less,10.0,
 116200,Gulf Harbour South,LAURIE SOUTHWICK PARADE,Bus,3 or less,5.0,
 116200,Gulf Harbour South,OKOROMAI VIEWS,Bus,3 or less,10.0,
@@ -36089,6 +36096,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 116500,Long Bay,ASHLEY AVENUE,Bus,3 or less,40.0,
 116500,Long Bay,BEARING PARADE,Bus,3 or less,6.0,
 116500,Long Bay,GLENVAR RIDGE ROAD,Bus,3 or less,10.0,
+116500,Long Bay,HANIKURA STREET,Bus,3 or less,10.0,
 116600,Paremoremo East,ATTWOOD ROAD,Bus,3 or less,10.0,
 116600,Paremoremo East,GODLEY LANE,Bus,3 or less,4.6,
 116800,Awaruku,STREDWICK DRIVE,Bus,3 or less,5.0,
@@ -36157,6 +36165,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 119600,Westgate South,ROMA ROAD,Bus,3 or less,50.0,
 119800,West Harbour West,LUCKENS ROAD,Bus,3 or less,5.0,
 119800,West Harbour West,OREIL AVENUE,Bus,3 or less,25.0,
+119800,West Harbour West,WEST HARBOUR DRIVE,Bus,3 or less,10.0,
 119900,Unsworth Heights West,SPRINGWATER VALE,Bus,3 or less,10.0,
 120000,Murrays Bay East,WESTBOURNE ROAD,Bus,3 or less,3.0,
 120100,Birdwood West,BIRDWOOD ROAD,Bus,3 or less,10.0,
@@ -36206,6 +36215,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 123300,Glenfield South West,VALLEY VIEW ROAD,Bus,3 or less,3.7,
 123400,Forrest Hill West,BALTIMORE PLACE,Bus,3 or less,10.0,
 123400,Forrest Hill West,BECROFT DRIVE,Bus,3 or less,10.0,
+123400,Forrest Hill West,BOND CRESCENT,Bus,3 or less,30.0,
 123400,Forrest Hill West,FORREST HILL ROAD,Bus,3 or less,19.2,
 123500,Wairau Valley,ARCHERS ROAD,Bus,3 or less,200.0,
 123500,Wairau Valley,DIANA DRIVE,Bus,3 or less,15.0,
@@ -36331,7 +36341,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 129800,Westmere North,GARNET ROAD,Bus,3 or less,10.0,
 129800,Westmere North,WESTMERE CRESCENT,Bus,3 or less,3.0,
 129900,Point Chevalier East,HUIA ROAD,Bus,3 or less,6.0,
-129900,Point Chevalier East,MOA ROAD,Bus,3 or less,5.0,
+129900,Point Chevalier East,MOA ROAD,Bus,3 or less,6.5,
 130000,Oratia,HUIA ROAD,Bus,3 or less,8.0,
 130000,Oratia,PARKER ROAD,Bus,3 or less,7.9,
 130000,Oratia,RAUHUIA CRESCENT,Bus,3 or less,10.0,
@@ -36353,6 +36363,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 130700,Narrow Neck,REGENT STREET,Bus,3 or less,5.0,
 130800,Glen Eden North,BLACKBURN ROAD,Bus,3 or less,50.0,
 130900,Glen Eden Woodglen,WOODGLEN ROAD,Bus,3 or less,6.0,
+131000,Kelston South,ARCHIBALD ROAD,Bus,3 or less,8.0,
 131100,Waterview,OAKLEY AVENUE,Bus,3 or less,40.0,
 131200,Ponsonby East,JERVOIS ROAD,Bus,3 or less,3.0,
 131200,Ponsonby East,PONSONBY ROAD,Bus,3 or less,10.0,
@@ -36482,6 +36493,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 137400,Parnell East,ST STEPHENS AVENUE,Bus,3 or less,15.0,
 137500,Laingholm,LAINGHOLM DRIVE,Bus,3 or less,10.0,
 137500,Laingholm,VICTORY ROAD,Bus,3 or less,15.0,
+137600,Sandringham West,EUSTON ROAD,Bus,3 or less,6.0,
 137700,Mount Eden North East,NORMANBY ROAD,Bus,3 or less,25.0,
 137800,Mount Eden North,EDENVALE CRESCENT,Bus,3 or less,5.0,
 137800,Mount Eden North,LOVELOCK AVENUE,Bus,3 or less,4.5,
@@ -36494,6 +36506,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 138200,Sandringham East,RENFREW AVENUE,Bus,3 or less,5.0,
 138200,Sandringham East,SANDRINGHAM ROAD,Bus,3 or less,10.0,
 138300,New Windsor South,MARY DREAVER STREET,Bus,3 or less,6.0,
+138400,Mount Eden West,KINGSVIEW ROAD,Bus,3 or less,10.0,
 138500,Newmarket,CARLTON GORE ROAD,Bus,4,55.5,222.0
 138500,Newmarket,CLOVERNOOK ROAD,Bus,3 or less,3.0,
 138500,Newmarket,GILLIES AVENUE,Bus,3 or less,20.0,
@@ -36510,11 +36523,13 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 139200,Orakei West,COATES AVENUE,Bus,3 or less,3.0,
 139200,Orakei West,GRACE STREET,Bus,3 or less,25.0,
 139200,Orakei West,KEPA ROAD,Bus,3 or less,3.0,
+139300,Maungawhau,RUAPEHU STREET,Bus,3 or less,5.0,
 139400,Remuera West,BASSETT ROAD,Bus,3 or less,3.1,
 139400,Remuera West,BEATRICE ROAD,Bus,3 or less,3.0,
 139400,Remuera West,WILES AVENUE,Bus,3 or less,3.0,
 139500,Blockhouse Bay East,BOUNDARY ROAD,Bus,3 or less,2.0,
 139500,Blockhouse Bay East,LETTERKENNY PLACE,Bus,3 or less,6.0,
+139700,Mount Roskill North,DOMINION ROAD,Bus,3 or less,5.0,
 139800,Mount Roskill White Swan,FAIRWAY DRIVE,Bus,3 or less,15.0,
 139800,Mount Roskill White Swan,PAUA PLACE,Bus,3 or less,10.0,
 139800,Mount Roskill White Swan,PENNEY AVENUE,Bus,3 or less,2.0,
@@ -36526,6 +36541,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 140100,Orakei East,TAKITIMU STREET,Bus,3 or less,6.0,
 140100,Orakei East,TAMAKI DRIVE,Bus,3 or less,8.2,
 140200,Epsom Central-North,KING EDWARD AVENUE,Bus,3 or less,4.6,
+140200,Epsom Central-North,WILDING AVENUE,Bus,3 or less,10.0,
 140300,Mount St John,MANUKAU ROAD,Bus,3 or less,19.0,
 140300,Mount St John,MOUNT ST JOHN AVENUE,Bus,3 or less,9.0,
 140300,Mount St John,MT ST JOHN AVENUE,Bus,3 or less,25.0,
@@ -36549,6 +36565,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 141600,Remuera Waiata,REMUERA ROAD,Bus,3 or less,4.2,
 141800,Kohimarama,KOHIMARAMA ROAD,Bus,3 or less,3.0,
 141800,Kohimarama,RAWHITIROA ROAD,Bus,3 or less,10.0,
+141900,Meadowbank West,APPLEYARD CRESCENT,Bus,3 or less,6.0,
 141900,Meadowbank West,MACPHERSON STREET,Bus,3 or less,4.2,
 141900,Meadowbank West,MEADOWBANK ROAD,Bus,3 or less,50.0,
 141900,Meadowbank West,MOUNT CARMEL PLACE,Bus,3 or less,3.0,
@@ -37024,6 +37041,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 164100,Papakura Industrial,HUNUA ROAD,Bus,3 or less,3.0,
 164100,Papakura Industrial,MARGARET WILLIAMS DRIVE,Bus,3 or less,20.0,
 164200,Red Hill,CRESTVIEW RISE,Bus,3 or less,5.0,
+164300,Drury,WAKA AMA ROAD,Bus,3 or less,5.0,
 164400,Tamakae,CONSTABLE ROAD,Bus,3 or less,30.0,
 164400,Tamakae,DAWN PLACE,Bus,3 or less,5.0,
 164400,Tamakae,KING STREET,Bus,3 or less,5.5,
@@ -37045,6 +37063,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 164700,Waiuku Central,QUEEN STREET,Bus,3 or less,10.0,
 164800,Waiuku East,COLOMBO ROAD,Bus,3 or less,5.0,
 164800,Waiuku East,KAIWAKA ROAD,Bus,3 or less,6.0,
+164800,Waiuku East,WAIUKU-OTAUA ROAD,Bus,3 or less,8.0,
 165000,Puni,AKA AKA ROAD,Bus,3 or less,20.0,
 165000,Puni,PATUMAHOE ROAD,Bus,3 or less,5.0,
 165000,Puni,SEDGEBROOK ROAD,Bus,3 or less,15.0,
@@ -37098,6 +37117,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 166400,Ararimu,MEDHURST ROAD,Bus,3 or less,5.1,
 166400,Ararimu,PAPARATA ROAD,Bus,3 or less,3.7,
 166400,Ararimu,PAPARIMU ROAD,Bus,3 or less,4.0,
+166400,Ararimu,TURNER ROAD,Bus,3 or less,15.0,
 166500,Colville,COLVILLE ROAD,Bus,3 or less,5.2,
 166500,Colville,GOLDFIELDS ROAD,Bus,3 or less,15.0,
 166500,Colville,KENNEDY BAY ROAD,Bus,3 or less,20.0,
@@ -37525,7 +37545,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 175100,Te Poi,KERR ROAD,Bus,3 or less,17.5,
 175100,Te Poi,PAPATANGI ROAD,Bus,3 or less,30.0,
 175100,Te Poi,RANGITANUKU ROAD,Bus,3 or less,53.3,
-175100,Te Poi,RAPURAPU ROAD,Bus,3 or less,30.0,
+175100,Te Poi,RAPURAPU ROAD,Bus,3 or less,70.0,
 175100,Te Poi,STATE HIGHWAY 29,Bus,3 or less,10.8,
 175100,Te Poi,TAURANGA ROAD,Bus,3 or less,50.0,
 175100,Te Poi,TE POI SOUTH ROAD,Bus,3 or less,59.8,
@@ -37607,7 +37627,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 178200,Fairfield (Hamilton City),PEACHGROVE ROAD,Bus,3 or less,6.0,
 178400,Enderley North,INSOLL AVENUE,Bus,3 or less,30.0,
 178400,Enderley North,PEACHGROVE ROAD,Bus,3 or less,10.0,
-178500,Fairview Downs,RAYMOND STREET,Bus,3 or less,8.5,
+178500,Fairview Downs,RAYMOND STREET,Bus,3 or less,7.3,
 178500,Fairview Downs,WAIRERE DRIVE,Bus,3 or less,10.0,
 178600,Temple View,WALLACE ROAD,Bus,3 or less,8.0,
 178800,Kahikatea,KILLARNEY ROAD,Bus,3 or less,10.0,
@@ -37963,11 +37983,12 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 189200,Waipahihi,MAGNOLIA RISE,Bus,3 or less,8.0,
 189200,Waipahihi,STATE HIGHWAY 5,Bus,3 or less,10.7,
 189200,Waipahihi,TREMAINE AVENUE,Bus,3 or less,4.0,
+189300,Richmond Heights,TAUHARA RIDGE DRIVE,Bus,3 or less,10.0,
 189400,Wharewaka,HARAKEKE DRIVE,Bus,3 or less,4.4,
 189400,Wharewaka,LAKE TERRACE,Bus,3 or less,40.0,
 189400,Wharewaka,MATATA WAY,Bus,3 or less,7.9,
 189400,Wharewaka,NGATA STREET,Bus,3 or less,5.0,
-189400,Wharewaka,RAUPO CRESCENT,Bus,3 or less,8.2,
+189400,Wharewaka,RAUPO CRESCENT,Bus,3 or less,8.4,
 189400,Wharewaka,WHAREWAKA ROAD,Bus,3 or less,86.4,
 189600,Waitahanui,DEBORAH RISE,Bus,3 or less,6.0,
 189600,Waitahanui,MAHUTA ROAD,Bus,3 or less,5.0,
@@ -38128,6 +38149,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 194300,Omanu Beach,MAUNGANUI ROAD,Bus,3 or less,8.5,
 194300,Omanu Beach,OCEANBEACH ROAD,Bus,3 or less,9.9,
 194300,Omanu Beach,TUI STREET,Bus,3 or less,3.0,
+194300,Omanu Beach,WAITUI GROVE,Bus,3 or less,9.9,
 194400,Tauranga Hospital,BIRCH AVENUE,Bus,3 or less,130.0,
 194400,Tauranga Hospital,CAMERON ROAD,Bus,3 or less,150.0,
 194500,Tauriko,GARGAN ROAD,Bus,3 or less,20.0,
@@ -38144,7 +38166,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 194700,Greerton South,GREERTON ROAD,Bus,3 or less,3.2,
 194700,Greerton South,MALEME STREET,Bus,3 or less,30.0,
 194800,Tauranga South,BURROWS STREET,Bus,3 or less,20.0,
-194800,Tauranga South,CAMERON ROAD,Bus,3 or less,24.2,
+194800,Tauranga South,CAMERON ROAD,Bus,4,25.6,102.4
 194800,Tauranga South,EIGHTEENTH AVENUE,Bus,3 or less,18.7,
 194800,Tauranga South,FIFTEENTH AVENUE,Bus,3 or less,5.0,
 194800,Tauranga South,GRACE ROAD,Bus,3 or less,10.0,
@@ -38211,6 +38233,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 197400,Papamoa Beach South,ENTERPRISE DRIVE,Bus,3 or less,46.7,
 197400,Papamoa Beach South,MONTICELLO KEY,Bus,3 or less,10.0,
 197400,Papamoa Beach South,PAPAMOA BEACH ROAD,Bus,3 or less,9.4,
+197500,Motiti,GIBSON PLACE,Bus,3 or less,4.0,
 197500,Motiti,PAPAMOA BEACH ROAD,Bus,3 or less,15.0,
 197500,Motiti,WAIRAKEI AVENUE,Bus,3 or less,7.7,
 197600,Wairakei,ASHLEY PLACE,Bus,3 or less,17.5,
@@ -38519,7 +38542,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 208200,Maraekakaho,MARAEKAKAHO ROAD,Bus,5,14.4,71.9
 208200,Maraekakaho,PARITU ROAD,Bus,3 or less,10.0,
 208200,Maraekakaho,RAUKAWA ROAD,Bus,3 or less,3.0,
-208200,Maraekakaho,STATE HIGHWAY 50,Bus,3 or less,12.0,
+208200,Maraekakaho,STATE HIGHWAY 50,Bus,4,11.0,44.0
 208300,Puketapu-Eskdale,APLEY ROAD,Bus,3 or less,6.2,
 208300,Puketapu-Eskdale,HEDGELEY ROAD,Bus,3 or less,15.0,
 208300,Puketapu-Eskdale,OMARUNUI SETTLEMENT ROAD,Bus,3 or less,10.0,
@@ -38694,6 +38717,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 212100,Havelock Hills,TAINUI DRIVE,Bus,3 or less,3.6,
 212200,Kahuranaki,HARPER ROAD,Bus,3 or less,10.0,
 212200,Kahuranaki,KAHURANAKI ROAD,Bus,3 or less,8.8,
+212200,Kahuranaki,LIGHTNING RIDGE VIEW,Bus,3 or less,8.0,
 212200,Kahuranaki,LOPEZ LANE,Bus,3 or less,5.0,
 212200,Kahuranaki,MACKENZIE ROAD,Bus,3 or less,40.0,
 212200,Kahuranaki,MARAETOTARA ROAD,Bus,3 or less,5.2,
@@ -38796,13 +38820,14 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 214300,Napier Central,WELLESLEY ROAD,Bus,3 or less,18.0,
 214400,Greenmeadows South,GLOUCESTER STREET,Bus,3 or less,27.5,
 214400,Greenmeadows South,GUPPY ROAD,Bus,3 or less,5.6,
+214400,Greenmeadows South,HASKELL PLACE,Bus,3 or less,10.0,
 214400,Greenmeadows South,LAMASON STREET,Bus,3 or less,27.9,
 214400,Greenmeadows South,WILKIE PLACE,Bus,3 or less,6.0,
 214500,Nelson Park,JULL STREET,Bus,3 or less,20.0,
 214500,Nelson Park,KENNEDY ROAD,Bus,3 or less,20.0,
 214500,Nelson Park,LATHAM STREET,Bus,3 or less,5.0,
 214500,Nelson Park,OWEN STREET,Bus,3 or less,10.0,
-214500,Nelson Park,VIGOR BROWN STREET,Bus,3 or less,6.0,
+214500,Nelson Park,VIGOR BROWN STREET,Bus,3 or less,8.0,
 214600,Bledisloe Park,CRICHTON PLACE,Bus,3 or less,10.0,
 214600,Bledisloe Park,ELBOURNE STREET,Bus,3 or less,6.0,
 214600,Bledisloe Park,LEE ROAD,Bus,3 or less,10.0,
@@ -38938,6 +38963,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 217000,New Plymouth Central,YOUNG STREET,Bus,3 or less,15.0,
 217100,Marfell,HEAPHY STREET,Bus,3 or less,10.0,
 217100,Marfell,OAWAI PLACE,Bus,3 or less,6.0,
+217200,Whalers Gate,BARRETT ROAD,Bus,3 or less,6.0,
 217200,Whalers Gate,BRONTE PLACE,Bus,3 or less,8.0,
 217200,Whalers Gate,GARRETT DRIVE,Bus,3 or less,6.0,
 217200,Whalers Gate,KIPLING DRIVE,Bus,3 or less,10.0,
@@ -39028,6 +39054,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 219000,Lepperton-Brixton,TE AREI ROAD WEST,Bus,3 or less,10.0,
 219000,Lepperton-Brixton,WAITARA ROAD,Bus,3 or less,20.0,
 219000,Lepperton-Brixton,WORTLEY ROAD,Bus,3 or less,5.0,
+219100,Mangorei,BARRETT ROAD,Bus,3 or less,15.0,
 219100,Mangorei,FRANKLEY ROAD,Bus,3 or less,8.3,
 219100,Mangorei,HURFORD ROAD,Bus,3 or less,10.8,
 219100,Mangorei,KORITO ROAD,Bus,3 or less,29.9,
@@ -39149,6 +39176,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 221900,Hawera Central,GRANT VC STREET,Bus,3 or less,5.7,
 221900,Hawera Central,HIGH STREET,Bus,3 or less,11.2,
 221900,Hawera Central,REGENT STREET,Bus,3 or less,30.0,
+221900,Hawera Central,SOUTH ROAD,Bus,3 or less,9.9,
 222000,Mangawhio,BALL ROAD,Bus,3 or less,50.0,
 222000,Mangawhio,CLIFFORD ROAD,Bus,3 or less,13.0,
 222100,Manutahi-Waitotora,NOWELL ROAD,Bus,3 or less,50.0,
@@ -39195,6 +39223,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 223700,Otamatea (Whanganui District),ROTOKAWAU DRIVE,Bus,3 or less,3.0,
 223700,Otamatea (Whanganui District),VIRGINIA ROAD,Bus,3 or less,19.7,
 223800,Castlecliff East,PETER ROBB LANE,Bus,3 or less,50.0,
+223900,Springvale North,BUXTON ROAD,Bus,3 or less,8.0,
 223900,Springvale North,FOX ROAD,Bus,3 or less,8.5,
 224000,Lower Aramoho,SOMME PARADE,Bus,3 or less,50.1,
 224200,St Johns Hill West,PARKES AVENUE,Bus,3 or less,2.0,
@@ -39227,6 +39256,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 225800,Gonville South,BALGOWNIE AVENUE,Bus,3 or less,4.0,
 225800,Gonville South,KOROMIKO ROAD,Bus,3 or less,9.9,
 225900,Bastia-Durie Hill,PORTAL STREET,Bus,3 or less,10.0,
+226000,Putiki,MARYBANK ROAD,Bus,3 or less,14.9,
 226000,Putiki,PUTIKI DRIVE,Bus,3 or less,8.5,
 226100,Mokai Patea,MAKOPUA ROAD,Bus,3 or less,15.0,
 226100,Mokai Patea,RAUMAEWA ROAD,Bus,3 or less,7.5,
@@ -39240,6 +39270,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 226400,Otairi,OKIRAE ROAD,Bus,3 or less,15.0,
 226500,Taihape,DIXON WAY,Bus,3 or less,5.0,
 226500,Taihape,HERON DRIVE,Bus,3 or less,6.2,
+226600,Marton Rural,FERN FLATS ROAD,Bus,3 or less,5.0,
 226700,Marton North,BREDINS LINE,Bus,3 or less,10.0,
 226700,Marton North,KERERU COURT,Bus,3 or less,6.8,
 226700,Marton North,TOTARA STREET,Bus,3 or less,10.0,
@@ -39526,13 +39557,14 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 236600,Te Horo,SETTLEMENT ROAD,Bus,3 or less,8.2,
 236600,Te Horo,SIMS ROAD,Bus,3 or less,10.0,
 236600,Te Horo,STATE HIGHWAY,Bus,3 or less,3.0,
-237000,Paraparaumu Beach North,MANLY STREET,Bus,3 or less,5.4,
+237000,Paraparaumu Beach North,MANLY STREET,Bus,3 or less,6.5,
 237200,Waikanae Park,GREENAWAY ROAD,Bus,3 or less,2.0,
 237200,Waikanae Park,LLOYD PARKER LANE,Bus,3 or less,25.0,
 237200,Waikanae Park,NGA MANU RESERVE ROAD,Bus,3 or less,11.7,
 237200,Waikanae Park,PARK AVENUE,Bus,3 or less,133.6,
 237200,Waikanae Park,PIGEON GRVE,Bus,3 or less,5.5,
 237200,Waikanae Park,WREN STREET,Bus,3 or less,8.0,
+237400,Otaihanga,OTAIHANGA ROAD,Bus,3 or less,9.3,
 237400,Otaihanga,PITOITOI STREET,Bus,3 or less,8.2,
 237500,Paraparaumu North,FYTFIELD ROAD,Bus,3 or less,32.0,
 237500,Paraparaumu North,GUILDFORD DRIVE,Bus,3 or less,16.0,
@@ -39693,6 +39725,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 250400,Karori South,COLLIER AVENUE,Bus,3 or less,10.0,
 250400,Karori South,FIONA GROVE,Bus,3 or less,5.0,
 250400,Karori South,WOODHOUSE AVENUE,Bus,3 or less,3.7,
+250500,Onslow,HOMEBUSH ROAD,Bus,3 or less,20.0,
 250500,Onslow,MANDALAY TERRACE,Bus,3 or less,10.0,
 250600,Karori East,WAIAPU ROAD,Bus,3 or less,12.0,
 250700,Pipitea-Kaiwharawhara,KAIWHARAWHARA ROAD,Bus,3 or less,3.0,
@@ -39900,6 +39933,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 300900,Upper Moutere,WAIWHERO ROAD,Bus,3 or less,8.0,
 301000,Lower Moutere,CENTRAL ROAD,Bus,3 or less,150.0,
 301000,Lower Moutere,MAIN ROAD LOWER MOUTERE,Bus,3 or less,6.2,
+301000,Lower Moutere,MCBRYDIE ROAD,Bus,3 or less,6.0,
 301000,Lower Moutere,POOLE STREET,Bus,3 or less,50.0,
 301000,Lower Moutere,ROWLING LOOP,Bus,3 or less,10.0,
 301000,Lower Moutere,WEKA ROAD,Bus,3 or less,4.0,
@@ -40004,6 +40038,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 303000,Richmond South (Tasman District),COLLINS ROAD,Bus,3 or less,9.6,
 303000,Richmond South (Tasman District),HILL STREET,Bus,3 or less,5.0,
 303000,Richmond South (Tasman District),PATON ROAD,Bus,3 or less,10.0,
+303100,Wilkes Park,ROCHFORT DRIVE,Bus,3 or less,8.0,
 303100,Wilkes Park,WASHBOURN DRIVE,Bus,3 or less,5.5,
 303200,Templemore,RIDINGS GROVE,Bus,3 or less,7.2,
 303200,Templemore,WILLIAM STREET,Bus,3 or less,15.0,
@@ -40037,6 +40072,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 304200,Britannia,MOUNT PLEASANT AVENUE,Bus,3 or less,4.1,
 304300,Atawhai,ATAWHAI DRIVE,Bus,3 or less,12.0,
 304300,Atawhai,DODSON VALLEY ROAD,Bus,3 or less,4.8,
+304300,Atawhai,FARLEIGH STREET,Bus,3 or less,8.0,
 304300,Atawhai,HODGSON PLACE,Bus,3 or less,5.0,
 304300,Atawhai,KOURA ROAD,Bus,3 or less,5.0,
 304400,Broadgreen-Monaco,CORNWALL PLACE,Bus,3 or less,10.0,
@@ -40095,7 +40131,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 306100,Daelyn,TARANAKI PLACE,Bus,3 or less,5.0,
 306200,The Brook,BROOK STREET,Bus,3 or less,7.4,
 306300,Marlborough Sounds West,CROISILLES-FRENCH PASS ROAD,Bus,3 or less,3.9,
-306300,Marlborough Sounds West,MAIN ROAD,Bus,3 or less,17.1,
+306300,Marlborough Sounds West,MAIN ROAD,Bus,4,14.9,59.4
 306300,Marlborough Sounds West,MAUNGATAPU ROAD,Bus,3 or less,50.0,
 306300,Marlborough Sounds West,NEIL STREET,Bus,3 or less,3.0,
 306300,Marlborough Sounds West,RENATA ROAD,Bus,3 or less,14.0,
@@ -40471,6 +40507,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 317900,Casebrook,CINTRA PLACE,Bus,3 or less,5.0,
 317900,Casebrook,STURROCKS ROAD,Bus,3 or less,5.0,
 318000,Bishopdale West,HAREWOOD ROAD,Bus,3 or less,50.0,
+318100,Templeton,BICKNOR STREET,Bus,3 or less,6.0,
 318400,Marshland,ACCRINGTON DRIVE,Bus,3 or less,10.0,
 318400,Marshland,BILL HAMMOND DRIVE,Bus,3 or less,10.5,
 318400,Marshland,CRAWFORD ROAD,Bus,3 or less,30.0,
@@ -40988,6 +41025,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 337100,Eiffelton,TINWALD WESTERFIELD MAYFIELD R,Bus,3 or less,8.0,
 337100,Eiffelton,WATERTON POINT,Bus,3 or less,4.0,
 337100,Eiffelton,WINSLOW ROAD,Bus,3 or less,18.7,
+337100,Eiffelton,WINSLOW WESTERFIELD ROAD,Bus,3 or less,66.6,
 337200,Chertsey,ACTON ROAD,Bus,3 or less,30.0,
 337200,Chertsey,CORBETTS ROAD NORTH,Bus,3 or less,75.0,
 337200,Chertsey,DORIE SCHOOL ROAD,Bus,3 or less,13.9,
@@ -41079,6 +41117,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 339100,Waitohi (Timaru District),HUIRAPA STREET,Bus,3 or less,100.0,
 339100,Waitohi (Timaru District),RISE ROAD,Bus,3 or less,4.0,
 339100,Waitohi (Timaru District),SPRINGFIELD ROAD,Bus,3 or less,50.0,
+339200,Pleasant Point,TENGAWAI ROAD,Bus,3 or less,6.0,
 339300,Temuka West,WILKIN STREET,Bus,3 or less,5.0,
 339400,Hadlow,CLAREMONT ROAD,Bus,3 or less,2.9,
 339400,Hadlow,ROSEBROOK ROAD,Bus,3 or less,8.0,
@@ -41113,6 +41152,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 340600,Waimataitai-Maori Hill,WHITE STREET,Bus,3 or less,4.0,
 340700,Fraser Park,RATHMORE STREET,Bus,3 or less,5.0,
 340700,Fraser Park,RAYMOND STREET,Bus,3 or less,16.5,
+340700,Fraser Park,THOMAS STREET,Bus,3 or less,5.0,
 340800,Seaview,CHURCH STREET,Bus,3 or less,5.0,
 341100,Timaru Central,ARTHUR STREET,Bus,3 or less,8.0,
 341100,Timaru Central,BANK STREET,Bus,3 or less,10.0,
@@ -41179,6 +41219,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 342600,Morven-Glenavy-Ikawai,WAIPARI ROAD,Bus,3 or less,50.0,
 342700,Waimate West,BELT STREET,Bus,3 or less,4.0,
 342700,Waimate West,MILL ROAD,Bus,3 or less,6.0,
+342700,Waimate West,OPIE STREET,Bus,3 or less,10.0,
 342800,Waimate East,JOHN STREET,Bus,3 or less,15.0,
 343100,Aviemore,BEN OMAR ROAD,Bus,3 or less,29.0,
 343100,Aviemore,BIRCHWOOD ROAD,Bus,3 or less,10.0,
@@ -41231,7 +41272,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 344700,Palmerston,CLARK STREET,Bus,3 or less,47.1,
 344700,Palmerston,DISTRICT ROAD,Bus,3 or less,5.0,
 344700,Palmerston,HORSE RANGE ROAD,Bus,3 or less,9.2,
-344700,Palmerston,RONALDSAY STREET,Bus,3 or less,6.0,
+344700,Palmerston,RONALDSAY STREET,Bus,3 or less,8.0,
 344800,Lindis-Nevis Valleys,BEGG LANE,Bus,3 or less,10.0,
 344800,Lindis-Nevis Valleys,CAIRNMUIR ROAD,Bus,3 or less,5.0,
 344800,Lindis-Nevis Valleys,CLARK ROAD,Bus,3 or less,7.0,
@@ -41488,6 +41529,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 351700,North East Valley Chingford,MARQUIS STREET,Bus,3 or less,6.0,
 351800,Roseneath-Sawyers Bay,SIR JOHN THORN DRIVE,Bus,3 or less,9.0,
 351800,Roseneath-Sawyers Bay,STEVENSON AVENUE,Bus,3 or less,9.4,
+352000,North East Valley Knox,NORTHUMBERLAND STREET,Bus,3 or less,5.0,
 352200,Gardens (Dunedin City),DUKE STREET,Bus,3 or less,29.2,
 352300,Kenmure,HOCKEN STREET,Bus,3 or less,7.5,
 352500,Waldronville,BLACKHEAD ROAD,Bus,3 or less,9.7,
@@ -41880,7 +41922,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 101200,Herekino-Takahue,OROWHANA ROAD,All,3 or less,5.0,
 101200,Herekino-Takahue,STATE HIGHWAY 1,All,3 or less,4.5,
 101200,Herekino-Takahue,TAKAHUE ROAD,All,6,3.5,20.7
-101200,Herekino-Takahue,TAKAHUE SADDLE ROAD,All,3 or less,6.0,
+101200,Herekino-Takahue,TAKAHUE SADDLE ROAD,All,3 or less,8.0,
 101200,Herekino-Takahue,TE RORE ROAD,All,3 or less,2.6,
 101200,Herekino-Takahue,WAIOTEHUE ROAD,All,3 or less,5.5,
 101200,Herekino-Takahue,WHANGAPE ROAD,All,3 or less,2.0,
@@ -42053,7 +42095,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 102200,Lake Manuwai-Kapiro,MANUWAI ROAD,All,3 or less,5.0,
 102200,Lake Manuwai-Kapiro,MCCAUGHAN ROAD,All,9,6.4,57.6
 102200,Lake Manuwai-Kapiro,MORRIS LANE,All,3 or less,9.6,
-102200,Lake Manuwai-Kapiro,NESS ROAD,All,8,6.0,48.3
+102200,Lake Manuwai-Kapiro,NESS ROAD,All,9,6.5,58.3
 102200,Lake Manuwai-Kapiro,OAK TREE LANE,All,3 or less,4.0,
 102200,Lake Manuwai-Kapiro,ONEKURA ROAD,All,5,4.5,22.6
 102200,Lake Manuwai-Kapiro,ORANGEWOOD ROAD,All,3 or less,8.3,
@@ -42396,7 +42438,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 103700,Haruru,RIVER PALMS LANE,All,3 or less,7.5,
 103700,Haruru,RIVERGLEN DRIVE,All,3 or less,5.7,
 103700,Haruru,SKIPPERS CLOSE,All,3 or less,3.8,
-103700,Haruru,SPINNAKER POINT,All,3 or less,3.2,
+103700,Haruru,SPINNAKER POINT,All,4,4.9,19.7
 103700,Haruru,THE ANCHORAGE,All,4,4.4,17.8
 103700,Haruru,THE ANCHORAGE EAST,All,3 or less,4.8,
 103700,Haruru,WATERVIEW PLACE,All,3 or less,3.5,
@@ -42480,7 +42522,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 104200,Russell Peninsula,DEEMING ROAD,All,3 or less,5.3,
 104200,Russell Peninsula,GILBERT MAIR RISE,All,3 or less,5.7,
 104200,Russell Peninsula,JAMES CLENDON PLACE,All,3 or less,6.7,
-104200,Russell Peninsula,KAHA PLACE,All,3 or less,9.3,
+104200,Russell Peninsula,KAHA PLACE,All,4,9.5,38.0
 104200,Russell Peninsula,KAKAPU ROAD,All,3 or less,5.0,
 104200,Russell Peninsula,KANUKA GROVE,All,3 or less,9.0,
 104200,Russell Peninsula,LANE ROAD,All,3 or less,5.0,
@@ -44174,7 +44216,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 110900,Dome Valley-Matakana,GREEN ROAD,All,4,5.6,22.2
 110900,Dome Valley-Matakana,KAIPARA FLATS ROAD,All,3 or less,17.5,
 110900,Dome Valley-Matakana,KEWINI GROVE,All,3 or less,6.0,
-110900,Dome Valley-Matakana,LALY HADDON PLACE,All,5,6.2,31.0
+110900,Dome Valley-Matakana,LALY HADDON PLACE,All,6,6.8,41.0
 110900,Dome Valley-Matakana,LYSNAR ROAD,All,4,3.6,14.2
 110900,Dome Valley-Matakana,MARTIN ROAD,All,3 or less,8.0,
 110900,Dome Valley-Matakana,MATAKANA ROAD,All,5,12.2,61.1
@@ -45067,6 +45109,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 115100,Stanmore Bay East,WAITITIRO RISE,All,4,4.0,16.0
 115100,Stanmore Bay East,WHANGAPARAOA ROAD,All,3 or less,2.4,
 115200,Manly West,ARDERN AVENUE,All,4,6.5,26.0
+115200,Manly West,GLENGARRY AVENUE,All,3 or less,10.0,
 115200,Manly West,HOMESTEAD ROAD,All,4,5.0,20.0
 115200,Manly West,HURDLOW PLACE,All,3 or less,10.0,
 115200,Manly West,KENNETH HOPPER PLACE,All,3 or less,4.2,
@@ -45120,7 +45163,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 115500,Coatesville,LYNTON MASTERS LANE,All,3 or less,10.0,
 115500,Coatesville,MAHOENUI VALLEY ROAD,All,6,14.4,86.4
 115500,Coatesville,MCGIVEN PLACE,All,3 or less,6.8,
-115500,Coatesville,MILL FLAT ROAD,All,5,8.4,42.0
+115500,Coatesville,MILL FLAT ROAD,All,6,8.4,50.2
 115500,Coatesville,O'BRIEN ROAD,All,6,6.1,36.8
 115500,Coatesville,OAK LANE,All,3 or less,10.0,
 115500,Coatesville,POTTER ROAD,All,3 or less,10.0,
@@ -45547,7 +45590,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 118100,Albany South,AMHERST PLACE,All,3 or less,3.9,
 118100,Albany South,BUSHLANDS PARK DRIVE,All,5,4.7,23.6
 118100,Albany South,CLEMOWS LANE,All,6,4.9,29.2
-118100,Albany South,COLUMBIA PLACE,All,3 or less,3.7,
+118100,Albany South,COLUMBIA PLACE,All,3 or less,6.8,
 118100,Albany South,DENIM PLACE,All,3 or less,2.5,
 118100,Albany South,EMERALD WAY,All,3 or less,4.6,
 118100,Albany South,KRISTIN LANE,All,3 or less,3.8,
@@ -45608,6 +45651,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 118500,Pinehill,EAST COAST ROAD,All,3 or less,4.3,
 118500,Pinehill,HAURAKI CRESCENT,All,3 or less,3.3,
 118500,Pinehill,HUGH GREEN DRIVE,All,3 or less,4.6,
+118500,Pinehill,KILKELLY AVENUE,All,3 or less,10.0,
 118500,Pinehill,KILLYBEGS DRIVE,All,3 or less,5.1,
 118500,Pinehill,MALIN PLACE,All,3 or less,8.0,
 118500,Pinehill,MANU PLACE,All,3 or less,4.6,
@@ -45616,7 +45660,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 118600,North Harbour,AIRBORNE ROAD,All,3 or less,25.0,
 118600,North Harbour,ALBANY HIGHWAY,All,3 or less,19.7,
 118600,North Harbour,APOLLO DRIVE,All,3 or less,55.6,
-118600,North Harbour,ARRENWAY DRIVE,All,3 or less,12.5,
+118600,North Harbour,ARRENWAY DRIVE,All,3 or less,15.0,
 118600,North Harbour,BEATRICE TINSLEY CRESCENT,All,3 or less,29.9,
 118600,North Harbour,BUSH ROAD,All,3 or less,50.0,
 118600,North Harbour,PARKWAY DRIVE,All,3 or less,120.7,
@@ -45991,6 +46035,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 121100,Swanson Rural,SCENIC DRIVE,All,14,5.7,80.4
 121100,Swanson Rural,SCENIC DRIVE NORTH,All,4,6.4,25.5
 121100,Swanson Rural,SEIBEL ROAD,All,3 or less,5.0,
+121100,Swanson Rural,SIMPSON ROAD,All,3 or less,15.0,
 121100,Swanson Rural,STURGES ROAD,All,3 or less,5.0,
 121100,Swanson Rural,TRAM VALLEY ROAD,All,4,6.2,24.6
 121100,Swanson Rural,WELSH HILLS ROAD,All,3 or less,8.0,
@@ -46285,7 +46330,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 123400,Forrest Hill West,AUGUSTA PLACE,All,3 or less,10.0,
 123400,Forrest Hill West,BALTIMORE PLACE,All,3 or less,10.0,
 123400,Forrest Hill West,BECROFT DRIVE,All,3 or less,7.0,
-123400,Forrest Hill West,BOND CRESCENT,All,3 or less,3.2,
+123400,Forrest Hill West,BOND CRESCENT,All,3 or less,12.1,
 123400,Forrest Hill West,BOWMAN ROAD,All,3 or less,6.0,
 123400,Forrest Hill West,FORREST HILL ROAD,All,3 or less,12.6,
 123400,Forrest Hill West,HAVELOCK AVENUE,All,3 or less,2.0,
@@ -46526,7 +46571,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 125300,Te Atatu Peninsula East,ONEMANA WAY,All,3 or less,8.5,
 125300,Te Atatu Peninsula East,PIRITI DRIVE,All,4,5.3,21.0
 125300,Te Atatu Peninsula East,PROVENCE ESPLANADE,All,3 or less,2.0,
-125300,Te Atatu Peninsula East,SPINNAKER DRIVE,All,6,5.4,32.6
+125300,Te Atatu Peninsula East,SPINNAKER DRIVE,All,7,5.4,37.6
 125300,Te Atatu Peninsula East,ST JEROME AVENUE,All,3 or less,6.5,
 125300,Te Atatu Peninsula East,TUSCANY WAY,All,3 or less,5.0,
 125300,Te Atatu Peninsula East,VINOGRAD DRIVE,All,3 or less,8.0,
@@ -46649,7 +46694,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 126200,Hillcrest East (Auckland),LYNDEN AVENUE,All,4,4.9,19.5
 126200,Hillcrest East (Auckland),MOORE STREET,All,3 or less,10.0,
 126200,Hillcrest East (Auckland),MOUNTBATTEN AVENUE,All,3 or less,5.5,
-126200,Hillcrest East (Auckland),MUNSTEAD PLACE,All,3 or less,2.0,
+126200,Hillcrest East (Auckland),MUNSTEAD PLACE,All,3 or less,4.0,
 126200,Hillcrest East (Auckland),NICHOLSON PLACE,All,3 or less,6.0,
 126200,Hillcrest East (Auckland),ORION PLACE,All,3 or less,5.0,
 126200,Hillcrest East (Auckland),STANAWAY STREET,All,3 or less,6.3,
@@ -46727,7 +46772,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 126800,Takapuna Central,BRETT AVENUE,All,3 or less,10.0,
 126800,Takapuna Central,ERIC PRICE AVENUE,All,3 or less,8.5,
 126800,Takapuna Central,GIBBONS ROAD,All,3 or less,5.0,
-126800,Takapuna Central,HURSTMERE ROAD,All,3 or less,3.4,
+126800,Takapuna Central,HURSTMERE ROAD,All,4,3.8,15.3
 126800,Takapuna Central,KITCHENER ROAD,All,3 or less,8.2,
 126800,Takapuna Central,LAKE ROAD,All,3 or less,30.0,
 126800,Takapuna Central,MANURERE AVENUE,All,4,12.8,51.0
@@ -47459,7 +47504,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 132500,Konini,GREENWOODS CLOSE,All,3 or less,6.5,
 132500,Konini,KASHMIR ROAD,All,3 or less,4.9,
 132500,Konini,KAURILANDS ROAD,All,3 or less,5.8,
-132500,Konini,KONINI ROAD,All,13,5.9,76.8
+132500,Konini,KONINI ROAD,All,14,6.2,86.8
 132500,Konini,ONEDIN PLACE,All,3 or less,5.0,
 132500,Konini,ORATIA DRIVE,All,3 or less,5.0,
 132500,Konini,PAEWAI ROAD,All,3 or less,4.8,
@@ -47524,7 +47569,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 133000,Devonport,KAPAI ROAD,All,3 or less,5.0,
 133000,Devonport,MAYS STREET,All,3 or less,4.8,
 133000,Devonport,MOZELEY AVENUE,All,3 or less,5.3,
-133000,Devonport,PATUONE AVENUE,All,3 or less,8.7,
+133000,Devonport,PATUONE AVENUE,All,4,9.0,36.0
 133000,Devonport,RATTRAY STREET,All,3 or less,6.5,
 133000,Devonport,ROSLYN TERRACE,All,3 or less,4.6,
 133000,Devonport,SHOAL BAY ROAD,All,3 or less,6.8,
@@ -47592,7 +47637,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 134200,Mount Albert Central,ALLENDALE ROAD,All,3 or less,10.0,
 134200,Mount Albert Central,ASQUITH AVENUE,All,11,4.1,44.6
 134200,Mount Albert Central,BALDWIN AVENUE,All,3 or less,6.0,
-134200,Mount Albert Central,CAUGHEY PLACE,All,3 or less,5.0,
+134200,Mount Albert Central,CAUGHEY PLACE,All,3 or less,6.0,
 134200,Mount Albert Central,FOWLER AVENUE,All,3 or less,4.0,
 134200,Mount Albert Central,JESMOND TERRACE,All,3 or less,6.0,
 134200,Mount Albert Central,KITENUI AVENUE,All,3 or less,7.0,
@@ -48187,7 +48232,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 140200,Epsom Central-North,ST ANDREWS ROAD,All,3 or less,4.4,
 140200,Epsom Central-North,THE DRIVE,All,3 or less,8.5,
 140200,Epsom Central-North,WILDING AVENUE,All,3 or less,10.0,
-140200,Epsom Central-North,WOODHALL ROAD,All,3 or less,5.0,
+140200,Epsom Central-North,WOODHALL ROAD,All,3 or less,6.3,
 140300,Mount St John,BELVEDERE STREET,All,3 or less,10.0,
 140300,Mount St John,CAMPBELL CRESCENT,All,3 or less,8.5,
 140300,Mount St John,GREAT SOUTH ROAD,All,3 or less,4.7,
@@ -49386,7 +49431,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 150600,Mellons Bay,BEACH ROAD,All,6,5.0,30.1
 150600,Mellons Bay,BLEAKHOUSE ROAD,All,3 or less,5.4,
 150600,Mellons Bay,BURFORD PLACE,All,3 or less,6.5,
-150600,Mellons Bay,CHARLES DICKENS DRIVE,All,3 or less,7.5,
+150600,Mellons Bay,CHARLES DICKENS DRIVE,All,3 or less,8.3,
 150600,Mellons Bay,CHERITON ROAD,All,3 or less,2.9,
 150600,Mellons Bay,COLMAR ROAD,All,3 or less,2.8,
 150600,Mellons Bay,COPPERFIELD TERRACE,All,3 or less,3.0,
@@ -49723,6 +49768,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 153400,Cockle Bay,COATES ROAD,All,3 or less,5.0,
 153400,Cockle Bay,COCKLE BAY ROAD,All,4,6.3,25.0
 153400,Cockle Bay,COOK STREET,All,3 or less,3.0,
+153400,Cockle Bay,FENTON TERRACE,All,3 or less,14.0,
 153400,Cockle Bay,FOUR TREES,All,3 or less,4.4,
 153400,Cockle Bay,GRANGER ROAD,All,4,7.4,29.7
 153400,Cockle Bay,HOLBROOK PLACE,All,3 or less,4.6,
@@ -50085,7 +50131,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 156300,East Tamaki Heights,ROXBOROUGH PLACE,All,4,8.3,33.0
 156300,East Tamaki Heights,SKYE ROAD,All,3 or less,4.0,
 156400,Te Puru,ARTISTS AVENUE,All,3 or less,5.1,
-156400,Te Puru,BEACHLANDS ROAD,All,3 or less,4.4,
+156400,Te Puru,BEACHLANDS ROAD,All,3 or less,4.9,
 156400,Te Puru,CADWIL DRIVE,All,3 or less,5.5,
 156400,Te Puru,COLUMBIA CRESCENT,All,3 or less,4.2,
 156400,Te Puru,CONSTELLATION AVENUE,All,5,5.8,28.8
@@ -52123,6 +52169,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 167300,Cooks Beach-Ferry Landing,PURANGI ROAD,All,5,4.3,21.4
 167300,Cooks Beach-Ferry Landing,RIVERVIEW ROAD,All,3 or less,6.0,
 167300,Cooks Beach-Ferry Landing,SCOTT DRIVE,All,3 or less,5.2,
+167300,Cooks Beach-Ferry Landing,TAUNUI PLACE,All,3 or less,6.0,
 167300,Cooks Beach-Ferry Landing,THE CROWS NEST,All,3 or less,3.7,
 167300,Cooks Beach-Ferry Landing,TINIRAU PLACE,All,3 or less,3.6,
 167400,Mercury Bay South,BOAT HARBOUR ROAD,All,3 or less,9.6,
@@ -52217,7 +52264,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 167800,Thames South,PARAWAI ROAD,All,7,6.0,41.8
 167800,Thames South,REGENT HEIGHTS,All,3 or less,10.0,
 167800,Thames South,RESERVOIR ROAD,All,4,4.0,16.0
-167800,Thames South,RICHMOND STREET,All,3 or less,5.5,
+167800,Thames South,RICHMOND STREET,All,3 or less,7.0,
 167800,Thames South,ROLLESTON STREET,All,8,5.9,47.1
 167800,Thames South,SEALEY STREET,All,3 or less,30.0,
 167800,Thames South,THE BOOMS AVENUE,All,3 or less,4.6,
@@ -52246,7 +52293,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 168100,Tairua,DIAMOND DRIVE,All,3 or less,4.6,
 168100,Tairua,GALLAGHER DRIVE,All,3 or less,6.0,
 168100,Tairua,HEMI PLACE,All,3 or less,5.2,
-168100,Tairua,HORNSEA ROAD,All,3 or less,8.0,
+168100,Tairua,HORNSEA ROAD,All,3 or less,8.6,
 168100,Tairua,LAYCOCK ROAD,All,3 or less,7.7,
 168100,Tairua,MAIN ROAD,All,6,6.9,41.3
 168100,Tairua,MANAIA ROAD,All,3 or less,5.0,
@@ -52366,6 +52413,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 168500,Whangamata,SYLVIA ROAD,All,3 or less,5.9,
 168500,Whangamata,TAIRUA ROAD,All,3 or less,4.6,
 168500,Whangamata,TAIRUA ROAD (SH25),All,3 or less,4.6,
+168500,Whangamata,TANGAROA ROAD,All,3 or less,10.0,
 168500,Whangamata,TE PAMAHUE DRIVE,All,3 or less,10.0,
 168500,Whangamata,TE TUTU STREET,All,3 or less,4.1,
 168500,Whangamata,THE DRIVE,All,5,4.4,22.2
@@ -52430,6 +52478,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 169000,Hauraki Plains South,CAPTAIN COOK ROAD,All,3 or less,1.6,
 169000,Hauraki Plains South,CENTRAL ROAD SOUTH,All,3 or less,88.1,
 169000,Hauraki Plains South,FERRY ROAD,All,3 or less,25.1,
+169000,Hauraki Plains South,HAURAKI ROAD,All,3 or less,10.0,
 169000,Hauraki Plains South,KAIHERE ROAD,All,3 or less,15.2,
 169000,Hauraki Plains South,KAIKAHU ROAD,All,4,14.3,57.3
 169000,Hauraki Plains South,KEREPEHI TOWN ROAD,All,3 or less,4.5,
@@ -53685,7 +53734,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 173900,Morrinsville East,CEDAR WAY,All,3 or less,3.1,
 173900,Morrinsville East,COBHAM DRIVE,All,3 or less,5.0,
 173900,Morrinsville East,COOPER CRESCENT,All,3 or less,4.3,
-173900,Morrinsville East,CORONATION ROAD,All,6,4.3,26.0
+173900,Morrinsville East,CORONATION ROAD,All,7,4.6,32.0
 173900,Morrinsville East,DAVID STREET,All,3 or less,3.6,
 173900,Morrinsville East,DORNOCH LANE,All,3 or less,7.5,
 173900,Morrinsville East,FAIRWAY DRIVE,All,3 or less,5.5,
@@ -53929,7 +53978,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 175000,Matamata South,ARCHFORD STREET,All,3 or less,7.0,
 175000,Matamata South,ASCOT PLACE,All,3 or less,5.0,
 175000,Matamata South,ASHWORTH PLACE,All,4,3.3,13.3
-175000,Matamata South,BATHAM DRIVE,All,3 or less,6.0,
+175000,Matamata South,BATHAM DRIVE,All,3 or less,8.6,
 175000,Matamata South,BEATTY ROAD,All,3 or less,4.8,
 175000,Matamata South,BEDFORD CRESCENT,All,3 or less,5.0,
 175000,Matamata South,BIRCHWOOD LANE,All,3 or less,3.2,
@@ -53940,6 +53989,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 175000,Matamata South,COLLEGE STREET,All,3 or less,6.0,
 175000,Matamata South,DAME CATH PLACE,All,3 or less,4.6,
 175000,Matamata South,ELDONWOOD DRIVE,All,3 or less,7.0,
+175000,Matamata South,ELIZABETH STREET,All,3 or less,8.0,
 175000,Matamata South,FARMERS ROAD,All,3 or less,10.0,
 175000,Matamata South,FIELDHOUSE LANE,All,3 or less,4.6,
 175000,Matamata South,FIRTH STREET,All,3 or less,1.6,
@@ -53986,7 +54036,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 175100,Te Poi,OLD TE AROHA ROAD,All,3 or less,10.0,
 175100,Te Poi,PAPATANGI ROAD,All,3 or less,30.0,
 175100,Te Poi,RANGITANUKU ROAD,All,3 or less,53.3,
-175100,Te Poi,RAPURAPU ROAD,All,3 or less,17.5,
+175100,Te Poi,RAPURAPU ROAD,All,3 or less,48.3,
 175100,Te Poi,SMITH ROAD,All,3 or less,10.0,
 175100,Te Poi,STATE HIGHWAY 29,All,3 or less,10.8,
 175100,Te Poi,STOPFORD ROAD,All,3 or less,8.2,
@@ -54904,7 +54954,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 180100,Melville North,MAHOE STREET,All,3 or less,4.3,
 180100,Melville North,NORMANDY AVENUE,All,3 or less,9.0,
 180100,Melville North,TAWA STREET,All,4,5.8,23.0
-180200,Hamilton East,ALBERT STREET,All,3 or less,6.3,
+180200,Hamilton East,ALBERT STREET,All,4,7.3,29.0
 180200,Hamilton East,BROOKFIELD STREET,All,5,7.4,37.2
 180200,Hamilton East,COTTER PLACE,All,3 or less,5.0,
 180200,Hamilton East,DEY STREET,All,5,1.6,8.0
@@ -55139,7 +55189,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 181800,Kaipaki,GREAT BURKE STREET,All,3 or less,5.3,
 181800,Kaipaki,GREAT COLLINS STREET,All,3 or less,7.5,
 181800,Kaipaki,GREAT SOUTH ROAD,All,3 or less,8.2,
-181800,Kaipaki,KAIPAKI ROAD,All,9,12.6,113.7
+181800,Kaipaki,KAIPAKI ROAD,All,10,12.4,123.7
 181800,Kaipaki,KARL ROAD,All,3 or less,4.8,
 181800,Kaipaki,MELLOW ROAD,All,3 or less,6.0,
 181800,Kaipaki,MILL ROAD,All,4,7.8,31.2
@@ -55484,7 +55534,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 184000,Te Awamutu Stadium,KACEY AVENUE,All,3 or less,5.0,
 184000,Te Awamutu Stadium,LOLA LEE HEIGHTS,All,3 or less,10.0,
 184000,Te Awamutu Stadium,MEDDING CRESCENT,All,3 or less,4.0,
-184000,Te Awamutu Stadium,MOUNTAIN VIEW DRIVE,All,3 or less,5.0,
+184000,Te Awamutu Stadium,MOUNTAIN VIEW DRIVE,All,3 or less,7.5,
 184000,Te Awamutu Stadium,PUNIU ROAD,All,4,8.3,33.3
 184000,Te Awamutu Stadium,RUTHERFORD STREET,All,3 or less,3.0,
 184000,Te Awamutu Stadium,TE TOMO STREET,All,3 or less,5.5,
@@ -56644,7 +56694,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 191000,Omokoroa,MCKENNA LANE,All,3 or less,5.0,
 191000,Omokoroa,MYRTLE DRIVE,All,3 or less,3.5,
 191000,Omokoroa,OLIVE CLOSE,All,3 or less,8.5,
-191000,Omokoroa,OMOKOROA ROAD,All,15,7.9,117.9
+191000,Omokoroa,OMOKOROA ROAD,All,17,8.1,137.8
 191000,Omokoroa,OWEN PLACE,All,3 or less,3.0,
 191000,Omokoroa,PARKLAND RISE,All,4,5.5,21.9
 191000,Omokoroa,PIP WAY,All,3 or less,6.0,
@@ -56684,7 +56734,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 191100,Omokoroa Rural,OSCAR WAY,All,3 or less,5.0,
 191100,Omokoroa Rural,OYSTER PLACE,All,5,6.4,32.0
 191100,Omokoroa Rural,PARORE DRIVE,All,3 or less,5.0,
-191100,Omokoroa Rural,PLUMMERS POINT ROAD,All,17,6.6,111.4
+191100,Omokoroa Rural,PLUMMERS POINT ROAD,All,18,6.5,117.4
 191100,Omokoroa Rural,PROLE ROAD,All,3 or less,5.7,
 191100,Omokoroa Rural,RIDGE DRIVE,All,7,5.7,40.0
 191100,Omokoroa Rural,SENTINEL AVENUE,All,3 or less,6.0,
@@ -56692,7 +56742,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 191100,Omokoroa Rural,STATE HIGHWAY 2,All,3 or less,2.9,
 191100,Omokoroa Rural,TE KAKA PLACE,All,3 or less,7.1,
 191100,Omokoroa Rural,TRAVERSE LANE,All,3 or less,4.8,
-191200,Te Puna,ARMSTRONG ROAD,All,8,13.8,110.4
+191200,Te Puna,ARMSTRONG ROAD,All,9,14.5,130.4
 191200,Te Puna,BORELL ROAD,All,3 or less,1.4,
 191200,Te Puna,CLARKE ROAD,All,5,10.7,53.5
 191200,Te Puna,FAIRLIE GROVE,All,3 or less,6.0,
@@ -57106,7 +57156,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 193200,Otumoetai North,HINEWA ROAD,All,8,7.4,58.9
 193200,Otumoetai North,KARAKA ROAD,All,3 or less,6.0,
 193200,Otumoetai North,KULIM AVENUE,All,4,4.1,16.6
-193200,Otumoetai North,LAING PLACE,All,3 or less,4.7,
+193200,Otumoetai North,LAING PLACE,All,4,6.0,23.9
 193200,Otumoetai North,LEMON GROVE AVENUE,All,3 or less,3.8,
 193200,Otumoetai North,LILAC PLACE,All,3 or less,7.9,
 193200,Otumoetai North,MAUNGAWHARE PLACE,All,3 or less,5.0,
@@ -57117,7 +57167,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 193200,Otumoetai North,OTUMOETAI ROAD,All,3 or less,6.5,
 193200,Otumoetai North,PILLANS ROAD,All,3 or less,5.3,
 193200,Otumoetai North,PINE AVENUE,All,3 or less,2.0,
-193200,Otumoetai North,RUSHTON AVENUE,All,4,4.2,16.8
+193200,Otumoetai North,RUSHTON AVENUE,All,5,5.0,24.8
 193200,Otumoetai North,SEAVIEW ROAD,All,3 or less,7.8,
 193200,Otumoetai North,SHELLEY STREET,All,3 or less,3.5,
 193200,Otumoetai North,VALE STREET,All,4,3.3,13.1
@@ -57356,6 +57406,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 194300,Omanu Beach,GOLF ROAD,All,3 or less,5.5,
 194300,Omanu Beach,KUPE AVENUE,All,3 or less,43.1,
 194300,Omanu Beach,LINKS AVENUE,All,3 or less,5.0,
+194300,Omanu Beach,LODGE AVENUE,All,3 or less,10.0,
 194300,Omanu Beach,MACVILLE ROAD,All,3 or less,4.9,
 194300,Omanu Beach,MAUNGANUI ROAD,All,3 or less,6.2,
 194300,Omanu Beach,MOA STREET,All,3 or less,6.3,
@@ -57433,7 +57484,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 194800,Tauranga South,BOTANICAL ROAD,All,3 or less,5.1,
 194800,Tauranga South,BRIARLEY STREET,All,7,6.8,47.9
 194800,Tauranga South,BURROWS STREET,All,3 or less,20.0,
-194800,Tauranga South,CAMERON ROAD,All,3 or less,24.2,
+194800,Tauranga South,CAMERON ROAD,All,4,25.6,102.4
 194800,Tauranga South,DEVONPORT ROAD,All,7,5.6,39.5
 194800,Tauranga South,EIGHTEENTH AVENUE,All,3 or less,18.7,
 194800,Tauranga South,ELEVENTH AVENUE,All,3 or less,2.0,
@@ -57491,7 +57542,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 195100,Pyes Pa West,CALDERA CRESCENT,All,3 or less,6.6,
 195100,Pyes Pa West,CAREX CLOSE,All,3 or less,8.0,
 195100,Pyes Pa West,CLOVER LANE,All,3 or less,4.6,
-195100,Pyes Pa West,COWELL CRESCENT,All,3 or less,4.0,
+195100,Pyes Pa West,COWELL CRESCENT,All,3 or less,4.4,
 195100,Pyes Pa West,DELTA CLOSE,All,3 or less,4.5,
 195100,Pyes Pa West,DOUBLE BAY ROAD,All,5,6.9,34.6
 195100,Pyes Pa West,DOYLE LANE,All,3 or less,7.3,
@@ -57589,7 +57640,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 195300,Yatton Park,HARRIER STREET,All,3 or less,5.5,
 195300,Yatton Park,HENDERSON CRESCENT,All,3 or less,5.0,
 195300,Yatton Park,KESTEVEN AVENUE,All,3 or less,42.0,
-195300,Yatton Park,LLOYD STREET,All,3 or less,5.0,
+195300,Yatton Park,LLOYD STREET,All,3 or less,7.5,
 195300,Yatton Park,MANSELS ROAD,All,3 or less,5.1,
 195300,Yatton Park,MERIVALE ROAD,All,3 or less,1.9,
 195400,Pyes Pa North,AMY PLACE,All,3 or less,5.3,
@@ -57767,7 +57818,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 196200,Te Maunga South,GLOUCESTER ROAD,All,6,5.0,30.2
 196200,Te Maunga South,GRENADA STREET,All,4,8.5,33.9
 196200,Te Maunga South,GREVILLEA PLACE,All,3 or less,8.5,
-196200,Te Maunga South,HALESIA PLACE,All,3 or less,5.0,
+196200,Te Maunga South,HALESIA PLACE,All,3 or less,7.5,
 196200,Te Maunga South,HAVEN GROVE,All,3 or less,6.0,
 196200,Te Maunga South,HIBISCUS AVENUE,All,8,4.4,35.5
 196200,Te Maunga South,HIRIA CRESCENT,All,3 or less,5.7,
@@ -58180,7 +58231,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 197600,Wairakei,KAIORA DRIVE,All,3 or less,9.0,
 197600,Wairakei,KAPUKA STREET,All,9,4.9,44.1
 197600,Wairakei,KOHEKOHE ROAD,All,5,4.7,23.5
-197600,Wairakei,KOMATA CRESCENT,All,7,3.4,23.6
+197600,Wairakei,KOMATA CRESCENT,All,6,3.4,20.6
 197600,Wairakei,KOTIATE STREET,All,3 or less,6.9,
 197600,Wairakei,KUAKUA CLOSE,All,4,7.6,30.3
 197600,Wairakei,KURU PLACE,All,3 or less,6.4,
@@ -58906,7 +58957,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 202600,Whakatane West,HENDERSON STREET,All,9,5.4,48.5
 202600,Whakatane West,HINEMOA STREET,All,5,5.8,28.9
 202600,Whakatane West,HOTENE STREET,All,3 or less,5.3,
-202600,Whakatane West,JAMES STREET,All,13,4.1,53.9
+202600,Whakatane West,JAMES STREET,All,14,4.6,63.9
 202600,Whakatane West,JOHN LAUGHTON PLACE,All,3 or less,5.0,
 202600,Whakatane West,LANDING ROAD,All,3 or less,8.0,
 202600,Whakatane West,RATIMA PLACE,All,3 or less,5.0,
@@ -59229,7 +59280,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 205000,Tokomaru,STATE HIGHWAY 35,All,3 or less,4.0,
 205000,Tokomaru,TOA STREET,All,3 or less,7.0,
 205000,Tokomaru,WAIAPU ROAD,All,4,5.8,23.0
-205000,Tokomaru,WAIOTU ROAD,All,3 or less,4.0,
+205000,Tokomaru,WAIOTU ROAD,All,3 or less,5.0,
 205100,Hangaroa,BERRY ROAD,All,3 or less,4.0,
 205100,Hangaroa,CAMPBELLS ROAD,All,3 or less,3.3,
 205100,Hangaroa,HIHIROROA ROAD,All,3 or less,5.0,
@@ -61471,7 +61522,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 217400,Westown,PEMBROKE STREET,All,3 or less,5.0,
 217400,Westown,RUSKIN PLACE,All,3 or less,5.0,
 217400,Westown,SANDERS AVENUE,All,3 or less,4.8,
-217400,Westown,SEAVIEW ROAD,All,4,5.5,22.0
+217400,Westown,SEAVIEW ROAD,All,5,5.4,27.0
 217400,Westown,SEDDON STREET,All,3 or less,6.0,
 217400,Westown,TRELAWNEY CRESCENT,All,3 or less,3.6,
 217400,Westown,TUKAPA STREET,All,9,9.0,80.9
@@ -61569,7 +61620,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 217800,Lower Vogeltown,BALLANCE STREET,All,3 or less,5.7,
 217800,Lower Vogeltown,BLENHEIM PLACE,All,3 or less,6.3,
 217800,Lower Vogeltown,BRIGHT WAY,All,3 or less,8.0,
-217800,Lower Vogeltown,BROOKLANDS ROAD,All,6,8.8,53.0
+217800,Lower Vogeltown,BROOKLANDS ROAD,All,7,8.4,59.0
 217800,Lower Vogeltown,CAMDEN STREET,All,3 or less,5.0,
 217800,Lower Vogeltown,CARRINGTON STREET,All,5,7.1,35.3
 217800,Lower Vogeltown,CORNWALL STREET,All,3 or less,10.0,
@@ -61588,7 +61639,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 217800,Lower Vogeltown,SHORTLAND STREET,All,3 or less,7.3,
 217800,Lower Vogeltown,SOMERSET STREET,All,3 or less,5.3,
 217800,Lower Vogeltown,SYCAMORE GROVE,All,4,7.2,29.0
-217800,Lower Vogeltown,VICTORIA ROAD,All,4,5.7,22.7
+217800,Lower Vogeltown,VICTORIA ROAD,All,5,5.8,29.1
 217900,Hurdon,ATUTAHI STREET,All,3 or less,6.1,
 217900,Hurdon,CEDAR PLACE,All,3 or less,9.9,
 217900,Hurdon,COWLING ROAD,All,8,5.8,46.5
@@ -62184,7 +62235,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 221000,Eltham,CONWAY ROAD,All,3 or less,6.3,
 221000,Eltham,DERBY STREET,All,3 or less,4.6,
 221000,Eltham,HIGH STREET,All,6,6.0,36.0
-221000,Eltham,HILL STREET,All,3 or less,10.0,
+221000,Eltham,HILL STREET,All,3 or less,16.3,
 221000,Eltham,JULIAN STREET,All,3 or less,13.0,
 221000,Eltham,KEGWORTH STREET,All,3 or less,3.7,
 221000,Eltham,LONDON STREET,All,4,4.8,19.3
@@ -62804,7 +62855,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 225600,Kaitoke-Fordell,NO 3 LINE,All,5,6.4,32.2
 225600,Kaitoke-Fordell,RIVERBANK ROAD,All,3 or less,6.2,
 225600,Kaitoke-Fordell,STATE HIGHWAY 3,All,3 or less,5.5,
-225600,Kaitoke-Fordell,UNION LINE,All,6,8.2,48.9
+225600,Kaitoke-Fordell,UNION LINE,All,7,10.3,71.9
 225600,Kaitoke-Fordell,WAIKUPA ROAD,All,4,10.7,42.7
 225600,Kaitoke-Fordell,WAKEFIELD STREET,All,3 or less,4.6,
 225600,Kaitoke-Fordell,WARRENGATE ROAD,All,3 or less,6.0,
@@ -62943,7 +62994,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 226600,Marton Rural,PUKEPAPA ROAD,All,3 or less,4.6,
 226600,Marton Rural,SNELLGROVE ROAD,All,3 or less,3.5,
 226600,Marton Rural,STATE HIGHWAY 1,All,3 or less,6.5,
-226600,Marton Rural,UNION LINE,All,3 or less,4.6,
+226600,Marton Rural,UNION LINE,All,3 or less,5.7,
 226600,Marton Rural,WAIMUTU ROAD,All,3 or less,20.0,
 226700,Marton North,AHURU STREET,All,3 or less,3.1,
 226700,Marton North,ARMAGH TERRACE,All,4,4.5,17.9
@@ -63186,7 +63237,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 227700,Mount Taylor,HIGHFIELD ROAD,All,3 or less,9.1,
 227700,Mount Taylor,MAEWA ROAD,All,3 or less,1.5,
 227700,Mount Taylor,MALLARD AVENUE,All,3 or less,10.0,
-227700,Mount Taylor,MOUNT TAYLOR DRIVE,All,8,7.4,59.1
+227700,Mount Taylor,MOUNT TAYLOR DRIVE,All,9,8.2,74.1
 227700,Mount Taylor,PARADISE AVENUE,All,3 or less,3.0,
 227700,Mount Taylor,PHEASANT LANE,All,3 or less,15.0,
 227700,Mount Taylor,QUAIL AVENUE,All,3 or less,4.6,
@@ -63417,7 +63468,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 228900,Palmerston North Airport,ALDERSON DRIVE,All,3 or less,199.8,
 228900,Palmerston North Airport,CHALK WAY,All,3 or less,65.3,
 228900,Palmerston North Airport,LEANDER PLACE,All,3 or less,5.0,
-228900,Palmerston North Airport,MADISON AVENUE,All,3 or less,6.1,
+228900,Palmerston North Airport,MADISON AVENUE,All,4,7.6,30.3
 228900,Palmerston North Airport,THE CUTTING WAY,All,3 or less,44.9,
 229000,Milson North,ABRAHAM CRESCENT,All,3 or less,5.5,
 229000,Milson North,AIRPORT DRIVE,All,3 or less,3.7,
@@ -63573,7 +63624,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 229900,Highbury East,MURPHY COURT,All,3 or less,4.6,
 229900,Highbury East,PEMBROKE STREET,All,3 or less,4.0,
 229900,Highbury East,RONBERG STREET,All,3 or less,6.5,
-230000,Park West,AMBERLEY AVENUE,All,5,3.6,18.0
+230000,Park West,AMBERLEY AVENUE,All,6,4.0,24.0
 230000,Park West,ASHTON PLACE,All,3 or less,3.7,
 230000,Park West,BATON PLACE,All,3 or less,5.3,
 230000,Park West,BROOKSIDE CLOSE,All,3 or less,3.7,
@@ -63809,6 +63860,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 231400,Milverton,FERGUSON STREET,All,3 or less,3.8,
 231400,Milverton,FITZHERBERT AVENUE,All,4,17.0,68.0
 231400,Milverton,KARAKA STREET,All,3 or less,5.9,
+231400,Milverton,KENSINGTON MEWS,All,3 or less,8.1,
 231400,Milverton,MARNE STREET,All,3 or less,5.6,
 231400,Milverton,MILVERTON AVENUE,All,3 or less,3.5,
 231400,Milverton,PHOENIX AVENUE,All,3 or less,8.7,
@@ -63874,7 +63926,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 231800,Hokowhitu East,PAHIATUA STREET,All,3 or less,10.4,
 231800,Hokowhitu East,RIDGEVIEW ROAD,All,3 or less,8.7,
 231800,Hokowhitu East,ROXBURGH CRESCENT,All,3 or less,12.4,
-231800,Hokowhitu East,RUAHINE STREET,All,6,5.4,32.3
+231800,Hokowhitu East,RUAHINE STREET,All,7,5.5,38.3
 231800,Hokowhitu East,SALISBURY AVENUE,All,3 or less,6.4,
 231800,Hokowhitu East,ST ALBANS AVENUE,All,3 or less,3.2,
 231800,Hokowhitu East,STEWART CRESCENT,All,3 or less,3.7,
@@ -63947,7 +63999,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 232400,Aokautere,PETERSENS ROAD,All,3 or less,8.0,
 232400,Aokautere,PHEASANT LANE,All,5,4.8,23.8
 232400,Aokautere,PINFOLD ROAD,All,3 or less,29.9,
-232400,Aokautere,POLSON HILL DRIVE,All,10,11.0,109.9
+232400,Aokautere,POLSON HILL DRIVE,All,11,11.1,121.9
 232400,Aokautere,STACES ROAD,All,3 or less,7.4,
 232400,Aokautere,THE BUSH TRACK,All,3 or less,5.8,
 232400,Aokautere,TITIRANGI DRIVE,All,3 or less,3.7,
@@ -64286,7 +64338,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 234400,Waitarere,PAEROA ROAD,All,3 or less,5.7,
 234400,Waitarere,PARK AVENUE,All,3 or less,5.6,
 234400,Waitarere,RANGITANE GROVE,All,3 or less,14.2,
-234400,Waitarere,ROMA WAY,All,3 or less,10.2,
+234400,Waitarere,ROMA WAY,All,3 or less,8.1,
 234400,Waitarere,ROSLYN ROAD,All,3 or less,7.3,
 234400,Waitarere,RUA AVENUE,All,3 or less,8.4,
 234400,Waitarere,SORENSONS ROAD,All,3 or less,3.6,
@@ -65297,6 +65349,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 239400,Pauatahanui,MOONSHINE ROAD,All,3 or less,7.6,
 239400,Pauatahanui,MULHERN ROAD,All,3 or less,6.0,
 239400,Pauatahanui,MURPHYS ROAD,All,5,8.8,44.1
+239400,Pauatahanui,OAKUM ROAD,All,3 or less,10.0,
 239400,Pauatahanui,PAEKAKARIKI HILL ROAD,All,7,6.7,46.6
 239400,Pauatahanui,PAREMATA HAYWARDS ROAD,All,4,15.5,61.9
 239500,Onepoto,BRIAN PLACE,All,3 or less,5.0,
@@ -66200,7 +66253,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 245900,Delaney,POPPY WATTS GROVE,All,3 or less,3.9,
 245900,Delaney,RAUKAWA STREET,All,3 or less,6.0,
 245900,Delaney,SHACKLETON GROVE,All,3 or less,4.7,
-245900,Delaney,STOKES VALLEY ROAD,All,5,5.3,26.6
+245900,Delaney,STOKES VALLEY ROAD,All,6,5.8,34.6
 245900,Delaney,THOMSON GROVE,All,3 or less,3.6,
 246000,Waiwhetu,ATIAWA CRESCENT,All,3 or less,4.8,
 246000,Waiwhetu,AWAMUTU GROVE,All,3 or less,6.0,
@@ -66310,7 +66363,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 246800,Pencarrow,COAST ROAD,All,3 or less,5.9,
 246800,Pencarrow,MOORES VALLEY ROAD,All,3 or less,3.4,
 246900,Wainuiomata West,BRIAN MORGAN TERRACE,All,3 or less,4.6,
-246900,Wainuiomata West,GROVEDALE SQUARE,All,3 or less,4.6,
+246900,Wainuiomata West,GROVEDALE SQUARE,All,3 or less,5.7,
 246900,Wainuiomata West,HARRY MARTIN LANE,All,3 or less,4.6,
 246900,Wainuiomata West,HILLVIEW RISE,All,3 or less,6.0,
 246900,Wainuiomata West,KAIRANGA CRESCENT,All,3 or less,4.4,
@@ -67021,7 +67074,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 251500,Brooklyn North,ASHTON FITCHETT DRIVE,All,7,4.0,27.9
 251500,Brooklyn North,DURHAM STREET,All,3 or less,5.0,
 251500,Brooklyn North,HELEN STREET,All,3 or less,7.5,
-251500,Brooklyn North,KAREPA STREET,All,4,6.4,25.6
+251500,Brooklyn North,KAREPA STREET,All,5,6.8,33.8
 251500,Brooklyn North,LAURA AVENUE,All,3 or less,2.3,
 251500,Brooklyn North,MITCHELL STREET,All,3 or less,5.0,
 251500,Brooklyn North,MONTEITH GROVE,All,4,4.9,19.6
@@ -67060,7 +67113,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 252000,Mount Cook West,SALISBURY AVENUE,All,3 or less,5.0,
 252000,Mount Cook West,THOMPSON GROVE,All,3 or less,6.0,
 252000,Mount Cook West,WALLACE STREET,All,3 or less,5.0,
-252000,Mount Cook West,WRIGHT STREET,All,4,4.6,18.2
+252000,Mount Cook West,WRIGHT STREET,All,5,5.6,28.2
 252100,Vivian East,FREDERICK STREET,All,3 or less,10.0,
 252100,Vivian East,TORY STREET,All,3 or less,220.0,
 252200,Brooklyn South,KOPIKO WAY,All,3 or less,3.8,
@@ -67332,6 +67385,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 254700,Houghton Bay,VIEW ROAD,All,3 or less,5.0,
 254800,Miramar East,ASHLEIGH CRESCENT,All,3 or less,1.4,
 254800,Miramar East,ATHENS STREET,All,3 or less,6.0,
+254800,Miramar East,BARRETTS WAY,All,3 or less,8.0,
 254800,Miramar East,DARLINGTON ROAD,All,6,3.7,22.5
 254800,Miramar East,GREENVIEW WAY,All,3 or less,8.0,
 254800,Miramar East,MADISON PLACE,All,3 or less,8.0,
@@ -67735,7 +67789,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 257000,Kokotau,WOODLANDS ROAD,All,3 or less,10.6,
 257100,Carterton South,ASHMORE PARK ROAD,All,3 or less,6.0,
 257100,Carterton South,BROOKLYN ROAD,All,9,5.3,47.8
-257100,Carterton South,CHARLES STREET,All,3 or less,2.6,
+257100,Carterton South,CHARLES STREET,All,4,4.3,17.3
 257100,Carterton South,CLIFTON AVENUE,All,7,8.2,57.2
 257100,Carterton South,COSTLEY STREET,All,11,5.8,64.1
 257100,Carterton South,DANSKE CLOSE,All,3 or less,4.2,
@@ -67968,7 +68022,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 257900,Martinborough,FRENCH STREET,All,3 or less,3.9,
 257900,Martinborough,GREENAWAY PLACE,All,3 or less,15.0,
 257900,Martinborough,GREY STREET,All,11,5.9,65.2
-257900,Martinborough,HAWKINS DRIVE,All,4,3.8,15.3
+257900,Martinborough,HAWKINS DRIVE,All,5,5.1,25.3
 257900,Martinborough,JELLICOE STREET,All,7,40.4,283.0
 257900,Martinborough,KITCHENER STREET,All,5,7.8,38.8
 257900,Martinborough,MALCOLM STREET,All,3 or less,6.0,
@@ -68190,6 +68244,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 301000,Lower Moutere,JUBILEE ROAD,All,3 or less,5.0,
 301000,Lower Moutere,MAIN ROAD LOWER MOUTERE,All,5,3.3,16.5
 301000,Lower Moutere,MARTIN LOOP,All,3 or less,13.5,
+301000,Lower Moutere,MCBRYDIE ROAD,All,3 or less,6.0,
 301000,Lower Moutere,MOUTERE HIGHWAY,All,3 or less,4.4,
 301000,Lower Moutere,MYTTON HEIGHTS,All,3 or less,4.5,
 301000,Lower Moutere,PAMARIKA STREET,All,3 or less,2.6,
@@ -68356,7 +68411,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 301600,Moutere Hills,MOUTERE HIGHWAY,All,12,6.8,82.1
 301600,Moutere Hills,NILE ROAD,All,3 or less,8.0,
 301600,Moutere Hills,NUTTALL ROAD,All,3 or less,5.7,
-301600,Moutere Hills,OLD COACH ROAD,All,21,9.1,191.4
+301600,Moutere Hills,OLD COACH ROAD,All,22,8.9,195.4
 301600,Moutere Hills,PERMIN ROAD,All,3 or less,12.3,
 301600,Moutere Hills,PETRA WAY,All,9,9.8,88.4
 301600,Moutere Hills,PUKEKO LANE,All,3 or less,6.7,
@@ -68539,7 +68594,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 302400,Richmond West (Tasman District),MALONE CRESCENT,All,5,5.8,29.0
 302400,Richmond West (Tasman District),MCSHANE ROAD,All,4,29.9,119.6
 302400,Richmond West (Tasman District),MIDLANE CRESCENT,All,4,4.5,18.0
-302400,Richmond West (Tasman District),OAKDALE GROVE,All,5,4.8,24.0
+302400,Richmond West (Tasman District),OAKDALE GROVE,All,6,5.7,34.0
 302400,Richmond West (Tasman District),OAKLEY LANE,All,4,6.2,24.6
 302400,Richmond West (Tasman District),ROSALES STREET,All,3 or less,10.0,
 302400,Richmond West (Tasman District),RUBUS STREET,All,4,5.8,23.3
@@ -68840,7 +68895,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 304100,Tahunanui,OTTERSON STREET,All,3 or less,1.5,
 304100,Tahunanui,PARKERS ROAD,All,3 or less,3.3,
 304100,Tahunanui,PENTON WAY,All,3 or less,5.0,
-304100,Tahunanui,RAWHITI STREET,All,3 or less,7.3,
+304100,Tahunanui,RAWHITI STREET,All,3 or less,6.9,
 304100,Tahunanui,ROTO STREET,All,4,4.0,15.9
 304100,Tahunanui,RUI STREET,All,3 or less,3.5,
 304100,Tahunanui,TAHUNANUI DRIVE,All,5,18.2,90.9
@@ -69438,7 +69493,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 306700,Waikawa (Marlborough District),MOANA VIEW ROAD,All,7,5.4,38.1
 306700,Waikawa (Marlborough District),NAUTIQUE PLACE,All,3 or less,5.0,
 306700,Waikawa (Marlborough District),PUKEKO PLACE,All,3 or less,5.0,
-306700,Waikawa (Marlborough District),RIMU TERRACE,All,3 or less,4.6,
+306700,Waikawa (Marlborough District),RIMU TERRACE,All,3 or less,4.8,
 306700,Waikawa (Marlborough District),ROHE DRIVE,All,3 or less,3.8,
 306700,Waikawa (Marlborough District),TUI DRIVE,All,3 or less,6.3,
 306700,Waikawa (Marlborough District),WAIKAWA ROAD,All,14,5.8,80.5
@@ -70534,7 +70589,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 313300,Starvation Hill-Cust,KENNEDYS HILL ROAD,All,6,4.8,28.8
 313300,Starvation Hill-Cust,LESLIES ROAD,All,3 or less,6.9,
 313300,Starvation Hill-Cust,LILLY ROAD,All,4,12.3,49.0
-313300,Starvation Hill-Cust,MAIRAKI ROAD,All,6,7.5,45.0
+313300,Starvation Hill-Cust,MAIRAKI ROAD,All,7,7.9,55.0
 313300,Starvation Hill-Cust,MCINTOSHS ROAD,All,3 or less,5.8,
 313300,Starvation Hill-Cust,MCJARROWS ROAD,All,3 or less,4.4,
 313300,Starvation Hill-Cust,MT THOMAS ROAD,All,11,10.1,110.9
@@ -71058,7 +71113,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 315300,Woodend,HEWITTS ROAD,All,3 or less,4.3,
 315300,Woodend,HURIA LANE,All,3 or less,5.5,
 315300,Woodend,JAMES DRIVE,All,3 or less,4.9,
-315300,Woodend,JUDSONS ROAD,All,3 or less,1.8,
+315300,Woodend,JUDSONS ROAD,All,3 or less,3.7,
 315300,Woodend,LACY GATE PLACE,All,3 or less,4.0,
 315300,Woodend,LITTLES LANE,All,3 or less,3.3,
 315300,Woodend,MAIN NORTH ROAD,All,9,5.3,48.0
@@ -71193,7 +71248,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 315600,Pegasus Bay,STALKERS ROAD,All,3 or less,5.0,
 315600,Pegasus Bay,WOODEND BEACH ROAD,All,3 or less,6.7,
 315700,Kaiapoi North West,BRACEBRIDGE STREET,All,3 or less,9.0,
-315700,Kaiapoi North West,CAM ROAD,All,3 or less,5.0,
+315700,Kaiapoi North West,CAM ROAD,All,4,6.3,25.0
 315700,Kaiapoi North West,CHARLES STREET,All,4,4.9,19.6
 315700,Kaiapoi North West,COUPS TERRACE,All,3 or less,5.0,
 315700,Kaiapoi North West,CRIDLAND STREET EAST,All,3 or less,5.0,
@@ -71492,7 +71547,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 317400,Northwood,CAROLINE WAY,All,3 or less,7.0,
 317400,Northwood,CROMBIE GREEN,All,3 or less,7.7,
 317400,Northwood,ENGLEFIELD ROAD,All,3 or less,20.0,
-317400,Northwood,GLEN OAKS DRIVE,All,3 or less,11.0,
+317400,Northwood,GLEN OAKS DRIVE,All,3 or less,10.5,
 317400,Northwood,HATTON COURT,All,5,6.8,33.8
 317400,Northwood,HENLEY GREEN,All,3 or less,8.0,
 317400,Northwood,HUSSEY ROAD,All,3 or less,10.0,
@@ -72180,7 +72235,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 321300,Prestons,TAIORE CRESCENT,All,3 or less,4.0,
 321300,Prestons,TE AIKA STREET,All,3 or less,10.0,
 321300,Prestons,TE KEREME STREET,All,3 or less,5.0,
-321300,Prestons,TE KORARI STREET,All,6,10.8,65.0
+321300,Prestons,TE KORARI STREET,All,7,10.7,74.8
 321300,Prestons,TE RAU A KAKA STREET,All,3 or less,6.2,
 321300,Prestons,TE RITO STREET,All,15,4.7,71.1
 321300,Prestons,TE WHARIKI STREET,All,3 or less,6.0,
@@ -72388,7 +72443,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 322600,Holmwood,CLIFFORD AVENUE,All,5,5.9,29.4
 322600,Holmwood,DESMOND STREET,All,3 or less,8.0,
 322600,Holmwood,FENDALL LANE,All,3 or less,10.0,
-322600,Holmwood,FENDALTON ROAD,All,3 or less,7.0,
+322600,Holmwood,FENDALTON ROAD,All,3 or less,8.1,
 322600,Holmwood,FULTON AVENUE,All,3 or less,5.0,
 322600,Holmwood,GARDEN ROAD,All,3 or less,5.8,
 322600,Holmwood,GLANDOVEY ROAD,All,3 or less,7.0,
@@ -72786,6 +72841,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 324800,St Albans East,SPRINGFIELD ROAD,All,3 or less,62.5,
 325000,Hillmorton,BENJAMIN MOUNTFORD CLOSE,All,3 or less,5.0,
 325000,Hillmorton,BIDWELL PLACE,All,3 or less,5.0,
+325000,Hillmorton,CARDIGAN BAY PLACE,All,3 or less,10.0,
 325000,Hillmorton,DAVE JAMIESON LANE,All,3 or less,5.0,
 325000,Hillmorton,GRIGG PLACE,All,3 or less,5.0,
 325000,Hillmorton,HALSWELL ROAD,All,3 or less,5.1,
@@ -73415,7 +73471,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 329000,Kennedys Bush,COE STREET,All,3 or less,5.0,
 329000,Kennedys Bush,COMER STREET,All,3 or less,5.0,
 329000,Kennedys Bush,CORGWYN AVENUE,All,3 or less,11.7,
-329000,Kennedys Bush,DRAY PLACE,All,3 or less,7.5,
+329000,Kennedys Bush,DRAY PLACE,All,3 or less,8.3,
 329000,Kennedys Bush,EARLY VALLEY ROAD,All,3 or less,4.0,
 329000,Kennedys Bush,EASTMAN DRIVE,All,6,6.0,36.0
 329000,Kennedys Bush,ECCLES PLACE,All,3 or less,7.5,
@@ -73601,7 +73657,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 330000,Westmorland,BETTY ROBERTS LANE,All,3 or less,8.0,
 330000,Westmorland,CALDBECK LANE,All,3 or less,5.0,
 330000,Westmorland,CALDBERG CLOSE,All,4,5.4,21.6
-330000,Westmorland,CAREX RISE,All,9,9.5,85.2
+330000,Westmorland,CAREX RISE,All,9,9.2,83.2
 330000,Westmorland,CARO LANE,All,3 or less,8.3,
 330000,Westmorland,CASHMERE ROAD,All,6,6.5,39.0
 330000,Westmorland,CHALONER LANE,All,3 or less,6.3,
@@ -73651,7 +73707,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 330100,Woolston North,GOW PLACE,All,3 or less,5.3,
 330100,Woolston North,HARGOOD STREET,All,3 or less,4.3,
 330100,Woolston North,ISLAY PLACE,All,3 or less,5.0,
-330100,Woolston North,MACKWORTH STREET,All,7,4.0,28.0
+330100,Woolston North,MACKWORTH STREET,All,8,4.1,33.0
 330100,Woolston North,MARCROFT STREET,All,3 or less,2.2,
 330100,Woolston North,MATLOCK STREET,All,3 or less,3.5,
 330100,Woolston North,PIONEER LANE,All,3 or less,6.0,
@@ -74111,7 +74167,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 332500,Lyttelton,CROSSLAND TERRACE,All,3 or less,8.0,
 332500,Lyttelton,CUNNINGHAM TERRACE,All,3 or less,10.0,
 332500,Lyttelton,DALLEYS LANE,All,3 or less,6.0,
-332500,Lyttelton,DAYS ROAD,All,3 or less,7.5,
+332500,Lyttelton,DAYS ROAD,All,3 or less,10.0,
 332500,Lyttelton,DUBLIN STREET,All,3 or less,6.0,
 332500,Lyttelton,EXETER STREET,All,3 or less,10.0,
 332500,Lyttelton,FOSTER TERRACE,All,7,5.3,36.9
@@ -74830,7 +74886,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 335500,Rolleston South East,DYNES ROAD,All,4,16.8,67.1
 335500,Rolleston South East,EAST MADDISONS ROAD,All,3 or less,8.0,
 335500,Rolleston South East,EASTONFIELD DRIVE,All,3 or less,5.0,
-335500,Rolleston South East,ED HILLARY DRIVE,All,8,7.5,60.0
+335500,Rolleston South East,ED HILLARY DRIVE,All,9,7.6,68.6
 335500,Rolleston South East,ELEONORA LANE,All,3 or less,5.0,
 335500,Rolleston South East,EVERSHAM DRIVE,All,4,2.3,9.0
 335500,Rolleston South East,EYAS DRIVE,All,3 or less,9.6,
@@ -74888,7 +74944,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 335500,Rolleston South East,PALMER AVENUE,All,3 or less,10.5,
 335500,Rolleston South East,PEREGRINE CRESCENT,All,3 or less,5.5,
 335500,Rolleston South East,PHILIPPA DRIVE,All,3 or less,6.0,
-335500,Rolleston South East,POWER PLACE,All,3 or less,10.0,
+335500,Rolleston South East,POWER PLACE,All,3 or less,9.5,
 335500,Rolleston South East,RADCOT DRIVE,All,3 or less,6.7,
 335500,Rolleston South East,RAPERE STREET,All,3 or less,4.0,
 335500,Rolleston South East,RAPTOR STREET,All,4,6.8,27.0
@@ -74901,7 +74957,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 335500,Rolleston South East,SANDHILL DRIVE,All,3 or less,5.9,
 335500,Rolleston South East,SANDHURST DRIVE,All,6,6.8,40.8
 335500,Rolleston South East,SECKLES LANE,All,3 or less,9.0,
-335500,Rolleston South East,SELWYN ROAD,All,6,5.8,34.5
+335500,Rolleston South East,SELWYN ROAD,All,7,6.0,41.7
 335500,Rolleston South East,SHILLINGFORD BOULEVARD,All,13,5.6,72.3
 335500,Rolleston South East,SILVERSTONE LOOP,All,3 or less,8.3,
 335500,Rolleston South East,SOAR TERRACE,All,3 or less,5.5,
@@ -75109,7 +75165,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 336000,Lincoln West,SOUTHFIELD DRIVE,All,9,6.0,53.9
 336000,Lincoln West,TABOR PLACE,All,3 or less,6.8,
 336000,Lincoln West,TAUHINU AVENUE,All,9,5.4,48.8
-336000,Lincoln West,TE RAKI DRIVE,All,12,7.1,85.6
+336000,Lincoln West,TE RAKI DRIVE,All,13,7.3,94.6
 336000,Lincoln West,TE WAIKARE STREET,All,4,7.3,29.0
 336000,Lincoln West,TRAINOR STREET,All,4,7.4,29.5
 336000,Lincoln West,TURI PLACE,All,3 or less,4.5,
@@ -75374,7 +75430,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 337100,Eiffelton,WEST BAY PLACE,All,3 or less,5.0,
 337100,Eiffelton,WESTVIEW DRIVE,All,3 or less,9.3,
 337100,Eiffelton,WINSLOW ROAD,All,3 or less,18.7,
-337100,Eiffelton,WINSLOW WESTERFIELD ROAD,All,3 or less,7.1,
+337100,Eiffelton,WINSLOW WESTERFIELD ROAD,All,4,22.0,87.9
 337100,Eiffelton,WINSLOW WILLOWBY ROAD,All,3 or less,8.5,
 337100,Eiffelton,WITNEY LANE,All,3 or less,10.0,
 337200,Chertsey,ACTON ROAD,All,4,18.3,73.2
@@ -77137,7 +77193,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 346200,Outer Wakatipu,WHITECHAPEL ROAD,All,3 or less,10.0,
 346400,Cardrona,ATKINS ROAD,All,3 or less,8.8,
 346400,Cardrona,BALLANTYNE ROAD,All,13,7.5,97.2
-346400,Cardrona,BLACK PEAK ROAD,All,3 or less,4.4,
+346400,Cardrona,BLACK PEAK ROAD,All,4,4.2,17.0
 346400,Cardrona,BUCHANAN RISE,All,3 or less,5.0,
 346400,Cardrona,CARDRONA VALLEY ROAD,All,7,5.3,37.0
 346400,Cardrona,FAULKS ROAD,All,5,5.2,26.0
@@ -78069,12 +78125,12 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 349400,Taieri,SCHOOL ROAD SOUTH,All,3 or less,4.7,
 349400,Taieri,SNOWDON STREET,All,3 or less,2.3,
 349400,Taieri,TAIOMA ROAD,All,3 or less,8.8,
-349400,Taieri,TARA HILLS DRIVE,All,3 or less,10.0,
+349400,Taieri,TARA HILLS DRIVE,All,3 or less,8.2,
 349400,Taieri,THREE MILE HILL ROAD,All,3 or less,5.0,
 349400,Taieri,TIROHANGA ROAD,All,15,6.2,92.6
 349400,Taieri,WAIRONGOA ROAD,All,3 or less,5.0,
 349600,Mount Cargill,ALBERT ROAD,All,3 or less,5.1,
-349600,Mount Cargill,ARAMOANA ROAD,All,4,8.4,33.6
+349600,Mount Cargill,ARAMOANA ROAD,All,4,7.5,30.0
 349600,Mount Cargill,BARTON STREET,All,3 or less,6.3,
 349600,Mount Cargill,BEACH ROAD,All,3 or less,4.0,
 349600,Mount Cargill,BLUESKIN ROAD,All,17,6.5,111.1
@@ -78563,7 +78619,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 353900,Otago Peninsula,HARINGTON POINT ROAD,All,3 or less,10.0,
 353900,Otago Peninsula,HARWOOD STREET,All,3 or less,8.8,
 353900,Otago Peninsula,HIGHCLIFF ROAD,All,3 or less,6.0,
-353900,Otago Peninsula,HILTON ROAD,All,3 or less,3.0,
+353900,Otago Peninsula,HILTON ROAD,All,3 or less,4.0,
 353900,Otago Peninsula,HOOPERS INLET ROAD,All,3 or less,9.0,
 353900,Otago Peninsula,KARETAI ROAD,All,3 or less,5.0,
 353900,Otago Peninsula,MCKAY ROAD,All,3 or less,5.0,
@@ -78620,7 +78676,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 354800,St Clair,BEACH STREET,All,3 or less,5.0,
 354800,St Clair,BEDFORD STREET,All,5,4.2,21.1
 354800,St Clair,CLAYTON STREET,All,4,5.0,20.0
-354800,St Clair,CLIFFS ROAD,All,10,7.0,70.2
+354800,St Clair,CLIFFS ROAD,All,10,7.3,73.4
 354800,St Clair,EARLS ROAD,All,3 or less,5.0,
 354800,St Clair,HIGHGROVE,All,4,4.5,18.0
 354800,St Clair,HOBSON STREET,All,3 or less,5.0,
@@ -78674,7 +78730,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 355100,Broad Bay-Portobello,OXLEY CRESCENT,All,3 or less,5.0,
 355100,Broad Bay-Portobello,PORTOBELLO ROAD,All,3 or less,3.8,
 355100,Broad Bay-Portobello,SEATON ROAD,All,4,3.7,14.6
-355100,Broad Bay-Portobello,TREETOP DRIVE,All,3 or less,5.0,
+355100,Broad Bay-Portobello,TREETOP DRIVE,All,3 or less,1.8,
 355100,Broad Bay-Portobello,WAIKANA STREET,All,3 or less,1.5,
 355200,St Kilda South,CALDER STREET,All,3 or less,4.0,
 355200,St Kilda South,COUNCIL STREET,All,3 or less,5.0,
@@ -78816,7 +78872,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 356200,Bruce,SPRINGFIELD ROAD,All,3 or less,6.7,
 356200,Bruce,SURREY HEIGHTS,All,3 or less,6.0,
 356200,Bruce,TABLE HILL ROAD,All,3 or less,11.3,
-356200,Bruce,TITRI ROAD,All,3 or less,4.6,
+356200,Bruce,TITRI ROAD,All,3 or less,5.3,
 356200,Bruce,TOKO MOUTH DOMAIN ROAD,All,3 or less,5.9,
 356200,Bruce,WAIHOLA HIGHWAY,All,6,54.2,325.0
 356300,Catlins,AHURIRI FLAT ROAD,All,3 or less,5.0,
@@ -78979,6 +79035,7 @@ StatisticalArea2Code,StatisticalArea2Name,PhysicalAddressStreet,MarketSegment,IC
 357700,Mossburn,AVON STREET,All,3 or less,5.0,
 357700,Mossburn,BLACKMORE ROAD,All,3 or less,6.7,
 357700,Mossburn,DORSET STREET,All,3 or less,15.0,
+357700,Mossburn,FLYER VIEW LANE,All,3 or less,10.0,
 357700,Mossburn,GARSTON ATHOL HIGHWAY,All,3 or less,5.0,
 357700,Mossburn,HYTHE STREET,All,3 or less,8.1,
 357700,Mossburn,MCMILLAN ROAD,All,3 or less,6.0,
