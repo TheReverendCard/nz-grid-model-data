@@ -1,6 +1,6 @@
 # Behind-the-meter solar: lightweight NZ grid estimate
 
-Status: **research note / proposed quick-look method**, 23 October 2026.  No new regression or production-data pipeline has been run here.
+Status: **lightweight research prototype**, 23 October 2026.  Script added as `build_embedded_solar_quicklook.py`, but no live run or regression validation has been completed.
 
 ## Aim
 
@@ -57,7 +57,7 @@ Local station readings should therefore be a **later verification layer**, not a
 ## Minimal next implementation steps
 
 1. **Show the benchmark now**: roughly 860 MW installed embedded solar and ~95 GWh estimated for September 2026, with attributed source and approximate / dated labels.
-2. **Build a small daily irradiance index** with a few representative NI/SI satellite sample points and published/corrected embedded capacities.  Emit date-stamped 30-minute estimated embedded-MW and daily MWh; avoid treating installed capacity as actual output.
+2. **Trial the quick-look script** with `python build_embedded_solar_quicklook.py --date 2026-10-21`.  It requests eight representative NI/SI Himawari satellite points and emits date-stamped native 10-minute embedded-MW proxy plus daily MWh, with explicit data-coverage flag.  It is a prototype and has not yet been verified against live responses or added to an automated workflow.  Replace the initial equal-within-island spatial averages with installed-capacity weighting when convenient.
 3. **Validate order of magnitude** against Elenz monthly gross output and EA solar exports, remembering exports omit on-site use.
 4. **Optionally test local PWS trends** using owner-authorised data later, only if that would meaningfully improve a dashboard intended for general understanding.
 
