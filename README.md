@@ -6,6 +6,10 @@ A public, reproducible evidence and modelling repository for a practical New Zea
 
 This repository combines authoritative public data, selected outputs from established New Zealand electricity models, transparent derived calculations, compact public datasets, and public-facing visualisations.  It is intended to make system-security questions easier to inspect and reproduce.  It is **not** intended to replace professional production-cost, dispatch, hydro-scheduling, or transmission-expansion models.
 
+## Embedded solar quick-look (prototype)
+
+[Lightweight BTM/embedded solar method and PWS findings](docs/btm_solar_quicklook.md) document the rationale, source licensing and a September 2026 national benchmark.  `build_embedded_solar_quicklook.py` uses Open-Meteo Himawari irradiance and dated published capacity assumptions to estimate indicative gross embedded solar MW and MWh.  This is **not** measured output or a production pipeline.  The old 2024 residential BTM retention estimate remains separate.
+
 ## What is in this repository
 
 The repository now has seven connected layers:
