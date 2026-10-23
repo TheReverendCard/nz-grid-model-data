@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Historical Generation & Embedded Solar · NZ Grid</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<style>
+:root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#17212f;background:#f4f6fa}
+*{box-sizing:border-box}body{margin:0}main{max-width:1400px;margin:auto;padding:26px}
+header,.panel,.metric{border-radius:16px;background:white;padding:20px;box-shadow:0 2px 14px #1018280a}
+header{margin-bottom:16px}h1{margin:0 0 6px;font-size:1.65rem}h2{margin:0 0 8px;font-size:1.15rem}
+a{color:#075b92}p{line-height:1.5}.muted,small{color:#627086}.sub{font-size:.9rem}
+.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:end;margin:14px 0}
+.controls label{display:flex;flex-direction:column;gap:5px;font-size:.86rem;font-weight:600}
+select,input,button{border:1px solid #c4ccd7;border-radius:9px;padding:9px 11px;background:#fff;color:inherit;font:inherit}
+button{cursor:pointer}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:14px 0}
+.metric strong{display:block;font-size:1.48rem;margin:4px 0}.metric span{color:#59667a;font-size:.9rem}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.wide{grid-column:1/-1}.chart{position:relative;height:340px}.big{height:420px}
+#status{border-left:4px solid #22897a;padding:10px 12px;background:#e9f6f3;margin:12px 0;border-radius:5px}
+#status.error{background:#fff1e9;border-left-color:#ce7320}
+.sources{font-size:.84rem;color:#5a687a}
+@media(max-width:760px){main{padding:10px}.grid{grid-template-columns:1fr}.wide{grid-column:auto}.chart,.big{height:290px}.controls label{flex:1 1 120px}}
+</style></head>
+<body><main>
+<header>
+<p style="margin:0 0 6px"><a href="./index.html">← Open NZ Electricity Data</a> · <a href="https://elenz.co.nz/tracker" target="_blank" rel="noopener">Elenz historical tracker ↗</a></p>
+<h1>Past generation & the contribution of embedded solar</h1>
+<p class="muted">Daily or weekly energy, not just a live snapshot. Metered/dispatch electricity is shown separately from <b>estimated</b> embedded solar (rooftop, commercial and small ground-mounted arrays).</p>
+<div class="controls">
+<label>Region<select id="region"><option value="NZ">New Zealand</option><option value="NI">North Island</option><option value="SI">South Island</option></select></label>
+<label>Grouping<select id="group"><option value="day">Daily</option><option value="week">Weekly (Monday–Sunday)</option></select></label>
+<label>Time window<select id="window"><option value="30">30 days</option><option value="90">90 days</option><option value="365" selected>1 year</option><option value="1095">3 years</option><option value="all">All available</option></select></label>
+<label>Ending on<input id="end" type="date"></label>
+<button id="prev" type="button">← Earlier</button><button id="next" type="button">Later →</button><button id="latest" type="button">Latest</button>
+</div>
+<div id="status" role="status">Loading historical data…</div>
+</header>
+<section class="cards" aria-label="Period totals">
+<div class="metric"><span>Grid generation</span><strong id="mgrid">—</strong><small>Measured / dispatched output</small></div>
+<div class="metric"><span>Embedded solar, estimated</span><strong id="mroof">—</strong><small>Additional modelled generation</small></div>
+<div class="metric"><span>Embedded solar share</span><strong id="mshare">—</strong><small>Of combined grid + embedded generation</small></div>
+<div class="metric"><span>Underlying consumption, estimated</span><strong id="mdemand">—</strong><small>Grid demand with estimated embedded solar added</small></div>
+</section>
+<div class="grid">
+<section class="panel wide"><h2>Where NZ electricity came from</h2><p class="muted sub">Stacked daily or weekly GWh. Gold is <b>estimated embedded solar</b>, separately from metered grid-connected solar.</p><div class="chart big"><canvas id="mix"></canvas></div></section>
+<section class="panel"><h2>Solar: grid vs embedded</h2><p class="muted sub">The contribution not shown in ordinary grid-generation totals.</p><div class="chart"><canvas id="solars"></canvas></div></section>
+<section class="panel"><h2>Grid demand vs demand plus embedded solar</h2><p class="muted sub">Illustrates how generation behind meters can make observed grid demand look lower. Not all embedded production is self-consumed.</p><div class="chart"><canvas id="demand"></canvas></div></section>
+</div>
+<section class="panel" style="margin-top:16px">
+<h2>Sources, limits and downloads</h2>
+<p class="sources" id="source">Elenz historical series are built from Electricity Authority metered generation (where published), dispatch data for recent periods, and satellite-modelled embedded solar. The public Elenz feed is CC BY 4.0 with attribution. Results should be treated as indicative, not direct household-meter measurements.</p>
+<p><button type="button" id="csv">Download displayed CSV</button> · <a href="https://elenz.co.nz/methods/embedded-solar" target="_blank" rel="noopener">Embedded-solar methodology</a> · <a href="https://elenz.co.nz/tracker" target="_blank" rel="noopener">Detailed past half-hourly generation at Elenz</a></p>
+<p class="sources">Important accounting: embedded generation is <em>gross</em> output, not necessarily all electricity directly self-consumed. Grid exports and displacement of grid imports are separate quantities. Comparisons are descriptive, not a claim that every embedded MWh displaced fossil generation. Weekly totals may be partial at the beginning/end of a selected date window. The page shows up to the latest data available from its active source.</p>
+</section>
+</main>
+<script>
+'use strict';
+const FEED = 'https://elenz.co.nz/data/history/day.json';
+const NAMES = {geo:'Geothermal',bio:'Bioenergy',waste:'Waste heat',coal:'Coal / mixed',gas:'Gas',diesel:'Diesel',hydro:'Hydro',wind:'Wind',solar:'Grid solar',batt:'Battery discharge',roof:'Embedded solar (estimated)'};
+const COLORS = {geo:'#b35d31',bio:'#4e7f45',waste:'#8b7e6a',coal:'#47494d',gas:'#98837d',diesel:'#5d6579',hydro:'#267ab3',wind:'#43a2a6',solar:'#e8ba46',batt:'#9878ba',roof:'rgba(232,160,29,.45)'};
+const FUELS = Object.keys(NAMES), sourceURL = FEED;
+const byId = id => document.getElementById(id);
+const fmt = new Intl.NumberFormat('en-NZ',{maximumFractionDigits:1});
+const dayParts = new Intl.DateTimeFormat('en-CA',{timeZone:'Pacific/Auckland',year:'numeric',month:'2-digit',day:'2-digit'});
+const dateNZ = t => {const p=Object.fromEntries(dayParts.formatToParts(new Date(t)).map(x=>[x.type,x.value]));return p.year+'-'+p.month+'-'+p.day};
+const sum = a => a.reduce((x,y)=>x+y,0);
+const sumKey = (d, key, i, region) => (region==='SI'?0: +(d.NI?.[key]?.[i]||0))+(region==='NI'?0: +(d.SI?.[key]?.[i]||0));
+const dateMs = d => Date.parse(d+'T12:00:00Z');
+const iso = ms => new Date(ms).toISOString().slice(0,10);
+const monday = s => {const ms=dateMs(s),weekday=new Date(ms).getUTCDay(); return iso(ms-((weekday+6)%7)*86400000)};
+const shortLabel = s => s.slice(5);
+const barOptions = {responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+fmt.format(ctx.parsed.y)+' GWh'}},legend:{position:'bottom',labels:{boxWidth:14}}},scales:{x:{ticks:{maxTicksLimit:12,maxRotation:0}},y:{beginAtZero:true,title:{display:true,text:'GWh per period'}}},animation:false};
+let model = null, plot = [], charts = [];
+function status(s,error=false){byId('status').textContent=s;byId('status').className=error?'error':''}
+async function obtain(){
+ const r=await fetch(FEED,{cache:'no-store'});if(!r.ok)throw new Error('Historical feed HTTP '+r.status);
+ const d=await r.json();
+ if(!Array.isArray(d.t)||!Array.isArray(d.h)||!d.NI?.hydro||!d.SI?.hydro)throw new Error('Unexpected historical series layout');
+ if(d.t.length!==d.h.length)throw new Error('Inconsistent history timestamps/hours');
+ return d;
+}
+async function fallback(){
+ // Offline fallback for generation history only. Embedded solar remains unknown, never fabricated as zero.
+ const r=await fetch('../data/public/generation_mix_daily.csv');
+ if(!r.ok)throw new Error('Local EA generation CSV unavailable');
+ const txt=await r.text();
+ const rows=new Map();
+ for(const line of txt.trim().split(/\r?\n/).slice(1)){
+  const [day,fuel,val]=line.split(',');
+  const key=({Geothermal:'geo',Hydro:'hydro',Wind:'wind',Solar:'solar',Gas:'gas',Coal:'coal',Wood:'bio','Liquid fuel':'diesel',Bioenergy:'bio','Waste heat':'waste'})[fuel];
+  if(!key||!Number.isFinite(Number(val)))continue;
+  if(!rows.has(day))rows.set(day,{date:day,hours:24,grid:0,roof:null,demand:null,gridSolar:0,fuels:Object.fromEntries(FUELS.map(k=>[k,k==='roof'?null:0]))});
+  const obj=rows.get(day);obj.fuels[key]+=Number(val)/1000;obj.grid+=Number(val)/1000;
+ }
+ return [...rows.values()].sort((a,b)=>a.date.localeCompare(b.date));
+}
+function fromElenz(d,region){
+ const rows=[];
+ for(let i=0;i<d.t.length;i++){
+  const hours=Number(d.h[i]);
+  if(!(hours>0&&hours<27))continue;
+  const fuels={}; let grid=0;
+  for(const f of FUELS){
+   const mw=Math.max(0,sumKey(d,f,i,region));
+   const gwh=mw*hours/1000;
+   fuels[f]=gwh;
+   if(f!=='roof')grid+=gwh;
+  }
+  const roof=fuels.roof;
+  // 'underlying' is the modelled consumption series as defined by Elenz, not independently measured.
+  const demand=sumKey(d,'underlying',i,region)*hours/1000;
+  rows.push({date:dateNZ(d.t[i]),hours,fuels,grid,roof,demand,gridSolar:fuels.solar});
+ }
+ return rows;
+}
+function groupRows(rows,mode){
+ if(mode==='day')return rows;
+ const map=new Map();
+ for(const r of rows){
+  const key=monday(r.date);
+  if(!map.has(key))map.set(key,{date:key,hours:0,grid:0,roof:r.roof===null?null:0,demand:r.demand===null?null:0,gridSolar:0,fuels:Object.fromEntries(FUELS.map(f=>[f,r.fuels[f]===null?null:0]))});
+  const x=map.get(key);
+  x.hours+=r.hours;x.grid+=r.grid;x.gridSolar+=r.gridSolar;
+  if(x.roof!==null&&r.roof!==null)x.roof+=r.roof;else x.roof=null;
+  if(x.demand!==null&&r.demand!==null)x.demand+=r.demand;else x.demand=null;
+  for(const f of FUELS)if(x.fuels[f]!==null&&r.fuels[f]!==null)x.fuels[f]+=r.fuels[f];else x.fuels[f]=null;
+ }
+ return [...map.values()].sort((a,b)=>a.date.localeCompare(b.date));
+}
+function chart(id,config){
+ const el=byId(id);const chart=new Chart(el,config);charts.push(chart);
+}
+function render(){
+ if(!model)return;
+ charts.forEach(c=>c.destroy());charts=[];
+ const region=byId('region').value,mode=byId('group').value,w=byId('window').value;
+ const latest=model.type==='elenz'?dateNZ(model.raw.t[model.raw.t.length-1]):model.rows.at(-1).date;
+ let end=byId('end').value||latest;if(end>latest)end=latest;
+ const start=w==='all'?'0000-01-01':iso(dateMs(end)-(Number(w)-1)*86400000);
+ const daily=(model.type==='elenz'?fromElenz(model.raw,region):model.rows).filter(r=>r.date>=start&&r.date<=end);
+ plot=groupRows(daily,mode);
+ if(!plot.length){status('No observations in that date range',true);return}
+ const labels=plot.map(r=>mode==='week'?'Week '+shortLabel(r.date):shortLabel(r.date));
+ const grid=sum(plot.map(r=>r.grid)), embedded=plot.every(r=>r.roof!==null)?sum(plot.map(r=>r.roof)):null;
+ const demand=plot.every(r=>r.demand!==null)?sum(plot.map(r=>r.demand)):null;
+ byId('mgrid').textContent=fmt.format(grid)+' GWh';
+ byId('mroof').textContent=embedded===null?'Not available':fmt.format(embedded)+' GWh';
+ byId('mshare').textContent=embedded===null?'Not available':(100*embedded/(grid+embedded)).toFixed(1)+'%';
+ byId('mdemand').textContent=demand===null?'Not available':fmt.format(demand)+' GWh';
+ const datasets=FUELS.map(f=>({label:NAMES[f],data:plot.map(r=>r.fuels[f]),backgroundColor:COLORS[f],borderColor:f==='roof'?'#9c6a0e':COLORS[f],borderWidth:f==='roof'?1:0,stack:'gen'}));
+ chart('mix',{type:'bar',data:{labels,datasets},options:{...barOptions,plugins:{...barOptions.plugins,legend:{position:'bottom',labels:{boxWidth:14}}}}});
+ chart('solars',{type:'bar',data:{labels,datasets:[{label:'Dispatched solar',data:plot.map(r=>r.gridSolar),backgroundColor:COLORS.solar,stack:'s'},{label:'Embedded solar (estimated)',data:plot.map(r=>r.roof),backgroundColor:COLORS.roof,borderColor:'#9c6a0e',borderWidth:1,stack:'s'}]},options:barOptions});
+ chart('demand',{type:'line',data:{labels,datasets:[{label:'Grid demand + embedded solar (modelled)',data:plot.map(r=>r.demand),borderColor:'#ca8f1c',backgroundColor:'#ca8f1c',tension:.1,pointRadius:0,spanGaps:false},{label:'Grid generation (not the same as demand)',data:plot.map(r=>r.grid),borderColor:'#21749b',borderDash:[5,5],pointRadius:0,tension:.1}]},options:barOptions});
+ // If day history contains valid modelled grid demand, use it in the second chart rather than grid generation proxy.
+ if(model.type==='elenz'){
+   const metered=groupRows(model.type==='elenz'?fromElenzDemand(model.raw,region).filter(r=>r.date>=start&&r.date<=end):[],mode);
+   const c=charts.at(-1);
+   c.data.datasets[1]={label:'Metered grid demand',data:metered.map(r=>r.metered),borderColor:'#21749b',pointRadius:0,tension:.1};
+   c.update();
+ } else {charts.at(-1).data.datasets[0].data=[];charts.at(-1).update()}
+ const selected=plot.length;
+ status((model.type==='elenz'?'Elenz EA + satellite history':'EA generation-only fallback')+' · '+daily[0].date+' to '+daily.at(-1).date+' · '+selected+' '+(mode==='week'?'weeks':'days')+'. '+(mode==='week'?'Partial weeks are allowed. ':'')+(model.type!=='elenz'?'Embedded solar not available in this fallback.':''));
+ byId('source').textContent=model.type==='elenz'?
+   'Source: Elenz (elenz.co.nz), from Electricity Authority data and JMA/JAXA Himawari irradiance via Open-Meteo, CC BY 4.0. Grid generation is metered where final data are available and dispatch-derived for recent periods. Embedded solar and underlying demand are estimates.':
+   'Source: NZ Grid checked-in Electricity Authority generation history. Elenz daily history is currently unavailable. This fallback has NO embedded solar or demand estimates; do not interpret missing as zero.';
+}
+function fromElenzDemand(d,region){
+ return d.t.map((t,i)=>({date:dateNZ(t),hours:+d.h[i],metered:Math.max(0,sumKey(d,'metered',i,region))*d.h[i]/1000})).filter(x=>x.hours>0&&x.hours<27);
+}
+function shiftDays(n){const el=byId('end');const latest=model.type==='elenz'?dateNZ(model.raw.t.at(-1)):model.rows.at(-1).date;el.value=iso(Math.min(dateMs(latest),dateMs(el.value||latest)+n*86400000));render()}
+byId('csv').addEventListener('click',()=>{
+ if(!plot.length)return;
+ const keys=['date','hours','grid','roof','gridSolar','demand',...FUELS.map(f=>'fuel_'+f)];
+ const rows=[keys.join(',')];
+ for(const r of plot)rows.push([r.date,r.hours,r.grid,r.roof??'',r.gridSolar,r.demand??'',...FUELS.map(f=>r.fuels[f]??'')].join(','));
+ const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([rows.join('\n')+'\n'],{type:'text/csv'}));a.download='nz-generation-embedded-'+byId('group').value+'.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);
+});
+byId('latest').addEventListener('click',()=>{byId('end').value=model.type==='elenz'?dateNZ(model.raw.t.at(-1)):model.rows.at(-1).date;render()});
+byId('prev').addEventListener('click',()=>shiftDays(-(Number(byId('window').value)||365)));
+byId('next').addEventListener('click',()=>shiftDays((Number(byId('window').value)||365)));
+for(const id of ['region','group','window','end'])byId(id).addEventListener('change',render);
+(async()=>{
+ try{const raw=await obtain();model={type:'elenz',raw};byId('end').value=dateNZ(raw.t.at(-1));render()}
+ catch(e){try{console.warn('Elenz history unavailable',e);const rows=await fallback();model={type:'fallback',rows};byId('end').value=rows.at(-1).date;byId('region').disabled=true;render()}catch(err){status('Could not load either source: '+err.message,true)}}
+})();
+</script></body></html>
