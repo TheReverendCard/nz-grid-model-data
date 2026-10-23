@@ -88,7 +88,7 @@ async function fallback(){
   const [day,fuel,val]=line.split(',');
   const key=({Geothermal:'geo',Hydro:'hydro',Wind:'wind',Solar:'solar',Gas:'gas',Coal:'coal',Wood:'bio','Liquid fuel':'diesel',Bioenergy:'bio','Waste heat':'waste'})[fuel];
   if(!key||!Number.isFinite(Number(val)))continue;
-  if(!rows.has(day))rows.set(day,{date:day,hours:24,grid:0,roof:null,demand:null,gridSolar:0,fuels:Object.fromEntries(FUELS.map(k=>[k,k==='roof'?null:0]))});
+  if(!rows.has(day))rows.set(day,{date:day,hours:24,grid:0,roof:null,demand:null,metered:null,gridSolar:0,fuels:Object.fromEntries(FUELS.map(k=>[k,k==='roof'?null:0]))});
   const obj=rows.get(day);obj.fuels[key]+=Number(val)/1000;obj.grid+=Number(val)/1000;
  }
  return [...rows.values()].sort((a,b)=>a.date.localeCompare(b.date));
@@ -108,7 +108,8 @@ function fromElenz(d,region){
   const roof=fuels.roof;
   // 'underlying' is the modelled consumption series as defined by Elenz, not independently measured.
   const demand=sumKey(d,'underlying',i,region)*hours/1000;
-  rows.push({date:dateNZ(d.t[i]),hours,fuels,grid,roof,demand,gridSolar:fuels.solar});
+  const metered=sumKey(d,'metered',i,region)*hours/1000;
+  rows.push({date:dateNZ(d.t[i]),hours,fuels,grid,roof,demand,metered,gridSolar:fuels.solar});
  }
  return rows;
 }
@@ -117,11 +118,12 @@ function groupRows(rows,mode){
  const map=new Map();
  for(const r of rows){
   const key=monday(r.date);
-  if(!map.has(key))map.set(key,{date:key,hours:0,grid:0,roof:r.roof===null?null:0,demand:r.demand===null?null:0,gridSolar:0,fuels:Object.fromEntries(FUELS.map(f=>[f,r.fuels[f]===null?null:0]))});
+  if(!map.has(key))map.set(key,{date:key,hours:0,grid:0,roof:r.roof===null?null:0,demand:r.demand===null?null:0,metered:r.metered===null?null:0,gridSolar:0,fuels:Object.fromEntries(FUELS.map(f=>[f,r.fuels[f]===null?null:0]))});
   const x=map.get(key);
   x.hours+=r.hours;x.grid+=r.grid;x.gridSolar+=r.gridSolar;
   if(x.roof!==null&&r.roof!==null)x.roof+=r.roof;else x.roof=null;
   if(x.demand!==null&&r.demand!==null)x.demand+=r.demand;else x.demand=null;
+  if(x.metered!==null&&r.metered!==null)x.metered+=r.metered;else x.metered=null;
   for(const f of FUELS)if(x.fuels[f]!==null&&r.fuels[f]!==null)x.fuels[f]+=r.fuels[f];else x.fuels[f]=null;
  }
  return [...map.values()].sort((a,b)=>a.date.localeCompare(b.date));
@@ -149,22 +151,12 @@ function render(){
  const datasets=FUELS.map(f=>({label:NAMES[f],data:plot.map(r=>r.fuels[f]),backgroundColor:COLORS[f],borderColor:f==='roof'?'#9c6a0e':COLORS[f],borderWidth:f==='roof'?1:0,stack:'gen'}));
  chart('mix',{type:'bar',data:{labels,datasets},options:{...barOptions,plugins:{...barOptions.plugins,legend:{position:'bottom',labels:{boxWidth:14}}}}});
  chart('solars',{type:'bar',data:{labels,datasets:[{label:'Dispatched solar',data:plot.map(r=>r.gridSolar),backgroundColor:COLORS.solar,stack:'s'},{label:'Embedded solar (estimated)',data:plot.map(r=>r.roof),backgroundColor:COLORS.roof,borderColor:'#9c6a0e',borderWidth:1,stack:'s'}]},options:barOptions});
- chart('demand',{type:'line',data:{labels,datasets:[{label:'Grid demand + embedded solar (modelled)',data:plot.map(r=>r.demand),borderColor:'#ca8f1c',backgroundColor:'#ca8f1c',tension:.1,pointRadius:0,spanGaps:false},{label:'Grid generation (not the same as demand)',data:plot.map(r=>r.grid),borderColor:'#21749b',borderDash:[5,5],pointRadius:0,tension:.1}]},options:barOptions});
- // If day history contains valid modelled grid demand, use it in the second chart rather than grid generation proxy.
- if(model.type==='elenz'){
-   const metered=groupRows(model.type==='elenz'?fromElenzDemand(model.raw,region).filter(r=>r.date>=start&&r.date<=end):[],mode);
-   const c=charts.at(-1);
-   c.data.datasets[1]={label:'Metered grid demand',data:metered.map(r=>r.metered),borderColor:'#21749b',pointRadius:0,tension:.1};
-   c.update();
- } else {charts.at(-1).data.datasets[0].data=[];charts.at(-1).update()}
+ chart('demand',{type:'line',data:{labels,datasets:[{label:'Underlying demand with embedded solar (estimated)',data:plot.map(r=>r.demand),borderColor:'#ca8f1c',pointRadius:0,tension:.1},{label:'Metered grid demand',data:plot.map(r=>r.metered),borderColor:'#21749b',pointRadius:0,tension:.1}]},options:barOptions});
  const selected=plot.length;
  status((model.type==='elenz'?'Elenz EA + satellite history':'EA generation-only fallback')+' · '+daily[0].date+' to '+daily.at(-1).date+' · '+selected+' '+(mode==='week'?'weeks':'days')+'. '+(mode==='week'?'Partial weeks are allowed. ':'')+(model.type!=='elenz'?'Embedded solar not available in this fallback.':''));
  byId('source').textContent=model.type==='elenz'?
    'Source: Elenz (elenz.co.nz), from Electricity Authority data and JMA/JAXA Himawari irradiance via Open-Meteo, CC BY 4.0. Grid generation is metered where final data are available and dispatch-derived for recent periods. Embedded solar and underlying demand are estimates.':
    'Source: NZ Grid checked-in Electricity Authority generation history. Elenz daily history is currently unavailable. This fallback has NO embedded solar or demand estimates; do not interpret missing as zero.';
-}
-function fromElenzDemand(d,region){
- return d.t.map((t,i)=>({date:dateNZ(t),hours:+d.h[i],metered:Math.max(0,sumKey(d,'metered',i,region))*d.h[i]/1000})).filter(x=>x.hours>0&&x.hours<27);
 }
 function shiftDays(n){const el=byId('end');const latest=model.type==='elenz'?dateNZ(model.raw.t.at(-1)):model.rows.at(-1).date;el.value=iso(Math.min(dateMs(latest),dateMs(el.value||latest)+n*86400000));render()}
 byId('csv').addEventListener('click',()=>{
