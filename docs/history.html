@@ -80,7 +80,7 @@ async function obtain(){
 }
 async function fallback(){
  // Offline fallback for generation history only. Embedded solar remains unknown, never fabricated as zero.
- const r=await fetch('../data/public/generation_mix_daily.csv');
+ const r=await fetch('https://raw.githubusercontent.com/TheReverendCard/nz-grid-model-data/main/data/public/generation_mix_daily.csv');
  if(!r.ok)throw new Error('Local EA generation CSV unavailable');
  const txt=await r.text();
  const rows=new Map();
