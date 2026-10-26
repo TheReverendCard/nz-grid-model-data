@@ -25,7 +25,7 @@
         "month_end": "2026-09-30",
         "icp_count": 86179,
         "icp_uptake_rate_pct": 4.24837,
-        "installed_capacity_mw": 508.162,
+        "installed_capacity_mw": 508.165,
         "average_capacity_kw": 5.897,
         "new_installations": 1617,
         "average_new_install_capacity_kw": 9.127
@@ -34,7 +34,7 @@
         "month_end": "2026-09-30",
         "icp_count": 94718,
         "icp_uptake_rate_pct": 3.9884,
-        "installed_capacity_mw": 1278.843,
+        "installed_capacity_mw": 1278.846,
         "average_capacity_kw": 13.502,
         "new_installations": 1744,
         "average_new_install_capacity_kw": 11.785
@@ -42,16 +42,16 @@
       "solar_battery_attachment": {
         "month_end": "2026-09-30",
         "all_solar_icps": 94718,
-        "solar_only_icps": 71327,
-        "solar_plus_battery_icps": 23391,
-        "solar_plus_battery_icps_subtraction_check": 23391,
-        "battery_attachment_share_of_solar_pct": 24.69541,
+        "solar_only_icps": 71326,
+        "solar_plus_battery_icps": 23392,
+        "solar_plus_battery_icps_subtraction_check": 23392,
+        "battery_attachment_share_of_solar_pct": 24.69647,
         "all_new_solar_installations": 1744,
         "new_solar_only_installations": 784,
         "new_solar_plus_battery_installations": 960,
         "new_solar_plus_battery_installations_subtraction_check": 960,
         "battery_attachment_share_of_new_solar_pct": 55.04587,
-        "solar_plus_battery_registered_capacity_mw": 197.113,
+        "solar_plus_battery_registered_capacity_mw": 197.121,
         "solar_plus_battery_average_registered_kw": 8.427,
         "solar_plus_battery_average_new_registered_kw": 10.569,
         "category_reliability": "post_2023_11_registry_categories"
@@ -62,7 +62,7 @@
     "residential": {
       "icps": 86179,
       "average_capacity_kw": 5.9,
-      "capacity_mw": 508.1619
+      "capacity_mw": 508.16490000000005
     },
     "business": {
       "icps": 8539,
@@ -72,9 +72,9 @@
     "all": {
       "icps": 94718,
       "average_capacity_kw": 13.5,
-      "capacity_mw": 1278.8426000000002
+      "capacity_mw": 1278.8456
     },
-    "regional_residential_capacity_mw_sum": 507.5829,
+    "regional_residential_capacity_mw_sum": 507.5859,
     "regional_residential_icps_sum": 86130
   },
   "model_use": {

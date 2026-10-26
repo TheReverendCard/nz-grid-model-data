@@ -1,13 +1,13 @@
 RegionType,RegionCode,Region,MarketSegment,ICPs,GenerationCapacityKilowattsAvg,GenerationCapacityKilowattsSum
-NZ,NZ,New Zealand,Res,86179,5.9,508161.9
+NZ,NZ,New Zealand,Res,86179,5.9,508164.9
 NZ,NZ,New Zealand,Bus,8539,90.3,770680.7
-NZ,NZ,New Zealand,All,94718,13.5,1278842.6
+NZ,NZ,New Zealand,All,94718,13.5,1278845.6
 ISLAND,NI,North Island,Res,58438,5.9,343035.9
 ISLAND,NI,North Island,Bus,6044,72.8,439906.5
 ISLAND,NI,North Island,All,64482,12.1,782942.3
-ISLAND,SI,South Island,Res,27741,6.0,165126.1
+ISLAND,SI,South Island,Res,27741,6.0,165129.1
 ISLAND,SI,South Island,Bus,2495,132.6,330774.2
-ISLAND,SI,South Island,All,30236,16.4,495900.3
+ISLAND,SI,South Island,All,30236,16.4,495903.3
 REG_COUNCIL,1,Northland,Res,5901,5.6,33061.6
 REG_COUNCIL,1,Northland,Bus,736,138.5,101942.0
 REG_COUNCIL,1,Northland,All,6637,20.3,135003.6
@@ -47,9 +47,9 @@ REG_COUNCIL,18,Marlborough,All,1816,22.4,40707.2
 REG_COUNCIL,12,West Coast,Res,335,6.9,2300.2
 REG_COUNCIL,12,West Coast,Bus,40,17.0,682.0
 REG_COUNCIL,12,West Coast,All,375,8.0,2982.2
-REG_COUNCIL,13,Canterbury,Res,15026,5.9,88594.0
+REG_COUNCIL,13,Canterbury,Res,15026,5.9,88597.0
 REG_COUNCIL,13,Canterbury,Bus,1295,205.4,266015.0
-REG_COUNCIL,13,Canterbury,All,16321,21.7,354609.0
+REG_COUNCIL,13,Canterbury,All,16321,21.7,354612.0
 REG_COUNCIL,14,Otago,Res,5752,6.0,34668.7
 REG_COUNCIL,14,Otago,Bus,514,24.5,12616.9
 REG_COUNCIL,14,Otago,All,6266,7.5,47285.6
@@ -142,9 +142,9 @@ NWK_REPORTING_REGION,28,West Coast (Westpower),All,291,7.5,2179.0
 NWK_REPORTING_REGION,29,North Canterbury (MainPower NZ),Res,3276,5.8,19078.5
 NWK_REPORTING_REGION,29,North Canterbury (MainPower NZ),Bus,241,77.8,18741.9
 NWK_REPORTING_REGION,29,North Canterbury (MainPower NZ),All,3517,10.8,37820.5
-NWK_REPORTING_REGION,30,Central Canterbury (Orion New Zealand),Res,9736,5.9,57817.1
+NWK_REPORTING_REGION,30,Central Canterbury (Orion New Zealand),Res,9736,5.9,57820.1
 NWK_REPORTING_REGION,30,Central Canterbury (Orion New Zealand),Bus,675,265.9,179484.1
-NWK_REPORTING_REGION,30,Central Canterbury (Orion New Zealand),All,10411,22.8,237301.2
+NWK_REPORTING_REGION,30,Central Canterbury (Orion New Zealand),All,10411,22.8,237304.2
 NWK_REPORTING_REGION,31,Ashburton (Electricity Ashburton),Res,743,6.3,4664.3
 NWK_REPORTING_REGION,31,Ashburton (Electricity Ashburton),Bus,223,306.7,68390.3
 NWK_REPORTING_REGION,31,Ashburton (Electricity Ashburton),All,966,75.6,73054.6
