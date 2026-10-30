@@ -16,8 +16,8 @@
     "unmapped_generation_residual_mwh": 1786640.22,
     "transmission_and_reconciliation_difference_mwh": 1393604.051,
     "mapped_generation_share_of_reconciled_injection_pct": 95.8474,
-    "behind_meter_solar_self_consumption_mwh": 164220.651,
-    "underlying_consumption_mwh": 41795521.885,
+    "behind_meter_solar_self_consumption_mwh": 164222.548,
+    "underlying_consumption_mwh": 41795523.782,
     "btm_solar_share_of_underlying_consumption_pct": 0.3929
   },
   "mapped_generation_by_fuel_mwh": {
@@ -39,7 +39,7 @@
       "month_end": "2024-12-31",
       "icp_count": 64042,
       "icp_uptake_rate_pct": 3.22648,
-      "installed_capacity_mw": 321.559,
+      "installed_capacity_mw": 321.563,
       "average_capacity_kw": 5.021,
       "new_installations": 709,
       "average_new_install_capacity_kw": 7.713
@@ -47,8 +47,8 @@
     "year_end_2024_all_solar": {
       "month_end": "2024-12-31",
       "icp_count": 69098,
-      "icp_uptake_rate_pct": 2.96633,
-      "installed_capacity_mw": 564.799,
+      "icp_uptake_rate_pct": 2.96632,
+      "installed_capacity_mw": 564.803,
       "average_capacity_kw": 8.174,
       "new_installations": 820,
       "average_new_install_capacity_kw": 39.086
@@ -57,92 +57,92 @@
       "model_year": 2024,
       "method": "Monthly installed residential solar capacity, linearly averaged between month-end observations, multiplied by scenario-specific annual PV yield.",
       "capacity": {
-        "year_start_mw": 250.091,
-        "year_end_mw": 321.559,
-        "capacity_weighted_annual_average_mw": 285.601133,
+        "year_start_mw": 250.092,
+        "year_end_mw": 321.563,
+        "capacity_weighted_annual_average_mw": 285.604432,
         "monthly": [
           {
             "month": "2024-01",
-            "start_capacity_mw": 250.091,
-            "end_capacity_mw": 253.988,
-            "average_capacity_mw": 252.0395,
+            "start_capacity_mw": 250.092,
+            "end_capacity_mw": 253.989,
+            "average_capacity_mw": 252.0405,
             "days": 31
           },
           {
             "month": "2024-02",
-            "start_capacity_mw": 253.988,
+            "start_capacity_mw": 253.989,
             "end_capacity_mw": 259.14,
-            "average_capacity_mw": 256.564,
+            "average_capacity_mw": 256.5645,
             "days": 29
           },
           {
             "month": "2024-03",
             "start_capacity_mw": 259.14,
-            "end_capacity_mw": 265.155,
-            "average_capacity_mw": 262.1475,
+            "end_capacity_mw": 265.156,
+            "average_capacity_mw": 262.148,
             "days": 31
           },
           {
             "month": "2024-04",
-            "start_capacity_mw": 265.155,
-            "end_capacity_mw": 272.31,
-            "average_capacity_mw": 268.7325,
+            "start_capacity_mw": 265.156,
+            "end_capacity_mw": 272.314,
+            "average_capacity_mw": 268.735,
             "days": 30
           },
           {
             "month": "2024-05",
-            "start_capacity_mw": 272.31,
-            "end_capacity_mw": 282.333,
-            "average_capacity_mw": 277.3215,
+            "start_capacity_mw": 272.314,
+            "end_capacity_mw": 282.337,
+            "average_capacity_mw": 277.3255,
             "days": 31
           },
           {
             "month": "2024-06",
-            "start_capacity_mw": 282.333,
-            "end_capacity_mw": 287.22,
-            "average_capacity_mw": 284.7765,
+            "start_capacity_mw": 282.337,
+            "end_capacity_mw": 287.225,
+            "average_capacity_mw": 284.781,
             "days": 30
           },
           {
             "month": "2024-07",
-            "start_capacity_mw": 287.22,
-            "end_capacity_mw": 292.914,
-            "average_capacity_mw": 290.067,
+            "start_capacity_mw": 287.225,
+            "end_capacity_mw": 292.918,
+            "average_capacity_mw": 290.0715,
             "days": 31
           },
           {
             "month": "2024-08",
-            "start_capacity_mw": 292.914,
-            "end_capacity_mw": 297.761,
-            "average_capacity_mw": 295.3375,
+            "start_capacity_mw": 292.918,
+            "end_capacity_mw": 297.766,
+            "average_capacity_mw": 295.342,
             "days": 31
           },
           {
             "month": "2024-09",
-            "start_capacity_mw": 297.761,
-            "end_capacity_mw": 303.347,
-            "average_capacity_mw": 300.554,
+            "start_capacity_mw": 297.766,
+            "end_capacity_mw": 303.352,
+            "average_capacity_mw": 300.559,
             "days": 30
           },
           {
             "month": "2024-10",
-            "start_capacity_mw": 303.347,
-            "end_capacity_mw": 309.908,
-            "average_capacity_mw": 306.6275,
+            "start_capacity_mw": 303.352,
+            "end_capacity_mw": 309.912,
+            "average_capacity_mw": 306.632,
             "days": 31
           },
           {
             "month": "2024-11",
-            "start_capacity_mw": 309.908,
-            "end_capacity_mw": 316.237,
-            "average_capacity_mw": 313.0725,
+            "start_capacity_mw": 309.912,
+            "end_capacity_mw": 316.241,
+            "average_capacity_mw": 313.0765,
             "days": 30
           },
           {
             "month": "2024-12",
-            "start_capacity_mw": 316.237,
-            "end_capacity_mw": 321.559,
-            "average_capacity_mw": 318.898,
+            "start_capacity_mw": 316.241,
+            "end_capacity_mw": 321.563,
+            "average_capacity_mw": 318.902,
             "days": 31
           }
         ]
@@ -151,23 +151,23 @@
         "low": {
           "specific_yield_kwh_per_kwp_year": 1000.0,
           "retained_behind_meter_fraction": 0.4,
-          "gross_residential_pv_generation_mwh": 285601.133,
-          "retained_behind_meter_pv_mwh": 114240.453,
-          "estimated_grid_export_mwh": 171360.68
+          "gross_residential_pv_generation_mwh": 285604.432,
+          "retained_behind_meter_pv_mwh": 114241.773,
+          "estimated_grid_export_mwh": 171362.659
         },
         "central": {
           "specific_yield_kwh_per_kwp_year": 1150.0,
           "retained_behind_meter_fraction": 0.5,
-          "gross_residential_pv_generation_mwh": 328441.302,
-          "retained_behind_meter_pv_mwh": 164220.651,
-          "estimated_grid_export_mwh": 164220.651
+          "gross_residential_pv_generation_mwh": 328445.096,
+          "retained_behind_meter_pv_mwh": 164222.548,
+          "estimated_grid_export_mwh": 164222.548
         },
         "high": {
           "specific_yield_kwh_per_kwp_year": 1250.0,
           "retained_behind_meter_fraction": 0.6,
-          "gross_residential_pv_generation_mwh": 357001.416,
-          "retained_behind_meter_pv_mwh": 214200.849,
-          "estimated_grid_export_mwh": 142800.566
+          "gross_residential_pv_generation_mwh": 357005.54,
+          "retained_behind_meter_pv_mwh": 214203.324,
+          "estimated_grid_export_mwh": 142802.216
         }
       },
       "accounting": {
