@@ -9,77 +9,77 @@
     "small_scale": "<25 kW; intended population for ICP-adoption S-curves.",
     "larger_distributed": "25 kW to <1 MW; intended for capacity-growth modelling.",
     "utility_scale": ">=1 MW; exclude from distributed-adoption model and treat with project pipeline.",
-    "privacy_suppression": "66266 rows report '3 or less'. Their combined ICP count is reconciled to the national monthly total and distributed evenly; missing capacity is reconciled to the national capacity total in proportion to reported average kW times estimated count.",
+    "privacy_suppression": "66273 rows report '3 or less'. Their combined ICP count is reconciled to the national monthly total and distributed evenly; missing capacity is reconciled to the national capacity total in proportion to reported average kW times estimated count.",
     "edge_case_note": "Because the source is street-level aggregated data, a group average can occasionally place individual installations on the other side of a threshold. This is acceptable for the working national model.",
     "history": "Each source-month snapshot is appended to solar_size_bucket_history.csv. Once enough snapshots exist, true month-to-month and year-over-year growth can replace provisional historical proxies."
   },
   "buckets": [
     {
       "bucket": "lt_25_kw",
-      "estimated_icps": 93573.5,
-      "share_of_solar_icps_pct": 98.7031,
-      "capacity_mw": 798.701204,
-      "average_system_kw": 8.5356,
-      "share_of_solar_capacity_pct": 62.4112,
-      "estimated_residential_icps": 44024.2,
-      "estimated_business_icps": 1087.3
+      "estimated_icps": 93577.5,
+      "share_of_solar_icps_pct": 98.7073,
+      "capacity_mw": 799.199987,
+      "average_system_kw": 8.5405,
+      "share_of_solar_capacity_pct": 62.4502,
+      "estimated_residential_icps": 44032.4,
+      "estimated_business_icps": 1078.7
     },
     {
       "bucket": "25_to_lt_100_kw",
-      "estimated_icps": 967.9,
-      "share_of_solar_icps_pct": 1.021,
-      "capacity_mw": 91.598006,
-      "average_system_kw": 94.6342,
-      "share_of_solar_capacity_pct": 7.1575,
-      "estimated_residential_icps": 11.7,
-      "estimated_business_icps": 358.7
+      "estimated_icps": 964.9,
+      "share_of_solar_icps_pct": 1.0178,
+      "capacity_mw": 91.602811,
+      "average_system_kw": 94.9356,
+      "share_of_solar_capacity_pct": 7.1579,
+      "estimated_residential_icps": 11.5,
+      "estimated_business_icps": 357.0
     },
     {
       "bucket": "100_to_lt_250_kw",
-      "estimated_icps": 174.4,
-      "share_of_solar_icps_pct": 0.184,
-      "capacity_mw": 54.576864,
-      "average_system_kw": 312.9039,
-      "share_of_solar_capacity_pct": 4.2647,
+      "estimated_icps": 173.7,
+      "share_of_solar_icps_pct": 0.1832,
+      "capacity_mw": 54.488209,
+      "average_system_kw": 313.7457,
+      "share_of_solar_capacity_pct": 4.2578,
       "estimated_residential_icps": 0.0,
-      "estimated_business_icps": 53.8
+      "estimated_business_icps": 53.4
     },
     {
       "bucket": "250_to_lt_1000_kw",
-      "estimated_icps": 41.8,
-      "share_of_solar_icps_pct": 0.0441,
-      "capacity_mw": 44.340318,
-      "average_system_kw": 1061.0531,
-      "share_of_solar_capacity_pct": 3.4648,
+      "estimated_icps": 41.6,
+      "share_of_solar_icps_pct": 0.0439,
+      "capacity_mw": 44.276256,
+      "average_system_kw": 1063.9544,
+      "share_of_solar_capacity_pct": 3.4598,
       "estimated_residential_icps": 0.0,
-      "estimated_business_icps": 8.0
+      "estimated_business_icps": 7.9
     },
     {
       "bucket": "gte_1000_kw",
-      "estimated_icps": 45.4,
-      "share_of_solar_icps_pct": 0.0479,
-      "capacity_mw": 290.523608,
-      "average_system_kw": 6398.9355,
-      "share_of_solar_capacity_pct": 22.7018,
+      "estimated_icps": 45.3,
+      "share_of_solar_icps_pct": 0.0478,
+      "capacity_mw": 290.172738,
+      "average_system_kw": 6400.8266,
+      "share_of_solar_capacity_pct": 22.6744,
       "estimated_residential_icps": 0.0,
       "estimated_business_icps": 11.4
     }
   ],
   "model_groups": {
     "small_lt_25_kw": {
-      "estimated_icps": 93573.5,
-      "capacity_mw": 798.701204,
-      "average_system_kw": 8.5356
+      "estimated_icps": 93577.5,
+      "capacity_mw": 799.199987,
+      "average_system_kw": 8.5405
     },
     "larger_distributed_25_kw_to_lt_1_mw": {
-      "estimated_icps": 1184.1,
-      "capacity_mw": 190.515188,
-      "average_system_kw": 160.891
+      "estimated_icps": 1180.2,
+      "capacity_mw": 190.367275,
+      "average_system_kw": 161.3037
     },
     "utility_gte_1_mw": {
-      "estimated_icps": 45.4,
-      "capacity_mw": 290.523608,
-      "average_system_kw": 6398.9355
+      "estimated_icps": 45.3,
+      "capacity_mw": 290.172738,
+      "average_system_kw": 6400.8266
     }
   }
 }
