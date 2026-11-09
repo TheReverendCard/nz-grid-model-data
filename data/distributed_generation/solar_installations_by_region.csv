@@ -1,13 +1,13 @@
 RegionType,RegionCode,Region,MarketSegment,ICPs,GenerationCapacityKilowattsAvg,GenerationCapacityKilowattsSum
-NZ,NZ,New Zealand,Res,87525,6.0,521124.6
-NZ,NZ,New Zealand,Bus,8672,90.2,782097.3
-NZ,NZ,New Zealand,All,96197,13.5,1303221.9
-ISLAND,NI,North Island,Res,59238,5.9,350998.6
+NZ,NZ,New Zealand,Res,87527,6.0,521171.5
+NZ,NZ,New Zealand,Bus,8673,90.2,782100.2
+NZ,NZ,New Zealand,All,96200,13.5,1303271.7
+ISLAND,NI,North Island,Res,59239,5.9,351021.5
 ISLAND,NI,North Island,Bus,6130,72.8,446528.8
-ISLAND,NI,North Island,All,65368,12.2,797527.4
-ISLAND,SI,South Island,Res,28287,6.0,170126.0
-ISLAND,SI,South Island,Bus,2542,132.0,335568.6
-ISLAND,SI,South Island,All,30829,16.4,505694.5
+ISLAND,NI,North Island,All,65369,12.2,797550.3
+ISLAND,SI,South Island,Res,28288,6.0,170150.0
+ISLAND,SI,South Island,Bus,2543,132.0,335571.4
+ISLAND,SI,South Island,All,30831,16.4,505721.4
 REG_COUNCIL,1,Northland,Res,5996,5.7,33993.5
 REG_COUNCIL,1,Northland,Bus,747,141.7,105868.7
 REG_COUNCIL,1,Northland,All,6743,20.7,139862.2
@@ -23,9 +23,9 @@ REG_COUNCIL,4,Bay of Plenty,All,8167,14.0,114006.1
 REG_COUNCIL,5,Gisborne,Res,605,4.7,2828.4
 REG_COUNCIL,5,Gisborne,Bus,71,89.2,6336.4
 REG_COUNCIL,5,Gisborne,All,676,13.6,9164.8
-REG_COUNCIL,6,Hawke's Bay,Res,4533,6.0,27209.2
+REG_COUNCIL,6,Hawke's Bay,Res,4534,6.0,27232.0
 REG_COUNCIL,6,Hawke's Bay,Bus,582,25.4,14776.0
-REG_COUNCIL,6,Hawke's Bay,All,5115,8.2,41985.2
+REG_COUNCIL,6,Hawke's Bay,All,5116,8.2,42008.0
 REG_COUNCIL,7,Taranaki,Res,2670,6.7,17904.9
 REG_COUNCIL,7,Taranaki,Bus,387,51.5,19944.4
 REG_COUNCIL,7,Taranaki,All,3057,12.4,37849.3
@@ -35,12 +35,12 @@ REG_COUNCIL,8,Manawatu-Wanganui,All,4579,8.1,36985.5
 REG_COUNCIL,9,Wellington,Res,8005,5.8,46805.9
 REG_COUNCIL,9,Wellington,Bus,434,34.6,15021.5
 REG_COUNCIL,9,Wellington,All,8439,7.3,61827.4
-REG_COUNCIL,16,Tasman,Res,2272,6.6,15093.2
+REG_COUNCIL,16,Tasman,Res,2273,6.7,15117.2
 REG_COUNCIL,16,Tasman,Bus,218,35.3,7691.6
-REG_COUNCIL,16,Tasman,All,2490,9.2,22784.8
+REG_COUNCIL,16,Tasman,All,2491,9.2,22808.8
 REG_COUNCIL,17,Nelson,Res,1792,5.7,10248.0
-REG_COUNCIL,17,Nelson,Bus,138,36.6,5053.9
-REG_COUNCIL,17,Nelson,All,1930,7.9,15301.9
+REG_COUNCIL,17,Nelson,Bus,139,36.4,5056.8
+REG_COUNCIL,17,Nelson,All,1931,7.9,15304.8
 REG_COUNCIL,18,Marlborough,Res,1693,5.6,9444.7
 REG_COUNCIL,18,Marlborough,Bus,161,202.5,32604.3
 REG_COUNCIL,18,Marlborough,All,1854,22.7,42049.0
@@ -98,9 +98,9 @@ NWK_REPORTING_REGION,13,Taupō (Unison Networks),All,713,6.8,4858.3
 NWK_REPORTING_REGION,14,Tairāwhiti and Wairoa (Firstlight Network),Res,702,4.6,3250.8
 NWK_REPORTING_REGION,14,Tairāwhiti and Wairoa (Firstlight Network),Bus,94,85.5,8033.9
 NWK_REPORTING_REGION,14,Tairāwhiti and Wairoa (Firstlight Network),All,796,14.2,11284.7
-NWK_REPORTING_REGION,15,Hawke's Bay (Unison Networks),Res,3926,5.9,23326.9
+NWK_REPORTING_REGION,15,Hawke's Bay (Unison Networks),Res,3927,5.9,23349.7
 NWK_REPORTING_REGION,15,Hawke's Bay (Unison Networks),Bus,477,24.1,11480.1
-NWK_REPORTING_REGION,15,Hawke's Bay (Unison Networks),All,4403,7.9,34806.9
+NWK_REPORTING_REGION,15,Hawke's Bay (Unison Networks),All,4404,7.9,34829.8
 NWK_REPORTING_REGION,16,Central Hawke's Bay (Centralines),Res,502,6.8,3403.2
 NWK_REPORTING_REGION,16,Central Hawke's Bay (Centralines),Bus,84,19.8,1663.3
 NWK_REPORTING_REGION,16,Central Hawke's Bay (Centralines),All,586,8.6,5066.5
@@ -127,9 +127,9 @@ NWK_REPORTING_REGION,23,Wellington (Wellington Electricity),Bus,202,29.0,5857.4
 NWK_REPORTING_REGION,23,Wellington (Wellington Electricity),All,4768,6.5,31129.4
 NWK_REPORTING_REGION,24,Nelson (Nelson Electricity),Bus,3 or less,10.0,
 NWK_REPORTING_REGION,24,Nelson (Nelson Electricity),All,3 or less,10.0,
-NWK_REPORTING_REGION,25,Tasman (Network Tasman),Res,4066,6.2,25378.2
-NWK_REPORTING_REGION,25,Tasman (Network Tasman),Bus,359,36.1,12963.6
-NWK_REPORTING_REGION,25,Tasman (Network Tasman),All,4425,8.7,38341.8
+NWK_REPORTING_REGION,25,Tasman (Network Tasman),Res,4067,6.2,25402.2
+NWK_REPORTING_REGION,25,Tasman (Network Tasman),Bus,360,36.0,12966.5
+NWK_REPORTING_REGION,25,Tasman (Network Tasman),All,4427,8.7,38368.7
 NWK_REPORTING_REGION,26,Marlborough (Marlborough Lines),Res,1693,5.6,9444.1
 NWK_REPORTING_REGION,26,Marlborough (Marlborough Lines),Bus,162,201.3,32611.3
 NWK_REPORTING_REGION,26,Marlborough (Marlborough Lines),All,1855,22.7,42055.4
