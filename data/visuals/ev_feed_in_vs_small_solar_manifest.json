@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-02T23:12:45.227303+00:00",
+  "generated_at_utc": "2026-11-09T23:51:48.085368+00:00",
   "outputs": {
     "png": "data/visuals/ev_feed_in_vs_small_solar_capacity.png",
     "plot_data_csv": "data/visuals/ev_feed_in_vs_small_solar_plot_data.csv",
@@ -30,7 +30,7 @@
     "path_method": {
       "form": "K / (1 + exp(-rate * (year - midpoint)))",
       "saturation_vehicles": 2333735.7047640225,
-      "rate_per_year": 0.43701375945846055,
+      "rate_per_year": 0.43701375945846044,
       "midpoint_year": 2033.689502453813,
       "anchors": {
         "2026-08-16": 101701,
@@ -70,18 +70,18 @@
         2031,
         2032
       ],
-      "fraction_between_year_ends": 0.40365394153591955
+      "fraction_between_year_ends": 0.4036539415359191
     },
     "mot_current": null,
     "mot_future": {
       "plot_x": 2033.5818832723398,
-      "capacity_mw": 2696.2040679807865,
+      "capacity_mw": 2696.2040679807856,
       "calendar_year": 2034,
       "between_year_ends": [
         2033,
         2034
       ],
-      "fraction_between_year_ends": 0.5818832723399403
+      "fraction_between_year_ends": 0.5818832723399364
     }
   },
   "summary": {
@@ -119,7 +119,7 @@
       "crosses_central_solar_by_2035": true,
       "first_crossover_year": 2034,
       "interpolated_crossover_plot_x": 2033.5818832723398,
-      "interpolated_crossover_capacity_mw": 2696.2040679807865
+      "interpolated_crossover_capacity_mw": 2696.2040679807856
     }
   },
   "methodology_notes": [
