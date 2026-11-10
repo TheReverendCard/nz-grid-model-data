@@ -113,7 +113,7 @@
       ]
     },
     "2026": {
-      "total_solar_generation_mwh": 214986.501,
+      "total_solar_generation_mwh": 281298.99,
       "candidate_count": 13,
       "candidates": [
         {
@@ -123,8 +123,8 @@
           "network_code": "EASH",
           "generator_code": "Lauriston",
           "fuel_code": "Solar",
-          "generation_mwh": 57035.421,
-          "days_with_generation_rows": 273
+          "generation_mwh": 67911.792,
+          "days_with_generation_rows": 304
         },
         {
           "year": 2026,
@@ -133,28 +133,8 @@
           "network_code": "LODE",
           "generator_code": "te_herenga_o_te_r\u0101_solar_farm",
           "fuel_code": "SOL",
-          "generation_mwh": 45236.563,
-          "days_with_generation_rows": 273
-        },
-        {
-          "year": 2026,
-          "site_code": "KOE",
-          "poc_code": "KOE1101",
-          "network_code": "TOPE",
-          "generator_code": "Kohira",
-          "fuel_code": "Solar",
-          "generation_mwh": 35503.176,
-          "days_with_generation_rows": 273
-        },
-        {
-          "year": 2026,
-          "site_code": "EDG",
-          "poc_code": "EDG0331",
-          "network_code": "HEDL",
-          "generator_code": "Rangitaiki",
-          "fuel_code": "Solar",
-          "generation_mwh": 33850.481,
-          "days_with_generation_rows": 273
+          "generation_mwh": 52951.909,
+          "days_with_generation_rows": 304
         },
         {
           "year": 2026,
@@ -163,8 +143,28 @@
           "network_code": "HENZ",
           "generator_code": "tauhei_solar_farm",
           "fuel_code": "SOL",
-          "generation_mwh": 15202.509,
-          "days_with_generation_rows": 153
+          "generation_mwh": 41974.474,
+          "days_with_generation_rows": 184
+        },
+        {
+          "year": 2026,
+          "site_code": "KOE",
+          "poc_code": "KOE1101",
+          "network_code": "TOPE",
+          "generator_code": "Kohira",
+          "fuel_code": "Solar",
+          "generation_mwh": 41009.145,
+          "days_with_generation_rows": 304
+        },
+        {
+          "year": 2026,
+          "site_code": "EDG",
+          "poc_code": "EDG0331",
+          "network_code": "HEDL",
+          "generator_code": "Rangitaiki",
+          "fuel_code": "Solar",
+          "generation_mwh": 39731.425,
+          "days_with_generation_rows": 304
         },
         {
           "year": 2026,
@@ -173,8 +173,8 @@
           "network_code": "TOPE",
           "generator_code": "Pukenui",
           "fuel_code": "Solar",
-          "generation_mwh": 11371.443,
-          "days_with_generation_rows": 183
+          "generation_mwh": 14392.559,
+          "days_with_generation_rows": 214
         },
         {
           "year": 2026,
@@ -183,8 +183,8 @@
           "network_code": "NPOW",
           "generator_code": "papareirei\u0101_solar_at_maungaturoto",
           "fuel_code": "SOL",
-          "generation_mwh": 10984.75,
-          "days_with_generation_rows": 273
+          "generation_mwh": 13561.967,
+          "days_with_generation_rows": 304
         },
         {
           "year": 2026,
@@ -193,8 +193,8 @@
           "network_code": "DSFL",
           "generator_code": "dannevirke_solar_farm",
           "fuel_code": "SOL",
-          "generation_mwh": 5758.386,
-          "days_with_generation_rows": 153
+          "generation_mwh": 9677.758,
+          "days_with_generation_rows": 184
         },
         {
           "year": 2026,
@@ -203,8 +203,8 @@
           "network_code": "POCO",
           "generator_code": "p\u0101mu_r\u0101_ki_whitianga_solar_farm",
           "fuel_code": "SOL",
-          "generation_mwh": 43.772,
-          "days_with_generation_rows": 273
+          "generation_mwh": 87.961,
+          "days_with_generation_rows": 304
         },
         {
           "year": 2026,
@@ -214,7 +214,7 @@
           "generator_code": "clandeboye_solar_farm",
           "fuel_code": "SOL",
           "generation_mwh": 0.0,
-          "days_with_generation_rows": 47
+          "days_with_generation_rows": 78
         },
         {
           "year": 2026,
@@ -224,7 +224,7 @@
           "generator_code": "dannevirke_solar_farm",
           "fuel_code": "SOL",
           "generation_mwh": 0.0,
-          "days_with_generation_rows": 153
+          "days_with_generation_rows": 184
         },
         {
           "year": 2026,
@@ -234,7 +234,7 @@
           "generator_code": "k\u014dwhai_park_solar_farm",
           "fuel_code": "SOL",
           "generation_mwh": 0.0,
-          "days_with_generation_rows": 61
+          "days_with_generation_rows": 92
         },
         {
           "year": 2026,
@@ -244,7 +244,7 @@
           "generator_code": "te_herenga_o_te_r\u0101_solar_farm",
           "fuel_code": "SOL",
           "generation_mwh": 0.0,
-          "days_with_generation_rows": 226
+          "days_with_generation_rows": 257
         }
       ]
     }

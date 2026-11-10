@@ -134,28 +134,28 @@
       }
     },
     "2026": {
-      "generation_md_mwh": 31343163.788,
-      "grid_export_mwh": 28864190.245,
-      "generation_md_minus_grid_export_mwh": 2478973.543,
-      "generation_md_to_grid_export_ratio": 1.085884,
-      "generation_grid_export_overlap_days": 273,
-      "mean_daily_generation_minus_grid_export_mwh": 9080.489,
+      "generation_md_mwh": 34738212.405,
+      "grid_export_mwh": 31979582.922,
+      "generation_md_minus_grid_export_mwh": 2758629.483,
+      "generation_md_to_grid_export_ratio": 1.086262,
+      "generation_grid_export_overlap_days": 304,
+      "mean_daily_generation_minus_grid_export_mwh": 9074.439,
       "min_daily_generation_minus_grid_export_mwh": 5836.2,
       "max_daily_generation_minus_grid_export_mwh": 14357.785,
       "generation_by_fuel_mwh": {
-        "Coal": 444711.986,
+        "Coal": 449509.064,
         "Diesel": 182.776,
-        "ELE": 43245.245,
-        "GEO": 684897.633,
-        "Gas": 1216862.758,
-        "Geo": 6998303.396,
-        "HYD": 82699.836,
-        "Hydro": 18623883.613,
-        "SOL": 77225.98,
-        "Solar": 137760.521,
-        "WIN": 186422.652,
-        "Wind": 2744082.222,
-        "Wood": 102885.17
+        "ELE": 50445.709,
+        "GEO": 766604.266,
+        "Gas": 1259946.099,
+        "Geo": 7716254.362,
+        "HYD": 96222.207,
+        "Hydro": 20677711.433,
+        "SOL": 118254.069,
+        "Solar": 163044.921,
+        "WIN": 238620.036,
+        "Wind": 3085688.574,
+        "Wood": 115728.889
       }
     }
   }
