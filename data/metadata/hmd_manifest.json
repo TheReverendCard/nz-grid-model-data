@@ -1,7 +1,7 @@
 {
   "source": "New Zealand Electricity Authority EMI Azure Blob Storage",
   "prefix": "Datasets/Environment/HydrologicalModellingDataset/",
-  "blob_count": 117,
+  "blob_count": 118,
   "components": {
     "1_InfrastructureAndHydroConstraintAttributes": [
       {
@@ -711,6 +711,12 @@
         "last_modified": "Thu, 30 Oct 2025 23:52:58 GMT",
         "content_length": "0",
         "etag": "0x8DE180F746A683E"
+      },
+      {
+        "name": "Datasets/Environment/HydrologicalModellingDataset/HMD_Prelim_2025.zip",
+        "last_modified": "Wed, 11 Nov 2026 02:19:08 GMT",
+        "content_length": "20314889",
+        "etag": "0x8DF3F9A2A798E12"
       }
     ]
   }
