@@ -32,20 +32,20 @@
       },
       "all_solar": {
         "month_end": "2026-10-31",
-        "icp_count": 96392,
-        "icp_uptake_rate_pct": 4.05419,
-        "installed_capacity_mw": 1301.817,
-        "average_capacity_kw": 13.505,
+        "icp_count": 96393,
+        "icp_uptake_rate_pct": 4.05423,
+        "installed_capacity_mw": 1301.842,
+        "average_capacity_kw": 13.506,
         "new_installations": 1506,
         "average_new_install_capacity_kw": 11.169
       },
       "solar_battery_attachment": {
         "month_end": "2026-10-31",
-        "all_solar_icps": 96392,
-        "solar_only_icps": 71814,
+        "all_solar_icps": 96393,
+        "solar_only_icps": 71815,
         "solar_plus_battery_icps": 24578,
         "solar_plus_battery_icps_subtraction_check": 24578,
-        "battery_attachment_share_of_solar_pct": 25.49797,
+        "battery_attachment_share_of_solar_pct": 25.4977,
         "all_new_solar_installations": 1506,
         "new_solar_only_installations": 581,
         "new_solar_plus_battery_installations": 925,
@@ -65,14 +65,14 @@
       "capacity_mw": 522.9117
     },
     "business": {
-      "icps": 8690,
+      "icps": 8691,
       "average_capacity_kw": 89.6,
-      "capacity_mw": 778.9051999999999
+      "capacity_mw": 778.9301999999999
     },
     "all": {
-      "icps": 96392,
+      "icps": 96393,
       "average_capacity_kw": 13.5,
-      "capacity_mw": 1301.8168999999998
+      "capacity_mw": 1301.8419
     },
     "regional_residential_capacity_mw_sum": 522.7617,
     "regional_residential_icps_sum": 87697
