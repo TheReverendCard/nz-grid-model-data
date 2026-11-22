@@ -1,19 +1,19 @@
 RegionType,RegionCode,Region,MarketSegment,ICPs,GenerationCapacityKilowattsAvg,GenerationCapacityKilowattsSum
-NZ,NZ,New Zealand,Res,87925,6.0,524658.1
+NZ,NZ,New Zealand,Res,87927,6.0,524679.7
 NZ,NZ,New Zealand,Bus,8722,89.9,784268.4
-NZ,NZ,New Zealand,All,96647,13.5,1308926.5
-ISLAND,NI,North Island,Res,59550,5.9,353780.1
+NZ,NZ,New Zealand,All,96649,13.5,1308948.1
+ISLAND,NI,North Island,Res,59552,5.9,353801.7
 ISLAND,NI,North Island,Bus,6168,72.7,448446.5
-ISLAND,NI,North Island,All,65718,12.2,802226.6
+ISLAND,NI,North Island,All,65720,12.2,802248.2
 ISLAND,SI,South Island,Res,28375,6.0,170878.0
 ISLAND,SI,South Island,Bus,2554,131.5,335821.9
 ISLAND,SI,South Island,All,30929,16.4,506699.9
 REG_COUNCIL,1,Northland,Res,6002,5.7,34054.7
 REG_COUNCIL,1,Northland,Bus,746,142.0,105903.0
 REG_COUNCIL,1,Northland,All,6748,20.7,139957.6
-REG_COUNCIL,2,Auckland,Res,16431,5.6,91311.8
+REG_COUNCIL,2,Auckland,Res,16432,5.6,91325.4
 REG_COUNCIL,2,Auckland,Bus,1638,41.6,68131.3
-REG_COUNCIL,2,Auckland,All,18069,8.8,159443.1
+REG_COUNCIL,2,Auckland,All,18070,8.8,159456.7
 REG_COUNCIL,3,Waikato,Res,9504,6.4,60494.0
 REG_COUNCIL,3,Waikato,Bus,1284,98.5,126463.6
 REG_COUNCIL,3,Waikato,All,10788,17.3,186957.7
@@ -32,9 +32,9 @@ REG_COUNCIL,7,Taranaki,All,3073,12.4,38030.9
 REG_COUNCIL,8,Manawatu-Wanganui,Res,4161,6.2,25773.3
 REG_COUNCIL,8,Manawatu-Wanganui,Bus,433,26.3,11398.4
 REG_COUNCIL,8,Manawatu-Wanganui,All,4594,8.1,37171.7
-REG_COUNCIL,9,Wellington,Res,8047,5.9,47204.5
+REG_COUNCIL,9,Wellington,Res,8048,5.9,47212.5
 REG_COUNCIL,9,Wellington,Bus,435,34.7,15102.4
-REG_COUNCIL,9,Wellington,All,8482,7.3,62306.9
+REG_COUNCIL,9,Wellington,All,8483,7.3,62314.9
 REG_COUNCIL,16,Tasman,Res,2273,6.7,15117.2
 REG_COUNCIL,16,Tasman,Bus,218,35.3,7691.6
 REG_COUNCIL,16,Tasman,All,2491,9.2,22808.8
@@ -62,9 +62,9 @@ NWK_REPORTING_REGION,1,Bay of Islands (Top Energy),All,2840,30.6,86776.8
 NWK_REPORTING_REGION,2,Whangārei and Kaipara (Northpower),Res,3471,5.8,19970.5
 NWK_REPORTING_REGION,2,Whangārei and Kaipara (Northpower),Bus,402,122.8,49352.7
 NWK_REPORTING_REGION,2,Whangārei and Kaipara (Northpower),All,3873,17.9,69323.2
-NWK_REPORTING_REGION,3,Waitemata (Vector),Res,7505,5.7,43140.8
+NWK_REPORTING_REGION,3,Waitemata (Vector),Res,7506,5.7,43154.4
 NWK_REPORTING_REGION,3,Waitemata (Vector),Bus,581,22.6,13109.2
-NWK_REPORTING_REGION,3,Waitemata (Vector),All,8086,7.0,56249.9
+NWK_REPORTING_REGION,3,Waitemata (Vector),All,8087,7.0,56263.5
 NWK_REPORTING_REGION,4,Auckland (Vector),Res,7150,5.3,37950.8
 NWK_REPORTING_REGION,4,Auckland (Vector),Bus,908,55.4,50274.1
 NWK_REPORTING_REGION,4,Auckland (Vector),All,8058,10.9,88224.9
@@ -122,9 +122,9 @@ NWK_REPORTING_REGION,21,Manawatū (Powerco),All,2316,8.7,20050.2
 NWK_REPORTING_REGION,22,Kāpiti and Horowhenua (Electra),Res,2467,5.9,14578.5
 NWK_REPORTING_REGION,22,Kāpiti and Horowhenua (Electra),Bus,127,20.5,2597.4
 NWK_REPORTING_REGION,22,Kāpiti and Horowhenua (Electra),All,2594,6.6,17175.9
-NWK_REPORTING_REGION,23,Wellington (Wellington Electricity),Res,4592,5.6,25515.0
+NWK_REPORTING_REGION,23,Wellington (Wellington Electricity),Res,4593,5.6,25523.0
 NWK_REPORTING_REGION,23,Wellington (Wellington Electricity),Bus,201,29.4,5907.3
-NWK_REPORTING_REGION,23,Wellington (Wellington Electricity),All,4793,6.6,31422.3
+NWK_REPORTING_REGION,23,Wellington (Wellington Electricity),All,4794,6.6,31430.3
 NWK_REPORTING_REGION,24,Nelson (Nelson Electricity),Bus,3 or less,10.0,
 NWK_REPORTING_REGION,24,Nelson (Nelson Electricity),All,3 or less,10.0,
 NWK_REPORTING_REGION,25,Tasman (Network Tasman),Res,4067,6.2,25402.2

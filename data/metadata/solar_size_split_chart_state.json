@@ -1,16 +1,16 @@
 {
-  "last_render_date": "2026-11-21",
+  "last_render_date": "2026-11-22",
   "last_render_iso_week": "2026-W47",
   "source_month": "2026-10-31",
   "archive_month": "2026-10",
   "history_months": 36,
   "forecast_months": 60,
   "explicit_split_start_month": "2026-07-31",
-  "current_small_solar_uptake_pct": 4.01252,
-  "current_all_solar_uptake_pct": 4.06478,
-  "latest_month_new_installations": 1609,
-  "latest_month_battery_installations": 986,
-  "latest_month_battery_attachment_pct": 61.28029832193909,
+  "current_small_solar_uptake_pct": 4.01259,
+  "current_all_solar_uptake_pct": 4.06486,
+  "latest_month_new_installations": 1610,
+  "latest_month_battery_installations": 987,
+  "latest_month_battery_attachment_pct": 61.30434782608695,
   "model_notes": {
     "history": {
       "history_months": 36,
@@ -24,18 +24,18 @@
       "utility_history": {
         "method": "Utility-scale historical MW is reconstructed as a lumpy residual. Monthly national capacity additions above a rolling 12-month median new-system size baseline are treated as candidate utility additions, then scaled/offset so the series lands exactly on the first explicit EA street-level >=1 MW observation.",
         "opening_utility_mw": 0.0,
-        "raw_detected_excess_mw": 442.89378899999997,
-        "excess_scale": 0.629359320277124
+        "raw_detected_excess_mw": 442.90878900000007,
+        "excess_scale": 0.6293380057535953
       }
     },
     "future": {
       "forecast_months": 60,
-      "current_small_solar_uptake_pct": 4.01252,
-      "current_all_solar_uptake_pct": 4.06478,
-      "latest_month_new_installations": 1609,
-      "latest_month_battery_installations": 986,
-      "latest_month_battery_attachment_pct": 61.28029832193909,
-      "mid_20pct_growth_rate_per_year": 0.23824356481000436,
+      "current_small_solar_uptake_pct": 4.01259,
+      "current_all_solar_uptake_pct": 4.06486,
+      "latest_month_new_installations": 1610,
+      "latest_month_battery_installations": 987,
+      "latest_month_battery_attachment_pct": 61.30434782608695,
+      "mid_20pct_growth_rate_per_year": 0.23826032270682132,
       "small_future_policy": "10% and 30% use the existing independently fitted fixed-saturation distributed-solar scenarios. The 20% midpoint is independently fitted through the latest measured small-system penetration; it is not the arithmetic average of the 10% and 30% curves.",
       "larger_distributed_future_policy": "25 kW-<1 MW projection uses the selected provisional growth rate through 2035, then holds capacity flat until new observed size-bucket history supports a revised trajectory.",
       "utility_future_policy": "Hold the latest observed >=1 MW capacity as a solid baseline, then add dated Solar projects in Transpower Delivery/Commissioning as a hatched provisional layer at their published estimated timing month. Undated/earlier-stage projects are not assigned arbitrary dates. Future utility ICPs remain flat because the pipeline does not provide a reliable future ICP count.",
