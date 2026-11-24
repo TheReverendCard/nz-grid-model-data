@@ -1,10 +1,10 @@
 year,stage,stage_label,scenario,scenario_label,effective_nzwem_demand_gwh,sosa_pipeline_winter_energy_increment_vs_stage1_gwh,additional_distributed_solar_winter_energy_vs_sosa_gwh,total_additional_winter_energy_vs_sosa_stage1_gwh
 2035,stage1,Stage 1 existing + committed,sosa_baseline,SOSA baseline,31671.677,0.0,0.0,0.0
-2035,stage1,Stage 1 existing + committed,low_10pct,10% distributed-solar case,31671.677,0.0,1103.344,1103.344
-2035,stage1,Stage 1 existing + committed,high_30pct,30% distributed-solar case,31671.677,0.0,1711.571,1711.571
+2035,stage1,Stage 1 existing + committed,low_10pct,10% distributed-solar case,31671.677,0.0,1105.037,1105.037
+2035,stage1,Stage 1 existing + committed,high_30pct,30% distributed-solar case,31671.677,0.0,1717.707,1717.707
 2035,stage2,Stage 2 + consented likely,sosa_baseline,SOSA baseline,31671.677,3703.575,0.0,3703.575
-2035,stage2,Stage 2 + consented likely,low_10pct,10% distributed-solar case,31671.677,3703.575,1103.344,4806.919
-2035,stage2,Stage 2 + consented likely,high_30pct,30% distributed-solar case,31671.677,3703.575,1711.571,5415.146
+2035,stage2,Stage 2 + consented likely,low_10pct,10% distributed-solar case,31671.677,3703.575,1105.037,4808.612
+2035,stage2,Stage 2 + consented likely,high_30pct,30% distributed-solar case,31671.677,3703.575,1717.707,5421.282
 2035,stage3,Stage 3 + likely consent <2y,sosa_baseline,SOSA baseline,31671.677,9814.949,0.0,9814.949
-2035,stage3,Stage 3 + likely consent <2y,low_10pct,10% distributed-solar case,31671.677,9814.949,1103.344,10918.293
-2035,stage3,Stage 3 + likely consent <2y,high_30pct,30% distributed-solar case,31671.677,9814.949,1711.571,11526.52
+2035,stage3,Stage 3 + likely consent <2y,low_10pct,10% distributed-solar case,31671.677,9814.949,1105.037,10919.986
+2035,stage3,Stage 3 + likely consent <2y,high_30pct,30% distributed-solar case,31671.677,9814.949,1717.707,11532.656
