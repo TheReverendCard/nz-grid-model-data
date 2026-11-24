@@ -305,8 +305,8 @@ def main() -> None:
     )
 
     annotation_offsets = {
-        "eeca_current": (8, 14),
-        "eeca_future": (8, 14),
+        "eeca_current": (-12, 24),
+        "eeca_future": (-12, 24),
         "mot_current": (8, -30),
         "mot_future": (8, -30),
     }
@@ -334,7 +334,7 @@ def main() -> None:
             fontsize=8.5,
             fontweight="semibold",
             color=color,
-            ha="left",
+            ha="right" if dx < 0 else "left",
             va="bottom" if dy >= 0 else "top",
             arrowprops={
                 "arrowstyle": "-",
