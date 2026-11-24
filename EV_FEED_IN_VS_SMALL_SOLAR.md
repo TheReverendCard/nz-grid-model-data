@@ -109,11 +109,13 @@ The future-ready case represents a later system in which residential feed-in sta
 | Scenario | 2030 feed-in MW | 2035 feed-in MW | Crosses central solar by 2030? | Crosses by 2035? | First annual crossover |
 | --- | ---: | ---: | --- | --- | ---: |
 | EECA / CCC, current-like export | 646 | 2,009 | No | No | None through 2035 |
-| EECA / CCC, future-ready export | 1,348 | 4,190 | No | Yes | 2031 |
+| EECA / CCC, future-ready export | 1,348 | 4,190 | No | Yes | ~~2031~~ 2032 |
 | MoT, current-like export | ~528 | 1,586 | No | No | None through 2035 |
-| MoT, future-ready export | ~1,102 | 3,308 | No | Yes | 2033 |
+| MoT, future-ready export | ~1,102 | 3,308 | No | Yes | ~~2033~~ 2034 |
 
-These values are regenerated from the source inputs by the builder. The manifest and plot-data CSV are authoritative for the exact current run.
+[Correction: The builder interpolates between year-end values. The EECA / CCC lines meet between the 2031 and 2032 year-ends (during 2032, at about 2,082 MW); the MoT lines meet between the 2033 and 2034 year-ends (during 2034, at about 2,696 MW). The years above now match the generated chart.]
+
+See the [generated manifest](data/visuals/ev_feed_in_vs_small_solar_manifest.json) and [plot-data CSV](data/visuals/ev_feed_in_vs_small_solar_plot_data.csv) for the latest run.
 
 ## Why equal EV MW and solar MW are not equivalent
 
