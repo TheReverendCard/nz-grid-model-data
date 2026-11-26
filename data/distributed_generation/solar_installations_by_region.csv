@@ -1,16 +1,16 @@
 RegionType,RegionCode,Region,MarketSegment,ICPs,GenerationCapacityKilowattsAvg,GenerationCapacityKilowattsSum
-NZ,NZ,New Zealand,Res,88008,6.0,525329.6
-NZ,NZ,New Zealand,Bus,8731,88.8,775659.3
-NZ,NZ,New Zealand,All,96739,13.4,1300988.9
-ISLAND,NI,North Island,Res,59610,5.9,354260.4
+NZ,NZ,New Zealand,Res,88023,6.0,525460.9
+NZ,NZ,New Zealand,Bus,8733,88.8,775674.3
+NZ,NZ,New Zealand,All,96756,13.4,1301135.2
+ISLAND,NI,North Island,Res,59613,5.9,354302.7
 ISLAND,NI,North Island,Bus,6178,72.6,448640.3
-ISLAND,NI,North Island,All,65788,12.2,802900.7
-ISLAND,SI,South Island,Res,28398,6.0,171069.3
-ISLAND,SI,South Island,Bus,2553,128.1,327019.0
-ISLAND,SI,South Island,All,30951,16.1,498088.3
-REG_COUNCIL,1,Northland,Res,6002,5.7,34054.7
+ISLAND,NI,North Island,All,65791,12.2,802943.0
+ISLAND,SI,South Island,Res,28410,6.0,171158.2
+ISLAND,SI,South Island,Bus,2555,128.0,327034.0
+ISLAND,SI,South Island,All,30965,16.1,498192.2
+REG_COUNCIL,1,Northland,Res,6002,5.7,34061.1
 REG_COUNCIL,1,Northland,Bus,746,142.0,105903.0
-REG_COUNCIL,1,Northland,All,6748,20.7,139957.6
+REG_COUNCIL,1,Northland,All,6748,20.7,139964.1
 REG_COUNCIL,2,Auckland,Res,16453,5.6,91416.5
 REG_COUNCIL,2,Auckland,Bus,1642,41.5,68148.3
 REG_COUNCIL,2,Auckland,All,18095,8.8,159564.8
@@ -29,12 +29,12 @@ REG_COUNCIL,6,Hawke's Bay,All,5127,8.2,42211.9
 REG_COUNCIL,7,Taranaki,Res,2687,6.7,18059.6
 REG_COUNCIL,7,Taranaki,Bus,389,51.4,19994.2
 REG_COUNCIL,7,Taranaki,All,3076,12.4,38053.8
-REG_COUNCIL,8,Manawatu-Wanganui,Res,4169,6.2,25841.1
+REG_COUNCIL,8,Manawatu-Wanganui,Res,4171,6.2,25871.0
 REG_COUNCIL,8,Manawatu-Wanganui,Bus,433,26.3,11398.4
-REG_COUNCIL,8,Manawatu-Wanganui,All,4602,8.1,37239.5
-REG_COUNCIL,9,Wellington,Res,8055,5.9,47272.5
+REG_COUNCIL,8,Manawatu-Wanganui,All,4604,8.1,37269.4
+REG_COUNCIL,9,Wellington,Res,8056,5.9,47278.5
 REG_COUNCIL,9,Wellington,Bus,435,34.7,15102.4
-REG_COUNCIL,9,Wellington,All,8490,7.3,62374.9
+REG_COUNCIL,9,Wellington,All,8491,7.3,62380.9
 REG_COUNCIL,16,Tasman,Res,2273,6.7,15117.2
 REG_COUNCIL,16,Tasman,Bus,218,35.3,7691.6
 REG_COUNCIL,16,Tasman,All,2491,9.2,22808.8
@@ -47,18 +47,18 @@ REG_COUNCIL,18,Marlborough,All,1861,22.6,42105.4
 REG_COUNCIL,12,West Coast,Res,352,7.0,2456.4
 REG_COUNCIL,12,West Coast,Bus,43,18.7,802.5
 REG_COUNCIL,12,West Coast,All,395,8.3,3258.8
-REG_COUNCIL,13,Canterbury,Res,15343,6.0,91400.2
-REG_COUNCIL,13,Canterbury,Bus,1336,195.2,260788.4
-REG_COUNCIL,13,Canterbury,All,16679,21.1,352188.7
+REG_COUNCIL,13,Canterbury,Res,15355,6.0,91489.1
+REG_COUNCIL,13,Canterbury,Bus,1338,194.9,260803.4
+REG_COUNCIL,13,Canterbury,All,16693,21.1,352292.6
 REG_COUNCIL,14,Otago,Res,5902,6.1,36082.0
 REG_COUNCIL,14,Otago,Bus,513,24.4,12521.7
 REG_COUNCIL,14,Otago,All,6415,7.6,48603.6
 REG_COUNCIL,15,Southland,Res,984,6.0,5908.4
 REG_COUNCIL,15,Southland,Bus,123,20.2,2483.3
 REG_COUNCIL,15,Southland,All,1107,7.6,8391.7
-NWK_REPORTING_REGION,1,Bay of Islands (Top Energy),Res,2504,5.6,13908.5
+NWK_REPORTING_REGION,1,Bay of Islands (Top Energy),Res,2504,5.6,13914.9
 NWK_REPORTING_REGION,1,Bay of Islands (Top Energy),Bus,336,216.9,72868.3
-NWK_REPORTING_REGION,1,Bay of Islands (Top Energy),All,2840,30.6,86776.8
+NWK_REPORTING_REGION,1,Bay of Islands (Top Energy),All,2840,30.6,86783.2
 NWK_REPORTING_REGION,2,Whangārei and Kaipara (Northpower),Res,3471,5.8,19970.5
 NWK_REPORTING_REGION,2,Whangārei and Kaipara (Northpower),Bus,402,122.8,49352.7
 NWK_REPORTING_REGION,2,Whangārei and Kaipara (Northpower),All,3873,17.9,69323.2
@@ -116,15 +116,15 @@ NWK_REPORTING_REGION,19,Taranaki (Powerco),All,3038,12.4,37705.7
 NWK_REPORTING_REGION,20,Whanganui (Powerco),Res,1162,6.3,7277.8
 NWK_REPORTING_REGION,20,Whanganui (Powerco),Bus,119,18.0,2139.7
 NWK_REPORTING_REGION,20,Whanganui (Powerco),All,1281,7.4,9417.5
-NWK_REPORTING_REGION,21,Manawatū (Powerco),Res,2095,6.4,13480.6
+NWK_REPORTING_REGION,21,Manawatū (Powerco),Res,2096,6.4,13500.6
 NWK_REPORTING_REGION,21,Manawatū (Powerco),Bus,225,29.3,6601.5
-NWK_REPORTING_REGION,21,Manawatū (Powerco),All,2320,8.7,20082.1
-NWK_REPORTING_REGION,22,Kāpiti and Horowhenua (Electra),Res,2469,5.9,14593.7
+NWK_REPORTING_REGION,21,Manawatū (Powerco),All,2321,8.7,20102.1
+NWK_REPORTING_REGION,22,Kāpiti and Horowhenua (Electra),Res,2470,5.9,14603.6
 NWK_REPORTING_REGION,22,Kāpiti and Horowhenua (Electra),Bus,127,20.5,2597.4
-NWK_REPORTING_REGION,22,Kāpiti and Horowhenua (Electra),All,2596,6.6,17191.0
-NWK_REPORTING_REGION,23,Wellington (Wellington Electricity),Res,4598,5.6,25565.9
+NWK_REPORTING_REGION,22,Kāpiti and Horowhenua (Electra),All,2597,6.6,17200.9
+NWK_REPORTING_REGION,23,Wellington (Wellington Electricity),Res,4599,5.6,25571.9
 NWK_REPORTING_REGION,23,Wellington (Wellington Electricity),Bus,201,29.4,5907.3
-NWK_REPORTING_REGION,23,Wellington (Wellington Electricity),All,4799,6.6,31473.3
+NWK_REPORTING_REGION,23,Wellington (Wellington Electricity),All,4800,6.6,31479.3
 NWK_REPORTING_REGION,24,Nelson (Nelson Electricity),Bus,3 or less,10.0,
 NWK_REPORTING_REGION,24,Nelson (Nelson Electricity),All,3 or less,10.0,
 NWK_REPORTING_REGION,25,Tasman (Network Tasman),Res,4068,6.2,25405.1
@@ -142,9 +142,9 @@ NWK_REPORTING_REGION,28,West Coast (Westpower),All,312,8.0,2482.3
 NWK_REPORTING_REGION,29,North Canterbury (MainPower NZ),Res,3345,5.9,19734.4
 NWK_REPORTING_REGION,29,North Canterbury (MainPower NZ),Bus,244,86.0,20975.9
 NWK_REPORTING_REGION,29,North Canterbury (MainPower NZ),All,3589,11.3,40710.3
-NWK_REPORTING_REGION,30,Central Canterbury (Orion New Zealand),Res,9954,6.0,59579.6
-NWK_REPORTING_REGION,30,Central Canterbury (Orion New Zealand),Bus,691,248.0,171350.3
-NWK_REPORTING_REGION,30,Central Canterbury (Orion New Zealand),All,10645,21.7,230929.9
+NWK_REPORTING_REGION,30,Central Canterbury (Orion New Zealand),Res,9966,6.0,59668.5
+NWK_REPORTING_REGION,30,Central Canterbury (Orion New Zealand),Bus,693,247.3,171365.3
+NWK_REPORTING_REGION,30,Central Canterbury (Orion New Zealand),All,10659,21.7,231033.8
 NWK_REPORTING_REGION,31,Ashburton (Electricity Ashburton),Res,765,6.4,4917.0
 NWK_REPORTING_REGION,31,Ashburton (Electricity Ashburton),Bus,235,293.1,68871.0
 NWK_REPORTING_REGION,31,Ashburton (Electricity Ashburton),All,1000,73.8,73788.0
