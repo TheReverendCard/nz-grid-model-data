@@ -12,10 +12,10 @@
       },
       "all_solar": {
         "month_end": "2024-12-31",
-        "icp_count": 69211,
-        "icp_uptake_rate_pct": 2.97118,
-        "installed_capacity_mw": 564.836,
-        "average_capacity_kw": 8.161,
+        "icp_count": 69206,
+        "icp_uptake_rate_pct": 2.97096,
+        "installed_capacity_mw": 564.436,
+        "average_capacity_kw": 8.156,
         "new_installations": 822,
         "average_new_install_capacity_kw": 39.01
       }
@@ -23,59 +23,59 @@
     "latest_trend": {
       "residential_solar": {
         "month_end": "2026-10-31",
-        "icp_count": 88023,
-        "icp_uptake_rate_pct": 4.33259,
-        "installed_capacity_mw": 525.461,
+        "icp_count": 88029,
+        "icp_uptake_rate_pct": 4.3329,
+        "installed_capacity_mw": 525.517,
         "average_capacity_kw": 5.97,
-        "new_installations": 1564,
-        "average_new_install_capacity_kw": 9.228
+        "new_installations": 1567,
+        "average_new_install_capacity_kw": 9.224
       },
       "all_solar": {
         "month_end": "2026-10-31",
-        "icp_count": 96756,
-        "icp_uptake_rate_pct": 4.06935,
-        "installed_capacity_mw": 1301.135,
-        "average_capacity_kw": 13.448,
-        "new_installations": 1670,
-        "average_new_install_capacity_kw": 13.496
+        "icp_count": 96764,
+        "icp_uptake_rate_pct": 4.0697,
+        "installed_capacity_mw": 1301.231,
+        "average_capacity_kw": 13.447,
+        "new_installations": 1675,
+        "average_new_install_capacity_kw": 13.493
       },
       "solar_battery_attachment": {
         "month_end": "2026-10-31",
-        "all_solar_icps": 96756,
-        "solar_only_icps": 72004,
-        "solar_plus_battery_icps": 24752,
-        "solar_plus_battery_icps_subtraction_check": 24752,
-        "battery_attachment_share_of_solar_pct": 25.58188,
-        "all_new_solar_installations": 1670,
-        "new_solar_only_installations": 651,
-        "new_solar_plus_battery_installations": 1019,
-        "new_solar_plus_battery_installations_subtraction_check": 1019,
-        "battery_attachment_share_of_new_solar_pct": 61.01796,
-        "solar_plus_battery_registered_capacity_mw": 211.837,
-        "solar_plus_battery_average_registered_kw": 8.558,
-        "solar_plus_battery_average_new_registered_kw": 10.805,
+        "all_solar_icps": 96764,
+        "solar_only_icps": 72005,
+        "solar_plus_battery_icps": 24759,
+        "solar_plus_battery_icps_subtraction_check": 24759,
+        "battery_attachment_share_of_solar_pct": 25.587,
+        "all_new_solar_installations": 1675,
+        "new_solar_only_installations": 652,
+        "new_solar_plus_battery_installations": 1023,
+        "new_solar_plus_battery_installations_subtraction_check": 1023,
+        "battery_attachment_share_of_new_solar_pct": 61.07463,
+        "solar_plus_battery_registered_capacity_mw": 211.918,
+        "solar_plus_battery_average_registered_kw": 8.559,
+        "solar_plus_battery_average_new_registered_kw": 10.813,
         "category_reliability": "post_2023_11_registry_categories"
       }
     }
   },
   "current_registry_snapshot": {
     "residential": {
-      "icps": 88023,
+      "icps": 88029,
       "average_capacity_kw": 6.0,
-      "capacity_mw": 525.4609
+      "capacity_mw": 525.5172
     },
     "business": {
-      "icps": 8733,
+      "icps": 8735,
       "average_capacity_kw": 88.8,
-      "capacity_mw": 775.6743
+      "capacity_mw": 775.7143000000001
     },
     "all": {
-      "icps": 96756,
+      "icps": 96764,
       "average_capacity_kw": 13.4,
-      "capacity_mw": 1301.1352
+      "capacity_mw": 1301.2315
     },
-    "regional_residential_capacity_mw_sum": 525.3109,
-    "regional_residential_icps_sum": 88018
+    "regional_residential_capacity_mw_sum": 525.3672,
+    "regional_residential_icps_sum": 88024
   },
   "model_use": {
     "distributed_solar_scope": "Future distributed-solar scenarios use <25 kW ICP adoption plus a separate 25 kW to <1 MW capacity component; >=1 MW is treated as utility-scale.",
